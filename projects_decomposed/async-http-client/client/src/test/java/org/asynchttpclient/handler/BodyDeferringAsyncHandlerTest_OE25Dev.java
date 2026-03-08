@@ -60,6 +60,30 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
     return config().setMaxRequestRetry(0).setRequestTimeout(10000).build();
   }
 
+  @Test
+  public void deferredSimple() throws IOException, ExecutionException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
+      BoundRequestBuilder r = client.prepareGet(getTargetUrl());
+
+      CountingOutputStream cos = new CountingOutputStream();
+      BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(cos);
+      Future<Response> f = r.execute(bdah);
+      Response resp = bdah.getResponse();
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getHeader(CONTENT_LENGTH), String.valueOf(CONTENT_LENGTH_VALUE));
+      // we got headers only, it's probably not all yet here (we have BIG file
+      // downloading)
+      assertTrue(cos.getByteCount() <= CONTENT_LENGTH_VALUE);
+
+      // now be polite and wait for body arrival too (otherwise we would be
+      // dropping the "line" on server)
+      f.get();
+      // it all should be here now
+      assertEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
+    }
+  }
+
   @Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
   public void deferredSimpleWithFailure() throws Throwable {
     try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
@@ -86,6 +110,39 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
         assertNotEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
         throw e.getCause();
       }
+    }
+  }
+
+  @Test
+  public void deferredInputStreamTrick() throws IOException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
+      BoundRequestBuilder r = client.prepareGet(getTargetUrl());
+
+      PipedOutputStream pos = new PipedOutputStream();
+      PipedInputStream pis = new PipedInputStream(pos);
+      BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(pos);
+
+      Future<Response> f = r.execute(bdah);
+
+      BodyDeferringInputStream is = new BodyDeferringInputStream(f, bdah, pis);
+
+      Response resp = is.getAsapResponse();
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getHeader(CONTENT_LENGTH), String.valueOf(CONTENT_LENGTH_VALUE));
+      // "consume" the body, but our code needs input stream
+      CountingOutputStream cos = new CountingOutputStream();
+      try {
+        copy(is, cos);
+      } finally {
+        is.close();
+        cos.close();
+      }
+
+      // now we don't need to be polite, since consuming and closing
+      // BodyDeferringInputStream does all.
+      // it all should be here now
+      assertEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
     }
   }
 
@@ -161,6 +218,28 @@ public class BodyDeferringAsyncHandlerTest_OE25Dev extends AbstractBasicTest {
       BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(cos);
       r.execute(bdah);
       bdah.getResponse();
+    }
+  }
+
+  @Test
+  public void testPipedStreams() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
+      PipedOutputStream pout = new PipedOutputStream();
+      try (PipedInputStream pin = new PipedInputStream(pout)) {
+        BodyDeferringAsyncHandler handler = new BodyDeferringAsyncHandler(pout);
+        ListenableFuture<Response> respFut = client.prepareGet(getTargetUrl()).execute(handler);
+
+        Response resp = handler.getResponse();
+
+        if (resp.getStatusCode() == 200) {
+          try (BodyDeferringInputStream is = new BodyDeferringInputStream(respFut, handler, pin)) {
+            String body = IOUtils.toString(is, StandardCharsets.UTF_8);
+            assertTrue(body.contains("ABCDEF"));
+          }
+        } else {
+          throw new IOException("HTTP error " + resp.getStatusCode());
+        }
+      }
     }
   }
 

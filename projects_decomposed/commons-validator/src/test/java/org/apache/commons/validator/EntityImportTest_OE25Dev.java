@@ -34,10 +34,20 @@ public class EntityImportTest_OE25Dev extends AbstractCommonTest {
     /**
      * Tests the entity import loading the <code>byteForm</code> form.
      */
+    public void testEntityImport() throws Exception {
+        URL url = getClass().getResource("EntityImportTest_OE25Dev-config.xml");
+        ValidatorResources resources = new ValidatorResources(url.toExternalForm());
+        assertNotNull("Form should be found", resources.getForm(Locale.getDefault(), "byteForm"));
+    }  
 
     /**
      * Tests loading ValidatorResources from a URL
      */
+    public void testParseURL() throws Exception {
+        URL url = getClass().getResource("EntityImportTest_OE25Dev-config.xml");
+        ValidatorResources resources = new ValidatorResources(url);
+        assertNotNull("Form should be found", resources.getForm(Locale.getDefault(), "byteForm"));
+    }
 
     public void testEntityImport_1_oe() throws Exception {
         URL url = getClass().getResource("EntityImportTest-config.xml");

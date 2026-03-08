@@ -22,6 +22,45 @@ import org.junit.jupiter.api.Test;
 class SplitTest_OE25Dev {
 
     @Test
+    void testProperties() {
+        // arrange
+        final Object a = new Object();
+        final Object b = new Object();
+
+        // act
+        final Split<Object> split = new Split<>(a, b);
+
+        // assert
+        Assertions.assertSame(a, split.getMinus());
+        Assertions.assertSame(b,  split.getPlus());
+    }
+
+    @Test
+    void testGetLocation() {
+        // arrange
+        final Object a = new Object();
+        final Object b = new Object();
+
+        // act/assert
+        Assertions.assertEquals(SplitLocation.NEITHER, new Split<>(null, null).getLocation());
+        Assertions.assertEquals(SplitLocation.MINUS, new Split<>(a, null).getLocation());
+        Assertions.assertEquals(SplitLocation.PLUS, new Split<>(null, b).getLocation());
+        Assertions.assertEquals(SplitLocation.BOTH, new Split<>(a, b).getLocation());
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final Split<String> split = new Split<>("a", "b");
+
+        // act
+        final String str = split.toString();
+
+        // assert
+        Assertions.assertEquals("Split[location= BOTH, minus= a, plus= b]", str);
+    }
+
+    @Test
     void testProperties_1_oe() {
         // arrange
         final Object a = new Object();

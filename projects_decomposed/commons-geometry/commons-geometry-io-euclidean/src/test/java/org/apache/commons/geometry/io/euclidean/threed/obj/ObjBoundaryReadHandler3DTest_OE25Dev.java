@@ -45,6 +45,135 @@ class ObjBoundaryReadHandler3DTest_OE25Dev {
 
     private final ObjBoundaryReadHandler3D handler = new ObjBoundaryReadHandler3D();
 
+    @Test
+    void testProperties() {
+        // act/assert
+        Assertions.assertEquals(GeometryFormat3D.OBJ, handler.getFormat());
+        Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
+    }
+
+    @Test
+    void testFacetDefinitionReader() {
+        // arrange
+        final InputStream in = input(
+                "v 0 0 0\n" +
+                "v 1 1 0\n" +
+                "v 0 1 0\n" +
+                "f 1 2 3\n", StandardCharsets.UTF_8);
+
+        // act
+        final FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in));
+
+        // assert
+        final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        Assertions.assertEquals(1, facets.size());
+        EuclideanIOTestUtils.assertFacetVertices(facets.get(0),
+                Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)), TEST_EPS);
+    }
+
+    @Test
+    void testFacetDefinitionReader_usesInputCharset() {
+        // arrange
+        final InputStream in = input(
+                "v 0 0 0\n" +
+                "v 1 1 0\n" +
+                "v 0 1 0\n" +
+                "f 1 2 3\n", StandardCharsets.UTF_16);
+
+        // act
+        final FacetDefinitionReader reader =
+                handler.facetDefinitionReader(new StreamGeometryInput(in, null, StandardCharsets.UTF_16));
+
+        // assert
+        final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        Assertions.assertEquals(1, facets.size());
+        EuclideanIOTestUtils.assertFacetVertices(facets.get(0),
+                Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)), TEST_EPS);
+    }
+
+    @Test
+    void testFacetDefinitionReader_setDefaultCharset() {
+        // arrange
+        handler.setDefaultCharset(StandardCharsets.UTF_16);
+        final InputStream in = input(
+                "v 0 0 0\n" +
+                "v 1 1 0\n" +
+                "v 0 1 0\n" +
+                "f 1 2 3\n", StandardCharsets.UTF_16);
+
+        // act
+        final FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in));
+
+        // assert
+        final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        Assertions.assertEquals(1, facets.size());
+        EuclideanIOTestUtils.assertFacetVertices(facets.get(0),
+                Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)), TEST_EPS);
+    }
+
+    @Test
+    void testFacetDefinitionReader_close() {
+        // arrange
+        final CloseCountInputStream in = input("", StandardCharsets.UTF_8);
+
+        // act/assert
+        try (FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in))) {
+            Assertions.assertEquals(0, in.getCloseCount());
+        }
+
+        Assertions.assertEquals(1, in.getCloseCount());
+    }
+
+    @Test
+    void testReadTriangleMesh() {
+        // arrange
+        final CloseCountInputStream in = input(
+                "v 0 0 0\n" +
+                "v 1 1 0\n" +
+                "v 0 1 0\n" +
+                "f 1 2 3\n", StandardCharsets.UTF_8);
+
+        // act
+        final TriangleMesh mesh = handler.readTriangleMesh(new StreamGeometryInput(in), TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(1, in.getCloseCount());
+
+        Assertions.assertEquals(3, mesh.getVertexCount());
+        Assertions.assertEquals(1, mesh.getFaceCount());
+
+        EuclideanTestUtils.assertVertexLoopSequence(
+                Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)),
+                mesh.getFace(0).getVertices(), TEST_PRECISION);
+    }
+
+    @Test
+    void testReadTriangleMesh_nonDefaultCharset() {
+        // arrange
+        handler.setDefaultCharset(StandardCharsets.UTF_16);
+        final CloseCountInputStream in = input(
+                "v 0 0 0\n" +
+                "v 1 1 0\n" +
+                "v 0 1 0\n" +
+                "f 1 2 3\n", StandardCharsets.UTF_16);
+
+        // act
+        final TriangleMesh mesh = handler.readTriangleMesh(new StreamGeometryInput(in), TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(1, in.getCloseCount());
+
+        Assertions.assertEquals(3, mesh.getVertexCount());
+        Assertions.assertEquals(1, mesh.getFaceCount());
+
+        EuclideanTestUtils.assertVertexLoopSequence(
+                Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)),
+                mesh.getFace(0).getVertices(), TEST_PRECISION);
+    }
+
     private static CloseCountInputStream input(final String str, final Charset charset) {
         return new CloseCountInputStream(new ByteArrayInputStream(str.getBytes(charset)));
     }

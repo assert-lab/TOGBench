@@ -88,6 +88,24 @@ public class AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev {
     };
   }
 
+  @Test(dataProvider = "httpEvents")
+  public void httpEventCallbacksCheckDisposal(Callable<AsyncHandler.State> httpEvent) throws Exception {
+    given(emitter.isDisposed()).willReturn(true);
+
+    /* when */
+    final AsyncHandler.State firstState = httpEvent.call();
+    /* then */
+    assertThat(firstState, is(State.ABORT));
+    then(delegate).should(only()).onThrowable(isA(DisposedException.class));
+
+    /* when */
+    final AsyncHandler.State secondState = httpEvent.call();
+    /* then */
+    assertThat(secondState, is(State.ABORT));
+    /* then */
+    verifyNoMoreInteractions(delegate);
+  }
+
   private final class UnderTest extends AbstractMaybeProgressAsyncHandlerBridge<Object> {
     UnderTest() {
       super(AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev.this.emitter);

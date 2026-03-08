@@ -38,14 +38,59 @@ public class PaletteEntryForValueTest_OE25Dev {
     /**
      * Test of isCovered method, of class PaletteEntryForValue.
      */
+    @Test
+    public void testIsCovered() {
+        final Color c0 = new Color(0xff0000ff);
+        PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
+        assertTrue(instance.isCovered(0.0f), "Zero value must be covered");
+        assertFalse(instance.isCovered(1.0f), "Value 1.0 must not be covered");
+        instance = new PaletteEntryForValue(Float.NaN, c0);
+        assertTrue(instance.isCovered(Float.NaN), "NaN value must be covered");
+        assertFalse(instance.isCovered(1.0f), "Value 1.0 must not be covered");
+
+    }
 
     /**
      * Test of getARGB method, of class PaletteEntryForValue.
      */
+    @Test
+    public void testGetARGB() {
+        final Color c0 = new Color(0xff0000ff);
+        PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, c0);
+        int a0 = instance.getARGB(0.0f);
+        int a1 = instance.getARGB(0.5f);
+        final int a2 = instance.getARGB(Float.NaN);
+        assertEquals(0xff0000ff, a0, "Invalid value for target 0.0f");
+        assertEquals(0, a1, "Invalid value for target 0.5f");
+        assertEquals(0, a2, "Invalid value for target NaN");
+        instance = new PaletteEntryForValue(Float.NaN, c0);
+        a0 = instance.getARGB(0.0f);
+        a1 = instance.getARGB(Float.NaN);
+        assertEquals(0, a0, "Invalid value for target 0.0f");
+        assertEquals(0xff0000ff, a1, "Invalid value for target NaN");
+    }
 
     /**
      * Test of getColor method, of class PaletteEntryForValue.
      */
+    @Test
+    public void testGetColor() {
+        final Color cTest = new Color(0xff0000ff);
+        PaletteEntryForValue instance = new PaletteEntryForValue(0.0f, cTest);
+        Color c0 = instance.getColor(0.0f);
+        final int a0 = c0.getRGB();
+        assertEquals(0xff0000ff, a0, "Invalid value for 0.0f");
+        c0 = instance.getColor(1f);
+        assertNull(c0, "Non-null return for invalid target 1.0f");
+        c0 = instance.getColor(Float.NaN);
+        assertNull(c0, "Non-null return for invalid target 1.0f");
+        instance = new PaletteEntryForValue(Float.NaN, cTest);
+        c0 = instance.getColor(Float.NaN);
+        assertNotNull(c0, "Invalid return for valid target Float.NaN");
+        c0 = instance.getColor(1.0f);
+        assertNull(c0, "Invalid return for invalid valid target 1.0f");
+
+    }
 
 
     @Test

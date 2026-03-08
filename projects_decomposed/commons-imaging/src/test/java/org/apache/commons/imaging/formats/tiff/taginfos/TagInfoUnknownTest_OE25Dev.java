@@ -24,6 +24,14 @@ import org.junit.jupiter.api.Test;
 public class TagInfoUnknownTest_OE25Dev{
 
   @Test
+  public void testCreatesTagInfoUnknown() {
+      final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
+      new TagInfoUnknown("", 2670, tiffDirectoryType);
+
+      assertEquals((-1), TagInfo.LENGTH_UNKNOWN);
+  }
+
+  @Test
   public void testCreatesTagInfoUnknown_1_oe() {
       final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.EXIF_DIRECTORY_EXIF_IFD;
       new TagInfoUnknown("", 2670, tiffDirectoryType);

@@ -62,6 +62,19 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
     /**
      * Tests whether the returned configuration correctly wraps the builder.
      */
+    @Test
+    public void testConfigurationBuilderWrapper() {
+        final BaseHierarchicalConfiguration conf = new BaseHierarchicalConfiguration();
+        final ConfigurationBuilder<BaseHierarchicalConfiguration> builder = createBuilderMock(conf);
+        EasyMock.replay(builder);
+        conf.addProperty("test1", "value1");
+        conf.addProperty("test2", "42");
+        final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory();
+        final HierarchicalConfiguration<?> wrapper = factory.createBuilderConfigurationWrapper(HierarchicalConfiguration.class, builder);
+        assertEquals("Wrong value (1)", "value1", wrapper.getString("test1"));
+        assertEquals("Wrong value (2)", 42, wrapper.getInt("test2"));
+        assertSame("Wrong root node", conf.getNodeModel().getNodeHandler().getRootNode(), wrapper.getNodeModel().getNodeHandler().getRootNode());
+    }
 
     /**
      * Tries to create a wrapper without passing a builder.
@@ -84,10 +97,32 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
     /**
      * Tests the default event source support level.
      */
+    @Test
+    public void testDefaultEventSourceSupport() {
+        final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory();
+        assertEquals("Wrong result", EventSourceSupport.NONE, factory.getEventSourceSupport());
+    }
 
     /**
      * Tests whether EventSource methods can be delegated to the builder.
      */
+    @Test
+    public void testEventSourceSupportBuilder() throws ConfigurationException {
+        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
+        final EventListener<ConfigurationEvent> l1 = new EventListenerTestImpl(null);
+        final EventListener<ConfigurationEvent> l2 = new EventListenerTestImpl(null);
+        final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory(EventSourceSupport.BUILDER);
+        final EventSource src = (EventSource) factory.createBuilderConfigurationWrapper(Configuration.class, builder);
+
+        src.addEventListener(ConfigurationEvent.ANY, l1);
+        src.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2);
+        assertTrue("Wrong result for existing listener", src.removeEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2));
+        assertFalse("Wrong result for non-existing listener", src.removeEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2));
+        final PropertiesConfiguration config = builder.getConfiguration();
+        final Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
+        assertTrue("Registered listener not found", listeners.contains(l1));
+        assertFalse("Removed listener still found", listeners.contains(l2));
+    }
 
     /**
      * Tests the EventSource support level 'dummy'.
@@ -122,6 +157,15 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
     /**
      * Tests the factory if support for EventSource is disabled.
      */
+    @Test
+    public void testEventSourceSupportNone() {
+        final BaseHierarchicalConfiguration conf = new BaseHierarchicalConfiguration();
+        final ConfigurationBuilder<BaseHierarchicalConfiguration> builder = createBuilderMock(conf);
+        EasyMock.replay(builder);
+        final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory();
+        final HierarchicalConfiguration<?> wrapper = factory.createBuilderConfigurationWrapper(HierarchicalConfiguration.class, builder);
+        assertFalse("EventSource support", wrapper instanceof EventSource);
+    }
 
     @Test
     public void testConfigurationBuilderWrapper_1_oe() {
@@ -144,7 +188,6 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
         conf.addProperty("test2", "42");
         final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory();
         final HierarchicalConfiguration<?> wrapper = factory.createBuilderConfigurationWrapper(HierarchicalConfiguration.class, builder);
-        // removed other assertion
         assertEquals("Wrong value (2)", 42, wrapper.getInt("test2"));
     }
 
@@ -157,8 +200,6 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
         conf.addProperty("test2", "42");
         final BuilderConfigurationWrapperFactory factory = new BuilderConfigurationWrapperFactory();
         final HierarchicalConfiguration<?> wrapper = factory.createBuilderConfigurationWrapper(HierarchicalConfiguration.class, builder);
-        // removed other assertion
-        // removed other assertion
         assertSame("Wrong root node", conf.getNodeModel().getNodeHandler().getRootNode(), wrapper.getNodeModel().getNodeHandler().getRootNode());
     }
 
@@ -191,8 +232,6 @@ public class TestBuilderConfigurationWrapperFactory_OE25Dev {
 
         src.addEventListener(ConfigurationEvent.ANY, l1);
         src.addEventListener(ConfigurationEvent.ANY_HIERARCHICAL, l2);
-        // removed other assertion
-        // removed other assertion
         final PropertiesConfiguration config = builder.getConfiguration();
         final Collection<EventListener<? super ConfigurationEvent>> listeners = config.getEventListeners(ConfigurationEvent.ANY_HIERARCHICAL);
         assertTrue("Registered listener not found", listeners.contains(l1));

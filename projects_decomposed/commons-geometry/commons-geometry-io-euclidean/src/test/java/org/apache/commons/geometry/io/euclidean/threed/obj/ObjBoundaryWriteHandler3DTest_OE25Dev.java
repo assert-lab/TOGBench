@@ -53,6 +53,116 @@ class ObjBoundaryWriteHandler3DTest_OE25Dev {
     private final ObjBoundaryWriteHandler3D handler = new ObjBoundaryWriteHandler3D();
 
     @Test
+    void testProperties() {
+        // act/assert
+        Assertions.assertEquals(GeometryFormat3D.OBJ, handler.getFormat());
+        Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
+        Assertions.assertEquals("\n", handler.getLineSeparator());
+        Assertions.assertNotNull(handler.getDoubleFormat());
+        Assertions.assertEquals(-1, handler.getMeshBufferBatchSize());
+    }
+
+    @Test
+    void testWriteFacets() {
+        // arrange
+        final DecimalFormat fmt =
+                new DecimalFormat("0.0#####", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+        // act
+        handler.setDoubleFormat(fmt::format);
+        handler.writeFacets(FACETS, new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void testWriteFacets_usesOutputCharset() {
+        // arrange
+        final DecimalFormat fmt =
+                new DecimalFormat("0.0#####", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+        // act
+        handler.setDoubleFormat(fmt::format);
+        handler.writeFacets(FACETS, new StreamGeometryOutput(out, null, StandardCharsets.UTF_16));
+
+        // assert
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
+    }
+
+    @Test
+    void testWriteFacets_customConfig() {
+        // arrange
+        // arrange
+        final DecimalFormat fmt =
+                new DecimalFormat("0.0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+        handler.setDefaultCharset(StandardCharsets.UTF_16);
+        handler.setLineSeparator("\r\n");
+        handler.setDoubleFormat(fmt::format);
+        handler.setMeshBufferBatchSize(1);
+
+        // act
+        handler.writeFacets(FACETS, new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals("v 0.0 0.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "v 1.0 1.0 0.0\r\n" + "v 0.0 1.0 0.0\r\n" + "f 1 2 3 4\r\n" + "v 0.0 0.0 0.0\r\n" + "v 0.0 -1.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "f 5 6 7\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
+    }
+
+    @Test
+    void testWrite() {
+        // arrange
+        final BoundarySource3D src = BoundarySource3D.of(FACETS.stream()
+                .map(f -> FacetDefinitions.toPolygon(f, TEST_PRECISION))
+                .collect(Collectors.toList()));
+
+        // act
+        handler.write(src, new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 0.3333333333333333 0.0 0.0\n" + "v 1.0 1.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 0.0 -1.0 0.0\n" + "f 1 2 3 4\n" + "f 1 5 2\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void testWrite_customConfig() {
+        // arrange
+        final BoundarySource3D src = BoundarySource3D.of(FACETS.stream()
+                .map(f -> FacetDefinitions.toPolygon(f, TEST_PRECISION))
+                .collect(Collectors.toList()));
+
+        // arrange
+        final DecimalFormat fmt =
+                new DecimalFormat("0.0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+        handler.setDefaultCharset(StandardCharsets.UTF_16);
+        handler.setLineSeparator("\r\n");
+        handler.setDoubleFormat(fmt::format);
+        handler.setMeshBufferBatchSize(1);
+
+        // act
+        handler.write(src, new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals("v 0.0 0.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "v 1.0 1.0 0.0\r\n" + "v 0.0 1.0 0.0\r\n" + "f 1 2 3 4\r\n" + "v 0.0 0.0 0.0\r\n" + "v 0.0 -1.0 0.0\r\n" + "v 0.3 0.0 0.0\r\n" + "f 5 6 7\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
+    }
+
+    @Test
+    void testWrite_mesh() {
+        // arrange
+        final SimpleTriangleMesh.Builder builder = SimpleTriangleMesh.builder(TEST_PRECISION);
+        builder.addFaceAndVertices(Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
+        builder.addVertex(Vector3D.of(2, 3, 4)); // extra, unused vertex
+
+        final BoundarySource3D src = builder.build();
+
+        // act
+        handler.write(src, new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals("v 0.0 0.0 0.0\n" + "v 1.0 0.0 0.0\n" + "v 0.0 1.0 0.0\n" + "v 2.0 3.0 4.0\n" + "f 1 2 3\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
+    }
+
+    @Test
     void testProperties_1_oe() {
         // act/assert
         Assertions.assertEquals(GeometryFormat3D.OBJ, handler.getFormat());

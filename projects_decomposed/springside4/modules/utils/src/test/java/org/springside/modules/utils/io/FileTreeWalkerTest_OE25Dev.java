@@ -12,6 +12,66 @@ import org.springside.modules.utils.number.RandomUtil;
 public class FileTreeWalkerTest_OE25Dev {
 
 	@Test
+	public void listFile() throws IOException {
+		File tmpDir = FileUtil.createTempDir();
+
+		List<File> all = FileTreeWalker.listAll(tmpDir);
+		assertThat(all).hasSize(1);
+
+		List<File> files = FileTreeWalker.listFile(tmpDir);
+		assertThat(files).hasSize(0);
+
+		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".tmp");
+		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt()) + ".abc");
+
+		String childDir = FilePathUtil.contact(tmpDir.getAbsolutePath(), "tmp-" + RandomUtil.nextInt());
+		FileUtil.makesureDirExists(childDir);
+
+		FileUtil.touch(FilePathUtil.contact(childDir, "tmp-" + RandomUtil.nextInt()) + ".tmp");
+
+		all = FileTreeWalker.listAll(tmpDir);
+		assertThat(all).hasSize(5);
+
+		files = FileTreeWalker.listFile(tmpDir);
+		assertThat(files).hasSize(3);
+
+		//extension
+		files = FileTreeWalker.listFileWithExtension(tmpDir, "tmp");
+		assertThat(files).hasSize(2);
+
+		files = FileTreeWalker.listFileWithExtension(tmpDir, "tp");
+		assertThat(files).hasSize(0);
+
+		//wildcard
+		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tmp");
+		assertThat(files).hasSize(2);
+		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, "*.tp");
+		assertThat(files).hasSize(0);
+
+		//regex
+		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tmp");
+		assertThat(files).hasSize(2);
+		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, ".*\\.tp");
+		assertThat(files).hasSize(0);
+		
+		
+		//antpath
+		files = FileTreeWalker.listFileWithAntPath(tmpDir, "**/*.tmp");
+		assertThat(files).hasSize(2);
+		
+		files = FileTreeWalker.listFileWithAntPath(tmpDir, "*/*.tmp");
+		assertThat(files).hasSize(1);
+		
+		files = FileTreeWalker.listFileWithAntPath(tmpDir, "*.tp");
+		assertThat(files).hasSize(0);
+
+		FileUtil.deleteDir(tmpDir);
+
+		assertThat(FileUtil.isDirExists(tmpDir)).isFalse();
+
+	}
+
+	@Test
 	public void listFile_1_oe() throws IOException {
 		File tmpDir = FileUtil.createTempDir();
 

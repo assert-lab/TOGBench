@@ -43,6 +43,56 @@ public class FileObjectUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testExistsNotNull() throws FileSystemException {
+        Assert.assertTrue(FileObjectUtils.exists(VFS.getManager().toFileObject(SystemUtils.getJavaIoTmpDir())));
+    }
+
+    @Test
+    public void testgetContentAsString_Charset() throws FileSystemException, IOException {
+        Assert.assertEquals("This is a test file.",FileObjectUtils.getContentAsString(VFS.getManager().toFileObject(new File("src/test/resources/test-data/read-tests/file1.txt")),StandardCharsets.UTF_8));
+    }
+
+    @Test
+    public void testgetContentAsString_CharsetNull() throws FileSystemException, IOException {
+        Assert.assertEquals("This is a test file.",FileObjectUtils.getContentAsString(VFS.getManager().toFileObject(new File("src/test/resources/test-data/read-tests/file1.txt")),(Charset)null));
+    }
+
+    @Test
+    public void testgetContentAsString_String() throws FileSystemException, IOException {
+        Assert.assertEquals("This is a test file.",FileObjectUtils.getContentAsString(VFS.getManager().toFileObject(new File("src/test/resources/test-data/read-tests/file1.txt")),"UTF-8"));
+    }
+
+    @Test
+    public void testgetContentAsString_StringNull() throws FileSystemException, IOException {
+        Assert.assertEquals("This is a test file.",FileObjectUtils.getContentAsString(VFS.getManager().toFileObject(new File("src/test/resources/test-data/read-tests/file1.txt")),(String)null));
+    }
+
+    @Test
+    public void testNotExistsNotNull() throws FileSystemException {
+        Assert.assertFalse(FileObjectUtils.exists(VFS.getManager().toFileObject(new File("This file can't possibly exist,right?"))));
+    }
+
+    @Test
+    public void testNotExistsNull() throws FileSystemException {
+        Assert.assertFalse(FileObjectUtils.exists(null));
+    }
+
+    @Test
+    public void testReadProperties() throws FileSystemException, IOException {
+        assertProperties(FileObjectUtils
+            .readProperties(VFS.getManager().toFileObject(new File("src/test/resources/test.properties"))));
+    }
+
+    @Test
+    public void testReadPropertiesInto() throws FileSystemException, IOException {
+        final Properties p = new Properties();
+        p.setProperty("extraKey", "extraValue");
+        assertProperties(FileObjectUtils
+            .readProperties(VFS.getManager().toFileObject(new File("src/test/resources/test.properties")), p));
+        Assert.assertEquals("extraValue", p.getProperty("extraKey"));
+    }
+
+    @Test
     public void testExistsNotNull_1_oe() throws FileSystemException {
         Assert.assertTrue(FileObjectUtils.exists(VFS.getManager().toFileObject(SystemUtils.getJavaIoTmpDir())));
     }

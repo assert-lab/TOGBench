@@ -51,6 +51,94 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
     }
 
     @Test
+    public void testGetConfigurationDefensiveCopy() {
+        final Configuration[] configs = {new PropertiesConfiguration(), new XMLConfiguration()};
+        configurationFactory.setConfigurations(configs);
+
+        final Configuration[] configsGet = configurationFactory.getConfigurations();
+        configsGet[0] = null;
+        assertArrayEquals("Configurations were changed", configs, configurationFactory.getConfigurations());
+    }
+
+    @Test
+    public void testGetLocationsDefensiveCopy() {
+        final Resource[] locations = {new ClassPathResource("f1"), new ClassPathResource("f2")};
+        configurationFactory.setLocations(locations);
+
+        final Resource[] locationsGet = configurationFactory.getLocations();
+        locationsGet[1] = null;
+        assertArrayEquals("Locations were changed", locations, configurationFactory.getLocations());
+    }
+
+    @Test
+    public void testGetObject() throws Exception {
+        configurationFactory.setConfigurations(new BaseConfiguration());
+        Assert.assertNull(configurationFactory.getObject());
+        configurationFactory.afterPropertiesSet();
+        Assert.assertNotNull(configurationFactory.getObject());
+    }
+
+    @Test
+    public void testInitialConfiguration() throws Exception {
+        configurationFactory = new ConfigurationPropertiesFactoryBean(new BaseConfiguration());
+        configurationFactory.afterPropertiesSet();
+        Assert.assertNotNull(configurationFactory.getConfiguration());
+    }
+
+    @Test
+    public void testLoadResources() throws Exception {
+        configurationFactory.setLocations(new ClassPathResource("testConfigurationFactoryBean.file"));
+        configurationFactory.setConfigurations(new BaseConfiguration());
+        configurationFactory.afterPropertiesSet();
+
+        final Properties props = configurationFactory.getObject();
+        Assert.assertEquals("duke", props.getProperty("java"));
+    }
+
+    @Test
+    public void testMergeConfigurations() throws Exception {
+        final Configuration one = new BaseConfiguration();
+        one.setProperty("foo", "bar");
+        final String properties = "## some header \n" + "foo = bar1\n" + "bar = foo\n";
+
+        final PropertiesConfiguration two = new PropertiesConfiguration();
+        final PropertiesConfigurationLayout layout = new PropertiesConfigurationLayout();
+        layout.load(two, new StringReader(properties));
+
+        configurationFactory.setConfigurations(one, two);
+        configurationFactory.afterPropertiesSet();
+        final Properties props = configurationFactory.getObject();
+        Assert.assertEquals("foo", props.getProperty("bar"));
+        Assert.assertEquals("bar", props.getProperty("foo"));
+    }
+
+    @Test
+    public void testSetConfigurationsDefensiveCopy() {
+        final Configuration[] configs = {new PropertiesConfiguration(), new XMLConfiguration()};
+        final Configuration[] configsUpdate = configs.clone();
+
+        configurationFactory.setConfigurations(configsUpdate);
+        configsUpdate[0] = null;
+        assertArrayEquals("Configurations were changed", configs, configurationFactory.getConfigurations());
+    }
+
+    @Test
+    public void testSetLocationsDefensiveCopy() {
+        final Resource[] locations = {new ClassPathResource("f1"), new ClassPathResource("f2")};
+        final Resource[] locationsUpdate = locations.clone();
+
+        configurationFactory.setLocations(locationsUpdate);
+        locationsUpdate[0] = new ClassPathResource("other");
+        assertArrayEquals("Locations were changed", locations, configurationFactory.getLocations());
+    }
+
+    @Test
+    public void testSetLocationsNull() {
+        configurationFactory.setLocations(null);
+        assertNull("Got locations", configurationFactory.getLocations());
+    }
+
+    @Test
     public void testGetConfigurationDefensiveCopy_1_oe() {
         final Configuration[] configs = {new PropertiesConfiguration(), new XMLConfiguration()};
         configurationFactory.setConfigurations(configs);
@@ -79,7 +167,6 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
     @Test
     public void testGetObject_2_oe() throws Exception {
         configurationFactory.setConfigurations(new BaseConfiguration());
-        // removed other assertion
         configurationFactory.afterPropertiesSet();
         Assert.assertNotNull(configurationFactory.getObject());
     }
@@ -130,7 +217,6 @@ public class TestConfigurationPropertiesFactoryBean_OE25Dev {
         configurationFactory.setConfigurations(one, two);
         configurationFactory.afterPropertiesSet();
         final Properties props = configurationFactory.getObject();
-        // removed other assertion
         Assert.assertEquals("bar", props.getProperty("foo"));
     }
 

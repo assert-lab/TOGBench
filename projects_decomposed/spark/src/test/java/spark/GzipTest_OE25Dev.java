@@ -46,6 +46,19 @@ public class GzipTest_OE25Dev {
         stop();
     }
 
+    @Test
+    public void checkGzipCompression() throws Exception {
+        String decompressed = GzipExample.getAndDecompress();
+        assertEquals(GzipExample.CONTENT, decompressed);
+    }
+
+    @Test
+    public void testStaticFileCssStyleCss() throws Exception {
+        String decompressed = GzipClient.getAndDecompress("http://localhost:4567/css/style.css");
+        Assert.assertEquals("Content of css file", decompressed);
+        testGet();
+    }
+
     /**
      * Used to verify that "normal" functionality works after static files mapping
      */

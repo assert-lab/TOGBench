@@ -34,6 +34,92 @@ import static org.junit.jupiter.api.Assertions.fail;
 class CombinationSamplerTest_OE25Dev {
     private final UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create();
 
+    @Test
+    void testSampleIsInDomain() {
+        final int n = 6;
+        for (int k = 1; k <= n; k++) {
+            final CombinationSampler sampler = new CombinationSampler(rng, n, k);
+            final int[] random = sampler.sample();
+            for (int s : random) {
+                assertIsInDomain(n, s);
+            }
+        }
+    }
+
+    @Test
+    void testUniformWithKlessThanHalfN() {
+        final int n = 8;
+        final int k = 2;
+        assertUniformSamples(n, k);
+    }
+
+    @Test
+    void testUniformWithKmoreThanHalfN() {
+        final int n = 8;
+        final int k = 6;
+        assertUniformSamples(n, k);
+    }
+
+    @Test
+    void testSampleWhenNequalsKIsNotShuffled() {
+        // Check n == k boundary case.
+        // This is allowed but the sample is not shuffled.
+        for (int n = 1; n < 3; n++) {
+            final int k = n;
+            final CombinationSampler sampler = new CombinationSampler(rng, n, k);
+            final int[] sample = sampler.sample();
+            Assertions.assertEquals(n, sample.length, "Incorrect sample length");
+            for (int i = 0; i < n; i++) {
+                Assertions.assertEquals(i, sample[i], "Sample was shuffled");
+            }
+        }
+    }
+
+    @Test
+    void testKgreaterThanNThrows() {
+        // Must fail for k > n.
+        final int n = 2;
+        final int k = 3;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new CombinationSampler(rng, n, k));
+    }
+
+    @Test
+    void testNequalsZeroThrows() {
+        // Must fail for n = 0.
+        final int n = 0;
+        final int k = 3;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new CombinationSampler(rng, n, k));
+    }
+
+    @Test
+    void testKequalsZeroThrows() {
+        // Must fail for k = 0.
+        final int n = 2;
+        final int k = 0;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new CombinationSampler(rng, n, k));
+    }
+
+    @Test
+    void testNisNegativeThrows() {
+        // Must fail for n <= 0.
+        final int n = -1;
+        final int k = 3;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new CombinationSampler(rng, n, k));
+    }
+
+    @Test
+    void testKisNegativeThrows() {
+        // Must fail for k <= 0.
+        final int n = 0;
+        final int k = -1;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new CombinationSampler(rng, n, k));
+    }
+
     /**
      * Test the SharedStateSampler implementation.
      */

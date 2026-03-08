@@ -39,6 +39,75 @@ class TextBoundaryReadHandler3DTest_OE25Dev {
 
     private final TextBoundaryReadHandler3D handler = new TextBoundaryReadHandler3D();
 
+    @Test
+    void testProperties() {
+        // act/assert
+        Assertions.assertEquals(GeometryFormat3D.TXT, handler.getFormat());
+        Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
+    }
+
+    @Test
+    void testFacetDefinitionReader() {
+        // arrange
+        final InputStream in = input("0 0 0; 1 1 0; 0 1 0", StandardCharsets.UTF_8);
+
+        // act
+        final FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in));
+
+        // assert
+        final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        Assertions.assertEquals(1, facets.size());
+        EuclideanIOTestUtils.assertFacetVertices(facets.get(0),
+                Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)), TEST_EPS);
+    }
+
+    @Test
+    void testFacetDefinitionReader_usesInputCharset() {
+        // arrange
+        final InputStream in = input("0 0 0; 1 1 0; 0 1 0", StandardCharsets.UTF_16);
+
+        // act
+        final FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in, null, StandardCharsets.UTF_16));
+
+        // assert
+        final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        Assertions.assertEquals(1, facets.size());
+        EuclideanIOTestUtils.assertFacetVertices(facets.get(0),
+                Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)), TEST_EPS);
+    }
+
+    @Test
+    void testFacetDefinitionReader_setDefaultCharset() {
+        // arrange
+        handler.setDefaultCharset(StandardCharsets.UTF_16);
+        final InputStream in = input("0 0 0; 1 1 0; 0 1 0", StandardCharsets.UTF_16);
+
+        // act
+        final FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in));
+
+        // assert
+        final List<FacetDefinition> facets = EuclideanIOTestUtils.readAll(reader);
+
+        Assertions.assertEquals(1, facets.size());
+        EuclideanIOTestUtils.assertFacetVertices(facets.get(0),
+                Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0)), TEST_EPS);
+    }
+
+    @Test
+    void testFacetDefinitionReader_close() {
+        // arrange
+        final CloseCountInputStream in = new CloseCountInputStream(input("", StandardCharsets.UTF_8));
+
+        // act/assert
+        try (FacetDefinitionReader reader = handler.facetDefinitionReader(new StreamGeometryInput(in))) {
+            Assertions.assertEquals(0, in.getCloseCount());
+        }
+
+        Assertions.assertEquals(1, in.getCloseCount());
+    }
+
     private static ByteArrayInputStream input(final String str, final Charset charset) {
         return new ByteArrayInputStream(str.getBytes(charset));
     }

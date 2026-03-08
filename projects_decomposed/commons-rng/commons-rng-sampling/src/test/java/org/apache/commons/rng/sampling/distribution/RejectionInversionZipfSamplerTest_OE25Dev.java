@@ -32,10 +32,28 @@ class RejectionInversionZipfSamplerTest_OE25Dev {
     /**
      * Test the constructor with a bad number of elements.
      */
+    @Test
+    void testConstructorThrowsWithZeroNumberOfElements() {
+        final RestorableUniformRandomProvider rng =
+            RandomSource.SPLIT_MIX_64.create(0L);
+        final int numberOfElements = 0;
+        final double exponent = 1;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> RejectionInversionZipfSampler.of(rng, numberOfElements, exponent));
+    }
 
     /**
      * Test the constructor with a bad exponent.
      */
+    @Test
+    void testConstructorThrowsWithZeroExponent() {
+        final RestorableUniformRandomProvider rng =
+            RandomSource.SPLIT_MIX_64.create(0L);
+        final int numberOfElements = 1;
+        final double exponent = 0;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> RejectionInversionZipfSampler.of(rng, numberOfElements, exponent));
+    }
 
     /**
      * Test the SharedStateSampler implementation.

@@ -75,6 +75,11 @@ class XoRoShiRo1024StarStarTest_OE25Dev {
     };
 
     @Test
+    void testReferenceCode() {
+        RandomAssert.assertEquals(EXPECTED_SEQUENCE, new XoRoShiRo1024StarStar(SEED));
+    }
+
+    @Test
     void testConstructorWithZeroSeedIsNonFunctional() {
         RandomAssert.assertNextIntZeroOutput(new XoRoShiRo1024StarStar(new long[SEED_SIZE]), 2 * SEED_SIZE);
     }
@@ -82,6 +87,13 @@ class XoRoShiRo1024StarStarTest_OE25Dev {
     @Test
     void testConstructorWithSingleBitSeedIsFunctional() {
         RandomAssert.assertLongArrayConstructorWithSingleBitSeedIsFunctional(XoRoShiRo1024StarStar.class, SEED_SIZE);
+    }
+
+    @Test
+    void testConstructorWithoutFullLengthSeed() {
+        // Hit the case when the input seed is self-seeded when not full length
+        RandomAssert.assertNextLongNonZeroOutput(new XoRoShiRo1024StarStar(new long[] {SEED[0]}),
+                SEED_SIZE, SEED_SIZE);
     }
 
     @Test

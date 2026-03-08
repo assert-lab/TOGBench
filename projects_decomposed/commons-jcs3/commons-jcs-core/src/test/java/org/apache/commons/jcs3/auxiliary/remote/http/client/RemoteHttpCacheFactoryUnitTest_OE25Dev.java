@@ -67,6 +67,26 @@ public class RemoteHttpCacheFactoryUnitTest_OE25Dev
     }
 
     /** Verify that we get a cache no wait. */
+    public void testGetCache_normal()
+    {
+        // SETUP
+        final ICompositeCacheManager cacheMgr = new MockCompositeCacheManager();
+        assertNotNull( "Should have a manager.", cacheMgr );
+        final ICacheEventLogger cacheEventLogger = null;
+        final IElementSerializer elementSerializer = null;
+
+        final RemoteHttpCacheAttributes cattr = new RemoteHttpCacheAttributes();
+        assertNotNull( "Should have attributes.", cattr );
+        final RemoteHttpCacheFactory factory = new RemoteHttpCacheFactory();
+        assertNotNull( "Should have a factory.", factory );
+
+
+        // DO WORK
+        final AuxiliaryCache<String, String> result = factory.createCache(cattr, cacheMgr, cacheEventLogger, elementSerializer);
+
+        // VERIFY
+        assertNotNull( "Should have a cache.", result );
+    }
 
     public void testGetCache_normal_1_oe()
     {

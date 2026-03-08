@@ -27,6 +27,47 @@ import org.apache.commons.dbutils.ResultSetHandler;
  */
 public class ColumnListHandlerTest_OE25Dev extends BaseTestCase {
 
+    public void testHandle() throws SQLException {
+        ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
+        List<String> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        assertEquals("1", results.get(0));
+        assertEquals("4", results.get(1));
+    }
+
+    public void testColumnIndexHandle() throws SQLException {
+        ResultSetHandler<List<String>> h = new ColumnListHandler<String>(2);
+        List<String> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        assertEquals("2", results.get(0));
+        assertEquals("5", results.get(1));
+    }
+
+    public void testColumnNameHandle() throws SQLException {
+        ResultSetHandler<List<Integer>> h = new ColumnListHandler<Integer>("intTest");
+        List<Integer> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        assertEquals(new Integer(1), results.get(0));
+        assertEquals(new Integer(3), results.get(1));
+    }
+
+    public void testEmptyResultSetHandle() throws SQLException {
+        ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
+        List<String> results = h.handle(this.emptyResultSet);
+
+        assertNotNull(results);
+        assertTrue(results.isEmpty());
+    }
+
     public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
         List<String> results = h.handle(this.rs);

@@ -30,6 +30,22 @@ import org.junit.Test;
 public class FtpFileSystemConfigBuilderTestCase_OE25Dev {
 
     @Test
+    public void testControlKeepAliveReplyTimeout() {
+        final FtpFileSystemConfigBuilder instance = FtpFileSystemConfigBuilder.getInstance();
+        final FileSystemOptions options = new FileSystemOptions();
+        instance.setControlKeepAliveReplyTimeout(options, Duration.ofSeconds(10));
+        assertEquals(Duration.ofSeconds(10), instance.getControlKeepAliveReplyTimeout(options));
+    }
+
+    @Test
+    public void testControlKeepAliveTimeout() {
+        final FtpFileSystemConfigBuilder instance = FtpFileSystemConfigBuilder.getInstance();
+        final FileSystemOptions options = new FileSystemOptions();
+        instance.setControlKeepAliveTimeout(options, Duration.ofSeconds(10));
+        assertEquals(Duration.ofSeconds(10), instance.getControlKeepAliveTimeout(options));
+    }
+
+    @Test
     public void testControlKeepAliveReplyTimeout_1_oe() {
         final FtpFileSystemConfigBuilder instance = FtpFileSystemConfigBuilder.getInstance();
         final FileSystemOptions options = new FileSystemOptions();

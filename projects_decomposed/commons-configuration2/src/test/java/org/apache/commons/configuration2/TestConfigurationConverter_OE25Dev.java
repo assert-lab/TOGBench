@@ -49,23 +49,90 @@ public class TestConfigurationConverter_OE25Dev {
         return config;
     }
 
+    @Test
+    public void testConfigurationToMap() {
+        final Configuration config = new BaseConfiguration();
+        config.addProperty("string", "teststring");
+
+        final Map<Object, Object> map = ConfigurationConverter.getMap(config);
+
+        assertNotNull("null map", map);
+        assertEquals("'string' property", "teststring", map.get("string"));
+    }
+
     /**
      * Tests a conversion to Properties if the default list delimiter handler is used (which does not support list joining).
      */
+    @Test
+    public void testConfigurationToPropertiesDefaultListHandling() {
+        final BaseConfiguration config = createTestConfiguration();
+        final Properties props = ConfigurationConverter.getProperties(config);
+
+        assertNotNull("null properties", props);
+        assertEquals("'string' property", "teststring", props.getProperty("string"));
+        assertEquals("'interpolated' property", "teststring", props.getProperty("interpolated"));
+        assertEquals("'array' property", "item 1,item 2", props.getProperty("array"));
+        assertEquals("'interpolated-array' property", "teststring,teststring", props.getProperty("interpolated-array"));
+    }
 
     /**
      * Tests a conversion to Properties if the list delimiter handler supports list joining.
      */
+    @Test
+    public void testConfigurationToPropertiesListDelimiterHandler() {
+        final BaseConfiguration config = createTestConfiguration();
+        config.setListDelimiterHandler(new DefaultListDelimiterHandler(';'));
+        final Properties props = ConfigurationConverter.getProperties(config);
+        assertEquals("'array' property", "item 1;item 2", props.getProperty("array"));
+    }
 
     /**
      * Tests a conversion to Properties if the source configuration does not extend AbstractConfiguration. In this case,
      * properties with multiple values have to be handled in a special way.
      */
+    @Test
+    public void testConfigurationToPropertiesNoAbstractConfiguration() {
+        final Configuration src = EasyMock.createMock(Configuration.class);
+        final BaseConfiguration config = createTestConfiguration();
+        EasyMock.expect(src.getKeys()).andReturn(config.getKeys());
+        src.getList(EasyMock.anyObject(String.class));
+        EasyMock.expectLastCall().andAnswer(() -> {
+            final String key = (String) EasyMock.getCurrentArguments()[0];
+            return config.getList(key);
+        }).anyTimes();
+        EasyMock.replay(src);
+        final Properties props = ConfigurationConverter.getProperties(src);
+        assertEquals("'array' property", "item 1,item 2", props.getProperty("array"));
+    }
 
     /**
      * Tests the conversion of a configuration object to properties if scalar values are involved. This test is related to
      * CONFIGURATION-432.
      */
+    @Test
+    public void testConfigurationToPropertiesScalarValue() {
+        final BaseConfiguration config = new BaseConfiguration();
+        config.addProperty("scalar", Integer.valueOf(42));
+        final Properties props = ConfigurationConverter.getProperties(config);
+        assertEquals("Wrong value", "42", props.getProperty("scalar"));
+    }
+
+    @Test
+    public void testPropertiesToConfiguration() {
+        final Properties props = new Properties();
+        props.setProperty("string", "teststring");
+        props.setProperty("int", "123");
+        props.setProperty("list", "item 1, item 2");
+
+        final AbstractConfiguration config = (AbstractConfiguration) ConfigurationConverter.getConfiguration(props);
+        config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
+
+        assertEquals("This returns 'teststring'", "teststring", config.getString("string"));
+        final List<Object> item1 = config.getList("list");
+        assertEquals("This returns 'item 1'", "item 1", item1.get(0));
+
+        assertEquals("This returns 123", 123, config.getInt("int"));
+    }
 
     @Test
     public void testConfigurationToMap_1_oe() {
@@ -84,7 +151,6 @@ public class TestConfigurationConverter_OE25Dev {
 
         final Map<Object, Object> map = ConfigurationConverter.getMap(config);
 
-        // removed other assertion
         assertEquals("'string' property", "teststring", map.get("string"));
     }
 
@@ -101,7 +167,6 @@ public class TestConfigurationConverter_OE25Dev {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
 
-        // removed other assertion
         assertEquals("'string' property", "teststring", props.getProperty("string"));
     }
 
@@ -110,8 +175,6 @@ public class TestConfigurationConverter_OE25Dev {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
 
-        // removed other assertion
-        // removed other assertion
         assertEquals("'interpolated' property", "teststring", props.getProperty("interpolated"));
     }
 
@@ -120,9 +183,6 @@ public class TestConfigurationConverter_OE25Dev {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("'array' property", "item 1,item 2", props.getProperty("array"));
     }
 
@@ -131,10 +191,6 @@ public class TestConfigurationConverter_OE25Dev {
         final BaseConfiguration config = createTestConfiguration();
         final Properties props = ConfigurationConverter.getProperties(config);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("'interpolated-array' property", "teststring,teststring", props.getProperty("interpolated-array"));
     }
 
@@ -192,7 +248,6 @@ public class TestConfigurationConverter_OE25Dev {
         final AbstractConfiguration config = (AbstractConfiguration) ConfigurationConverter.getConfiguration(props);
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
 
-        // removed other assertion
         final List<Object> item1 = config.getList("list");
         assertEquals("This returns 'item 1'", "item 1", item1.get(0));
     }
@@ -207,9 +262,7 @@ public class TestConfigurationConverter_OE25Dev {
         final AbstractConfiguration config = (AbstractConfiguration) ConfigurationConverter.getConfiguration(props);
         config.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
 
-        // removed other assertion
         final List<Object> item1 = config.getList("list");
-        // removed other assertion
 
         assertEquals("This returns 123", 123, config.getInt("int"));
     }

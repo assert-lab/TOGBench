@@ -88,6 +88,11 @@ public class TestPeriodicReloadingTrigger_OE25Dev {
     /**
      * Tests whether a default executor service is created if necessary.
      */
+    @Test
+    public void testDefaultExecutor() {
+        final PeriodicReloadingTrigger trigger = new PeriodicReloadingTrigger(controller, CTRL_PARAM, PERIOD, UNIT);
+        assertNotNull("No executor service", trigger.getExecutorService());
+    }
 
     /**
      * Tries to create an instance without a controller.
@@ -100,6 +105,10 @@ public class TestPeriodicReloadingTrigger_OE25Dev {
     /**
      * Tests that a newly created trigger is not running.
      */
+    @Test
+    public void testIsRunningAfterInit() {
+        assertFalse("Running", createTrigger().isRunning());
+    }
 
     /**
      * Tests a shutdown operation.
@@ -129,6 +138,23 @@ public class TestPeriodicReloadingTrigger_OE25Dev {
     /**
      * Tests whether the trigger can be started.
      */
+    @Test
+    public void testStart() {
+        final ScheduledFuture<Void> future = createFutureMock();
+        final MutableObject<Runnable> refTask = new MutableObject<>();
+        expectSchedule(null);
+        EasyMock.expectLastCall().andAnswer(() -> {
+            refTask.setValue((Runnable) EasyMock.getCurrentArguments()[0]);
+            return future;
+        });
+        EasyMock.expect(controller.checkForReloading(CTRL_PARAM)).andReturn(Boolean.FALSE);
+        EasyMock.replay(future, controller, executor);
+        final PeriodicReloadingTrigger trigger = createTrigger();
+        trigger.start();
+        assertTrue("Not started", trigger.isRunning());
+        refTask.getValue().run();
+        EasyMock.verify(future, controller, executor);
+    }
 
     /**
      * Tests whether start() is a noop if the trigger is already running.
@@ -147,6 +173,18 @@ public class TestPeriodicReloadingTrigger_OE25Dev {
     /**
      * Tests whether a running trigger can be stopped.
      */
+    @Test
+    public void testStop() {
+        final ScheduledFuture<Void> future = createFutureMock();
+        expectSchedule(future);
+        EasyMock.expect(future.cancel(false)).andReturn(Boolean.TRUE);
+        EasyMock.replay(future, controller, executor);
+        final PeriodicReloadingTrigger trigger = createTrigger();
+        trigger.start();
+        trigger.stop();
+        assertFalse("Still running", trigger.isRunning());
+        EasyMock.verify(future, controller, executor);
+    }
 
     /**
      * Tests stop() if the trigger is not running.
@@ -165,7 +203,8 @@ public class TestPeriodicReloadingTrigger_OE25Dev {
 
     @Test
     public void testIsRunningAfterInit_1_oe() {
-        assertFalse("Running", createTrigger().isRunning());
+        boolean a = createTrigger().isRunning();
+        assertFalse("Running", a);
     }
 
     @Test

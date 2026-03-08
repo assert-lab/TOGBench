@@ -77,6 +77,101 @@ public class RangeTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
+    public void testRanges() throws Exception {
+        final LongRange lr0 = LongRange.create(20,10);
+        Assert.assertEquals(10L, lr0.getMin());
+        Assert.assertEquals(20L, lr0.getMax());
+        Assert.assertFalse(lr0.isEmpty());
+        Assert.assertTrue(lr0.contains(10L));
+        Assert.assertTrue(lr0.contains(20L));
+        Assert.assertFalse(lr0.contains(30L));
+        Assert.assertFalse(lr0.contains(5L));
+        Assert.assertFalse(lr0.contains(null));
+        checkIteration(lr0, 20L, 10L);
+        final LongRange lr1 = LongRange.create(10,20);
+        checkIteration(lr1, 10L, 20L);
+        Assert.assertTrue(lr0.containsAll(lr1));
+        final LongRange lr2 = LongRange.create(10,15);
+        Assert.assertNotEquals(lr0, lr2);
+        Assert.assertTrue(lr0.containsAll(lr2));
+        Assert.assertFalse(lr2.containsAll(lr1));
+        final IntegerRange ir0 = IntegerRange.create(20,10);
+        checkIteration(ir0, 20, 10);
+        Assert.assertEquals(10, ir0.getMin());
+        Assert.assertEquals(20, ir0.getMax());
+        Assert.assertFalse(ir0.isEmpty());
+        Assert.assertTrue(ir0.contains(10));
+        Assert.assertTrue(ir0.contains(20));
+        Assert.assertFalse(ir0.contains(30));
+        Assert.assertFalse(ir0.contains(5));
+        Assert.assertFalse(ir0.contains(null));
+        final IntegerRange ir1 = IntegerRange.create(10,20);
+        checkIteration(ir1, 10, 20);
+        Assert.assertTrue(ir0.containsAll(ir1));
+        Assert.assertNotEquals(ir0, lr0);
+        Assert.assertNotEquals(ir1, lr1);
+        final IntegerRange ir2 = IntegerRange.create(10,15);
+        Assert.assertNotEquals(ir0, ir2);
+        Assert.assertTrue(ir0.containsAll(ir2));
+        Assert.assertFalse(ir2.containsAll(ir1));
+
+        long lc0 = 20;
+        final Iterator<Long> il0 = lr0.iterator();
+        while(il0.hasNext()) {
+            final long v0 = il0.next();
+            Assert.assertEquals(lc0, v0);
+            try {
+                switch((int)v0) {
+                    case 10:  il0.remove(); Assert.fail(); break;
+                    case 11: lr1.add(v0); Assert.fail(); break;
+                    case 12: lr1.remove(v0); Assert.fail(); break;
+                    case 13: lr1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 14: lr1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
+                }
+            } catch(final UnsupportedOperationException xuo) {
+                // ok
+            }
+            lc0 -= 1;
+        }
+        Assert.assertEquals(9L, lc0);
+        try {
+            il0.next();
+            Assert.fail();
+        } catch(final NoSuchElementException xns) {
+            // ok
+        }
+
+        int ic0 = 20;
+        final Iterator<Integer> ii0 = ir0.iterator();
+        while(ii0.hasNext()) {
+            final int v0 = ii0.next();
+            Assert.assertEquals(ic0, v0);
+            try {
+                switch(v0) {
+                    case 10: ii0.remove(); Assert.fail(); break;
+                    case 11: ir1.add(v0); Assert.fail(); break;
+                    case 12: ir1.remove(v0); Assert.fail(); break;
+                    case 13: ir1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 14: ir1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 15: ir1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
+                }
+            } catch(final UnsupportedOperationException xuo) {
+                // ok
+            }
+            ic0 -= 1;
+        }
+        Assert.assertEquals(9, ic0);
+        try {
+            ii0.next();
+            Assert.fail();
+        } catch(final NoSuchElementException xns) {
+            // ok
+        }
+
+    }
+
+    @Test
     public void testRanges_1_oe() throws Exception {
         final LongRange lr0 = LongRange.create(20,10);
         Assert.assertEquals(10L, lr0.getMin());

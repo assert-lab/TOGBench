@@ -28,6 +28,22 @@ import org.junit.jupiter.api.Test;
 public class PbmFileInfoTest_OE25Dev{
 
   @Test
+  public void testGetRGBThrowsIOException() throws IOException {
+      final PbmFileInfo pbmFileInfo = new PbmFileInfo(2764, 354, true);
+      final byte[] byteArray = new byte[2];
+      final InputStream inputStream = new ByteArrayInputStream(byteArray);
+      inputStream.read(byteArray);
+
+      try {
+        pbmFileInfo.getRGB(inputStream);
+        fail("Expecting exception: IOException");
+      } catch(final IOException e) {
+         assertEquals("PBM: Unexpected EOF",e.getMessage());
+         assertEquals(PbmFileInfo.class.getName(), e.getStackTrace()[0].getClassName());
+      }
+  }
+
+  @Test
   public void testGetRGBThrowsIOException_2_oe() throws IOException {
       final PbmFileInfo pbmFileInfo = new PbmFileInfo(2764, 354, true);
       final byte[] byteArray = new byte[2];

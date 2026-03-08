@@ -28,6 +28,78 @@ import org.junit.Test;
 public class ResSchemeTestCase_OE25Dev {
 
     @Test
+    public void test_resolveFile_String() throws FileSystemException {
+        Assert.assertTrue(VFS.getManager().resolveFile("res:test.properties").exists());
+    }
+
+    @Test
+    public void test_resolveFile_String_S() throws FileSystemException {
+        Assert.assertTrue(VFS.getManager().resolveFile("res:/test.properties").exists());
+    }
+
+    @Test
+    public void test_resolveFile_String_SS() throws FileSystemException {
+        Assert.assertTrue(VFS.getManager().resolveFile("res://test.properties").exists());
+    }
+
+    @Test
+    public void test_resolveFile_String_SSS() throws FileSystemException {
+        Assert.assertTrue(VFS.getManager().resolveFile("res://test.properties").exists());
+    }
+
+    @Test(expected = FileSystemException.class)
+    public void test_resolveFile_String_SSSnull() throws FileSystemException {
+        // Resulting path is empty
+        Assert.assertTrue(VFS.getManager().resolveFile("res:///").exists());
+    }
+
+    @Test
+    public void test_resolveFile_URI() throws FileSystemException, URISyntaxException {
+        Assert.assertTrue(VFS.getManager().resolveFile(new URI("res:test.properties")).exists());
+    }
+
+    @Test
+    public void test_resolveFile_URI_S() throws FileSystemException, URISyntaxException {
+        Assert.assertTrue(VFS.getManager().resolveFile(new URI("res:/test.properties")).exists());
+    }
+
+    @Test
+    public void test_resolveFile_URI_SS() throws FileSystemException, URISyntaxException {
+        Assert.assertTrue(VFS.getManager().resolveFile(new URI("res://test.properties")).exists());
+    }
+
+    @Test
+    public void test_resolveFile_URI_SSS() throws FileSystemException, URISyntaxException {
+        Assert.assertTrue(VFS.getManager().resolveFile(new URI("res://test.properties")).exists());
+    }
+
+    @Test
+    public void test_resolveURI_String() throws FileSystemException {
+        Assert.assertTrue(VFS.getManager().resolveURI("res:test.properties").isFile());
+    }
+
+    @Test
+    public void test_resolveURI_String_S() throws FileSystemException {
+        Assert.assertTrue(VFS.getManager().resolveURI("res:/test.properties").isFile());
+    }
+
+    @Test
+    public void test_resolveURI_String_SS() throws FileSystemException {
+        Assert.assertTrue(VFS.getManager().resolveURI("res://test.properties").isFile());
+    }
+
+    @Test
+    public void test_resolveURI_String_SSS() throws FileSystemException {
+        Assert.assertTrue(VFS.getManager().resolveURI("res:///test.properties").isFile());
+    }
+
+    @Test(expected = FileSystemException.class)
+    public void test_resolveURI_String_SSSnull() throws FileSystemException {
+        // Resulting path is empty
+        Assert.assertTrue(VFS.getManager().resolveURI("res:///").isFile());
+    }
+
+    @Test
     public void test_resolveFile_String_1_oe() throws FileSystemException {
         Assert.assertTrue(VFS.getManager().resolveFile("res:test.properties").exists());
     }

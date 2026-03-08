@@ -34,6 +34,48 @@ import org.junit.jupiter.api.Test;
 public class TiffReadTest_OE25Dev extends TiffBaseTest {
 
     @Test
+    public void test() throws Exception {
+        final List<File> images = getTiffImages();
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            assertNotNull(metadata);
+
+            Debug.debug("ICC profile", Imaging.getICCProfile(imageFile));
+
+            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            assertNotNull(imageInfo);
+
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            assertNotNull(image);
+        }
+    }
+
+    @Test
+    public void testReadDirectories() throws Exception {
+        // same as above, but test reading the TIFF directories
+        final List<File> images = getTiffImages();
+        for (final File imageFile : images) {
+            final String name = imageFile.getName();
+            // the "bad offsets" file will cause an exception to be thrown.
+            // It's not relevant to what this test is trying to discover.
+            // So skip it.
+            if(name.toLowerCase().contains("bad")){
+                continue;
+            }
+            final ByteSourceFile byteSource = new ByteSourceFile(imageFile);
+            final TiffReader tiffReader = new TiffReader(true);
+            final TiffContents contents = tiffReader.readDirectories(
+                byteSource,
+                true,
+                FormatCompliance.getDefault());
+                assertNotNull(contents);
+        }
+    }
+
+    @Test
     public void test_1_oe() throws Exception {
         final List<File> images = getTiffImages();
         for (final File imageFile : images) {

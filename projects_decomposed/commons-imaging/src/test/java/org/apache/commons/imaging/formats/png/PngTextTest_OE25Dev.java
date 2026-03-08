@@ -35,6 +35,66 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class PngTextTest_OE25Dev extends PngBaseTest {
 
     @Test
+    public void test() throws Exception {
+        final int width = 1;
+        final int height = 1;
+        final BufferedImage srcImage = new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_ARGB);
+        srcImage.setRGB(0, 0, Color.red.getRGB());
+
+        final PngImagingParameters writeParams = new PngImagingParameters();
+
+        final List<PngText> writeTexts = new ArrayList<>();
+        {
+            final String keyword = "a";
+            final String text = "b";
+            writeTexts.add(new PngText.Text(keyword, text));
+        }
+        {
+            final String keyword = "c";
+            final String text = "d";
+            writeTexts.add(new PngText.Ztxt(keyword, text));
+        }
+        {
+            final String keyword = "e";
+            final String text = "f";
+            final String languageTag = "g";
+            final String translatedKeyword = "h";
+            writeTexts.add(new PngText.Itxt(keyword, text, languageTag,
+                    translatedKeyword));
+        }
+
+        writeParams.setTextChunks(writeTexts);
+
+        final PngImageParser pngImageParser = new PngImageParser();
+        final byte[] bytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(srcImage, baos, writeParams);
+            bytes = baos.toByteArray();
+        }
+
+        final File tempFile = File.createTempFile("temp", ".png");
+        FileUtils.writeByteArrayToFile(tempFile, bytes);
+
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        assertNotNull(imageInfo);
+
+        final List<PngText> readTexts = imageInfo.getTextChunks();
+        assertEquals(readTexts.size(), 3);
+        for (final PngText text : readTexts) {
+            if (text.keyword.equals("a")) {
+                assertEquals(text.text, "b");
+            } else if (text.keyword.equals("c")) {
+                assertEquals(text.text, "d");
+            } else if (text.keyword.equals("e")) {
+                assertEquals(text.text, "f");
+            } else {
+                fail("unknown text chunk.");
+            }
+        }
+    }
+
+    @Test
     public void test_1_oe() throws Exception {
         final int width = 1;
         final int height = 1;

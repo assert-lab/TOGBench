@@ -26,6 +26,18 @@ import org.junit.jupiter.api.Test;
 public class BmpWriterRgbTest_OE25Dev{
 
     @Test
+    public void testGetImageData() {
+        final BmpWriterRgb bmpWriterRgb = new BmpWriterRgb();
+        final BufferedImage bufferedImage = new BufferedImage(2, 2, 5);
+        final byte[] byteArray = bmpWriterRgb.getImageData(bufferedImage);
+
+        assertEquals(24, bmpWriterRgb.getBitsPerPixel());
+        assertEquals(0, bmpWriterRgb.getPaletteSize());
+        assertEquals(16, byteArray.length);
+        assertArrayEquals(new byte[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0}, byteArray);
+    }
+
+    @Test
     public void testGetImageData_1_oe() {
         final BmpWriterRgb bmpWriterRgb = new BmpWriterRgb();
         final BufferedImage bufferedImage = new BufferedImage(2, 2, 5);

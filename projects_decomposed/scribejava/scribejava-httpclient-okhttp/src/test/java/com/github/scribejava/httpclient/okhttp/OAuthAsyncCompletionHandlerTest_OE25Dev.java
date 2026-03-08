@@ -88,6 +88,94 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         assertEquals("All good", future.get());
     }
 
+    @Test
+    public void shouldReleaseLatchOnIOException() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url("http://localhost/").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message("ok")
+                .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
+                .build();
+        handler.onResponse(call, response);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof IOException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                future.get();
+            }
+        });
+    }
+
+    @Test
+    public void shouldReportOAuthException() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        final Request request = new Request.Builder().url("http://localhost/").build();
+        final okhttp3.Response response = new okhttp3.Response.Builder()
+                .request(request)
+                .protocol(Protocol.HTTP_1_1)
+                .code(200)
+                .message("ok")
+                .body(ResponseBody.create(new byte[0], MediaType.get("text/plain")))
+                .build();
+        handler.onResponse(call, response);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                future.get();
+            }
+        });
+    }
+
+    @Test
+    public void shouldReleaseLatchOnCancel() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        future.cancel(true);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof IOException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                future.get();
+            }
+        });
+    }
+
+    @Test
+    public void shouldReleaseLatchOnFailure() {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER, future);
+        call.enqueue(handler);
+
+        handler.onFailure(call, new IOException());
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof IOException);
+        // verify latch is released
+        assertThrows(ExecutionException.class, new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                future.get();
+            }
+        });
+    }
+
     private static class AllGoodResponseConverter implements OAuthRequest.ResponseConverter<String> {
 
         @Override

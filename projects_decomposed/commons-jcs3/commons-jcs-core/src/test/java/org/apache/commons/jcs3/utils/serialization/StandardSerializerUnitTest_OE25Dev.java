@@ -36,18 +36,71 @@ public class StandardSerializerUnitTest_OE25Dev
      *<p>
      * @throws Exception
      */
+    public void testSimpleBackAndForth()
+        throws Exception
+    {
+        // SETUP
+        final StandardSerializer serializer = new StandardSerializer();
+
+        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
+
+        // DO WORK
+        final String after = (String) serializer.deSerialize( serializer.serialize( before ), null );
+
+        // VERIFY
+        assertEquals( "Before and after should be the same.", before, after );
+    }
 
     /**
      * Test serialization with a null object. Verify that we don't get an error.
      *<p>
      * @throws Exception
      */
+    public void testNullInput()
+        throws Exception
+    {
+        // SETUP
+        final StandardSerializer serializer = new StandardSerializer();
+
+        final String before = null;
+
+        // DO WORK
+        final byte[] serialized = serializer.serialize( before );
+        //System.out.println( "testNullInput " + serialized );
+
+        final String after = (String) serializer.deSerialize( serialized, null );
+        //System.out.println( "testNullInput " + after );
+
+        // VERIFY
+        assertNull( "Should have nothing.", after );
+    }
 
     /**
      * Test simple back and forth with a string.
      *<p>
      * @throws Exception
      */
+    public void testBigStringBackAndForth()
+        throws Exception
+    {
+        // SETUP
+        final StandardSerializer serializer = new StandardSerializer();
+
+        final String string = "This is my big string ABCDEFGH";
+        final StringBuilder sb = new StringBuilder();
+        sb.append( string );
+        for ( int i = 0; i < 4; i++ )
+        {
+            sb.append( " " + i + sb.toString() ); // big string
+        }
+        final String before = sb.toString();
+
+        // DO WORK
+        final String after = (String) serializer.deSerialize( serializer.serialize( before ), null );
+
+        // VERIFY
+        assertEquals( "Before and after should be the same.", before, after );
+    }
 
     public void testSimpleBackAndForth_1_oe()
         throws Exception

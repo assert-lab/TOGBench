@@ -168,6 +168,64 @@ class CutAngleTest_OE25Dev {
     }
 
     @Test
+    void testContains() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertFalse(pt.contains(Point1S.ZERO));
+        Assertions.assertFalse(pt.contains(Point1S.of(Angle.TWO_PI)));
+
+        Assertions.assertFalse(pt.contains(Point1S.of(Math.PI)));
+        Assertions.assertFalse(pt.contains(Point1S.of(0.25 * Math.PI)));
+        Assertions.assertFalse(pt.contains(Point1S.of(-0.25 * Math.PI)));
+
+        Assertions.assertTrue(pt.contains(Point1S.of(Angle.PI_OVER_TWO)));
+        Assertions.assertTrue(pt.contains(Point1S.of(Angle.PI_OVER_TWO + 1e-11)));
+        Assertions.assertTrue(pt.contains(Point1S.of(2.5 * Math.PI)));
+        Assertions.assertTrue(pt.contains(Point1S.of(-3.5 * Math.PI)));
+    }
+
+    @Test
+    void testReverse() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
+
+        // act
+        final CutAngle result = pt.reverse();
+
+        // assert
+        checkCutAngle(result, Angle.PI_OVER_TWO, true);
+        Assertions.assertSame(TEST_PRECISION, result.getPrecision());
+
+        checkCutAngle(result.reverse(), Angle.PI_OVER_TWO, false);
+    }
+
+    @Test
+    void testProject() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
+
+        // act/assert
+        for (double az = -Angle.TWO_PI; az <= Angle.TWO_PI; az += 0.2) {
+            Assertions.assertEquals(Angle.PI_OVER_TWO, pt.project(Point1S.of(az)).getAzimuth(), TEST_EPS);
+        }
+    }
+
+    @Test
+    void testSimilarOrientation() {
+        // arrange
+        final CutAngle a = CutAngles.createPositiveFacing(0.0, TEST_PRECISION);
+        final CutAngle b = CutAngles.createNegativeFacing(0.0, TEST_PRECISION);
+        final CutAngle c = CutAngles.createPositiveFacing(-Angle.PI_OVER_TWO, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertTrue(a.similarOrientation(a));
+        Assertions.assertFalse(a.similarOrientation(b));
+        Assertions.assertTrue(a.similarOrientation(c));
+    }
+
+    @Test
     void testTransform_rotate() {
         // arrange
         final Transform1S transform = Transform1S.createRotation(Angle.PI_OVER_TWO);
@@ -202,6 +260,104 @@ class CutAngleTest_OE25Dev {
     }
 
     @Test
+    void testSpan() {
+        // arrange
+        final CutAngle pt = CutAngles.fromPointAndDirection(Point1S.of(1.0), false, TEST_PRECISION);
+
+        // act
+        final HyperplaneConvexSubset<Point1S> result = pt.span();
+
+        // assert
+        Assertions.assertSame(pt, result.getHyperplane());
+    }
+
+    @Test
+    void testEq() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final CutAngle a = CutAngles.fromPointAndDirection(Point1S.ZERO, true, precision);
+
+        final CutAngle b = CutAngles.fromPointAndDirection(Point1S.PI, true, precision);
+        final CutAngle c = CutAngles.fromPointAndDirection(Point1S.ZERO, false, precision);
+        final CutAngle d = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
+
+        final CutAngle e = CutAngles.fromPointAndDirection(Point1S.ZERO, true, precision);
+        final CutAngle f = CutAngles.fromPointAndDirection(Point1S.of(Angle.TWO_PI), true, precision);
+        final CutAngle g = CutAngles.fromPointAndDirection(Point1S.of(1e-4), true, precision);
+        final CutAngle h = CutAngles.fromPointAndDirection(Point1S.of(-1e-4), true, precision);
+
+        // act/assert
+        Assertions.assertTrue(a.eq(a, precision));
+
+        Assertions.assertFalse(a.eq(b, precision));
+        Assertions.assertFalse(a.eq(c, precision));
+
+        Assertions.assertTrue(a.eq(d, precision));
+        Assertions.assertTrue(a.eq(e, precision));
+        Assertions.assertTrue(a.eq(f, precision));
+        Assertions.assertTrue(a.eq(g, precision));
+        Assertions.assertTrue(a.eq(h, precision));
+    }
+
+    @Test
+    void testHashCode() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final CutAngle a = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
+        final CutAngle b = CutAngles.fromPointAndDirection(Point1S.PI, true, TEST_PRECISION);
+        final CutAngle c = CutAngles.fromPointAndDirection(Point1S.ZERO, false, TEST_PRECISION);
+        final CutAngle d = CutAngles.fromPointAndDirection(Point1S.ZERO, true, precision);
+        final CutAngle e = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
+
+        final int hash = a.hashCode();
+
+        // act/assert
+        Assertions.assertEquals(hash, a.hashCode());
+
+        Assertions.assertNotEquals(hash, b.hashCode());
+        Assertions.assertNotEquals(hash, c.hashCode());
+        Assertions.assertNotEquals(hash, d.hashCode());
+
+        Assertions.assertEquals(hash, e.hashCode());
+    }
+
+    @Test
+    void testEquals() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
+
+        final CutAngle a = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
+        final CutAngle b = CutAngles.fromPointAndDirection(Point1S.PI, true, TEST_PRECISION);
+        final CutAngle c = CutAngles.fromPointAndDirection(Point1S.ZERO, false, TEST_PRECISION);
+        final CutAngle d = CutAngles.fromPointAndDirection(Point1S.ZERO, true, precision);
+        final CutAngle e = CutAngles.fromPointAndDirection(Point1S.ZERO, true, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertSimpleEqualsCases(a);
+
+        Assertions.assertNotEquals(a, b);
+        Assertions.assertNotEquals(a, c);
+        Assertions.assertNotEquals(a, d);
+
+        Assertions.assertEquals(a, e);
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final CutAngle pt = CutAngles.createPositiveFacing(0.0, TEST_PRECISION);
+
+        // act
+        final String str = pt.toString();
+
+        // assert
+        Assertions.assertTrue(str.startsWith("CutAngle["));
+        Assertions.assertTrue(str.contains("point= ") && str.contains("positiveFacing= "));
+    }
+
+    @Test
     void testSubset_split() {
         // arrange
         final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-3);
@@ -229,6 +385,81 @@ class CutAngleTest_OE25Dev {
     }
 
     @Test
+    void testSubset_simpleMethods() {
+        // arrange
+        final CutAngle pt = CutAngles.createPositiveFacing(1, TEST_PRECISION);
+        final HyperplaneConvexSubset<Point1S> sub = pt.span();
+
+        // act/assert
+        Assertions.assertSame(pt, sub.getHyperplane());
+        Assertions.assertFalse(sub.isFull());
+        Assertions.assertFalse(sub.isEmpty());
+        Assertions.assertFalse(sub.isInfinite());
+        Assertions.assertTrue(sub.isFinite());
+        Assertions.assertEquals(0.0, sub.getSize(), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point1S.of(1), sub.getCentroid(), TEST_EPS);
+
+        final List<? extends HyperplaneConvexSubset<Point1S>> list = sub.toConvex();
+        Assertions.assertEquals(1, list.size());
+        Assertions.assertSame(sub, list.get(0));
+    }
+
+    @Test
+    void testSubset_classify() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final CutAngle pt = CutAngles.createPositiveFacing(1, precision);
+        final HyperplaneConvexSubset<Point1S> sub = pt.span();
+
+        // act/assert
+        Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Point1S.of(0.95)));
+        Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Point1S.of(1)));
+        Assertions.assertEquals(RegionLocation.BOUNDARY, sub.classify(Point1S.of(1.05)));
+
+        Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Point1S.of(1.11)));
+        Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Point1S.of(0.89)));
+
+        Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Point1S.of(-3)));
+        Assertions.assertEquals(RegionLocation.OUTSIDE, sub.classify(Point1S.of(10)));
+    }
+
+    @Test
+    void testSubset_contains() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final CutAngle pt = CutAngles.createPositiveFacing(1, precision);
+        final HyperplaneConvexSubset<Point1S> sub = pt.span();
+
+        // act/assert
+        Assertions.assertTrue(sub.contains(Point1S.of(0.95)));
+        Assertions.assertTrue(sub.contains(Point1S.of(1)));
+        Assertions.assertTrue(sub.contains(Point1S.of(1.05)));
+
+        Assertions.assertFalse(sub.contains(Point1S.of(1.11)));
+        Assertions.assertFalse(sub.contains(Point1S.of(0.89)));
+
+        Assertions.assertFalse(sub.contains(Point1S.of(-3)));
+        Assertions.assertFalse(sub.contains(Point1S.of(10)));
+    }
+
+    @Test
+    void testSubset_closestContained() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final CutAngle pt = CutAngles.createPositiveFacing(1, precision);
+        final HyperplaneConvexSubset<Point1S> sub = pt.span();
+
+        final Point1S expected = Point1S.of(1);
+
+        // act/assert
+        Assertions.assertEquals(expected, sub.closest(Point1S.ZERO));
+        Assertions.assertEquals(expected, sub.closest(Point1S.of(Angle.PI_OVER_TWO)));
+        Assertions.assertEquals(expected, sub.closest(Point1S.PI));
+        Assertions.assertEquals(expected, sub.closest(Point1S.of(-Angle.PI_OVER_TWO)));
+        Assertions.assertEquals(expected, sub.closest(Point1S.of(Angle.TWO_PI)));
+    }
+
+    @Test
     void testSubset_transform() {
         // arrange
         final CutAngle pt = CutAngles.fromPointAndDirection(Point1S.of(Angle.PI_OVER_TWO), true, TEST_PRECISION);
@@ -240,6 +471,37 @@ class CutAngleTest_OE25Dev {
 
         // assert
         checkCutAngle((CutAngle) result.getHyperplane(), Angle.PI_OVER_TWO, false);
+    }
+
+    @Test
+    void testSubset_reverse() {
+        // arrange
+        final CutAngle pt = CutAngles.createPositiveFacing(2.0, TEST_PRECISION);
+        final HyperplaneConvexSubset<Point1S> sub = pt.span();
+
+        // act
+        final HyperplaneConvexSubset<Point1S> result = sub.reverse();
+
+        // assert
+        Assertions.assertEquals(2.0, ((CutAngle) result.getHyperplane()).getAzimuth(), TEST_EPS);
+        Assertions.assertFalse(((CutAngle) result.getHyperplane()).isPositiveFacing());
+
+        Assertions.assertEquals(sub.getHyperplane(), result.reverse().getHyperplane());
+    }
+
+    @Test
+    void testSubset_toString() {
+        // arrange
+        final CutAngle pt = CutAngles.createPositiveFacing(2, TEST_PRECISION);
+        final HyperplaneConvexSubset<Point1S> sub = pt.span();
+
+        // act
+        final String str = sub.toString();
+
+        //assert
+        Assertions.assertTrue(str.contains("CutAngleConvexSubset["));
+        Assertions.assertTrue(str.contains("point= "));
+        Assertions.assertTrue(str.contains("positiveFacing= "));
     }
 
     private static void checkCutAngle(final CutAngle angle, final double az, final boolean positiveFacing) {

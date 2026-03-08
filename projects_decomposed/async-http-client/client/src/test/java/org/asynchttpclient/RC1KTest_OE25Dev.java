@@ -87,6 +87,23 @@ public class RC1KTest_OE25Dev extends AbstractBasicTest {
     };
   }
 
+  @Test(timeOut = 10 * 60 * 1000)
+  public void rc10kProblem() throws IOException, ExecutionException, InterruptedException {
+    try (AsyncHttpClient ahc = asyncHttpClient(config().setMaxConnectionsPerHost(C1K).setKeepAlive(true))) {
+      List<Future<Integer>> resps = new ArrayList<>(C1K);
+      int i = 0;
+      while (i < C1K) {
+        resps.add(ahc.prepareGet(String.format("http://localhost:%d/%d", ports[i % SRV_COUNT], i)).execute(new MyAsyncHandler(i++)));
+      }
+      i = 0;
+      for (Future<Integer> fResp : resps) {
+        Integer resp = fResp.get();
+        assertNotNull(resp);
+        assertEquals(resp.intValue(), i++);
+      }
+    }
+  }
+
   private class MyAsyncHandler implements AsyncHandler<Integer> {
     private String arg;
     private AtomicInteger result = new AtomicInteger(-1);

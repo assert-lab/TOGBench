@@ -54,6 +54,53 @@ public class ByteSourceImageTest_OE25Dev extends ByteSourceTest {
         return getTestImages().stream();
     }
 
+    @ParameterizedTest
+    @MethodSource("data")
+    public void test(final File imageFile) throws Exception {
+        Debug.debug("imageFile", imageFile);
+        assertNotNull(imageFile);
+
+        final byte[] imageFileBytes = FileUtils.readFileToByteArray(imageFile);
+        assertNotNull(imageFileBytes);
+        assertEquals(imageFileBytes.length, imageFile.length());
+
+        if (imageFile.getName().toLowerCase().endsWith(".ico")
+                || imageFile.getName().toLowerCase().endsWith(".tga")
+                || imageFile.getName().toLowerCase().endsWith(".jb2")
+                || imageFile.getName().toLowerCase().endsWith(".pcx")
+                || imageFile.getName().toLowerCase().endsWith(".dcx")
+                || imageFile.getName().toLowerCase().endsWith(".psd")
+                || imageFile.getName().toLowerCase().endsWith(".wbmp")
+                || imageFile.getName().toLowerCase().endsWith(".xbm")
+                || imageFile.getName().toLowerCase().endsWith(".xpm")) {
+            // these formats can't be parsed without a file name hint.
+            // they have ambiguous "magic number" signatures.
+            return;
+        }
+
+        checkGuessFormat(imageFile, imageFileBytes);
+
+        if (imageFile.getName().toLowerCase().endsWith(".png")
+                && imageFile.getParentFile().getName().equalsIgnoreCase("pngsuite")
+                && imageFile.getName().toLowerCase().startsWith("x")) {
+            return;
+        }
+
+        checkGetICCProfileBytes(imageFile, imageFileBytes);
+
+        if (!imageFile.getParentFile().getName().toLowerCase().equals("@broken")) {
+            checkGetImageInfo(imageFile, imageFileBytes);
+        }
+
+        checkGetImageSize(imageFile, imageFileBytes);
+
+        final ImageFormat imageFormat = Imaging.guessFormat(imageFile);
+        if (ImageFormats.JPEG != imageFormat
+                && ImageFormats.UNKNOWN != imageFormat) {
+            checkGetBufferedImage(imageFile, imageFileBytes);
+        }
+    }
+
     public void checkGetBufferedImage(final File file, final byte[] bytes) throws Exception {
         final BufferedImage bufferedImage = Imaging.getBufferedImage(file);
         assertNotNull(bufferedImage);

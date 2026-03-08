@@ -46,6 +46,15 @@ public class EncryptingSerializerUnitTest_OE25Dev
      * @throws ClassNotFoundException
      * @throws IOException
      */
+    public void testDeserialize_NullInput()
+        throws IOException, ClassNotFoundException
+    {
+        // DO WORK
+        final Object result = serializer.deSerialize( null, null );
+
+        // VERIFY
+        assertNull( "Should have nothing.", result );
+    }
 
     /**
      * Test simple back and forth with a string.
@@ -54,6 +63,16 @@ public class EncryptingSerializerUnitTest_OE25Dev
      * <p>
      * @throws Exception on error
      */
+    public void testSimpleBackAndForth()
+        throws Exception
+    {
+        // DO WORK
+        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
+        final String after = serializer.deSerialize( serializer.serialize( before ), null );
+
+        // VERIFY
+        assertEquals( "Before and after should be the same.", before, after );
+    }
 
     /**
      * Test simple back and forth with a string.
@@ -62,18 +81,52 @@ public class EncryptingSerializerUnitTest_OE25Dev
      * <p>
      * @throws Exception on error
      */
+    public void testGCMBackAndForth()
+        throws Exception
+    {
+        this.serializer.setAesCipherTransformation("AES/GCM/NoPadding");
+
+        // DO WORK
+        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
+        final String after = serializer.deSerialize( serializer.serialize( before ), null );
+
+        // VERIFY
+        assertEquals( "Before and after should be the same.", before, after );
+    }
 
     /**
      * Test different key.
      * <p>
      * @throws Exception on error
      */
+    public void testDifferentKey()
+        throws Exception
+    {
+        // DO WORK
+        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
+        byte[] serialized = serializer.serialize(before);
+        serializer.setPreSharedKey("another_key");
+
+        assertThrows(IOException.class, () -> serializer.deSerialize(serialized, null));
+    }
 
     /**
      * Test serialization with a null object. Verify that we don't get an error.
      * <p>
      * @throws Exception on error
      */
+    public void testSerialize_NullInput()
+        throws Exception
+    {
+        final String before = null;
+
+        // DO WORK
+        final byte[] serialized = serializer.serialize( before );
+        final String after = (String) serializer.deSerialize( serialized, null );
+
+        // VERIFY
+        assertNull( "Should have nothing. after =" + after, after );
+    }
 
     public void testDeserialize_NullInput_1_oe()
         throws IOException, ClassNotFoundException

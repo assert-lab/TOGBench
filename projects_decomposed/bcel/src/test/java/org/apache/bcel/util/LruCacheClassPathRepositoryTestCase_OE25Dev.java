@@ -31,6 +31,41 @@ import org.junit.Test;
  */
 public class LruCacheClassPathRepositoryTestCase_OE25Dev {
 
+    @Test
+    public void testCacheEviction() throws ClassNotFoundException, IOException {
+        try (final ClassPath classPath = new ClassPath("")) {
+            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class1 = repository.loadClass("java.lang.String");
+            Assert.assertNotNull(class1);
+            final JavaClass class2 = repository.loadClass("java.lang.Long");
+            Assert.assertNotNull(class2);
+            final JavaClass class3 = repository.loadClass("java.lang.Integer"); // Evicts class1
+            Assert.assertNotNull(class3);
+
+            assertNull(repository.findClass("java.lang.String"));
+            final JavaClass cachedClass2 = repository.findClass("java.lang.Long");
+            assertEquals(class2, cachedClass2);
+        }
+    }
+
+    @Test
+    public void testLeastRecentlyUsedEviction() throws ClassNotFoundException, IOException {
+        try (final ClassPath classPath = new ClassPath("")) {
+            final LruCacheClassPathRepository repository = new LruCacheClassPathRepository(classPath, 2);
+            final JavaClass class1 = repository.loadClass("java.lang.String");
+            Assert.assertNotNull(class1);
+            final JavaClass class2 = repository.loadClass("java.lang.Long");
+            Assert.assertNotNull(class2);
+            repository.findClass("java.lang.String"); // Uses class1
+            final JavaClass class3 = repository.loadClass("java.lang.Integer"); // Evicts class2
+            Assert.assertNotNull(class3);
+
+            assertNull(repository.findClass("java.lang.Long"));
+            final JavaClass cachedClass1 = repository.findClass("java.lang.String");
+            assertEquals(class1, cachedClass1);
+        }
+    }
+
     @Test(expected = IllegalArgumentException.class)
     public void testZeroCacheSize() throws IOException {
         try (final ClassPath classPath = new ClassPath("")) {

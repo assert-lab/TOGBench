@@ -173,6 +173,28 @@ public class TestEventListenerList_OE25Dev {
     /**
      * Tests whether the content of another list can be added.
      */
+    @Test
+    public void testAddAll() {
+        final EventListener<EventBase> l1 = new ListenerTestImpl();
+        final EventListener<EventBase> l2 = new ListenerTestImpl();
+        final EventListener<EventBase> l3 = new ListenerTestImpl();
+        list.addEventListener(typeBase, l1);
+        final EventListenerList list2 = new EventListenerList();
+        list2.addEventListener(typeSub1, l2);
+        list2.addEventListener(typeBase, l3);
+
+        list.addAll(list2);
+        final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
+        EventListenerRegistrationData<?> reg = it.next();
+        assertEquals("Wrong type (1)", typeBase, reg.getEventType());
+        assertEquals("Wrong listener (1)", l1, reg.getListener());
+        reg = it.next();
+        assertEquals("Wrong type (2)", typeSub1, reg.getEventType());
+        assertEquals("Wrong listener (2)", l2, reg.getListener());
+        reg = it.next();
+        assertEquals("Wrong type (3)", typeBase, reg.getEventType());
+        assertEquals("Wrong listener (3)", l3, reg.getListener());
+    }
 
     /**
      * Tries to add the content of a null list.
@@ -185,6 +207,14 @@ public class TestEventListenerList_OE25Dev {
     /**
      * Tests whether the list can be cleared.
      */
+    @Test
+    public void testClear() {
+        list.addEventListener(typeSub1, new ListenerTestImpl());
+        list.addEventListener(typeSub2, new ListenerTestImpl());
+
+        list.clear();
+        assertTrue("Got listeners", list.getRegistrations().isEmpty());
+    }
 
     /**
      * Tests that a null event is handled by the iterator.
@@ -219,6 +249,21 @@ public class TestEventListenerList_OE25Dev {
     /**
      * Tests whether event listener registrations derived from a super type can be queried.
      */
+    @Test
+    public void testGetEventListenerRegistrationsForSuperType() {
+        final ListenerTestImpl l1 = new ListenerTestImpl();
+        final ListenerTestImpl l2 = new ListenerTestImpl();
+        final EventListener<Event> l3 = EasyMock.createMock(EventListener.class);
+        list.addEventListener(typeSub1, l1);
+        list.addEventListener(Event.ANY, l3);
+        list.addEventListener(typeBase, l2);
+
+        final List<EventListenerRegistrationData<? extends EventBase>> regs = list.getRegistrationsForSuperType(typeBase);
+        final Iterator<EventListenerRegistrationData<? extends EventBase>> iterator = regs.iterator();
+        assertEquals("Wrong listener 1", l1, iterator.next().getListener());
+        assertEquals("Wrong listener 2", l2, iterator.next().getListener());
+        assertFalse("Too many elements", iterator.hasNext());
+    }
 
     /**
      * Tests whether the base type is taken into account when querying for event listeners.
@@ -283,10 +328,26 @@ public class TestEventListenerList_OE25Dev {
     /**
      * Tests whether event listeners for a null type can be queried.
      */
+    @Test
+    public void testGetEventListenersNull() {
+        assertTrue("Got listeners", fetchElements(list.getEventListeners(null)).isEmpty());
+    }
 
     /**
      * Tests whether all event listener registrations can be queried.
      */
+    @Test
+    public void testGetRegistrations() {
+        final EventListenerRegistrationData<EventSub1> reg1 = new EventListenerRegistrationData<>(typeSub1, new ListenerTestImpl());
+        final EventListenerRegistrationData<EventSub2> reg2 = new EventListenerRegistrationData<>(typeSub2, new ListenerTestImpl());
+        list.addEventListener(reg1);
+        list.addEventListener(reg2);
+
+        final List<EventListenerRegistrationData<?>> registrations = list.getRegistrations();
+        assertEquals("Wrong number of registrations", 2, registrations.size());
+        assertTrue("Registration 1 not found", registrations.contains(reg1));
+        assertTrue("Registration 2 not found", registrations.contains(reg2));
+    }
 
     /**
      * Tests that the list with registration information cannot be modified.
@@ -405,26 +466,59 @@ public class TestEventListenerList_OE25Dev {
     /**
      * Tests whether an event listener can be removed.
      */
+    @Test
+    public void testRemoveEventListenerExisting() {
+        final ListenerTestImpl listener = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener);
+
+        assertTrue("Wrong result", list.removeEventListener(typeSub1, listener));
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener.assertNoEvent();
+    }
 
     /**
      * Tests removeEventListener() if another event type is specified for an existing listener.
      */
+    @Test
+    public void testRemoveEventListenerNonExistingEventType() {
+        final ListenerTestImpl listener = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener);
+
+        assertFalse("Wrong result", list.removeEventListener(typeBase, listener));
+    }
 
     /**
      * Tests removeEventListener() for a non-existing event listener.
      */
+    @Test
+    public void testRemoveEventListenerNonExistingListener() {
+        list.addEventListener(typeBase, new ListenerTestImpl());
+        assertFalse("Wrong result", list.removeEventListener(typeBase, new ListenerTestImpl()));
+    }
 
     /**
      * Tests that removeEventListener() can handle a null listener.
      */
+    @Test
+    public void testRemoveEventListenerNullListener() {
+        assertFalse("Wrong result", list.removeEventListener(typeBase, null));
+    }
 
     /**
      * Tests that removeEventListener() can handle a null registration object.
      */
+    @Test
+    public void testRemoveEventListenerNullRegistration() {
+        assertFalse("Wrong result", list.removeEventListener(null));
+    }
 
     /**
      * Tests that removeEventListener() can handle a null event type.
      */
+    @Test
+    public void testRemoveEventListenerNullType() {
+        assertFalse("Wrong result", list.removeEventListener(null, new ListenerTestImpl()));
+    }
 
     /**
      * Tests that events of a base type do not cause a listener to be invoked.
@@ -467,7 +561,6 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
-        // removed other assertion
         assertEquals("Wrong listener (1)", l1, reg.getListener());
     }
 
@@ -484,8 +577,6 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
-        // removed other assertion
-        // removed other assertion
         reg = it.next();
         assertEquals("Wrong type (2)", typeSub1, reg.getEventType());
     }
@@ -503,10 +594,7 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
-        // removed other assertion
-        // removed other assertion
         reg = it.next();
-        // removed other assertion
         assertEquals("Wrong listener (2)", l2, reg.getListener());
     }
 
@@ -523,11 +611,7 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
-        // removed other assertion
-        // removed other assertion
         reg = it.next();
-        // removed other assertion
-        // removed other assertion
         reg = it.next();
         assertEquals("Wrong type (3)", typeBase, reg.getEventType());
     }
@@ -545,13 +629,8 @@ public class TestEventListenerList_OE25Dev {
         list.addAll(list2);
         final Iterator<EventListenerRegistrationData<?>> it = list.getRegistrations().iterator();
         EventListenerRegistrationData<?> reg = it.next();
-        // removed other assertion
-        // removed other assertion
         reg = it.next();
-        // removed other assertion
-        // removed other assertion
         reg = it.next();
-        // removed other assertion
         assertEquals("Wrong listener (3)", l3, reg.getListener());
     }
 
@@ -580,7 +659,8 @@ public class TestEventListenerList_OE25Dev {
 
     @Test
     public void testGetEventListenersNull_1_oe() {
-        assertTrue("Got listeners", fetchElements(list.getEventListeners(null)).isEmpty());
+        boolean a = fetchElements(list.getEventListeners(null)).isEmpty();
+        assertTrue("Got listeners", a);
     }
 
     @Test
@@ -602,7 +682,6 @@ public class TestEventListenerList_OE25Dev {
         list.addEventListener(reg2);
 
         final List<EventListenerRegistrationData<?>> registrations = list.getRegistrations();
-        // removed other assertion
         assertTrue("Registration 1 not found", registrations.contains(reg1));
     }
 
@@ -614,8 +693,6 @@ public class TestEventListenerList_OE25Dev {
         list.addEventListener(reg2);
 
         final List<EventListenerRegistrationData<?>> registrations = list.getRegistrations();
-        // removed other assertion
-        // removed other assertion
         assertTrue("Registration 2 not found", registrations.contains(reg2));
     }
 
@@ -643,17 +720,20 @@ public class TestEventListenerList_OE25Dev {
 
     @Test
     public void testRemoveEventListenerNullListener_1_oe() {
-        assertFalse("Wrong result", list.removeEventListener(typeBase, null));
+        boolean a = list.removeEventListener(typeBase, null);
+        assertFalse("Wrong result", a);
     }
 
     @Test
     public void testRemoveEventListenerNullRegistration_1_oe() {
-        assertFalse("Wrong result", list.removeEventListener(null));
+        boolean a = list.removeEventListener(null);
+        assertFalse("Wrong result", a);
     }
 
     @Test
     public void testRemoveEventListenerNullType_1_oe() {
-        assertFalse("Wrong result", list.removeEventListener(null, new ListenerTestImpl()));
+        boolean a = list.removeEventListener(null, new ListenerTestImpl());
+        assertFalse("Wrong result", a);
     }
 
 }

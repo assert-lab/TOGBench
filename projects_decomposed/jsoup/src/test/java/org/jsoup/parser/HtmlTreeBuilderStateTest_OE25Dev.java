@@ -41,6 +41,25 @@ public class HtmlTreeBuilderStateTest_OE25Dev {
         }
     }
 
+    @Test
+    public void ensureArraysAreSorted() {
+        List<Object[]> constants = findConstantArrays(Constants.class);
+        ensureSorted(constants);
+        assertEquals(38, constants.size());
+    }
+
+    @Test public void ensureTagSearchesAreKnownTags() {
+        List<Object[]> constants = findConstantArrays(Constants.class);
+        for (Object[] constant : constants) {
+            String[] tagNames = (String[]) constant;
+            for (String tagName : tagNames) {
+                if (StringUtil.inSorted(tagName, InBodyStartInputAttribs))
+                    continue; // odd one out in the constant
+                assertTrue(Tag.isKnownTag(tagName), String.format("Unknown tag name: %s", tagName));
+            }
+        }
+    }
+
 
     @Test
     public void nestedAnchorElements01() {

@@ -267,6 +267,61 @@ class CReferenceTest_OE25Dev {
     }
 
     @Test
+    void testAcos() {
+        assertOperation("acos", Complex::acos, 2);
+    }
+
+    @Test
+    void testAcosh() {
+        assertOperation("acosh", Complex::acosh, 2);
+    }
+
+    @Test
+    void testAsinh() {
+        // Odd function: negative real cases defined by positive real cases
+        assertOperation("asinh", Complex::asinh, 3);
+    }
+
+    @Test
+    void testAtanh() {
+        // Odd function: negative real cases defined by positive real cases
+        assertOperation("atanh", Complex::atanh, 1);
+    }
+
+    @Test
+    void testCosh() {
+        // Even function: negative real cases defined by positive real cases
+        assertOperation("cosh", Complex::cosh, 2);
+    }
+
+    @Test
+    void testSinh() {
+        // Odd function: negative real cases defined by positive real cases
+        assertOperation("sinh", Complex::sinh, 2);
+    }
+
+    @Test
+    void testTanh() {
+        // Odd function: negative real cases defined by positive real cases
+        assertOperation("tanh", Complex::tanh, 2);
+    }
+
+    @Test
+    void testExp() {
+        assertOperation("exp", Complex::exp, 2);
+    }
+
+    @Test
+    void testLog() {
+        assertOperation("log", Complex::log, 1);
+    }
+
+    @Test
+    void testSqrt() {
+        assertOperation("sqrt", Complex::sqrt, 1);
+    }
+
+    @Test
     void testMultiply() {
         assertBiOperation("multiply", Complex::multiply, 0);
     }

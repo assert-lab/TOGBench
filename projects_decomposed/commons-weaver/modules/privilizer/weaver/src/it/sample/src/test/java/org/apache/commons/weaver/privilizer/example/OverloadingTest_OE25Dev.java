@@ -35,6 +35,21 @@ public class OverloadingTest_OE25Dev {
     }
 
     @Test
+    public void testNoArgs() {
+        assertEquals("foo-value", overloading.get());
+    }
+
+    @Test
+    public void testStringArg() {
+        assertEquals("bar-value", overloading.get("bar"));
+    }
+
+    @Test
+    public void testCharishArgs() {
+        assertEquals("baz-value", overloading.get('b', 'a', (short) 'z'));
+    }
+
+    @Test
     public void testNoArgs_1_oe() {
         assertEquals("foo-value", overloading.get());
     }

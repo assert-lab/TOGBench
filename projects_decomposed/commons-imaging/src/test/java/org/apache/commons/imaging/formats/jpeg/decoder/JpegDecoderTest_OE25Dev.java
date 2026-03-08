@@ -34,6 +34,15 @@ public class JpegDecoderTest_OE25Dev {
     /**
      * Test that a bad file does not hang or take too long to be processed.
      */
+    @Test
+    public void testDecodeBadFile() {
+        // From IMAGING-220
+        final File inputFile = new File(
+                JpegDecoderTest_OE25Dev.class.getResource("/IMAGING-220/timeout-48eb4251935b4ca8b26d1859ea525c1b42ae0c78.jpeg")
+                        .getFile());
+        final ByteSourceFile byteSourceFile = new ByteSourceFile(inputFile);
+        Assertions.assertThrows(ImageReadException.class, () -> new JpegDecoder().decode(byteSourceFile));
+    }
 
     @Test
     public void testDecodeBadFile_1_oe() throws Exception {

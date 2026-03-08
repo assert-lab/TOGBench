@@ -76,6 +76,19 @@ public class CompositeCacheWriterTest_OE25Dev
     private Cache<String, String> cache;
 
     @Test
+    public void checkComposite()
+    {
+        cache.put("a", "b");
+        assertEquals("b", copy1.get("a"));
+        assertEquals("b", copy2.get("a"));
+        assertEquals(1, copy1.size());
+        assertEquals(1, copy2.size());
+        cache.remove("a");
+        assertTrue(copy1.isEmpty());
+        assertTrue(copy2.isEmpty());
+    }
+
+    @Test
     public void checkComposite_1_oe()
     {
         cache.put("a", "b");

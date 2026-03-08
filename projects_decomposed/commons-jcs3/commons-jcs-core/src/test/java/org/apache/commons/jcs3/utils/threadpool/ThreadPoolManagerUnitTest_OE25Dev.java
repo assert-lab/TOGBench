@@ -39,15 +39,50 @@ public class ThreadPoolManagerUnitTest_OE25Dev
     /**
      * Make sure it can load a default cache.ccf file
      */
+    public void testDefaultConfig()
+    {
+        final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
+        ThreadPoolManager.setProps( props );
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        assertNotNull( mgr );
+
+        final ExecutorService pool = mgr.getExecutorService( "test1" );
+        assertNotNull( pool );
+    }
 
     /**
      * Make sure it can load a certain configuration
      */
+    public void testSpecialConfig()
+    {
+        final Properties props = PropertyLoader.loadProperties( "thread_pool.properties" );
+        ThreadPoolManager.setProps( props );
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        assertNotNull( mgr );
+
+        final ExecutorService pool = mgr.getExecutorService( "aborttest" );
+        assertNotNull( pool );
+    }
 
     /**
      * Get a couple pools by name and then see if they are in the list.
      *
      */
+    public void testGetPoolNames()
+    {
+        final ThreadPoolManager mgr = ThreadPoolManager.getInstance();
+        assertNotNull( mgr );
+
+        final String poolName1 = "testGetPoolNames1";
+        mgr.getExecutorService( poolName1 );
+
+        final String poolName2 = "testGetPoolNames2";
+        mgr.getExecutorService( poolName2 );
+
+        final Set<String> names = mgr.getPoolNames();
+        assertTrue( "Should have name in list.", names.contains( poolName1 ) );
+        assertTrue( "Should have name in list.", names.contains( poolName2 ) );
+    }
 
     public void testDefaultConfig_1_oe()
     {

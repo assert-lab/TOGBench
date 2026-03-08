@@ -46,18 +46,53 @@ public class TestConfigurationLookup_OE25Dev {
     /**
      * Tests lookup() for a complex property value.
      */
+    @Test
+    public void testLookupComplex() {
+        final int count = 5;
+        final Configuration conf = new BaseConfiguration();
+        for (int i = 0; i < count; i++) {
+            conf.addProperty(VAR, String.valueOf(VALUE) + i);
+        }
+        final ConfigurationLookup lookup = new ConfigurationLookup(conf);
+        final Collection<?> col = (Collection<?>) lookup.lookup(VAR);
+        assertEquals("Wrong number of elements", count, col.size());
+        final Iterator<?> it = col.iterator();
+        for (int i = 0; i < count; i++) {
+            assertEquals("Wrong element at " + i, String.valueOf(VALUE) + i, it.next());
+        }
+    }
 
     /**
      * Tests lookup() if the variable cannot be resolved.
      */
+    @Test
+    public void testLookupNotFound() {
+        final Configuration conf = new BaseConfiguration();
+        final ConfigurationLookup lookup = new ConfigurationLookup(conf);
+        assertNull("Got a value", lookup.lookup(VAR));
+    }
 
     /**
      * Tests lookup() if the variable cannot be resolved, and the configuration throws an exception.
      */
+    @Test
+    public void testLookupNotFoundEx() {
+        final BaseConfiguration conf = new BaseConfiguration();
+        conf.setThrowExceptionOnMissing(true);
+        final ConfigurationLookup lookup = new ConfigurationLookup(conf);
+        assertNull("Got a value", lookup.lookup(VAR));
+    }
 
     /**
      * Tests whether an existing variable can be resolved.
      */
+    @Test
+    public void testLookupSuccess() {
+        final Configuration conf = new BaseConfiguration();
+        conf.addProperty(VAR, VALUE);
+        final ConfigurationLookup lookup = new ConfigurationLookup(conf);
+        assertEquals("Wrong result", VALUE, lookup.lookup(VAR));
+    }
 
     @Test
     public void testLookupComplex_1_oe() {
@@ -80,7 +115,6 @@ public class TestConfigurationLookup_OE25Dev {
         }
         final ConfigurationLookup lookup = new ConfigurationLookup(conf);
         final Collection<?> col = (Collection<?>) lookup.lookup(VAR);
-        // removed other assertion
         final Iterator<?> it = col.iterator();
         for (int i = 0; i < count; i++) {
             assertEquals("Wrong element at " + i, String.valueOf(VALUE) + i, it.next());

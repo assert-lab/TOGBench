@@ -51,6 +51,82 @@ class CircleTest_OE25Dev {
             b.getLine().getDirection());
 
     @Test
+    void testFrom() {
+        // arrange
+        final Vector2D center = Vector2D.of(1, 2);
+
+        // act
+        final Circle c = Circle.from(center, 3, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertFalse(c.isFull());
+        Assertions.assertFalse(c.isEmpty());
+
+        Assertions.assertSame(center, c.getCenter());
+        Assertions.assertSame(center, c.getCentroid());
+
+        Assertions.assertEquals(3, c.getRadius(), 0.0);
+
+        Assertions.assertSame(TEST_PRECISION, c.getPrecision());
+    }
+
+    @Test
+    void testFrom_illegalCenter() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.of(Double.POSITIVE_INFINITY, 1), 1, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.of(Double.NaN, 1), 1, TEST_PRECISION));
+    }
+
+    @Test
+    void testFrom_illegalRadius() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, -1, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, 0, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, Double.POSITIVE_INFINITY, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, Double.NaN, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Circle.from(Vector2D.ZERO, 1e-3, precision));
+    }
+
+    @Test
+    void testGeometricProperties() {
+        // arrange
+        final double r = 2;
+        final Circle c = Circle.from(Vector2D.of(1, 2), r, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertEquals(2 * Math.PI * r, c.getBoundarySize(), TEST_EPS);
+        Assertions.assertEquals(Math.PI * r * r, c.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testClassify() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(1, 2), 1, TEST_PRECISION);
+
+        // act/assert
+        EuclideanTestUtils.assertRegionLocation(c, RegionLocation.INSIDE,
+                Vector2D.of(1, 2),
+                Vector2D.of(0.5, 2), Vector2D.of(1.5, 2),
+                Vector2D.of(1, 1.5), Vector2D.of(1, 2.5),
+                Vector2D.of(0.5, 1.5), Vector2D.of(1.5, 2.5),
+                Vector2D.of(0.5, 2.5), Vector2D.of(1.5, 1.5));
+
+        EuclideanTestUtils.assertRegionLocation(c, RegionLocation.OUTSIDE,
+                Vector2D.of(-0.5, 2), Vector2D.of(2.5, 2),
+                Vector2D.of(1, 0.5), Vector2D.of(1, 3.5),
+                Vector2D.of(0.25, 1.25), Vector2D.of(1.75, 2.75),
+                Vector2D.of(0.25, 2.75), Vector2D.of(1.75, 1.25));
+
+        for (double angle = 0; angle < Angle.TWO_PI; angle += 0.1) {
+            EuclideanTestUtils.assertRegionLocation(c, RegionLocation.BOUNDARY,
+                    c.getCenter().add(PolarCoordinates.of(1, angle).toCartesian()));
+        }
+    }
+
+    @Test
     void testContains() {
         // arrange
         final Circle c = Circle.from(Vector2D.of(1, 2), 1, TEST_PRECISION);
@@ -188,6 +264,180 @@ class CircleTest_OE25Dev {
         checkLinecast(c, line.segment(start, 2), Vector2D.of(start, 0));
         checkLinecast(c, line.segment(start, end), Vector2D.of(start, 0), Vector2D.of(end, 0));
         checkLinecast(c, line.segment(end, 5), Vector2D.of(end, 0));
+    }
+
+    @Test
+    void testToTree_threeSegments() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(2, 1), 2, TEST_PRECISION);
+
+        // act
+        final RegionBSPTree2D tree = c.toTree(3);
+
+        // assert
+        checkBasicApproximationProperties(c, tree);
+
+        final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        segments.sort(SEGMENT_DIRECTION_COMPARATOR);
+
+        Assertions.assertEquals(3, segments.size());
+
+        final double inc = Angle.TWO_PI / 3.0;
+        final Vector2D p0 = Vector2D.of(4, 1);
+        final Vector2D p1 = Vector2D.of(
+                (2 * Math.cos(inc)) + 2,
+                (2 * Math.sin(inc)) + 1);
+        final Vector2D p2 = Vector2D.of(
+                (2 * Math.cos(2 * inc)) + 2,
+                (2 * Math.sin(2 * inc)) + 1);
+
+        assertFiniteSegment(segments.get(0), p0, p1);
+        assertFiniteSegment(segments.get(1), p1, p2);
+        assertFiniteSegment(segments.get(2), p2, p0);
+    }
+
+    @Test
+    void testToTree_fourSegments() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(2, 1), 2, TEST_PRECISION);
+
+        // act
+        final RegionBSPTree2D tree = c.toTree(4);
+
+        // assert
+        checkBasicApproximationProperties(c, tree);
+
+        final List<LineConvexSubset> segments = new ArrayList<>(tree.getBoundaries());
+        segments.sort(SEGMENT_DIRECTION_COMPARATOR);
+
+        Assertions.assertEquals(4, segments.size());
+
+        final Vector2D p0 = Vector2D.of(4, 1);
+        final Vector2D p1 = Vector2D.of(2, 3);
+        final Vector2D p2 = Vector2D.of(0, 1);
+        final Vector2D p3 = Vector2D.of(2, -1);
+
+        assertFiniteSegment(segments.get(0), p1, p2);
+        assertFiniteSegment(segments.get(1), p0, p1);
+        assertFiniteSegment(segments.get(2), p2, p3);
+        assertFiniteSegment(segments.get(3), p3, p0);
+    }
+
+    @Test
+    void testToTree_multipleApproximationSizes() {
+        // -- arrange
+        final Circle c = Circle.from(Vector2D.of(-3, 5), 10, TEST_PRECISION);
+
+        final int min = 5;
+        final int max = 100;
+
+        RegionBSPTree2D tree;
+
+        double sizeDiff;
+        double prevSizeDiff = Double.POSITIVE_INFINITY;
+
+        for (int n = min; n <= max; ++n) {
+            // -- act
+            tree = c.toTree(n);
+
+            // -- assert
+            checkBasicApproximationProperties(c, tree);
+
+            // check that we get closer and closer to the correct size as we add more segments
+            sizeDiff = c.getSize() - tree.getSize();
+            Assertions.assertTrue(sizeDiff < prevSizeDiff, "Expected size difference to decrease");
+
+            prevSizeDiff = sizeDiff;
+        }
+    }
+
+    @Test
+    void testToTree_closeApproximation() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(-2, 0), 1, TEST_PRECISION);
+
+        // act
+        final RegionBSPTree2D tree = c.toTree(100);
+
+        // assert
+        checkBasicApproximationProperties(c, tree);
+
+        final double eps = 5e-3;
+        Assertions.assertEquals(c.getSize(), tree.getSize(), eps);
+        Assertions.assertEquals(c.getBoundarySize(), tree.getBoundarySize(), eps);
+        EuclideanTestUtils.assertCoordinatesEqual(c.getCentroid(), tree.getCentroid(), eps);
+    }
+
+    @Test
+    void testToTree_invalidSegmentCount() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(2, 1), 2, TEST_PRECISION);
+        final String baseMsg = "Circle approximation segment number must be greater than or equal to 3; was ";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            c.toTree(2);
+        }, IllegalArgumentException.class, baseMsg + "2");
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            c.toTree(-1);
+        }, IllegalArgumentException.class, baseMsg + "-1");
+    }
+
+    @Test
+    void testHashCode() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        final Circle a = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
+        final Circle b = Circle.from(Vector2D.of(1, 1), 3, TEST_PRECISION);
+        final Circle c = Circle.from(Vector2D.of(1, 2), 4, TEST_PRECISION);
+        final Circle d = Circle.from(Vector2D.of(1, 2), 3, precision);
+        final Circle e = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
+
+        // act
+        final int hash = a.hashCode();
+
+        // act/assert
+        Assertions.assertEquals(hash, a.hashCode());
+
+        Assertions.assertNotEquals(hash, b.hashCode());
+        Assertions.assertNotEquals(hash, c.hashCode());
+        Assertions.assertNotEquals(hash, d.hashCode());
+
+        Assertions.assertEquals(hash, e.hashCode());
+    }
+
+    @Test
+    void testEquals() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+
+        final Circle a = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
+        final Circle b = Circle.from(Vector2D.of(1, 1), 3, TEST_PRECISION);
+        final Circle c = Circle.from(Vector2D.of(1, 2), 4, TEST_PRECISION);
+        final Circle d = Circle.from(Vector2D.of(1, 2), 3, precision);
+        final Circle e = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertSimpleEqualsCases(a);
+
+        Assertions.assertNotEquals(a, b);
+        Assertions.assertNotEquals(a, c);
+        Assertions.assertNotEquals(a, d);
+
+        Assertions.assertEquals(a, e);
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final Circle c = Circle.from(Vector2D.of(1, 2), 3, TEST_PRECISION);
+
+        // act
+        final String str = c.toString();
+
+        // assert
+        Assertions.assertEquals("Circle[center= (1.0, 2.0), radius= 3.0]", str);
     }
 
     private static void checkContains(final Circle circle, final boolean contains, final Vector2D... pts) {

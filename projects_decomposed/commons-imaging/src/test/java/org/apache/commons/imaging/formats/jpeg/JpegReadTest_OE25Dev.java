@@ -44,6 +44,28 @@ public class JpegReadTest_OE25Dev extends JpegBaseTest {
         return getJpegImages().stream();
     }
 
+    @ParameterizedTest
+    @MethodSource("data")
+    public void test(final File imageFile) throws Exception {
+        JpegImageParser jpegImageParser = new JpegImageParser();
+        final ImageMetadata metadata = jpegImageParser.getExifMetadata(new ByteSourceFile(imageFile), new TiffImagingParameters());
+        // TODO only run this tests with images that have metadata...
+        //assertNotNull(metadata);
+        Debug.debug("metadata", metadata);
+
+        Debug.debug("ICC profile", Imaging.getICCProfile(imageFile));
+
+        final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+        assertNotNull(imageInfo);
+
+        try {
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            assertNotNull(image);
+        } catch (final ImageReadException imageReadException) {
+            assertEquals("Only sequential,baseline JPEGs are supported at the moment",imageReadException.getMessage());
+        }
+    }
+
     /**
      * The JPEG image data may contain a negative number of segments,
      * in which case the parser could throw a NegativeArraySizeException.
@@ -53,6 +75,13 @@ public class JpegReadTest_OE25Dev extends JpegBaseTest {
      *
      * <p>See Google OSS Fuzz issue 33458</p>
      */
+    @Test
+    public void testUncaughtExceptionOssFuzz33458() {
+        final String input = "/images/jpeg/oss-fuzz-33458/clusterfuzz-testcase-minimized-ImagingJpegFuzzer-4548690447564800";
+        final String file = JpegReadTest_OE25Dev.class.getResource(input).getFile();
+        final JpegImageParser parser = new JpegImageParser();
+        assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new JpegImagingParameters()));
+    }
 
     @ParameterizedTest
     @MethodSource("data")

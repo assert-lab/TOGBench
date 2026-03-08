@@ -244,6 +244,19 @@ public class SimpleEventHandlingUnitTest_OE25Dev
      * Test that cloned ElementAttributes have different creation times.
      * @throws Exception
      */
+    public void testElementAttributesCreationTime()
+        throws Exception
+    {
+    	final ElementAttributes elem1 = new ElementAttributes();
+    	final long ctime1 = elem1.getCreateTime();
+
+    	Thread.sleep(10);
+
+    	final IElementAttributes elem2 = elem1.clone();
+    	final long ctime2 = elem2.getCreateTime();
+
+    	assertFalse("Creation times should be different", ctime1 == ctime2);
+    }
 
     /**
      * Simple event counter used to verify test results.

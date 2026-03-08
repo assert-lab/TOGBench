@@ -36,9 +36,40 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class RgbeReadTest_OE25Dev extends RgbeBaseTest {
 
+    @Test
+    public void test() throws IOException, ImageReadException {
+        Debug.debug("start");
+
+        final List<File> images = getRgbeImages();
+
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            assertNotNull(metadata);
+
+            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            assertNotNull(imageInfo);
+
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            assertNotNull(image);
+        }
+    }
+
     /**
      * Test that a bad file does not gets the RgbeImageParser stuck reading it.
      */
+    @Test
+    public void testErrorDecompressingInvalidFile() {
+        // From IMAGING-219
+        final File inputFile = new File(
+                RgbeReadTest_OE25Dev.class.getResource("/IMAGING-219/timeout-9713502c9c371f1654b493650c16ab17c0444369.hdr")
+                        .getFile());
+        final ByteSourceFile byteSourceFile = new ByteSourceFile(inputFile);
+        final RgbeImagingParameters params = new RgbeImagingParameters();
+        Assertions.assertThrows(ImageReadException.class, () -> new RgbeImageParser().getBufferedImage(byteSourceFile, params));
+    }
 
     @Test
     public void test_1_oe() throws IOException, ImageReadException {

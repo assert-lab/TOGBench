@@ -23,6 +23,33 @@ import org.apache.commons.dbutils.ResultSetHandler;
 
 public class ScalarHandlerTest_OE25Dev extends BaseTestCase {
 
+    public void testHandle() throws SQLException {
+        ResultSetHandler<String> h = new ScalarHandler<String>();
+        Object results = h.handle(this.rs);
+        assertNotNull(results);
+        assertEquals("1", results);
+    }
+
+    public void testColumnIndexHandle() throws SQLException {
+        ResultSetHandler<String> h = new ScalarHandler<String>(2);
+        Object results = h.handle(this.rs);
+        assertNotNull(results);
+        assertEquals("2", results);
+    }
+
+    public void testColumnNameHandle() throws SQLException {
+        ResultSetHandler<Integer> h = new ScalarHandler<Integer>("intTest");
+        Object results = h.handle(this.rs);
+        assertNotNull(results);
+        assertEquals(Integer.valueOf(1), results);
+    }
+
+    public void testEmptyResultSetHandle() throws SQLException {
+        ResultSetHandler<String> h = new ScalarHandler<String>();
+        Object results = h.handle(this.emptyResultSet);
+        assertNull(results);
+    }
+
     public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<String> h = new ScalarHandler<String>();
         Object results = h.handle(this.rs);

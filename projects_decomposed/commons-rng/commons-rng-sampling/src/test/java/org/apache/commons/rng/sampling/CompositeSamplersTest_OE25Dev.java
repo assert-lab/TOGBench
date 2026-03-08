@@ -46,40 +46,182 @@ class CompositeSamplersTest_OE25Dev {
     /**
      * Test the default implementations of the discrete probability sampler factory.
      */
+    @Test
+    void testDiscreteProbabilitySampler() {
+        final UniformRandomProvider rng = RandomSource.MWC_256.create(78979L);
+        final double[] probabilities = {0.1, 0.2, 0.3, 0.4};
+        final double mean = 0.2 + 2 * 0.3 + 3 * 0.4;
+        final int n = 1000000;
+        for (final DiscreteProbabilitySampler item : DiscreteProbabilitySampler.values()) {
+            final DiscreteSampler sampler = item.create(rng, probabilities.clone());
+            long sum = 0;
+            for (int i = 0; i < n; i++) {
+                sum += sampler.sample();
+            }
+            Assertions.assertEquals(mean, (double) sum / n, 1e-3, item::name);
+        }
+    }
 
     /**
      * Test an empty builder cannot build a sampler.
      */
+    @Test
+    void testEmptyBuilderThrows() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+                .newSharedStateObjectSamplerBuilder();
+        Assertions.assertEquals(0, builder.size());
+        Assertions.assertThrows(IllegalStateException.class,
+            () -> builder.build(rng));
+    }
 
     /**
      * Test adding null sampler to a builder.
      */
+    @Test
+    void testNullSharedStateObjectSamplerThrows() {
+        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+                .newSharedStateObjectSamplerBuilder();
+        Assertions.assertThrows(NullPointerException.class,
+            () -> builder.add(null, 1.0));
+    }
 
     /**
      * Test invalid weights (zero, negative, NaN, infinte).
      */
+    @Test
+    void testInvalidWeights() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+                .newSharedStateObjectSamplerBuilder();
+        final RangeSampler sampler = new RangeSampler(45, 63, rng);
+        // Zero weight is ignored
+        Assertions.assertEquals(0, builder.size());
+        builder.add(sampler, 0.0);
+        Assertions.assertEquals(0, builder.size());
+
+        final double[] bad = {-1, Double.NaN, Double.POSITIVE_INFINITY};
+        for (final double weight : bad) {
+            Assertions.assertThrows(IllegalArgumentException.class,
+                () -> builder.add(sampler, weight),
+                () -> "Did not detect invalid weight: " + weight);
+        }
+    }
 
     /**
      * Test a single sampler added to the builder is returned without a composite.
      */
+    @Test
+    void testSingleSharedStateObjectSampler() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+                .newSharedStateObjectSamplerBuilder();
+        final RangeSampler sampler = new RangeSampler(45, 63, rng);
+        builder.add(sampler, 1.0);
+        Assertions.assertEquals(1, builder.size());
+        final SharedStateObjectSampler<Integer> composite = builder.build(rng);
+        Assertions.assertSame(sampler, composite);
+    }
 
     /**
      * Test sampling is uniform across several ObjectSampler samplers.
      */
+    @Test
+    void testObjectSamplerSamples() {
+        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.PCG_XSH_RR_32_OS.create(345);
+        final int n = 15;
+        final int min = -134;
+        final int max = 2097;
+        addObjectSamplers(builder, n, min, max, rng);
+        assertObjectSamplerSamples(builder.build(rng), min, max);
+    }
 
     /**
      * Test sampling is uniform across several SharedStateObjectSampler samplers.
      */
+    @Test
+    void testSharedStateObjectSamplerSamples() {
+        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+                .newSharedStateObjectSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.PCG_XSH_RS_32_OS.create(299);
+        final int n = 11;
+        final int min = 42;
+        final int max = 678;
+        addObjectSamplers(builder, n, min, max, rng);
+        // Exercise the shared state interface
+        final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x9a8c6f5e);
+        assertObjectSamplerSamples(builder.build(rng).withUniformRandomProvider(rng1), min, max);
+    }
 
     /**
      * Test sampling is uniform across several SharedStateObjectSampler samplers
      * using a custom factory that implements SharedStateDiscreteSampler.
      */
+    @Test
+    void testSharedStateObjectSamplerSamplesWithCustomSharedStateDiscreteSamplerFactory() {
+        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+                .newSharedStateObjectSamplerBuilder();
+        final AtomicInteger factoryCount = new AtomicInteger();
+        builder.setFactory(new DiscreteProbabilitySamplerFactory() {
+            @Override
+            public DiscreteSampler create(UniformRandomProvider rng, double[] probabilities) {
+                factoryCount.incrementAndGet();
+                // Use an expanded table with a non-default alpha
+                return AliasMethodDiscreteSampler.of(rng, probabilities, 2);
+            }
+        });
+        final UniformRandomProvider rng = RandomSource.XO_SHI_RO_128_PP.create(0xa6b7c9);
+        final int n = 7;
+        final int min = -610;
+        final int max = 745;
+        addObjectSamplers(builder, n, min, max, rng);
+
+        // Exercise the shared state interface
+        final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x1f2e3d);
+        assertObjectSamplerSamples(builder.build(rng).withUniformRandomProvider(rng1), min, max);
+
+        Assertions.assertEquals(1, factoryCount.get(), "Factory should not be used to create the shared state sampler");
+    }
 
     /**
      * Test sampling is uniform across several SharedStateObjectSampler samplers
      * using a custom factory that implements DiscreteSampler (so must be wrapped).
      */
+    @Test
+    void testSharedStateObjectSamplerSamplesWithCustomDiscreteSamplerFactory() {
+        final Builder<SharedStateObjectSampler<Integer>> builder = CompositeSamplers
+                .newSharedStateObjectSamplerBuilder();
+        final AtomicInteger factoryCount = new AtomicInteger();
+        builder.setFactory(new DiscreteProbabilitySamplerFactory() {
+            @Override
+            public DiscreteSampler create(UniformRandomProvider rng, double[] probabilities) {
+                factoryCount.incrementAndGet();
+                // Wrap so it is not a SharedStateSamplerInstance.
+                final DiscreteSampler sampler = GuideTableDiscreteSampler.of(rng, probabilities, 2);
+                // Destroy the probabilities to check that custom factories are not trusted.
+                Arrays.fill(probabilities, Double.NaN);
+                return new DiscreteSampler() {
+                    @Override
+                    public int sample() {
+                        return sampler.sample();
+                    }
+                };
+            }
+        });
+        final UniformRandomProvider rng = RandomSource.XO_SHI_RO_128_PP.create(0x263478628L);
+        final int n = 14;
+        final int min = 56;
+        final int max = 2033;
+        addObjectSamplers(builder, n, min, max, rng);
+
+        // Exercise the shared state interface.
+        // This tests the custom factory is used twice.
+        final UniformRandomProvider rng1 = RandomSource.XO_SHI_RO_256_PLUS.create(0x8c7b6a);
+        assertObjectSamplerSamples(builder.build(rng).withUniformRandomProvider(rng1), min, max);
+
+        Assertions.assertEquals(2, factoryCount.get(), "Factory should be used to create the shared state sampler");
+    }
 
     /**
      * Test sampling is uniform across several ObjectSampler samplers with a uniform
@@ -87,12 +229,39 @@ class CompositeSamplersTest_OE25Dev {
      * sampler from a discrete probability distribution as the distribution is
      * uniform.
      */
+    @Test
+    void testObjectSamplerSamplesWithUniformWeights() {
+        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.JSF_64.create(678345);
+        final int max = 60;
+        final int interval = 10;
+        for (int min = 0; min < max; min += interval) {
+            builder.add(new RangeSampler(min, min + interval, rng), 1.0);
+        }
+        assertObjectSamplerSamples(builder.build(rng), 0, max);
+    }
 
     /**
      * Test sampling is uniform across several ObjectSampler samplers with very
      * large weights. This tests an edge case where the weights with sum to
      * infinity.
      */
+    @Test
+    void testObjectSamplerSamplesWithVeryLargeWeights() {
+        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.SFC_64.create(267934293);
+        // Ratio 4:4:2:1
+        // The weights will sum to infinity as they are more than 2^1024.
+        final double w4 = 0x1.0p1023;
+        final double w2 = 0x1.0p1022;
+        final double w1 = 0x1.0p1021;
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, w4 + w4 + w2 + w1);
+        builder.add(new RangeSampler(0, 40, rng), w4);
+        builder.add(new RangeSampler(40, 80, rng), w4);
+        builder.add(new RangeSampler(80, 100, rng), w2);
+        builder.add(new RangeSampler(100, 110, rng), w1);
+        assertObjectSamplerSamples(builder.build(rng), 0, 110);
+    }
 
     /**
      * Test sampling is uniform across several ObjectSampler samplers with very
@@ -100,6 +269,28 @@ class CompositeSamplersTest_OE25Dev {
      * are valid (due to accurate floating-point division) but cannot be multiplied
      * by the reciprocal of the sum.
      */
+    @Test
+    void testObjectSamplerSamplesWithSubNormalWeights() {
+        final Builder<ObjectSampler<Integer>> builder = CompositeSamplers.newObjectSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.MSWS.create(6786);
+        // Ratio 4:4:2:1
+        // The weights are very small sub-normal numbers
+        final double w4 = Double.MIN_VALUE * 4;
+        final double w2 = Double.MIN_VALUE * 2;
+        final double w1 = Double.MIN_VALUE;
+        final double sum = w4 + w4 + w2 + w1;
+        // Cannot do a divide by multiplying by the reciprocal
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, 1.0 / sum);
+        // A divide works so the sampler should work
+        Assertions.assertEquals(4.0 / 11, w4 / sum);
+        Assertions.assertEquals(2.0 / 11, w2 / sum);
+        Assertions.assertEquals(1.0 / 11, w1 / sum);
+        builder.add(new RangeSampler(0, 40, rng), w4);
+        builder.add(new RangeSampler(40, 80, rng), w4);
+        builder.add(new RangeSampler(80, 100, rng), w2);
+        builder.add(new RangeSampler(100, 110, rng), w1);
+        assertObjectSamplerSamples(builder.build(rng), 0, 110);
+    }
 
     /**
      * Add samplers to the builder that sample from contiguous ranges between the
@@ -170,10 +361,30 @@ class CompositeSamplersTest_OE25Dev {
     /**
      * Test sampling is uniform across several DiscreteSampler samplers.
      */
+    @Test
+    void testDiscreteSamplerSamples() {
+        final Builder<DiscreteSampler> builder = CompositeSamplers.newDiscreteSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.PCG_XSH_RR_32_OS.create(345);
+        final int n = 15;
+        final int min = -134;
+        final int max = 2097;
+        addDiscreteSamplers(builder, n, min, max, rng);
+        assertDiscreteSamplerSamples(builder.build(rng), min, max);
+    }
 
     /**
      * Test sampling is uniform across several SharedStateDiscreteSampler samplers.
      */
+    @Test
+    void testSharedStateDiscreteSamplerSamples() {
+        final Builder<SharedStateDiscreteSampler> builder = CompositeSamplers.newSharedStateDiscreteSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.PCG_XSH_RS_32_OS.create(299);
+        final int n = 11;
+        final int min = 42;
+        final int max = 678;
+        addDiscreteSamplers(builder, n, min, max, rng);
+        assertDiscreteSamplerSamples(builder.build(rng), min, max);
+    }
 
     /**
      * Add samplers to the builder that sample from contiguous ranges between the
@@ -244,10 +455,31 @@ class CompositeSamplersTest_OE25Dev {
     /**
      * Test sampling is uniform across several ContinuousSampler samplers.
      */
+    @Test
+    void testContinuousSamplerSamples() {
+        final Builder<ContinuousSampler> builder = CompositeSamplers.newContinuousSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.XO_SHI_RO_256_PP.create(9283756);
+        final int n = 15;
+        final double min = 67.2;
+        final double max = 2033.8;
+        addContinuousSamplers(builder, n, min, max, rng);
+        assertContinuousSamplerSamples(builder.build(rng), min, max);
+    }
 
     /**
      * Test sampling is uniform across several SharedStateContinuousSampler samplers.
      */
+    @Test
+    void testSharedStateContinuousSamplerSamples() {
+        final Builder<SharedStateContinuousSampler> builder = CompositeSamplers
+                .newSharedStateContinuousSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.PCG_RXS_M_XS_64_OS.create(0x567567345L);
+        final int n = 11;
+        final double min = -15.7;
+        final double max = 123.4;
+        addContinuousSamplers(builder, n, min, max, rng);
+        assertContinuousSamplerSamples(builder.build(rng), min, max);
+    }
 
     /**
      * Add samplers to the builder that sample from contiguous ranges between the
@@ -320,10 +552,30 @@ class CompositeSamplersTest_OE25Dev {
     /**
      * Test sampling is uniform across several LongSampler samplers.
      */
+    @Test
+    void testLongSamplerSamples() {
+        final Builder<LongSampler> builder = CompositeSamplers.newLongSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.KISS.create(67842321783L);
+        final int n = 15;
+        final long min = -134;
+        final long max = 1L << 54;
+        addLongSamplers(builder, n, min, max, rng);
+        assertLongSamplerSamples(builder.build(rng), min, max);
+    }
 
     /**
      * Test sampling is uniform across several SharedStateLongSampler samplers.
      */
+    @Test
+    void testSharedStateLongSamplerSamples() {
+        final Builder<SharedStateLongSampler> builder = CompositeSamplers.newSharedStateLongSamplerBuilder();
+        final UniformRandomProvider rng = RandomSource.KISS.create(12369279382030L);
+        final int n = 11;
+        final long min = 42;
+        final long max = 1L << 53;
+        addLongSamplers(builder, n, min, max, rng);
+        assertLongSamplerSamples(builder.build(rng), min, max);
+    }
 
     /**
      * Add samplers to the builder that sample from contiguous ranges between the

@@ -24,6 +24,18 @@ public class SimplePaletteTest_OE25Dev{
 
 
     @Test
+    public void testGetPaletteIndexReturningNegative() {
+
+        final int[] intArray = new int[1];
+        final SimplePalette simplePalette = new SimplePalette(intArray);
+
+        assertEquals( -1, simplePalette.getPaletteIndex((-1)));
+        assertEquals(1, simplePalette.length() );
+
+    }
+
+
+    @Test
     public void testGetPaletteIndexReturningNegative_1_oe() {
 
         final int[] intArray = new int[1];

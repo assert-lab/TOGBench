@@ -33,6 +33,50 @@ import static org.junit.jupiter.api.Assertions.fail;
  * Test for the {@link AliasMethodDiscreteSampler}.
  */
 class AliasMethodDiscreteSamplerTest_OE25Dev {
+    @Test
+    void testConstructorThrowsWithNullProbabilites() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(null));
+    }
+
+    @Test
+    void testConstructorThrowsWithZeroLengthProbabilites() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(new double[0]));
+    }
+
+    @Test
+    void testConstructorThrowsWithNegativeProbabilites() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> createSampler(new double[] {-1, 0.1, 0.2}));
+    }
+
+    @Test
+    void testConstructorThrowsWithNaNProbabilites() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> createSampler(new double[] {0.1, Double.NaN, 0.2}));
+    }
+
+    @Test
+    void testConstructorThrowsWithInfiniteProbabilites() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> createSampler(new double[] {0.1, Double.POSITIVE_INFINITY, 0.2}));
+    }
+
+    @Test
+    void testConstructorThrowsWithInfiniteSumProbabilites() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> createSampler(new double[] {Double.MAX_VALUE, Double.MAX_VALUE}));
+    }
+
+    @Test
+    void testConstructorThrowsWithZeroSumProbabilites() {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> createSampler(new double[4]));
+    }
+
+    @Test
+    void testToString() {
+        final SharedStateDiscreteSampler sampler = createSampler(new double[] {0.5, 0.5});
+        Assertions.assertTrue(sampler.toString().toLowerCase().contains("alias method"));
+    }
 
     /**
      * Creates the sampler without zero-padding enabled.

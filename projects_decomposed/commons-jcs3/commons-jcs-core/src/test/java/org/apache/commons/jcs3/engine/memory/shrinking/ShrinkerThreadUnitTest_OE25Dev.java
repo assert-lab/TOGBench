@@ -43,18 +43,144 @@ public class ShrinkerThreadUnitTest_OE25Dev
     /** verify the check for removal
      * <p>
      * @throws IOException */
+    public void testCheckForRemoval_Expired() throws IOException
+    {
+        // SETUP
+        final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
+        cacheAttr.setCacheName("testRegion");
+        cacheAttr.setMaxMemoryIdleTimeSeconds( 10 );
+        cacheAttr.setMaxSpoolPerRun( 10 );
+
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttr, new ElementAttributes());
+
+        final String key = "key";
+        final String value = "value";
+
+        final ICacheElement<String, String> element = new CacheElement<>( "testRegion", key, value );
+        final ElementAttributes elementAttr = new ElementAttributes();
+        elementAttr.setIsEternal( false );
+        element.setElementAttributes( elementAttr );
+        element.getElementAttributes().setMaxLife(1);
+
+        long now = System.currentTimeMillis();
+        // add two seconds
+        now += 2000;
+
+        // DO WORK
+        final boolean result = cache.isExpired( element, now,
+                ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND,
+                ElementEventType.EXCEEDED_IDLETIME_BACKGROUND );
+
+        // VERIFY
+        assertTrue( "Item should have expired.", result );
+    }
 
     /** verify the check for removal
      * <p>
      * @throws IOException */
+    public void testCheckForRemoval_NotExpired() throws IOException
+    {
+        // SETUP
+        final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
+        cacheAttr.setCacheName("testRegion");
+        cacheAttr.setMaxMemoryIdleTimeSeconds( 10 );
+        cacheAttr.setMaxSpoolPerRun( 10 );
+
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttr, new ElementAttributes());
+
+        final String key = "key";
+        final String value = "value";
+
+        final ICacheElement<String, String> element = new CacheElement<>( "testRegion", key, value );
+        final ElementAttributes elementAttr = new ElementAttributes();
+        elementAttr.setIsEternal( false );
+        element.setElementAttributes( elementAttr );
+        element.getElementAttributes().setMaxLife(1);
+
+        long now = System.currentTimeMillis();
+        // subtract two seconds
+        now -= 2000;
+
+        // DO WORK
+        final boolean result = cache.isExpired( element, now,
+                ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND,
+                ElementEventType.EXCEEDED_IDLETIME_BACKGROUND );
+
+        // VERIFY
+        assertFalse( "Item should not have expired.", result );
+    }
 
     /** verify the check for removal
      * <p>
      * @throws IOException */
+    public void testCheckForRemoval_IdleTooLong() throws IOException
+    {
+        // SETUP
+        final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
+        cacheAttr.setCacheName("testRegion");
+        cacheAttr.setMaxMemoryIdleTimeSeconds( 10 );
+        cacheAttr.setMaxSpoolPerRun( 10 );
+
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttr, new ElementAttributes());
+
+        final String key = "key";
+        final String value = "value";
+
+        final ICacheElement<String, String> element = new CacheElement<>( "testRegion", key, value );
+        final ElementAttributes elementAttr = new ElementAttributes();
+        elementAttr.setIsEternal( false );
+        element.setElementAttributes( elementAttr );
+        element.getElementAttributes().setMaxLife(100);
+        element.getElementAttributes().setIdleTime( 1 );
+
+        long now = System.currentTimeMillis();
+        // add two seconds
+        now += 2000;
+
+        // DO WORK
+        final boolean result = cache.isExpired( element, now,
+                ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND,
+                ElementEventType.EXCEEDED_IDLETIME_BACKGROUND );
+
+        // VERIFY
+        assertTrue( "Item should have expired.", result );
+    }
 
     /** verify the check for removal
      * <p>
      * @throws IOException */
+    public void testCheckForRemoval_NotIdleTooLong() throws IOException
+    {
+        // SETUP
+        final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
+        cacheAttr.setCacheName("testRegion");
+        cacheAttr.setMaxMemoryIdleTimeSeconds( 10 );
+        cacheAttr.setMaxSpoolPerRun( 10 );
+
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttr, new ElementAttributes());
+
+        final String key = "key";
+        final String value = "value";
+
+        final ICacheElement<String, String> element = new CacheElement<>( "testRegion", key, value );
+        final ElementAttributes elementAttr = new ElementAttributes();
+        elementAttr.setIsEternal( false );
+        element.setElementAttributes( elementAttr );
+        element.getElementAttributes().setMaxLife(100);
+        element.getElementAttributes().setIdleTime( 1 );
+
+        long now = System.currentTimeMillis();
+        // subtract two seconds
+        now -= 2000;
+
+        // DO WORK
+        final boolean result = cache.isExpired( element, now,
+                ElementEventType.EXCEEDED_MAXLIFE_BACKGROUND,
+                ElementEventType.EXCEEDED_IDLETIME_BACKGROUND );
+
+        // VERIFY
+        assertFalse( "Item should not have expired.", result );
+    }
 
     /**
      * Setup cache attributes in mock. Create the shrinker with the mock. Add some elements into the
@@ -62,12 +188,95 @@ public class ShrinkerThreadUnitTest_OE25Dev
      * <p>
      * @throws Exception
      */
+    public void testSimpleShrink()
+        throws Exception
+    {
+        // SETUP
+        final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
+        cacheAttr.setCacheName("testRegion");
+        cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
+        cacheAttr.setMaxMemoryIdleTimeSeconds( 1 );
+        cacheAttr.setMaxSpoolPerRun( 10 );
+
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttr, new ElementAttributes());
+        final MockMemoryCache<String, String> memory = (MockMemoryCache<String, String>)cache.getMemoryCache();
+
+        final String key = "key";
+        final String value = "value";
+
+        final ICacheElement<String, String> element = new CacheElement<>( "testRegion", key, value );
+
+        final ElementAttributes elementAttr = new ElementAttributes();
+        elementAttr.setIsEternal( false );
+        element.setElementAttributes( elementAttr );
+        element.getElementAttributes().setMaxLife(1);
+        memory.update( element );
+
+        final ICacheElement<String, String> returnedElement1 = memory.get( key );
+        assertNotNull( "We should have received an element", returnedElement1 );
+
+        // set this to 2 seconds ago.
+        ElementAttributesUtils.setLastAccessTime( elementAttr,  System.currentTimeMillis() - 2000 );
+
+        // DO WORK
+        final ShrinkerThread<String, String> shrinker = new ShrinkerThread<>( cache );
+        shrinker.run();
+
+        Thread.sleep( 500 );
+
+        // VERIFY
+        final ICacheElement<String, String> returnedElement2 = memory.get( key );
+        assertTrue( "Waterfall should have been called.", memory.waterfallCallCount > 0 );
+        assertNull( "We not should have received an element.  It should have been spooled.", returnedElement2 );
+    }
 
     /**
      * Add 10 to the memory cache. Set the spool per run limit to 3.
      * <p>
      * @throws Exception
      */
+    public void testSimpleShrinkMultiple()
+        throws Exception
+    {
+        // SETUP
+        final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
+        cacheAttr.setCacheName("testRegion");
+        cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
+        cacheAttr.setMaxMemoryIdleTimeSeconds( 1 );
+        cacheAttr.setMaxSpoolPerRun( 3 );
+
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttr, new ElementAttributes());
+        final MockMemoryCache<String, String> memory = (MockMemoryCache<String, String>)cache.getMemoryCache();
+
+        for ( int i = 0; i < 10; i++ )
+        {
+            final String key = "key" + i;
+            final String value = "value";
+
+            final ICacheElement<String, String> element = new CacheElement<>( "testRegion", key, value );
+
+            final ElementAttributes elementAttr = new ElementAttributes();
+            elementAttr.setIsEternal( false );
+            element.setElementAttributes( elementAttr );
+            element.getElementAttributes().setMaxLife(1);
+            memory.update( element );
+
+            final ICacheElement<String, String> returnedElement1 = memory.get( key );
+            assertNotNull( "We should have received an element", returnedElement1 );
+
+            // set this to 2 seconds ago.
+            ElementAttributesUtils.setLastAccessTime( elementAttr,  System.currentTimeMillis() - 2000 );
+        }
+
+        // DO WORK
+        final ShrinkerThread<String, String> shrinker = new ShrinkerThread<>( cache );
+        shrinker.run();
+
+        // VERIFY
+        Thread.sleep( 500 );
+        assertEquals( "Waterfall called the wrong number of times.", 3, memory.waterfallCallCount );
+        assertEquals( "Wrong number of elements remain.", 7, memory.getSize() );
+    }
 
     /**
      * Add a mock event handler to the items. Verify that it gets called.
@@ -76,6 +285,54 @@ public class ShrinkerThreadUnitTest_OE25Dev
      * <p>
      * @throws Exception
      */
+    public void testSimpleShrinkMultipleWithEventHandler()
+        throws Exception
+    {
+        // SETUP
+        final CompositeCacheAttributes cacheAttr = new CompositeCacheAttributes();
+        cacheAttr.setCacheName("testRegion");
+        cacheAttr.setMemoryCacheName("org.apache.commons.jcs3.engine.memory.MockMemoryCache");
+        cacheAttr.setMaxMemoryIdleTimeSeconds( 1 );
+        cacheAttr.setMaxSpoolPerRun( 3 );
+
+        final CompositeCache<String, String> cache = new CompositeCache<>(cacheAttr, new ElementAttributes());
+        final MockMemoryCache<String, String> memory = (MockMemoryCache<String, String>)cache.getMemoryCache();
+
+        final ElementEventHandlerMockImpl handler = new ElementEventHandlerMockImpl();
+
+        for ( int i = 0; i < 10; i++ )
+        {
+            final String key = "key" + i;
+            final String value = "value";
+
+            final ICacheElement<String, String> element = new CacheElement<>( "testRegion", key, value );
+
+            final ElementAttributes elementAttr = new ElementAttributes();
+            elementAttr.addElementEventHandler( handler );
+            elementAttr.setIsEternal( false );
+            element.setElementAttributes( elementAttr );
+            element.getElementAttributes().setMaxLife(1);
+            memory.update( element );
+
+            final ICacheElement<String, String> returnedElement1 = memory.get( key );
+            assertNotNull( "We should have received an element", returnedElement1 );
+
+            // set this to 2 seconds ago.
+            ElementAttributesUtils.setLastAccessTime( elementAttr,  System.currentTimeMillis() - 2000 );
+        }
+
+        // DO WORK
+        final ShrinkerThread<String, String> shrinker = new ShrinkerThread<>( cache );
+        shrinker.run();
+
+        // VERIFY
+        Thread.sleep( 500 );
+        assertEquals( "Waterfall called the wrong number of times.", 3, memory.waterfallCallCount );
+        // the shrinker delegates the the composite cache on the memory cache to put the
+        // event on the queue.  This make it hard to test.  TODO we need to change this to make it easier to verify.
+        //assertEquals( "Event handler ExceededIdleTimeBackground called the wrong number of times.", 3, handler.getExceededIdleTimeBackgroundCount() );
+        assertEquals( "Wrong number of elements remain.", 7, memory.getSize() );
+    }
 
     public void testCheckForRemoval_Expired_1_oe() throws IOException
     {

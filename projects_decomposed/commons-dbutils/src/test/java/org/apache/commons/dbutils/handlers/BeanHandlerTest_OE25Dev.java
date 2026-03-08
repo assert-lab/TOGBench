@@ -27,6 +27,46 @@ import org.apache.commons.dbutils.TestBean;
  */
 public class BeanHandlerTest_OE25Dev extends BaseTestCase {
 
+    public void testHandle() throws SQLException {
+        ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
+        TestBean results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals("1", results.getOne());
+        assertEquals("2", results.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, results.getThree());
+        assertEquals("not set", results.getDoNotSet());
+    }
+
+    public void testEmptyResultSetHandle() throws SQLException {
+        ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
+        TestBean results = h.handle(this.emptyResultSet);
+
+        assertNull(results);
+    }
+
+    public void testHandleToSuperClass() throws SQLException {
+        ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
+        TestBean results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals("1", results.getOne());
+        assertEquals("2", results.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, results.getThree());
+        assertEquals("not set", results.getDoNotSet());
+    }
+
+    public void testHandleToInterface() throws SQLException {
+        ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
+        SubTestBeanInterface results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals("1", results.getOne());
+        assertEquals("2", results.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, results.getThree());
+        assertEquals("not set", results.getDoNotSet());
+    }
+
     public static interface SubTestBeanInterface {
         public String getOne();
 

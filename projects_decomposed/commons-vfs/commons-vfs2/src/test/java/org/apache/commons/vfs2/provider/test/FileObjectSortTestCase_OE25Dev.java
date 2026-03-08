@@ -71,30 +71,68 @@ public class FileObjectSortTestCase_OE25Dev {
      *
      * @throws FileSystemException
      */
+    @Test
+    public void testSortArrayIgnoreCase() throws FileSystemException {
+        final FileObject file1 = VfsFileSystem.resolveFile("A1");
+        final FileObject file2 = VfsFileSystem.resolveFile("a2");
+        final FileObject file3 = VfsFileSystem.resolveFile("A3");
+        final FileObject[] actualArray = { file3, file1, file2, file1, file2 };
+        final FileObject[] expectedArray = { file1, file1, file2, file2, file3 };
+        Arrays.sort(actualArray);
+        Assert.assertArrayEquals(expectedArray, actualArray);
+    }
 
     /**
      * Tests sorting an array
      *
      * @throws FileSystemException
      */
+    @Test
+    public void testSortArrayMoveAll() throws FileSystemException {
+        final FileObject[] actualArray = UnSortedArray.clone();
+        Assert.assertFalse(Arrays.equals(UnSortedArray, SortedArray));
+        Arrays.sort(actualArray);
+        Assert.assertArrayEquals(SortedArray, actualArray);
+    }
 
     /**
      * Tests that sorting an array already in oder does not mess it up.
      *
      * @throws FileSystemException
      */
+    @Test
+    public void testSortArrayMoveNone() throws FileSystemException {
+        final FileObject[] actualArray = SortedArray.clone();
+        Arrays.sort(actualArray);
+        Assert.assertArrayEquals(SortedArray, actualArray);
+    }
 
     /**
      * Tests sorting a list
      *
      * @throws FileSystemException
      */
+    @Test
+    public void testSortListMoveAll() throws FileSystemException {
+        final List<FileObject> actualList = Arrays.asList(UnSortedArray);
+        final List<FileObject> expectedSortedList = Arrays.asList(SortedArray);
+        Assert.assertNotEquals(actualList, expectedSortedList);
+        Collections.sort(actualList);
+        Assert.assertEquals(actualList, expectedSortedList);
+    }
 
     /**
      * Tests that sorting a list already in oder does not mess it up.
      *
      * @throws FileSystemException
      */
+    @Test
+    public void testSortListMoveNone() throws FileSystemException {
+        final List<FileObject> actualList = Arrays.asList(SortedArray);
+        final List<FileObject> expectedSortedList = Arrays.asList(SortedArray);
+        Collections.sort(actualList);
+        Assert.assertEquals(actualList, expectedSortedList);
+    }
 
     @Test
     public void testSortArrayIgnoreCase_1_oe() throws FileSystemException {

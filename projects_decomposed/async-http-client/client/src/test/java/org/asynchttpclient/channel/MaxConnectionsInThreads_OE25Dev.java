@@ -41,6 +41,76 @@ import static org.testng.Assert.assertEquals;
 
 public class MaxConnectionsInThreads_OE25Dev extends AbstractBasicTest {
 
+  @Test
+  public void testMaxConnectionsWithinThreads() throws Exception {
+
+    String[] urls = new String[]{getTargetUrl(), getTargetUrl()};
+
+    AsyncHttpClientConfig config = config()
+            .setConnectTimeout(1000)
+            .setRequestTimeout(5000)
+            .setKeepAlive(true)
+            .setMaxConnections(1)
+            .setMaxConnectionsPerHost(1)
+            .build();
+
+    final CountDownLatch inThreadsLatch = new CountDownLatch(2);
+    final AtomicInteger failedCount = new AtomicInteger();
+
+    try (AsyncHttpClient client = asyncHttpClient(config)) {
+      for (final String url : urls) {
+        Thread t = new Thread() {
+          public void run() {
+            client.prepareGet(url).execute(new AsyncCompletionHandlerBase() {
+              @Override
+              public Response onCompleted(Response response) throws Exception {
+                Response r = super.onCompleted(response);
+                inThreadsLatch.countDown();
+                return r;
+              }
+
+              @Override
+              public void onThrowable(Throwable t) {
+                super.onThrowable(t);
+                failedCount.incrementAndGet();
+                inThreadsLatch.countDown();
+              }
+            });
+          }
+        };
+        t.start();
+      }
+
+      inThreadsLatch.await();
+
+      assertEquals(failedCount.get(), 1, "Max Connections should have been reached when launching from concurrent threads");
+
+      final CountDownLatch notInThreadsLatch = new CountDownLatch(2);
+      failedCount.set(0);
+      for (final String url : urls) {
+        client.prepareGet(url).execute(new AsyncCompletionHandlerBase() {
+          @Override
+          public Response onCompleted(Response response) throws Exception {
+            Response r = super.onCompleted(response);
+            notInThreadsLatch.countDown();
+            return r;
+          }
+
+          @Override
+          public void onThrowable(Throwable t) {
+            super.onThrowable(t);
+            failedCount.incrementAndGet();
+            notInThreadsLatch.countDown();
+          }
+        });
+      }
+
+      notInThreadsLatch.await();
+
+      assertEquals(failedCount.get(), 1, "Max Connections should have been reached when launching from main thread");
+    }
+  }
+
   @Override
   @BeforeClass
   public void setUpGlobal() throws Exception {

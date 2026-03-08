@@ -31,8 +31,40 @@ public class CacheEventQueueFactoryUnitTest_OE25Dev
     extends TestCase
 {
     /** Test create */
+    public void testCreateCacheEventQueue_Single()
+    {
+        // SETUP
+        final QueueType eventQueueType = QueueType.SINGLE;
+        final ICacheListener<String, String> listener = new MockRemoteCacheListener<>();
+        final long listenerId = 1;
+
+        final CacheEventQueueFactory<String, String> factory = new CacheEventQueueFactory<>();
+
+        // DO WORK
+        final ICacheEventQueue<String, String> result = factory.createCacheEventQueue( listener, listenerId, "cacheName", "threadPoolName", eventQueueType );
+
+        // VERIFY
+        assertNotNull( "Should have a result", result );
+        assertTrue( "Wrong type", result.getQueueType() == QueueType.SINGLE );
+    }
 
     /** Test create */
+    public void testCreateCacheEventQueue_Pooled()
+    {
+        // SETUP
+        final QueueType eventQueueType = QueueType.POOLED;
+        final ICacheListener<String, String> listener = new MockRemoteCacheListener<>();
+        final long listenerId = 1;
+
+        final CacheEventQueueFactory<String, String> factory = new CacheEventQueueFactory<>();
+
+        // DO WORK
+        final ICacheEventQueue<String, String> result = factory.createCacheEventQueue( listener, listenerId, "cacheName", "threadPoolName", eventQueueType );
+
+        // VERIFY
+        assertNotNull( "Should have a result", result );
+        assertTrue( "Wrong type", result.getQueueType() == QueueType.POOLED );
+    }
 
     public void testCreateCacheEventQueue_Single_1_oe()
     {

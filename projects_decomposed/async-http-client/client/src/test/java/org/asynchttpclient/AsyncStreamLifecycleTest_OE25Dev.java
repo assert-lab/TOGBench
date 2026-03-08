@@ -83,6 +83,56 @@ public class AsyncStreamLifecycleTest_OE25Dev extends AbstractBasicTest {
   }
 
   @Test
+  public void testStream() throws Exception {
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      final AtomicBoolean err = new AtomicBoolean(false);
+      final LinkedBlockingQueue<String> queue = new LinkedBlockingQueue<>();
+      final AtomicBoolean status = new AtomicBoolean(false);
+      final AtomicInteger headers = new AtomicInteger(0);
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build(), new AsyncHandler<Object>() {
+        public void onThrowable(Throwable t) {
+          fail("Got throwable.", t);
+          err.set(true);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart e) throws Exception {
+          if (e.length() != 0) {
+            String s = new String(e.getBodyPartBytes());
+            logger.info("got part: {}", s);
+            queue.put(s);
+          }
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus e) {
+          status.set(true);
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders e) throws Exception {
+          if (headers.incrementAndGet() == 2) {
+            throw new Exception("Analyze this.");
+          }
+          return State.CONTINUE;
+        }
+
+        public Object onCompleted() {
+          latch.countDown();
+          return null;
+        }
+      });
+      assertTrue(latch.await(1, TimeUnit.SECONDS), "Latch failed.");
+      assertFalse(err.get());
+      assertEquals(queue.size(), 2);
+      assertTrue(queue.contains("part1"));
+      assertTrue(queue.contains("part2"));
+      assertTrue(status.get());
+      assertEquals(headers.get(), 1);
+    }
+  }
+
+  @Test
   public void testStream_2_oe() throws Exception {
     try (AsyncHttpClient ahc = asyncHttpClient()) {
       final AtomicBoolean err = new AtomicBoolean(false);

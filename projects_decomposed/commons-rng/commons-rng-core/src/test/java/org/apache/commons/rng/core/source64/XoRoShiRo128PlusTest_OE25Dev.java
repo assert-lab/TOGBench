@@ -72,6 +72,11 @@ class XoRoShiRo128PlusTest_OE25Dev {
     };
 
     @Test
+    void testReferenceCode() {
+        RandomAssert.assertEquals(EXPECTED_SEQUENCE, new XoRoShiRo128Plus(SEED));
+    }
+
+    @Test
     void testConstructorWithZeroSeedIsNonFunctional() {
         RandomAssert.assertNextIntZeroOutput(new XoRoShiRo128Plus(new long[SEED_SIZE]), 2 * SEED_SIZE);
     }
@@ -79,6 +84,13 @@ class XoRoShiRo128PlusTest_OE25Dev {
     @Test
     void testConstructorWithSingleBitSeedIsFunctional() {
         RandomAssert.assertLongArrayConstructorWithSingleBitSeedIsFunctional(XoRoShiRo128Plus.class, SEED_SIZE);
+    }
+
+    @Test
+    void testConstructorWithoutFullLengthSeed() {
+        // Hit the case when the input seed is self-seeded when not full length
+        RandomAssert.assertNextLongNonZeroOutput(new XoRoShiRo128Plus(new long[] {SEED[0]}),
+                SEED_SIZE, SEED_SIZE);
     }
 
     @Test

@@ -35,6 +35,13 @@ public class PrivateMethodsTest_OE25Dev {
     }
 
     @Test
+    public void testGet() {
+        assertEquals("foo-value", privateMethods.get("foo"));
+        assertEquals("bar-value", privateMethods.get("bar"));
+        assertEquals("baz-value", privateMethods.get("baz"));
+    }
+
+    @Test
     public void testGet_1_oe() {
         assertEquals("foo-value", privateMethods.get("foo"));
     }

@@ -54,6 +54,31 @@ public final class EuclideanIOTestUtils_OE25Dev {
      * @param src boundary source to test
      * @param eps floating point comparison epsilon
      */
+    public static void assertCube(final BoundarySource3D src, final double eps) {
+        final RegionBSPTree3D tree = src.toTree();
+
+        Assertions.assertEquals(1, tree.getSize(), eps);
+        Assertions.assertEquals(6, tree.getBoundarySize(), eps);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, tree.getCentroid(), eps);
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE,
+                Vector3D.ZERO,
+                Vector3D.of(0.25, 0, 0), Vector3D.of(-0.25, 0, 0),
+                Vector3D.of(0, 0.25, 0), Vector3D.of(0, -0.25, 0),
+                Vector3D.of(0, 0, 0.25), Vector3D.of(0, 0, -0.25));
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.BOUNDARY,
+                Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(-0.5, -0.5, +0.5),
+                Vector3D.of(-0.5, +0.5, -0.5), Vector3D.of(-0.5, +0.5, +0.5),
+                Vector3D.of(+0.5, -0.5, -0.5), Vector3D.of(+0.5, -0.5, +0.5),
+                Vector3D.of(+0.5, +0.5, -0.5), Vector3D.of(+0.5, +0.5, +0.5));
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE,
+                Vector3D.of(0.5, 0.5, 1), Vector3D.of(0.5, 0.5, -1),
+                Vector3D.of(0.5, 1, 0.5), Vector3D.of(0.5, -1, 0.5),
+                Vector3D.of(1, 0.5, 0.5), Vector3D.of(-1, 0.5, 0.5));
+    }
 
     /** Return a test cube with a sphere removed from the center.
      * @param precision precision context used for floating point comparisons
@@ -73,6 +98,32 @@ public final class EuclideanIOTestUtils_OE25Dev {
      * @param src boundary source to test
      * @param eps floating point comparison epsilon
      */
+    public static void assertCubeMinusSphere(final BoundarySource3D src, final double eps) {
+        final RegionBSPTree3D tree = src.toTree();
+
+        Assertions.assertEquals(0.11509505362599505, tree.getSize(), eps);
+        Assertions.assertEquals(4.585561662505128, tree.getBoundarySize(), eps);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, tree.getCentroid(), eps);
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.INSIDE,
+                Vector3D.of(0.45, 0.45, 0.45), Vector3D.of(0.45, 0.45, -0.45),
+                Vector3D.of(0.45, -0.45, 0.45), Vector3D.of(0.45, -0.45, -0.45),
+                Vector3D.of(-0.45, 0.45, 0.45), Vector3D.of(-0.45, 0.45, -0.45),
+                Vector3D.of(-0.45, -0.45, 0.45), Vector3D.of(-0.45, -0.45, -0.45));
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.BOUNDARY,
+                Vector3D.of(-0.5, -0.5, -0.5), Vector3D.of(-0.5, -0.5, +0.5),
+                Vector3D.of(-0.5, +0.5, -0.5), Vector3D.of(-0.5, +0.5, +0.5),
+                Vector3D.of(+0.5, -0.5, -0.5), Vector3D.of(+0.5, -0.5, +0.5),
+                Vector3D.of(+0.5, +0.5, -0.5), Vector3D.of(+0.5, +0.5, +0.5));
+
+        EuclideanTestUtils.assertRegionLocation(tree, RegionLocation.OUTSIDE,
+                Vector3D.ZERO,
+                Vector3D.of(0.5, 0.5, 1), Vector3D.of(0.5, 0.5, -1),
+                Vector3D.of(0.5, 1, 0.5), Vector3D.of(0.5, -1, 0.5),
+                Vector3D.of(1, 0.5, 0.5), Vector3D.of(-1, 0.5, 0.5));
+    }
 
     /** Read all facets available from the given facet reader.
      * @param reader instance to read facets from
@@ -126,6 +177,16 @@ public final class EuclideanIOTestUtils_OE25Dev {
      * @param expectedNormal expected normal; may be null
      * @param eps floating point comparison epsilon
      */
+    public static void assertFacetVerticesAndNormal(final FacetDefinition facet, final List<Vector3D> expectedVertices,
+            final Vector3D expectedNormal, final double eps) {
+        assertFacetVertices(facet, expectedVertices, eps);
+
+        if (expectedNormal == null) {
+            Assertions.assertNull(facet.getNormal(), "Expected facet normal to be null");
+        } else {
+            EuclideanTestUtils.assertCoordinatesEqual(expectedNormal, facet.getNormal(), eps);
+        }
+    }
 
 public static void assertCube_1_oe(final BoundarySource3D src, final double eps) { final RegionBSPTree3D tree = src.toTree();
 }

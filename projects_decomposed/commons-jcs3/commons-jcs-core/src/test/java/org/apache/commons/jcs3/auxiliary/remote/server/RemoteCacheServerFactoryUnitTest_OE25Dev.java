@@ -47,6 +47,17 @@ public class RemoteCacheServerFactoryUnitTest_OE25Dev
     }
 
     /** verify that we get the timeout value */
+    public void testConfigureRemoteCacheServerAttributes_timeoutNotPresent()
+    {
+        // SETUP
+        final Properties props = new Properties();
+
+        // DO WORK
+        final RemoteCacheServerAttributes result = RemoteCacheServerFactory.configureRemoteCacheServerAttributes( props );
+
+        // VERIFY
+        assertEquals( "Wrong timeout", ICommonRemoteCacheAttributes.DEFAULT_RMI_SOCKET_FACTORY_TIMEOUT_MILLIS, result.getRmiSocketFactoryTimeoutMillis() );
+    }
 
     /** verify that we get the registryKeepAliveDelayMillis value */
     public void testConfigureRemoteCacheServerAttributes_registryKeepAliveDelayMillisPresent()

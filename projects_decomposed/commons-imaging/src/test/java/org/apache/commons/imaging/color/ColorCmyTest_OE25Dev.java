@@ -37,6 +37,42 @@ public class ColorCmyTest_OE25Dev {
     }
 
     @Test
+    public void testCAssignment() {
+        assertEquals(1.0, color.C, 0.0);
+    }
+
+    @Test
+    public void testMAssignment() {
+        assertEquals(2.0, color.M, 0.0);
+    }
+
+    @Test
+    public void testYAssignment() {
+        assertEquals(3.0, color.Y, 0.0);
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals("{C: 1.0, M: 2.0, Y: 3.0}", color.toString());
+    }
+
+    @Test
+    public void testCreatesColorCmy() {
+        final ColorCmy colorCmy = new ColorCmy(0.0, (-1668.733868772), (-1568.733868772));
+        final ColorCmy colorCmyTwo = ColorCmy.YELLOW;
+
+        assertNotEquals(colorCmy, colorCmyTwo);
+        assertEquals((-1568.733868772), colorCmy.Y, 0.01);
+        assertEquals((-1668.733868772), colorCmy.M, 0.01);
+    }
+
+    @Test
+    public void testEquals() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+
+    @Test
     public void testCAssignment_1_oe() {
         assertEquals(1.0, color.C, 0.0);
     }

@@ -61,26 +61,67 @@ public class TestConfigurationIteratorAttributes_OE25Dev extends AbstractXPathTe
     /**
      * Tests to iterate over all attributes.
      */
+    @Test
+    public void testIterateAllAttributes() {
+        final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, "*"));
+        assertEquals("Wrong number of attributes", 3, iteratorSize(it));
+        final List<NodePointer> attrs = iterationElements(it);
+        final Set<String> attrNames = new HashSet<>();
+        for (final NodePointer np : attrs) {
+            attrNames.add(np.getName().getName());
+        }
+        assertTrue("First attribute not found", attrNames.contains(ATTR_NAME));
+        assertTrue("Second attribute not found", attrNames.contains(TEST_ATTR));
+        assertTrue("Namespace attribute not found", attrNames.contains(NS_ATTR));
+    }
 
     /**
      * Tests whether a specific attribute with a namespace can be selected.
      */
+    @Test
+    public void testIterateNamespaceAttribute() {
+        final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(NAMESPACE, "attr"));
+        assertEquals("Wrong number of attributes", 1, iteratorSize(it));
+        assertEquals("Wrong attribute", NS_ATTR, iterationElements(it).get(0).getName().getName());
+    }
 
     /**
      * Tests iteration if an unknown namespace is specified.
      */
+    @Test
+    public void testIterateNamespaceUnknown() {
+        final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName("test", "*"));
+        assertEquals("Found attributes", 0, iteratorSize(it));
+    }
 
     /**
      * Tests whether a wildcard can be used together with a namespace.
      */
+    @Test
+    public void testIterateNamespaceWildcard() {
+        final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(NAMESPACE, "*"));
+        assertEquals("Wrong number of attributes", 1, iteratorSize(it));
+        assertEquals("Wrong attribute", NS_ATTR, iterationElements(it).get(0).getName().getName());
+    }
 
     /**
      * Tests to iterate over attributes with a specific name.
      */
+    @Test
+    public void testIterateSpecificAttribute() {
+        final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, TEST_ATTR));
+        assertEquals("Wrong number of attributes", 1, iteratorSize(it));
+        assertEquals("Wrong attribute", TEST_ATTR, iterationElements(it).get(0).getName().getName());
+    }
 
     /**
      * Tests to iterate over non existing attributes.
      */
+    @Test
+    public void testIterateUnknownAttribute() {
+        final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, "unknown"));
+        assertEquals("Found attributes", 0, iteratorSize(it));
+    }
 
     @Test
     public void testIterateAllAttributes_1_oe() {
@@ -91,7 +132,6 @@ public class TestConfigurationIteratorAttributes_OE25Dev extends AbstractXPathTe
     @Test
     public void testIterateAllAttributes_2_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, "*"));
-        // removed other assertion
         final List<NodePointer> attrs = iterationElements(it);
         final Set<String> attrNames = new HashSet<>();
         for (final NodePointer np : attrs) {
@@ -103,27 +143,22 @@ public class TestConfigurationIteratorAttributes_OE25Dev extends AbstractXPathTe
     @Test
     public void testIterateAllAttributes_3_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, "*"));
-        // removed other assertion
         final List<NodePointer> attrs = iterationElements(it);
         final Set<String> attrNames = new HashSet<>();
         for (final NodePointer np : attrs) {
             attrNames.add(np.getName().getName());
         }
-        // removed other assertion
         assertTrue("Second attribute not found", attrNames.contains(TEST_ATTR));
     }
 
     @Test
     public void testIterateAllAttributes_4_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, "*"));
-        // removed other assertion
         final List<NodePointer> attrs = iterationElements(it);
         final Set<String> attrNames = new HashSet<>();
         for (final NodePointer np : attrs) {
             attrNames.add(np.getName().getName());
         }
-        // removed other assertion
-        // removed other assertion
         assertTrue("Namespace attribute not found", attrNames.contains(NS_ATTR));
     }
 
@@ -136,7 +171,6 @@ public class TestConfigurationIteratorAttributes_OE25Dev extends AbstractXPathTe
     @Test
     public void testIterateNamespaceAttribute_2_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(NAMESPACE, "attr"));
-        // removed other assertion
         assertEquals("Wrong attribute", NS_ATTR, iterationElements(it).get(0).getName().getName());
     }
 
@@ -155,7 +189,6 @@ public class TestConfigurationIteratorAttributes_OE25Dev extends AbstractXPathTe
     @Test
     public void testIterateNamespaceWildcard_2_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(NAMESPACE, "*"));
-        // removed other assertion
         assertEquals("Wrong attribute", NS_ATTR, iterationElements(it).get(0).getName().getName());
     }
 
@@ -168,7 +201,6 @@ public class TestConfigurationIteratorAttributes_OE25Dev extends AbstractXPathTe
     @Test
     public void testIterateSpecificAttribute_2_oe() {
         final ConfigurationNodeIteratorAttribute<ImmutableNode> it = new ConfigurationNodeIteratorAttribute<>(pointer, new QName(null, TEST_ATTR));
-        // removed other assertion
         assertEquals("Wrong attribute", TEST_ATTR, iterationElements(it).get(0).getName().getName());
     }
 

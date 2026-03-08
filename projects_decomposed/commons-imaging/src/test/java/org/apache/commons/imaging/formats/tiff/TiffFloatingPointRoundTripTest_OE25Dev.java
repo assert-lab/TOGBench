@@ -106,6 +106,52 @@ public class TiffFloatingPointRoundTripTest_OE25Dev extends TiffBaseTest {
         return new PhotometricInterpreterFloat(f0, f1 + 1.0e-5f);
     }
 
+    @Test
+    public void test() throws Exception {
+        // we set up the 32 and 64 bit test cases.  At this time,
+        // the Tile format is not supported for floating-point samples by the
+        // TIFF datareaders classes.  So that format is not yet exercised.
+        // Note also that the compressed floating-point with predictor=3
+        // is processed in other tests, but not here.
+        final File[] testFile = new File[8];
+        testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
+        testFile[1] = writeFile(64, ByteOrder.LITTLE_ENDIAN, false);
+        testFile[2] = writeFile(32, ByteOrder.BIG_ENDIAN, false);
+        testFile[3] = writeFile(64, ByteOrder.BIG_ENDIAN, false);
+        testFile[4] = writeFile(32, ByteOrder.LITTLE_ENDIAN, true);
+        testFile[5] = writeFile(64, ByteOrder.LITTLE_ENDIAN, true);
+        testFile[6] = writeFile(32, ByteOrder.BIG_ENDIAN, true);
+        testFile[7] = writeFile(64, ByteOrder.BIG_ENDIAN, true);
+        for (int i = 0; i < testFile.length; i++) {
+            final String name = testFile[i].getName();
+            final ByteSourceFile byteSource = new ByteSourceFile(testFile[i]);
+            final TiffReader tiffReader = new TiffReader(true);
+            final TiffContents contents = tiffReader.readDirectories(
+                byteSource,
+                true, // indicates that application should read image data, if present
+                FormatCompliance.getDefault());
+            final TiffDirectory directory = contents.directories.get(0);
+            final PhotometricInterpreterFloat pi = getPhotometricInterpreter();
+            final TiffImagingParameters params = new TiffImagingParameters();
+            params.setCustomPhotometricInterpreter(pi);
+            final ByteOrder byteOrder = tiffReader.getByteOrder();
+            final BufferedImage bImage = directory.getTiffImage(byteOrder, params);
+            assertNotNull(bImage, "Failed to get image from " + name);
+            final int[] pixel = new int[width * height];
+            bImage.getRGB(0, 0, width, height, pixel, 0, width);
+            for (int k = 0; k < pixel.length; k++) {
+                assertEquals(argb[k],pixel[k],"Extracted data does not match original,test " + i + ",index " + k);
+            }
+            final float meanValue = pi.getMeanFound();
+            assertEquals(0.5, meanValue, 1.0e-5, "Invalid numeric values in " + name);
+            // To write out an image file for inspection, use the following
+            // (with appropriate adjustments for path and OS)
+            //File imFile = new File("C:/Users/public", testFile[i].getName() + ".png");
+            //ImageIO.write(bImage, "PNG", imFile);
+
+        }
+    }
+
     private File writeFile(final int bitsPerSample, final ByteOrder byteOrder, final boolean useTiles)
         throws IOException, ImageWriteException {
         final String name = String.format("FpRoundTrip_%2d_%s_%s.tiff",

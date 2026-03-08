@@ -172,6 +172,70 @@ public class AntishCallTest_OE25Dev extends JexlTestCase {
     }
 
     // JEXL-300
+    @Test
+    public void testSafeAnt() throws Exception {
+        final JexlEvalContext ctxt = new JexlEvalContext();
+        final JexlOptions options = ctxt.getEngineOptions();
+        ctxt.set("x.y.z", 42);
+        JexlScript script;
+        Object result;
+
+        script = JEXL.createScript("x.y.z");
+        result = script.execute(ctxt);
+        Assert.assertEquals(42, result);
+        Assert.assertEquals(42, ctxt.get("x.y.z"));
+
+        options.setAntish(false);
+        try {
+            result = script.execute(ctxt);
+            Assert.fail("antish var shall not be resolved");
+        } catch(final JexlException.Variable xvar) {
+            Assert.assertEquals("x", xvar.getVariable());
+        } catch(final JexlException xother) {
+            Assert.assertNotNull(xother);
+        } finally {
+            options.setAntish(true);
+        }
+
+        result = null;
+        script = JEXL.createScript("x?.y?.z");
+        result = script.execute(ctxt);
+        Assert.assertNull(result);// safe navigation,null result = null;
+        script = JEXL.createScript("x?.y?.z = 3");
+        try {
+             result = script.execute(ctxt);
+             Assert.fail("not antish assign");
+        } catch(final JexlException xjexl) {
+            Assert.assertNull(result);
+        }
+
+        result = null;
+        script = JEXL.createScript("x.y?.z");
+        try {
+             result = script.execute(ctxt);
+             Assert.fail("x not defined");
+        } catch(final JexlException xjexl) {
+            Assert.assertNull(result);
+        }
+
+        result = null;
+        script = JEXL.createScript("x.y?.z = 3");
+        try {
+             result = script.execute(ctxt);
+             Assert.fail("not antish assign");
+        } catch(final JexlException xjexl) {
+            Assert.assertNull(result);
+        }
+
+        result = null;
+        script = JEXL.createScript("x.`'y'`.z = 3");
+        try {
+             result = script.execute(ctxt);
+             Assert.fail("not antish assign");
+        } catch(final JexlException xjexl) {
+            Assert.assertNull(result);
+        }
+    }
 
     @Test
     public void testSafeAnt_1_oe() throws Exception {

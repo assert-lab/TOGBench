@@ -54,6 +54,35 @@ public class CustomErrorPagesTest_OE25Dev {
     }
 
     @Test
+    public void testGetHi() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hello", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(HELLO_WORLD, response.body);
+    }
+
+    @Test
+    public void testCustomNotFound() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/othernotmapped", null);
+        Assert.assertEquals(404, response.status);
+        Assert.assertEquals(CUSTOM_NOT_FOUND, response.body);
+    }
+
+    @Test
+    public void testCustomInternal() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal", null);
+        Assert.assertEquals(500, response.status);
+        Assert.assertEquals(APPLICATION_JSON, response.headers.get("Content-Type"));
+        Assert.assertEquals(CUSTOM_INTERNAL, response.body);
+    }
+
+    @Test
+    public void testCustomInternalFailingRoute() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/raiseinternal?" + QUERY_PARAM_KEY + "=sumthin", null);
+        Assert.assertEquals(500, response.status);
+        Assert.assertEquals(CustomErrorPages.INTERNAL_ERROR, response.body);
+    }
+
+    @Test
     public void testGetHi_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hello", null);
         Assert.assertEquals(200, response.status);

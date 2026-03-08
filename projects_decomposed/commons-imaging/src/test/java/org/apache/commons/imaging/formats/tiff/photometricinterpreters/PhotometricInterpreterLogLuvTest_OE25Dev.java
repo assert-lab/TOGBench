@@ -46,6 +46,70 @@ public class PhotometricInterpreterLogLuvTest_OE25Dev {
     }
 
     @Test
+    public void testConstructor() {
+        assertEquals(samplesPerPixel, p.samplesPerPixel);
+        for (int i = 0; i < bitsPerSample.length; i++) {
+            assertEquals(bitsPerSample[i], p.getBitsPerSample(i));
+        }
+        assertEquals(predictor, p.predictor);
+        assertEquals(width, p.width);
+        assertEquals(height, p.height);
+    }
+
+    @Test
+    public void testGetTristimulusValues() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        assertEquals(0.0d, p.getTristimulusValues(0, 0, 0).x, 0.001d);
+        assertEquals(0.0d, p.getTristimulusValues(0, 0, 0).y, 0.001d);
+        assertEquals(0.0d, p.getTristimulusValues(0, 0, 0).z, 0.001d);
+        // values under the threshold used in the if statements
+        assertEquals(0.04126d, p.getTristimulusValues(1, 0, 0).x, 0.001d);
+        assertEquals(0.04341d, p.getTristimulusValues(1, 0, 0).y, 0.001d);
+        assertEquals(0.04727d, p.getTristimulusValues(1, 0, 0).z, 0.001d);
+        // values under the threshold used in the if statements
+        assertEquals(29.36116d, p.getTristimulusValues(100, 100, 50).x, 0.001d);
+        assertEquals(10.78483d, p.getTristimulusValues(100, 100, 50).y, 0.001d);
+        assertEquals(1.25681d, p.getTristimulusValues(100, 100, 50).z, 0.001d);
+    }
+
+    @Test
+    public void testGetRgbValues() {
+        // any value equals 0 will have its pow(N, 3) equal to 0
+        final TristimulusValues triValues = new TristimulusValues();
+        triValues.x = 0;
+        triValues.y = 0;
+        triValues.z = 0;
+        assertEquals(0, p.getRgbValues(triValues).r);
+        assertEquals(0, p.getRgbValues(triValues).g);
+        assertEquals(0, p.getRgbValues(triValues).b);
+        triValues.x = 1;
+        triValues.y = 1;
+        triValues.z = 1;
+        assertEquals(28, p.getRgbValues(triValues).r);
+        assertEquals(24, p.getRgbValues(triValues).g);
+        assertEquals(23, p.getRgbValues(triValues).b);
+    }
+
+    @Test
+    public void testInterpretPixelNullSamples() {
+        Assertions.assertThrows(ImageReadException.class, () -> p.interpretPixel(null, null, 0, 0));
+    }
+
+    @Test
+    public void testInterpretPixelEmptySamples() {
+        Assertions.assertThrows(ImageReadException.class, () -> p.interpretPixel(null, new int[] {}, 0, 0));
+    }
+
+    @Test
+    public void testInterpretPixel() throws ImageReadException, IOException {
+        final ImageBuilder imgBuilder = new ImageBuilder(600, 400, /*alpha*/ true);
+        final int x = 10;
+        final int y = 20;
+        p.interpretPixel(imgBuilder, new int[] {100, (byte) 32, (byte) 2}, x, y);
+        assertEquals(-7584166, imgBuilder.getRGB(x, y));
+    }
+
+    @Test
     public void testConstructor_1_oe() {
         assertEquals(samplesPerPixel, p.samplesPerPixel);
     }

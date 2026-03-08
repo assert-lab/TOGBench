@@ -36,6 +36,15 @@ public class SocketClientTest_OE25Dev extends TestCase
     /**
      * A simple test to verify that the Proxy is being set.
      */
+    public void testProxySettings()
+    {
+        final SocketClient socketClient = new FTPClient();
+        assertNull(socketClient.getProxy());
+        final Proxy proxy = new Proxy(Proxy.Type.SOCKS, new InetSocketAddress(PROXY_HOST, PROXY_PORT));
+        socketClient.setProxy(proxy);
+        assertEquals(proxy, socketClient.getProxy());
+        assertFalse(socketClient.isConnected());
+    }
 
     public void testProxySettings_1_oe()
     {

@@ -11,6 +11,31 @@ import org.junit.Test;
 public class URLResourceTest_OE25Dev {
 
 	@Test
+	public void resource() throws IOException {
+		File file = URLResourceUtil.asFile("classpath://application.properties");
+		assertThat(FileUtil.toString(file)).isEqualTo("springside.min=1\nspringside.max=10");
+
+		InputStream is = URLResourceUtil.asStream("classpath://application.properties");
+		assertThat(IOUtil.toString(is)).isEqualTo("springside.min=1\nspringside.max=10");
+		IOUtil.closeQuietly(is);
+
+		try {
+			URLResourceUtil.asFile("classpath://notexist.properties");
+			fail("should fail");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		try {
+			URLResourceUtil.asStream("classpath://notexist.properties");
+			fail("should fail");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+	}
+
+	@Test
 	public void file() throws IOException {
 		File file = FileUtil.createTempFile();
 		FileUtil.write("haha", file);

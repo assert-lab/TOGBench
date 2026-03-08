@@ -32,6 +32,27 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class PsdReadTest_OE25Dev extends PsdBaseTest {
 
     @Test
+    public void test() throws Exception {
+        Debug.debug("start");
+
+        final List<File> images = getPsdImages();
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            Assertions.assertFalse(metadata instanceof File);// Dummy check to avoid unused warning(it may be null)
+            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            assertNotNull(imageInfo);
+
+            Imaging.getICCProfile(imageFile);
+
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            assertNotNull(image);
+        }
+    }
+
+    @Test
     public void test_1_oe() throws Exception {
         Debug.debug("start");
 

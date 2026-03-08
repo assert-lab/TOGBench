@@ -84,10 +84,71 @@ public class IntegerValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
     /**
      * Test IntegerValidator validate Methods
      */
+    public void testIntegerValidatorMethods() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String germanPatternVal = "1.23.45";
+        String localeVal  = "12.345";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Integer expected = Integer.valueOf(12345);
+        assertEquals("validate(A) default", expected, IntegerValidator.getInstance().validate(defaultVal));
+        assertEquals("validate(A) locale ", expected, IntegerValidator.getInstance().validate(localeVal, locale));
+        assertEquals("validate(A) pattern", expected, IntegerValidator.getInstance().validate(patternVal, pattern));
+        assertEquals("validate(A) both",    expected, IntegerValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
+
+        assertTrue("isValid(A) default", IntegerValidator.getInstance().isValid(defaultVal));
+        assertTrue("isValid(A) locale ", IntegerValidator.getInstance().isValid(localeVal, locale));
+        assertTrue("isValid(A) pattern", IntegerValidator.getInstance().isValid(patternVal, pattern));
+        assertTrue("isValid(A) both",    IntegerValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
+
+        assertNull("validate(B) default", IntegerValidator.getInstance().validate(XXXX));
+        assertNull("validate(B) locale ", IntegerValidator.getInstance().validate(XXXX, locale));
+        assertNull("validate(B) pattern", IntegerValidator.getInstance().validate(XXXX, pattern));
+        assertNull("validate(B) both",    IntegerValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
+
+        assertFalse("isValid(B) default", IntegerValidator.getInstance().isValid(XXXX));
+        assertFalse("isValid(B) locale ", IntegerValidator.getInstance().isValid(XXXX, locale));
+        assertFalse("isValid(B) pattern", IntegerValidator.getInstance().isValid(XXXX, pattern));
+        assertFalse("isValid(B) both",    IntegerValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
+    }
 
     /**
      * Test Integer Range/Min/Max
      */
+    public void testIntegerRangeMinMax() {
+        IntegerValidator validator = (IntegerValidator)strictValidator;
+        Integer number9  = validator.validate("9", "#");
+        Integer number10 = validator.validate("10", "#");
+        Integer number11 = validator.validate("11", "#");
+        Integer number19 = validator.validate("19", "#");
+        Integer number20 = validator.validate("20", "#");
+        Integer number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
+        assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
+        assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
+        assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
+        assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
+
+        // Test minValue()
+        assertFalse("minValue() < min",    validator.minValue(number9,  10));
+        assertTrue("minValue() = min",     validator.minValue(number10, 10));
+        assertTrue("minValue() > min",     validator.minValue(number11, 10));
+
+        // Test minValue()
+        assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
+        assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
+        assertFalse("maxValue() > max",    validator.maxValue(number21, 20));
+    }
+    public void testMinMaxValues() {
+        assertTrue("2147483647 is max integer", validator.isValid("2147483647"));
+        assertFalse("2147483648 > max integer", validator.isValid("2147483648"));
+        assertTrue("-2147483648 is min integer", validator.isValid("-2147483648"));
+        assertFalse("-2147483649 < min integer", validator.isValid("-2147483649"));
+    }
 
     public void testIntegerValidatorMethods_1_oe() {
         Locale locale     = Locale.GERMAN;

@@ -108,6 +108,25 @@ public class TestServletRequestConfiguration_OE25Dev extends TestAbstractConfigu
     /**
      * Tests a list with elements that contain an escaped list delimiter.
      */
+    @Test
+    public void testListWithEscapedElements() {
+        final String[] values = {"test1", "test2\\,test3", "test4\\,test5"};
+        final String listKey = "test.list";
+
+        final BaseConfiguration config = new BaseConfiguration();
+        config.addProperty(listKey, values);
+
+        assertEquals("Wrong number of list elements", values.length, config.getList(listKey).size());
+
+        final Configuration c = createConfiguration(config);
+        final List<?> v = c.getList(listKey);
+
+        assertEquals("Wrong number of elements in list", values.length, v.size());
+
+        for (int i = 0; i < values.length; i++) {
+            assertEquals("Wrong value at index " + i, values[i].replace("\\", ""), v.get(i));
+        }
+    }
 
     @Test
     public void testListWithEscapedElements_1_oe() {
@@ -128,7 +147,6 @@ public class TestServletRequestConfiguration_OE25Dev extends TestAbstractConfigu
         final BaseConfiguration config = new BaseConfiguration();
         config.addProperty(listKey, values);
 
-        // removed other assertion
 
         final Configuration c = createConfiguration(config);
         final List<?> v = c.getList(listKey);
@@ -144,12 +162,10 @@ public class TestServletRequestConfiguration_OE25Dev extends TestAbstractConfigu
         final BaseConfiguration config = new BaseConfiguration();
         config.addProperty(listKey, values);
 
-        // removed other assertion
 
         final Configuration c = createConfiguration(config);
         final List<?> v = c.getList(listKey);
 
-        // removed other assertion
 
         for (int i = 0; i < values.length; i++) {
             assertEquals("Wrong value at index " + i, values[i].replace("\\", ""), v.get(i));

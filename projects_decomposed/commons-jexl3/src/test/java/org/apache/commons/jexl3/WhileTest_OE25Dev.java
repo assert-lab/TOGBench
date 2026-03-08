@@ -31,6 +31,38 @@ public class WhileTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
+    public void testSimpleWhileFalse() throws Exception {
+        final JexlScript e = JEXL.createScript("while (false) ;");
+        final JexlContext jc = new MapContext();
+
+        final Object o = e.execute(jc);
+        Assert.assertNull("Result is not null", o);
+    }
+
+    @Test
+    public void testWhileExecutesExpressionWhenLooping() throws Exception {
+        final JexlScript e = JEXL.createScript("while (x < 10) x = x + 1;");
+        final JexlContext jc = new MapContext();
+        jc.set("x", new Integer(1));
+
+        final Object o = e.execute(jc);
+        Assert.assertEquals("Result is wrong", new Integer(10), o);
+    }
+
+    @Test
+    public void testWhileWithBlock() throws Exception {
+        final JexlScript e = JEXL.createScript("while (x < 10) { x = x + 1; y = y * 2; }");
+        final JexlContext jc = new MapContext();
+        jc.set("x", new Integer(1));
+        jc.set("y", new Integer(1));
+
+        final Object o = e.execute(jc);
+        Assert.assertEquals("Result is wrong", new Integer(512), o);
+        Assert.assertEquals("x is wrong", new Integer(10), jc.get("x"));
+        Assert.assertEquals("y is wrong", new Integer(512), jc.get("y"));
+    }
+
+    @Test
     public void testSimpleWhileFalse_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("while (false) ;");
         final JexlContext jc = new MapContext();

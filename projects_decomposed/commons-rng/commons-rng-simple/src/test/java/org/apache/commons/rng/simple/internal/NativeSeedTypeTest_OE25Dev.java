@@ -29,11 +29,20 @@ class NativeSeedTypeTest_OE25Dev {
      * Test the conversion throws for an unsupported type. All supported types are
      * tested in the {@link NativeSeedTypeParametricTest}.
      */
+    @Test
+    void testConvertSeedToBytesUsingNullThrows() {
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> NativeSeedType.convertSeedToBytes(null));
+    }
 
     /**
      * Test the conversion passes through a byte[]. This hits the edge case of a seed
      * that can be converted that is not a native type.
      */
+    @Test
+    void testConvertSeedToBytesUsingByteArray() {
+        final byte[] seed = {42, 78, 99};
+        Assertions.assertSame(seed, NativeSeedType.convertSeedToBytes(seed));
+    }
 
     @Test
     void testConvertSeedToBytesUsingNullThrows_1_oe() {

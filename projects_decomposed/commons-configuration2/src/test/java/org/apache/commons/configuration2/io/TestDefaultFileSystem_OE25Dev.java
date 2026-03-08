@@ -42,6 +42,10 @@ public class TestDefaultFileSystem_OE25Dev {
     /**
      * Tests the default logger.
      */
+    @Test
+    public void testDefaultLogger() {
+        assertNotNull("No default logger", fileSystem.getLogger());
+    }
 
     /**
      * Tests that an invalid output path causes an exception to be thrown when creating an ouput stream.
@@ -54,10 +58,17 @@ public class TestDefaultFileSystem_OE25Dev {
     /**
      * Tests whether the logger can be changed.
      */
+    @Test
+    public void testSetLogger() {
+        final ConfigurationLogger log = new ConfigurationLogger(getClass());
+        fileSystem.setLogger(log);
+        assertSame("Logger not set", log, fileSystem.getLogger());
+    }
 
     @Test
     public void testDefaultLogger_1_oe() {
-        assertNotNull("No default logger", fileSystem.getLogger());
+        Object a = fileSystem.getLogger();
+        assertNotNull("No default logger", a);
     }
 
     @Test

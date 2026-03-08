@@ -32,10 +32,28 @@ class AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev {
     /**
      * Test the constructor with a bad alpha.
      */
+    @Test
+    void testConstructorThrowsWithZeroAlpha() {
+        final RestorableUniformRandomProvider rng =
+            RandomSource.SPLIT_MIX_64.create(0L);
+        final double alpha = 0;
+        final double theta = 1;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta));
+    }
 
     /**
      * Test the constructor with a bad theta.
      */
+    @Test
+    void testConstructorThrowsWithZeroTheta() {
+        final RestorableUniformRandomProvider rng =
+            RandomSource.SPLIT_MIX_64.create(0L);
+        final double alpha = 1;
+        final double theta = 0;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> AhrensDieterMarsagliaTsangGammaSampler.of(rng, alpha, theta));
+    }
 
     /**
      * Test the SharedStateSampler implementation.
@@ -73,6 +91,11 @@ class AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev {
      * Test the toString method. This is added to ensure coverage as the factory constructor
      * used in other tests does not create an instance of the wrapper class.
      */
+    @Test
+    void testToString() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertTrue(new AhrensDieterMarsagliaTsangGammaSampler(rng,1.0,2.0).toString().toLowerCase().contains("gamma"));
+    }
 
     @Test
     void testConstructorThrowsWithZeroAlpha_1_oe() {

@@ -36,6 +36,17 @@ public class ServiceTest_OE25Dev {
     }
 
     @Test
+    public void testEmbeddedServerIdentifier_defaultAndSet() {
+        assertEquals("Should return defaultIdentifier()",EmbeddedServers.defaultIdentifier(),service.embeddedServerIdentifier());
+
+        Object obj = new Object();
+
+        service.embeddedServerIdentifier(obj);
+
+        assertEquals("Should return expected obj",obj,service.embeddedServerIdentifier());
+    }
+
+    @Test
     public void testEmbeddedServerIdentifier_thenThrowIllegalStateException() {
         thrown.expect(IllegalStateException.class);
         thrown.expectMessage("This must be done before route mapping has begun");
@@ -67,12 +78,28 @@ public class ServiceTest_OE25Dev {
     }
 
     @Test
+    public void testIpAddress_whenInitializedFalse() {
+        service.ipAddress(IP_ADDRESS);
+
+        String ipAddress = Whitebox.getInternalState(service, "ipAddress");
+        assertEquals("IP address should be set to the IP address that was specified", IP_ADDRESS, ipAddress);
+    }
+
+    @Test
     public void testIpAddress_whenInitializedTrue_thenThrowIllegalStateException() {
         thrown.expect(IllegalStateException.class);
         thrown.expectMessage("This must be done before route mapping has begun");
 
         Whitebox.setInternalState(service, "initialized", true);
         service.ipAddress(IP_ADDRESS);
+    }
+
+    @Test
+    public void testSetIpAddress_whenInitializedFalse() {
+        service.ipAddress(IP_ADDRESS);
+
+        String ipAddress = Whitebox.getInternalState(service, "ipAddress");
+        assertEquals("IP address should be set to the IP address that was specified", IP_ADDRESS, ipAddress);
     }
 
     @Test
@@ -85,12 +112,28 @@ public class ServiceTest_OE25Dev {
     }
 
     @Test
+    public void testPort_whenInitializedFalse() {
+        service.port(8080);
+
+        int port = Whitebox.getInternalState(service, "port");
+        assertEquals("Port should be set to the Port that was specified", 8080, port);
+    }
+
+    @Test
     public void testPort_whenInitializedTrue_thenThrowIllegalStateException() {
         thrown.expect(IllegalStateException.class);
         thrown.expectMessage("This must be done before route mapping has begun");
 
         Whitebox.setInternalState(service, "initialized", true);
         service.port(8080);
+    }
+
+    @Test
+    public void testSetPort_whenInitializedFalse() {
+        service.port(8080);
+
+        int port = Whitebox.getInternalState(service, "port");
+        assertEquals("Port should be set to the Port that was specified", 8080, port);
     }
 
     @Test
@@ -112,12 +155,66 @@ public class ServiceTest_OE25Dev {
     }
 
     @Test
+    public void testGetPort_whenInitializedTrue() {
+        int expectedPort = 8080;
+        Whitebox.setInternalState(service, "initialized", true);
+        Whitebox.setInternalState(service, "port", expectedPort);
+
+        int actualPort = service.port();
+
+        assertEquals("Port retrieved should be the port setted", expectedPort, actualPort);
+    }
+
+    @Test
+    public void testGetPort_whenInitializedTrue_Default() {
+        int expectedPort = Service.SPARK_DEFAULT_PORT;
+        Whitebox.setInternalState(service, "initialized", true);
+
+        int actualPort = service.port();
+
+        assertEquals("Port retrieved should be the port setted", expectedPort, actualPort);
+    }
+
+    @Test
+    public void testThreadPool_whenOnlyMaxThreads() {
+        service.threadPool(100);
+        int maxThreads = Whitebox.getInternalState(service, "maxThreads");
+        int minThreads = Whitebox.getInternalState(service, "minThreads");
+        int threadIdleTimeoutMillis = Whitebox.getInternalState(service, "threadIdleTimeoutMillis");
+        assertEquals("Should return maxThreads specified", 100, maxThreads);
+        assertEquals("Should return minThreads specified", -1, minThreads);
+        assertEquals("Should return threadIdleTimeoutMillis specified", -1, threadIdleTimeoutMillis);
+    }
+
+    @Test
+    public void testThreadPool_whenMaxMinAndTimeoutParameters() {
+        service.threadPool(100, 50, 75);
+        int maxThreads = Whitebox.getInternalState(service, "maxThreads");
+        int minThreads = Whitebox.getInternalState(service, "minThreads");
+        int threadIdleTimeoutMillis = Whitebox.getInternalState(service, "threadIdleTimeoutMillis");
+        assertEquals("Should return maxThreads specified", 100, maxThreads);
+        assertEquals("Should return minThreads specified", 50, minThreads);
+        assertEquals("Should return threadIdleTimeoutMillis specified", 75, threadIdleTimeoutMillis);
+    }
+
+    @Test
     public void testThreadPool_whenMaxMinAndTimeoutParameters_thenThrowIllegalStateException() {
         thrown.expect(IllegalStateException.class);
         thrown.expectMessage("This must be done before route mapping has begun");
 
         Whitebox.setInternalState(service, "initialized", true);
         service.threadPool(100, 50, 75);
+    }
+
+    @Test
+    public void testSecure_thenReturnNewSslStores() {
+        service.secure("keyfile", "keypassword", "truststorefile", "truststorepassword");
+        SslStores sslStores = Whitebox.getInternalState(service, "sslStores");
+        assertNotNull("Should return a SslStores because we configured it to have one", sslStores);
+        assertEquals("Should return keystoreFile from SslStores", "keyfile", sslStores.keystoreFile());
+        assertEquals("Should return keystorePassword from SslStores", "keypassword", sslStores.keystorePassword());
+        assertEquals("Should return trustStoreFile from SslStores", "truststorefile", sslStores.trustStoreFile());
+        assertEquals("Should return trustStorePassword from SslStores", "truststorepassword", sslStores.trustStorePassword());
     }
 
     @Test

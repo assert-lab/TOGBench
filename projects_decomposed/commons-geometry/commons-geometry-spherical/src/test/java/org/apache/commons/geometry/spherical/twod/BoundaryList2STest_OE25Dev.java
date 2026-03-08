@@ -31,6 +31,40 @@ class BoundaryList2STest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
+    void testCtor() {
+        // arrange
+        final List<GreatArc> boundaries = Collections.singletonList(
+                GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION)
+        );
+
+        // act
+        final BoundaryList2S list = new BoundaryList2S(boundaries);
+
+        // assert
+        Assertions.assertNotSame(boundaries, list.getBoundaries());
+        Assertions.assertEquals(boundaries, list.getBoundaries());
+        Assertions.assertEquals(1, list.count());
+    }
+
+    @Test
+    void testToList() {
+        // arrange
+        final BoundaryList2S list = new BoundaryList2S(Collections.emptyList());
+
+        // act/assert
+        Assertions.assertSame(list, list.toList());
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final BoundaryList2S list = new BoundaryList2S(Collections.emptyList());
+
+        // act
+        Assertions.assertEquals("BoundaryList2S[count= 0]", list.toString());
+    }
+
+    @Test
     void testCtor_1_oe() {
         // arrange
         final List<GreatArc> boundaries = Collections.singletonList(

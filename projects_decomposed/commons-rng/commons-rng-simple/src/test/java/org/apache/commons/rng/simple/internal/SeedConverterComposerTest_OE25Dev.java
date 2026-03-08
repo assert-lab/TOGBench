@@ -23,6 +23,17 @@ import org.junit.jupiter.api.Test;
  * Tests for the {@link SeedConverterComposer}.
  */
 class SeedConverterComposerTest_OE25Dev {
+    @Test
+    void testComposedCoversion() {
+        final Int2Long int2Long = new Int2Long();
+        final Long2LongArray long2LongArray = new Long2LongArray(3);
+        final SeedConverterComposer<Integer, Long, long[]> composer =
+                new SeedConverterComposer<>(int2Long, long2LongArray);
+        final Integer in = 123;
+        final Object out = composer.convert(in);
+        Assertions.assertTrue(out instanceof long[], "Bad type conversion");
+        Assertions.assertEquals(3, ((long[])out).length, "Incorrect long[] length");
+    }
 
     @Test
     void testComposedCoversion_1_oe() {

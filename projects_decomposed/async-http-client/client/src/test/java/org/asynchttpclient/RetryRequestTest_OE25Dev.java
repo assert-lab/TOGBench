@@ -38,6 +38,16 @@ public class RetryRequestTest_OE25Dev extends AbstractBasicTest {
     return new SlowAndBigHandler();
   }
 
+  @Test
+  public void testMaxRetry() {
+    try (AsyncHttpClient ahc = asyncHttpClient(config().setMaxRequestRetry(0))) {
+      ahc.executeRequest(ahc.prepareGet(getTargetUrl()).build()).get();
+      fail();
+    } catch (Exception t) {
+      assertEquals(t.getCause(), RemotelyClosedException.INSTANCE);
+    }
+  }
+
   public static class SlowAndBigHandler extends AbstractHandler {
 
     public void handle(String pathInContext, Request request, HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws IOException, ServletException {

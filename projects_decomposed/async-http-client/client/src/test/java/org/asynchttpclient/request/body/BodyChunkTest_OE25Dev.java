@@ -30,6 +30,29 @@ public class BodyChunkTest_OE25Dev extends AbstractBasicTest {
   private static final String MY_MESSAGE = "my message";
 
   @Test
+  public void negativeContentTypeTest() throws Exception {
+
+    AsyncHttpClientConfig config = config()
+            .setConnectTimeout(100)
+            .setMaxConnections(50)
+            .setRequestTimeout(5 * 60 * 1000) // 5 minutes
+            .build();
+
+    try (AsyncHttpClient client = asyncHttpClient(config)) {
+      RequestBuilder requestBuilder = post(getTargetUrl())
+              .setHeader("Content-Type", "message/rfc822")
+              .setBody(new InputStreamBodyGenerator(new ByteArrayInputStream(MY_MESSAGE.getBytes())));
+
+      Future<Response> future = client.executeRequest(requestBuilder.build());
+
+      System.out.println("waiting for response");
+      Response response = future.get();
+      assertEquals(response.getStatusCode(), 200);
+      assertEquals(response.getResponseBody(), MY_MESSAGE);
+    }
+  }
+
+  @Test
   public void negativeContentTypeTest_1_oe() throws Exception {
 
     AsyncHttpClientConfig config = config()

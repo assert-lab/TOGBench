@@ -34,6 +34,234 @@ class BinaryStlWriterTest_OE25Dev {
 
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
+    @Test
+    void testWriteHeader_nullHeaderContent() {
+        // act
+        try (BinaryStlWriter writer = new BinaryStlWriter(out)) {
+            writer.writeHeader(null, Short.MAX_VALUE);
+        }
+
+        // assert
+        final byte[] bytes = out.toByteArray();
+        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4, bytes.length);
+
+        assertBytes(0, bytes, 0, StlConstants.BINARY_HEADER_BYTES);
+        Assertions.assertEquals(Short.MAX_VALUE, readAsInt(bytes, StlConstants.BINARY_HEADER_BYTES, 4));
+    }
+
+    @Test
+    void testWriteHeader_givenHeaderContent() {
+        // arrange
+        final byte[] headerContent = new byte[StlConstants.BINARY_HEADER_BYTES];
+        Arrays.fill(headerContent, (byte) 1);
+
+        // act
+        try (BinaryStlWriter writer = new BinaryStlWriter(out)) {
+            writer.writeHeader(headerContent, 1);
+        }
+
+        // assert
+        final byte[] bytes = out.toByteArray();
+        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4, bytes.length);
+
+        assertBytes(1, bytes, 0, StlConstants.BINARY_HEADER_BYTES);
+        Assertions.assertEquals(1, readAsInt(bytes, StlConstants.BINARY_HEADER_BYTES, 4));
+    }
+
+    @Test
+    void testWriteHeader_givenHeaderContentExceedsMaxLength() {
+        // arrange
+        final byte[] headerContent = new byte[2 * StlConstants.BINARY_HEADER_BYTES];
+        Arrays.fill(headerContent, (byte) 1);
+
+        // act
+        try (BinaryStlWriter writer = new BinaryStlWriter(out)) {
+            writer.writeHeader(headerContent, 0);
+        }
+
+        // assert
+        final byte[] bytes = out.toByteArray();
+        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4, bytes.length);
+
+        assertBytes(1, bytes, 0, StlConstants.BINARY_HEADER_BYTES);
+        Assertions.assertEquals(0, readAsInt(bytes, StlConstants.BINARY_HEADER_BYTES, 4));
+    }
+
+    @Test
+    void testWriteFacet() {
+        // arrange
+        try (BinaryStlWriter writer = new BinaryStlWriter(out)) {
+            writer.writeHeader(null, 2);
+
+            // act
+            writer.writeTriangle(
+                    Vector3D.of(1, 2, 3),
+                    Vector3D.of(4, 5, 6),
+                    Vector3D.of(7, 8, 9),
+                    Vector3D.of(10, 11, 12));
+
+            writer.writeTriangle(
+                    Vector3D.of(-1, -2, -3),
+                    Vector3D.of(-4, -5, -6),
+                    Vector3D.of(-7, -8, -9),
+                    Vector3D.of(-10, -11, -12),
+                    512);
+        }
+
+        // assert
+        final byte[] bytes = out.toByteArray();
+
+        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4 +(2 * StlConstants.BINARY_TRIANGLE_BYTES),bytes.length);
+
+        assertBytes(0, bytes, 0, StlConstants.BINARY_HEADER_BYTES);
+        Assertions.assertEquals(2, readAsInt(bytes, StlConstants.BINARY_HEADER_BYTES, Integer.BYTES));
+
+        int offset = StlConstants.BINARY_HEADER_BYTES + 4;
+
+        final List<Vector3D> tri1 = readVectors(bytes, offset, 4);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(10, 11, 12).normalize(), tri1.get(0), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, 3), tri1.get(1), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(4, 5, 6), tri1.get(2), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(7, 8, 9), tri1.get(3), TEST_EPS);
+        offset += 4 * VECTOR_SIZE;
+
+        Assertions.assertEquals(0, readAsInt(bytes, offset, 2));
+        offset += 2;
+
+        final List<Vector3D> tri2 = readVectors(bytes, offset, 4);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-10, -11, -12).normalize(), tri2.get(0), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, -2, -3), tri2.get(1), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-4, -5, -6), tri2.get(2), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-7, -8, -9), tri2.get(3), TEST_EPS);
+        offset += 4 * VECTOR_SIZE;
+
+        Assertions.assertEquals(512, readAsInt(bytes, offset, 2));
+    }
+
+    @Test
+    void testWriteFacet_ordersFacetCounterClockwise() {
+        // arrange
+        try (BinaryStlWriter writer = new BinaryStlWriter(out)) {
+            writer.writeHeader(null, 2);
+
+            // act
+            writer.writeTriangle(
+                    Vector3D.ZERO,
+                    Vector3D.of(1, 0, 0),
+                    Vector3D.of(0, 1, 0),
+                    Vector3D.of(0, 0, 1));
+
+            writer.writeTriangle(
+                    Vector3D.ZERO,
+                    Vector3D.of(0, 1, 0),
+                    Vector3D.of(1, 0, 0),
+                    Vector3D.of(0, 0, 1));
+        }
+
+        // assert
+        final byte[] bytes = out.toByteArray();
+
+        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4 +(2 * StlConstants.BINARY_TRIANGLE_BYTES),bytes.length);
+
+        assertBytes(0, bytes, 0, StlConstants.BINARY_HEADER_BYTES);
+        Assertions.assertEquals(2, readAsInt(bytes, StlConstants.BINARY_HEADER_BYTES, Integer.BYTES));
+
+        int offset = StlConstants.BINARY_HEADER_BYTES + 4;
+
+        final List<Vector3D> tri1 = readVectors(bytes, offset, 4);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 1), tri1.get(0), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 0), tri1.get(1), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 0, 0), tri1.get(2), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 1, 0), tri1.get(3), TEST_EPS);
+        offset += 4 * VECTOR_SIZE;
+
+        Assertions.assertEquals(0, readAsInt(bytes, offset, 2));
+        offset += 2;
+
+        final List<Vector3D> tri2 = readVectors(bytes, offset, 4);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 1), tri2.get(0), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 0), tri2.get(1), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 0, 0), tri2.get(2), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 1, 0), tri2.get(3), TEST_EPS);
+        offset += 4 * VECTOR_SIZE;
+
+        Assertions.assertEquals(0, readAsInt(bytes, offset, 2));
+    }
+
+    @Test
+    void testWriteFacet_invalidNormalGiven() {
+        // arrange
+        try (BinaryStlWriter writer = new BinaryStlWriter(out)) {
+            writer.writeHeader(null, 3);
+
+            // act
+            writer.writeTriangle(
+                    Vector3D.ZERO,
+                    Vector3D.of(1, 0, 0),
+                    Vector3D.of(0, 1, 0),
+                    Vector3D.ZERO);
+
+            writer.writeTriangle(
+                    Vector3D.ZERO,
+                    Vector3D.of(0, 1, 0),
+                    Vector3D.of(1, 0, 0),
+                    null,
+                    512);
+
+            writer.writeTriangle(
+                    Vector3D.ZERO,
+                    Vector3D.ZERO,
+                    Vector3D.of(1, 1, 1),
+                    null);
+        }
+
+        // assert
+        final byte[] bytes = out.toByteArray();
+
+        Assertions.assertEquals(StlConstants.BINARY_HEADER_BYTES + 4 +(3 * StlConstants.BINARY_TRIANGLE_BYTES),bytes.length);
+
+        assertBytes(0, bytes, 0, StlConstants.BINARY_HEADER_BYTES);
+        Assertions.assertEquals(3, readAsInt(bytes, StlConstants.BINARY_HEADER_BYTES, Integer.BYTES));
+
+        int offset = StlConstants.BINARY_HEADER_BYTES + 4;
+
+        final List<Vector3D> tri1 = readVectors(bytes, offset, 4);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 1), tri1.get(0), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 0), tri1.get(1), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 0, 0), tri1.get(2), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 1, 0), tri1.get(3), TEST_EPS);
+        offset += 4 * VECTOR_SIZE;
+
+        Assertions.assertEquals(0, readAsInt(bytes, offset, 2));
+        offset += 2;
+
+        final List<Vector3D> tri2 = readVectors(bytes, offset, 4);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, -1), tri2.get(0), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 0), tri2.get(1), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 1, 0), tri2.get(2), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 0, 0), tri2.get(3), TEST_EPS);
+        offset += 4 * VECTOR_SIZE;
+
+        Assertions.assertEquals(512, readAsInt(bytes, offset, 2));
+        offset += 2;
+
+        final List<Vector3D> tri3 = readVectors(bytes, offset, 4);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 0), tri3.get(0), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 0), tri3.get(1), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(0, 0, 0), tri3.get(2), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 1), tri3.get(3), TEST_EPS);
+        offset += 4 * VECTOR_SIZE;
+
+        Assertions.assertEquals(0, readAsInt(bytes, offset, 2));
+    }
+
     private static void assertBytes(final int expected, final byte[] actual, final int offset, final int len) {
         for (int i = 0; i < len; ++i) {
             Assertions.assertEquals(expected, actual[i + offset]);

@@ -71,6 +71,12 @@ public abstract class ByteSourceTest_OE25Dev extends ImagingTest {
     }
 
     @Test
+    public void testGetInputStreamThrowsNullPointerException() {
+        final ByteSourceArray byteSourceArray = new ByteSourceArray(null);
+        Assertions.assertThrows(NullPointerException.class, () -> byteSourceArray.getInputStream(0L));
+    }
+
+    @Test
     public void testGetInputStreamThrowsNullPointerException_1_oe() throws Exception {
         final ByteSourceArray byteSourceArray = new ByteSourceArray(null);
         try {

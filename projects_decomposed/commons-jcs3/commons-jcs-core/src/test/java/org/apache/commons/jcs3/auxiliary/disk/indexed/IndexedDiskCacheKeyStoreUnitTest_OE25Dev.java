@@ -43,6 +43,50 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
      * @throws Exception
      *
      */
+    public void testStoreKeys()
+        throws Exception
+    {
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        cattr.setCacheName( "testStoreKeys" );
+        cattr.setMaxKeySize( 100 );
+        cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+
+        disk.processRemoveAll();
+
+        final int cnt = 25;
+        for ( int i = 0; i < cnt; i++ )
+        {
+            final IElementAttributes eAttr = new ElementAttributes();
+            eAttr.setIsSpool( true );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            element.setElementAttributes( eAttr );
+            disk.processUpdate( element );
+        }
+
+        for ( int i = 0; i < cnt; i++ )
+        {
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            assertNotNull( "presave, Should have received an element.", element );
+            assertEquals( "presave, element is wrong.", "data:" + i, element.getVal() );
+        }
+
+        disk.saveKeys();
+
+        disk.loadKeys();
+
+        assertEquals( "The disk is the wrong size.", cnt, disk.getSize() );
+
+        for ( int i = 0; i < cnt; i++ )
+        {
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            assertNotNull( "postsave, Should have received an element.", element );
+            assertEquals( "postsave, element is wrong.", "data:" + i, element.getVal() );
+        }
+
+        disk.dump();
+
+    }
 
 
     /**
@@ -53,6 +97,56 @@ public class IndexedDiskCacheKeyStoreUnitTest_OE25Dev
      * @throws Exception
      *
      */
+    public void testOptiimize()
+        throws Exception
+    {
+        final IndexedDiskCacheAttributes cattr = new IndexedDiskCacheAttributes();
+        cattr.setCacheName( "testOptimize" );
+        cattr.setMaxKeySize( 100 );
+        cattr.setDiskPath( "target/test-sandbox/KeyStoreUnitTest" );
+        final IndexedDiskCache<String, String> disk = new IndexedDiskCache<>( cattr );
+
+        disk.processRemoveAll();
+
+        final int cnt = 25;
+        for ( int i = 0; i < cnt; i++ )
+        {
+            final IElementAttributes eAttr = new ElementAttributes();
+            eAttr.setIsSpool( true );
+            final ICacheElement<String, String> element = new CacheElement<>( cattr.getCacheName(), "key:" + i, "data:" + i );
+            element.setElementAttributes( eAttr );
+            disk.processUpdate( element );
+        }
+
+        final long preAddRemoveSize = disk.getDataFileSize();
+
+        final IElementAttributes eAttr = new ElementAttributes();
+        eAttr.setIsSpool( true );
+        final ICacheElement<String, String> elementSetup = new CacheElement<>( cattr.getCacheName(), "key:" + "A", "data:" + "A" );
+        elementSetup.setElementAttributes( eAttr );
+        disk.processUpdate( elementSetup );
+
+        final ICacheElement<String, String> elementRet = disk.processGet( "key:" + "A" );
+        assertNotNull( "postsave, Should have received an element.", elementRet );
+        assertEquals( "postsave, element is wrong.", "data:" + "A", elementRet.getVal() );
+
+        disk.remove( "key:" + "A" );
+
+        final long preSize = disk.getDataFileSize();
+        // synchronous versoin
+        disk.optimizeFile(); //deoptimizeRealTime();
+        final long postSize = disk.getDataFileSize();
+
+        assertTrue( "Should be smaller. postsize="+postSize+" preSize="+preSize, postSize < preSize );
+        assertEquals( "Should be the same size after optimization as before add and remove.", preAddRemoveSize, postSize );
+
+        for ( int i = 0; i < cnt; i++ )
+        {
+            final ICacheElement<String, String> element = disk.processGet( "key:" + i );
+            assertNotNull( "postsave, Should have received an element.", element );
+            assertEquals( "postsave, element is wrong.", "data:" + i, element.getVal() );
+        }
+    }
 
     public void testStoreKeys_1_oe()
         throws Exception

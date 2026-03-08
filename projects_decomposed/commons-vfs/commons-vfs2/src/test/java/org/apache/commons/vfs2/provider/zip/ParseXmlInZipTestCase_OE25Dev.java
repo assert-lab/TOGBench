@@ -99,11 +99,43 @@ public class ParseXmlInZipTestCase_OE25Dev {
     }
 
     @Test
+    public void testParseXmlInZip() throws IOException, SAXException {
+        final File newZipFile = createTempFile();
+        final String xmlFilePath = "zip:file:" + newZipFile.getAbsolutePath() + "!/read-xml-tests/file1.xml";
+        final FileSystemManager manager = VFS.getManager();
+        try (final FileObject zipFileObject = manager.resolveFile(xmlFilePath)) {
+            try (final InputStream inputStream = zipFileObject.getContent().getInputStream()) {
+                final Document document = newDocumentBuilder(zipFileObject, zipFileObject, null).parse(inputStream);
+                Assert.assertNotNull(document);
+            }
+        }
+    }
+
+    @Test
     public void testResolveAndParseBiggerXmlInZip() throws IOException, SAXException {
         // File is > 64 bytes
         // In this case, we want to make sure that the XML document does NOT fit in the internal buffer used to parse
         // the XML declaration and see if that affects JAXP when it uses its "rewind" input stream.
         testResolveAndParseXmlInZip("read-xml-tests/file3-bigger.xml", null);
+    }
+
+    @Test
+    public void testResolveAndParseInvalidXml() throws IOException, SAXException {
+        try {
+            testResolveAndParseXmlInZip("read-xml-tests/name-invalid.xml", "/read-xml-tests/name.xsd");
+        } catch (final SAXException e) {
+            final Pattern p = Pattern.compile("Invalid content was found starting with element.+FOO");
+            Assert.assertTrue(p.matcher(e.toString()).find());
+        }
+    }
+
+    @Test
+    public void testResolveAndParseNotWellFormedXml() throws IOException {
+        try {
+            testResolveAndParseXmlInZip("read-xml-tests/name-not-well-formed.xml", "/read-xml-tests/name.xsd");
+        } catch (final SAXException e) {
+            Assert.assertTrue(e.toString().contains("XML document structures must start and end within the same entity."));
+        }
     }
 
     @Test

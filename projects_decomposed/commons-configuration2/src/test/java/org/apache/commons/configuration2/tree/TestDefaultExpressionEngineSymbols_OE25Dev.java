@@ -65,6 +65,15 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
     /**
      * Tests the instance with default symbols.
      */
+    @Test
+    public void testDefaultSymbols() {
+        assertEquals("Wrong delimiter", ".", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getPropertyDelimiter());
+        assertEquals("Wrong escaped delimiter", "..", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getEscapedDelimiter());
+        assertEquals("Wrong index start", "(", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getIndexStart());
+        assertEquals("Wrong index end", ")", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getIndexEnd());
+        assertEquals("Wrong attribute start", "[@", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getAttributeStart());
+        assertEquals("Wrong attribute end", "]", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getAttributeEnd());
+    }
 
     /**
      * Tests equals() if the expected result is false.
@@ -115,50 +124,52 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
     /**
      * Tests the string representation.
      */
+    @Test
+    public void testToString() {
+        final DefaultExpressionEngineSymbols symbols = builder().create();
+        final String s = symbols.toString();
+        assertThat(s, containsString("propertyDelimiter=" + symbols.getPropertyDelimiter()));
+        assertThat(s, containsString("escapedDelimiter=" + symbols.getEscapedDelimiter()));
+        assertThat(s, containsString("indexStart=" + symbols.getIndexStart()));
+        assertThat(s, containsString("indexEnd=" + symbols.getIndexEnd()));
+        assertThat(s, containsString("attributeStart=" + symbols.getAttributeStart()));
+        assertThat(s, containsString("attributeEnd=" + symbols.getAttributeEnd()));
+    }
 
     @Test
     public void testDefaultSymbols_1_oe() {
-        assertEquals("Wrong delimiter", ".", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getPropertyDelimiter());
+        String a = ".";
+        assertEquals("Wrong delimiter", a, DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getPropertyDelimiter());
     }
 
     @Test
     public void testDefaultSymbols_2_oe() {
-        // removed other assertion
-        assertEquals("Wrong escaped delimiter", "..", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getEscapedDelimiter());
+        String a = "..";
+        assertEquals("Wrong escaped delimiter", a, DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getEscapedDelimiter());
     }
 
     @Test
     public void testDefaultSymbols_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong index start", "(", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getIndexStart());
+        String a = "(";
+        assertEquals("Wrong index start", a, DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getIndexStart());
     }
 
     @Test
     public void testDefaultSymbols_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong index end", ")", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getIndexEnd());
+        String a = ")";
+        assertEquals("Wrong index end", a, DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getIndexEnd());
     }
 
     @Test
     public void testDefaultSymbols_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong attribute start", "[@", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getAttributeStart());
+        String a = "[@";
+        assertEquals("Wrong attribute start", a, DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getAttributeStart());
     }
 
     @Test
     public void testDefaultSymbols_6_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong attribute end", "]", DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getAttributeEnd());
+        String a = "]";
+        assertEquals("Wrong attribute end", a, DefaultExpressionEngineSymbols.DEFAULT_SYMBOLS.getAttributeEnd());
     }
 
     @Test
@@ -172,7 +183,6 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
     public void testToString_2_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
-        // removed other assertion
         assertThat(s, containsString("escapedDelimiter=" + symbols.getEscapedDelimiter()));
     }
 
@@ -180,8 +190,6 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
     public void testToString_3_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
-        // removed other assertion
-        // removed other assertion
         assertThat(s, containsString("indexStart=" + symbols.getIndexStart()));
     }
 
@@ -189,9 +197,6 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
     public void testToString_4_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertThat(s, containsString("indexEnd=" + symbols.getIndexEnd()));
     }
 
@@ -199,10 +204,6 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
     public void testToString_5_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertThat(s, containsString("attributeStart=" + symbols.getAttributeStart()));
     }
 
@@ -210,11 +211,6 @@ public class TestDefaultExpressionEngineSymbols_OE25Dev {
     public void testToString_6_oe() {
         final DefaultExpressionEngineSymbols symbols = builder().create();
         final String s = symbols.toString();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertThat(s, containsString("attributeEnd=" + symbols.getAttributeEnd()));
     }
 

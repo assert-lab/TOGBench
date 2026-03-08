@@ -100,6 +100,101 @@ public class SizeFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
+    public void testSizeFileFilterLong() throws FileSystemException {
+
+        final SizeFileFilter testee = new SizeFileFilter(4);
+        Assert.assertFalse(testee.accept(minFileInfo));
+        Assert.assertTrue(testee.accept(optFileInfo));
+        Assert.assertTrue(testee.accept(maxFileInfo));
+
+    }
+
+    @Test
+    public void testSizeFileFilterLongBoolean() throws FileSystemException {
+
+        SizeFileFilter testee;
+
+        testee = new SizeFileFilter(4, true);
+        Assert.assertFalse(testee.accept(minFileInfo));
+        Assert.assertTrue(testee.accept(optFileInfo));
+        Assert.assertTrue(testee.accept(maxFileInfo));
+
+        testee = new SizeFileFilter(4, false);
+        Assert.assertTrue(testee.accept(minFileInfo));
+        Assert.assertFalse(testee.accept(optFileInfo));
+        Assert.assertFalse(testee.accept(maxFileInfo));
+
+    }
+
+    @Test
+    public void testSizeFileFilterZipDir() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, true)));
+        assertContains(files, optFile.getName(), maxFile.getName());
+        Assert.assertEquals(2, files.length);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeFileFilter(4, false)));
+        assertContains(files, minFile.getName());
+        Assert.assertEquals(1, files.length);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 6)));
+        assertContains(files, minFile.getName(), optFile.getName(), maxFile.getName());
+        Assert.assertEquals(3, files.length);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 6)));
+        assertContains(files, optFile.getName(), maxFile.getName());
+        Assert.assertEquals(2, files.length);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(2, 5)));
+        assertContains(files, minFile.getName(), optFile.getName());
+        Assert.assertEquals(2, files.length);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(3, 5)));
+        assertContains(files, optFile.getName());
+        Assert.assertEquals(1, files.length);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new SizeRangeFileFilter(4, 4)));
+        assertContains(files, optFile.getName());
+        Assert.assertEquals(1, files.length);
+
+    }
+
+    @Test
+    public void testSizeRangeFileFilter() throws FileSystemException {
+
+        SizeRangeFileFilter testee;
+
+        testee = new SizeRangeFileFilter(2, 6);
+        Assert.assertTrue(testee.accept(minFileInfo));
+        Assert.assertTrue(testee.accept(optFileInfo));
+        Assert.assertTrue(testee.accept(maxFileInfo));
+
+        testee = new SizeRangeFileFilter(3, 6);
+        Assert.assertFalse(testee.accept(minFileInfo));
+        Assert.assertTrue(testee.accept(optFileInfo));
+        Assert.assertTrue(testee.accept(maxFileInfo));
+
+        testee = new SizeRangeFileFilter(2, 5);
+        Assert.assertTrue(testee.accept(minFileInfo));
+        Assert.assertTrue(testee.accept(optFileInfo));
+        Assert.assertFalse(testee.accept(maxFileInfo));
+
+        testee = new SizeRangeFileFilter(3, 5);
+        Assert.assertFalse(testee.accept(minFileInfo));
+        Assert.assertTrue(testee.accept(optFileInfo));
+        Assert.assertFalse(testee.accept(maxFileInfo));
+
+        testee = new SizeRangeFileFilter(4, 4);
+        Assert.assertFalse(testee.accept(minFileInfo));
+        Assert.assertTrue(testee.accept(optFileInfo));
+        Assert.assertFalse(testee.accept(maxFileInfo));
+
+    }
+
+    @Test
     public void testSizeFileFilterLong_1_oe() throws FileSystemException {
 
         final SizeFileFilter testee = new SizeFileFilter(4);

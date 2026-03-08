@@ -51,6 +51,23 @@ public class TestHierarchicalConfigurationXMLReader_OE25Dev {
     }
 
     @Test
+    public void testParse() throws Exception {
+        final SAXSource source = new SAXSource(parser, new InputSource());
+        final DOMResult result = new DOMResult();
+        final Transformer trans = TransformerFactory.newInstance().newTransformer();
+        trans.transform(source, result);
+        final Node root = ((Document) result.getNode()).getDocumentElement();
+        final JXPathContext ctx = JXPathContext.newContext(root);
+
+        assertEquals("Wrong name of root element", "database", root.getNodeName());
+        assertEquals("Wrong number of children of root", 1, ctx.selectNodes("/*").size());
+        assertEquals("Wrong number of tables", 2, ctx.selectNodes("/tables/table").size());
+        assertEquals("Wrong name of first table", "users", ctx.getValue("/tables/table[1]/name"));
+        assertEquals("Wrong number of fields in first table", 5, ctx.selectNodes("/tables/table[1]/fields/field").size());
+        assertEquals("Wrong attribute value", "system", ctx.getValue("/tables/table[1]/@tableType"));
+    }
+
+    @Test
     public void testParse_1_oe() throws Exception {
         final SAXSource source = new SAXSource(parser, new InputSource());
         final DOMResult result = new DOMResult();

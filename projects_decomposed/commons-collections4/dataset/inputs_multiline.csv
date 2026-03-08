@@ -1,4 +1,4 @@
-id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition
+id,test_prefix,test_name,mut_class,method_under_test,mut_docstring,mut_method_definition,oracle
 coll_66_1,"    @Test
     public void testEmptyIfNull_1_oe() {
         boolean a = MapUtils.emptyIfNull(null).isEmpty();
@@ -15,29 +15,82 @@ coll_66_1,"    @Test
             return ((Collection<?>) iterable).isEmpty();
         }
         return IteratorUtils.isEmpty(emptyIteratorIfNull(iterable));
-    }"
+    }",MapUtils.emptyIfNull(null).isEmpty()
 coll_77_1,"    @Test
     public void testSize0_1_oe() {
-        int a = 0;
-        assertEquals(a, MapUtils.size(new HashMap<>()));
+        Object a = MapUtils.size(new HashMap<>());
+        assertEquals(0, a);
     }",MapUtilsTest::testSize0_1_oe,org.apache.commons.collections4.MapUtils,"size(final Map<?, ?> map)","/**
      * Gets the given map size or 0 if the map is null
      * @param map a Map or null
      * @return the given map size or 0 if the map is null
      */","public static int size(final Map<?, ?> map) {
         return map == null ? 0 : map.size();
-    }"
+    }",MapUtils.size(new HashMap<>())
 coll_78_1,"    @Test
     public void testSizeNull_1_oe() {
-        int a = 0;
-        assertEquals(a, MapUtils.size(null));
+        Object a = MapUtils.size(null);
+        assertEquals(0, a);
     }",MapUtilsTest::testSizeNull_1_oe,org.apache.commons.collections4.MapUtils,"size(final Map<?, ?> map)","/**
      * Gets the given map size or 0 if the map is null
      * @param map a Map or null
      * @return the given map size or 0 if the map is null
      */","public static int size(final Map<?, ?> map) {
         return map == null ? 0 : map.size();
-    }"
+    }",MapUtils.size(null)
+coll_168_1,"    @Test
+    public void countMatches_1_oe() {
+        Object a = IterableUtils.countMatches(iterableB, EQUALS_TWO);
+        assertEquals(4, a);
+    }",IterableUtilsTest::countMatches_1_oe,org.apache.commons.collections4.IterableUtils,"countMatches(final Iterable<E> input, final Predicate<? super E> predicate)","/**
+     * Counts the number of elements in the input iterable that match the predicate.
+     * <p>
+     * A <code>null</code> iterable matches no elements.
+     *
+     * @param <E> the type of object the {@link Iterable} contains
+     * @param input  the {@link Iterable} to get the input from, may be null
+     * @param predicate  the predicate to use, may not be null
+     * @return the number of matches for the predicate in the collection
+     * @throws NullPointerException if predicate is null
+     */","public static <E> long countMatches(final Iterable<E> input, final Predicate<? super E> predicate) {
+        if (predicate == null) {
+            throw new NullPointerException(""Predicate must not be null."");
+        }
+        return size(filteredIterable(emptyIfNull(input), predicate));
+    }","IterableUtils.countMatches(iterableB, EQUALS_TWO)"
+coll_168_2,"    @Test
+    public void countMatches_2_oe() {
+        Object a = IterableUtils.countMatches(null, EQUALS_TWO);
+        assertEquals(0, a);
+    }",IterableUtilsTest::countMatches_2_oe,org.apache.commons.collections4.IterableUtils,"countMatches(final Iterable<E> input, final Predicate<? super E> predicate)","/**
+     * Counts the number of elements in the input iterable that match the predicate.
+     * <p>
+     * A <code>null</code> iterable matches no elements.
+     *
+     * @param <E> the type of object the {@link Iterable} contains
+     * @param input  the {@link Iterable} to get the input from, may be null
+     * @param predicate  the predicate to use, may not be null
+     * @return the number of matches for the predicate in the collection
+     * @throws NullPointerException if predicate is null
+     */","public static <E> long countMatches(final Iterable<E> input, final Predicate<? super E> predicate) {
+        if (predicate == null) {
+            throw new NullPointerException(""Predicate must not be null."");
+        }
+        return size(filteredIterable(emptyIfNull(input), predicate));
+    }","IterableUtils.countMatches(null, EQUALS_TWO)"
+coll_229_2,"    @Test
+    public void testIsNotNullPredicate_2_oe() {
+        Object a = PredicateUtils.notNullPredicate();
+        assertSame(PredicateUtils.notNullPredicate(), a);
+    }",PredicateUtilsTest::testIsNotNullPredicate_2_oe,org.apache.commons.collections4.PredicateUtils,notNullPredicate(),"/**
+     * Gets a Predicate that checks if the input object passed in is not null.
+     *
+     * @param <T>  the type that the predicate queries
+     * @return the predicate
+     * @see NotNullPredicate
+     */","public static <T> Predicate<T> notNullPredicate() {
+        return NotNullPredicate.notNullPredicate();
+    }",PredicateUtils.notNullPredicate()
 coll_235_1,"    @Test
     public void testAllPredicate_1_oe() {
         boolean a = AllPredicate.allPredicate(new Predicate[] {});
@@ -63,7 +116,7 @@ coll_235_1,"    @Test
         }
 
         return new AllPredicate<>(FunctorUtils.copy(predicates));
-    }"
+    }",null
 coll_237_1,"    @Test
     public void testAnyPredicate_1_oe() {
         boolean a = PredicateUtils.anyPredicate(new Predicate[] {});
@@ -81,7 +134,7 @@ coll_237_1,"    @Test
      * @see AnyPredicate
      */","public static <T> Predicate<T> anyPredicate(final Predicate<? super T>... predicates) {
         return AnyPredicate.anyPredicate(predicates);
-    }"
+    }",null
 coll_239_1,"    @Test
     public void testOnePredicate_1_oe() {
         boolean a = PredicateUtils.onePredicate((Predicate<Object>[]) new Predicate[] {});
@@ -99,7 +152,7 @@ coll_239_1,"    @Test
      * @see OnePredicate
      */","public static <T> Predicate<T> onePredicate(final Predicate<? super T>... predicates) {
         return OnePredicate.onePredicate(predicates);
-    }"
+    }",null
 coll_241_1,"    @Test
     public void testNonePredicate_1_oe() {
         boolean a = PredicateUtils.nonePredicate(new Predicate[] {});
@@ -117,7 +170,7 @@ coll_241_1,"    @Test
      * @see NonePredicate
      */","public static <T> Predicate<T> nonePredicate(final Predicate<? super T>... predicates) {
         return NonePredicate.nonePredicate(predicates);
-    }"
+    }",null
 coll_549_2,"    @Test
     public void testNullPredicate_2_oe() {
         boolean a = nullPredicate();
@@ -130,10 +183,10 @@ coll_549_2,"    @Test
      * @see NullPredicate
      */","public static <T> Predicate<T> nullPredicate() {
         return NullPredicate.nullPredicate();
-    }"
+    }",null
 coll_637_1,"    public void testSize_1_oe() {
-        int a = 6;
-        assertEquals(a, makeFullMap().size());
+        Object a = makeFullMap().size();
+        assertEquals(6, a);
     }",AbstractMultiValuedMapTest::testSize_1_oe,org.apache.commons.collections4.IterableUtils,size(final Iterable<?> iterable),"/**
      * Returns the number of elements contained in the given iterator.
      * <p>
@@ -146,12 +199,12 @@ coll_637_1,"    public void testSize_1_oe() {
             return ((Collection<?>) iterable).size();
         }
         return IteratorUtils.size(emptyIteratorIfNull(iterable));
-    }"
+    }",makeFullMap().size()
 coll_764_1,"    @Test
     public void testInstance_1_oe() {
         Object a = PropertiesFactory.INSTANCE;
         Assert.assertNotNull(a);
-    }",AbstractPropertiesFactoryTest::testInstance_1_oe,,,,
+    }",AbstractPropertiesFactoryTest::testInstance_1_oe,,,,,PropertiesFactory.INSTANCE
 coll_765_1,"    @Test
     public void testLoadClassLoaderMissingResource_1_oe() throws Exception {
         Object a = factory.load(ClassLoader.getSystemClassLoader(), ""missing/test.properties"");
@@ -168,4 +221,4 @@ coll_765_1,"    @Test
         try (final InputStream inputStream = classLoader.getResourceAsStream(name)) {
             return load(inputStream);
         }
-    }"
+    }","factory.load(ClassLoader.getSystemClassLoader(), ""missing/test.properties"")"

@@ -40,6 +40,48 @@ public class SynchronizedOverloadsTest_OE25Dev extends JexlTestCase {
         java.util.logging.Logger.getLogger(JexlEngine.class.getName()).setLevel(java.util.logging.Level.SEVERE);
     }
 
+
+    @Test
+    public void testSynchronizer() throws Exception {
+        final Map<String, Object> ns = new TreeMap<String, Object>();
+        ns.put("synchronized", SynchronizedContext.class);
+        final JexlContext jc = new MapContext();
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        final JexlScript js0 = jexl.createScript("synchronized:call(x, (y)->{y.size()})", "x");
+        final Object size = js0.execute(jc, "foobar");
+        Assert.assertEquals(6, size);
+    }
+
+    @Test
+    public void testSynchronized() throws Exception {
+        final Map<String, Object> ns = new TreeMap<String, Object>();
+        final JexlContext jc = new SynchronizedContext(new MapContext());
+        final JexlEngine jexl = new JexlBuilder().namespaces(ns).create();
+        final JexlScript js0 = jexl.createScript("@synchronized(y) {return y.size(); }", "y");
+        final Object size = js0.execute(jc, "foobar");
+        Assert.assertEquals(6, size);
+    }
+
+    @Test
+    public void testUnsafeMonitor() throws Exception {
+        final SynchronizedArithmetic.Monitor monitor = new SynchronizedArithmetic.SafeMonitor();
+        final Map<String, Object> foo = new TreeMap<String, Object>();
+        foo.put("one", 1);
+        foo.put("two", 2);
+        foo.put("three", 3);
+        final JexlContext jc = new SynchronizedContext(new MapContext());
+        final JexlEngine jexl = new JexlBuilder().arithmetic(new SynchronizedArithmetic(monitor, true)).create();
+        final JexlScript js0 = jexl.createScript("x['four'] = 4; var t = 0.0; for(var z: x) { t += z; }; call(t, (y)->{return y});", "x");
+        Object t = js0.execute(jc, foo);
+        Assert.assertEquals(10.0d, t);
+        Assert.assertTrue(monitor.isBalanced());
+        Assert.assertEquals(2, monitor.getCount());
+        t = js0.execute(jc, foo);
+        Assert.assertEquals(10.0d, t);
+        Assert.assertTrue(monitor.isBalanced());
+        Assert.assertEquals(4, monitor.getCount());
+    }
+
     @Test
     public void testSynchronizer_1_oe() throws Exception {
         final Map<String, Object> ns = new TreeMap<String, Object>();

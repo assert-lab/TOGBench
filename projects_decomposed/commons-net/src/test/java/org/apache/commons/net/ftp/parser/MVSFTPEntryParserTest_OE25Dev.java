@@ -127,6 +127,65 @@ public class MVSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
      * (non-Javadoc)
      * @see org.apache.commons.net.ftp.parser.FTPParseTestFramework#testGoodListing()
      */
+    @Override
+    public void testGoodListing() {
+        final String[] goodsamples = getGoodListing();
+        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
+        parser.setType(MVSFTPEntryParser.FILE_LIST_TYPE);
+        parser.setRegex(MVSFTPEntryParser.FILE_LIST_REGEX);
+        for (final String test : goodsamples) {
+            final FTPFile f = parser.parseFTPEntry(test);
+            assertNotNull("Failed to parse " + test, f);
+            doAdditionalGoodTests(test, f);
+        }
+    }
+
+    public void testMemberListing() {
+        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
+        parser.setType(MVSFTPEntryParser.MEMBER_LIST_TYPE);
+        parser.setRegex(MVSFTPEntryParser.MEMBER_LIST_REGEX);
+        for (final String test : goodsamplesMemberList) {
+            final FTPFile f = parser.parseFTPEntry(test);
+            assertNotNull("Failed to parse " + test, f);
+            doAdditionalGoodTests(test, f);
+        }
+    }
+
+    public void testJesLevel1Listing() {
+        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
+        parser.setType(MVSFTPEntryParser.JES_LEVEL_1_LIST_TYPE);
+        parser.setRegex(MVSFTPEntryParser.JES_LEVEL_1_LIST_REGEX);
+        for (final String test : goodsamplesJES1List) {
+            final FTPFile f = parser.parseFTPEntry(test);
+            assertNotNull("Failed to parse " + test, f);
+            doAdditionalGoodTests(test, f);
+        }
+    }
+
+    public void testJesLevel2Listing() {
+        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
+        parser.setType(MVSFTPEntryParser.JES_LEVEL_2_LIST_TYPE);
+        parser.setRegex(MVSFTPEntryParser.JES_LEVEL_2_LIST_REGEX);
+        for (final String test : goodsamplesJES2List) {
+            final FTPFile f = parser.parseFTPEntry(test);
+            assertNotNull("Failed to parse " + test, f);
+            doAdditionalGoodTests(test, f);
+        }
+    }
+
+    public void testUnixListings() {
+        final MVSFTPEntryParser parser = new MVSFTPEntryParser();
+        final List<String> list = new ArrayList<>();
+        Collections.addAll(list, goodsamplesUnixList);
+        parser.preParse(list);
+        for (final String test : list) {
+            final FTPFile f = parser.parseFTPEntry(test);
+            assertNotNull("Failed to parse " + test, f);
+            assertNotNull("Failed to parse name " + test, f.getName());
+            assertNotNull("Failed to parse group " + test, f.getGroup());
+            assertNotNull("Failed to parse user " + test, f.getUser());
+        }
+    }
 
     @Override
     public void testParseFieldsOnDirectory() throws Exception {

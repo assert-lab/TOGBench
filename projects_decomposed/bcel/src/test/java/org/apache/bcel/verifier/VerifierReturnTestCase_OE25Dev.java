@@ -24,6 +24,18 @@ import org.apache.bcel.verifier.tests.TestReturn03Creator;
 
 public class VerifierReturnTestCase_OE25Dev extends AbstractVerifierTestCase {
 
+    public void testInvalidReturn() throws IOException {
+        new TestReturn01Creator().create();
+        assertVerifyRejected("TestReturn01", "Verification of a void method that returns an object must fail.");
+        new TestReturn03Creator().create();
+        assertVerifyRejected("TestReturn03", "Verification of an int method that returns null must fail.");
+    }
+
+    public void testValidReturn() {
+        assertVerifyOK("TestReturn02", "Verification of a method that returns a newly created object must pass.");
+        assertVerifyOK("TestArray01", "Verification of a method that returns an array must pass.");
+    }
+
     public void testInvalidReturn_1_oe_1_oe() throws IOException {
         new TestReturn01Creator().create();
                 final String classname0 = "TestReturn01";

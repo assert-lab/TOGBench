@@ -51,6 +51,23 @@ public class HttpsProxyTest_OE25Dev extends AbstractBasicTest {
   }
 
   @Test
+  public void testSimpleAHCConfigProxy() throws IOException, InterruptedException, ExecutionException {
+
+    try (SimpleAsyncHttpClient client = new SimpleAsyncHttpClient.Builder()
+            .setProxyHost("localhost")
+            .setProxyPort(port1)
+            .setFollowRedirect(true)
+            .setUrl(getTargetUrl2())
+            .setAcceptAnyCertificate(true)
+            .setHeader("Content-Type", "text/html")
+            .build()) {
+      Response r = client.get().get();
+
+      assertEquals(r.getStatusCode(), 200);
+    }
+  }
+
+  @Test
   public void testSimpleAHCConfigProxy_1_oe() throws IOException, InterruptedException, ExecutionException {
 
     try (SimpleAsyncHttpClient client = new SimpleAsyncHttpClient.Builder()

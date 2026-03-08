@@ -79,6 +79,12 @@ public class ProvidersTest_OE25Dev {
     private FauxWeaveProvider a = new A(), b = new B(), c = new C(), w = new W(), x = new X(), y = new Y(), z = new Z(),
                     monkeywrench = new Monkeywrench();
 
+    @Test
+    public void testSort() {
+        assertThat(Providers.sort(Arrays.asList(b, a, c)), IsIterableContainingInOrder.contains(a, b, c));
+        assertThat(Providers.sort(Arrays.asList(y, w, x, z)), IsIterableContainingInOrder.contains(z, y, x, w));
+    }
+
     @Test(expected = IllegalStateException.class)
     public void testCircularSort() {
         Providers.sort(Arrays.asList(y, z, monkeywrench));

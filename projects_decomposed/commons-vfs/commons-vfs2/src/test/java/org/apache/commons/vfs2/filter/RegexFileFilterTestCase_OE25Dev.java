@@ -32,6 +32,78 @@ import org.junit.Test;
 public class RegexFileFilterTestCase_OE25Dev extends BaseFilterTest {
 
     @Test
+    public void testPatternNullArgConstruction() {
+        try {
+            new RegexFileFilter((Pattern) null);
+            fail();
+        } catch (final IllegalArgumentException ex) {
+            Assert.assertEquals(RegexFileFilter.PATTERN_IS_MISSING, ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testRegex() throws Exception {
+
+        FileFilter filter;
+
+        filter = new RegexFileFilter("^.*[tT]est(-\\d+)?\\.java$");
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test-10.java"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test-.java"))));
+
+        filter = new RegexFileFilter("^[Tt]est.java$");
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("tEST.java"))));
+
+        filter = new RegexFileFilter(Pattern.compile("^test.java$", Pattern.CASE_INSENSITIVE));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("tEST.java"))));
+
+        filter = new RegexFileFilter("^test.java$", Pattern.CASE_INSENSITIVE);
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("tEST.java"))));
+
+        filter = new RegexFileFilter("^test.java$", IOCase.INSENSITIVE);
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test.java"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.java"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("tEST.java"))));
+
+    }
+
+    @Test
+    public void testStringIOCaseNullArgConstruction() {
+        try {
+            new RegexFileFilter((String) null, IOCase.INSENSITIVE);
+            fail();
+        } catch (final IllegalArgumentException ex) {
+            Assert.assertEquals(RegexFileFilter.PATTERN_IS_MISSING, ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testStringNullArgConstruction() {
+        try {
+            new RegexFileFilter((String) null);
+            fail();
+        } catch (final IllegalArgumentException ex) {
+            Assert.assertEquals(RegexFileFilter.PATTERN_IS_MISSING, ex.getMessage());
+        }
+    }
+
+    @Test
+    public void testStringPatternNullArgConstruction() {
+        try {
+            new RegexFileFilter((String) null, Pattern.CASE_INSENSITIVE);
+            fail();
+        } catch (final IllegalArgumentException ex) {
+            Assert.assertEquals(RegexFileFilter.PATTERN_IS_MISSING, ex.getMessage());
+        }
+    }
+
+    @Test
     public void testPatternNullArgConstruction_2_oe() {
         try {
             new RegexFileFilter((Pattern) null);

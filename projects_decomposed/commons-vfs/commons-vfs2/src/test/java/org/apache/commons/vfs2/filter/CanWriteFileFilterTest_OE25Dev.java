@@ -105,6 +105,40 @@ public class CanWriteFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
+    public void testAcceptCannotWrite() throws FileSystemException {
+
+        Assert.assertFalse(CanWriteFileFilter.CANNOT_WRITE.accept(writableFileInfo));
+        Assert.assertTrue(CanWriteFileFilter.CANNOT_WRITE.accept(readOnlyFileInfo));
+        Assert.assertFalse(CanWriteFileFilter.CANNOT_WRITE.accept(notExistingFileInfo));
+
+    }
+
+    @Test
+    public void testAcceptCanWrite() throws FileSystemException {
+
+        Assert.assertTrue(CanWriteFileFilter.CAN_WRITE.accept(writableFileInfo));
+        Assert.assertFalse(CanWriteFileFilter.CAN_WRITE.accept(readOnlyFileInfo));
+        Assert.assertTrue(CanWriteFileFilter.CAN_WRITE.accept(notExistingFileInfo));
+
+    }
+
+    @Test
+    public void testAcceptZipFile() throws FileSystemException {
+
+        FileObject[] files;
+
+        // CAN_WRITE Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CAN_WRITE));
+        Assert.assertTrue(files == null || files.length == 0);
+
+        // CANNOT_WRITE Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanWriteFileFilter.CANNOT_WRITE));
+        assertContains(files, READONLY, WRITABLE);
+        Assert.assertEquals(2, files.length);
+
+    }
+
+    @Test
     public void testAcceptCannotWrite_1_oe() throws FileSystemException {
 
         Assert.assertFalse(CanWriteFileFilter.CANNOT_WRITE.accept(writableFileInfo));

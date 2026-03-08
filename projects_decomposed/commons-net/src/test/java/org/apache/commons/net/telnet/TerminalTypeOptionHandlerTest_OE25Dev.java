@@ -26,6 +26,13 @@ public class TerminalTypeOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTe
         opthand3 = new TerminalTypeOptionHandler("ANSI", false, false, false, false);
     }
 
+    @Override
+    public void testConstructors()
+    {
+        assertEquals(opthand1.getOptionCode(), TelnetOption.TERMINAL_TYPE);
+        super.testConstructors();
+    }
+
     /*
      * test of client-driven subnegotiation.
      * Checks that no subnegotiation is made.

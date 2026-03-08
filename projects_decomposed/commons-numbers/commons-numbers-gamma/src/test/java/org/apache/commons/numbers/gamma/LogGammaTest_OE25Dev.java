@@ -213,6 +213,16 @@ class LogGammaTest_OE25Dev {
         }
     }
 
+    @Test
+    void testLogGammaPrecondition1() {
+        Assertions.assertTrue(Double.isNaN(LogGamma.value(0.0)));
+    }
+
+    @Test
+    void testLogGammaPrecondition2() {
+        Assertions.assertTrue(Double.isNaN(LogGamma.value(-1.0)));
+    }
+
     private void testLogGamma(double expected, double x) {
         double actual = LogGamma.value(x);
         Assertions.assertEquals(expected, actual, 1e-15);

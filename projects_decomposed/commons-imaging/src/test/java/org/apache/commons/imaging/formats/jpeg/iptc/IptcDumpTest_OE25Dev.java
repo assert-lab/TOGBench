@@ -38,6 +38,29 @@ public class IptcDumpTest_OE25Dev extends IptcBaseTest {
 
     @ParameterizedTest
     @MethodSource("data")
+    public void test(final File imageFile) throws Exception {
+        final JpegImageMetadata metadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
+        assertNotNull(metadata);
+        assertNotNull(metadata.getPhotoshop());
+
+        metadata.getPhotoshop().dump();
+
+        final JpegPhotoshopMetadata psMetadata = metadata.getPhotoshop();
+        final List<IptcRecord> oldRecords = psMetadata.photoshopApp13Data.getRecords();
+
+        Debug.debug();
+        for (final IptcRecord record : oldRecords) {
+            if (record.iptcType != IptcTypes.CITY) {
+                Debug.debug("Key: " + record.iptcType.getName() + " (0x"
+                        + Integer.toHexString(record.iptcType.getType())
+                        + "), value: " + record.getValue());
+            }
+        }
+        Debug.debug();
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
     public void test_1_oe(final File imageFile) throws Exception {
         final JpegImageMetadata metadata = (JpegImageMetadata) Imaging.getMetadata(imageFile);
         assertNotNull(metadata);

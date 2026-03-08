@@ -33,6 +33,38 @@ import static org.testng.Assert.assertTrue;
  */
 public class SimpleAsyncClientErrorBehaviourTest_OE25Dev extends AbstractBasicTest {
 
+  @Test
+  public void testAccumulateErrorBody() throws Exception {
+    try (SimpleAsyncHttpClient client = new SimpleAsyncHttpClient.Builder()
+            .setUrl(getTargetUrl() + "/nonexistent")
+            .setErrorDocumentBehaviour(ErrorDocumentBehaviour.ACCUMULATE).build()) {
+      ByteArrayOutputStream o = new ByteArrayOutputStream(10);
+      Future<Response> future = client.get(new OutputStreamBodyConsumer(o));
+
+      System.out.println("waiting for response");
+      Response response = future.get();
+      assertEquals(response.getStatusCode(), 404);
+      assertEquals(o.toString(), "");
+      assertTrue(response.getResponseBody().startsWith("<html>"));
+    }
+  }
+
+  @Test
+  public void testOmitErrorBody() throws Exception {
+    try (SimpleAsyncHttpClient client = new SimpleAsyncHttpClient.Builder()
+            .setUrl(getTargetUrl() + "/nonexistent")
+            .setErrorDocumentBehaviour(ErrorDocumentBehaviour.OMIT).build()) {
+      ByteArrayOutputStream o = new ByteArrayOutputStream(10);
+      Future<Response> future = client.get(new OutputStreamBodyConsumer(o));
+
+      System.out.println("waiting for response");
+      Response response = future.get();
+      assertEquals(response.getStatusCode(), 404);
+      assertEquals(o.toString(), "");
+      assertEquals(response.getResponseBody(), "");
+    }
+  }
+
   @Override
   public AbstractHandler configureHandler() {
     return new AbstractHandler() {

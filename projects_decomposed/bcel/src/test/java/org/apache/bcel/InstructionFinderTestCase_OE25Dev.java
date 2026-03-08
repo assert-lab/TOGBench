@@ -27,6 +27,38 @@ import org.apache.bcel.util.InstructionFinder;
 
 public class InstructionFinderTestCase_OE25Dev extends AbstractTestCase
 {
+    public void testSearchAll() throws Exception
+    {
+        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".util.InstructionFinder");
+        final Method[] methods = clazz.getMethods();
+        Method searchM = null;
+        for (final Method m : methods)
+        {
+            if (m.getName().equals("search") && (m.getArgumentTypes().length == 3))
+            {
+                searchM = m;
+                break;
+            }
+        }
+
+        if (searchM == null) {
+            throw new Exception("search method not found");
+        }
+
+        final byte[] bytes = searchM.getCode().getCode();
+        final InstructionList il = new InstructionList(bytes);
+        final InstructionFinder finder = new InstructionFinder(il);
+        final Iterator<?> it = finder.search(".*", il.getStart(), null);
+
+        final InstructionHandle[] ihs = (InstructionHandle[])it.next();
+        int size = 0;
+        for (final InstructionHandle ih : ihs)
+        {
+            size += ih.getInstruction().getLength();
+        }
+        assertEquals(bytes.length, size);
+
+    }
 
     public void testSearchAll_1_oe() throws Exception
     {

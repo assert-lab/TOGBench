@@ -39,6 +39,34 @@ public abstract class FTPParseTestFramework_OE25Dev extends TestCase
         super(name);
     }
 
+    public void testBadListing()
+    {
+
+        final String[] badsamples = getBadListing();
+        for (final String test : badsamples)
+        {
+
+            final FTPFile f = parser.parseFTPEntry(test);
+            assertNull("Should have Failed to parse <" + test + ">",nullFileOrNullDate(f));
+
+            doAdditionalBadTests(test, f);
+        }
+    }
+
+    public void testGoodListing()
+    {
+
+        final String[] goodsamples = getGoodListing();
+        for (final String test : goodsamples)
+        {
+
+            final FTPFile f = parser.parseFTPEntry(test);
+            assertNotNull("Failed to parse " + test, f);
+
+            doAdditionalGoodTests(test, f);
+        }
+    }
+
     /**
      * during processing you could hook here to do additional tests
      *

@@ -58,6 +58,89 @@ public class BooksIntegrationTest_OE25Dev {
         Spark.awaitInitialization();
     }
 
+    @Test
+    public void canCreateBook() {
+        UrlResponse response = createBookViaPOST();
+
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertTrue(Integer.valueOf(response.body) > 0);
+        assertEquals(201, response.status);
+    }
+
+    @Test
+    public void canListBooks() {
+        bookId = createBookViaPOST().body.trim();
+
+        UrlResponse response = doMethod("GET", "/books", null);
+
+        assertNotNull(response);
+        String body = response.body.trim();
+        assertNotNull(body);
+        assertTrue(Integer.valueOf(body) > 0);
+        assertEquals(200, response.status);
+        assertTrue(response.body.contains(bookId));
+    }
+
+    @Test
+    public void canGetBook() {
+        bookId = createBookViaPOST().body.trim();
+
+        UrlResponse response = doMethod("GET", "/books/" + bookId, null);
+
+        String result = response.body;
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertEquals(200, response.status);
+        assertTrue(result.contains(AUTHOR));
+        assertTrue(result.contains(TITLE));
+        assertTrue(beforeFilterIsSet(response));
+        assertTrue(afterFilterIsSet(response));
+    }
+
+    @Test
+    public void canUpdateBook() {
+        bookId = createBookViaPOST().body.trim();
+
+        UrlResponse response = updateBook();
+
+        String result = response.body;
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertEquals(200, response.status);
+        assertTrue(result.contains(bookId));
+        assertTrue(result.contains("updated"));
+    }
+
+    @Test
+    public void canGetUpdatedBook() {
+        bookId = createBookViaPOST().body.trim();
+        updateBook();
+
+        UrlResponse response = doMethod("GET", "/books/" + bookId, null);
+
+        String result = response.body;
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertEquals(200, response.status);
+        assertTrue(result.contains(AUTHOR));
+        assertTrue(result.contains(NEW_TITLE));
+    }
+
+    @Test
+    public void canDeleteBook() {
+        bookId = createBookViaPOST().body.trim();
+
+        UrlResponse response = doMethod("DELETE", "/books/" + bookId, null);
+
+        String result = response.body;
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertEquals(200, response.status);
+        assertTrue(result.contains(bookId));
+        assertTrue(result.contains("deleted"));
+    }
+
     @Test(expected = FileNotFoundException.class)
     public void wontFindBook() throws IOException {
         getResponse("GET", "/books/" + bookId, null);

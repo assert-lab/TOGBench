@@ -85,6 +85,40 @@ public class VMSFTPEntryParserTest_OE25Dev extends FTPParseTestFramework
         super(name);
     }
 
+    public void testWholeListParse() throws IOException
+    {
+        final VMSFTPEntryParser parser = new VMSFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        assertEquals(6, files.length);
+        assertFileInListing(files, "2-JUN.LIS");
+        assertFileInListing(files, "3-JUN.LIS");
+        assertFileInListing(files, "1-JUN.LIS");
+        assertFileNotInListing(files, "1-JUN.LIS;1");
+
+    }
+
+    public void testWholeListParseWithVersioning() throws IOException
+    {
+
+        final VMSFTPEntryParser parser = new VMSVersioningFTPEntryParser();
+        parser.configure(null);
+        final FTPListParseEngine engine = new FTPListParseEngine(parser);
+        engine.readServerList(
+                new ByteArrayInputStream(fullListing.getBytes()), null); // use default encoding
+        final FTPFile[] files = engine.getFiles();
+        assertEquals(3, files.length);
+        assertFileInListing(files, "1-JUN.LIS;1");
+        assertFileInListing(files, "2-JUN.LIS;1");
+        assertFileInListing(files, "3-JUN.LIS;4");
+        assertFileNotInListing(files, "3-JUN.LIS;1");
+        assertFileNotInListing(files, "3-JUN.LIS");
+
+    }
+
     public void assertFileInListing(final FTPFile[] listing, final String name) {
         for (final FTPFile element : listing)
         {

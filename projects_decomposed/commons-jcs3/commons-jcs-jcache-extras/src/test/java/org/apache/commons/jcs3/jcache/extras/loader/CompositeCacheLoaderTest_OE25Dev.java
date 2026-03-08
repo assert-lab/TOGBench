@@ -62,6 +62,13 @@ public class CompositeCacheLoaderTest_OE25Dev
     private Cache<String, String> cache;
 
     @Test
+    public void checkComposite()
+    {
+        cache.get("foo");
+        assertEquals(2, count.get());
+    }
+
+    @Test
     public void checkComposite_1_oe()
     {
         cache.get("foo");

@@ -1,0 +1,15 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type
+coll_66_1,commons-collections4,MapUtilsTest,,src/test/java/org/apache/commons/collections4/MapUtilsTest.java,,,,ASSERTION_ONLY
+coll_77_1,commons-collections4,MapUtilsTest,,src/test/java/org/apache/commons/collections4/MapUtilsTest.java,,,,ASSERTION_ONLY
+coll_78_1,commons-collections4,MapUtilsTest,,src/test/java/org/apache/commons/collections4/MapUtilsTest.java,,,,ASSERTION_ONLY
+coll_168_1,commons-collections4,IterableUtilsTest,,src/test/java/org/apache/commons/collections4/IterableUtilsTest.java,,,,ASSERTION_ONLY
+coll_168_2,commons-collections4,IterableUtilsTest,,src/test/java/org/apache/commons/collections4/IterableUtilsTest.java,,,,ASSERTION_ONLY
+coll_229_2,commons-collections4,PredicateUtilsTest,,src/test/java/org/apache/commons/collections4/PredicateUtilsTest.java,,,,ASSERTION_ONLY
+coll_235_1,commons-collections4,PredicateUtilsTest,,src/test/java/org/apache/commons/collections4/PredicateUtilsTest.java,,,,ASSERTION_ONLY
+coll_237_1,commons-collections4,PredicateUtilsTest,,src/test/java/org/apache/commons/collections4/PredicateUtilsTest.java,,,,ASSERTION_ONLY
+coll_239_1,commons-collections4,PredicateUtilsTest,,src/test/java/org/apache/commons/collections4/PredicateUtilsTest.java,,,,ASSERTION_ONLY
+coll_241_1,commons-collections4,PredicateUtilsTest,,src/test/java/org/apache/commons/collections4/PredicateUtilsTest.java,,,,ASSERTION_ONLY
+coll_549_2,commons-collections4,NullPredicateTest,,src/test/java/org/apache/commons/collections4/functors/NullPredicateTest.java,,,,ASSERTION_ONLY
+coll_637_1,commons-collections4,AbstractMultiValuedMapTest,,src/test/java/org/apache/commons/collections4/multimap/AbstractMultiValuedMapTest.java,,,,ASSERTION_ONLY
+coll_764_1,commons-collections4,AbstractPropertiesFactoryTest,,src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,,,,ASSERTION_ONLY
+coll_765_1,commons-collections4,AbstractPropertiesFactoryTest,,src/test/java/org/apache/commons/collections4/properties/AbstractPropertiesFactoryTest.java,,,,ASSERTION_ONLY

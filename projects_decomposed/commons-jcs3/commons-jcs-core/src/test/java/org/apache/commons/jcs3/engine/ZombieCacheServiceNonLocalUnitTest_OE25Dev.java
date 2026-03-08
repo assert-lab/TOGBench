@@ -34,24 +34,95 @@ public class ZombieCacheServiceNonLocalUnitTest_OE25Dev
      * <p>
      * @throws Exception
      */
+    public void testUpdateThenWalk()
+        throws Exception
+    {
+        // SETUP
+        final MockCacheServiceNonLocal<String, String> service = new MockCacheServiceNonLocal<>();
+
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        final String cacheName = "testUpdate";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, "key", "value" );
+        zombie.update( element, 123L );
+        zombie.propagateEvents( service );
+
+        // VERIFY
+        assertEquals( "Updated element is not as expected.", element, service.lastUpdate );
+    }
 
     /**
      * Verify that nothing is added if the max is set to 0.
      * <p>
      * @throws Exception
      */
+    public void testUpdateThenWalk_zeroSize()
+        throws Exception
+    {
+        // SETUP
+        final MockCacheServiceNonLocal<String, String> service = new MockCacheServiceNonLocal<>();
+
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 0 );
+
+        final String cacheName = "testUpdate";
+
+        // DO WORK
+        final ICacheElement<String, String> element = new CacheElement<>( cacheName, "key", "value" );
+        zombie.update( element, 123L );
+        zombie.propagateEvents( service );
+
+        // VERIFY
+        assertNull( "Nothing should have been put to the service.", service.lastUpdate );
+    }
 
     /**
      * Verify that a remove event gets added and then is sent to the service passed to propagate.
      * <p>
      * @throws Exception
      */
+    public void testRemoveThenWalk()
+        throws Exception
+    {
+        // SETUP
+        final MockCacheServiceNonLocal<String, String> service = new MockCacheServiceNonLocal<>();
+
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        final String cacheName = "testRemoveThenWalk";
+        final String key = "myKey";
+
+        // DO WORK
+        zombie.remove( cacheName, key, 123L );
+        zombie.propagateEvents( service );
+
+        // VERIFY
+        assertEquals( "Updated element is not as expected.", key, service.lastRemoveKey );
+    }
 
     /**
      * Verify that a removeAll event gets added and then is sent to the service passed to propagate.
      * <p>
      * @throws Exception
      */
+    public void testRemoveAllThenWalk()
+        throws Exception
+    {
+        // SETUP
+        final MockCacheServiceNonLocal<String, String> service = new MockCacheServiceNonLocal<>();
+
+        final ZombieCacheServiceNonLocal<String, String> zombie = new ZombieCacheServiceNonLocal<>( 10 );
+
+        final String cacheName = "testRemoveThenWalk";
+
+        // DO WORK
+        zombie.removeAll( cacheName, 123L );
+        zombie.propagateEvents( service );
+
+        // VERIFY
+        assertEquals( "Updated element is not as expected.", cacheName, service.lastRemoveAllCacheName );
+    }
 
     public void testUpdateThenWalk_1_oe()
         throws Exception

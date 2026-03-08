@@ -34,6 +34,13 @@ class AhrensDieterExponentialSamplerTest_OE25Dev {
     /**
      * Test the constructor with a bad mean.
      */
+    @Test
+    void testConstructorThrowsWithZeroMean() {
+        final RestorableUniformRandomProvider rng =
+            RandomSource.SPLIT_MIX_64.create(0L);
+        final double mean = 0;
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AhrensDieterExponentialSampler.of(rng, mean));
+    }
 
     /**
      * Test the SharedStateSampler implementation.
@@ -53,11 +60,42 @@ class AhrensDieterExponentialSamplerTest_OE25Dev {
      * Test the sampler is robust to a generator that outputs zeros.
      * See RNG-144.
      */
+    @Test
+    void testSamplerWithZeroFromRandomGenerator() {
+        // A broken generator that returns zero.
+        final UniformRandomProvider rng = new SplitMix64(0) {
+            @Override
+            public long nextLong() {
+                return 0L;
+            }
+        };
+        final SharedStateContinuousSampler sampler = AhrensDieterExponentialSampler.of(rng, 1);
+        // This should not infinite loop
+        final double[] x = {-1};
+        Assertions.assertTimeout(Duration.ofMillis(50), () -> {
+            x[0] = sampler.sample();
+        });
+        Assertions.assertTrue(x[0] >= 0);
+    }
 
     /**
      * Test the sampler is robust to a generator that outputs full bits. The uniform random
      * double will be at the top of the range {@code [0, 1]}.
      */
+    @Test
+    void testSamplerWithOneFromRandomGenerator() {
+        // A broken generator that returns all the bits set.
+        final UniformRandomProvider rng = new SplitMix64(0) {
+            @Override
+            public long nextLong() {
+                // All the bits set
+                return -1;
+            }
+        };
+        final SharedStateContinuousSampler sampler = AhrensDieterExponentialSampler.of(rng, 1);
+        final double x = sampler.sample();
+        Assertions.assertTrue(x >= 0);
+    }
 
     @Test
     void testConstructorThrowsWithZeroMean_1_oe() {

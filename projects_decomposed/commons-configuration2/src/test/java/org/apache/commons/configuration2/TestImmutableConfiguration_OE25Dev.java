@@ -69,14 +69,45 @@ public class TestImmutableConfiguration_OE25Dev {
     /**
      * Tests that exceptions thrown by the wrapped configuration are handled correctly.
      */
+    @Test
+    public void testExceptionHandling() {
+        final PropertiesConfiguration config = new PropertiesConfiguration();
+        final String property = "nonExistingProperty";
+        config.setThrowExceptionOnMissing(true);
+        final ImmutableConfiguration ic = ConfigurationUtils.unmodifiableConfiguration(config);
+        try {
+            ic.getString(property);
+            fail("Exception for missing property not thrown!");
+        } catch (final NoSuchElementException e) {
+            assertThat("Wrong message", e.getMessage(), containsString(property));
+        }
+    }
 
     /**
      * Tests whether an immutable subset can be queried.
      */
+    @Test
+    public void testImmutableSubset() throws ConfigurationException {
+        final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
+        final ImmutableConfiguration subset = conf.immutableSubset("test");
+        assertFalse("No content", subset.isEmpty());
+        assertEquals("Wrong value", 1000000, subset.getLong("long"));
+    }
 
     /**
      * Tests whether data can be accessed from an unmodifiable configuration.
      */
+    @Test
+    public void testUnmodifiableConfigurationAccess() throws ConfigurationException {
+        final Configuration confOrg = createTestConfig();
+        final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
+        assertFalse("Empty", conf.isEmpty());
+        for (final Iterator<String> it = confOrg.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue("Key not contained: " + key, conf.containsKey(key));
+            assertEquals("Wrong value for " + key, confOrg.getProperty(key), conf.getProperty(key));
+        }
+    }
 
     /**
      * Tests that a cast to a mutable configuration is not possible.
@@ -91,6 +122,12 @@ public class TestImmutableConfiguration_OE25Dev {
     /**
      * Tests an iteration over the keys of the immutable configuration.
      */
+    @Test
+    public void testUnmodifiableConfigurationIterate() throws ConfigurationException {
+        final Configuration confOrg = createTestConfig();
+        final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
+        assertEquals("Different keys", fetchKeys(confOrg.getKeys()), fetchKeys(conf.getKeys()));
+    }
 
     /**
      * Tests that it is not possible to remove keys using the iterator.
@@ -106,6 +143,15 @@ public class TestImmutableConfiguration_OE25Dev {
     /**
      * Tests whether an update of the original configuration is visible for the immutable view.
      */
+    @Test
+    public void testUnmodifiableConfigurationLiveUpdate() throws ConfigurationException {
+        final Configuration confOrg = createTestConfig();
+        final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
+        final String key = "new.property";
+        final String value = "new value";
+        confOrg.addProperty(key, value);
+        assertEquals("Value not set", value, conf.getString(key));
+    }
 
     /**
      * Tries to create an immutable configuration from a null object.
@@ -118,10 +164,30 @@ public class TestImmutableConfiguration_OE25Dev {
     /**
      * Tests different access methods for properties.
      */
+    @Test
+    public void testUnmodifiableConfigurationOtherTypes() throws ConfigurationException {
+        final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
+        assertEquals("Wrong byte", (byte) 10, conf.getByte("test.byte"));
+        assertTrue("Wrong boolean", conf.getBoolean("test.boolean"));
+        assertEquals("Wrong double", 10.25, conf.getDouble("test.double"), .05);
+        assertEquals("Wrong float", 20.25f, conf.getFloat("test.float"), .05);
+        assertEquals("Wrong int", 10, conf.getInt("test.integer"));
+        assertEquals("Wrong long", 1000000L, conf.getLong("test.long"));
+        assertEquals("Wrong short", (short) 1, conf.getShort("test.short"));
+    }
 
     /**
      * Tests whether an unmodifiable hierarchical configuration can be created.
      */
+    @Test
+    public void testUnmodifiableHierarchicalConfiguration() {
+        final HierarchicalConfiguration<?> conf = new BaseHierarchicalConfiguration();
+        final String key = "test";
+        conf.addProperty(key, Boolean.TRUE);
+        final ImmutableHierarchicalConfiguration ihc = ConfigurationUtils.unmodifiableConfiguration(conf);
+        assertTrue("Property not found", ihc.getBoolean(key));
+        assertEquals("Wrong max index", 0, ihc.getMaxIndex(key));
+    }
 
     @Test
     public void testExceptionHandling_2_oe() {
@@ -131,7 +197,7 @@ public class TestImmutableConfiguration_OE25Dev {
         final ImmutableConfiguration ic = ConfigurationUtils.unmodifiableConfiguration(config);
         try {
             ic.getString(property);
-            // removed other assertion
+            fail("Exception for missing property not thrown!");
         } catch (final NoSuchElementException e) {
             assertThat("Wrong message", e.getMessage(), containsString(property));
     }
@@ -148,7 +214,6 @@ public class TestImmutableConfiguration_OE25Dev {
     public void testImmutableSubset_2_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
         final ImmutableConfiguration subset = conf.immutableSubset("test");
-        // removed other assertion
         assertEquals("Wrong value", 1000000, subset.getLong("long"));
     }
 
@@ -163,7 +228,6 @@ public class TestImmutableConfiguration_OE25Dev {
     public void testUnmodifiableConfigurationAccess_2_oe() throws ConfigurationException {
         final Configuration confOrg = createTestConfig();
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
-        // removed other assertion
         for (final Iterator<String> it = confOrg.getKeys(); it.hasNext();) {
             final String key = it.next();
             assertTrue("Key not contained: " + key, conf.containsKey(key));
@@ -174,10 +238,8 @@ public class TestImmutableConfiguration_OE25Dev {
     public void testUnmodifiableConfigurationAccess_3_oe() throws ConfigurationException {
         final Configuration confOrg = createTestConfig();
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(confOrg);
-        // removed other assertion
         for (final Iterator<String> it = confOrg.getKeys(); it.hasNext();) {
             final String key = it.next();
-            // removed other assertion
             assertEquals("Wrong value for " + key, confOrg.getProperty(key), conf.getProperty(key));
     }
     }
@@ -208,57 +270,36 @@ public class TestImmutableConfiguration_OE25Dev {
     @Test
     public void testUnmodifiableConfigurationOtherTypes_2_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
-        // removed other assertion
         assertTrue("Wrong boolean", conf.getBoolean("test.boolean"));
     }
 
     @Test
     public void testUnmodifiableConfigurationOtherTypes_3_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong double", 10.25, conf.getDouble("test.double"), .05);
     }
 
     @Test
     public void testUnmodifiableConfigurationOtherTypes_4_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong float", 20.25f, conf.getFloat("test.float"), .05);
     }
 
     @Test
     public void testUnmodifiableConfigurationOtherTypes_5_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong int", 10, conf.getInt("test.integer"));
     }
 
     @Test
     public void testUnmodifiableConfigurationOtherTypes_6_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong long", 1000000L, conf.getLong("test.long"));
     }
 
     @Test
     public void testUnmodifiableConfigurationOtherTypes_7_oe() throws ConfigurationException {
         final ImmutableConfiguration conf = ConfigurationUtils.unmodifiableConfiguration(createTestConfig());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong short", (short) 1, conf.getShort("test.short"));
     }
 
@@ -277,7 +318,6 @@ public class TestImmutableConfiguration_OE25Dev {
         final String key = "test";
         conf.addProperty(key, Boolean.TRUE);
         final ImmutableHierarchicalConfiguration ihc = ConfigurationUtils.unmodifiableConfiguration(conf);
-        // removed other assertion
         assertEquals("Wrong max index", 0, ihc.getMaxIndex(key));
     }
 

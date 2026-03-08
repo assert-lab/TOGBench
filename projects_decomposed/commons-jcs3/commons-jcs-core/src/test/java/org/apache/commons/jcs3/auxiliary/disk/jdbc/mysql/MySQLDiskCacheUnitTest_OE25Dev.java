@@ -44,6 +44,29 @@ public class MySQLDiskCacheUnitTest_OE25Dev
      * running. Right now this doesn't really test much
      * @throws SQLException
      */
+    public void testBalkOnGet() throws SQLException
+    {
+        // SETUP
+        final MySQLDiskCacheAttributes attributes = new MySQLDiskCacheAttributes();
+        final String tableName = "JCS_TEST";
+        // Just use something that exists
+        attributes.setDriverClassName( "org.hsqldb.jdbcDriver" );
+        attributes.setTableName( tableName );
+        attributes.setBalkDuringOptimization( true );
+        final SharedPoolDataSourceFactory dsFactory = new SharedPoolDataSourceFactory();
+        dsFactory.initialize(attributes);
+
+        final TableState tableState = new TableState( tableName );
+        tableState.setState( TableState.OPTIMIZATION_RUNNING );
+
+        final MySQLDiskCache<String, String> cache = new MySQLDiskCache<>(attributes, dsFactory, tableState);
+
+        // DO WORK
+        final Object result = cache.processGet( "myKey" );
+
+        // VERIFY
+        assertNull( "The result should be null", result );
+    }
 
     public void testBalkOnGet_1_oe() throws SQLException
     {

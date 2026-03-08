@@ -92,6 +92,11 @@ public class TestQueryResult_OE25Dev {
     /**
      * Tests whether the attribute's value can be queried.
      */
+    @Test
+    public void testGetAttributeValue() {
+        final QueryResult<ImmutableNode> result = QueryResult.createAttributeResult(attributeNode, ATTR);
+        assertEquals("Wrong value", VALUE, result.getAttributeValue(new InMemoryNodeModel().getNodeHandler()));
+    }
 
     /**
      * Tries to query an attribute value for a non-attribute result.
@@ -105,18 +110,40 @@ public class TestQueryResult_OE25Dev {
     /**
      * Tests is attributeResult() if the expected result is false.
      */
+    @Test
+    public void testIsAttributeResultFalse() {
+        final QueryResult<ImmutableNode> result = QueryResult.createNodeResult(resultNode);
+        assertFalse("An attribute result", result.isAttributeResult());
+    }
 
     /**
      * Tests isAttributeResult() if the expected result is true.
      */
+    @Test
+    public void testIsAttributeResultTrue() {
+        final QueryResult<ImmutableNode> result = QueryResult.createAttributeResult(attributeNode, ATTR);
+        assertTrue("Not an attribute result", result.isAttributeResult());
+    }
 
     /**
      * Tests the string representation of an attribute result.
      */
+    @Test
+    public void testToStringAttributeResult() {
+        final QueryResult<ImmutableNode> result = QueryResult.createAttributeResult(attributeNode, ATTR);
+        final String s = result.toString();
+        assertThat(s, containsString("attribute=" + ATTR));
+        assertThat(s, containsString("parentNode=" + attributeNode));
+    }
 
     /**
      * Tests the string representation of a node result.
      */
+    @Test
+    public void testToStringNodeResult() {
+        final QueryResult<ImmutableNode> result = QueryResult.createNodeResult(resultNode);
+        assertThat(result.toString(), containsString("resultNode=" + resultNode));
+    }
 
     @Test
     public void testGetAttributeValue_1_oe() {
@@ -147,7 +174,6 @@ public class TestQueryResult_OE25Dev {
     public void testToStringAttributeResult_2_oe() {
         final QueryResult<ImmutableNode> result = QueryResult.createAttributeResult(attributeNode, ATTR);
         final String s = result.toString();
-        // removed other assertion
         assertThat(s, containsString("parentNode=" + attributeNode));
     }
 

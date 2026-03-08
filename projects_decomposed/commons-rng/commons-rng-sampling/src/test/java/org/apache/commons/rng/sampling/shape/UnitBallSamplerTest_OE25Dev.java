@@ -37,6 +37,12 @@ class UnitBallSamplerTest_OE25Dev {
     /**
      * Test a non-positive dimension.
      */
+    @Test
+    void testInvalidDimensionThrows() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> UnitBallSampler.of(rng, 0));
+    }
 
     /**
      * Test the distribution of points in one dimension.
@@ -263,6 +269,17 @@ class UnitBallSamplerTest_OE25Dev {
      * These functions are used to divide the n-ball into uniform volume bins to test sampling
      * within the n-ball.
      */
+    @Test
+    void checkVolumeFunctions() {
+        final double[] radii = {0, 0.1, 0.25, 0.5, 0.75, 1.0};
+        for (int n = 1; n <= 6; n++) {
+            final DoubleUnaryOperator volume = createVolumeFunction(n);
+            final DoubleUnaryOperator radius = createRadiusFunction(n);
+            for (final double r : radii) {
+                Assertions.assertEquals(r, radius.applyAsDouble(volume.applyAsDouble(r)), 1e-10);
+            }
+        }
+    }
 
     /**
      * Creates a function to compute the volume of a ball of the given dimension

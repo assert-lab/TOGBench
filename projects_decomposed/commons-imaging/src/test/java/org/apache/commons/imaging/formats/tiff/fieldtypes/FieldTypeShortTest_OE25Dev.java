@@ -26,6 +26,20 @@ import org.junit.jupiter.api.Test;
 public class FieldTypeShortTest_OE25Dev {
 
     @Test
+    public void testCreatesFieldTypeShortAndCallsWriteData() {
+        final FieldTypeShort fieldTypeShort = new FieldTypeShort(1234, "");
+        final ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;
+
+        try {
+            fieldTypeShort.writeData("", byteOrder);
+            fail("Expecting exception: Exception");
+        } catch (final Exception e) {
+            assertEquals("Invalid data:  (java.lang.String)", e.getMessage());
+            assertEquals(FieldTypeShort.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }
+
+    @Test
     public void testCreatesFieldTypeShortAndCallsWriteData_2_oe() {
         final FieldTypeShort fieldTypeShort = new FieldTypeShort(1234, "");
         final ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;

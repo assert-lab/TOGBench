@@ -23,6 +23,71 @@ import org.junit.jupiter.api.Test;
 
 public class DctTest_OE25Dev {
 
+    @Test
+    public void testVectors() {
+        final float[] originalData = new float[8];
+        for (int i = 0; i < 8; i++) {
+            originalData[i] = i;
+        }
+
+        final float[] transformed = REFERENCE_forwardDCT(originalData);
+        final float[] reversed = REFERENCE_inverseDCT(transformed);
+        for (int i = 0; i < 8; i++) {
+            assertEquals(originalData[i], reversed[i], 0.001);
+        }
+
+        final float[] data = originalData.clone();
+        Dct.forwardDCT8(data);
+        Dct.scaleQuantizationVector(data);
+        for (int i = 0; i < 8; i++) {
+            assertEquals(data[i], transformed[i], 0.001);
+        }
+
+        Dct.scaleDequantizationVector(data);
+        Dct.inverseDCT8(data);
+        for (int i = 0; i < 8; i++) {
+            assertEquals(data[i], originalData[i], 0.001);
+        }
+    }
+
+    @Test
+    public void testMatrices() {
+        final float[] originalData = new float[8 * 8];
+        final float[][] originalData8x8 = new float[8][8];
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                final float value = 8 * y + x;
+                originalData8x8[y][x] = value;
+                originalData[8 * y + x] = value;
+            }
+        }
+
+        final float[][] transformed8x8 = REFERENCE_forwardDCT(originalData8x8);
+        final float[][] reversed8x8 = REFERENCE_inverseDCT(transformed8x8);
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                assertEquals(originalData8x8[y][x], reversed8x8[y][x], 0.001);
+            }
+        }
+
+        final float[] data = originalData.clone();
+        Dct.forwardDCT8x8(data);
+        Dct.scaleQuantizationMatrix(data);
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                assertEquals(transformed8x8[y][x], data[8 * y + x], 0.001);
+            }
+        }
+
+        Dct.scaleDequantizationMatrix(data);
+        Dct.inverseDCT8x8(data);
+        for (int y = 0; y < 8; y++) {
+            for (int x = 0; x < 8; x++) {
+                assertEquals(originalData8x8[y][x], data[8 * y + x], 0.001);
+            }
+        }
+    }
+
     private static float[][] REFERENCE_inverseDCT(final float[][] matrix) {
         final float[][] ret = new float[8][8];
         for (int y = 0; y < 8; y++) {

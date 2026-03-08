@@ -23,6 +23,19 @@ import org.junit.jupiter.api.Test;
  * Tests for the {@link NoOpConverter}.
  */
 class NoOpConverterTest_OE25Dev {
+    @Test
+    void testNoOpIntegerCoversion() {
+        final NoOpConverter<Integer> converter = new NoOpConverter<>();
+        final Integer in = 123;
+        Assertions.assertSame(in, converter.convert(in));
+    }
+
+    @Test
+    void testNoOpLongArrayCoversion() {
+        final NoOpConverter<long[]> converter = new NoOpConverter<>();
+        final long[] in = {123L, 456L, Long.MAX_VALUE};
+        Assertions.assertSame(in, converter.convert(in));
+    }
 
     @Test
     void testNoOpIntegerCoversion_1_oe() {

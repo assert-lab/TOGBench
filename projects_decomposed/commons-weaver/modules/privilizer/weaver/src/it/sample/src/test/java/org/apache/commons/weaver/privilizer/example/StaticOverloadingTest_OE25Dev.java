@@ -33,6 +33,21 @@ public class StaticOverloadingTest_OE25Dev {
     }
 
     @Test
+    public void testNoArgs() {
+        assertEquals("foo-value", StaticOverloading.get());
+    }
+
+    @Test
+    public void testStringArg() {
+        assertEquals("bar-value", StaticOverloading.get("bar"));
+    }
+
+    @Test
+    public void testCharishArgs() {
+        assertEquals("baz-value", StaticOverloading.get('b', 'a', (short) 'z'));
+    }
+
+    @Test
     public void testNoArgs_1_oe() {
         assertEquals("foo-value", StaticOverloading.get());
     }

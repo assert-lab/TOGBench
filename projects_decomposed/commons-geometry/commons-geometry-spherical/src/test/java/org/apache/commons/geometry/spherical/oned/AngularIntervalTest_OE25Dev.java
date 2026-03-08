@@ -51,6 +51,17 @@ class AngularIntervalTest_OE25Dev {
     }
 
     @Test
+    void testOf_doubles_invalidArgs() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.NEGATIVE_INFINITY, 0, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(0, Double.POSITIVE_INFINITY, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.NaN, 0, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(0, Double.NaN, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Double.NaN, Double.NaN, TEST_PRECISION));
+    }
+
+    @Test
     void testOf_points() {
         // act/assert
         checkInterval(AngularInterval.of(Point1S.of(0), Point1S.of(1), TEST_PRECISION), 0, 1);
@@ -61,6 +72,17 @@ class AngularIntervalTest_OE25Dev {
         checkFull(AngularInterval.of(Point1S.of(1), Point1S.of(1), TEST_PRECISION));
         checkFull(AngularInterval.of(Point1S.of(0), Point1S.of(1e-11), TEST_PRECISION));
         checkFull(AngularInterval.of(Point1S.of(0), Point1S.of(-1e-11), TEST_PRECISION));
+    }
+
+    @Test
+    void testOf_points_invalidArgs() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.of(Double.NEGATIVE_INFINITY), Point1S.ZERO, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.ZERO, Point1S.of(Double.POSITIVE_INFINITY), TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.of(Double.POSITIVE_INFINITY), Point1S.of(Double.NEGATIVE_INFINITY), TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.NaN, Point1S.ZERO, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.ZERO, Point1S.NaN, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(Point1S.NaN, Point1S.NaN, TEST_PRECISION));
     }
 
     @Test
@@ -87,6 +109,18 @@ class AngularIntervalTest_OE25Dev {
 
         checkFull(AngularInterval.of(almostPiPos, piNeg));
         checkFull(AngularInterval.of(piNeg, almostPiPos));
+    }
+
+    @Test
+    void testOf_orientedPoints_invalidArgs() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+        final CutAngle nan = CutAngles.createPositiveFacing(Point1S.NaN, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(pt, nan));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(nan, pt));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.of(nan, nan));
     }
 
     @Test
@@ -170,6 +204,34 @@ class AngularIntervalTest_OE25Dev {
     }
 
     @Test
+    void testProject_full() {
+        // arrange
+        final AngularInterval interval = AngularInterval.full();
+
+        // act/assert
+        Assertions.assertNull(interval.project(Point1S.ZERO));
+        Assertions.assertNull(interval.project(Point1S.PI));
+    }
+
+    @Test
+    void testProject() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertEquals(1, interval.project(Point1S.ZERO).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(1, interval.project(Point1S.of(1)).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(1, interval.project(Point1S.of(1.5)).getAzimuth(), TEST_EPS);
+
+        Assertions.assertEquals(2, interval.project(Point1S.of(2)).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(2, interval.project(Point1S.PI).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(2, interval.project(Point1S.of(1.4 + Math.PI)).getAzimuth(), TEST_EPS);
+
+        Assertions.assertEquals(1, interval.project(Point1S.of(1.5 + Math.PI)).getAzimuth(), TEST_EPS);
+        Assertions.assertEquals(1, interval.project(Point1S.of(1.6 + Math.PI)).getAzimuth(), TEST_EPS);
+    }
+
+    @Test
     void testTransform_full() {
         // arrange
         final AngularInterval interval = AngularInterval.full();
@@ -196,6 +258,231 @@ class AngularIntervalTest_OE25Dev {
     }
 
     @Test
+    void testWrapsZero() {
+        // act/assert
+        Assertions.assertFalse(AngularInterval.full().wrapsZero());
+        Assertions.assertFalse(AngularInterval.of(0, Angle.PI_OVER_TWO, TEST_PRECISION).wrapsZero());
+        Assertions.assertFalse(AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION).wrapsZero());
+        Assertions.assertFalse(AngularInterval.of(Math.PI, 1.5 * Math.PI, TEST_PRECISION).wrapsZero());
+        Assertions.assertFalse(AngularInterval.of(1.5 * Math.PI, Angle.TWO_PI - 1e-5, TEST_PRECISION).wrapsZero());
+
+        Assertions.assertTrue(AngularInterval.of(1.5 * Math.PI, Angle.TWO_PI, TEST_PRECISION).wrapsZero());
+        Assertions.assertTrue(AngularInterval.of(1.5 * Math.PI, 2.5 * Math.PI, TEST_PRECISION).wrapsZero());
+        Assertions.assertTrue(AngularInterval.of(-2.5 * Math.PI, -1.5 * Math.PI, TEST_PRECISION).wrapsZero());
+    }
+
+    @Test
+    void testToTree_full() {
+        // arrange
+        final AngularInterval interval = AngularInterval.full();
+
+        // act
+        final RegionBSPTree1S tree = interval.toTree();
+
+        // assert
+        Assertions.assertTrue(tree.isFull());
+        Assertions.assertFalse(tree.isEmpty());
+
+        checkClassify(tree, RegionLocation.INSIDE,
+                Point1S.ZERO, Point1S.of(Angle.PI_OVER_TWO),
+                Point1S.PI, Point1S.of(-Angle.PI_OVER_TWO));
+    }
+
+    @Test
+    void testToTree_intervalEqualToPi() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(0.0, Math.PI, TEST_PRECISION);
+
+        // act
+        final RegionBSPTree1S tree = interval.toTree();
+
+        // assert
+        Assertions.assertFalse(tree.isFull());
+        Assertions.assertFalse(tree.isEmpty());
+
+        checkClassify(tree, RegionLocation.BOUNDARY,
+                Point1S.ZERO, Point1S.PI);
+
+        checkClassify(tree, RegionLocation.INSIDE,
+                Point1S.of(1e-4), Point1S.of(0.25 * Math.PI),
+                Point1S.of(-1.25 * Math.PI), Point1S.of(Math.PI - 1e-4));
+
+        checkClassify(tree, RegionLocation.OUTSIDE,
+                Point1S.of(-1e-4), Point1S.of(-0.25 * Math.PI),
+                Point1S.of(1.25 * Math.PI), Point1S.of(-Math.PI + 1e-4));
+    }
+
+    @Test
+    void testToTree_intervalLessThanPi() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION);
+
+        // act
+        final RegionBSPTree1S tree = interval.toTree();
+
+        // assert
+        Assertions.assertFalse(tree.isFull());
+        Assertions.assertFalse(tree.isEmpty());
+
+        checkClassify(tree, RegionLocation.BOUNDARY,
+                Point1S.of(Angle.PI_OVER_TWO), Point1S.PI);
+
+        checkClassify(tree, RegionLocation.INSIDE,
+                Point1S.of(0.51 * Math.PI), Point1S.of(0.75 * Math.PI),
+                Point1S.of(0.99 * Math.PI));
+
+        checkClassify(tree, RegionLocation.OUTSIDE,
+                Point1S.ZERO, Point1S.of(0.25 * Math.PI),
+                Point1S.of(1.25 * Math.PI), Point1S.of(1.75 * Math.PI));
+    }
+
+    @Test
+    void testToTree_intervalGreaterThanPi() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(Math.PI, Angle.PI_OVER_TWO, TEST_PRECISION);
+
+        // act
+        final RegionBSPTree1S tree = interval.toTree();
+
+        // assert
+        Assertions.assertFalse(tree.isFull());
+        Assertions.assertFalse(tree.isEmpty());
+
+        checkClassify(tree, RegionLocation.BOUNDARY,
+                Point1S.of(Angle.PI_OVER_TWO), Point1S.PI);
+
+        checkClassify(tree, RegionLocation.INSIDE,
+                Point1S.ZERO, Point1S.of(0.25 * Math.PI),
+                Point1S.of(1.25 * Math.PI), Point1S.of(1.75 * Math.PI));
+
+        checkClassify(tree, RegionLocation.OUTSIDE,
+                Point1S.of(0.51 * Math.PI), Point1S.of(0.75 * Math.PI),
+                Point1S.of(0.99 * Math.PI));
+    }
+
+    @Test
+    void testToConvex_lessThanPi() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(0, Angle.PI_OVER_TWO, TEST_PRECISION);
+
+        //act
+        final List<AngularInterval.Convex> result = interval.toConvex();
+
+        // assert
+        Assertions.assertEquals(1, result.size());
+        checkInterval(interval, 0, Angle.PI_OVER_TWO);
+    }
+
+    @Test
+    void testToConvex_equalToPi() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(Math.PI, Angle.TWO_PI, TEST_PRECISION);
+
+        //act
+        final List<AngularInterval.Convex> result = interval.toConvex();
+
+        // assert
+        Assertions.assertEquals(1, result.size());
+        checkInterval(interval, Math.PI, Angle.TWO_PI);
+    }
+
+    @Test
+    void testToConvex_overPi() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(Math.PI, Angle.PI_OVER_TWO, TEST_PRECISION);
+
+        // act
+        final List<AngularInterval.Convex> result = interval.toConvex();
+
+        // assert
+        Assertions.assertEquals(2, result.size());
+        checkInterval(result.get(0), Math.PI, 1.75 * Math.PI);
+        checkInterval(result.get(1), 1.75 * Math.PI, 2.5 * Math.PI);
+    }
+
+    @Test
+    void testToConvex_overPi_splitAtZero() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(1.25 * Math.PI, 2.75 * Math.PI, TEST_PRECISION);
+
+        // act
+        final List<AngularInterval.Convex> result = interval.toConvex();
+
+        // assert
+        Assertions.assertEquals(2, result.size());
+        checkInterval(result.get(0), 1.25 * Math.PI, Angle.TWO_PI);
+        checkInterval(result.get(1), Angle.TWO_PI, 2.75 * Math.PI);
+    }
+
+    @Test
+    void testSplit_full() {
+        // arrange
+        final AngularInterval interval = AngularInterval.full();
+        final CutAngle pt = CutAngles.createNegativeFacing(Angle.PI_OVER_TWO, TEST_PRECISION);
+
+        // act
+        final Split<RegionBSPTree1S> split = interval.split(pt);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        final RegionBSPTree1S minus = split.getMinus();
+        checkClassify(minus, RegionLocation.BOUNDARY, Point1S.of(Angle.PI_OVER_TWO));
+        checkClassify(minus, RegionLocation.INSIDE,
+                Point1S.PI, Point1S.of(-Angle.PI_OVER_TWO), Point1S.of(-0.25 * Math.PI));
+        checkClassify(minus, RegionLocation.OUTSIDE,
+                Point1S.ZERO, Point1S.of(0.25 * Math.PI));
+
+        final RegionBSPTree1S plus = split.getPlus();
+        checkClassify(plus, RegionLocation.BOUNDARY, Point1S.of(Angle.PI_OVER_TWO));
+        checkClassify(plus, RegionLocation.INSIDE,
+                Point1S.ZERO, Point1S.of(0.25 * Math.PI));
+        checkClassify(plus, RegionLocation.OUTSIDE,
+                Point1S.PI, Point1S.of(-Angle.PI_OVER_TWO), Point1S.of(-0.25 * Math.PI));
+    }
+
+    @Test
+    void testSplit_interval_both() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(Angle.PI_OVER_TWO, Math.PI, TEST_PRECISION);
+        final CutAngle cut = CutAngles.createNegativeFacing(0.75 * Math.PI, TEST_PRECISION);
+
+        // act
+        final Split<RegionBSPTree1S> split = interval.split(cut);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        final RegionBSPTree1S minus = split.getMinus();
+        checkClassify(minus, RegionLocation.BOUNDARY, Point1S.of(Math.PI), cut.getPoint());
+        checkClassify(minus, RegionLocation.INSIDE, Point1S.of(0.8 * Math.PI));
+        checkClassify(minus, RegionLocation.OUTSIDE,
+                Point1S.ZERO, Point1S.of(Angle.TWO_PI), Point1S.of(-Angle.PI_OVER_TWO),
+                Point1S.of(0.7 * Math.PI));
+
+        final RegionBSPTree1S plus = split.getPlus();
+        checkClassify(plus, RegionLocation.BOUNDARY, Point1S.of(Angle.PI_OVER_TWO), cut.getPoint());
+        checkClassify(plus, RegionLocation.INSIDE, Point1S.of(0.6 * Math.PI));
+        checkClassify(plus, RegionLocation.OUTSIDE,
+                Point1S.ZERO, Point1S.of(Angle.TWO_PI), Point1S.of(-Angle.PI_OVER_TWO),
+                Point1S.of(0.8 * Math.PI));
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final AngularInterval interval = AngularInterval.of(1, 2, TEST_PRECISION);
+
+        // act
+        final String str = interval.toString();
+
+        // assert
+        Assertions.assertTrue(str.contains("AngularInterval"));
+        Assertions.assertTrue(str.contains("min= 1.0"));
+        Assertions.assertTrue(str.contains("max= 2.0"));
+    }
+
+    @Test
     void testConvex_of_doubles() {
         // act/assert
         checkInterval(AngularInterval.Convex.of(0, 1, TEST_PRECISION), 0, 1);
@@ -207,6 +494,15 @@ class AngularIntervalTest_OE25Dev {
         checkFull(AngularInterval.Convex.of(0, 1e-11, TEST_PRECISION));
         checkFull(AngularInterval.Convex.of(0, -1e-11, TEST_PRECISION));
         checkFull(AngularInterval.Convex.of(0, Angle.TWO_PI, TEST_PRECISION));
+    }
+
+    @Test
+    void testConvex_of_doubles_invalidArgs() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(0, Math.PI + 1e-1, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO + 1, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(0, -0.5, TEST_PRECISION));
     }
 
     @Test
@@ -223,6 +519,17 @@ class AngularIntervalTest_OE25Dev {
         checkFull(AngularInterval.Convex.of(Point1S.of(0), Point1S.of(1e-11), TEST_PRECISION));
         checkFull(AngularInterval.Convex.of(Point1S.of(0), Point1S.of(-1e-11), TEST_PRECISION));
         checkFull(AngularInterval.Convex.of(Point1S.of(0), Point1S.of(Angle.TWO_PI), TEST_PRECISION));
+    }
+
+    @Test
+    void testConvex_of_points_invalidArgs() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(Double.NEGATIVE_INFINITY),
+                Point1S.of(Double.POSITIVE_INFINITY), TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(0), Point1S.of(Math.PI + 1e-1), TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(Angle.PI_OVER_TWO),
+                Point1S.of(-Angle.PI_OVER_TWO + 1), TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(Point1S.of(0), Point1S.of(-0.5), TEST_PRECISION));
     }
 
     @Test
@@ -249,6 +556,199 @@ class AngularIntervalTest_OE25Dev {
 
         checkFull(AngularInterval.Convex.of(almostPiPos, piNeg));
         checkFull(AngularInterval.Convex.of(piNeg, almostPiPos));
+    }
+
+    @Test
+    void testConvex_of_cutAngles_invalidArgs() {
+        // arrange
+        final CutAngle pt = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+        final CutAngle nan = CutAngles.createPositiveFacing(Point1S.NaN, TEST_PRECISION);
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(pt, nan));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(nan, pt));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(nan, nan));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AngularInterval.Convex.of(
+                CutAngles.createNegativeFacing(1, TEST_PRECISION),
+                CutAngles.createPositiveFacing(0.5, TEST_PRECISION)));
+    }
+
+    @Test
+    void testConvex_toConvex() {
+        // arrange
+        final AngularInterval.Convex full = AngularInterval.full();
+        final AngularInterval.Convex interval = AngularInterval.Convex.of(0, 1, TEST_PRECISION);
+
+        List<AngularInterval.Convex> result;
+
+        // act/assert
+        result = full.toConvex();
+        Assertions.assertEquals(1, result.size());
+        Assertions.assertSame(full, result.get(0));
+
+        result = interval.toConvex();
+        Assertions.assertEquals(1, result.size());
+        Assertions.assertSame(interval, result.get(0));
+    }
+
+    @Test
+    void testSplitDiameter_full() {
+        // arrange
+        final AngularInterval.Convex full = AngularInterval.full();
+        final CutAngle splitter = CutAngles.createPositiveFacing(Point1S.of(Angle.PI_OVER_TWO), TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = full.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), 1.5 * Math.PI, 2.5 * Math.PI);
+        checkInterval(split.getPlus(), 0.5 * Math.PI, 1.5 * Math.PI);
+    }
+
+    @Test
+    void testSplitDiameter_full_splitOnZero() {
+        // arrange
+        final AngularInterval.Convex full = AngularInterval.full();
+        final CutAngle splitter = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = full.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), 0, Math.PI);
+        checkInterval(split.getPlus(), Math.PI, Angle.TWO_PI);
+    }
+
+    @Test
+    void testSplitDiameter_minus() {
+        // arrange
+        final AngularInterval.Convex interval = AngularInterval.Convex.of(0.1, Angle.PI_OVER_TWO, TEST_PRECISION);
+        final CutAngle splitter = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = interval.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+
+        Assertions.assertSame(interval, split.getMinus());
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testSplitDiameter_plus() {
+        // arrange
+        final AngularInterval.Convex interval = AngularInterval.Convex.of(-0.4 * Math.PI, 0.4 * Math.PI, TEST_PRECISION);
+        final CutAngle splitter = CutAngles.createNegativeFacing(Point1S.of(Angle.PI_OVER_TWO), TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = interval.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+
+        Assertions.assertNull(split.getMinus());
+        Assertions.assertSame(interval, split.getPlus());
+    }
+
+    @Test
+    void testSplitDiameter_both_negativeFacingSplitter() {
+        // arrange
+        final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
+        final CutAngle splitter = CutAngles.createNegativeFacing(Point1S.of(Math.PI), TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = interval.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), Math.PI, 1.5 * Math.PI);
+        checkInterval(split.getPlus(), Angle.PI_OVER_TWO, Math.PI);
+    }
+
+    @Test
+    void testSplitDiameter_both_positiveFacingSplitter() {
+        // arrange
+        final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
+        final CutAngle splitter = CutAngles.createPositiveFacing(Point1S.of(Math.PI), TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = interval.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), Angle.PI_OVER_TWO, Math.PI);
+        checkInterval(split.getPlus(), Math.PI, 1.5 * Math.PI);
+    }
+
+    @Test
+    void testSplitDiameter_both_antipodal_negativeFacingSplitter() {
+        // arrange
+        final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
+        final CutAngle splitter = CutAngles.createNegativeFacing(Point1S.ZERO, TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = interval.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), Angle.PI_OVER_TWO, Math.PI);
+        checkInterval(split.getPlus(), Math.PI, 1.5 * Math.PI);
+    }
+
+    @Test
+    void testSplitDiameter_both_antipodal_positiveFacingSplitter() {
+        // arrange
+        final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
+        final CutAngle splitter = CutAngles.createPositiveFacing(Point1S.ZERO, TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = interval.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), Math.PI, 1.5 * Math.PI);
+        checkInterval(split.getPlus(), Angle.PI_OVER_TWO, Math.PI);
+    }
+
+    @Test
+    void testSplitDiameter_splitOnBoundary_negativeFacing() {
+        // arrange
+        final AngularInterval.Convex interval = AngularInterval.Convex.of(Angle.PI_OVER_TWO, -Angle.PI_OVER_TWO, TEST_PRECISION);
+        final CutAngle splitter = CutAngles.createNegativeFacing(Point1S.of(Angle.PI_OVER_TWO), TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = interval.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+
+        Assertions.assertSame(interval, split.getMinus());
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testSplitDiameter_splitOnBoundary_positiveFacing() {
+        // arrange
+        final AngularInterval.Convex interval = AngularInterval.Convex.of(0, Math.PI, TEST_PRECISION);
+        final CutAngle splitter = CutAngles.createPositiveFacing(Point1S.of(Math.PI), TEST_PRECISION);
+
+        // act
+        final Split<AngularInterval.Convex> split = interval.splitDiameter(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+
+        Assertions.assertSame(interval, split.getMinus());
+        Assertions.assertNull(split.getPlus());
     }
 
     @Test

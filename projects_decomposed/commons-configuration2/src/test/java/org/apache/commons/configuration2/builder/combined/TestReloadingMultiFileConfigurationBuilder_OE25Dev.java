@@ -88,22 +88,81 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
     /**
      * Tests whether correct managed builders are created.
      */
+    @Test
+    public void testCreateManagedBuilder() throws ConfigurationException {
+        final ReloadingMultiFileConfigurationBuilder<XMLConfiguration> builder = new ReloadingMultiFileConfigurationBuilder<>(XMLConfiguration.class);
+        final FileBasedConfigurationBuilder<XMLConfiguration> managedBuilder = builder.createManagedBuilder("test.xml",
+            createTestBuilderParameters(null).getParameters());
+        assertTrue("Not a reloading builder", managedBuilder instanceof ReloadingFileBasedConfigurationBuilder);
+        assertFalse("Wrong flag value", managedBuilder.isAllowFailOnInit());
+    }
 
     /**
      * Tests whether the allowFailOnInit flag is passed to newly created managed builders.
      */
+    @Test
+    public void testCreateManagedBuilderWithAllowFailFlag() throws ConfigurationException {
+        final ReloadingMultiFileConfigurationBuilder<XMLConfiguration> builder = new ReloadingMultiFileConfigurationBuilder<>(XMLConfiguration.class, null,
+            true);
+        final FileBasedConfigurationBuilder<XMLConfiguration> managedBuilder = builder.createManagedBuilder("test.xml",
+            createTestBuilderParameters(null).getParameters());
+        assertTrue("Wrong flag value", managedBuilder.isAllowFailOnInit());
+    }
 
     /**
      * Tests whether parameters passed to the constructor are passed to the super class.
      */
+    @Test
+    public void testInitWithParameters() throws ConfigurationException {
+        final ExpressionEngine engine = new XPathExpressionEngine();
+        final BasicBuilderParameters params = createTestBuilderParameters(new XMLBuilderParametersImpl().setExpressionEngine(engine));
+        final ReloadingMultiFileConfigurationBuilder<XMLConfiguration> builder = new ReloadingMultiFileConfigurationBuilder<>(XMLConfiguration.class,
+            params.getParameters());
+        switchToConfig(1);
+        final XMLConfiguration config = builder.getConfiguration();
+        assertSame("Expression engine not set", engine, config.getExpressionEngine());
+    }
 
     /**
      * Tests whether a reloading check works correctly.
      */
+    @Test
+    public void testReloadingControllerCheck() throws ConfigurationException {
+        final ReloadingMultiFileConfigurationBuilderTestImpl builder = new ReloadingMultiFileConfigurationBuilderTestImpl();
+        switchToConfig(1);
+        builder.getConfiguration();
+        switchToConfig(2);
+        builder.getConfiguration();
+        final List<ReloadingController> controllers = builder.getReloadingControllers();
+        assertEquals("Wrong number of reloading controllers", 2, controllers.size());
+        EasyMock.reset(controllers.toArray());
+        for (final ReloadingController c : controllers) {
+            EasyMock.expect(c.checkForReloading(null)).andReturn(Boolean.FALSE);
+        }
+        EasyMock.replay(controllers.toArray());
+        assertFalse("Wrong result", builder.getReloadingController().checkForReloading(this));
+        EasyMock.verify(controllers.toArray());
+    }
 
     /**
      * Tests a reloading check which detects the need to reload.
      */
+    @Test
+    public void testReloadingControllerCheckReloadingRequired() throws ConfigurationException {
+        final ReloadingMultiFileConfigurationBuilderTestImpl builder = new ReloadingMultiFileConfigurationBuilderTestImpl();
+        for (int i = 1; i <= 3; i++) {
+            switchToConfig(i);
+            builder.getConfiguration();
+        }
+        final List<ReloadingController> controllers = builder.getReloadingControllers();
+        EasyMock.reset(controllers.toArray());
+        EasyMock.expect(controllers.get(0).checkForReloading(null)).andReturn(Boolean.FALSE).anyTimes();
+        EasyMock.expect(controllers.get(1).checkForReloading(null)).andReturn(Boolean.TRUE);
+        EasyMock.expect(controllers.get(2).checkForReloading(null)).andReturn(Boolean.FALSE).anyTimes();
+        EasyMock.replay(controllers.toArray());
+        assertTrue("Wrong result", builder.getReloadingController().checkForReloading(this));
+        EasyMock.verify(controllers.toArray());
+    }
 
     /**
      * Tests whether the reloading state of the reloading controller can be reset.
@@ -140,7 +199,6 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         final ReloadingMultiFileConfigurationBuilder<XMLConfiguration> builder = new ReloadingMultiFileConfigurationBuilder<>(XMLConfiguration.class);
         final FileBasedConfigurationBuilder<XMLConfiguration> managedBuilder = builder.createManagedBuilder("test.xml",
             createTestBuilderParameters(null).getParameters());
-        // removed other assertion
         assertFalse("Wrong flag value", managedBuilder.isAllowFailOnInit());
     }
 
@@ -183,7 +241,6 @@ public class TestReloadingMultiFileConfigurationBuilder_OE25Dev extends Abstract
         switchToConfig(2);
         builder.getConfiguration();
         final List<ReloadingController> controllers = builder.getReloadingControllers();
-        // removed other assertion
         EasyMock.reset(controllers.toArray());
         for (final ReloadingController c : controllers) {
             EasyMock.expect(c.checkForReloading(null)).andReturn(Boolean.FALSE);

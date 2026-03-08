@@ -65,6 +65,25 @@ public class RedirectConnectionUsageTest_OE25Dev extends AbstractBasicTest {
   /**
    * Tests that after a redirect the final url in the response reflect the redirect
    */
+  @Test
+  public void testGetRedirectFinalUrl() throws Exception {
+
+    AsyncHttpClientConfig config = config()
+            .setKeepAlive(true)
+            .setMaxConnectionsPerHost(1)
+            .setMaxConnections(1)
+            .setConnectTimeout(1000)
+            .setRequestTimeout(1000)
+            .setFollowRedirect(true)
+            .build();
+
+    try (AsyncHttpClient c = asyncHttpClient(config)) {
+      ListenableFuture<Response> response = c.executeRequest(get(servletEndpointRedirectUrl));
+      Response res = response.get();
+      assertNotNull(res.getResponseBody());
+      assertEquals(res.getUri().toString(), BASE_URL + "/overthere");
+    }
+  }
 
   @SuppressWarnings("serial")
   class MockRedirectHttpServlet extends HttpServlet {

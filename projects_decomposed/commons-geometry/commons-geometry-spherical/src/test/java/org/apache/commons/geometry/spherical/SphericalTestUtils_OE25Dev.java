@@ -36,30 +36,54 @@ public final class SphericalTestUtils_OE25Dev {
      * @param actual
      * @param tolerance
      */
+    public static void assertPointsEqual(final Point1S expected, final Point1S actual, final double tolerance) {
+        final String msg = "Expected point to equal " + expected + " but was " + actual + ";";
+        Assertions.assertEquals(expected.getAzimuth(), actual.getAzimuth(), tolerance, msg);
+    }
 
     /** Assert that the given points are equal, using the specified tolerance value.
      * @param expected
      * @param actual
      * @param tolerance
      */
+    public static void assertPointsEqual(final Point2S expected, final Point2S actual, final double tolerance) {
+        final String msg = "Expected point to equal " + expected + " but was " + actual + ";";
+        Assertions.assertEquals(expected.getAzimuth(), actual.getAzimuth(), tolerance, msg);
+        Assertions.assertEquals(expected.getPolar(), actual.getPolar(), tolerance, msg);
+    }
 
     /** Assert that the given points are equivalent, using the specified tolerance value.
      * @param expected
      * @param actual
      * @param tolerance
      */
+    public static void assertPointsEq(final Point2S expected, final Point2S actual, final double tolerance) {
+        final String msg = "Expected point to be equivalent to " + expected + " but was " + actual + ";";
+        Assertions.assertTrue(expected.eq(actual, Precision.doubleEquivalenceOfEpsilon(tolerance)), msg);
+    }
 
     /** Assert that the given vectors are equal, using the specified tolerance value.
      * @param expected
      * @param actual
      * @param tolerance
      */
+    public static void assertVectorsEqual(final Vector3D expected, final Vector3D actual, final double tolerance) {
+        final String msg = "Expected vector to equal " + expected + " but was " + actual + ";";
+        Assertions.assertEquals(expected.getX(), actual.getX(), tolerance, msg);
+        Assertions.assertEquals(expected.getY(), actual.getY(), tolerance, msg);
+        Assertions.assertEquals(expected.getZ(), actual.getZ(), tolerance, msg);
+    }
 
     /** Assert that the given points lie in the specified location relative to the region.
      * @param region region to test
      * @param loc expected location of the given points
      * @param pts points to test
      */
+    public static void checkClassify(final Region<Point2S> region, final RegionLocation loc, final Point2S... pts) {
+        for (final Point2S pt : pts) {
+            Assertions.assertEquals(loc, region.classify(pt), "Unexpected location for point " + pt);
+        }
+    }
 
 public static void assertPointsEqual_1_oe(final Point1S expected, final Point1S actual, final double tolerance) { final String msg = "Expected point to equal " + expected + " but was " + actual + ";";
 }

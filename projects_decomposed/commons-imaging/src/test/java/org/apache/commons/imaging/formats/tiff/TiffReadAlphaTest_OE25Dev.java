@@ -63,6 +63,33 @@ public class TiffReadAlphaTest_OE25Dev {
     }
 
     @Test
+    public void test() {
+        for (final String name : names) {
+            try {
+                final File subject = getTiffFile(name);
+                final BufferedImage overlay = Imaging.getBufferedImage(subject);
+                final BufferedImage composite = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+                final Graphics2D g2d = composite.createGraphics();
+                g2d.setColor(Color.white);
+                g2d.fillRect(0, 0, 101, 101);
+                g2d.setColor(Color.black);
+                g2d.fillRect(0, 50, 101, 51);
+                g2d.drawImage(overlay, 0, 0, null);
+
+                for (final int[] element : testSite) {
+                    final int x = element[0];
+                    final int y = element[1];
+                    final int p = element[2];
+                    final int t = composite.getRGB(x, y);
+                    assertEquals(t, p, "Error for " + name + " at position " + x + ", " + y);
+                }
+            } catch (ImageReadException | IOException ex) {
+                fail("Exception reading " + name + ", " + ex.getMessage());
+            }
+        }
+    }
+
+    @Test
     public void test_2_oe() {
         for (final String name : names) {
             try {

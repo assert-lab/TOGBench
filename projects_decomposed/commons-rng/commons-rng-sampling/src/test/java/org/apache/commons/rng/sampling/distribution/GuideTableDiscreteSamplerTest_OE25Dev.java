@@ -29,6 +29,50 @@ import org.junit.jupiter.api.Test;
  * Test for the {@link GuideTableDiscreteSampler}.
  */
 class GuideTableDiscreteSamplerTest_OE25Dev {
+    @Test
+    void testConstructorThrowsWithNullProbabilites() {
+        assertConstructorThrows(null, 1.0);
+    }
+
+    @Test
+    void testConstructorThrowsWithZeroLengthProbabilites() {
+        assertConstructorThrows(new double[0], 1.0);
+    }
+
+    @Test
+    void testConstructorThrowsWithNegativeProbabilites() {
+        assertConstructorThrows(new double[] {-1, 0.1, 0.2}, 1.0);
+    }
+
+    @Test
+    void testConstructorThrowsWithNaNProbabilites() {
+        assertConstructorThrows(new double[] {0.1, Double.NaN, 0.2}, 1.0);
+    }
+
+    @Test
+    void testConstructorThrowsWithInfiniteProbabilites() {
+        assertConstructorThrows(new double[] {0.1, Double.POSITIVE_INFINITY, 0.2}, 1.0);
+    }
+
+    @Test
+    void testConstructorThrowsWithInfiniteSumProbabilites() {
+        assertConstructorThrows(new double[] {Double.MAX_VALUE, Double.MAX_VALUE}, 1.0);
+    }
+
+    @Test
+    void testConstructorThrowsWithZeroSumProbabilites() {
+        assertConstructorThrows(new double[4], 1.0);
+    }
+
+    @Test
+    void testConstructorThrowsWithZeroAlpha() {
+        assertConstructorThrows(new double[] {0.5, 0.5}, 0.0);
+    }
+
+    @Test
+    void testConstructorThrowsWithNegativeAlpha() {
+        assertConstructorThrows(new double[] {0.5, 0.5}, -1.0);
+    }
 
     /**
      * Assert the factory constructor throws an {@link IllegalArgumentException}.
@@ -40,6 +84,13 @@ class GuideTableDiscreteSamplerTest_OE25Dev {
         final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
         Assertions.assertThrows(IllegalArgumentException.class,
             () -> GuideTableDiscreteSampler.of(rng, probabilities, alpha));
+    }
+
+    @Test
+    void testToString() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create();
+        final SharedStateDiscreteSampler sampler = GuideTableDiscreteSampler.of(rng, new double[] {0.5, 0.5}, 1.0);
+        Assertions.assertTrue(sampler.toString().toLowerCase().contains("guide table"));
     }
 
     /**

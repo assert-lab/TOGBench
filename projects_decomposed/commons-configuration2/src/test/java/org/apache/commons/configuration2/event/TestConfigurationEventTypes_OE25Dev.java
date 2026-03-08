@@ -78,6 +78,10 @@ public class TestConfigurationEventTypes_OE25Dev {
     /**
      * Tests the common base event type for error events.
      */
+    @Test
+    public void testBaseErrorEventType() {
+        assertEquals("Wrong super type", Event.ANY, ConfigurationErrorEvent.ANY.getSuperType());
+    }
 
     /**
      * Tests the event type for clearing a whole configuration.
@@ -106,18 +110,44 @@ public class TestConfigurationEventTypes_OE25Dev {
     /**
      * Tests the base event type for configuration events.
      */
+    @Test
+    public void testConfigurationEventType() {
+        assertSame("Wrong super type", Event.ANY, ConfigurationEvent.ANY.getSuperType());
+    }
 
     /**
      * Tests whether the set of super event types for the base type can be obtained.
      */
+    @Test
+    public void testFetchSuperEventTypesForBaseType() {
+        final Set<EventType<?>> superTypes = EventType.fetchSuperEventTypes(Event.ANY);
+        assertEquals("Wrong number of super types", 1, superTypes.size());
+        assertTrue("Wrong super types", superTypes.contains(Event.ANY));
+    }
 
     /**
      * Tests whether the set of super event types for null input can be obtained.
      */
+    @Test
+    public void testFetchSuperEventTypesNull() {
+        final Set<EventType<?>> superTypes = EventType.fetchSuperEventTypes(null);
+        assertTrue("Got super types", superTypes.isEmpty());
+    }
 
     /**
      * Tests whether the super event types of a specific type can be retrieved.
      */
+    @Test
+    public void testFetchSuperEventTypesOfType() {
+        final Set<EventType<?>> superTypes = EventType.fetchSuperEventTypes(ConfigurationEvent.ADD_NODES);
+        final List<EventType<? extends Event>> expected = new LinkedList<>();
+        expected.add(ConfigurationEvent.ADD_NODES);
+        expected.add(ConfigurationEvent.ANY_HIERARCHICAL);
+        expected.add(ConfigurationEvent.ANY);
+        expected.add(Event.ANY);
+        assertEquals("Wrong number of super types", expected.size(), superTypes.size());
+        assertTrue("Wrong super types: " + superTypes, superTypes.containsAll(expected));
+    }
 
     /**
      * Tests the common base event type for hierarchical update events.
@@ -130,18 +160,37 @@ public class TestConfigurationEventTypes_OE25Dev {
     /**
      * Tests isInstanceOf() if the base type is null.
      */
+    @Test
+    public void testIsInstanceOfBaseNull() {
+        assertFalse("Wrong result", EventType.isInstanceOf(ConfigurationEvent.ANY, null));
+    }
 
     /**
      * Tests isInstanceOf() if the derived type is null.
      */
+    @Test
+    public void testIsInstanceOfDerivedNull() {
+        assertFalse("Wrong result", EventType.isInstanceOf(null, Event.ANY));
+    }
 
     /**
      * Tests isInstanceOf() if there is no instanceof relationship.
      */
+    @Test
+    public void testIsInstanceOfFalse() {
+        assertFalse("Wrong result", EventType.isInstanceOf(ConfigurationErrorEvent.READ, ConfigurationEvent.ANY));
+    }
 
     /**
      * Tests isInstanceOf() if the expected result is true.
      */
+    @Test
+    public void testIsInstanceOfTrue() {
+        assertTrue("Wrong result (1)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ANY_HIERARCHICAL));
+        assertTrue("Wrong result (2)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ANY));
+        assertTrue("Wrong result (3)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, Event.ANY));
+        assertTrue("Wrong result (4)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ADD_NODES));
+    }
 
     /**
      * Tests the event type indicating a read error.
@@ -177,12 +226,14 @@ public class TestConfigurationEventTypes_OE25Dev {
 
     @Test
     public void testBaseErrorEventType_1_oe() {
-        assertEquals("Wrong super type", Event.ANY, ConfigurationErrorEvent.ANY.getSuperType());
+        Object a = Event.ANY;
+        assertEquals("Wrong super type", a, ConfigurationErrorEvent.ANY.getSuperType());
     }
 
     @Test
     public void testConfigurationEventType_1_oe() {
-        assertSame("Wrong super type", Event.ANY, ConfigurationEvent.ANY.getSuperType());
+        Object a = Event.ANY;
+        assertSame("Wrong super type", a, ConfigurationEvent.ANY.getSuperType());
     }
 
     @Test
@@ -194,7 +245,6 @@ public class TestConfigurationEventTypes_OE25Dev {
     @Test
     public void testFetchSuperEventTypesForBaseType_2_oe() {
         final Set<EventType<?>> superTypes = EventType.fetchSuperEventTypes(Event.ANY);
-        // removed other assertion
         assertTrue("Wrong super types", superTypes.contains(Event.ANY));
     }
 
@@ -223,49 +273,49 @@ public class TestConfigurationEventTypes_OE25Dev {
         expected.add(ConfigurationEvent.ANY_HIERARCHICAL);
         expected.add(ConfigurationEvent.ANY);
         expected.add(Event.ANY);
-        // removed other assertion
         assertTrue("Wrong super types: " + superTypes, superTypes.containsAll(expected));
     }
 
     @Test
     public void testIsInstanceOfBaseNull_1_oe() {
-        assertFalse("Wrong result", EventType.isInstanceOf(ConfigurationEvent.ANY, null));
+        boolean a = EventType.isInstanceOf(ConfigurationEvent.ANY, null);
+        assertFalse("Wrong result", a);
     }
 
     @Test
     public void testIsInstanceOfDerivedNull_1_oe() {
-        assertFalse("Wrong result", EventType.isInstanceOf(null, Event.ANY));
+        boolean a = EventType.isInstanceOf(null, Event.ANY);
+        assertFalse("Wrong result", a);
     }
 
     @Test
     public void testIsInstanceOfFalse_1_oe() {
-        assertFalse("Wrong result", EventType.isInstanceOf(ConfigurationErrorEvent.READ, ConfigurationEvent.ANY));
+        boolean a = EventType.isInstanceOf(ConfigurationErrorEvent.READ, ConfigurationEvent.ANY);
+        assertFalse("Wrong result", a);
     }
 
     @Test
     public void testIsInstanceOfTrue_1_oe() {
-        assertTrue("Wrong result (1)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ANY_HIERARCHICAL));
+        boolean a = EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ANY_HIERARCHICAL);
+        assertTrue("Wrong result (1)", a);
     }
 
     @Test
     public void testIsInstanceOfTrue_2_oe() {
-        // removed other assertion
-        assertTrue("Wrong result (2)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ANY));
+        boolean a = EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ANY);
+        assertTrue("Wrong result (2)", a);
     }
 
     @Test
     public void testIsInstanceOfTrue_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertTrue("Wrong result (3)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, Event.ANY));
+        boolean a = EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, Event.ANY);
+        assertTrue("Wrong result (3)", a);
     }
 
     @Test
     public void testIsInstanceOfTrue_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertTrue("Wrong result (4)", EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ADD_NODES));
+        boolean a = EventType.isInstanceOf(ConfigurationEvent.ADD_NODES, ConfigurationEvent.ADD_NODES);
+        assertTrue("Wrong result (4)", a);
     }
 
 }

@@ -40,6 +40,30 @@ public class Head302Test_OE25Dev extends AbstractBasicTest {
     return new Head302handler();
   }
 
+  @Test
+  public void testHEAD302() throws IOException, InterruptedException, ExecutionException, TimeoutException {
+    AsyncHttpClientConfig clientConfig = new DefaultAsyncHttpClientConfig.Builder().setFollowRedirect(true).build();
+    try (AsyncHttpClient client = asyncHttpClient(clientConfig)) {
+      final CountDownLatch l = new CountDownLatch(1);
+      Request request = head("http://localhost:" + port1 + "/Test").build();
+
+      Response response = client.executeRequest(request, new AsyncCompletionHandlerBase() {
+        @Override
+        public Response onCompleted(Response response) throws Exception {
+          l.countDown();
+          return super.onCompleted(response);
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (l.await(TIMEOUT, TimeUnit.SECONDS)) {
+        assertEquals(response.getStatusCode(), HttpServletResponse.SC_OK);
+        assertTrue(response.getUri().getPath().endsWith("_moved"));
+      } else {
+        fail("Timeout out");
+      }
+    }
+  }
+
   /**
    * Handler that does Found (302) in response to HEAD method.
    */

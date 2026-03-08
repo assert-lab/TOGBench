@@ -45,11 +45,48 @@ public abstract class AbstractFilesCacheTestsBase_OE25Dev extends AbstractProvid
     /**
      * Basic Cache operations, work for all caches (besides {@link NullFilesCacheTests#testBasicCacheOps() NullFilesCache}).
      */
+    @Test
+    public void testBasicCacheOps() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+        final FileObject fo = getWriteFolder().resolveFile("dir1");
+        final FileName fn = fo.getName();
+        final FileSystem fs = fo.getFileSystem();
+
+        cache.clear(fs);
+        assertNull(cache.getFile(fs, fn));
+
+        cache.putFile(fo);
+        assertSame(fo, cache.getFile(fs, fn));
+
+        assertFalse(cache.putFileIfAbsent(fo));
+        cache.clear(fs);
+        assertNull(cache.getFile(fs, fn));
+        assertTrue(cache.putFileIfAbsent(fo));
+
+        cache.removeFile(fs, fn);
+        assertNull(cache.getFile(fs, fn));
+        assertTrue(cache.putFileIfAbsent(fo));
+    }
 
     /**
      * Will test if the cache is cleared and if it is still useable afterwards. It will actually ensure the test is
      * hitting the cache.
      */
+    @Test
+    public void testClearFiles() throws Exception {
+        final FilesCache cache = getManager().getFilesCache();
+
+        final FileObject fo1 = getWriteFolder().resolveFile("dir1");
+
+        // clean the cache for this file system
+        cache.clear(fo1.getFileSystem());
+        // make sure a empty cache clean does not fail
+        cache.clear(fo1.getFileSystem());
+
+        final FileObject fo2 = getWriteFolder().resolveFile("dir1");
+
+        assertNotSame("Objects after cache clear should be different", fo1, fo2);
+    }
 
     @Test
     public void testBasicCacheOps_1_oe() throws Exception {

@@ -28,6 +28,19 @@ public class ServicePortIntegrationTest_OE25Dev {
         service.awaitInitialization();
     }
 
+    @Test
+    public void testGetPort_withRandomPort() throws Exception {
+        int actualPort = service.port();
+
+        LOGGER.info("got port ");
+
+        SparkTestUtil testUtil = new SparkTestUtil(actualPort);
+
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/hi", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("Hello World!", response.body);
+    }
+
     @AfterClass
     public static void tearDown() throws Exception {
         service.stop();

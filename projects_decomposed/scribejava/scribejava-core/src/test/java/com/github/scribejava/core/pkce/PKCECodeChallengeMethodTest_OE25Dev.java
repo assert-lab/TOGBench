@@ -15,6 +15,15 @@ public class PKCECodeChallengeMethodTest_OE25Dev {
         105, (byte) 214, (byte) 191, (byte) 240, 91, 88, 5, 88, 83, (byte) 132, (byte) 141, 121};
 
     @Test
+    public void testGeneratingPKCE() {
+        final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
+
+        assertEquals(PKCECodeChallengeMethod.S256, pkce.getCodeChallengeMethod());
+        assertEquals("dBjftJeZ4CVP-mB92K27uhbUJU1p1r_wW1gFWFOEjXk", pkce.getCodeVerifier());
+        assertEquals("E9Melhoa2OwvFrEMTJguCHaoeK1t8URWbuGJSstw-cM", pkce.getCodeChallenge());
+    }
+
+    @Test
     public void testGeneratingPKCE_1_oe() {
         final PKCE pkce = PKCEService.defaultInstance().generatePKCE(RANDOM_BYTES);
 

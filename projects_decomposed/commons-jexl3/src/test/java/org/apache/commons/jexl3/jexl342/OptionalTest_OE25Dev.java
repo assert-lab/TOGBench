@@ -46,6 +46,48 @@ public class OptionalTest_OE25Dev {
     }
 
     @Test
+    public void test342() {
+        JexlBuilder builder = new JexlBuilder();
+        JexlUberspect uber = builder.create().getUberspect();
+        JexlEngine jexl = builder.uberspect(new ReferenceUberspect(uber)).safe(false).create();
+        JexlInfo info = new JexlInfo("test352", 1, 1);
+        Thing thing = new Thing();
+        JexlScript script;
+
+        script = jexl.createScript(info.at(53, 1),"thing.name.length()", "thing");
+        Object result = script.execute(null, thing);
+        Assert.assertNull(result);
+
+        thing.name = "foo";
+        result = script.execute(null, thing);
+        Assert.assertEquals(3, result);
+
+        try {
+            script = jexl.createScript(info.at(62, 1), "thing.name.size()", "thing");
+            result = script.execute(null, thing);
+            Assert.fail("should have thrown");
+        } catch(JexlException.Method xmethod) {
+            Assert.assertEquals("size", xmethod.getDetail());
+            Assert.assertEquals("test352@62:11 unsolvable function/method 'size'", xmethod.getMessage());
+        }
+
+        try {
+            script = jexl.createScript(info.at(71, 1), "thing.name?.size()", "thing");
+            result = script.execute(null, thing);
+        } catch(JexlException.Method xmethod) {
+            Assert.fail("should not have thrown");
+        }
+
+        thing.name = null;
+        script = jexl.createScript(info,"thing.names.size()", "thing");
+        result = script.execute(null, thing);
+        Assert.assertNull(result);
+        thing.name = "froboz";
+        result = script.execute(null, thing);
+        Assert.assertEquals(1, result);
+    }
+
+    @Test
     public void test342_1_oe() {
         JexlBuilder builder = new JexlBuilder();
         JexlUberspect uber = builder.create().getUberspect();

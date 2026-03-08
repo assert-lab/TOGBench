@@ -150,6 +150,12 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
     /**
      * Tests whether childConfigurationsAt() is correctly synchronized.
      */
+    @Test
+    public void testChildConfigurationsAtSynchronized() {
+        final List<HierarchicalConfiguration<ImmutableNode>> subs = config.childConfigurationsAt("clear");
+        assertFalse("No subnode configurations", subs.isEmpty());
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests whether clearTree() is correctly synchronized.
@@ -163,30 +169,77 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
     /**
      * Tests whether a clone() operation also copies the data used to manage SubnodeConfiguration objects.
      */
+    @Test
+    public void testCloneCopySubnodeData() {
+        final BaseHierarchicalConfiguration conf2 = new BaseHierarchicalConfiguration(config);
+
+        final HierarchicalConfiguration<ImmutableNode> sub = conf2.configurationAt("element2.subelement", true);
+        @SuppressWarnings("unchecked") // clone retains the type
+        final HierarchicalConfiguration<ImmutableNode> copy = (HierarchicalConfiguration<ImmutableNode>) conf2.clone();
+        final HierarchicalConfiguration<ImmutableNode> sub2 = copy.configurationAt("element2.subelement", true);
+        // This must not cause a validate operation on sub1, but on sub2
+        copy.clearTree("element2");
+        assertTrue("Sub2 not detached", isDetached(sub2));
+        assertFalse("Sub 1 was detached", isDetached(sub));
+    }
 
     /**
      * Tests whether clone() is correctly synchronized.
      */
+    @Test
+    public void testCloneSynchronized() {
+        final BaseHierarchicalConfiguration clone = (BaseHierarchicalConfiguration) config.clone();
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+        assertNotSame("Synchronizer was not cloned", config.getSynchronizer(), clone.getSynchronizer());
+    }
 
     /**
      * Tests whether synchronization is performed when constructing a SubnodeConfiguration.
      */
+    @Test
+    public void testConfigurationAtSynchronized() {
+        final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2");
+        assertEquals("Wrong property", "I'm complex!", sub.getString("subelement.subsubelement"));
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ, Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests whether synchronization is performed when constructing multiple SubnodeConfiguration objects.
      */
+    @Test
+    public void testConfigurationsAtSynchronized() {
+        final List<HierarchicalConfiguration<ImmutableNode>> subs = config.configurationsAt("list.item");
+        assertFalse("No subnode configurations", subs.isEmpty());
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests whether synchronization is performed when copying a configuration.
      */
+    @Test
+    public void testCopyConstructorSynchronized() {
+        final BaseHierarchicalConfiguration copy = new BaseHierarchicalConfiguration(config);
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+        assertNotSame("Synchronizer was copied", sync, copy.getSynchronizer());
+    }
 
     /**
      * Tests whether getMaxIndex() is correctly synchronized.
      */
+    @Test
+    public void testGetMaxIndexSynchronized() {
+        assertTrue("Wrong max index", config.getMaxIndex("list.item") > 0);
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests whether getRootElementName() is correctly synchronized.
      */
+    @Test
+    public void testGetRootElementNameSynchronized() {
+        assertEquals("Wrong root element name", "testconfig", config.getRootElementName());
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests that access to an initialized configuration's sub configurations is possible without a special synchronizer.
@@ -219,14 +272,38 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
     /**
      * Tests whether updates on nodes are communicated to all SubnodeConfigurations of a configuration.
      */
+    @Test
+    public void testSubnodeUpdate() {
+        config.addProperty("element2.test", Boolean.TRUE);
+        final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2", true);
+        final HierarchicalConfiguration<ImmutableNode> subsub = sub.configurationAt("subelement", true);
+        config.clearTree("element2.subelement");
+        assertFalse("Sub1 detached", isDetached(sub));
+        assertTrue("Sub2 still attached", isDetached(subsub));
+    }
 
     /**
      * Tests whether updates caused by a SubnodeConfiguration are communicated to all other SubnodeConfigurations.
      */
+    @Test
+    public void testSubnodeUpdateBySubnode() {
+        final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2", true);
+        final HierarchicalConfiguration<ImmutableNode> subsub = sub.configurationAt("subelement", true);
+        final HierarchicalConfiguration<ImmutableNode> sub2 = config.configurationAt("element2.subelement", true);
+        sub.clearTree("subelement");
+        assertTrue("Sub2 still attached", isDetached(sub2));
+        assertTrue("Subsub still attached", isDetached(subsub));
+    }
 
     /**
      * Tests whether subset() is correctly synchronized.
      */
+    @Test
+    public void testSubsetSynchronized() {
+        final Configuration subset = config.subset("test");
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+        assertSame("Wrong Synchronizer", sync, subset.getSynchronizer());
+    }
 
     @Test
     public void testChildConfigurationsAtSynchronized_1_oe() {
@@ -242,7 +319,6 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         @SuppressWarnings("unchecked") // clone retains the type
         final HierarchicalConfiguration<ImmutableNode> copy = (HierarchicalConfiguration<ImmutableNode>) conf2.clone();
         final HierarchicalConfiguration<ImmutableNode> sub2 = copy.configurationAt("element2.subelement", true);
-        // This must not cause a validate operation on sub1, but on sub2
         copy.clearTree("element2");
         assertTrue("Sub2 not detached", isDetached(sub2));
     }
@@ -255,9 +331,7 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         @SuppressWarnings("unchecked") // clone retains the type
         final HierarchicalConfiguration<ImmutableNode> copy = (HierarchicalConfiguration<ImmutableNode>) conf2.clone();
         final HierarchicalConfiguration<ImmutableNode> sub2 = copy.configurationAt("element2.subelement", true);
-        // This must not cause a validate operation on sub1, but on sub2
         copy.clearTree("element2");
-        // removed other assertion
         assertFalse("Sub 1 was detached", isDetached(sub));
     }
 
@@ -289,12 +363,14 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
 
     @Test
     public void testGetMaxIndexSynchronized_1_oe() {
-        assertTrue("Wrong max index", config.getMaxIndex("list.item") > 0);
+        boolean a = config.getMaxIndex("list.item") > 0;
+        assertTrue("Wrong max index", a);
     }
 
     @Test
     public void testGetRootElementNameSynchronized_1_oe() {
-        assertEquals("Wrong root element name", "testconfig", config.getRootElementName());
+        String a = "testconfig";
+        assertEquals("Wrong root element name", a, config.getRootElementName());
     }
 
     @Test
@@ -312,7 +388,6 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         final HierarchicalConfiguration<ImmutableNode> sub = config.configurationAt("element2", true);
         final HierarchicalConfiguration<ImmutableNode> subsub = sub.configurationAt("subelement", true);
         config.clearTree("element2.subelement");
-        // removed other assertion
         assertTrue("Sub2 still attached", isDetached(subsub));
     }
 
@@ -331,7 +406,6 @@ public class TestBaseHierarchicalConfigurationSynchronization_OE25Dev {
         final HierarchicalConfiguration<ImmutableNode> subsub = sub.configurationAt("subelement", true);
         final HierarchicalConfiguration<ImmutableNode> sub2 = config.configurationAt("element2.subelement", true);
         sub.clearTree("subelement");
-        // removed other assertion
         assertTrue("Subsub still attached", isDetached(subsub));
     }
 

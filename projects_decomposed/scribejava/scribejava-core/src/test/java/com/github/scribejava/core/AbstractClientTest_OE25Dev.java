@@ -80,6 +80,24 @@ public abstract class AbstractClientTest_OE25Dev {
     }
 
     @Test
+    public void shouldSendPostWithApplicationXWwwFormUrlencodedRequestContentTypeHeader() throws Exception {
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse());
+        server.start();
+
+        final HttpUrl baseUrl = server.url("/testUrl");
+
+        final OAuthRequest request = new OAuthRequest(Verb.POST, baseUrl.toString());
+        oAuthService.execute(request, null).get(30, TimeUnit.SECONDS).close();
+
+        final RecordedRequest recordedRequest = server.takeRequest();
+        assertEquals("POST", recordedRequest.getMethod());
+        assertEquals(HttpClient.DEFAULT_CONTENT_TYPE, recordedRequest.getHeader(HttpClient.CONTENT_TYPE));
+
+        server.shutdown();
+    }
+
+    @Test
     public void shouldSendPostRequestWithEmptyBody() throws Exception {
         final String expectedResponseBody = "response body for test shouldSendPostRequest";
         final String expectedRequestBody = "";
@@ -199,6 +217,26 @@ public abstract class AbstractClientTest_OE25Dev {
 
         final RecordedRequest recordedRequest = server.takeRequest();
         assertEquals("GET", recordedRequest.getMethod());
+
+        server.shutdown();
+    }
+
+    @Test
+    public void shouldCallCallback() throws Exception {
+        final String expectedResponseBody = "response body for test shouldCallCallback";
+
+        final MockWebServer server = new MockWebServer();
+        server.enqueue(new MockResponse().setBody(expectedResponseBody));
+        server.start();
+
+        final HttpUrl baseUrl = server.url("/testUrl");
+
+        final OAuthRequest request = new OAuthRequest(Verb.GET, baseUrl.toString());
+
+        final TestCallback callback = new TestCallback();
+        oAuthService.execute(request, callback).get();
+
+        assertEquals(expectedResponseBody, callback.getResponse().getBody());
 
         server.shutdown();
     }

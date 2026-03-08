@@ -34,6 +34,67 @@ import org.junit.Test;
  *
  */
 public class TestPropertiesSequence_OE25Dev {
+    @Test
+    public void testConfigurationValuesInSameOrderFromFile() throws Exception {
+        final String simpleConfigurationFile = ConfigurationAssert.getTestFile("testSequence.properties").getAbsolutePath();
+        final String compositeConfigurationFile = ConfigurationAssert.getTestFile("testSequenceDigester.xml").getAbsolutePath();
+
+        final PropertiesConfiguration simpleConfiguration = new PropertiesConfiguration();
+        final FileHandler handler = new FileHandler(simpleConfiguration);
+        handler.setFileName(simpleConfigurationFile);
+        handler.load();
+
+        final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
+        builder.configure(new FileBasedBuilderParametersImpl().setFileName(compositeConfigurationFile));
+        final Configuration compositeConfiguration = builder.getConfiguration();
+
+        final Configuration a = simpleConfiguration.subset("prefix");
+        final Configuration b = compositeConfiguration.subset("prefix");
+
+        final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
+        final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
+
+        assertFalse("Size:" + keysSimpleConfiguration.size(), keysSimpleConfiguration.isEmpty());
+        assertEquals(keysSimpleConfiguration.size(), keysCompositeConfiguration.size());
+
+        for (int i = 0; i < keysSimpleConfiguration.size(); i++) {
+            assertEquals(keysSimpleConfiguration.get(i), keysCompositeConfiguration.get(i));
+        }
+    }
+
+    @Test
+    public void testConfigurationValuesInSameOrderWithManualAdd() throws Exception {
+        final String simpleConfigurationFile = ConfigurationAssert.getTestFile("testSequence.properties").getAbsolutePath();
+        final String compositeConfigurationFile = ConfigurationAssert.getTestFile("testSequenceDigester.xml").getAbsolutePath();
+
+        final PropertiesConfiguration simpleConfiguration = new PropertiesConfiguration();
+        final FileHandler handler = new FileHandler(simpleConfiguration);
+        handler.setFileName(simpleConfigurationFile);
+        handler.load();
+
+        final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
+        builder.configure(new FileBasedBuilderParametersImpl().setFileName(compositeConfigurationFile));
+        final Configuration compositeConfiguration = builder.getConfiguration();
+
+        simpleConfiguration.setProperty("prefix.Co.test", Boolean.TRUE);
+        simpleConfiguration.setProperty("prefix.Av.test", Boolean.TRUE);
+
+        compositeConfiguration.setProperty("prefix.Co.test", Boolean.TRUE);
+        compositeConfiguration.setProperty("prefix.Av.test", Boolean.TRUE);
+
+        final Configuration a = simpleConfiguration.subset("prefix");
+        final Configuration b = compositeConfiguration.subset("prefix");
+
+        final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
+        final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
+
+        assertFalse("Size:" + keysSimpleConfiguration.size(), keysSimpleConfiguration.isEmpty());
+        assertEquals(keysSimpleConfiguration.size(), keysCompositeConfiguration.size());
+
+        for (int i = 0; i < keysSimpleConfiguration.size(); i++) {
+            assertEquals(keysSimpleConfiguration.get(i), keysCompositeConfiguration.get(i));
+        }
+    }
 
     @Test
     public void testMappingInSameOrder() throws Exception {
@@ -122,7 +183,6 @@ public class TestPropertiesSequence_OE25Dev {
         final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
         final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
 
-        // removed other assertion
         assertEquals(keysSimpleConfiguration.size(), keysCompositeConfiguration.size());
     }
 
@@ -146,8 +206,6 @@ public class TestPropertiesSequence_OE25Dev {
         final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
         final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
 
-        // removed other assertion
-        // removed other assertion
 
         for (int i = 0; i < keysSimpleConfiguration.size(); i++) {
             assertEquals(keysSimpleConfiguration.get(i), keysCompositeConfiguration.get(i));
@@ -209,7 +267,6 @@ public class TestPropertiesSequence_OE25Dev {
         final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
         final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
 
-        // removed other assertion
         assertEquals(keysSimpleConfiguration.size(), keysCompositeConfiguration.size());
     }
 
@@ -239,8 +296,6 @@ public class TestPropertiesSequence_OE25Dev {
         final List<String> keysSimpleConfiguration = ConfigurationAssert.keysToList(a);
         final List<String> keysCompositeConfiguration = ConfigurationAssert.keysToList(b);
 
-        // removed other assertion
-        // removed other assertion
 
         for (int i = 0; i < keysSimpleConfiguration.size(); i++) {
             assertEquals(keysSimpleConfiguration.get(i), keysCompositeConfiguration.get(i));

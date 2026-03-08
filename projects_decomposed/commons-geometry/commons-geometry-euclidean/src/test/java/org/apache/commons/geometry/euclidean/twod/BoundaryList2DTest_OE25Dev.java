@@ -31,6 +31,40 @@ class BoundaryList2DTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
+    void testCtor() {
+        // arrange
+        final List<LineConvexSubset> boundaries = Collections.singletonList(
+                Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 1), TEST_PRECISION)
+        );
+
+        // act
+        final BoundaryList2D list = new BoundaryList2D(boundaries);
+
+        // assert
+        Assertions.assertNotSame(boundaries, list.getBoundaries());
+        Assertions.assertEquals(boundaries, list.getBoundaries());
+        Assertions.assertEquals(1, list.count());
+    }
+
+    @Test
+    void testToList() {
+        // arrange
+        final BoundaryList2D list = new BoundaryList2D(Collections.emptyList());
+
+        // act/assert
+        Assertions.assertSame(list, list.toList());
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final BoundaryList2D list = new BoundaryList2D(Collections.emptyList());
+
+        // act
+        Assertions.assertEquals("BoundaryList2D[count= 0]", list.toString());
+    }
+
+    @Test
     void testCtor_1_oe() {
         // arrange
         final List<LineConvexSubset> boundaries = Collections.singletonList(

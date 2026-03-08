@@ -278,6 +278,40 @@ public class AbstractMaybeAsyncHandlerBridgeTest_OE25Dev {
     then(emitter).should().onError(x);
   }
 
+  @Test
+  public void handlesExceptionsWhileFailing() {
+    // given
+    final Throwable initial = new RuntimeException("mocked error for onThrowable()");
+    final Throwable followup = new RuntimeException("mocked error in delegate onThrowable()");
+    willThrow(followup).given(delegate).onThrowable(initial);
+
+    /* when */
+    underTest.onThrowable(initial);
+
+    // then
+    then(emitter).should().onError(throwable.capture());
+    final Throwable thrown = throwable.getValue();
+    assertThat(thrown, is(instanceOf(CompositeException.class)));
+    assertThat(((CompositeException) thrown).getExceptions(), is(Arrays.asList(initial, followup)));
+  }
+
+  @Test
+  public void cachesDisposedException() {
+    // when
+    new UnderTest().disposed();
+    new UnderTest().disposed();
+
+    // then
+    then(delegate).should(times(2)).onThrowable(throwable.capture());
+    final List<Throwable> errors = throwable.getAllValues();
+    final Throwable firstError = errors.get(0), secondError = errors.get(1);
+    assertThat(secondError, is(sameInstance(firstError)));
+    final StackTraceElement[] stackTrace = firstError.getStackTrace();
+    assertThat(stackTrace.length, is(1));
+    assertThat(stackTrace[0].getClassName(), is(AbstractMaybeAsyncHandlerBridge.class.getName()));
+    assertThat(stackTrace[0].getMethodName(), is("disposed"));
+  }
+
   @DataProvider
   public Object[][] httpEvents() {
     return new Object[][]{
@@ -286,6 +320,24 @@ public class AbstractMaybeAsyncHandlerBridgeTest_OE25Dev {
             {named("onBodyPartReceived", () -> underTest.onBodyPartReceived(bodyPart))},
             {named("onTrailingHeadersReceived", () -> underTest.onTrailingHeadersReceived(headers))},
     };
+  }
+
+  @Test(dataProvider = "httpEvents")
+  public void httpEventCallbacksCheckDisposal(Callable<AsyncHandler.State> httpEvent) throws Exception {
+    given(emitter.isDisposed()).willReturn(true);
+
+    /* when */
+    final AsyncHandler.State firstState = httpEvent.call();
+    /* then */
+    assertThat(firstState, is(State.ABORT));
+    then(delegate).should(only()).onThrowable(isA(DisposedException.class));
+
+    /* when */
+    final AsyncHandler.State secondState = httpEvent.call();
+    /* then */
+    assertThat(secondState, is(State.ABORT));
+    /* then */
+    verifyNoMoreInteractions(delegate);
   }
 
   @DataProvider

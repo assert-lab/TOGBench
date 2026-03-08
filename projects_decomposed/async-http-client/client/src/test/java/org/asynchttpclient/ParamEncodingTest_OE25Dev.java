@@ -35,6 +35,19 @@ import static org.testng.Assert.assertNotNull;
 
 public class ParamEncodingTest_OE25Dev extends AbstractBasicTest {
 
+  @Test
+  public void testParameters() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+
+    String value = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKQLMNOPQRSTUVWXYZ1234567809`~!@#$%^&*()_+-=,.<>/?;:'\"[]{}\\| ";
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.preparePost("http://localhost:" + port1).addFormParam("test", value).execute();
+      Response resp = f.get(10, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getHeader("X-Param"), value.trim());
+    }
+  }
+
   @Override
   public AbstractHandler configureHandler() throws Exception {
     return new ParamEncoding();

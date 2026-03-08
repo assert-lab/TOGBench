@@ -56,16 +56,106 @@ class ContinuousUniformSamplerTest_OE25Dev {
      * Test the sampler excludes the bounds when the underlying generator returns long values
      * that produce the limit of the uniform double output.
      */
+    @Test
+    void testExcludeBounds() {
+        // A broken RNG that will return in an alternating sequence from 0 up or -1 down.
+        // This is either zero bits or all the bits
+        final UniformRandomProvider rng = new SplitMix64(0L) {
+            private long l1;
+            private long l2;
+            @Override
+            public long nextLong() {
+                long x;
+                if (l1 > l2) {
+                    l2++;
+                    // Descending sequence: -1, -2, -3, ...
+                    x = -l2;
+                } else {
+                    // Ascending sequence: 0, 1, 2, ...
+                    x = l1++;
+                }
+                // Shift by 11 bits to reverse the shift performed when computing the next
+                // double from a long.
+                return x << 11;
+            }
+        };
+        final double low = 3.18;
+        final double high = 5.23;
+        final SharedStateContinuousSampler sampler =
+            ContinuousUniformSampler.of(rng, low, high, true);
+        // Test the sampler excludes the end points
+        for (int i = 0; i < 10; i++) {
+            final double value = sampler.sample();
+            Assertions.assertTrue(value > low && value < high, () -> "Value not in range: " + value);
+        }
+    }
 
     /**
      * Test open intervals {@code (lower,upper)} where there are not enough double values
      * between the limits.
      */
+    @Test
+    void testInvalidOpenIntervalThrows() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0);
+        for (final double[] interval : new double[][] {
+            // Opposite signs. Require two doubles inside the range.
+            {-0.0, 0.0},
+            {-0.0, Double.MIN_VALUE},
+            {-0.0, Double.MIN_VALUE * 2},
+            {-Double.MIN_VALUE, 0.0},
+            {-Double.MIN_VALUE * 2, 0.0},
+            {-Double.MIN_VALUE, Double.MIN_VALUE},
+            // Same signs. Requires one double inside the range.
+            // Same exponent
+            {1.23, Math.nextUp(1.23)},
+            {1.23, Math.nextUp(1.23)},
+            // Different exponent
+            {2.0, Math.nextDown(2.0)},
+        }) {
+            final double low = interval[0];
+            final double high = interval[1];
+            Assertions.assertThrows(IllegalArgumentException.class,
+                () -> ContinuousUniformSampler.of(rng, low, high, true),
+                () -> "(" + low + "," + high + ")");
+            Assertions.assertThrows(IllegalArgumentException.class,
+                () -> ContinuousUniformSampler.of(rng, high, low, true),
+                () -> "(" + high + "," + low + ")");
+        }
+
+        // Valid. This will overflow if the raw long bits are extracted and
+        // subtracted to obtain a ULP difference.
+        ContinuousUniformSampler.of(rng, Double.MAX_VALUE, -Double.MAX_VALUE, true);
+    }
 
     /**
      * Test open intervals {@code (lower,upper)} where there is only the minimum number of
      * double values between the limits.
      */
+    @Test
+    void testTinyOpenIntervalSample() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0);
+
+        // Test sub-normal ranges
+        final double x = Double.MIN_VALUE;
+
+        for (final double expected : new double[] {
+            1.23, 2, 56787.7893, 3 * x, 2 * x, x
+        }) {
+            final double low = Math.nextUp(expected);
+            final double high = Math.nextDown(expected);
+            Assertions.assertEquals(expected, ContinuousUniformSampler.of(rng, low, high, true).sample());
+            Assertions.assertEquals(expected, ContinuousUniformSampler.of(rng, high, low, true).sample());
+            Assertions.assertEquals(-expected, ContinuousUniformSampler.of(rng, -low, -high, true).sample());
+            Assertions.assertEquals(-expected, ContinuousUniformSampler.of(rng, -high, -low, true).sample());
+        }
+
+        // Special case of sampling around zero.
+        // Requires 2 doubles inside the range.
+        final double y = ContinuousUniformSampler.of(rng, -x, 2 * x, true).sample();
+        Assertions.assertTrue(-x < y && y < 2 * x);
+        final double z = ContinuousUniformSampler.of(rng, -2 * x, x, true).sample();
+        Assertions.assertTrue(-2 * x < z && z < x);
+    }
 
     /**
      * Test the SharedStateSampler implementation.

@@ -46,6 +46,33 @@ class LogGamma1pTest_OE25Dev {
     };
 
     @Test
+    void testLogGamma1p() {
+        final int ulps = 3;
+        for (int i = 0; i < LOG_GAMMA1P_REF.length; i++) {
+            final double[] ref = LOG_GAMMA1P_REF[i];
+            final double x = ref[0];
+            final double expected = ref[1];
+            final double actual = LogGamma1p.value(x);
+            final double tol = ulps * Math.ulp(expected);
+            Assertions.assertEquals(expected, actual, tol, Double.toString(x));
+        }
+    }
+
+    @Test
+    void testLogGamma1pPrecondition1() {
+        Assertions.assertThrows(GammaException.class,
+            () -> LogGamma1p.value(-0.51)
+        );
+    }
+
+    @Test
+    void testLogGamma1pPrecondition2() {
+        Assertions.assertThrows(GammaException.class,
+            () -> LogGamma1p.value(1.51)
+        );
+    }
+
+    @Test
     void testLogGamma1p_1_oe() {
         final int ulps = 3;
         for (int i = 0; i < LOG_GAMMA1P_REF.length; i++) {

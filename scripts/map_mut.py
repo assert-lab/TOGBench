@@ -288,9 +288,9 @@ META_FOCAL_COLS = ["focal_file_path", "focal_class", "focal_package"]
 # ---------------------------------------------------------------------------
 
 def update_project(proj: Path):
-    dataset_dir = proj / "dataset_MUST_THROW"
-    inputs_path = dataset_dir / "inputs_passed.csv"
-    meta_path   = dataset_dir / "meta_passed.csv"
+    dataset_dir = proj / "dataset"
+    inputs_path = dataset_dir / "inputs_final.csv"
+    meta_path   = dataset_dir / "meta_final.csv"
 
     if not inputs_path.exists():
         return (0, 0, 0)

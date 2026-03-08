@@ -42,6 +42,17 @@ public class TestXPathContextFactory_OE25Dev {
     /**
      * Tests whether a correct context is created.
      */
+    @Test
+    public void testCreateContext() {
+        final ImmutableNode node = new ImmutableNode.Builder().name("testRoot").create();
+        final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
+        final JXPathContext context = factory.createContext(node, handler);
+
+        assertTrue("No lenient mode", context.isLenient());
+        final ConfigurationNodePointerFactory.NodeWrapper<?> wrapper = (ConfigurationNodePointerFactory.NodeWrapper<?>) context.getContextBean();
+        assertSame("Wrong node", node, wrapper.getNode());
+        assertSame("Wrong handler", handler, wrapper.getNodeHandler());
+    }
 
     @Test
     public void testCreateContext_1_oe() {
@@ -58,7 +69,6 @@ public class TestXPathContextFactory_OE25Dev {
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
         final JXPathContext context = factory.createContext(node, handler);
 
-        // removed other assertion
         final ConfigurationNodePointerFactory.NodeWrapper<?> wrapper = (ConfigurationNodePointerFactory.NodeWrapper<?>) context.getContextBean();
         assertSame("Wrong node", node, wrapper.getNode());
     }
@@ -69,9 +79,7 @@ public class TestXPathContextFactory_OE25Dev {
         final NodeHandler<ImmutableNode> handler = new InMemoryNodeModel(node).getNodeHandler();
         final JXPathContext context = factory.createContext(node, handler);
 
-        // removed other assertion
         final ConfigurationNodePointerFactory.NodeWrapper<?> wrapper = (ConfigurationNodePointerFactory.NodeWrapper<?>) context.getContextBean();
-        // removed other assertion
         assertSame("Wrong handler", handler, wrapper.getNodeHandler());
     }
 

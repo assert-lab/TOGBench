@@ -34,6 +34,22 @@ public class LocalFileRandomAccessContentTestCase_OE25Dev {
     /**
      * test LocalFileRandomAccessContent InputStream read one byte 0xff; see VFS-624
      **/
+    @Test
+    public void testInputStreamRead0xff() throws IOException {
+        // open test file,this file has only one byte data 0xff
+        final File file = new File("src/test/resources/test-data/0xff_file.txt");
+
+        // read test data,first data should be 0xFF instead of -1. Will read -1 finally (EOF)
+        try (InputStream in = new LocalFileRandomAccessContent(file, RandomAccessMode.READ).getInputStream()) {
+            // read first data
+            final int read = in.read();
+            Assert.assertNotEquals(EOF, read);
+            Assert.assertEquals(0xFF, read);
+
+            // read EOF
+            Assert.assertEquals(EOF, in.read());
+        }
+    }
 
     @Test
     public void testInputStreamRead0xff_1_oe() throws IOException {

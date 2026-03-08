@@ -71,10 +71,26 @@ public class ScheduleParserUtilUnitTest_OE25Dev
      * Verify that we get one date for one date.
      * @throws ParseException
      */
+    public void testGetsDatesSingle()
+        throws ParseException
+    {
+        final String schedule = "12:34:56";
+        final Date[] dates = ScheduleParser.createDatesForSchedule( schedule );
+
+        assertEquals( "Wrong number of dates returned.", 1, dates.length );
+    }
     /**
      * Verify that we get one date for one date.
      * @throws ParseException
      */
+    public void testGetsDatesMultiple()
+        throws ParseException
+    {
+        final String schedule = "12:34:56,03:51:00,12:34:12";
+        final Date[] dates = ScheduleParser.createDatesForSchedule( schedule );
+        //System.out.println( dates );
+        assertEquals( "Wrong number of dates returned.", 3, dates.length );
+    }
 
     /**
      * Verify that we get an exception for a single bad date in a list.

@@ -70,6 +70,33 @@ public class ISINValidatorTest_OE25Dev extends TestCase {
         super(name);
     }
 
+    public void testIsValidTrue() {
+        for(String f : validFormat) {
+            assertTrue(f, VALIDATOR_TRUE.isValid(f));            
+        }
+    }
+
+    public void testInvalidTrue() {
+        for(String f : invalidFormat) {
+            assertFalse(f, VALIDATOR_TRUE.isValid(f));            
+        }
+        for(String f : invalidFormatTrue) {
+            assertFalse(f, VALIDATOR_TRUE.isValid(f));            
+        }
+    }
+
+    public void testIsValidFalse() {
+        for(String f : validFormat) {
+            assertTrue(f, VALIDATOR_FALSE.isValid(f));            
+        }
+    }
+
+    public void testInvalidFalse() {
+        for(String f : invalidFormat) {
+            assertFalse(f, VALIDATOR_FALSE.isValid(f));            
+        }
+    }
+
     public void testIsValidTrue_1_oe() {
         for(String f : validFormat) {
             assertTrue(f, VALIDATOR_TRUE.isValid(f));

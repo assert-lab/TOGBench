@@ -151,10 +151,83 @@ public class IBANValidatorTest_OE25Dev {
     private static final IBANValidator VALIDATOR = IBANValidator.getInstance();
 
     @Test
+    public void testValid() {
+        for(String f : validIBANFormat) {
+            assertTrue("Checksum fail: "+f, IBANCheckDigit.IBAN_CHECK_DIGIT.isValid(f));
+            assertTrue("Missing validator: "+f, VALIDATOR.hasValidator(f));
+            assertTrue(f, VALIDATOR.isValid(f));
+        }
+    }
+
+    @Test
+    public void testInValid() {
+        for(String f : invalidIBANFormat) {
+            assertFalse(f, VALIDATOR.isValid(f));
+        }
+    }
+
+    @Test
+    public void testNull() {
+        assertFalse("isValid(null)",  VALIDATOR.isValid(null));
+    }
+
+    @Test
+    public void testHasValidator() {
+        assertTrue("GB", VALIDATOR.hasValidator("GB"));
+        assertFalse("gb", VALIDATOR.hasValidator("gb"));
+    }
+
+    @Test
+    public void testGetValidator() {
+        assertNotNull("GB", VALIDATOR.getValidator("GB"));
+        assertNull("gb", VALIDATOR.getValidator("gb"));        
+    }
+
+    @Test(expected=IllegalStateException.class)
+    public void testSetDefaultValidator1() {
+        assertNotNull(VALIDATOR.setValidator("GB", 15, "GB"));
+    }
+
+    @Test(expected=IllegalStateException.class)
+    public void testSetDefaultValidator2() {
+        assertNotNull(VALIDATOR.setValidator("GB", -1, "GB"));
+    }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void testSetValidatorLC() {
+        IBANValidator validator = new IBANValidator();
+        assertNotNull(validator.setValidator("gb", 15, "GB"));
+    }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void testSetValidatorLen7() {
+        IBANValidator validator = new IBANValidator();
+        assertNotNull(validator.setValidator("GB", 7, "GB"));
+    }
+
+    @Test(expected=IllegalArgumentException.class)
+    public void testSetValidatorLen35() {
+        IBANValidator validator = new IBANValidator();
+        assertNotNull(validator.setValidator("GB", 35, "GB")); // valid params, but immutable validator
+    }
+
+    @Test
     public void testSetValidatorLen_1() {
         IBANValidator validator = new IBANValidator();
         assertNotNull("should be present",validator.setValidator("GB", -1, ""));
         assertNull("no longer present",validator.setValidator("GB", -1, ""));
+    }
+
+    @Test
+    public void testSorted() {
+        IBANValidator validator = new IBANValidator();
+        Validator[] vals = validator.getDefaultValidators();
+        assertNotNull(vals);
+        for(int i=1; i < vals.length; i++) {
+            if (vals[i].countryCode.compareTo(vals[i-1].countryCode) <= 0) {
+                fail("Not sorted: "+vals[i].countryCode+ " <= " + vals[i-1].countryCode);
+            }
+        }
     }
 
     private static int checkIBAN(File file, IBANValidator val) throws Exception {

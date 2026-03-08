@@ -26,6 +26,20 @@ import org.junit.jupiter.api.Test;
 public class FieldTypeLongTest_OE25Dev {
 
     @Test
+    public void testWriteDataWithNonNull() {
+        final FieldTypeLong fieldTypeLong = FieldType.IFD;
+        final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+
+        try {
+            fieldTypeLong.writeData(byteOrder, byteOrder);
+            fail("Expecting exception: Exception");
+        } catch (final Exception e) {
+            assertEquals("Invalid data: BIG_ENDIAN (java.nio.ByteOrder)", e.getMessage());
+            assertEquals(FieldTypeLong.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }
+
+    @Test
     public void testWriteDataWithNonNull_2_oe() {
         final FieldTypeLong fieldTypeLong = FieldType.IFD;
         final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;

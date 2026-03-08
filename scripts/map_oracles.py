@@ -119,8 +119,8 @@ def process_folder(folder):
     project_dirs = [d for d in glob.glob(os.path.join(folder, "*")) if os.path.isdir(d)]
 
     for project_dir in sorted(project_dirs):
-        inp_path  = os.path.join(project_dir, "dataset_MUST_THROW", "inputs_passed.csv")
-        meta_path = os.path.join(project_dir, "dataset_MUST_THROW", "meta_passed.csv")
+        inp_path  = os.path.join(project_dir, "dataset", "inputs_final.csv")
+        meta_path = os.path.join(project_dir, "dataset", "meta_final.csv")
 
         if not os.path.exists(inp_path) or not os.path.exists(meta_path):
             print(f"Skipping {os.path.basename(project_dir)}: missing inputs.csv or meta.csv")
@@ -137,7 +137,7 @@ def process_folder(folder):
             if col not in df.columns:
                 df[col] = ""
 
-        out = os.path.join(project_dir, "dataset_MUST_THROW", "meta_passed.csv")
+        out = os.path.join(project_dir, "dataset", "meta_final.csv")
         df[KEEP_COLS].to_csv(out, index=False)
         print(f"{project_name}: {len(df)} rows | {df['oracle_type'].value_counts().to_dict()}")
 

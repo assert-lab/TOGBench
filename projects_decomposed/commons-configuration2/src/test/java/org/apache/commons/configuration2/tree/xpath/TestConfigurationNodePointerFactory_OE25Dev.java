@@ -52,34 +52,96 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
     /**
      * Tests accessing the following sibling axis.
      */
+    @Test
+    public void testFollowingSiblingAxis() {
+        final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/following-sibling::*");
+        assertEquals("Wrong number of following siblings", 1, nodes.size());
+        final ImmutableNode node = (ImmutableNode) nodes.get(0);
+        assertEquals("Wrong node type", CHILD_NAME2, node.getNodeName());
+        assertEquals("Wrong index", String.valueOf(CHILD_COUNT), node.getValue());
+    }
 
     /**
      * Tests using indices to specify elements.
      */
+    @Test
+    public void testIndices() {
+        assertEquals("Incorrect value", "1.2.3", context.getValue("/" + CHILD_NAME2 + "[1]/" + CHILD_NAME1 + "[1]/" + CHILD_NAME2 + "[2]"));
+        assertEquals("Incorrect value of last node", String.valueOf(CHILD_COUNT), context.getValue(CHILD_NAME2 + "[last()]"));
+
+        final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[1]/*");
+        assertEquals("Wrong number of children", CHILD_COUNT, nodes.size());
+        int index = 1;
+        for (final Iterator<?> it = nodes.iterator(); it.hasNext(); index++) {
+            final ImmutableNode node = (ImmutableNode) it.next();
+            assertEquals("Wrong node value for child " + index, "2." + index, node.getValue());
+        }
+    }
 
     /**
      * Tests accessing the parent axis.
      */
+    @Test
+    public void testParentAxis() {
+        final List<?> nodes = context.selectNodes("/" + CHILD_NAME2 + "/parent::*");
+        assertEquals("Wrong number of parent nodes", 1, nodes.size());
+    }
 
     /**
      * Tests accessing the preceding sibling axis.
      */
+    @Test
+    public void testPrecedingSiblingAxis() {
+        final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/preceding-sibling::*");
+        assertEquals("Wrong number of preceding siblings", 3, nodes.size());
+        for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
+            assertEquals("Wrong node index", String.valueOf(value), ((ImmutableNode) nodes.get(index)).getValue());
+        }
+    }
 
     /**
      * Tests whether the attribute of a node can be queried.
      */
+    @Test
+    public void testQueryAttribute() {
+        assertEquals("Incorrect attribute value", "1", context.getValue("/" + CHILD_NAME2 + "[1]/@" + ATTR_NAME));
+    }
 
     /**
      * Tests whether an attribute of the root node can be queried.
      */
+    @Test
+    public void testQueryRootAttribute() {
+        assertEquals("Did not find attribute of root node", "true", context.getValue("@" + ATTR_ROOT));
+    }
 
     /**
      * Tests simple XPath expressions.
      */
+    @Test
+    public void testSimpleXPath() {
+        List<?> results = context.selectNodes(CHILD_NAME1);
+        assertEquals("Incorrect number of results", 2, results.size());
+        for (final Object result : results) {
+            final ImmutableNode node = (ImmutableNode) result;
+            assertEquals("Incorrect node name", CHILD_NAME1, node.getNodeName());
+        }
+
+        results = context.selectNodes("/" + CHILD_NAME1);
+        assertEquals("Incorrect number of results", 2, results.size());
+
+        results = context.selectNodes(CHILD_NAME2 + "/" + CHILD_NAME1 + "/" + CHILD_NAME2);
+        assertEquals("Incorrect number of results", 18, results.size());
+    }
 
     /**
      * Tests accessing a node's text.
      */
+    @Test
+    public void testText() {
+        final List<?> nodes = context.selectNodes("//" + CHILD_NAME2 + "[text()='1.1.1']");
+        assertEquals("Incorrect number of result nodes", 1, nodes.size());
+    }
 
     @Test
     public void testFollowingSiblingAxis_1_oe() {
@@ -90,7 +152,6 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
     @Test
     public void testFollowingSiblingAxis_2_oe() {
         final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/following-sibling::*");
-        // removed other assertion
         final ImmutableNode node = (ImmutableNode) nodes.get(0);
         assertEquals("Wrong node type", CHILD_NAME2, node.getNodeName());
     }
@@ -98,21 +159,20 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
     @Test
     public void testFollowingSiblingAxis_3_oe() {
         final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/following-sibling::*");
-        // removed other assertion
         final ImmutableNode node = (ImmutableNode) nodes.get(0);
-        // removed other assertion
         assertEquals("Wrong index", String.valueOf(CHILD_COUNT), node.getValue());
     }
 
     @Test
     public void testIndices_1_oe() {
-        assertEquals("Incorrect value", "1.2.3", context.getValue("/" + CHILD_NAME2 + "[1]/" + CHILD_NAME1 + "[1]/" + CHILD_NAME2 + "[2]"));
+        String a = "1.2.3";
+        assertEquals("Incorrect value", a, context.getValue("/" + CHILD_NAME2 + "[1]/" + CHILD_NAME1 + "[1]/" + CHILD_NAME2 + "[2]"));
     }
 
     @Test
     public void testIndices_2_oe() {
-        // removed other assertion
-        assertEquals("Incorrect value of last node", String.valueOf(CHILD_COUNT), context.getValue(CHILD_NAME2 + "[last()]"));
+        Object a = String.valueOf(CHILD_COUNT);
+        assertEquals("Incorrect value of last node", a, context.getValue(CHILD_NAME2 + "[last()]"));
     }
 
 @Test
@@ -130,7 +190,6 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 @Test
     public void testPrecedingSiblingAxis_2_oe() {
         final List<?> nodes = context.selectNodes("/" + CHILD_NAME1 + "[2]/preceding-sibling::*");
-        // removed other assertion
         for (int index = 0, value = 3; index < nodes.size(); index++, value--) {
             assertEquals("Wrong node index", String.valueOf(value), ((ImmutableNode) nodes.get(index)).getValue());
     }
@@ -138,12 +197,14 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 
 @Test
     public void testQueryAttribute_1_oe() {
-        assertEquals("Incorrect attribute value", "1", context.getValue("/" + CHILD_NAME2 + "[1]/@" + ATTR_NAME));
+        String a = "1";
+        assertEquals("Incorrect attribute value", a, context.getValue("/" + CHILD_NAME2 + "[1]/@" + ATTR_NAME));
     }
 
 @Test
     public void testQueryRootAttribute_1_oe() {
-        assertEquals("Did not find attribute of root node", "true", context.getValue("@" + ATTR_ROOT));
+        String a = "true";
+        assertEquals("Did not find attribute of root node", a, context.getValue("@" + ATTR_ROOT));
     }
 
 @Test
@@ -155,7 +216,6 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 @Test
     public void testSimpleXPath_2_oe() {
         List<?> results = context.selectNodes(CHILD_NAME1);
-        // removed other assertion
         for (final Object result : results) {
             final ImmutableNode node = (ImmutableNode) result;
             assertEquals("Incorrect node name", CHILD_NAME1, node.getNodeName());
@@ -165,10 +225,8 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 @Test
     public void testSimpleXPath_3_oe() {
         List<?> results = context.selectNodes(CHILD_NAME1);
-        // removed other assertion
         for (final Object result : results) {
             final ImmutableNode node = (ImmutableNode) result;
-            // removed other assertion
         }
 
         results = context.selectNodes("/" + CHILD_NAME1);
@@ -178,14 +236,11 @@ public class TestConfigurationNodePointerFactory_OE25Dev extends AbstractXPathTe
 @Test
     public void testSimpleXPath_4_oe() {
         List<?> results = context.selectNodes(CHILD_NAME1);
-        // removed other assertion
         for (final Object result : results) {
             final ImmutableNode node = (ImmutableNode) result;
-            // removed other assertion
         }
 
         results = context.selectNodes("/" + CHILD_NAME1);
-        // removed other assertion
 
         results = context.selectNodes(CHILD_NAME2 + "/" + CHILD_NAME1 + "/" + CHILD_NAME2);
         assertEquals("Incorrect number of results", 18, results.size());

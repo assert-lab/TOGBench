@@ -43,6 +43,10 @@ class PoissonSamplerCacheTest_OE25Dev {
      * Test the cache reports the minimum mean that uses an algorithm that supports caching.
      * This mean is the same level as the algorithm switch point in the PoissonSampler.
      */
+    @Test
+    void testMinimumCachedMean() {
+        Assertions.assertEquals(PoissonSampler.PIVOT, PoissonSamplerCache.getMinimumCachedMean());
+    }
 
     // Edge cases for construction
 
@@ -51,68 +55,184 @@ class PoissonSamplerCacheTest_OE25Dev {
      * In this case the cache will be a pass through to the constructor
      * of the SmallMeanPoissonSampler.
      */
+    @Test
+    void testConstructorWithNoCache() {
+        final double min = 0;
+        final double max = PoissonSampler.PIVOT - 2;
+        final PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        Assertions.assertFalse(cache.isValidRange());
+        Assertions.assertEquals(0, cache.getMinMean());
+        Assertions.assertEquals(0, cache.getMaxMean());
+    }
 
     /**
      * Test the cache can be created with a range of 1.
      * In this case the cache will be valid for all mean values
      * in the range {@code n <= mean < n+1}.
      */
+    @Test
+    void testConstructorWhenMaxEqualsMin() {
+        final double min = PoissonSampler.PIVOT + 2;
+        final double max = min;
+        final PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        Assertions.assertTrue(cache.isValidRange());
+        Assertions.assertEquals(min, cache.getMinMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
+    }
 
     /**
      * Test the cache can be created with a range of 1.
      * In this case the cache will be valid for all mean values
      * in the range {@code n <= mean < n+1}.
      */
+    @Test
+    void testConstructorWhenMaxAboveMin() {
+        final double min = PoissonSampler.PIVOT + 2;
+        final double max = min + 10;
+        final PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        Assertions.assertTrue(cache.isValidRange());
+        Assertions.assertEquals(min, cache.getMinMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
+    }
 
     /**
      * Test the cache requires a range with {@code max >= min}.
      */
+    @Test
+    void testConstructorThrowsWhenMaxIsLessThanMin() {
+        final double min = PoissonSampler.PIVOT;
+        final double max = Math.nextDown(min);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> createPoissonSamplerCache(min, max));
+    }
 
     /**
      * Test the cache can be created with a min range below 0.
      * In this case the range is truncated to 0.
      */
+    @Test
+    void testConstructorWhenMinBelow0() {
+        final double min = -1;
+        final double max = PoissonSampler.PIVOT + 2;
+        final PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        Assertions.assertTrue(cache.isValidRange());
+        Assertions.assertEquals(PoissonSampler.PIVOT, cache.getMinMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
+    }
 
     /**
      * Test the cache can be created with a max range below 0.
      * In this case the range is truncated to 0, i.e. no cache.
      */
+    @Test
+    void testConstructorWhenMaxBelow0() {
+        final double min = -10;
+        final double max = -1;
+        final PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        Assertions.assertFalse(cache.isValidRange());
+        Assertions.assertEquals(0, cache.getMinMean());
+        Assertions.assertEquals(0, cache.getMaxMean());
+    }
 
     /**
      * Test the cache can be created without a range that requires a cache.
      * In this case the cache will be a pass through to the constructor
      * of the SmallMeanPoissonSampler.
      */
+    @Test
+    void testWithRangeConstructorWithNoCache() {
+        final double min = 0;
+        final double max = PoissonSampler.PIVOT - 2;
+        final PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        Assertions.assertFalse(cache.isValidRange());
+        Assertions.assertEquals(0, cache.getMinMean());
+        Assertions.assertEquals(0, cache.getMaxMean());
+    }
 
     /**
      * Test the cache can be created with a range of 1.
      * In this case the cache will be valid for all mean values
      * in the range {@code n <= mean < n+1}.
      */
+    @Test
+    void testWithRangeConstructorWhenMaxEqualsMin() {
+        final double min = PoissonSampler.PIVOT + 2;
+        final double max = min;
+        final PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        Assertions.assertTrue(cache.isValidRange());
+        Assertions.assertEquals(min, cache.getMinMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
+    }
 
     /**
      * Test the cache can be created with a range of 1.
      * In this case the cache will be valid for all mean values
      * in the range {@code n <= mean < n+1}.
      */
+    @Test
+    void testWithRangeConstructorWhenMaxAboveMin() {
+        final double min = PoissonSampler.PIVOT + 2;
+        final double max = min + 10;
+        final PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        Assertions.assertTrue(cache.isValidRange());
+        Assertions.assertEquals(min, cache.getMinMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
+    }
 
     /**
      * Test the cache requires a range with {@code max >= min}.
      */
+    @Test
+    void testWithRangeConstructorThrowsWhenMaxIsLessThanMin() {
+        final double min = PoissonSampler.PIVOT;
+        final double max = Math.nextDown(min);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> createPoissonSamplerCache().withRange(min, max));
+    }
 
     /**
      * Test the cache can be created with a min range below 0.
      * In this case the range is truncated to 0.
      */
+    @Test
+    void testWithRangeConstructorWhenMinBelow0() {
+        final double min = -1;
+        final double max = PoissonSampler.PIVOT + 2;
+        final PoissonSamplerCache cache = createPoissonSamplerCache().withRange(min, max);
+        Assertions.assertTrue(cache.isValidRange());
+        Assertions.assertEquals(PoissonSampler.PIVOT, cache.getMinMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
+    }
 
     /**
      * Test the cache can be created from a cache with no capacity.
      */
+    @Test
+    void testWithRangeConstructorWhenCacheHasNoCapcity() {
+        final double min = PoissonSampler.PIVOT + 2;
+        final double max = min + 10;
+        final PoissonSamplerCache cache = createPoissonSamplerCache(0, 0).withRange(min, max);
+        Assertions.assertTrue(cache.isValidRange());
+        Assertions.assertEquals(min, cache.getMinMean());
+        Assertions.assertEquals(Math.nextDown(Math.floor(max)+ 1),cache.getMaxMean());
+    }
 
     /**
      * Test the withinRange function of the cache signals when construction
      * cost is minimal.
      */
+    @Test
+    void testWithinRange() {
+        final double min = PoissonSampler.PIVOT + 10;
+        final double max = PoissonSampler.PIVOT + 20;
+        final PoissonSamplerCache cache = createPoissonSamplerCache(min, max);
+        // Under the pivot point is always within range
+        Assertions.assertTrue(cache.withinRange(PoissonSampler.PIVOT - 1));
+        Assertions.assertFalse(cache.withinRange(min - 1));
+        Assertions.assertTrue(cache.withinRange(min));
+        Assertions.assertTrue(cache.withinRange(max));
+        Assertions.assertFalse(cache.withinRange(max + 10));
+    }
 
     // Edge cases for creating a Poisson sampler
 
@@ -121,10 +241,27 @@ class PoissonSamplerCacheTest_OE25Dev {
      *
      * <p>Note this test actually tests the SmallMeanPoissonSampler throws.
      */
+    @Test
+    void testCreateSharedStateSamplerThrowsWithZeroMean() {
+        final RestorableUniformRandomProvider rng =
+                RandomSource.SPLIT_MIX_64.create(0L);
+        final PoissonSamplerCache cache = createPoissonSamplerCache();
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> cache.createSharedStateSampler(rng, 0));
+    }
 
     /**
      * Test createSharedStateSampler() with a mean that is too large.
      */
+    @Test
+    void testCreateSharedStateSamplerThrowsWithNonIntegerMean() {
+        final RestorableUniformRandomProvider rng =
+                RandomSource.SPLIT_MIX_64.create(0L);
+        final PoissonSamplerCache cache = createPoissonSamplerCache();
+        final double mean = Integer.MAX_VALUE + 1.0;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> cache.createSharedStateSampler(rng, mean));
+    }
 
     // Sampling tests
 
@@ -346,6 +483,13 @@ class PoissonSamplerCacheTest_OE25Dev {
      * Explicit test for the deprecated method createPoissonSampler().
      * All other uses of this method have been removed.
      */
+    @SuppressWarnings("deprecation")
+    @Test
+    void testCreatePoissonSampler() {
+        final PoissonSamplerCache cache = createPoissonSamplerCache(0, 100);
+        final DiscreteSampler s2 = cache.createPoissonSampler(null, 42);
+        Assertions.assertTrue(s2 instanceof LargeMeanPoissonSampler);
+    }
 
     @Test
     void testMinimumCachedMean_1_oe() {

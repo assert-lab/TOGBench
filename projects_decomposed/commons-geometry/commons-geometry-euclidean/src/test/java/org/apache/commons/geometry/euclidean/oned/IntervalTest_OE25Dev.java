@@ -62,6 +62,17 @@ class IntervalTest_OE25Dev {
     }
 
     @Test
+    void testOf_doubles_invalidIntervals() {
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(1, Double.NaN, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.NaN, 1, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.NaN, Double.NaN, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.POSITIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY, TEST_PRECISION));
+    }
+
+    @Test
     void testOf_points() {
         // act/assert
         checkInterval(Interval.of(Vector1D.of(1), Vector1D.of(2), TEST_PRECISION), 1, 2);
@@ -70,11 +81,93 @@ class IntervalTest_OE25Dev {
     }
 
     @Test
+    void testOf_points_invalidIntervals() {
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Vector1D.of(1), Vector1D.of(Double.NaN), TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(Vector1D.of(Double.POSITIVE_INFINITY), Vector1D.of(Double.POSITIVE_INFINITY), TEST_PRECISION));
+    }
+
+    @Test
+    void testOf_hyperplanes() {
+        // act/assert
+        Assertions.assertSame(Interval.full(), Interval.of(null, null));
+
+        checkInterval(Interval.of(
+                OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION)), 1, 1);
+        checkInterval(Interval.of(
+                OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION)), 1, 1);
+
+        checkInterval(Interval.of(
+                OrientedPoints.fromLocationAndDirection(-2, false, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(5, true, TEST_PRECISION)), -2, 5);
+        checkInterval(Interval.of(
+                OrientedPoints.fromLocationAndDirection(5, true, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(-2, false, TEST_PRECISION)), -2, 5);
+
+        checkInterval(Interval.of(
+                null,
+                OrientedPoints.fromLocationAndDirection(5, true, TEST_PRECISION)), Double.NEGATIVE_INFINITY, 5);
+        checkInterval(Interval.of(
+                OrientedPoints.fromLocationAndDirection(5, true, TEST_PRECISION),
+                null), Double.NEGATIVE_INFINITY, 5);
+        checkInterval(Interval.of(
+                OrientedPoints.fromLocationAndDirection(Double.NEGATIVE_INFINITY, false, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(5, true, TEST_PRECISION)), Double.NEGATIVE_INFINITY, 5);
+
+        checkInterval(Interval.of(
+                null,
+                OrientedPoints.fromLocationAndDirection(5, false, TEST_PRECISION)), 5, Double.POSITIVE_INFINITY);
+        checkInterval(Interval.of(
+                OrientedPoints.fromLocationAndDirection(5, false, TEST_PRECISION),
+                null), 5, Double.POSITIVE_INFINITY);
+        checkInterval(Interval.of(
+                OrientedPoints.fromLocationAndDirection(Double.POSITIVE_INFINITY, true, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(5, false, TEST_PRECISION)), 5, Double.POSITIVE_INFINITY);
+    }
+
+    @Test
+    void testOf_hyperplanes_invalidArgs() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(
+                OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION)));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(
+                OrientedPoints.fromLocationAndDirection(2, false, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION)));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(
+                OrientedPoints.fromLocationAndDirection(Double.POSITIVE_INFINITY, false, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(Double.POSITIVE_INFINITY, true, TEST_PRECISION)));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(
+                OrientedPoints.fromLocationAndDirection(Double.NaN, false, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(1, true, TEST_PRECISION)));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(
+                OrientedPoints.fromLocationAndDirection(1, false, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION)));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(
+                OrientedPoints.fromLocationAndDirection(Double.NaN, false, TEST_PRECISION),
+                OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION)));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.of(
+                null,
+                OrientedPoints.fromLocationAndDirection(Double.NaN, true, TEST_PRECISION)));
+    }
+
+    @Test
     void testPoint() {
         // act/assert
         checkInterval(Interval.point(0, TEST_PRECISION), 0, 0);
         checkInterval(Interval.point(1, TEST_PRECISION), 1, 1);
         checkInterval(Interval.point(-1, TEST_PRECISION), -1, -1);
+    }
+
+    @Test
+    void testPoint_invalidArgs() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.point(Double.NEGATIVE_INFINITY, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.point(Double.POSITIVE_INFINITY, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.point(Double.NaN, TEST_PRECISION));
     }
 
     @Test
@@ -89,6 +182,13 @@ class IntervalTest_OE25Dev {
     }
 
     @Test
+    void testMin_invalidArgs() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.min(Double.POSITIVE_INFINITY, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.min(Double.NaN, TEST_PRECISION));
+    }
+
+    @Test
     void testMax() {
         // act/assert
         checkInterval(Interval.max(Double.POSITIVE_INFINITY, TEST_PRECISION),
@@ -97,6 +197,33 @@ class IntervalTest_OE25Dev {
         checkInterval(Interval.max(0, TEST_PRECISION), Double.NEGATIVE_INFINITY, 0);
         checkInterval(Interval.max(1, TEST_PRECISION), Double.NEGATIVE_INFINITY, 1);
         checkInterval(Interval.max(-1, TEST_PRECISION), Double.NEGATIVE_INFINITY, -1);
+    }
+
+    @Test
+    void testMax_invalidArgs() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.max(Double.NEGATIVE_INFINITY, TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Interval.max(Double.NaN, TEST_PRECISION));
+    }
+
+    @Test
+    void testIsInfinite() {
+        // act/assert
+        Assertions.assertFalse(Interval.of(1, 2, TEST_PRECISION).isInfinite());
+
+        Assertions.assertTrue(Interval.of(Double.NEGATIVE_INFINITY, 2, TEST_PRECISION).isInfinite());
+        Assertions.assertTrue(Interval.of(2, Double.POSITIVE_INFINITY, TEST_PRECISION).isInfinite());
+        Assertions.assertTrue(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).isInfinite());
+    }
+
+    @Test
+    void testIsFinite() {
+        // act/assert
+        Assertions.assertTrue(Interval.of(1, 2, TEST_PRECISION).isFinite());
+
+        Assertions.assertFalse(Interval.of(Double.NEGATIVE_INFINITY, 2, TEST_PRECISION).isFinite());
+        Assertions.assertFalse(Interval.of(2, Double.POSITIVE_INFINITY, TEST_PRECISION).isFinite());
+        Assertions.assertFalse(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).isFinite());
     }
 
     @Test
@@ -207,6 +334,182 @@ class IntervalTest_OE25Dev {
     }
 
     @Test
+    void testIsFull() {
+        // act/assert
+        Assertions.assertFalse(Interval.of(1, 1, TEST_PRECISION).isFull());
+        Assertions.assertFalse(Interval.of(-2, 2, TEST_PRECISION).isFull());
+
+        Assertions.assertFalse(Interval.of(1, Double.POSITIVE_INFINITY, TEST_PRECISION).isFull());
+        Assertions.assertFalse(Interval.of(Double.NEGATIVE_INFINITY, 1, TEST_PRECISION).isFull());
+
+        Assertions.assertTrue(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).isFull());
+    }
+
+    @Test
+    void testGetSize() {
+        // act/assert
+        Assertions.assertEquals(0, Interval.of(1, 1, TEST_PRECISION).getSize(), TEST_EPS);
+
+        Assertions.assertEquals(4, Interval.of(-2, 2, TEST_PRECISION).getSize(), TEST_EPS);
+        Assertions.assertEquals(5, Interval.of(2, -3, TEST_PRECISION).getSize(), TEST_EPS);
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(1,Double.POSITIVE_INFINITY,TEST_PRECISION).getSize(),TEST_EPS);
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(Double.NEGATIVE_INFINITY,1,TEST_PRECISION).getSize(),TEST_EPS);
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Interval.of(Double.NEGATIVE_INFINITY,Double.POSITIVE_INFINITY,TEST_PRECISION).getSize(),TEST_EPS);
+    }
+
+    @Test
+    void testGetBoundarySize() {
+        // act/assert
+        Assertions.assertEquals(0, Interval.of(1, 1, TEST_PRECISION).getBoundarySize(), TEST_EPS);
+        Assertions.assertEquals(0, Interval.of(-2, 5, TEST_PRECISION).getBoundarySize(), TEST_EPS);
+        Assertions.assertEquals(0, Interval.full().getBoundarySize(), TEST_EPS);
+    }
+
+    @Test
+    void testGetCentroid() {
+        // act/assert
+        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.ZERO,
+                Interval.of(-1, 1, TEST_PRECISION).getCentroid(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(10),
+                Interval.of(10, 10, TEST_PRECISION).getCentroid(), TEST_EPS);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(2),
+                Interval.of(1, 3, TEST_PRECISION).getCentroid(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector1D.of(-1),
+                Interval.of(-2, 0, TEST_PRECISION).getCentroid(), TEST_EPS);
+
+        Assertions.assertNull(Interval.of(1, Double.POSITIVE_INFINITY, TEST_PRECISION).getCentroid());
+        Assertions.assertNull(Interval.of(Double.NEGATIVE_INFINITY, 1, TEST_PRECISION).getCentroid());
+        Assertions.assertNull(Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, TEST_PRECISION).getCentroid());
+    }
+
+    @Test
+    void checkToTree_finite() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(-1, 1, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(5, tree.count());
+
+        checkClassify(tree, RegionLocation.OUTSIDE,
+                Double.NEGATIVE_INFINITY, -2, -1.1,
+                1.1, 2, Double.POSITIVE_INFINITY);
+
+        checkClassify(tree, RegionLocation.BOUNDARY,
+                -1.001, -1, -0.999,
+                0.999, 1, 1.001);
+
+        checkClassify(tree, RegionLocation.INSIDE, -0.9, 0, 0.9);
+
+        checkClassify(tree, RegionLocation.OUTSIDE, Double.NaN);
+    }
+
+    @Test
+    void checkToTree_singlePoint() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(1, 1, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(5, tree.count());
+
+        checkClassify(tree, RegionLocation.OUTSIDE,
+                Double.NEGATIVE_INFINITY, 0, 0.9, 1.1, 2, Double.POSITIVE_INFINITY);
+
+        checkClassify(tree, RegionLocation.BOUNDARY,
+                0.999, 1, 1.0001);
+
+        checkClassify(tree, RegionLocation.OUTSIDE, Double.NaN);
+    }
+
+    @Test
+    void checkToTree_maxInfinite() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(-1, Double.POSITIVE_INFINITY, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(3, tree.count());
+
+        checkClassify(tree, RegionLocation.OUTSIDE,
+                Double.NEGATIVE_INFINITY, -2, -1.1);
+
+        checkClassify(tree, RegionLocation.BOUNDARY,
+                -1.001, -1, -0.999);
+
+        checkClassify(tree, RegionLocation.INSIDE,
+                -0.9, 0, 1.0, Double.POSITIVE_INFINITY);
+
+        checkClassify(interval, RegionLocation.OUTSIDE, Double.NaN);
+    }
+
+    @Test
+    void checkToTree_minInfinite() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(Double.NEGATIVE_INFINITY, 1, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(3, tree.count());
+
+        checkClassify(tree, RegionLocation.INSIDE,
+                Double.NEGATIVE_INFINITY, 0, 0.9);
+
+        checkClassify(tree, RegionLocation.BOUNDARY,
+                0.999, 1, 1.001);
+
+        checkClassify(tree, RegionLocation.OUTSIDE,
+                1.1, 2, Double.POSITIVE_INFINITY);
+
+        checkClassify(tree, RegionLocation.OUTSIDE, Double.NaN);
+    }
+
+    @Test
+    void checkToTree_minMaxInfinite() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-2);
+        final Interval interval = Interval.of(Double.NEGATIVE_INFINITY, Double.POSITIVE_INFINITY, precision);
+
+        // act
+        final RegionBSPTree1D tree = interval.toTree();
+
+        // assert
+        Assertions.assertEquals(1, tree.count());
+
+        checkClassify(tree, RegionLocation.INSIDE,
+                Double.NEGATIVE_INFINITY, -1, 0, 1, Double.POSITIVE_INFINITY);
+
+        checkClassify(tree, RegionLocation.OUTSIDE, Double.NaN);
+    }
+
+    @Test
+    void testProjectToBoundary_full() {
+        // arrange
+        final Interval full = Interval.full();
+
+
+        // act/assert
+        Assertions.assertNull(full.project(Vector1D.of(Double.NEGATIVE_INFINITY)));
+        Assertions.assertNull(full.project(Vector1D.of(0)));
+        Assertions.assertNull(full.project(Vector1D.of(Double.POSITIVE_INFINITY)));
+    }
+
+    @Test
     void testProjectToBoundary_singlePoint() {
         // arrange
         final Interval interval = Interval.point(1, TEST_PRECISION);
@@ -309,6 +612,220 @@ class IntervalTest_OE25Dev {
 
         checkInterval(Interval.of(-1, Double.POSITIVE_INFINITY, TEST_PRECISION).transform(transform),
                 Double.NEGATIVE_INFINITY, 1);
+    }
+
+    @Test
+    void testSplit_full_positiveFacingSplitter() {
+        // arrange
+        final Interval interval = Interval.full();
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), Double.NEGATIVE_INFINITY, 1);
+        checkInterval(split.getPlus(), 1, Double.POSITIVE_INFINITY);
+    }
+
+    @Test
+    void testSplit_full_negativeFacingSplitter() {
+        // arrange
+        final Interval interval = Interval.full();
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), Double.NEGATIVE_INFINITY, 1);
+        checkInterval(split.getPlus(), 1, Double.POSITIVE_INFINITY);
+    }
+
+    @Test
+    void testSplit_halfSpace_positiveFacingSplitter() {
+        // arrange
+        final Interval interval = Interval.min(-1, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), 1, Double.POSITIVE_INFINITY);
+        checkInterval(split.getPlus(), -1, 1);
+    }
+
+
+    @Test
+    void testSplit_halfSpace_negativeFacingSplitter() {
+        // arrange
+        final Interval interval = Interval.min(-1, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        checkInterval(split.getMinus(), 1, Double.POSITIVE_INFINITY);
+        checkInterval(split.getPlus(), -1, 1);
+    }
+
+    @Test
+    void testSplit_splitterBelowInterval() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+
+        Assertions.assertSame(interval, split.getPlus());
+    }
+
+    @Test
+    void testSplit_splitterOnMinBoundary() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(5), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+
+        Assertions.assertSame(interval, split.getMinus());
+    }
+
+    @Test
+    void testSplit_splitterAboveInterval() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(11), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+
+        Assertions.assertSame(interval, split.getMinus());
+    }
+
+    @Test
+    void testSplit_splitterOnMaxBoundary() {
+        // arrange
+        final Interval interval = Interval.of(5, 10, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(10), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+
+        Assertions.assertSame(interval, split.getPlus());
+    }
+
+    @Test
+    void testSplit_point_minusOnly() {
+        // arrange
+        final Interval interval = Interval.point(2, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), false, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+
+        checkInterval(split.getMinus(), 2, 2);
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testSplit_point_plusOnly() {
+        // arrange
+        final Interval interval = Interval.point(2, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+
+        Assertions.assertNull(split.getMinus());
+        checkInterval(split.getPlus(), 2, 2);
+    }
+
+    @Test
+    void testSplit_point_onPoint() {
+        // arrange
+        final Interval interval = Interval.point(1, TEST_PRECISION);
+        final OrientedPoint splitter = OrientedPoints.fromPointAndDirection(
+                Vector1D.of(1), true, TEST_PRECISION);
+
+        // act
+        final Split<Interval> split = interval.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
+
+        Assertions.assertNull(split.getMinus());
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final Interval interval = Interval.of(2, 1, TEST_PRECISION);
+
+        // act
+        final String str = interval.toString();
+
+        // assert
+        Assertions.assertTrue(str.contains("Interval"));
+        Assertions.assertTrue(str.contains("min= 1.0"));
+        Assertions.assertTrue(str.contains("max= 2.0"));
+    }
+
+    @Test
+    void testFull() {
+        // act
+        final Interval full = Interval.full();
+
+        // assert
+        Assertions.assertTrue(full.isFull());
+        Assertions.assertFalse(full.isEmpty());
+        Assertions.assertFalse(full.hasMinBoundary());
+        Assertions.assertFalse(full.hasMaxBoundary());
+        Assertions.assertTrue(full.isInfinite());
+
+        Assertions.assertEquals(RegionLocation.INSIDE, full.classify(Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(RegionLocation.INSIDE, full.classify(Double.POSITIVE_INFINITY));
     }
 
     private static void checkContains(final Interval interval, final boolean contains, final double... points) {

@@ -45,14 +45,103 @@ public class JDBCDataSourceFactoryUnitTest_OE25Dev
     /** Verify that we can configure the object based on the props.
      *  @throws SQLException
      */
+    public void testConfigureDataSourceFactory_Simple() throws SQLException
+    {
+        // SETUP
+        final String poolName = "testConfigurePoolAccessAttributes_Simple";
+
+        final String url = "adfads";
+        final String userName = "zvzvz";
+        final String password = "qewrrewq";
+        final int maxActive = 10;
+        final String driverClassName = "org.hsqldb.jdbcDriver";
+
+        final Properties props = new Properties();
+        final String prefix = JDBCDiskCacheFactory.POOL_CONFIGURATION_PREFIX
+    		+ poolName
+            + JDBCDiskCacheFactory.ATTRIBUTE_PREFIX;
+        props.put( prefix + ".url", url );
+        props.put( prefix + ".userName", userName );
+        props.put( prefix + ".password", password );
+        props.put( prefix + ".maxActive", String.valueOf( maxActive ) );
+        props.put( prefix + ".driverClassName", driverClassName );
+
+        final JDBCDiskCacheFactory factory = new JDBCDiskCacheFactory();
+        factory.initialize();
+
+        final JDBCDiskCacheAttributes cattr = new JDBCDiskCacheAttributes();
+        cattr.setConnectionPoolName( poolName );
+
+        // DO WORK
+        final DataSourceFactory result = factory.getDataSourceFactory( cattr, props );
+        assertTrue("Should be a shared pool data source factory", result instanceof SharedPoolDataSourceFactory);
+
+        final SharedPoolDataSource spds = (SharedPoolDataSource) result.getDataSource();
+        assertNotNull( "Should have a data source class", spds );
+
+        // VERIFY
+        assertEquals( "Wrong pool name", poolName, spds.getDescription() );
+        assertEquals( "Wrong maxActive value", maxActive, spds.getMaxTotal() );
+    }
 
     /** Verify that we can configure the object based on the attributes.
      *  @throws SQLException
      */
+    public void testConfigureDataSourceFactory_Attributes() throws SQLException
+    {
+        // SETUP
+        final String url = "adfads";
+        final String userName = "zvzvz";
+        final String password = "qewrrewq";
+        final int maxActive = 10;
+        final String driverClassName = "org.hsqldb.jdbcDriver";
+
+        final JDBCDiskCacheFactory factory = new JDBCDiskCacheFactory();
+        factory.initialize();
+
+        final JDBCDiskCacheAttributes cattr = new JDBCDiskCacheAttributes();
+        cattr.setUrl(url);
+        cattr.setUserName(userName);
+        cattr.setPassword(password);
+        cattr.setMaxTotal(maxActive);
+        cattr.setDriverClassName(driverClassName);
+
+        // DO WORK
+        final DataSourceFactory result = factory.getDataSourceFactory( cattr, null );
+        assertTrue("Should be a shared pool data source factory", result instanceof SharedPoolDataSourceFactory);
+
+        final SharedPoolDataSource spds = (SharedPoolDataSource) result.getDataSource();
+        assertNotNull( "Should have a data source class", spds );
+
+        // VERIFY
+        assertEquals( "Wrong maxActive value", maxActive, spds.getMaxTotal() );
+    }
 
     /** Verify that we can configure the object based on JNDI.
      *  @throws SQLException
      */
+    public void testConfigureDataSourceFactory_JNDI() throws SQLException
+    {
+        // SETUP
+        final String jndiPath = "java:comp/env/jdbc/MyDB";
+        final long ttl = 300000L;
+
+        System.setProperty(Context.INITIAL_CONTEXT_FACTORY,
+                MockInitialContextFactory.class.getName());
+
+        MockInitialContextFactory.bind(jndiPath, new BasicDataSource());
+
+        final JDBCDiskCacheFactory factory = new JDBCDiskCacheFactory();
+        factory.initialize();
+
+        final JDBCDiskCacheAttributes cattr = new JDBCDiskCacheAttributes();
+        cattr.setJndiPath(jndiPath);
+        cattr.setJndiTTL(ttl);
+
+        // DO WORK
+        final DataSourceFactory result = factory.getDataSourceFactory( cattr, null );
+        assertTrue("Should be a JNDI data source factory", result instanceof JndiDataSourceFactory);
+    }
 
     /* For JNDI mocking */
     public static class MockInitialContextFactory implements InitialContextFactory

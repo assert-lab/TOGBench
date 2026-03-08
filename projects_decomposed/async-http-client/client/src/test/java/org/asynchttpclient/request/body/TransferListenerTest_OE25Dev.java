@@ -93,6 +93,112 @@ public class TransferListenerTest_OE25Dev extends AbstractBasicTest {
     }
   }
 
+  @Test
+  public void basicPutFileTest() throws Exception {
+    final AtomicReference<Throwable> throwable = new AtomicReference<>();
+    final AtomicReference<HttpHeaders> hSent = new AtomicReference<>();
+    final AtomicReference<HttpHeaders> hRead = new AtomicReference<>();
+    final AtomicInteger bbReceivedLength = new AtomicInteger(0);
+    final AtomicLong bbSentLength = new AtomicLong(0L);
+
+    final AtomicBoolean completed = new AtomicBoolean(false);
+
+    File file = createTempFile(1024 * 100 * 10);
+
+    int timeout = (int) (file.length() / 1000);
+
+    try (AsyncHttpClient client = asyncHttpClient(config().setConnectTimeout(timeout))) {
+      TransferCompletionHandler tl = new TransferCompletionHandler();
+      tl.addTransferListener(new TransferListener() {
+
+        public void onRequestHeadersSent(HttpHeaders headers) {
+          hSent.set(headers);
+        }
+
+        public void onResponseHeadersReceived(HttpHeaders headers) {
+          hRead.set(headers);
+        }
+
+        public void onBytesReceived(byte[] b) {
+          bbReceivedLength.addAndGet(b.length);
+        }
+
+        public void onBytesSent(long amount, long current, long total) {
+          bbSentLength.addAndGet(amount);
+        }
+
+        public void onRequestResponseCompleted() {
+          completed.set(true);
+        }
+
+        public void onThrowable(Throwable t) {
+          throwable.set(t);
+        }
+      });
+
+      Response response = client.preparePut(getTargetUrl()).setBody(file).execute(tl).get();
+
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertNotNull(hRead.get());
+      assertNotNull(hSent.get());
+      assertEquals(bbReceivedLength.get(), file.length(), "Number of received bytes incorrect");
+      assertEquals(bbSentLength.get(), file.length(), "Number of sent bytes incorrect");
+    }
+  }
+
+  @Test
+  public void basicPutFileBodyGeneratorTest() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      final AtomicReference<Throwable> throwable = new AtomicReference<>();
+      final AtomicReference<HttpHeaders> hSent = new AtomicReference<>();
+      final AtomicReference<HttpHeaders> hRead = new AtomicReference<>();
+      final AtomicInteger bbReceivedLength = new AtomicInteger(0);
+      final AtomicLong bbSentLength = new AtomicLong(0L);
+
+      final AtomicBoolean completed = new AtomicBoolean(false);
+
+      File file = createTempFile(1024 * 100 * 10);
+
+      TransferCompletionHandler tl = new TransferCompletionHandler();
+      tl.addTransferListener(new TransferListener() {
+
+        public void onRequestHeadersSent(HttpHeaders headers) {
+          hSent.set(headers);
+        }
+
+        public void onResponseHeadersReceived(HttpHeaders headers) {
+          hRead.set(headers);
+        }
+
+        public void onBytesReceived(byte[] b) {
+          bbReceivedLength.addAndGet(b.length);
+        }
+
+        public void onBytesSent(long amount, long current, long total) {
+          bbSentLength.addAndGet(amount);
+        }
+
+        public void onRequestResponseCompleted() {
+          completed.set(true);
+        }
+
+        public void onThrowable(Throwable t) {
+          throwable.set(t);
+        }
+      });
+
+      Response response = client.preparePut(getTargetUrl()).setBody(new FileBodyGenerator(file)).execute(tl).get();
+
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertNotNull(hRead.get());
+      assertNotNull(hSent.get());
+      assertEquals(bbReceivedLength.get(), file.length(), "Number of received bytes incorrect");
+      assertEquals(bbSentLength.get(), file.length(), "Number of sent bytes incorrect");
+    }
+  }
+
   private class BasicHandler extends AbstractHandler {
 
     public void handle(String s, org.eclipse.jetty.server.Request r, HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws IOException, ServletException {

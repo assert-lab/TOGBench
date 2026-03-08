@@ -52,14 +52,60 @@ public class PLSETestCase_OE25Dev extends AbstractTestCase
     /**
      * BCEL-79:
      */
+    public void testB79() throws ClassNotFoundException
+    {
+        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.PLSETestClass");
+        final ClassGen gen = new ClassGen(clazz);
+        final ConstantPoolGen pool = gen.getConstantPool();
+        final Method m = gen.getMethodAt(2);
+        final LocalVariableTable lvt = m.getLocalVariableTable();
+        //System.out.println(lvt);
+        //System.out.println(lvt.getTableLength());
+        final MethodGen mg = new MethodGen(m, gen.getClassName(), pool);
+        final LocalVariableTable new_lvt = mg.getLocalVariableTable(mg.getConstantPool());
+        //System.out.println(new_lvt);
+        assertEquals("number of locals", lvt.getTableLength(), new_lvt.getTableLength());
+    }
 
     /**
      * BCEL-262:
      */
+    public void testB262() throws ClassNotFoundException
+    {
+        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.PLSETestEnum");
+        final ClassGen gen = new ClassGen(clazz);
+        final ConstantPoolGen pool = gen.getConstantPool();
+        // get the values() method
+        final Method m = gen.getMethodAt(0);
+        final MethodGen mg = new MethodGen(m, gen.getClassName(), pool);
+        final InstructionList il = mg.getInstructionList();
+        // get the invokevirtual instruction
+        final InstructionHandle ih = il.findHandle(3);
+        final InvokeInstruction ii = (InvokeInstruction)(ih.getInstruction());
+        // without fix, the getClassName() will throw:
+        //   java.lang.IllegalArgumentException: Cannot be used on an array type
+        final String cn = ii.getClassName(pool);
+        assertEquals("[Lorg.apache.bcel.data.PLSETestEnum;", cn);
+    }
 
     /**
      * BCEL-295:
      */
+    public void testB295() throws Exception
+    {
+        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.PLSETestClass2");
+        final ClassGen cg = new ClassGen(clazz);
+        final ConstantPoolGen pool = cg.getConstantPool();
+        final Method m = cg.getMethodAt(1);  // 'main'
+        final LocalVariableTable lvt = m.getLocalVariableTable();
+        final LocalVariable lv = lvt.getLocalVariable(2, 4);  // 'i'
+        //System.out.println(lv);
+        final MethodGen mg = new MethodGen(m, cg.getClassName(), pool);
+        final LocalVariableTable new_lvt = mg.getLocalVariableTable(mg.getConstantPool());
+        final LocalVariable new_lv = new_lvt.getLocalVariable(2, 4);  // 'i'
+        //System.out.println(new_lv);
+        assertEquals("live range length", lv.getLength(), new_lv.getLength());
+    }
 
     public void testB79_1_oe() throws ClassNotFoundException
     {

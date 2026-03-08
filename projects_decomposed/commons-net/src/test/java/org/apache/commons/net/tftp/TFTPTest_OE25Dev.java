@@ -110,6 +110,20 @@ public class TFTPTest_OE25Dev extends TestCase
         }
     }
 
+    public void testASCIIDownloads()
+    {
+        // test with the smaller files
+        for (int i = 0; i < 6; i++)
+        {
+            try {
+                testDownload(TFTP.ASCII_MODE, files[i]);
+            } catch (final IOException e) {
+                fail("Entry "+i+" Error "+e.toString());
+            }
+
+        }
+    }
+
     public void testTFTPBinaryUploads() throws Exception
     {
         // test with the smaller files

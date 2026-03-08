@@ -51,6 +51,55 @@ public class HSQLDiskCacheUnitTest_OE25Dev
      * <p>
      * @throws Exception If an error occurs
      */
+    public void testBasicPutRemove()
+        throws Exception
+    {
+        final int items = 20;
+
+        final String region = "testBasicPutRemove";
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + ":key", region + " data " + i );
+        }
+
+        // Test that all items are in cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + ":key" );
+            assertEquals( "key = [" + i + ":key] value = [" + value + "]", region + " data " + i, value );
+        }
+
+        // Test that getElements returns all the expected values
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i <= items; i++ )
+        {
+            keys.add( i + ":key" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = jcs.getCacheElements( keys );
+        for ( int i = 0; i <= items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + ":key" );
+            assertNotNull( "element " + i + ":key is missing", element );
+            assertEquals( "value " + i + ":key", region + " data " + i, element.getVal() );
+        }
+
+        // Remove all the items
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.remove( i + ":key" );
+        }
+
+        // Verify removal
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull( "Removed key should be null: " + i + ":key", jcs.get( i + ":key" ) );
+        }
+    }
 
     /**
      * Verify that remove all work son a region where it is not prohibited.
@@ -58,6 +107,37 @@ public class HSQLDiskCacheUnitTest_OE25Dev
      * @throws CacheException
      * @throws InterruptedException
      */
+    public void testRemoveAll()
+        throws CacheException, InterruptedException
+    {
+        final String region = "removeAllAllowed";
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        final int items = 20;
+
+        // Add items to cache
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + ":key", region + " data " + i );
+        }
+
+        // a db thread could be updating when we call remove all?
+        // there was a race on remove all, an element may be put to disk after it is called even
+        // though the put
+        // was called before clear.
+        // I discovered it and removed it.
+        // Thread.sleep( 500 );
+
+//        System.out.println( jcs.getStats() );
+
+        jcs.clear();
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + ":key" );
+            assertNull( "value should be null key = [" + i + ":key] value = [" + value + "]", value );
+        }
+    }
 
     /**
      * Verify that remove all does not work on a region where it is prohibited.

@@ -38,6 +38,46 @@ import static org.junit.jupiter.api.Assertions.fail;
 
 public class PngReadTest_OE25Dev extends PngBaseTest {
 
+    @Test
+    public void test() throws Exception {
+        Debug.debug("start");
+
+        final List<File> images = getPngImages();
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+            if (isInvalidPNGTestFile(imageFile)) {
+                assertThrows(
+                    Exception.class,
+                    () -> Imaging.getMetadata(imageFile),
+                    "Image read should have failed."
+                );
+
+                assertThrows(
+                        Exception.class,
+                        () -> Imaging.getImageInfo(imageFile),
+                        "Image read should have failed."
+                );
+
+                assertThrows(
+                        Exception.class,
+                        () -> Imaging.getBufferedImage(imageFile),
+                        "Image read should have failed."
+                );
+            } else {
+                final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+                Assertions.assertFalse(metadata instanceof File);// Dummy check to avoid unused warning(it may be null)
+                final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+                assertNotNull(imageInfo);
+
+                Debug.debug("ICC profile", Imaging.getICCProfile(imageFile));
+
+                final BufferedImage image = Imaging.getBufferedImage(imageFile);
+                assertNotNull(image);
+            }
+        }
+    }
+
     /**
      * If the PNG image data contains an invalid ICC Profile, previous versions would
      * simply rethrow the IAE. This test verifies we are instead raising the documented
@@ -47,6 +87,13 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
      *
      * @throws IOException if it fails to read the test image
      */
+    @Test
+    public void testUncaughtExceptionOssFuzz33691() throws IOException {
+        final String input = "/images/png/oss-fuzz-33691/clusterfuzz-testcase-minimized-ImagingPngFuzzer-6177282101215232";
+        final String file = PngReadTest_OE25Dev.class.getResource(input).getFile();
+        final PngImageParser parser = new PngImageParser();
+        assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters()));
+    }
 
     /**
      * Test that a PNG image using indexed color type but no PLTE chunks
@@ -56,6 +103,13 @@ public class PngReadTest_OE25Dev extends PngBaseTest {
      *
      * @throws IOException if it fails to read the test image
      */
+    @Test
+    public void testUncaughtExceptionOssFuzz37607() throws IOException {
+        final String input = "/images/png/IMAGING-317/clusterfuzz-testcase-minimized-ImagingPngFuzzer-6242400830357504";
+        final String file = PngReadTest_OE25Dev.class.getResource(input).getFile();
+        final PngImageParser parser = new PngImageParser();
+        assertThrows(ImageReadException.class, () -> parser.getBufferedImage(new ByteSourceFile(new File(file)), new PngImagingParameters()));
+    }
 
     @Test
     public void test_1_oe() throws Exception {

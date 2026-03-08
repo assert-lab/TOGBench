@@ -86,24 +86,67 @@ public class PatternFileSelectorTest_OE25Dev {
      *
      * @throws Exception
      */
+    @Test
+    public void testFileExtensions() throws Exception {
+        final FileObject[] foArray = BaseFolder.findFiles(Selectors.SELECT_FILES);
+        Assert.assertTrue(foArray.length > 0);
+        final String regExPrefix = ".*\\.";
+        // gather file extensions.
+        final Set<String> extensionSet = new HashSet<>();
+        for (final FileObject fo : foArray) {
+            extensionSet.add(regExPrefix + fo.getName().getExtension());
+        }
+        final String message = String.format("Extensions: %s; files: %s", extensionSet.toString(),
+                Arrays.asList(foArray).toString());
+        assertEquals(message, ExtensionCount, extensionSet.size());
+        // check each extension
+        for (final String extension : extensionSet) {
+            final FileSelector selector = new PatternFileSelector(extension);
+            final FileObject[] list = BaseFolder.findFiles(selector);
+            assertEquals(FilesPerExtensionCount, list.length);
+        }
+        // check each file against itself
+        for (final FileObject fo : foArray) {
+            final FileSelector selector = new PatternFileSelector(regExPrefix + fo.getName().getExtension());
+            final FileObject[] list = BaseFolder.findFiles(selector);
+            assertEquals(FilesPerExtensionCount, list.length);
+        }
+    }
 
     /**
      * Tests matching all
      *
      * @throws Exception
      */
+    @Test
+    public void testMatchAll() throws Exception {
+        final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector(".*"));
+        assertEquals(EntryCount, list.length);
+    }
 
     /**
      * Tests matching partial file names
      *
      * @throws Exception
      */
+    @Test
+    public void testMatchPartial() throws Exception {
+        final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector(".*a.htm"));
+        assertEquals(1, list.length);
+        assertEquals("aa.htm", list[0].getName().getBaseName());
+    }
 
     /**
      * Tests matching partial file names with delimiter
      *
      * @throws Exception
      */
+    @Test
+    public void testMatchPartialDelimited() throws Exception {
+        final FileObject[] list = BaseFolder.findFiles(new PatternFileSelector("^.*\\/b.htm$"));
+        assertEquals(1, list.length);
+        assertEquals("b.htm", list[0].getName().getBaseName());
+    }
 
     /**
      * Tests a null selector.

@@ -140,6 +140,40 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
 
     }
 
+    public void testParseLeadingDigits() {
+            final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08AM                  5000000000 10 years and under");
+            assertNotNull("Could not parse entry", file);
+            assertEquals("10 years and under", file.getName());
+            assertEquals(5000000000L, file.getSize());
+            Calendar timestamp = file.getTimestamp();
+            assertNotNull("Could not parse time",timestamp);
+            assertEquals("Thu May 22 00:08:00 1997",df.format(timestamp.getTime()));
+
+            final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38PM       <DIR>           10 years and under");
+            assertNotNull("Could not parse entry", dir);
+            assertEquals("10 years and under", dir.getName());
+            timestamp = dir.getTimestamp();
+            assertNotNull("Could not parse time",timestamp);
+            assertEquals("Tue Dec 03 18:38:00 1996",df.format(timestamp.getTime()));
+    }
+
+    public void testNET339() {
+        final FTPFile file = getParser().parseFTPEntry("05-22-97  12:08                  5000000000 10 years and under");
+        assertNotNull("Could not parse entry", file);
+        assertEquals("10 years and under", file.getName());
+        assertEquals(5000000000L, file.getSize());
+        Calendar timestamp = file.getTimestamp();
+        assertNotNull("Could not parse time",timestamp);
+        assertEquals("Thu May 22 12:08:00 1997",df.format(timestamp.getTime()));
+
+        final FTPFile dir = getParser().parseFTPEntry("12-03-96  06:38       <DIR>           10 years and under");
+        assertNotNull("Could not parse entry", dir);
+        assertEquals("10 years and under", dir.getName());
+        timestamp = dir.getTimestamp();
+        assertNotNull("Could not parse time",timestamp);
+        assertEquals("Tue Dec 03 06:38:00 1996",df.format(timestamp.getTime()));
+}
+
     /**
      * @see org.apache.commons.net.ftp.parser.FTPParseTestFramework#testParseFieldsOnFile()
      */
@@ -181,11 +215,31 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
      * directory with name beginning with a numeric character
      * was not parsing correctly
      */
+    public void testDirectoryBeginningWithNumber()
+    {
+        final FTPFile f = getParser().parseFTPEntry(directoryBeginningWithNumber);
+        assertEquals("name", "123xyz", f.getName());
+    }
+
+    public void testDirectoryBeginningWithNumberFollowedBySpaces()
+    {
+        FTPFile f = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123 xyz");
+        assertEquals("name", "123 xyz", f.getName());
+        f = getParser().parseFTPEntry("12-03-96  06:38AM       <DIR>          123 abc xyz");
+        assertNotNull(f);
+        assertEquals("name", "123 abc xyz", f.getName());
+    }
 
     /*
      * Test that group names with embedded spaces can be handled correctly
      *
      */
+    public void testGroupNameWithSpaces() {
+        final FTPFile f = getParser().parseFTPEntry("drwx------ 4 maxm Domain Users 512 Oct 2 10:59 .metadata");
+        assertNotNull(f);
+        assertEquals("maxm", f.getUser());
+        assertEquals("Domain Users", f.getGroup());
+    }
 
     // byte -123 when read using ISO-8859-1 encoding becomes 0X85 line terminator
     private static final byte[] listFilesByteTrace = {
@@ -266,6 +320,15 @@ public class NTFTPEntryParserTest_OE25Dev extends CompositeFTPParseTestFramework
         engine.readServerList(new ByteArrayInputStream(listFilesByteTrace),charset);
         final FTPFile[] ftpfiles = engine.getFiles();
         return ftpfiles.length;
+    }
+
+    public void testNET516() throws Exception { // problem where part of a multi-byte char gets converted to 0x85 = line term
+        final int utf = testNET516("UTF-8");
+        assertEquals(LISTFILE_COUNT, utf);
+        final int ascii = testNET516("ASCII");
+        assertEquals(LISTFILE_COUNT, ascii);
+        final int iso8859_1 = testNET516("ISO-8859-1");
+        assertEquals(LISTFILE_COUNT, iso8859_1);
     }
 
     @Override

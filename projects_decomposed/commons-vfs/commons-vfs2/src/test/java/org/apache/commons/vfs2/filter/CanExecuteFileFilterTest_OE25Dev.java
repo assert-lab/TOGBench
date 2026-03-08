@@ -106,6 +106,20 @@ public class CanExecuteFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
+    public void testAcceptCanExecute() throws FileSystemException {
+        Assert.assertTrue(CanExecuteFileFilter.CAN_EXECUTE.accept(executableFileInfo));
+        Assert.assertTrue(CanExecuteFileFilter.CAN_EXECUTE.accept(notExecutableFileInfo));
+        Assert.assertFalse(CanExecuteFileFilter.CAN_EXECUTE.accept(notExistingFileInfo));
+    }
+
+    @Test
+    public void testAcceptCannotExecute() throws FileSystemException {
+        Assert.assertFalse(CanExecuteFileFilter.CANNOT_EXECUTE.accept(executableFileInfo));
+        Assert.assertFalse(CanExecuteFileFilter.CANNOT_EXECUTE.accept(notExecutableFileInfo));
+        Assert.assertTrue(CanExecuteFileFilter.CANNOT_EXECUTE.accept(notExistingFileInfo));
+    }
+
+    @Test
     public void testAcceptCanExecute_1_oe() throws FileSystemException {
         Assert.assertTrue(CanExecuteFileFilter.CAN_EXECUTE.accept(executableFileInfo));
     }

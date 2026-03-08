@@ -105,6 +105,54 @@ public class CanReadFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
+    public void testAcceptCannotRead() throws FileSystemException {
+
+        Assert.assertFalse(CanReadFileFilter.CANNOT_READ.accept(writableFileInfo));
+        Assert.assertFalse(CanReadFileFilter.CANNOT_READ.accept(readOnlyFileInfo));
+        Assert.assertTrue(CanReadFileFilter.CANNOT_READ.accept(notExistingFileInfo));
+
+    }
+
+    @Test
+    public void testAcceptCanRead() throws FileSystemException {
+
+        Assert.assertTrue(CanReadFileFilter.CAN_READ.accept(writableFileInfo));
+        Assert.assertTrue(CanReadFileFilter.CAN_READ.accept(readOnlyFileInfo));
+        Assert.assertFalse(CanReadFileFilter.CAN_READ.accept(notExistingFileInfo));
+
+    }
+
+    @Test
+    public void testAcceptReadOnly() throws FileSystemException {
+
+        Assert.assertFalse(CanReadFileFilter.READ_ONLY.accept(writableFileInfo));
+        Assert.assertTrue(CanReadFileFilter.READ_ONLY.accept(readOnlyFileInfo));
+        Assert.assertFalse(CanReadFileFilter.READ_ONLY.accept(notExistingFileInfo));
+
+    }
+
+    @Test
+    public void testAcceptZipFile() throws FileSystemException {
+
+        FileObject[] files;
+
+        // CAN_READ Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CAN_READ));
+        assertContains(files, READONLY, WRITABLE);
+        Assert.assertEquals(2, files.length);
+
+        // CANNOT_READ Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.CANNOT_READ));
+        Assert.assertTrue(files == null || files.length == 0);
+
+        // READ_ONLY Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(CanReadFileFilter.READ_ONLY));
+        assertContains(files, READONLY, WRITABLE);
+        Assert.assertEquals(2, files.length);
+
+    }
+
+    @Test
     public void testAcceptCannotRead_1_oe() throws FileSystemException {
 
         Assert.assertFalse(CanReadFileFilter.CANNOT_READ.accept(writableFileInfo));

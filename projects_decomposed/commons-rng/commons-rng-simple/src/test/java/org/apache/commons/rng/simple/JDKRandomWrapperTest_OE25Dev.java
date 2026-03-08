@@ -83,6 +83,42 @@ class JDKRandomWrapperTest_OE25Dev {
      * Test {@link UniformRandomProvider#nextLong(long)} matches that from the core
      * BaseProvider implementation.
      */
+    @Test
+    void testNextLongInRange() {
+        final long seed = RandomSource.createLong();
+        // This will use the RNG core BaseProvider implementation.
+        // Use a LongProvider to directly use the Random::nextLong method
+        // which is different from IntProvider::nextLong.
+        final UniformRandomProvider rng1 = new LongProvider() {
+            private final Random random = new Random(seed);
+
+            @Override
+            public long next() {
+                return random.nextLong();
+            }
+        };
+        final UniformRandomProvider rng2 = new JDKRandomWrapper(new Random(seed));
+
+        // Test cases
+        // 1              : Smallest range
+        // 256            : Integer power of 2
+        // 56757          : Integer range
+        // 1L << 32       : Non-integer power of 2
+        // (1L << 62) + 1 : Worst case for rejection rate for the algorithm.
+        //                  Reject probability is approximately 0.5 thus the test hits
+        //                  all code paths.
+        for (final long max : new long[] {1, 256, 56757, 1L << 32, (1L << 62) + 1}) {
+            for (int i = 0; i < 10; i++) {
+                Assertions.assertEquals(rng1.nextLong(max),rng2.nextLong(max));
+            }
+        }
+    }
+
+    @Test
+    void testNextLongInRangeThrows() {
+        final UniformRandomProvider rng1 = new JDKRandomWrapper(new Random(5675767L));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> rng1.nextLong(0));
+    }
 
     /**
      * Test the bytes created by {@link UniformRandomProvider#nextBytes(byte[], int, int)} matches

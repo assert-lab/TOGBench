@@ -227,13 +227,198 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         sync.verify(Methods.BEGIN_WRITE, Methods.END_WRITE);
     }
 
+    @Test
+    public void testConcurrentGetAndReload() throws Exception {
+        System.getProperties().remove("Id");
+        final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
+        builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
+        final CombinedConfiguration config = builder.getConfiguration();
+
+        assertEquals("Wrong value", "50", config.getString("rowsPerPage"));
+        final Thread testThreads[] = new Thread[THREAD_COUNT];
+        final int failures[] = new int[THREAD_COUNT];
+
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i] = new ReloadThread(builder, failures, i, LOOP_COUNT, false, null, "50");
+            testThreads[i].start();
+        }
+
+        int totalFailures = 0;
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i].join();
+            totalFailures += failures[i];
+        }
+        assertEquals(totalFailures + " failures Occurred", 0, totalFailures);
+    }
+
+    @Test
+    public void testConcurrentGetAndReload2() throws Exception {
+        System.getProperties().remove("Id");
+        final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
+        builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
+        final CombinedConfiguration config = builder.getConfiguration();
+
+        assertEquals(config.getString("rowsPerPage"), "50");
+
+        final Thread testThreads[] = new Thread[THREAD_COUNT];
+        final int failures[] = new int[THREAD_COUNT];
+        System.setProperty("Id", "2002");
+        assertEquals("Wrong value", "25", config.getString("rowsPerPage"));
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i] = new ReloadThread(builder, failures, i, LOOP_COUNT, false, null, "25");
+            testThreads[i].start();
+        }
+
+        int totalFailures = 0;
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i].join();
+            totalFailures += failures[i];
+        }
+        System.getProperties().remove("Id");
+        assertEquals(totalFailures + " failures Occurred", 0, totalFailures);
+    }
+
+    @Test
+    public void testConcurrentGetAndReloadFile() throws Exception {
+        final int threadCount = 25;
+        System.getProperties().remove("Id");
+        System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
+        // create a new configuration
+        File input = new File("target/test-classes/testMultiDynamic_default.xml");
+        final File output = folder.newFile("testMultiDynamic_default.xml");
+        output.delete();
+        output.getParentFile().mkdir();
+        copyFile(input, output);
+
+        final ReloadingCombinedConfigurationBuilder builder = new ReloadingCombinedConfigurationBuilder();
+        builder.configure(parameters.combined().setSynchronizer(new ReadWriteSynchronizer())
+            .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
+                FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
+        CombinedConfiguration config = builder.getConfiguration();
+        assertEquals("Wrong property value (1)", "ID0001", config.getString("Product/FIIndex/FI[@id='123456781']"));
+
+        final ReaderThread testThreads[] = new ReaderThread[threadCount];
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i] = new ReaderThread(builder);
+            testThreads[i].start();
+        }
+
+        builder.getReloadingController().checkForReloading(null);
+        Thread.sleep(2000);
+
+        input = new File("target/test-classes/testMultiDynamic_default2.xml");
+        copyFile(input, output);
+
+        Thread.sleep(2000);
+        assertTrue("Changed file not detected", builder.getReloadingController().checkForReloading(null));
+        config = builder.getConfiguration();
+        final String id = config.getString("Product/FIIndex/FI[@id='123456782']");
+        assertNotNull("File did not reload, id is null", id);
+        final String rows = config.getString("rowsPerPage");
+        assertEquals("Incorrect value for rowsPerPage", "25", rows);
+
+        for (final ReaderThread testThread : testThreads) {
+            testThread.shutdown();
+            testThread.join();
+        }
+        for (final ReaderThread testThread : testThreads) {
+            assertFalse(testThread.failed());
+        }
+        assertEquals("ID0002", config.getString("Product/FIIndex/FI[@id='123456782']"));
+        output.delete();
+    }
+
+    @Test
+    public void testConcurrentGetAndReloadMultipleClients() throws Exception {
+        System.getProperties().remove("Id");
+        final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
+        builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
+        final CombinedConfiguration config = builder.getConfiguration();
+
+        assertEquals(config.getString("rowsPerPage"), "50");
+
+        final Thread testThreads[] = new Thread[THREAD_COUNT];
+        final int failures[] = new int[THREAD_COUNT];
+        final String[] ids = {null, "2002", "3001", "3002", "3003"};
+        final String[] expected = {"50", "25", "15", "25", "50"};
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i] = new ReloadThread(builder, failures, i, LOOP_COUNT, true, ids[i], expected[i]);
+            testThreads[i].start();
+        }
+
+        int totalFailures = 0;
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i].join();
+            totalFailures += failures[i];
+        }
+        System.getProperties().remove("Id");
+        if (totalFailures != 0) {
+            System.out.println("Failures:");
+            for (int i = 0; i < testThreads.length; ++i) {
+                System.out.println("Thread " + i + " " + failures[i]);
+            }
+        }
+        assertEquals(totalFailures + " failures Occurred", 0, totalFailures);
+    }
+
+    @Test
+    public void testConfiguration() throws Exception {
+        final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
+        final DefaultListDelimiterHandler listHandler = new DefaultListDelimiterHandler(',');
+        config.setListDelimiterHandler(listHandler);
+        final XPathExpressionEngine engine = new XPathExpressionEngine();
+        config.setExpressionEngine(engine);
+        config.setKeyPattern(PATTERN);
+        final ConfigurationBuilder<XMLConfiguration> multiBuilder = new MultiFileConfigurationBuilder<>(XMLConfiguration.class)
+            .configure(parameters.multiFile().setFilePattern(PATTERN1).setPrefixLookups(ConfigurationInterpolator.getDefaultPrefixLookups())
+                .setManagedBuilderParameters(parameters.xml().setExpressionEngine(engine).setListDelimiterHandler(listHandler)));
+        final BuilderConfigurationWrapperFactory wrapFactory = new BuilderConfigurationWrapperFactory();
+        config.addConfiguration(wrapFactory.createBuilderConfigurationWrapper(HierarchicalConfiguration.class, multiBuilder), "Multi");
+        final XMLConfiguration xml = new XMLConfiguration();
+        xml.setExpressionEngine(engine);
+        final FileHandler handler = new FileHandler(xml);
+        handler.setFile(new File(DEFAULT_FILE));
+        handler.load();
+        config.addConfiguration(xml, "Default");
+
+        verify("1001", config, 15);
+        verify("1002", config, 25);
+        verify("1003", config, 35);
+        verify("1004", config, 50);
+        assertEquals("a,b,c", config.getString("split/list3/@values"));
+        assertEquals(0, config.getMaxIndex("split/list3/@values"));
+        assertEquals("a\\,b\\,c", config.getString("split/list4/@values"));
+        assertEquals("OK-1", config.getString("buttons/name"));
+        assertEquals(3, config.getMaxIndex("buttons/name"));
+        assertEquals("a\\,b\\,c", config.getString("split/list2"));
+        assertEquals("Wrong size", 18, config.size());
+        config.addProperty("listDelimiterTest", "1,2,3");
+        assertEquals("List delimiter not detected", "1", config.getString("listDelimiterTest"));
+    }
+
     /**
      * Tests whether querying a configuration by index is synchronized.
      */
+    @Test
+    public void testGetConfigurationByIdxSynchronized() {
+        final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
+        final Configuration child = new PropertiesConfiguration();
+        config.addConfiguration(child);
+        final SynchronizerTestImpl sync = prepareSynchronizerTest(config);
+        assertSame("Wrong configuration", child, config.getConfiguration(0));
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests whether querying a configuration by name is synchronized.
      */
+    @Test
+    public void testGetConfigurationByNameSynchronized() {
+        final DynamicCombinedConfiguration config = new DynamicCombinedConfiguration();
+        final SynchronizerTestImpl sync = prepareSynchronizerTest(config);
+        assertNull("Wrong result", config.getConfiguration("unknown config"));
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests whether querying the set of configuration names is synchronized.
@@ -273,6 +458,15 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
     /**
      * Tests whether a configuration can be updated.
      */
+    @Test
+    public void testUpdateConfiguration() throws ConfigurationException {
+        System.getProperties().remove("Id");
+        final CombinedConfigurationBuilder builder = new CombinedConfigurationBuilder();
+        builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
+        final CombinedConfiguration config = builder.getConfiguration();
+        config.getConfiguration(1).setProperty("rowsPerPage", "25");
+        assertEquals("Value not changed", "25", config.getString("rowsPerPage"));
+    }
 
     private void verify(final String key, final DynamicCombinedConfiguration config, final int rows) {
         System.setProperty("Id", key);
@@ -296,7 +490,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
         final CombinedConfiguration config = builder.getConfiguration();
 
-        // removed other assertion
         final Thread testThreads[] = new Thread[THREAD_COUNT];
         final int failures[] = new int[THREAD_COUNT];
 
@@ -330,7 +523,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         builder.configure(parameters.fileBased().setFile(MULTI_TENENT_FILE).setSynchronizer(new ReadWriteSynchronizer()));
         final CombinedConfiguration config = builder.getConfiguration();
 
-        // removed other assertion
 
         final Thread testThreads[] = new Thread[THREAD_COUNT];
         final int failures[] = new int[THREAD_COUNT];
@@ -343,7 +535,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         final int threadCount = 25;
         System.getProperties().remove("Id");
         System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
-        // create a new configuration
         File input = new File("target/test-classes/testMultiDynamic_default.xml");
         final File output = folder.newFile("testMultiDynamic_default.xml");
         output.delete();
@@ -363,7 +554,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         final int threadCount = 25;
         System.getProperties().remove("Id");
         System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
-        // create a new configuration
         File input = new File("target/test-classes/testMultiDynamic_default.xml");
         final File output = folder.newFile("testMultiDynamic_default.xml");
         output.delete();
@@ -375,7 +565,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
             .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
                 FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
         CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
 
         final ReaderThread testThreads[] = new ReaderThread[threadCount];
         for (int i = 0; i < testThreads.length; ++i) {
@@ -398,7 +587,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         final int threadCount = 25;
         System.getProperties().remove("Id");
         System.setProperty("TemporaryFolder", folder.getRoot().getAbsolutePath());
-        // create a new configuration
         File input = new File("target/test-classes/testMultiDynamic_default.xml");
         final File output = folder.newFile("testMultiDynamic_default.xml");
         output.delete();
@@ -410,7 +598,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
             .setDefinitionBuilderParameters(new FileBasedBuilderParametersImpl().setFile(MULTI_DYNAMIC_FILE)).registerChildDefaultsHandler(
                 FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingRefreshDelay(1L))));
         CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
 
         final ReaderThread testThreads[] = new ReaderThread[threadCount];
         for (int i = 0; i < testThreads.length; ++i) {
@@ -425,12 +612,9 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         copyFile(input, output);
 
         Thread.sleep(2000);
-        // removed other assertion
         config = builder.getConfiguration();
         final String id = config.getString("Product/FIIndex/FI[@id='123456782']");
-        // removed other assertion
         final String rows = config.getString("rowsPerPage");
-        // removed other assertion
 
         for (final ReaderThread testThread : testThreads) {
             testThread.shutdown();
@@ -502,7 +686,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
-        // removed other assertion
         assertEquals(0, config.getMaxIndex("split/list3/@values"));
     }
 
@@ -530,8 +713,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
-        // removed other assertion
-        // removed other assertion
         assertEquals("a\\,b\\,c", config.getString("split/list4/@values"));
     }
 
@@ -559,9 +740,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("OK-1", config.getString("buttons/name"));
     }
 
@@ -589,10 +767,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(3, config.getMaxIndex("buttons/name"));
     }
 
@@ -620,11 +794,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("a\\,b\\,c", config.getString("split/list2"));
     }
 
@@ -652,12 +821,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong size", 18, config.size());
     }
 
@@ -685,13 +848,6 @@ public class TestDynamicCombinedConfiguration_OE25Dev {
         verify("1002", config, 25);
         verify("1003", config, 35);
         verify("1004", config, 50);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         config.addProperty("listDelimiterTest", "1,2,3");
         assertEquals("List delimiter not detected", "1", config.getString("listDelimiterTest"));
     }

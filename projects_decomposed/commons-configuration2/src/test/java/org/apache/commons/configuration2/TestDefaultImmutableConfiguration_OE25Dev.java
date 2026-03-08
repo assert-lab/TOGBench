@@ -343,6 +343,18 @@ public class TestDefaultImmutableConfiguration_OE25Dev {
         config.map.clear();
     }
 
+    @Test
+    public void testGetDuration() {
+        final Duration d = Duration.ofSeconds(1);
+        config.map.put("durationD", d.toString());
+        final Duration oneD = Duration.ofSeconds(1);
+        final Duration twoD = Duration.ofSeconds(2);
+        assertEquals("This returns 1(Duration)", oneD, config.getDuration("durationD"));
+        assertEquals("This returns 1(Duration)", oneD, config.getDuration("durationD", twoD));
+        assertEquals("This returns 2(default Duration)", twoD, config.getDuration("numberNotInConfig", twoD));
+        assertEquals("This returns 1(Duration)", oneD, config.getDuration("durationD", twoD));
+    }
+
     @Test(expected = ConversionException.class)
     public void testGetDurationIncompatibleType() {
         config.map.put("test.empty", "");
@@ -369,7 +381,6 @@ public class TestDefaultImmutableConfiguration_OE25Dev {
         config.map.put("durationD", d.toString());
         final Duration oneD = Duration.ofSeconds(1);
         final Duration twoD = Duration.ofSeconds(2);
-        // removed other assertion
         assertEquals("This returns 1(Duration)", oneD, config.getDuration("durationD", twoD));
     }
 
@@ -379,8 +390,6 @@ public class TestDefaultImmutableConfiguration_OE25Dev {
         config.map.put("durationD", d.toString());
         final Duration oneD = Duration.ofSeconds(1);
         final Duration twoD = Duration.ofSeconds(2);
-        // removed other assertion
-        // removed other assertion
         assertEquals("This returns 2(default Duration)", twoD, config.getDuration("numberNotInConfig", twoD));
     }
 
@@ -390,9 +399,6 @@ public class TestDefaultImmutableConfiguration_OE25Dev {
         config.map.put("durationD", d.toString());
         final Duration oneD = Duration.ofSeconds(1);
         final Duration twoD = Duration.ofSeconds(2);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("This returns 1(Duration)", oneD, config.getDuration("durationD", twoD));
     }
 

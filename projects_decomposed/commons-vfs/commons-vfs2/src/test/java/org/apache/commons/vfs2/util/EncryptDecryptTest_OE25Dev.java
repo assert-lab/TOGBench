@@ -24,6 +24,19 @@ import org.junit.Test;
  */
 public class EncryptDecryptTest_OE25Dev {
 
+    @Test
+    public void testEncryptDecrypt() throws Exception {
+        final String source = "Qryp2!t&tpR59";
+        final String expected = "914589F049CE3E8E3BB1A41BEAE12A9C";
+
+        final Cryptor cryptor = CryptorFactory.getCryptor();
+        final String encrypted = cryptor.encrypt(source);
+        assertEquals(expected, encrypted);
+
+        final String decrypted = cryptor.decrypt(encrypted);
+        assertEquals(source, decrypted);
+    }
+
     @Test(expected=IllegalArgumentException.class)
     public void testInvalidDecrypt() throws Exception {
     	// provider.HostFileNameParser.extractToPath(String, StringBuilder) catches `Exception`

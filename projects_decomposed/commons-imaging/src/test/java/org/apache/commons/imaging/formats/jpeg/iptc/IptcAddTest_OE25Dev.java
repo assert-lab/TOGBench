@@ -46,6 +46,48 @@ public class IptcAddTest_OE25Dev extends IptcBaseTest {
          * Add a few IPTC values to JPEG images, whether or not they have existing
          * IPTC data.
          */
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testAddIptcData(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+
+        final JpegImagingParameters params = new JpegImagingParameters();
+
+        final JpegPhotoshopMetadata metadata = new JpegImageParser().getPhotoshopMetadata(byteSource, params);
+        if (metadata == null) {
+            // FIXME select only files with meta for this test
+            return;
+        }
+
+        final List<IptcBlock> newBlocks = new ArrayList<>(metadata.photoshopApp13Data.getNonIptcBlocks());
+        final List<IptcRecord> oldRecords = metadata.photoshopApp13Data.getRecords();
+
+        final List<IptcRecord> newRecords = new ArrayList<>();
+        for (final IptcRecord record : oldRecords) {
+            if (record.iptcType != IptcTypes.CITY
+                    && record.iptcType != IptcTypes.CREDIT) {
+                newRecords.add(record);
+            }
+        }
+
+        newRecords.add(new IptcRecord(IptcTypes.CITY, "Albany, NY"));
+        newRecords.add(new IptcRecord(IptcTypes.CREDIT, "William Sorensen"));
+
+        final PhotoshopApp13Data newData = new PhotoshopApp13Data(newRecords, newBlocks);
+
+        final File updated = File.createTempFile(imageFile.getName() + ".iptc.add.", ".jpg");
+        try (FileOutputStream fos = new FileOutputStream(updated);
+                OutputStream os = new BufferedOutputStream(fos)) {
+            new JpegIptcRewriter().writeIPTC(byteSource, os, newData);
+        }
+
+        final ByteSource updateByteSource = new ByteSourceFile(updated);
+        final JpegPhotoshopMetadata outMetadata = new JpegImageParser().getPhotoshopMetadata(
+                updateByteSource, params);
+
+        assertNotNull(outMetadata);
+        assertEquals(outMetadata.getItems().size(), newRecords.size());
+    }
 
     @ParameterizedTest
     @MethodSource("data")

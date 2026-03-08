@@ -58,12 +58,51 @@ public class IptcParserTest_OE25Dev {
      * @throws ImageReadException when parsing file
      * @see <a href="https://www.adobe.com/devnet-apps/photoshop/fileformatashtml/">Adobe Photoshop File Formats Specification</a>
      */
+    @Test
+    public void testSkipBlockTypes() throws ImageReadException, IOException {
+        final String location = IptcParserTest_OE25Dev.class
+                .getResource("/images/jpeg/photoshop/IMAGING-246/FallHarvestKitKat_07610.jpg")
+                .getFile();
+        final File imageFile = new File(location);
+        final JpegImageMetadata metadata = (JpegImageMetadata) new JpegImageParser()
+                .getMetadata(new ByteSourceFile(imageFile), new JpegImagingParameters());
+        final JpegPhotoshopMetadata photoshopMetadata = metadata.getPhotoshop();
+        final PhotoshopApp13Data photoshopApp13Data = photoshopMetadata.photoshopApp13Data;
+        final List<IptcBlock> blocks = photoshopApp13Data.getRawBlocks();
+        assertEquals(2, blocks.size());
+        for (final IptcBlock block : blocks) {
+            if (block.getBlockType() == 1028) {
+                // 0x0404 IPTC-NAA record
+                final byte[] data = block.getBlockData();
+                assertTrue(data.length > 0);
+            } else if (block.getBlockType() == 1061) {
+                // 0x0425 (Photoshop 7.0) Caption digest
+                final byte[] data = block.getBlockData();
+                assertTrue(data.length > 0);
+            } else {
+                fail("Unexpected block type found: " + block.getBlockType());
+            }
+        }
+    }
 
     /**
      * Tests for IptcParser encoding support. See IMAGING-168 and pull request #124 for more.
      * @throws IOException when reading input
      * @throws ImageReadException when parsing file
      */
+    @Test
+    public void testEncodingSupport() throws IOException, ImageReadException {
+        // NOTE: We use the JpegParser, so it will send only the block/segment that IptcParser needs for the test image
+        File file = new File(IptcParserTest_OE25Dev.class.getResource("/images/jpeg/iptc/IMAGING-168/111083453-c07f1880-851e-11eb-8b61-2757f7d934bf.jpg").getFile());
+        JpegImageParser parser = new JpegImageParser();
+        JpegImageMetadata metadata = (JpegImageMetadata) parser.getMetadata(file);
+        JpegPhotoshopMetadata photoshopMetadata = metadata.getPhotoshop();
+        @SuppressWarnings("unchecked")
+        List<GenericImageMetadataItem> items = (List<GenericImageMetadataItem>) photoshopMetadata.getItems();
+        GenericImageMetadataItem thanksInMandarin = items.get(3);
+        // converted the thank-you in chinese characters to unicode for comparison here
+        assertArrayEquals("\u8c22\u8c22".getBytes(StandardCharsets.UTF_8),thanksInMandarin.getText().getBytes(StandardCharsets.UTF_8));
+    }
 
     @Test
     public void testSkipBlockTypes_1_oe() throws ImageReadException, IOException {

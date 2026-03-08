@@ -68,24 +68,126 @@ public class JCSRemovalSimpleConcurrentTest_OE25Dev
      * <p>
      * @throws Exception
      */
+    public void testTwoDeepRemoval()
+        throws Exception
+    {
+        final int count = 500;
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( "key:" + i + ":anotherpart", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( "key:" + i + ":anotherpart" );
+            assertNotNull( "[key:" + i + ":anotherpart] should not be null, " + jcs.getStats(), res );
+        }
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.remove( "key:" + i + ":" );
+            assertNull( jcs.getStats(), jcs.get( "key:" + i + ":anotherpart" ) );
+        }
+
+    }
 
     /**
      * Verify that 1 level deep hierchical removal works.
      *
      * @throws Exception
      */
+    public void testSingleDepthRemoval()
+        throws Exception
+    {
+
+        final int count = 500;
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            assertNotNull( "[" + i + ":key] should not be null", res );
+        }
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.remove( i + ":" );
+            assertNull( jcs.get( i + ":key" ) );
+        }
+    }
 
     /**
      * Verify that clear removes everyting as it should.
      * <p>
      * @throws Exception
      */
+    public void testClear()
+        throws Exception
+    {
+
+        final int count = 500;
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            assertNotNull( "[" + i + ":key] should not be null", res );
+        }
+        jcs.clear();
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            if ( res != null )
+            {
+                assertNull( "[" + i + ":key] should be null after remvoeall" + jcs.getStats(), res );
+            }
+        }
+    }
 
     /**
      * Verify that we can clear repeatedly without error.
      *
      * @throws Exception
      */
+    public void testClearRepeatedlyWithoutError()
+        throws Exception
+    {
+        final int count = 500;
+
+        jcs.clear();
+
+        for ( int i = 0; i <= count; i++ )
+        {
+            jcs.put( i + ":key", "data" + i );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            final String res = jcs.get( i + ":key" );
+            assertNotNull( "[" + i + ":key] should not be null", res );
+        }
+
+        for ( int i = count; i >= 0; i-- )
+        {
+            jcs.put( i + ":key", "data" + i );
+            jcs.clear();
+            final String res = jcs.get( i + ":key" );
+            if ( res != null )
+            {
+                assertNull( "[" + i + ":key] should be null after remvoeall" + jcs.getStats(), res );
+            }
+        }
+    }
 
     public void testTwoDeepRemoval_1_oe()
         throws Exception

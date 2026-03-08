@@ -33,6 +33,22 @@ public class Http4FilesCacheTestCase_OE25Dev extends TestCase {
     /**
      * Tests https://issues.apache.org/jira/browse/VFS-426
      */
+    @Test
+    public void testQueryStringUrls() throws FileSystemException {
+        final String noQueryStringUrl = "http4://commons.apache.org/vfs";
+        final String queryStringUrl = "http4://commons.apache.org/vfs?query=string";
+        final String queryStringUrl2 = "http4://commons.apache.org/vfs?query=string&more=stuff";
+
+        final FileSystemManager fileSystemManager = VFS.getManager();
+
+        final FileObject noQueryFile = fileSystemManager.resolveFile(noQueryStringUrl);
+        Assert.assertEquals(noQueryStringUrl, noQueryFile.getURL().toExternalForm());
+
+        final FileObject queryFile = fileSystemManager.resolveFile(queryStringUrl);
+        Assert.assertEquals(queryStringUrl,queryFile.getURL().toExternalForm());// failed for VFS-426 
+        final FileObject queryFile2 = fileSystemManager.resolveFile(queryStringUrl2);
+        Assert.assertEquals(queryStringUrl2, queryFile2.getURL().toExternalForm()); // failed for VFS-426
+    }
 
     @Test
     public void testQueryStringUrls_1_oe() throws FileSystemException {

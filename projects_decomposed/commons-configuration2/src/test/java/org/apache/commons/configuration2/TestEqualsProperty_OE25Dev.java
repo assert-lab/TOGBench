@@ -31,6 +31,17 @@ public class TestEqualsProperty_OE25Dev {
     private final String testProperties = ConfigurationAssert.getTestFile("test.properties").getAbsolutePath();
 
     @Test
+    public void testEquals() throws Exception {
+        final PropertiesConfiguration conf = new PropertiesConfiguration();
+        final FileHandler handler = new FileHandler(conf);
+        handler.setFileName(testProperties);
+        handler.load();
+
+        final String equals = conf.getString("test.equals");
+        assertEquals("value=one", equals);
+    }
+
+    @Test
     public void testEquals_1_oe() throws Exception {
         final PropertiesConfiguration conf = new PropertiesConfiguration();
         final FileHandler handler = new FileHandler(conf);

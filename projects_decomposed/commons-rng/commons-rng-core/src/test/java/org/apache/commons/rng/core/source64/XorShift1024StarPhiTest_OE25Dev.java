@@ -62,6 +62,11 @@ class XorShift1024StarPhiTest_OE25Dev {
     };
 
     @Test
+    void testReferenceCode() {
+        RandomAssert.assertEquals(EXPECTED_SEQUENCE, new XorShift1024StarPhi(SEED));
+    }
+
+    @Test
     void testConstructorWithZeroSeedIsNonFunctional() {
         RandomAssert.assertNextIntZeroOutput(new XorShift1024StarPhi(new long[SEED_SIZE]), 2 * SEED_SIZE);
     }

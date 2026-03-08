@@ -26,6 +26,26 @@ import java.util.Map;
 
 public final class BaseResultSetHandlerTest_OE25Dev extends BaseTestCase {
 
+    @Test
+    public void handleWithoutExplicitResultSetInvocation() throws Exception {
+        Collection<Map<String, Object>> result = new ToMapCollectionHandler().handle(createMockResultSet());
+
+        assertFalse(result.isEmpty());
+
+        for (Map<String, Object> current : result) {
+            assertTrue(current.containsKey("one"));
+            assertTrue(current.containsKey("two"));
+            assertTrue(current.containsKey("three"));
+            assertTrue(current.containsKey("notInBean"));
+            assertTrue(current.containsKey("intTest"));
+            assertTrue(current.containsKey("integerTest"));
+            assertTrue(current.containsKey("nullObjectTest"));
+            assertTrue(current.containsKey("nullPrimitiveTest"));
+            assertTrue(current.containsKey("notDate"));
+            assertTrue(current.containsKey("columnProcessorDoubleTest"));
+        }
+    }
+
     private static final class ToMapCollectionHandler
         extends BaseResultSetHandler<Collection<Map<String, Object>>> {
 

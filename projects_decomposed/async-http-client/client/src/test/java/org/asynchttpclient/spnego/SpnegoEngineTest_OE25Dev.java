@@ -62,6 +62,21 @@ public class SpnegoEngineTest_OE25Dev extends AbstractBasicTest {
     FileUtils.copyInputStreamToFile(SpnegoEngine.class.getResourceAsStream("/kerberos.jaas"), loginConfig);
   }
 
+  @Test
+  public void testSpnegoGenerateTokenWithUsernamePassword() throws Exception {
+    SpnegoEngine spnegoEngine = new SpnegoEngine("alice",
+        "alice",
+        "bob",
+        "service.ws.apache.org",
+        false,
+        null,
+        "alice",
+        null);
+    String token = spnegoEngine.generateToken("localhost");
+    Assert.assertNotNull(token);
+    Assert.assertTrue(token.startsWith("YII"));
+  }
+
   @Test(expectedExceptions = SpnegoEngineException.class)
   public void testSpnegoGenerateTokenWithUsernamePasswordFail() throws Exception {
     SpnegoEngine spnegoEngine = new SpnegoEngine("alice",
@@ -73,6 +88,67 @@ public class SpnegoEngineTest_OE25Dev extends AbstractBasicTest {
         "alice",
         null);
     spnegoEngine.generateToken("localhost");
+  }
+
+  @Test
+  public void testSpnegoGenerateTokenWithCustomLoginConfig() throws Exception {
+    Map<String, String> loginConfig = new HashMap<>();
+    loginConfig.put("useKeyTab", "true");
+    loginConfig.put("storeKey", "true");
+    loginConfig.put("refreshKrb5Config", "true");
+    loginConfig.put("keyTab", aliceKeytab.getCanonicalPath());
+    loginConfig.put("principal", alice);
+    loginConfig.put("debug", String.valueOf(true));
+    SpnegoEngine spnegoEngine = new SpnegoEngine(null,
+        null,
+        "bob",
+        "service.ws.apache.org",
+        false,
+        loginConfig,
+        null,
+        null);
+
+    String token = spnegoEngine.generateToken("localhost");
+    Assert.assertNotNull(token);
+    Assert.assertTrue(token.startsWith("YII"));
+  }
+
+  @Test
+  public void testGetCompleteServicePrincipalName() throws Exception {
+    {
+      SpnegoEngine spnegoEngine = new SpnegoEngine(null,
+          null,
+          "bob",
+          "service.ws.apache.org",
+          false,
+          null,
+          null,
+          null);
+      Assert.assertEquals("bob@service.ws.apache.org", spnegoEngine.getCompleteServicePrincipalName("localhost"));
+    }
+    {
+      SpnegoEngine spnegoEngine = new SpnegoEngine(null,
+          null,
+          null,
+          "service.ws.apache.org",
+          true,
+          null,
+          null,
+          null);
+      Assert.assertNotEquals("HTTP@localhost", spnegoEngine.getCompleteServicePrincipalName("localhost"));
+      Assert.assertTrue(spnegoEngine.getCompleteServicePrincipalName("localhost").startsWith("HTTP@"));
+    }
+    {
+      SpnegoEngine spnegoEngine = new SpnegoEngine(null,
+          null,
+          null,
+          "service.ws.apache.org",
+          false,
+          null,
+          null,
+          null);
+      Assert.assertEquals("HTTP@localhost", spnegoEngine.getCompleteServicePrincipalName("localhost"));
+    }
   }
 
   @AfterClass

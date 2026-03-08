@@ -172,6 +172,13 @@ public class TestNodeTreeWalker_OE25Dev {
     /**
      * Tests a traversal in BFS mode.
      */
+    @Test
+    public void testWalkBFS() {
+        final List<String> expected = expectBFS();
+        final TestVisitor visitor = new TestVisitor();
+        NodeTreeWalker.INSTANCE.walkBFS(NodeStructureHelper.ROOT_AUTHORS_TREE, visitor, createHandler());
+        assertEquals("Wrong visited nodes", expected, visitor.getVisitedNodes());
+    }
 
     /**
      * Tests a BFS walk if node is passed in.
@@ -187,10 +194,25 @@ public class TestNodeTreeWalker_OE25Dev {
     /**
      * Tests whether the terminate flag is evaluated in BFS mode.
      */
+    @Test
+    public void testWalkBFSTerminate() {
+        final TestVisitor visitor = new TestVisitor();
+        final int nodeCount = 9;
+        visitor.setMaxNodeCount(nodeCount);
+        NodeTreeWalker.INSTANCE.walkBFS(NodeStructureHelper.ROOT_AUTHORS_TREE, visitor, createHandler());
+        assertEquals("Wrong number of visited nodes", nodeCount, visitor.getVisitedNodes().size());
+    }
 
     /**
      * Tests a DFS traversal.
      */
+    @Test
+    public void testWalkDFS() {
+        final List<String> expected = expectDFS();
+        final TestVisitor visitor = new TestVisitor();
+        NodeTreeWalker.INSTANCE.walkDFS(NodeStructureHelper.ROOT_AUTHORS_TREE, visitor, createHandler());
+        assertEquals("Wrong visited nodes", expected, visitor.getVisitedNodes());
+    }
 
     /**
      * Tests whether walkDFS() can handle a null node.
@@ -206,6 +228,14 @@ public class TestNodeTreeWalker_OE25Dev {
     /**
      * Tests whether the terminate flag is taken into account during a DFS walk.
      */
+    @Test
+    public void testWalkDFSTerminate() {
+        final TestVisitor visitor = new TestVisitor();
+        final int nodeCount = 5;
+        visitor.setMaxNodeCount(nodeCount);
+        NodeTreeWalker.INSTANCE.walkDFS(NodeStructureHelper.ROOT_AUTHORS_TREE, visitor, createHandler());
+        assertEquals("Wrong number of visited nodes", nodeCount, visitor.getVisitedNodes().size());
+    }
 
     /**
      * Tries a walk() operation without a node handler.

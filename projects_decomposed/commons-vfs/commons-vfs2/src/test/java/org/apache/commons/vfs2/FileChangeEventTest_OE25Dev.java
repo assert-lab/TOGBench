@@ -25,6 +25,15 @@ import org.junit.Test;
 public class FileChangeEventTest_OE25Dev {
 
     @Test
+    public void testFileObject() throws FileSystemException {
+        try (final FileObject baseFile = VFS.getManager().toFileObject(new File("."))) {
+            Assert.assertNotNull(baseFile);
+            final FileChangeEvent fileChangeEvent = new FileChangeEvent(baseFile);
+            Assert.assertEquals(fileChangeEvent.getFile(), fileChangeEvent.getFileObject());
+        }
+    }
+
+    @Test
     public void testFileObject_1_oe() throws FileSystemException {
         try (final FileObject baseFile = VFS.getManager().toFileObject(new File("."))) {
             Assert.assertNotNull(baseFile);

@@ -47,6 +47,68 @@ public class NettyRequestThrottleTimeoutTest_OE25Dev extends AbstractBasicTest {
     return new SlowHandler();
   }
 
+  @Test
+  public void testRequestTimeout() throws IOException {
+    final Semaphore requestThrottle = new Semaphore(1);
+
+    int samples = 10;
+
+    try (AsyncHttpClient client = asyncHttpClient(config().setMaxConnections(1))) {
+      final CountDownLatch latch = new CountDownLatch(samples);
+      final List<Exception> tooManyConnections = Collections.synchronizedList(new ArrayList<>(2));
+
+      for (int i = 0; i < samples; i++) {
+        new Thread(() -> {
+          try {
+            requestThrottle.acquire();
+            Future<Response> responseFuture = null;
+            try {
+              responseFuture = client.prepareGet(getTargetUrl()).setRequestTimeout(SLEEPTIME_MS / 2)
+                      .execute(new AsyncCompletionHandler<Response>() {
+
+                        @Override
+                        public Response onCompleted(Response response) {
+                          return response;
+                        }
+
+                        @Override
+                        public void onThrowable(Throwable t) {
+                          logger.error("onThrowable got an error", t);
+                          try {
+                            Thread.sleep(100);
+                          } catch (InterruptedException e) {
+                            //
+                          }
+                          requestThrottle.release();
+                        }
+                      });
+            } catch (Exception e) {
+              tooManyConnections.add(e);
+            }
+
+            if (responseFuture != null)
+              responseFuture.get();
+          } catch (Exception e) {
+            //
+          } finally {
+            latch.countDown();
+          }
+        }).start();
+      }
+
+      try {
+        latch.await(30, TimeUnit.SECONDS);
+      } catch (Exception e) {
+        fail("failed to wait for requests to complete");
+      }
+
+      for (Exception e : tooManyConnections)
+        logger.error("Exception while calling execute", e);
+
+      assertTrue(tooManyConnections.isEmpty(), "Should not have any connection errors where too many connections have been attempted");
+    }
+  }
+
   private class SlowHandler extends AbstractHandler {
     public void handle(String target, Request baseRequest, HttpServletRequest request, final HttpServletResponse response)
             throws IOException, ServletException {

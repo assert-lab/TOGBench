@@ -46,6 +46,15 @@ public class OutParameterTest_OE25Dev {
     }
 
     @Test
+    public void testSetValue() throws Exception {
+        when(stmt.getObject(INDEX)).thenReturn(VALUE);
+
+        parameter.setValue(stmt, INDEX);
+
+        assertEquals(VALUE, parameter.getValue());
+    }
+
+    @Test
     public void testRegister() throws Exception {
         parameter.register(stmt, INDEX);
         verify(stmt, times(1)).registerOutParameter(INDEX, Types.INTEGER);

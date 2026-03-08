@@ -61,6 +61,23 @@ public class StrategyTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
+    public void testRawResolvers() throws Exception {
+        final Object map  = new HashMap<String, Object>();
+        final JexlEngine jexl = new JexlBuilder().create();
+        final JexlUberspect uberspect = jexl.getUberspect();
+        final JexlUberspect.PropertyResolver rfieldp = JexlUberspect.JexlResolver.FIELD;
+        final JexlPropertyGet fget = rfieldp.getPropertyGet(uberspect, map, "key");
+        Assert.assertNull(fget);
+        final JexlPropertySet fset = rfieldp.getPropertySet(uberspect, map, "key", "value");
+        Assert.assertNull(fset);
+        final JexlUberspect.PropertyResolver rmap = JexlUberspect.JexlResolver.MAP;
+        final JexlPropertyGet mget = rmap.getPropertyGet(uberspect, map, "key");
+        Assert.assertNotNull(mget);
+        final JexlPropertySet mset = rmap.getPropertySet(uberspect, map, "key", "value");
+        Assert.assertNotNull(mset);
+    }
+
+    @Test
     public void testJexlStrategy() throws Exception {
         final JexlEngine jexl = new Engine();
         run171(jexl, true);

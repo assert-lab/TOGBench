@@ -43,6 +43,20 @@ public class Expect100ContinueTest_OE25Dev extends AbstractBasicTest {
     return new ZeroCopyHandler();
   }
 
+  @Test
+  public void Expect100Continue() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.preparePut("http://localhost:" + port1 + "/")
+              .setHeader(EXPECT, HttpHeaderValues.CONTINUE)
+              .setBody(SIMPLE_TEXT_FILE)
+              .execute();
+      Response resp = f.get();
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
+    }
+  }
+
   private static class ZeroCopyHandler extends AbstractHandler {
     public void handle(String s, Request r, HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws IOException, ServletException {
 

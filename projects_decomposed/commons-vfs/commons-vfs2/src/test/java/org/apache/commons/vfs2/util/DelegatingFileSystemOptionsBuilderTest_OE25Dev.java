@@ -60,6 +60,58 @@ public class DelegatingFileSystemOptionsBuilderTest_OE25Dev {
     }
 
     @Test
+    public void testConfiguration() throws Exception {
+        for (final String scheme : schemes) {
+            assertTrue("Missing " + scheme + " provider", fsm.hasProvider(scheme));
+        }
+    }
+
+    @Test
+    public void testDelegatingBad() throws Throwable {
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        try {
+            delgate.setConfigString(opts, "http", "proxyPort", "wrong_port");
+            fail();
+        } catch (final FileSystemException e) {
+            assertSame(e.getCause().getClass(), InvocationTargetException.class);
+            assertSame(((InvocationTargetException)e.getCause()).getTargetException().getClass(),NumberFormatException.class);
+        }
+
+        try {
+            delgate.setConfigClass(opts, "sftp", "userinfo", String.class);
+            fail();
+        } catch (final FileSystemException e) {
+            assertEquals(e.getCode(), "vfs.provider/config-value-invalid.error");
+        }
+    }
+
+    @Test
+    public void testDelegatingGood() throws Throwable {
+        final String[] identityPaths = new String[] { "/file1", "/file2", };
+
+        final FileSystemOptions opts = new FileSystemOptions();
+        final DelegatingFileSystemOptionsBuilder delgate = new DelegatingFileSystemOptionsBuilder(fsm);
+
+        delgate.setConfigString(opts, "http", "proxyHost", "proxy");
+        delgate.setConfigString(opts, "http", "proxyPort", "8080");
+        delgate.setConfigClass(opts, "sftp", "userinfo", TrustEveryoneUserInfo.class);
+        delgate.setConfigStrings(opts, "sftp", "identities", identityPaths);
+
+        assertEquals("http.proxyHost", HttpFileSystemConfigBuilder.getInstance().getProxyHost(opts), "proxy");
+        assertEquals("http.proxyPort", HttpFileSystemConfigBuilder.getInstance().getProxyPort(opts), 8080);
+        assertSame("sftp.userInfo",SftpFileSystemConfigBuilder.getInstance().getUserInfo(opts).getClass(),TrustEveryoneUserInfo.class);
+
+        final File[] identities = SftpFileSystemConfigBuilder.getInstance().getIdentities(opts);
+        assertNotNull("sftp.identities", identities);
+        assertEquals("sftp.identities size", identities.length, identityPaths.length);
+        for (int iterIdentities = 0; iterIdentities < identities.length; iterIdentities++) {
+            assertEquals("sftp.identities #" + iterIdentities,identities[iterIdentities].getAbsolutePath(),new File(identityPaths[iterIdentities]).getAbsolutePath());
+        }
+    }
+
+    @Test
     public void testConfiguration_1_oe() throws Exception {
         for (final String scheme : schemes) {
             assertTrue("Missing " + scheme + " provider", fsm.hasProvider(scheme));

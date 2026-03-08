@@ -96,55 +96,160 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     /**
      * Tests to iterate over all children of the root node.
      */
+    @Test
+    public void testIterateAllChildren() {
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, null);
+        assertEquals("Wrong number of elements", CHILD_COUNT, iteratorSize(it));
+        checkValues(it, 1, 2, 3, 4, 5);
+    }
 
     /**
      * Tests a reverse iteration.
      */
+    @Test
+    public void testIterateReverse() {
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, true, null);
+        assertEquals("Wrong number of elements", CHILD_COUNT, iteratorSize(it));
+        checkValues(it, 5, 4, 3, 2, 1);
+    }
 
     /**
      * Tests defining a start node for the iteration.
      */
+    @Test
+    public void testIterateStartsWith() {
+        final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(2), handler);
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
+        assertEquals("Wrong start position", 0, it.getPosition());
+        final List<NodePointer> nodes = iterationElements(it);
+        assertEquals("Wrong size of iteration", CHILD_COUNT - 3, nodes.size());
+        int index = 4;
+        for (final NodePointer np : nodes) {
+            final ImmutableNode node = (ImmutableNode) np.getImmediateNode();
+            assertEquals("Wrong node value", String.valueOf(index), node.getValue());
+            index++;
+        }
+    }
 
     /**
      * Tests iteration with an invalid start node. This should cause the iteration to start at the first position.
      */
+    @Test
+    public void testIterateStartsWithInvalid() {
+        final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer,
+            new ImmutableNode.Builder().name("newNode").create(), handler);
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
+        assertEquals("Wrong size of iteration", CHILD_COUNT, iteratorSize(it));
+        it.setPosition(1);
+        final ImmutableNode node = (ImmutableNode) it.getNodePointer().getNode();
+        assertEquals("Wrong start node", "1", node.getValue());
+    }
 
     /**
      * Tests defining a start node for a reverse iteration.
      */
+    @Test
+    public void testIterateStartsWithReverse() {
+        final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(3), handler);
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, true, childPointer);
+        int value = 3;
+        for (int index = 1; it.setPosition(index); index++, value--) {
+            final ImmutableNode node = (ImmutableNode) it.getNodePointer().getNode();
+            assertEquals("Incorrect value at index " + index, String.valueOf(value), node.getValue());
+        }
+        assertEquals("Iteration ended not at end node", 0, value);
+    }
 
     /**
      * Tests whether nodes with a matching namespace prefix can be obtained.
      */
+    @Test
+    public void testIterateWithMatchingPrefixTest() {
+        final NodeNameTest test = new NodeNameTest(new QName(PREFIX, PREFIX_NODE));
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
+        assertEquals("Wrong number of elements", 1, iteratorSize(it));
+        for (final NodePointer p : iterationElements(it)) {
+            assertEquals("Wrong element", PREFIX + ':' + PREFIX_NODE, p.getName().getName());
+        }
+    }
 
     /**
      * Tests using a node test that selects a certain sub node name.
      */
+    @Test
+    public void testIterateWithNameTest() {
+        final NodeNameTest test = new NodeNameTest(new QName(null, CHILD_NAME2));
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
+        assertTrue("No children found", iteratorSize(it) > 0);
+        for (final NodePointer nd : iterationElements(it)) {
+            assertEquals("Wrong child element", CHILD_NAME2, nd.getName().getName());
+        }
+    }
 
     /**
      * Tests using a type test for nodes. This should return all nodes.
      */
+    @Test
+    public void testIterateWithNodeType() {
+        final NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_NODE);
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
+        assertEquals("Node type not evaluated", CHILD_COUNT, iteratorSize(it));
+    }
 
     /**
      * Tests using a node test that defines a namespace prefix. Because namespaces are not supported, no elements should be
      * in the iteration.
      */
+    @Test
+    public void testIterateWithPrefixTest() {
+        final NodeNameTest test = new NodeNameTest(new QName("prefix", "*"));
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
+        assertNull("Undefined node pointer not returned", it.getNodePointer());
+        assertEquals("Prefix was not evaluated", 0, iteratorSize(it));
+    }
 
     /**
      * Tests using a not supported test class. This should yield an empty iteration.
      */
+    @Test
+    public void testIterateWithUnknownTest() {
+        final NodeTest test = new ProcessingInstructionTest("test");
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
+        assertEquals("Unknown test was not evaluated", 0, iteratorSize(it));
+    }
 
     /**
      * Tests using a type test for a non supported type. This should return an empty iteration.
      */
+    @Test
+    public void testIterateWithUnknownType() {
+        final NodeTypeTest test = new NodeTypeTest(Compiler.NODE_TYPE_COMMENT);
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
+        assertEquals("Unknown node type not evaluated", 0, iteratorSize(it));
+    }
 
     /**
      * Tests using a node test with a wildcard name.
      */
+    @Test
+    public void testIterateWithWildcardTest() {
+        final NodeNameTest test = new NodeNameTest(new QName(null, "*"));
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
+        assertEquals("Wrong number of elements", CHILD_COUNT, iteratorSize(it));
+    }
 
     /**
      * Tests whether all nodes with a specific prefix can be obtained.
      */
+    @Test
+    public void testIterateWithWildcardTestPrefix() {
+        final NodeNameTest test = new NodeNameTest(new QName(PREFIX, "*"));
+        final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
+        assertEquals("Wrong number of elements", 1, iteratorSize(it));
+        for (final NodePointer p : iterationElements(it)) {
+            assertEquals("Wrong element", PREFIX + ':' + PREFIX_NODE, p.getName().getName());
+        }
+    }
 
     @Test
     public void testIterateAllChildren_1_oe() {
@@ -169,7 +274,6 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     public void testIterateStartsWith_2_oe() {
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer, root.getChildren().get(2), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
-        // removed other assertion
         final List<NodePointer> nodes = iterationElements(it);
         assertEquals("Wrong size of iteration", CHILD_COUNT - 3, nodes.size());
     }
@@ -187,7 +291,6 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
         final ConfigurationNodePointer<ImmutableNode> childPointer = new ConfigurationNodePointer<>(rootPointer,
             new ImmutableNode.Builder().name("newNode").create(), handler);
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, null, false, childPointer);
-        // removed other assertion
         it.setPosition(1);
         final ImmutableNode node = (ImmutableNode) it.getNodePointer().getNode();
         assertEquals("Wrong start node", "1", node.getValue());
@@ -211,7 +314,6 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
         int value = 3;
         for (int index = 1; it.setPosition(index); index++, value--) {
             final ImmutableNode node = (ImmutableNode) it.getNodePointer().getNode();
-            // removed other assertion
         }
         assertEquals("Iteration ended not at end node", 0, value);
     }
@@ -227,7 +329,6 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     public void testIterateWithMatchingPrefixTest_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, PREFIX_NODE));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
-        // removed other assertion
         for (final NodePointer p : iterationElements(it)) {
             assertEquals("Wrong element", PREFIX + ':' + PREFIX_NODE, p.getName().getName());
     }
@@ -244,7 +345,6 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     public void testIterateWithNameTest_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(null, CHILD_NAME2));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
-        // removed other assertion
         for (final NodePointer nd : iterationElements(it)) {
             assertEquals("Wrong child element", CHILD_NAME2, nd.getName().getName());
     }
@@ -268,7 +368,6 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     public void testIterateWithPrefixTest_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName("prefix", "*"));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(rootPointer, test, false, null);
-        // removed other assertion
         assertEquals("Prefix was not evaluated", 0, iteratorSize(it));
     }
 
@@ -304,7 +403,6 @@ public class TestConfigurationNodeIteratorChildren_OE25Dev extends AbstractXPath
     public void testIterateWithWildcardTestPrefix_2_oe() {
         final NodeNameTest test = new NodeNameTest(new QName(PREFIX, "*"));
         final ConfigurationNodeIteratorChildren<ImmutableNode> it = new ConfigurationNodeIteratorChildren<>(createPointerWithNamespace(), test, false, null);
-        // removed other assertion
         for (final NodePointer p : iterationElements(it)) {
             assertEquals("Wrong element", PREFIX + ':' + PREFIX_NODE, p.getName().getName());
     }

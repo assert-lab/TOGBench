@@ -125,6 +125,154 @@ public class UriTest_OE25Dev {
   }
 
   @Test
+  public void testCreateAndToUrl() {
+    String url = "https://hello.com/level1/level2/level3";
+    Uri uri = Uri.create(url);
+    assertEquals(uri.toUrl(), url, "url used to create uri and url returned from toUrl do not match");
+  }
+
+  @Test
+  public void testToUrlWithUserInfoPortPathAndQuery() {
+    Uri uri = new Uri("http", "user", "example.com", 44, "/path/path2", "query=4", null);
+    assertEquals(uri.toUrl(), "http://user@example.com:44/path/path2?query=4", "toUrl returned incorrect url");
+  }
+
+  @Test
+  public void testQueryWithNonRootPath() {
+    Uri uri = Uri.create("http://hello.com/foo?query=value");
+    assertEquals(uri.getPath(), "/foo");
+    assertEquals(uri.getQuery(), "query=value");
+  }
+
+  @Test
+  public void testQueryWithNonRootPathAndTrailingSlash() {
+    Uri uri = Uri.create("http://hello.com/foo/?query=value");
+    assertEquals(uri.getPath(), "/foo/");
+    assertEquals(uri.getQuery(), "query=value");
+  }
+
+  @Test
+  public void testQueryWithRootPath() {
+    Uri uri = Uri.create("http://hello.com?query=value");
+    assertEquals(uri.getPath(), "");
+    assertEquals(uri.getQuery(), "query=value");
+  }
+
+  @Test
+  public void testQueryWithRootPathAndTrailingSlash() {
+    Uri uri = Uri.create("http://hello.com/?query=value");
+    assertEquals(uri.getPath(), "/");
+    assertEquals(uri.getQuery(), "query=value");
+  }
+
+  @Test
+  public void testWithNewScheme() {
+    Uri uri = new Uri("http", "user", "example.com", 44, "/path/path2", "query=4", null);
+    Uri newUri = uri.withNewScheme("https");
+    assertEquals(newUri.getScheme(), "https");
+    assertEquals(newUri.toUrl(), "https://user@example.com:44/path/path2?query=4", "toUrl returned incorrect url");
+  }
+
+  @Test
+  public void testWithNewQuery() {
+    Uri uri = new Uri("http", "user", "example.com", 44, "/path/path2", "query=4", null);
+    Uri newUri = uri.withNewQuery("query2=10&query3=20");
+    assertEquals(newUri.getQuery(), "query2=10&query3=20");
+    assertEquals(newUri.toUrl(), "http://user@example.com:44/path/path2?query2=10&query3=20", "toUrl returned incorrect url");
+  }
+
+  @Test
+  public void testToRelativeUrl() {
+    Uri uri = new Uri("http", "user", "example.com", 44, "/path/path2", "query=4", null);
+    String relativeUrl = uri.toRelativeUrl();
+    assertEquals(relativeUrl, "/path/path2?query=4", "toRelativeUrl returned incorrect url");
+  }
+
+  @Test
+  public void testToRelativeUrlWithEmptyPath() {
+    Uri uri = new Uri("http", "user", "example.com", 44, null, "query=4", null);
+    String relativeUrl = uri.toRelativeUrl();
+    assertEquals(relativeUrl, "/?query=4", "toRelativeUrl returned incorrect url");
+  }
+
+  @Test
+  public void testGetSchemeDefaultPortHttpScheme() {
+    String url = "https://hello.com/level1/level2/level3";
+    Uri uri = Uri.create(url);
+    assertEquals(uri.getSchemeDefaultPort(), 443, "schema default port should be 443 for https url");
+
+    String url2 = "http://hello.com/level1/level2/level3";
+    Uri uri2 = Uri.create(url2);
+    assertEquals(uri2.getSchemeDefaultPort(), 80, "schema default port should be 80 for http url");
+  }
+
+  @Test
+  public void testGetSchemeDefaultPortWebSocketScheme() {
+    String url = "wss://hello.com/level1/level2/level3";
+    Uri uri = Uri.create(url);
+    assertEquals(uri.getSchemeDefaultPort(), 443, "schema default port should be 443 for wss url");
+
+    String url2 = "ws://hello.com/level1/level2/level3";
+    Uri uri2 = Uri.create(url2);
+    assertEquals(uri2.getSchemeDefaultPort(), 80, "schema default port should be 80 for ws url");
+  }
+
+  @Test
+  public void testGetExplicitPort() {
+    String url = "http://hello.com/level1/level2/level3";
+    Uri uri = Uri.create(url);
+    assertEquals(uri.getExplicitPort(), 80, "getExplicitPort should return port 80 for http url when port is not specified in url");
+
+    String url2 = "http://hello.com:8080/level1/level2/level3";
+    Uri uri2 = Uri.create(url2);
+    assertEquals(uri2.getExplicitPort(), 8080, "getExplicitPort should return the port given in the url");
+  }
+
+  @Test
+  public void testEquals() {
+    String url = "http://user@hello.com:8080/level1/level2/level3?q=1";
+    Uri createdUri = Uri.create(url);
+    Uri constructedUri = new Uri("http", "user", "hello.com", 8080, "/level1/level2/level3", "q=1", null);
+    assertTrue(createdUri.equals(constructedUri), "The equals method returned false for two equal urls");
+  }
+
+  @Test
+  void testFragment() {
+    String url = "http://user@hello.com:8080/level1/level2/level3?q=1";
+    String fragment = "foo";
+    String urlWithFragment = url + "#" + fragment;
+    Uri uri = Uri.create(urlWithFragment);
+    assertEquals(fragment, uri.getFragment(), "Fragment should be extracted");
+    assertEquals(uri.toUrl(), url, "toUrl should return without fragment");
+    assertEquals(uri.toFullUrl(), urlWithFragment, "toFullUrl should return with fragment");
+  }
+
+  @Test
+  void testRelativeFragment() {
+    Uri uri = Uri.create(Uri.create("http://user@hello.com:8080"), "/level1/level2/level3?q=1#foo");
+    assertEquals("foo", uri.getFragment(), "fragment should be kept when computing a relative url");
+  }
+
+  @Test
+  public void testIsWebsocket() {
+    String url = "http://user@hello.com:8080/level1/level2/level3?q=1";
+    Uri uri = Uri.create(url);
+    assertFalse(uri.isWebSocket(), "isWebSocket should return false for http url");
+
+    url = "https://user@hello.com:8080/level1/level2/level3?q=1";
+    uri = Uri.create(url);
+    assertFalse(uri.isWebSocket(), "isWebSocket should return false for https url");
+
+    url = "ws://user@hello.com:8080/level1/level2/level3?q=1";
+    uri = Uri.create(url);
+    assertTrue(uri.isWebSocket(), "isWebSocket should return true for ws url");
+
+    url = "wss://user@hello.com:8080/level1/level2/level3?q=1";
+    uri = Uri.create(url);
+    assertTrue(uri.isWebSocket(), "isWebSocket should return true for wss url");
+  }
+
+  @Test
   public void creatingUriWithDefinedSchemeAndHostWorks() {
     Uri.create("http://localhost");
   }
@@ -137,6 +285,64 @@ public class UriTest_OE25Dev {
   @Test(expectedExceptions = IllegalArgumentException.class)
   public void creatingUriWithMissingHostThrowsIllegalArgumentException() {
     Uri.create("http://");
+  }
+
+  @Test
+  public void testGetAuthority() {
+    Uri uri = Uri.create("http://stackoverflow.com/questions/17814461/jacoco-maven-testng-0-test-coverage");
+    assertEquals(uri.getAuthority(), "stackoverflow.com:80", "Incorrect authority returned from getAuthority");
+  }
+
+  @Test
+  public void testGetAuthorityWithPortInUrl() {
+    Uri uri = Uri.create("http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage");
+    assertEquals(uri.getAuthority(), "stackoverflow.com:8443", "Incorrect authority returned from getAuthority");
+  }
+
+  @Test
+  public void testGetBaseUrl() {
+    Uri uri = Uri.create("http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage");
+    assertEquals(uri.getBaseUrl(), "http://stackoverflow.com:8443", "Incorrect base URL returned from getBaseURL");
+  }
+
+  @Test
+  public void testIsSameBaseUrlReturnsFalseWhenPortDifferent() {
+    Uri uri1 = Uri.create("http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage");
+    Uri uri2 = Uri.create("http://stackoverflow.com:8442/questions/1057564/pretty-git-branch-graphs");
+    assertFalse(uri1.isSameBase(uri2), "Base URLs should be different, but true was returned from isSameBase");
+  }
+
+  @Test
+  public void testIsSameBaseUrlReturnsFalseWhenSchemeDifferent() {
+    Uri uri1 = Uri.create("http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage");
+    Uri uri2 = Uri.create("ws://stackoverflow.com:8443/questions/1057564/pretty-git-branch-graphs");
+    assertFalse(uri1.isSameBase(uri2), "Base URLs should be different, but true was returned from isSameBase");
+  }
+
+  @Test
+  public void testIsSameBaseUrlReturnsFalseWhenHostDifferent() {
+    Uri uri1 = Uri.create("http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage");
+    Uri uri2 = Uri.create("http://example.com:8443/questions/1057564/pretty-git-branch-graphs");
+    assertFalse(uri1.isSameBase(uri2), "Base URLs should be different, but true was returned from isSameBase");
+  }
+
+  @Test
+  public void testIsSameBaseUrlReturnsTrueWhenOneUriHasDefaultPort() {
+    Uri uri1 = Uri.create("http://stackoverflow.com:80/questions/17814461/jacoco-maven-testng-0-test-coverage");
+    Uri uri2 = Uri.create("http://stackoverflow.com/questions/1057564/pretty-git-branch-graphs");
+    assertTrue(uri1.isSameBase(uri2), "Base URLs should be same, but false was returned from isSameBase");
+  }
+
+  @Test
+  public void testGetPathWhenPathIsNonEmpty() {
+    Uri uri = Uri.create("http://stackoverflow.com:8443/questions/17814461/jacoco-maven-testng-0-test-coverage");
+    assertEquals(uri.getNonEmptyPath(), "/questions/17814461/jacoco-maven-testng-0-test-coverage", "Incorrect path returned from getNonEmptyPath");
+  }
+
+  @Test
+  public void testGetPathWhenPathIsEmpty() {
+    Uri uri = Uri.create("http://stackoverflow.com");
+    assertEquals(uri.getNonEmptyPath(), "/", "Incorrect path returned from getNonEmptyPath");
   }
 
   @Test

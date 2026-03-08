@@ -33,6 +33,16 @@ public class TestCopyObjectDefaultHandler_OE25Dev {
     /**
      * Tests whether a base type can be initialized with default values. Unknown properties should silently be ignored.
      */
+    @Test
+    public void testInitializeDefaultsBaseType() {
+        final Long refresh = 50000L;
+        final XMLBuilderParametersImpl paramsXml = new XMLBuilderParametersImpl();
+        paramsXml.setValidating(true).setExpressionEngine(EasyMock.createMock(ExpressionEngine.class)).setReloadingRefreshDelay(refresh);
+        final CopyObjectDefaultHandler handler = new CopyObjectDefaultHandler(paramsXml);
+        final FileBasedBuilderParametersImpl paramsFb = new FileBasedBuilderParametersImpl();
+        handler.initializeDefaults(paramsFb);
+        assertEquals("Wrong refresh", refresh, paramsFb.getReloadingRefreshDelay());
+    }
 
     /**
      * Tests whether exceptions during copying are re-thrown as runtime exceptions.
@@ -56,6 +66,18 @@ public class TestCopyObjectDefaultHandler_OE25Dev {
     /**
      * Tests whether default values can be copied onto an object of the same type.
      */
+    @Test
+    public void testInitializeDefaultsSameType() {
+        final Long refresh = 50000L;
+        final FileBasedBuilderParametersImpl source = new FileBasedBuilderParametersImpl();
+        source.setReloadingRefreshDelay(refresh).setThrowExceptionOnMissing(true);
+        final CopyObjectDefaultHandler handler = new CopyObjectDefaultHandler(source);
+        final FileBasedBuilderParametersImpl copy = new FileBasedBuilderParametersImpl();
+        handler.initializeDefaults(copy);
+        final Map<String, Object> map = copy.getParameters();
+        assertEquals("Wrong exception flag", Boolean.TRUE, map.get("throwExceptionOnMissing"));
+        assertEquals("Wrong refresh", refresh, copy.getReloadingRefreshDelay());
+    }
 
     /**
      * Tries to create an instance without a source object.
@@ -97,7 +119,6 @@ public class TestCopyObjectDefaultHandler_OE25Dev {
         final FileBasedBuilderParametersImpl copy = new FileBasedBuilderParametersImpl();
         handler.initializeDefaults(copy);
         final Map<String, Object> map = copy.getParameters();
-        // removed other assertion
         assertEquals("Wrong refresh", refresh, copy.getReloadingRefreshDelay());
     }
 

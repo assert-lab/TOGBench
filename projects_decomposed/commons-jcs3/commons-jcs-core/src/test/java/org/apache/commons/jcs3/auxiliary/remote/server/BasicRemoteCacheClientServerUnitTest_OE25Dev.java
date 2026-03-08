@@ -138,6 +138,46 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
      *
      * @throws Exception
      */
+    @Test
+    public void test1SinglePut()
+            throws Exception
+            {
+        // SETUP
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        attributes.setRemoteLocation("localhost", remotePort);
+        attributes.setLocalPort(LOCAL_PORT);
+        attributes.setCacheName("testSinglePut");
+
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, new MockCacheEventLogger(), new MockElementSerializer());
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+
+        // DO WORK
+        final int numPutsPrior = server.getPutCount();
+        final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), "key", "value");
+        cache.update(element);
+        SleepUtil.sleepAtLeast(200);
+
+        // VERIFY
+        try
+        {
+            assertEquals("Cache is alive", CacheStatus.ALIVE, cache.getStatus());
+            assertEquals("Wrong number of puts", 1, server.getPutCount() - numPutsPrior);
+        }
+        catch (final junit.framework.AssertionFailedError e)
+        {
+            System.out.println(cache.getStats());
+            System.out.println(server.getStats());
+            throw e;
+        }
+
+        // DO WORK
+        final ICacheElement<String, String> result = cache.get("key");
+
+        // VERIFY
+        assertEquals("Wrong element.", element.getVal(), result.getVal());
+            }
 
     /**
      * Verify that we can remove an item via the remote server.
@@ -145,6 +185,56 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
      *
      * @throws Exception
      */
+    @Test
+    public void test2PutRemove()
+            throws Exception
+            {
+        // SETUP
+        final MockCompositeCacheManager compositeCacheManager = new MockCompositeCacheManager();
+
+        final RemoteCacheAttributes attributes = new RemoteCacheAttributes();
+        attributes.setRemoteLocation("localhost", remotePort);
+        attributes.setLocalPort(LOCAL_PORT);
+        attributes.setCacheName("testPutRemove");
+
+        final MockCacheEventLogger cacheEventLogger = new MockCacheEventLogger();
+
+        final RemoteCacheManager remoteCacheManager = factory.getManager(attributes, compositeCacheManager, cacheEventLogger, null);
+        final AuxiliaryCache<String, String> cache = remoteCacheManager.getCache(attributes);
+
+        // DO WORK
+        final int numPutsPrior = server.getPutCount();
+        final ICacheElement<String, String> element = new CacheElement<>(cache.getCacheName(), "key", "value");
+        cache.update(element);
+        SleepUtil.sleepAtLeast(50);
+
+        // VERIFY
+        try
+        {
+            assertEquals("Cache is alive", CacheStatus.ALIVE, cache.getStatus());
+            assertEquals("Wrong number of puts", 1, server.getPutCount() - numPutsPrior);
+        }
+        catch (final junit.framework.AssertionFailedError e)
+        {
+            System.out.println(cache.getStats());
+            System.out.println(server.getStats());
+            throw e;
+        }
+
+        // DO WORK
+        final ICacheElement<String, String> result = cache.get("key");
+
+        // VERIFY
+        assertEquals("Wrong element.", element.getVal(), result.getVal());
+
+        // DO WORK
+        cache.remove("key");
+        SleepUtil.sleepAtLeast(200);
+        final ICacheElement<String, String> resultAfterRemote = cache.get("key");
+
+        // VERIFY
+        assertNull("Element resultAfterRemote should be null.", resultAfterRemote);
+            }
 
     /**
      * Register a listener with the server. Send an update. Verify that the listener received it.
@@ -241,6 +331,15 @@ public class BasicRemoteCacheClientServerUnitTest_OE25Dev extends Assert
             System.out.println(server.getStats());
             throw e;
         }
+    }
+
+    @Test
+    public void testLocalHost() throws Exception
+    {
+        final InetAddress byName = InetAddress.getByName("localhost");
+        assertTrue("Expected localhost (" + byName.getHostAddress() + ") to be a loopback address", byName.isLoopbackAddress());
+        final InetAddress localHost = HostNameUtil.getLocalHostLANAddress();
+        assertTrue("Expected getLocalHostLANAddress() (" + localHost + ") to return a site local address", localHost.isSiteLocalAddress());
     }
 
     @Test

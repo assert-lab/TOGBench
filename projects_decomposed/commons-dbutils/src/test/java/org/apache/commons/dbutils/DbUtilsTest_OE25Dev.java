@@ -269,6 +269,13 @@ public class DbUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testLoadDriverReturnsFalse() {
+        
+        assertFalse(DbUtils.loadDriver(""));
+
+    }
+
+    @Test
     public void testCommitAndCloseQuietlyWithNullDoesNotThrowAnSQLException() {
 
         DbUtils.commitAndCloseQuietly(null);

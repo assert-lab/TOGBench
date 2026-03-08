@@ -35,6 +35,34 @@ public class FuzzFixesIT_OE25Dev {
 
     @ParameterizedTest
     @MethodSource("testFiles")
+    void testHtmlParse(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/");
+            assertNotNull(doc);
+            if (System.currentTimeMillis() > completeBy)
+                Assertions.fail(String.format("Timeout: only completed %d iters of [%s] in %d seconds", i, file.getName(), timeout));
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("testFiles")
+    void testXmlParse(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/", Parser.xmlParser());
+            assertNotNull(doc);
+            if (System.currentTimeMillis() > completeBy)
+                Assertions.fail(String.format("Timeout: only completed %d iters of [%s] in %d seconds", i, file.getName(), timeout));
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("testFiles")
     void testHtmlParse_1_oe(File file) throws IOException {
         long startTime = System.currentTimeMillis();
         long completeBy = startTime + timeout * 1000L;

@@ -35,6 +35,35 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class FieldTypeAsciiTest_OE25Dev {
 
   @Test
+  public void testCreatesFieldTypeAsciiAndCallsWriteData() {
+      final FieldTypeAscii fieldTypeAscii = new FieldTypeAscii(0, "1");
+      final byte[] byteArray = new byte[1];
+      final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+      final TiffField tiffField = new TiffField(0, 0, fieldTypeAscii, 0L, 0, byteArray, byteOrder, 1);
+
+      Assertions.assertThrows(ImageWriteException.class, () -> fieldTypeAscii.writeData(tiffField, byteOrder));
+  }
+
+  @Test
+  public void testCreatesFieldTypeAsciiAndWriteDataUsingByteArray() throws ImageWriteException {
+      final FieldTypeAscii fieldTypeAscii = new FieldTypeAscii(0, "1");
+      final byte[] byteArray = new byte[1];
+      final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+      final byte[] byteArrayTwo = fieldTypeAscii.writeData(byteArray, byteOrder);
+
+      assertArrayEquals(new byte[] {(byte)0, (byte)0}, byteArrayTwo);
+  }
+
+    @Test
+    public void testCreatesFieldTypeAsciiAndWriteDataUsingString() throws ImageWriteException {
+        final FieldTypeAscii fieldTypeAscii = new FieldTypeAscii(0, "1");
+        final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+        final byte[] byteArrayTwo = fieldTypeAscii.writeData("asdf", byteOrder);
+
+        assertArrayEquals(new byte[] {(byte)97, (byte)115, (byte)100, (byte)102, (byte)0}, byteArrayTwo);
+    }
+
+  @Test
   public void testCreatesFieldTypeAsciiAndCallsWriteData_1_oe() throws Exception {
       final FieldTypeAscii fieldTypeAscii = new FieldTypeAscii(0, "1");
       final byte[] byteArray = new byte[1];

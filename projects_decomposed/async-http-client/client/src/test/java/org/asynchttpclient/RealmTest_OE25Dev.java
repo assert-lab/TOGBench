@@ -24,6 +24,22 @@ import static org.asynchttpclient.Dsl.*;
 import static org.testng.Assert.assertEquals;
 
 public class RealmTest_OE25Dev {
+  @Test
+  public void testClone() {
+    Realm orig = basicAuthRealm("user", "pass").setCharset(UTF_16)
+            .setUsePreemptiveAuth(true)
+            .setRealmName("realm")
+            .setAlgorithm("algo").build();
+
+    Realm clone = realm(orig).build();
+    assertEquals(clone.getPrincipal(), orig.getPrincipal());
+    assertEquals(clone.getPassword(), orig.getPassword());
+    assertEquals(clone.getCharset(), orig.getCharset());
+    assertEquals(clone.isUsePreemptiveAuth(), orig.isUsePreemptiveAuth());
+    assertEquals(clone.getRealmName(), orig.getRealmName());
+    assertEquals(clone.getAlgorithm(), orig.getAlgorithm());
+    assertEquals(clone.getScheme(), orig.getScheme());
+  }
 
   @Test
   public void testOldDigestEmptyString() throws Exception {
@@ -53,6 +69,32 @@ public class RealmTest_OE25Dev {
     String ha1 = getMd5(user + ":" + realm + ":" + pass);
     String ha2 = getMd5(method + ":" + uri.getPath());
     String expectedResponse = getMd5(ha1 + ":" + nonce + ":" + ha2);
+
+    assertEquals(orig.getResponse(), expectedResponse);
+  }
+
+  @Test
+  public void testStrongDigest() throws Exception {
+    String user = "user";
+    String pass = "pass";
+    String realm = "realm";
+    String nonce = "nonce";
+    String method = "GET";
+    Uri uri = Uri.create("http://ahc.io/foo");
+    String qop = "auth";
+    Realm orig = digestAuthRealm(user, pass)
+            .setNonce(nonce)
+            .setUri(uri)
+            .setMethodName(method)
+            .setRealmName(realm)
+            .setQop(qop)
+            .build();
+
+    String nc = orig.getNc();
+    String cnonce = orig.getCnonce();
+    String ha1 = getMd5(user + ":" + realm + ":" + pass);
+    String ha2 = getMd5(method + ":" + uri.getPath());
+    String expectedResponse = getMd5(ha1 + ":" + nonce + ":" + nc + ":" + cnonce + ":" + qop + ":" + ha2);
 
     assertEquals(orig.getResponse(), expectedResponse);
   }

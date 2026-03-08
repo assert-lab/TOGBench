@@ -22,6 +22,11 @@ public class InitExceptionHandlerTest_OE25Dev {
         service.awaitInitialization();
     }
 
+    @Test
+    public void testInitExceptionHandler() throws Exception {
+        Assert.assertEquals("Custom init error", errorMessage);
+    }
+
     @AfterClass
     public static void tearDown() throws Exception {
         service.stop();

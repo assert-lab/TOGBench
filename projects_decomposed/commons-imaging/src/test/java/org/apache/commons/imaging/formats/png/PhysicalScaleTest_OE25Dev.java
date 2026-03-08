@@ -26,6 +26,26 @@ public class PhysicalScaleTest_OE25Dev {
    private static final double delta = 0.01;
 
    @Test
+   public void createFromMeters() {
+      final PhysicalScale physicalScale = PhysicalScale.createFromMeters(1.0, 2.0);
+
+      assertTrue(physicalScale.isInMeters());
+      assertFalse(physicalScale.isInRadians());
+      assertEquals(physicalScale.getHorizontalUnitsPerPixel(), 1.0, delta);
+      assertEquals(physicalScale.getVerticalUnitsPerPixel(), 2.0, delta);
+   }
+
+   @Test
+   public void createFromRadians() {
+      final PhysicalScale physicalScale = PhysicalScale.createFromRadians(2.0, 1.0);
+
+      assertFalse(physicalScale.isInMeters());
+      assertTrue(physicalScale.isInRadians());
+      assertEquals(physicalScale.getHorizontalUnitsPerPixel(), 2.0, delta);
+      assertEquals(physicalScale.getVerticalUnitsPerPixel(), 1.0, delta);
+   }
+
+   @Test
    public void createFromMeters_1_oe() {
       final PhysicalScale physicalScale = PhysicalScale.createFromMeters(1.0, 2.0);
 

@@ -74,6 +74,21 @@ class LongProviderTest_OE25Dev {
      * This test ensures that the call to {@link LongProvider#nextInt()} returns the
      * upper and then lower 32-bits from {@link LongProvider#nextLong()}.
      */
+    @Test
+    void testNextInt() {
+        final int max = 5;
+        for (int i = 0; i < max; i++) {
+            for (int j = 0; j < max; j++) {
+                // Pack into upper then lower bits
+                final long value = (((long) i) << 32) | (j & 0xffffffffL);
+                final LongProvider provider = new FixedLongProvider(value);
+                Assertions.assertEquals(i, provider.nextInt(), "1st call not the upper 32-bits");
+                Assertions.assertEquals(j, provider.nextInt(), "2nd call not the lower 32-bits");
+                Assertions.assertEquals(i, provider.nextInt(), "3rd call not the upper 32-bits");
+                Assertions.assertEquals(j, provider.nextInt(), "4th call not the lower 32-bits");
+            }
+        }
+    }
 
     /**
      * This test ensures that the call to {@link LongProvider#nextBoolean()} returns
@@ -81,6 +96,26 @@ class LongProviderTest_OE25Dev {
      *
      * <p>The order should be from the least-significant bit.
      */
+    @Test
+    void testNextBoolean() {
+        for (int i = 0; i < Long.SIZE; i++) {
+            // Set only a single bit in the source
+            final long value = 1L << i;
+            final LongProvider provider = new FlipLongProvider(value);
+            // Test the result for a single pass over the long
+            for (int j = 0; j < Long.SIZE; j++) {
+                final boolean expected = i == j;
+                final int index = j;
+                Assertions.assertEquals(expected, provider.nextBoolean(), () -> "Pass 1, bit " + index);
+            }
+            // The second pass should use the opposite bits
+            for (int j = 0; j < Long.SIZE; j++) {
+                final boolean expected = i != j;
+                final int index = j;
+                Assertions.assertEquals(expected, provider.nextBoolean(), () -> "Pass 2, bit " + index);
+            }
+        }
+    }
 
     @Test
     void testNextInt_1_oe() {

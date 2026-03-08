@@ -104,30 +104,179 @@ public abstract class AbstractCheckDigitTest_OE25Dev extends TestCase {
     /**
      * Test isValid() for valid values.
      */
+    public void testIsValidTrue() {
+        if (log.isDebugEnabled()) {
+            log.debug("testIsValidTrue() for " + routine.getClass().getName());
+        }
+
+        // test valid values
+        for (int i = 0; i < valid.length; i++) {
+            if (log.isDebugEnabled()) {
+                log.debug("   " + i + " Testing Valid Code=[" + valid[i] + "]");
+            }
+            assertTrue("valid[" + i +"]: " + valid[i], routine.isValid(valid[i]));
+        }
+    }
 
     /**
      * Test isValid() for invalid values.
      */
+    public void testIsValidFalse() {
+        if (log.isDebugEnabled()) {
+            log.debug("testIsValidFalse() for " + routine.getClass().getName());
+        }
+
+        // test invalid code values
+        for (int i = 0; i < invalid.length; i++) {
+            if (log.isDebugEnabled()) {
+                log.debug("   " + i + " Testing Invalid Code=[" + invalid[i] + "]");
+            }
+            assertFalse("invalid[" + i +"]: " + invalid[i], routine.isValid(invalid[i]));
+        }
+
+        // test invalid check digit values
+        String[] invalidCheckDigits = createInvalidCodes(valid);
+        for (int i = 0; i < invalidCheckDigits.length; i++) {
+            if (log.isDebugEnabled()) {
+                log.debug("   " + i + " Testing Invalid Check Digit, Code=[" + invalidCheckDigits[i] + "]");
+            }
+            assertFalse("invalid check digit[" + i +"]: " + invalidCheckDigits[i], routine.isValid(invalidCheckDigits[i]));
+        }
+    }
 
     /**
      * Test calculate() for valid values.
      */
+    public void testCalculateValid() {
+        if (log.isDebugEnabled()) {
+            log.debug("testCalculateValid() for " + routine.getClass().getName());
+        }
+
+        // test valid values
+        for (int i = 0; i < valid.length; i++) {
+            String code = removeCheckDigit(valid[i]);
+            String expected = checkDigit(valid[i]);
+            try {
+                if (log.isDebugEnabled()) {
+                    log.debug("   " + i + " Testing Valid Check Digit, Code=[" + code + "] expected=[" + expected + "]");
+                }
+                assertEquals("valid[" + i +"]: " + valid[i], expected, routine.calculate(code));
+            } catch (Exception e) {
+                fail("valid[" + i +"]=" + valid[i] + " threw " + e);
+            }
+        }
+
+    }
 
     /**
      * Test calculate() for invalid values.
      */
+    public void testCalculateInvalid() {
+
+        if (log.isDebugEnabled()) {
+            log.debug("testCalculateInvalid() for " + routine.getClass().getName());
+        }
+
+        // test invalid code values
+        for (int i = 0; i < invalid.length; i++) {
+            try {
+                final String code = invalid[i];
+                if (log.isDebugEnabled()) {
+                    log.debug("   " + i + " Testing Invalid Check Digit, Code=[" + code + "]");
+                }
+                String expected = checkDigit(code);
+                String actual = routine.calculate(removeCheckDigit(code));
+                // If exception not thrown, check that the digit is incorrect instead
+                if (expected.equals(actual)) {
+                    fail("Expected mismatch for " + code + " expected " + expected + " actual " + actual);
+                }
+            } catch (CheckDigitException e) {
+                // possible failure messages:
+                // Invalid ISBN Length ...
+                // Invalid Character[ ...
+                // Are there any others?
+                assertTrue("Invalid Character[" +i +"]=" +  e.getMessage(), e.getMessage().startsWith("Invalid "));
+// WAS                assertTrue("Invalid Character[" +i +"]=" +  e.getMessage(), e.getMessage().startsWith("Invalid Character["));
+            }
+        }
+    }
 
     /**
      * Test missing code
      */
+    public void testMissingCode() {
+
+        // isValid() null
+        assertFalse("isValid() Null", routine.isValid(null));
+
+        // isValid() zero length
+        assertFalse("isValid() Zero Length", routine.isValid(""));
+
+        // isValid() length 1
+        // Don't use 0, because that passes for Verhoef (not sure why yet)
+        assertFalse("isValid() Length 1", routine.isValid("9"));
+
+        // calculate() null
+        try {
+            routine.calculate(null);
+            fail("calculate() Null - expected exception");
+        } catch (Exception e) {
+            assertEquals("calculate() Null", missingMessage, e.getMessage());
+        }
+
+        // calculate() zero length
+        try {
+            routine.calculate("");
+            fail("calculate() Zero Length - expected exception");
+        } catch (Exception e) {
+            assertEquals("calculate() Zero Length",  missingMessage, e.getMessage());
+        }
+    }
 
     /**
      * Test zero sum
      */
+    public void testZeroSum() {
+        
+        assertFalse("isValid() Zero Sum", routine.isValid(zeroSum));
+
+        try {
+            routine.calculate(zeroSum);
+            fail("Zero Sum - expected exception");
+        } catch (Exception e) {
+            assertEquals("isValid() Zero Sum",  "Invalid code, sum is zero", e.getMessage());
+        }
+
+    }
 
     /**
      * Test check digit serialization.
      */
+    public void testSerialization() {
+        // Serialize the check digit routine
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(routine);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+            fail(routine.getClass().getName() + " error during serialization: " + e);
+        }
+
+        // Deserialize the test object
+        Object result = null;
+        try {
+            ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (Exception e) {
+            fail(routine.getClass().getName() + " error during deserialization: " + e);
+        }
+        assertNotNull(result);
+    }
 
     private static final String POSSIBLE_CHECK_DIGITS = "0123456789 ABCDEFHIJKLMNOPQRSTUVWXYZ\tabcdefghijklmnopqrstuvwxyz!@£$%^&*()_+";
 //    private static final String POSSIBLE_CHECK_DIGITS = "0123456789";

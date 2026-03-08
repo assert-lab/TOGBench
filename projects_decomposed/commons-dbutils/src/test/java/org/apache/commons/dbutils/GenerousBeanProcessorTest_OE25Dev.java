@@ -46,6 +46,83 @@ public class GenerousBeanProcessorTest_OE25Dev {
         propDescriptors[2] = new PropertyDescriptor("three", TestBean.class);
     }
 
+    @SuppressWarnings("boxing") // test code
+    @Test
+    public void testMapColumnsToPropertiesWithOutUnderscores() throws Exception {
+        when(metaData.getColumnCount()).thenReturn(3);
+        
+        when(metaData.getColumnLabel(1)).thenReturn("three");
+        when(metaData.getColumnLabel(2)).thenReturn("one");
+        when(metaData.getColumnLabel(3)).thenReturn("two");
+        
+        int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
+        
+        assertNotNull(ret);
+        assertEquals(4, ret.length);
+        assertEquals(-1, ret[0]);
+        assertEquals(2, ret[1]);
+        assertEquals(0, ret[2]);
+        assertEquals(1, ret[3]);
+    }
+
+    @SuppressWarnings("boxing") // test code
+    @Test
+    public void testMapColumnsToPropertiesMixedCase() throws Exception {
+        when(metaData.getColumnCount()).thenReturn(3);
+
+        when(metaData.getColumnLabel(1)).thenReturn("tHree");
+        when(metaData.getColumnLabel(2)).thenReturn("One");
+        when(metaData.getColumnLabel(3)).thenReturn("tWO");
+
+        int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
+
+        assertNotNull(ret);
+        assertEquals(4, ret.length);
+        assertEquals(-1, ret[0]);
+        assertEquals(2, ret[1]);
+        assertEquals(0, ret[2]);
+        assertEquals(1, ret[3]);
+    }
+
+    @SuppressWarnings("boxing") // test code
+    @Test
+    public void testMapColumnsToPropertiesWithUnderscores() throws Exception {
+        when(metaData.getColumnCount()).thenReturn(3);
+        
+        when(metaData.getColumnLabel(1)).thenReturn("t_h_r_e_e");
+        when(metaData.getColumnLabel(2)).thenReturn("o_n_e");
+        when(metaData.getColumnLabel(3)).thenReturn("t_w_o");
+        
+        int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
+        
+        assertNotNull(ret);
+        assertEquals(4, ret.length);
+        assertEquals(-1, ret[0]);
+        assertEquals(2, ret[1]);
+        assertEquals(0, ret[2]);
+        assertEquals(1, ret[3]);
+    }
+
+    @SuppressWarnings("boxing") // test code
+    @Test
+    public void testMapColumnsToPropertiesColumnLabelIsNull() throws Exception {
+        when(metaData.getColumnCount()).thenReturn(1);
+        when(metaData.getColumnName(1)).thenReturn("juhu");
+
+        when(metaData.getColumnLabel(1)).thenReturn(null);
+        when(metaData.getColumnLabel(2)).thenReturn("One");
+        when(metaData.getColumnLabel(3)).thenReturn("tWO");
+
+        int[] ret = processor.mapColumnsToProperties(metaData, propDescriptors);
+
+        assertNotNull(ret);
+        assertEquals(2, ret.length);
+        assertEquals(-1, ret[0]);
+        assertEquals(-1, ret[1]);
+        assertEquals(-1, ret[1]);
+        assertEquals(-1, ret[1]);
+    }
+
     static class TestBean {
         private String one;
         private int two;

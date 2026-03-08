@@ -51,6 +51,18 @@ public class TestCombinedConfigurationBuilderVFS_OE25Dev extends TestCombinedCon
     /**
      * Tests if the base path is correctly evaluated.
      */
+    @Test
+    public void testSetConfigurationBasePath() throws ConfigurationException {
+        final File deepDir = new File(ConfigurationAssert.TEST_DIR, "config/deep");
+        final Map<String, Object> params = new HashMap<>();
+        params.put("fileName", "test.properties");
+        final BaseHierarchicalConfiguration defConfig = createDefinitionConfig("properties", params);
+        defConfig.addProperty("override.properties.fileSystem[@config-class]", VFSFileSystem.class.getName());
+        final BasicConfigurationBuilder<? extends HierarchicalConfiguration<ImmutableNode>> defBuilder = createDefinitionBuilder(defConfig);
+        builder.configure(new CombinedBuilderParametersImpl().setDefinitionBuilder(defBuilder).setBasePath(deepDir.getAbsolutePath()));
+        final Configuration config = builder.getConfiguration();
+        assertEquals("Wrong property value", "somevalue", config.getString("somekey"));
+    }
 
     @Test
     public void testSetConfigurationBasePath_1_oe() throws ConfigurationException {

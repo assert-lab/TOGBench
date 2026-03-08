@@ -1,6 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
-conf_392_3,commons-configuration2,TestCompositeConfiguration,testGetStringWithDefaults_3_oe,src/test/java/org/apache/commons/configuration2/TestCompositeConfiguration.java,,,,assert,unknown,standard,fail
-conf_809_6,commons-configuration2,TestAbstractHierarchicalConfiguration,testClearTreeComplex_6_oe,src/test/java/org/apache/commons/configuration2/TestAbstractHierarchicalConfiguration.java,,,,assert,unknown,standard,fail
-conf_1774_2,commons-configuration2,TestConfigurationDynaBean,testGetDescriptors_2_oe,src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean.java,,,,assert,unknown,standard,fail
-conf_1774_3,commons-configuration2,TestConfigurationDynaBean,testGetDescriptors_3_oe,src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean.java,,,,assert,unknown,standard,fail
-conf_1776_2,commons-configuration2,TestConfigurationDynaBean,testGetMappedArguments_2_oe,src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean.java,,,,assert,unknown,standard,fail

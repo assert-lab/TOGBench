@@ -24,6 +24,13 @@ import org.junit.jupiter.api.Assertions;
  * Tests for {@link RandomProviderDefaultState}.
  */
 class RandomProviderDefaultStateTest_OE25Dev {
+    @Test
+    void testConsistency() {
+        final byte[] internalState = {1, 0, -23, 67, -128, 54, 100, 127};
+        final RandomProviderDefaultState state = new RandomProviderDefaultState(internalState);
+
+        Assertions.assertArrayEquals(internalState, state.getState());
+    }
 
     @Test
     void testConsistency_1_oe() {

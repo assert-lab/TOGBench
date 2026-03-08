@@ -81,6 +81,26 @@ class RegularizedBetaTest_OE25Dev {
         testRegularizedBeta(0.75, 0.5, 1.0, 2.0);
     }
 
+    @Test
+    void testRegularizedBetaTinyArgument() {
+        double actual = RegularizedBeta.value(1e-17, 1.0, 1e12);
+        // This value is from R: pbeta(1e-17,1,1e12)
+        Assertions.assertEquals(9.999950000166648e-6, actual, 1e-16);
+    }
+
+    @Test
+    void testMath1067() {
+        final double x = 0.22580645161290325;
+        final double a = 64.33333333333334;
+        final double b = 223;
+
+        try {
+            RegularizedBeta.value(x, a, b, 1e-14, 10000);
+        } catch (StackOverflowError error) {
+            Assertions.fail("Infinite recursion");
+        }
+    }
+
     private void testRegularizedBeta(double expected,
                                      double x,
                                      double a,

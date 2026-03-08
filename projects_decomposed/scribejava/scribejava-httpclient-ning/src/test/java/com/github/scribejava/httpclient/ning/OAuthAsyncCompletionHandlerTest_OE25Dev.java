@@ -55,6 +55,31 @@ public class OAuthAsyncCompletionHandlerTest_OE25Dev {
         callback = new TestCallback();
     }
 
+    @Test
+    public void shouldReleaseLatchOnSuccess() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, ALL_GOOD_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, "ok", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        assertNotNull(callback.getResponse());
+        assertNull(callback.getThrowable());
+        // verify latch is released
+        assertEquals("All good", callback.getResponse());
+    }
+
+    @Test
+    public void shouldReportOAuthException() throws Exception {
+        handler = new OAuthAsyncCompletionHandler<>(callback, OAUTH_EXCEPTION_RESPONSE_CONVERTER);
+
+        final com.ning.http.client.Response response
+                = new MockResponse(200, "ok", new FluentCaseInsensitiveStringsMap(), new byte[0]);
+        handler.onCompleted(response);
+        assertNull(callback.getResponse());
+        assertNotNull(callback.getThrowable());
+        assertTrue(callback.getThrowable() instanceof OAuthException);
+    }
+
     private static class AllGoodResponseConverter implements OAuthRequest.ResponseConverter<String> {
 
         @Override

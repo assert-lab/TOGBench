@@ -75,6 +75,23 @@ public class CustomHeaderProxyTest_OE25Dev extends AbstractBasicTest {
       server2.stop();
     }
 
+    @Test
+    public void testHttpProxy() throws Exception {
+      AsyncHttpClientConfig config = config()
+        .setFollowRedirect(true)
+        .setProxyServer(
+          proxyServer("localhost", port1)
+            .setCustomHeaders((req) -> new DefaultHttpHeaders().add(customHeaderName, customHeaderValue))
+            .build()
+        )
+        .setUseInsecureTrustManager(true)
+        .build();
+      try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config)) {
+        Response r = asyncHttpClient.executeRequest(post(getTargetUrl2()).setBody(new ByteArrayBodyGenerator(LARGE_IMAGE_BYTES))).get();
+        assertEquals(r.getStatusCode(), 200);
+      }
+    }
+
     public static class ProxyHandler extends ConnectHandler {
       String customHeaderName;
       String customHeaderValue;

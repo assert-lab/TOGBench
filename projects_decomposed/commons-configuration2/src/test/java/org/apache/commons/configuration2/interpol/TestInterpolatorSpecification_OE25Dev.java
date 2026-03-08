@@ -100,10 +100,62 @@ public class TestInterpolatorSpecification_OE25Dev {
     /**
      * Tests whether a builder can be reused.
      */
+    @Test
+    public void testBuilderReuse() {
+        builder
+            .withDefaultLookup(createLookup())
+            .withInterpolator(createMock(ConfigurationInterpolator.class))
+            .withPrefixLookup("test", createLookup())
+            .withParentInterpolator(createMock(ConfigurationInterpolator.class))
+            .withStringConverter(obj -> "test")
+            .create();
+        final Lookup prefLook1 = createLookup();
+        final Lookup prefLook2 = createLookup();
+        final Lookup defLook1 = createLookup();
+        final Lookup defLook2 = createLookup();
+        final ConfigurationInterpolator parent = createMock(ConfigurationInterpolator.class);
+        final Function<Object, String> stringConverter = Objects::toString;
+        final InterpolatorSpecification spec = builder
+            .withPrefixLookup(PREFIX1, prefLook1)
+            .withPrefixLookup(PREFIX2, prefLook2)
+            .withDefaultLookups(Arrays.asList(defLook1, defLook2))
+            .withParentInterpolator(parent)
+            .withStringConverter(stringConverter)
+            .create();
+        assertNull("Got an interpolator", spec.getInterpolator());
+        assertSame("Wrong parent interpolator", parent, spec.getParentInterpolator());
+        assertSame("Wrong string converter", stringConverter, spec.getStringConverter());
+        checkPrefixLookups(spec, prefLook1, prefLook2);
+        checkDefaultLookups(spec, defLook1, defLook2);
+    }
 
     /**
      * Tests whether an instance with all possible properties can be set.
      */
+    @Test
+    public void testCreateInstance() {
+        final Lookup prefLook1 = createLookup();
+        final Lookup prefLook2 = createLookup();
+        final Lookup defLook1 = createLookup();
+        final Lookup defLook2 = createLookup();
+        final ConfigurationInterpolator interpolator = createMock(ConfigurationInterpolator.class);
+        final ConfigurationInterpolator parent = createMock(ConfigurationInterpolator.class);
+        final Function<Object, String> stringConverter = Objects::toString;
+        final InterpolatorSpecification spec = builder
+            .withPrefixLookup(PREFIX1, prefLook1)
+            .withDefaultLookup(defLook1)
+            .withPrefixLookup(PREFIX2, prefLook2)
+            .withParentInterpolator(parent)
+            .withDefaultLookup(defLook2)
+            .withInterpolator(interpolator)
+            .withStringConverter(stringConverter)
+            .create();
+        assertSame("Wrong interpolator", interpolator, spec.getInterpolator());
+        assertSame("Wrong parent interpolator", parent, spec.getParentInterpolator());
+        assertSame("Wrong string converter", stringConverter, spec.getStringConverter());
+        checkPrefixLookups(spec, prefLook1, prefLook2);
+        checkDefaultLookups(spec, defLook1, defLook2);
+    }
 
     /**
      * Tests whether lookups can be set passing in full collections.
@@ -154,6 +206,11 @@ public class TestInterpolatorSpecification_OE25Dev {
     /**
      * Tests whether a null collection with default lookups is accepted.
      */
+    @Test
+    public void testWithDefaultLookupsNull() {
+        final InterpolatorSpecification spec = builder.withDefaultLookups(null).create();
+        assertTrue("No empty default lookups collection", spec.getDefaultLookups().isEmpty());
+    }
 
     /**
      * Tests whether a null prefix lookup causes an exception.
@@ -174,6 +231,11 @@ public class TestInterpolatorSpecification_OE25Dev {
     /**
      * Tests whether a null map with prefix lookups is accepted.
      */
+    @Test
+    public void testWithPrefixLookupsNull() {
+        final InterpolatorSpecification spec = builder.withPrefixLookups(null).create();
+        assertTrue("No empty map with prefix lookups", spec.getPrefixLookups().isEmpty());
+    }
 
     @Test
     public void testBuilderReuse_1_oe() {
@@ -222,7 +284,6 @@ public class TestInterpolatorSpecification_OE25Dev {
             .withParentInterpolator(parent)
             .withStringConverter(stringConverter)
             .create();
-        // removed other assertion
         assertSame("Wrong parent interpolator", parent, spec.getParentInterpolator());
     }
 
@@ -248,8 +309,6 @@ public class TestInterpolatorSpecification_OE25Dev {
             .withParentInterpolator(parent)
             .withStringConverter(stringConverter)
             .create();
-        // removed other assertion
-        // removed other assertion
         assertSame("Wrong string converter", stringConverter, spec.getStringConverter());
     }
 
@@ -292,7 +351,6 @@ public class TestInterpolatorSpecification_OE25Dev {
             .withInterpolator(interpolator)
             .withStringConverter(stringConverter)
             .create();
-        // removed other assertion
         assertSame("Wrong parent interpolator", parent, spec.getParentInterpolator());
     }
 
@@ -314,8 +372,6 @@ public class TestInterpolatorSpecification_OE25Dev {
             .withInterpolator(interpolator)
             .withStringConverter(stringConverter)
             .create();
-        // removed other assertion
-        // removed other assertion
         assertSame("Wrong string converter", stringConverter, spec.getStringConverter());
     }
 

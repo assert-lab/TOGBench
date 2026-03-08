@@ -103,26 +103,78 @@ public class TestParameters_OE25Dev {
     /**
      * Tests whether default values are set for newly created parameters objects.
      */
+    @Test
+    public void testApplyDefaults() {
+        final DefaultParametersManager manager = EasyMock.createMock(DefaultParametersManager.class);
+        final List<Object> initializedParams = new ArrayList<>(1);
+        manager.initializeParameters(EasyMock.anyObject(BuilderParameters.class));
+        EasyMock.expectLastCall().andAnswer(() -> {
+            initializedParams.add(EasyMock.getCurrentArguments()[0]);
+            return null;
+        });
+        EasyMock.replay(manager);
+
+        final Parameters params = new Parameters(manager);
+        final XMLBuilderParameters xmlParams = params.xml();
+        assertEquals("Wrong number of initializations", 1, initializedParams.size());
+        assertSame("Wrong initialized object", xmlParams, initializedParams.get(0));
+    }
 
     /**
      * Tests whether a basic parameters object can be created.
      */
+    @Test
+    public void testBasic() {
+        final BasicBuilderParameters basic = new Parameters().basic();
+        assertNotNull("No result object", basic);
+    }
 
     /**
      * Tests whether a combined parameters object can be created.
      */
+    @Test
+    public void testCombined() {
+        final Map<String, Object> map = new Parameters().combined().setThrowExceptionOnMissing(true).setBasePath("test").setListDelimiterHandler(listHandler)
+            .getParameters();
+        final CombinedBuilderParametersImpl cparams = CombinedBuilderParametersImpl.fromParameters(map);
+        assertEquals("Wrong base path", "test", cparams.getBasePath());
+        checkBasicProperties(map);
+    }
 
     /**
      * Tests whether a parameters object for a database configuration can be created.
      */
+    @Test
+    public void testDatabase() {
+        final Map<String, Object> map = new Parameters().database().setThrowExceptionOnMissing(true).setAutoCommit(true).setTable("table")
+            .setListDelimiterHandler(listHandler).setKeyColumn("keyColumn").getParameters();
+        checkBasicProperties(map);
+        assertEquals("Wrong table name", "table", map.get("table"));
+        assertEquals("Wrong key column name", "keyColumn", map.get("keyColumn"));
+        assertEquals("Wrong auto commit flag", Boolean.TRUE, map.get("autoCommit"));
+    }
 
     /**
      * Tests whether an uninitialized default parameters manager is created at construction time.
      */
+    @Test
+    public void testDefaultParametersManager() {
+        final Parameters parameters = new Parameters();
+        assertNotNull("No default manager", parameters.getDefaultParametersManager());
+    }
 
     /**
      * Tests whether a file-based parameters object can be created.
      */
+    @Test
+    public void testFileBased() {
+        final Map<String, Object> map = new Parameters().fileBased().setThrowExceptionOnMissing(true).setEncoding(DEF_ENCODING)
+            .setListDelimiterHandler(listHandler).setFileName("test.xml").getParameters();
+        final FileBasedBuilderParametersImpl fbparams = FileBasedBuilderParametersImpl.fromParameters(map);
+        assertEquals("Wrong file name", "test.xml", fbparams.getFileHandler().getFileName());
+        assertEquals("Wrong encoding", DEF_ENCODING, fbparams.getFileHandler().getEncoding());
+        checkBasicProperties(map);
+    }
 
     /**
      * Tests the inheritance structure of a fileBased parameters object.
@@ -135,6 +187,16 @@ public class TestParameters_OE25Dev {
     /**
      * Tests whether a parameters object for a hierarchical configuration can be created.
      */
+    @Test
+    public void testHierarchical() {
+        final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
+        final Map<String, Object> map = new Parameters().hierarchical().setThrowExceptionOnMissing(true).setExpressionEngine(engine).setFileName("test.xml")
+            .setListDelimiterHandler(listHandler).getParameters();
+        checkBasicProperties(map);
+        final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
+        assertEquals("Wrong file name", "test.xml", fbp.getFileHandler().getFileName());
+        assertEquals("Wrong expression engine", engine, map.get("expressionEngine"));
+    }
 
     /**
      * Tests the inheritance structure of a hierarchical parameters object.
@@ -148,18 +210,71 @@ public class TestParameters_OE25Dev {
      * Tests whether the parameters objects created by the Parameters instance have a logic inheritance hierarchy. This
      * means that they also implement all base interfaces that make sense.
      */
+    @Test
+    public void testInheritance() {
+        final Object params = new Parameters().xml();
+        assertTrue("No instance of base interface", params instanceof FileBasedBuilderParameters);
+        assertTrue("No instance of base interface (dynamic)", FileBasedBuilderParameters.class.isInstance(params));
+        final FileBasedBuilderParameters fbParams = (FileBasedBuilderParameters) params;
+        fbParams.setListDelimiterHandler(listHandler).setFileName("test.xml").setThrowExceptionOnMissing(true);
+        final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
+        ((HierarchicalBuilderParameters) params).setExpressionEngine(engine);
+        final Map<String, Object> map = fbParams.getParameters();
+        checkBasicProperties(map);
+        assertSame("Wrong expression engine", engine, map.get("expressionEngine"));
+    }
 
     /**
      * Tests whether a JNDI parameters object can be created.
      */
+    @Test
+    public void testJndi() {
+        final Map<String, Object> map = new Parameters().jndi().setThrowExceptionOnMissing(true).setPrefix("test").setListDelimiterHandler(listHandler)
+            .getParameters();
+        assertEquals("Wrong prefix", "test", map.get("prefix"));
+        checkBasicProperties(map);
+    }
 
     /**
      * Tests whether a {@code MultiFileBuilderParameters} object can be created.
      */
+    @Test
+    public void testMultiFile() {
+        final BuilderParameters bp = EasyMock.createMock(BuilderParameters.class);
+        final String pattern = "a pattern";
+        final Map<String, Object> map = new Parameters().multiFile().setThrowExceptionOnMissing(true).setFilePattern(pattern)
+            .setListDelimiterHandler(listHandler).setManagedBuilderParameters(bp).getParameters();
+        checkBasicProperties(map);
+        final MultiFileBuilderParametersImpl params = MultiFileBuilderParametersImpl.fromParameters(map);
+        assertSame("Wrong builder parameters", bp, params.getManagedBuilderParameters());
+        assertEquals("Wrong pattern", pattern, params.getFilePattern());
+    }
 
     /**
      * Tests whether a parameters object for a properties configuration can be created.
      */
+    @Test
+    public void testProperties() {
+        final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
+        final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
+        // @formatter:off
+        final Map<String, Object> map =
+                new Parameters().properties()
+                        .setThrowExceptionOnMissing(true)
+                        .setFileName("test.properties")
+                        .setIncludeListener(includeListener)
+                        .setIOFactory(factory)
+                        .setListDelimiterHandler(listHandler)
+                        .setIncludesAllowed(false)
+                        .getParameters();
+        // @formatter:on
+        checkBasicProperties(map);
+        final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
+        assertEquals("Wrong file name", "test.properties", fbp.getFileHandler().getFileName());
+        assertEquals("Wrong includes flag", Boolean.FALSE, map.get("includesAllowed"));
+        assertSame("Wrong include listener", includeListener, map.get("includeListener"));
+        assertSame("Wrong factory", factory, map.get("IOFactory"));
+    }
 
     /**
      * Tests the inheritance structure of a properties parameters object.
@@ -172,6 +287,13 @@ public class TestParameters_OE25Dev {
     /**
      * Tests whether the proxy parameters object can deal with methods inherited from Object.
      */
+    @Test
+    public void testProxyObjectMethods() {
+        final FileBasedBuilderParameters params = new Parameters().fileBased();
+        final String s = params.toString();
+        assertTrue("Wrong string: " + s, s.indexOf(FileBasedBuilderParametersImpl.class.getSimpleName()) >= 0);
+        assertTrue("No hash code", params.hashCode() != 0);
+    }
 
     /**
      * Tests the registration of a defaults handler if no start class is provided.
@@ -206,6 +328,18 @@ public class TestParameters_OE25Dev {
     /**
      * Tests whether a parameters object for an XML configuration can be created.
      */
+    @Test
+    public void testXml() {
+        final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
+        final Map<String, Object> map = new Parameters().xml().setThrowExceptionOnMissing(true).setFileName("test.xml").setValidating(true)
+            .setExpressionEngine(engine).setListDelimiterHandler(listHandler).setSchemaValidation(true).getParameters();
+        checkBasicProperties(map);
+        final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
+        assertEquals("Wrong file name", "test.xml", fbp.getFileHandler().getFileName());
+        assertEquals("Wrong validation flag", Boolean.TRUE, map.get("validating"));
+        assertEquals("Wrong schema flag", Boolean.TRUE, map.get("schemaValidation"));
+        assertEquals("Wrong expression engine", engine, map.get("expressionEngine"));
+    }
 
     /**
      * Tests the inheritance structure of an XML parameters object.
@@ -244,7 +378,6 @@ public class TestParameters_OE25Dev {
 
         final Parameters params = new Parameters(manager);
         final XMLBuilderParameters xmlParams = params.xml();
-        // removed other assertion
         assertSame("Wrong initialized object", xmlParams, initializedParams.get(0));
     }
 
@@ -275,7 +408,6 @@ public class TestParameters_OE25Dev {
         final Map<String, Object> map = new Parameters().database().setThrowExceptionOnMissing(true).setAutoCommit(true).setTable("table")
             .setListDelimiterHandler(listHandler).setKeyColumn("keyColumn").getParameters();
         checkBasicProperties(map);
-        // removed other assertion
         assertEquals("Wrong key column name", "keyColumn", map.get("keyColumn"));
     }
 
@@ -284,8 +416,6 @@ public class TestParameters_OE25Dev {
         final Map<String, Object> map = new Parameters().database().setThrowExceptionOnMissing(true).setAutoCommit(true).setTable("table")
             .setListDelimiterHandler(listHandler).setKeyColumn("keyColumn").getParameters();
         checkBasicProperties(map);
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong auto commit flag", Boolean.TRUE, map.get("autoCommit"));
     }
 
@@ -308,7 +438,6 @@ public class TestParameters_OE25Dev {
         final Map<String, Object> map = new Parameters().fileBased().setThrowExceptionOnMissing(true).setEncoding(DEF_ENCODING)
             .setListDelimiterHandler(listHandler).setFileName("test.xml").getParameters();
         final FileBasedBuilderParametersImpl fbparams = FileBasedBuilderParametersImpl.fromParameters(map);
-        // removed other assertion
         assertEquals("Wrong encoding", DEF_ENCODING, fbparams.getFileHandler().getEncoding());
     }
 
@@ -329,7 +458,6 @@ public class TestParameters_OE25Dev {
             .setListDelimiterHandler(listHandler).getParameters();
         checkBasicProperties(map);
         final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
-        // removed other assertion
         assertEquals("Wrong expression engine", engine, map.get("expressionEngine"));
     }
 
@@ -342,15 +470,12 @@ public class TestParameters_OE25Dev {
     @Test
     public void testInheritance_2_oe() {
         final Object params = new Parameters().xml();
-        // removed other assertion
         assertTrue("No instance of base interface (dynamic)", FileBasedBuilderParameters.class.isInstance(params));
     }
 
     @Test
     public void testInheritance_3_oe() {
         final Object params = new Parameters().xml();
-        // removed other assertion
-        // removed other assertion
         final FileBasedBuilderParameters fbParams = (FileBasedBuilderParameters) params;
         fbParams.setListDelimiterHandler(listHandler).setFileName("test.xml").setThrowExceptionOnMissing(true);
         final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
@@ -386,7 +511,6 @@ public class TestParameters_OE25Dev {
             .setListDelimiterHandler(listHandler).setManagedBuilderParameters(bp).getParameters();
         checkBasicProperties(map);
         final MultiFileBuilderParametersImpl params = MultiFileBuilderParametersImpl.fromParameters(map);
-        // removed other assertion
         assertEquals("Wrong pattern", pattern, params.getFilePattern());
     }
 
@@ -394,7 +518,6 @@ public class TestParameters_OE25Dev {
     public void testProperties_1_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
-        // @formatter:off
         final Map<String, Object> map =
                 new Parameters().properties()
                         .setThrowExceptionOnMissing(true)
@@ -404,7 +527,6 @@ public class TestParameters_OE25Dev {
                         .setListDelimiterHandler(listHandler)
                         .setIncludesAllowed(false)
                         .getParameters();
-        // @formatter:on
         checkBasicProperties(map);
         final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
         assertEquals("Wrong file name", "test.properties", fbp.getFileHandler().getFileName());
@@ -414,7 +536,6 @@ public class TestParameters_OE25Dev {
     public void testProperties_2_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
-        // @formatter:off
         final Map<String, Object> map =
                 new Parameters().properties()
                         .setThrowExceptionOnMissing(true)
@@ -424,10 +545,8 @@ public class TestParameters_OE25Dev {
                         .setListDelimiterHandler(listHandler)
                         .setIncludesAllowed(false)
                         .getParameters();
-        // @formatter:on
         checkBasicProperties(map);
         final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
-        // removed other assertion
         assertEquals("Wrong includes flag", Boolean.FALSE, map.get("includesAllowed"));
     }
 
@@ -435,7 +554,6 @@ public class TestParameters_OE25Dev {
     public void testProperties_3_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
-        // @formatter:off
         final Map<String, Object> map =
                 new Parameters().properties()
                         .setThrowExceptionOnMissing(true)
@@ -445,11 +563,8 @@ public class TestParameters_OE25Dev {
                         .setListDelimiterHandler(listHandler)
                         .setIncludesAllowed(false)
                         .getParameters();
-        // @formatter:on
         checkBasicProperties(map);
         final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
-        // removed other assertion
-        // removed other assertion
         assertSame("Wrong include listener", includeListener, map.get("includeListener"));
     }
 
@@ -457,7 +572,6 @@ public class TestParameters_OE25Dev {
     public void testProperties_4_oe() {
         final PropertiesConfiguration.IOFactory factory = EasyMock.createMock(PropertiesConfiguration.IOFactory.class);
         final ConfigurationConsumer<ConfigurationException> includeListener = EasyMock.createMock(ConfigurationConsumer.class);
-        // @formatter:off
         final Map<String, Object> map =
                 new Parameters().properties()
                         .setThrowExceptionOnMissing(true)
@@ -467,12 +581,8 @@ public class TestParameters_OE25Dev {
                         .setListDelimiterHandler(listHandler)
                         .setIncludesAllowed(false)
                         .getParameters();
-        // @formatter:on
         checkBasicProperties(map);
         final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertSame("Wrong factory", factory, map.get("IOFactory"));
     }
 
@@ -487,7 +597,6 @@ public class TestParameters_OE25Dev {
     public void testProxyObjectMethods_2_oe() {
         final FileBasedBuilderParameters params = new Parameters().fileBased();
         final String s = params.toString();
-        // removed other assertion
         assertTrue("No hash code", params.hashCode() != 0);
     }
 
@@ -508,7 +617,6 @@ public class TestParameters_OE25Dev {
             .setExpressionEngine(engine).setListDelimiterHandler(listHandler).setSchemaValidation(true).getParameters();
         checkBasicProperties(map);
         final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
-        // removed other assertion
         assertEquals("Wrong validation flag", Boolean.TRUE, map.get("validating"));
     }
 
@@ -519,8 +627,6 @@ public class TestParameters_OE25Dev {
             .setExpressionEngine(engine).setListDelimiterHandler(listHandler).setSchemaValidation(true).getParameters();
         checkBasicProperties(map);
         final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong schema flag", Boolean.TRUE, map.get("schemaValidation"));
     }
 
@@ -531,9 +637,6 @@ public class TestParameters_OE25Dev {
             .setExpressionEngine(engine).setListDelimiterHandler(listHandler).setSchemaValidation(true).getParameters();
         checkBasicProperties(map);
         final FileBasedBuilderParametersImpl fbp = FileBasedBuilderParametersImpl.fromParameters(map);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong expression engine", engine, map.get("expressionEngine"));
     }
 

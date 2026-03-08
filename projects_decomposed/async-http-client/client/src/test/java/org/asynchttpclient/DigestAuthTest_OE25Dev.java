@@ -52,6 +52,44 @@ public class DigestAuthTest_OE25Dev extends AbstractBasicTest {
     return new SimpleHandler();
   }
 
+  @Test
+  public void digestAuthTest() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.prepareGet("http://localhost:" + port1 + "/")
+              .setRealm(digestAuthRealm(USER, ADMIN).setRealmName("MyRealm").build())
+              .execute();
+      Response resp = f.get(60, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertNotNull(resp.getHeader("X-Auth"));
+    }
+  }
+
+  @Test
+  public void digestAuthTestWithoutScheme() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.prepareGet("http://localhost:" + port1 + "/")
+              .setRealm(digestAuthRealm(USER, ADMIN).setRealmName("MyRealm").build())
+              .execute();
+      Response resp = f.get(60, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertNotNull(resp.getHeader("X-Auth"));
+    }
+  }
+
+  @Test
+  public void digestAuthNegativeTest() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.prepareGet("http://localhost:" + port1 + "/")
+              .setRealm(digestAuthRealm("fake", ADMIN).build())
+              .execute();
+      Response resp = f.get(20, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), 401);
+    }
+  }
+
   private static class SimpleHandler extends AbstractHandler {
     public void handle(String s, Request r, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
       response.addHeader("X-Auth", request.getHeader("Authorization"));

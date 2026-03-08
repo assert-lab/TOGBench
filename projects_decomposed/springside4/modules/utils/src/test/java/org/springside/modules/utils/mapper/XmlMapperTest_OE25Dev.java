@@ -44,6 +44,31 @@ import com.google.common.collect.Lists;
  */
 public class XmlMapperTest_OE25Dev {
 
+	@Test
+	public void objectToXml() {
+		User user = new User();
+		user.setId(1L);
+		user.setName("calvin");
+
+		user.getInterests().add("movie");
+		user.getInterests().add("sports");
+
+		String xml = XmlMapper.toXml(user, "UTF-8");
+		System.out.println("Jaxb Object to Xml result:\n" + xml);
+		assertXmlByDom4j(xml);
+	}
+
+	@Test
+	public void xmlToObject() {
+		String xml = generateXmlByDom4j();
+		User user = XmlMapper.fromXml(xml, User.class);
+
+		System.out.println("Jaxb Xml to Object result:\n" + user);
+
+		assertThat(user.getId()).isEqualTo(1L);
+		assertThat(user.getInterests()).containsOnly("movie", "sports");
+	}
+
 	/**
 	 * 测试以List对象作为根节点时的XML输出
 	 */

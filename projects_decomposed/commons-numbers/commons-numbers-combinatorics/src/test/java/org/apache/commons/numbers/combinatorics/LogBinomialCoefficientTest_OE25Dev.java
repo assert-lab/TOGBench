@@ -26,11 +26,78 @@ import static org.junit.jupiter.api.Assertions.fail;
  */
 class LogBinomialCoefficientTest_OE25Dev {
     /** Verify that b(0,0) = 1 */
+    @Test
+    void test0Choose0() {
+        Assertions.assertEquals(0d, LogBinomialCoefficient.value(0, 0));
+    }
+
+    @Test
+    void testBinomialCoefficient() {
+        final long[] bcoef5 = {1, 5, 10, 10, 5, 1};
+        final long[] bcoef6 = {1, 6, 15, 20, 15, 6, 1};
+
+        for (int n = 1; n < 10; n++) {
+            for (int k = 0; k <= n; k++) {
+                Assertions.assertEquals(Math.log(BinomialCoefficientTest.binomialCoefficient(n,k)),LogBinomialCoefficient.value(n,k),1e-12,n + " choose " + k);
+            }
+        }
+
+        final int[] n = {34, 66, 100, 1500, 1500};
+        final int[] k = {17, 33, 10, 1500 - 4, 4};
+        for (int i = 0; i < n.length; i++) {
+            final long expected = BinomialCoefficientTest.binomialCoefficient(n[i], k[i]);
+            Assertions.assertEquals(Math.log(expected),LogBinomialCoefficient.value(n[i],k[i]),0d,"log(" + n[i] + " choose " + k[i] + ")");
+        }
+    }
+
+    @Test
+    void testBinomialCoefficientFail1() {
+        Assertions.assertThrows(CombinatoricsException.class,
+            () -> LogBinomialCoefficient.value(4, 5)
+        );
+    }
+
+    @Test
+    void testBinomialCoefficientFail2() {
+        Assertions.assertThrows(CombinatoricsException.class,
+            () -> LogBinomialCoefficient.value(-1, -2)
+        );
+    }
 
     /**
      * Tests correctness for large n and sharpness of upper bound in API doc
      * JIRA: MATH-241
      */
+    @Test
+    void testBinomialCoefficientLarge() throws Exception {
+        // This tests all legal and illegal values for n <= 200.
+        for (int n = 0; n <= 200; n++) {
+            for (int k = 0; k <= n; k++) {
+                long exactResult = -1;
+                boolean shouldThrow = false;
+                boolean didThrow = false;
+                try {
+                    BinomialCoefficient.value(n, k);
+                } catch (ArithmeticException ex) {
+                    didThrow = true;
+                }
+                try {
+                    exactResult = BinomialCoefficientTest.binomialCoefficient(n, k);
+                } catch (ArithmeticException ex) {
+                    shouldThrow = true;
+                }
+
+                if (!shouldThrow && exactResult > 1) {
+                    Assertions.assertEquals(1,LogBinomialCoefficient.value(n,k)/ Math.log(exactResult),1e-10,n + " choose " + k);
+                }
+            }
+        }
+
+        final int n = 10000;
+        final double actualOverExpected = LogBinomialCoefficient.value(n, 3) /
+            Math.log(BinomialCoefficientTest.binomialCoefficient(n, 3));
+        Assertions.assertEquals(1, actualOverExpected, 1e-10);
+    }
 
     @Test
     void test0Choose0_1_oe() {

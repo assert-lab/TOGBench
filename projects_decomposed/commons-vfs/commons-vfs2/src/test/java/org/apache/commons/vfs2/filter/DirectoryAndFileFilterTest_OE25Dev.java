@@ -105,6 +105,55 @@ public class DirectoryAndFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
+    public void testAcceptZipFile() throws FileSystemException {
+
+        FileObject[] files;
+
+        // FILE Filter
+        files = zipFileObj.findFiles(new FileSelector() {
+            @Override
+            public boolean includeFile(final FileSelectInfo fileInfo) throws Exception {
+                return FileFileFilter.FILE.accept(fileInfo);
+            }
+
+            @Override
+            public boolean traverseDescendents(final FileSelectInfo fileInfo) throws Exception {
+                return true;
+            }
+        });
+        assertContains(files, FILE);
+        Assert.assertEquals(1, files.length);
+
+        // DIRECTORY Filter
+        files = zipFileObj.findFiles(new FileFilterSelector(DirectoryFileFilter.DIRECTORY));
+        assertContains(files, DIR);
+        Assert.assertEquals(1, files.length);
+
+    }
+
+    @Test
+    public void testDirectoryFileFilter() throws FileSystemException {
+
+        final FileFilter testee = DirectoryFileFilter.DIRECTORY;
+
+        Assert.assertTrue(testee.accept(dirInfo));
+        Assert.assertFalse(testee.accept(fileInfo));
+        Assert.assertFalse(testee.accept(notExistingFileInfo));
+
+    }
+
+    @Test
+    public void testFileFileFilter() throws FileSystemException {
+
+        final FileFilter testee = FileFileFilter.FILE;
+
+        Assert.assertTrue(testee.accept(fileInfo));
+        Assert.assertFalse(testee.accept(dirInfo));
+        Assert.assertFalse(testee.accept(notExistingFileInfo));
+
+    }
+
+    @Test
     public void testAcceptZipFile_2_oe() throws FileSystemException {
 
         FileObject[] files;

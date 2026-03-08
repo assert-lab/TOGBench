@@ -63,6 +63,11 @@ class PoissonSamplerTest_OE25Dev {
      * Test the toString method. This is added to ensure coverage as the factory constructor
      * used in other tests does not create an instance of the wrapper class.
      */
+    @Test
+    void testToString() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertTrue(new PoissonSampler(rng, 1.23).toString().toLowerCase().contains("poisson"));
+    }
 
     @Test
     void testToString_1_oe() {

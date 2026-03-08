@@ -62,6 +62,142 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
     }
 
     @Test
+    void testProperties_infinite() {
+        // arrange
+        final ConvexArea area = ConvexArea.full();
+
+        // act
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area);
+
+        // assert
+        Assertions.assertTrue(ps.isFull());
+        Assertions.assertFalse(ps.isEmpty());
+        Assertions.assertFalse(ps.isFinite());
+        Assertions.assertTrue(ps.isInfinite());
+
+        GeometryTestUtils.assertPositiveInfinity(ps.getSize());
+
+        Assertions.assertSame(XY_PLANE_Z1, ps.getPlane());
+        Assertions.assertSame(area, ps.getSubspaceRegion());
+
+        Assertions.assertEquals(0, ps.getVertices().size());
+    }
+
+    @Test
+    void testProperties_finite() {
+        // arrange
+        final ConvexArea area = ConvexArea.convexPolygonFromPath(LinePath.builder(TEST_PRECISION)
+                .appendVertices(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1))
+                .build(true));
+
+        // act
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area);
+
+        // assert
+        Assertions.assertFalse(ps.isFull());
+        Assertions.assertFalse(ps.isEmpty());
+        Assertions.assertTrue(ps.isFinite());
+        Assertions.assertFalse(ps.isInfinite());
+
+        Assertions.assertEquals(0.5, ps.getSize(), TEST_EPS);
+
+        Assertions.assertSame(XY_PLANE_Z1, ps.getPlane());
+        Assertions.assertSame(area, ps.getSubspaceRegion());
+
+        EuclideanTestUtils.assertVertexLoopSequence(
+                Arrays.asList(Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0, 1, 1)),
+                ps.getVertices(), TEST_PRECISION);
+    }
+
+    @Test
+    void testGetVertices_twoParallelLines() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromNormal(Vector3D.Unit.PLUS_Z, TEST_PRECISION).getEmbedding();
+        final PlaneConvexSubset sp = new EmbeddedAreaPlaneConvexSubset(plane, ConvexArea.fromBounds(
+                    Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION),
+                    Lines.fromPointAndAngle(Vector2D.of(0, -1), 0.0, TEST_PRECISION)
+                ));
+
+        // act
+        final List<Vector3D> vertices = sp.getVertices();
+
+        // assert
+        Assertions.assertEquals(0, vertices.size());
+    }
+
+    @Test
+    void testGetVertices_infiniteWithVertices() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1), Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+        final PlaneConvexSubset sp = new EmbeddedAreaPlaneConvexSubset(plane, ConvexArea.fromBounds(
+                    Lines.fromPointAndAngle(Vector2D.of(0, 1), Math.PI, TEST_PRECISION),
+                    Lines.fromPointAndAngle(Vector2D.of(0, -1), 0.0, TEST_PRECISION),
+                    Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION)
+                ));
+
+        // act
+        final List<Vector3D> vertices = sp.getVertices();
+
+        // assert
+        Assertions.assertEquals(2, vertices.size());
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, -1, 1), vertices.get(0), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 1, 1), vertices.get(1), TEST_EPS);
+    }
+    @Test
+    void testToTriangles_infinite() {
+        // arrange
+        final Pattern pattern = Pattern.compile("^Cannot convert infinite plane subset to triangles: .*");
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, ConvexArea.full()).toTriangles();
+        }, IllegalStateException.class, pattern);
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            final ConvexArea area = ConvexArea.fromBounds(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION));
+            final EmbeddedAreaPlaneConvexSubset halfSpace = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area);
+
+            halfSpace.toTriangles();
+        }, IllegalStateException.class, pattern);
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            final ConvexArea area = ConvexArea.fromBounds(
+                    Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION),
+                    Lines.fromPointAndAngle(Vector2D.ZERO, 0.5 * Math.PI, TEST_PRECISION));
+
+            final EmbeddedAreaPlaneConvexSubset halfSpaceWithVertices = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1, area);
+
+            halfSpaceWithVertices.toTriangles();
+        }, IllegalStateException.class, pattern);
+    }
+
+    @Test
+    void testToTriangles_finite() {
+        // arrange
+        final Vector3D p1 = Vector3D.of(0, 0, 1);
+        final Vector3D p2 = Vector3D.of(1, 0, 1);
+        final Vector3D p3 = Vector3D.of(2, 1, 1);
+        final Vector3D p4 = Vector3D.of(1.5, 1, 1);
+
+        final List<Vector2D> subPts = XY_PLANE_Z1.toSubspace(Arrays.asList(p1, p2, p3, p4));
+
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
+                ConvexArea.convexPolygonFromVertices(subPts, TEST_PRECISION));
+
+        // act
+        final List<Triangle3D> tris = ps.toTriangles();
+
+        // assert
+        Assertions.assertEquals(2, tris.size());
+
+        EuclideanTestUtils.assertVertexLoopSequence(Arrays.asList(p4, p1, p2),
+                tris.get(0).getVertices(), TEST_PRECISION);
+        EuclideanTestUtils.assertVertexLoopSequence(Arrays.asList(p4, p2, p3),
+                tris.get(1).getVertices(), TEST_PRECISION);
+    }
+
+    @Test
     void testClassify() {
         // arrange
         final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
@@ -100,6 +236,21 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
     }
 
     @Test
+    void testGetBounds_noBounds() {
+        // arrange
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
+                Vector3D.Unit.PLUS_Y, Vector3D.Unit.MINUS_X, TEST_PRECISION);
+
+        final EmbeddedAreaPlaneConvexSubset full = new EmbeddedAreaPlaneConvexSubset(plane, ConvexArea.full());
+        final EmbeddedAreaPlaneConvexSubset halfPlane = new EmbeddedAreaPlaneConvexSubset(plane,
+                ConvexArea.fromBounds(Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION)));
+
+        // act/assert
+        Assertions.assertNull(full.getBounds());
+        Assertions.assertNull(halfPlane.getBounds());
+    }
+
+    @Test
     void testGetBounds_hasBounds() {
         // arrange
         final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.of(0, 0, 1),
@@ -116,6 +267,183 @@ class EmbeddedAreaPlaneConvexSubsetTest_OE25Dev {
         // assert
         EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-2, 1, 1), bounds.getMin(), TEST_EPS);
         EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(-1, 2, 1), bounds.getMax(), TEST_EPS);
+    }
+
+    @Test
+    void testTransform() {
+        // arrange
+        final AffineTransformMatrix3D t = AffineTransformMatrix3D.identity()
+                .rotate(QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Y, -Angle.PI_OVER_TWO))
+                .scale(1, 1, 2)
+                .translate(Vector3D.of(1, 0, 0));
+
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
+                Parallelogram.builder(TEST_PRECISION)
+                    .setPosition(Vector2D.of(2, 3))
+                    .setScale(2, 2)
+                    .build());
+
+        // act
+        final EmbeddedAreaPlaneConvexSubset result = ps.transform(t);
+
+        // assert
+        Assertions.assertFalse(result.isFull());
+        Assertions.assertFalse(result.isEmpty());
+        Assertions.assertTrue(result.isFinite());
+        Assertions.assertFalse(result.isInfinite());
+
+        Assertions.assertEquals(8, result.getSize(), TEST_EPS);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_X, result.getPlane().getNormal(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Z, result.getPlane().getU(), TEST_EPS);
+
+        EuclideanTestUtils.assertVertexLoopSequence(
+                Arrays.asList(Vector3D.of(0, 2, 2), Vector3D.of(0, 2, 6), Vector3D.of(0, 4, 6), Vector3D.of(0, 4, 2)),
+                result.getVertices(), TEST_PRECISION);
+    }
+
+    @Test
+    void testReverse() {
+        // arrange
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
+                Parallelogram.builder(TEST_PRECISION)
+                    .setPosition(Vector2D.of(2, 3))
+                    .setScale(2, 2)
+                    .build());
+
+        // act
+        final EmbeddedAreaPlaneConvexSubset result = ps.reverse();
+
+        // assert
+        Assertions.assertFalse(result.isFull());
+        Assertions.assertFalse(result.isEmpty());
+        Assertions.assertTrue(result.isFinite());
+        Assertions.assertFalse(result.isInfinite());
+
+        Assertions.assertEquals(4, result.getSize(), TEST_EPS);
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.MINUS_Z, result.getPlane().getNormal(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.Unit.PLUS_Y, result.getPlane().getU(), TEST_EPS);
+
+        EuclideanTestUtils.assertVertexLoopSequence(
+                Arrays.asList(Vector3D.of(1, 4, 1), Vector3D.of(3, 4, 1), Vector3D.of(3, 2, 1), Vector3D.of(1, 2, 1)),
+                result.getVertices(), TEST_PRECISION);
+    }
+
+    @Test
+    void testSplit_plus() {
+        // arrange
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
+                ConvexArea.convexPolygonFromVertices(Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1)),
+                        TEST_PRECISION));
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Split<PlaneConvexSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+
+        Assertions.assertNull(split.getMinus());
+        Assertions.assertSame(ps, split.getPlus());
+    }
+
+    @Test
+    void testSplit_minus() {
+        // arrange
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
+                ConvexArea.convexPolygonFromVertices(Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1)),
+                        TEST_PRECISION));
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.MINUS_Z, TEST_PRECISION);
+
+        // act
+        final Split<PlaneConvexSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.MINUS, split.getLocation());
+
+        Assertions.assertSame(ps, split.getMinus());
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testSplit_both() {
+        // arrange
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
+                ConvexArea.convexPolygonFromVertices(Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1)),
+                        TEST_PRECISION));
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.of(-1, 1, 0), TEST_PRECISION);
+
+        // act
+        final Split<PlaneConvexSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        final PlaneConvexSubset minus = split.getMinus();
+        EuclideanTestUtils.assertVertexLoopSequence(
+                Arrays.asList(Vector3D.of(0, 0, 1), Vector3D.of(1, 0, 1), Vector3D.of(0.5, 0.5, 1)),
+                minus.getVertices(), TEST_PRECISION);
+
+        final PlaneConvexSubset plus = split.getPlus();
+        EuclideanTestUtils.assertVertexLoopSequence(
+                Arrays.asList(Vector3D.of(0, 0, 1), Vector3D.of(0.5, 0.5, 1), Vector3D.of(0, 1, 1)),
+                plus.getVertices(), TEST_PRECISION);
+    }
+
+    @Test
+    void testSplit_neither() {
+        // arrange
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(XY_PLANE_Z1,
+                ConvexArea.convexPolygonFromVertices(Arrays.asList(Vector2D.ZERO, Vector2D.of(1, 0), Vector2D.of(0, 1)),
+                        TEST_PRECISION));
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0, 0, 1), Vector3D.of(0, 1e-15, -1), TEST_PRECISION);
+
+        // act
+        final Split<PlaneConvexSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.NEITHER, split.getLocation());
+
+        Assertions.assertNull(split.getMinus());
+        Assertions.assertNull(split.getPlus());
+    }
+
+    @Test
+    void testSplit_usesVertexBasedSubsetsWhenPossible() {
+        // arrange
+        // create an infinite subset
+        final EmbeddingPlane plane = Planes.fromPointAndPlaneVectors(Vector3D.ZERO,
+                Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_Y, TEST_PRECISION);
+        final EmbeddedAreaPlaneConvexSubset ps = new EmbeddedAreaPlaneConvexSubset(plane, ConvexArea.fromBounds(
+                    Lines.fromPointAndAngle(Vector2D.ZERO, 0, TEST_PRECISION),
+                    Lines.fromPointAndAngle(Vector2D.of(1, 0), Angle.PI_OVER_TWO, TEST_PRECISION),
+                    Lines.fromPointAndAngle(Vector2D.of(0, 1), -Angle.PI_OVER_TWO, TEST_PRECISION)
+                ));
+
+        final Plane splitter = Planes.fromPointAndNormal(Vector3D.of(0.5, 0.5, 0), Vector3D.of(-1, 1, 0), TEST_PRECISION);
+
+        // act
+        final Split<PlaneConvexSubset> split = ps.split(splitter);
+
+        // assert
+        Assertions.assertTrue(ps.isInfinite());
+
+        Assertions.assertEquals(SplitLocation.BOTH, split.getLocation());
+
+        final PlaneConvexSubset plus = split.getPlus();
+        Assertions.assertNotNull(plus);
+        Assertions.assertTrue(plus.isInfinite());
+        Assertions.assertTrue(plus instanceof EmbeddedAreaPlaneConvexSubset);
+
+        final PlaneConvexSubset minus = split.getMinus();
+        Assertions.assertNotNull(minus);
+        Assertions.assertFalse(minus.isInfinite());
+        Assertions.assertTrue(minus instanceof SimpleTriangle3D);
     }
 
     @Test

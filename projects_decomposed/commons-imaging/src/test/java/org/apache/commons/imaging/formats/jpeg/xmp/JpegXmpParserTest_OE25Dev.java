@@ -24,6 +24,20 @@ import org.junit.jupiter.api.Test;
 public class JpegXmpParserTest_OE25Dev{
 
     @Test
+    public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment() {
+        final JpegXmpParser jpegXmpParser = new JpegXmpParser();
+        final byte[] byteArray = new byte[1];
+
+        try {
+            jpegXmpParser.parseXmpJpegSegment(byteArray);
+            fail("Expecting exception: Exception");
+        } catch(final Exception e) {
+            assertEquals("Invalid JPEG XMP Segment.",e.getMessage());
+            assertEquals(JpegXmpParser.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }
+
+    @Test
     public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_2_oe() {
         final JpegXmpParser jpegXmpParser = new JpegXmpParser();
         final byte[] byteArray = new byte[1];

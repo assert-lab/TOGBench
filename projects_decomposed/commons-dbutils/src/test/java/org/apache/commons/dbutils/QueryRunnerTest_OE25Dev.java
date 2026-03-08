@@ -413,6 +413,67 @@ public class QueryRunnerTest_OE25Dev {
         callGoodUpdate(conn);
     }
 
+    @Test
+    public void testGoodInsert() throws Exception {
+        results = mock(ResultSet.class);
+        
+        when(meta.getParameterCount()).thenReturn(2);
+        when(conn.prepareStatement(any(String.class), eq(Statement.RETURN_GENERATED_KEYS))).thenReturn(stmt);
+        when(stmt.getGeneratedKeys()).thenReturn(results);
+        when(results.next()).thenReturn(true).thenReturn(false);
+        when(results.getObject(1)).thenReturn(1L);
+
+        Long generatedKey = runner.insert("INSERT INTO blah(col1, col2) VALUES(?,?)", new ScalarHandler<Long>(), "unit", "test");
+
+        verify(stmt, times(1)).executeUpdate();
+        verify(stmt, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we closed the connection
+        
+        Assert.assertEquals(1L, generatedKey.longValue());
+    }
+    
+    @Test
+    public void testGoodBatchInsert() throws Exception {
+        results = mock(ResultSet.class);
+        resultsMeta = mock(ResultSetMetaData.class);
+        
+        when(meta.getParameterCount()).thenReturn(2);
+        when(conn.prepareStatement(any(String.class), eq(Statement.RETURN_GENERATED_KEYS))).thenReturn(stmt);
+        when(stmt.getGeneratedKeys()).thenReturn(results);
+        when(results.next()).thenReturn(true).thenReturn(true).thenReturn(false);
+        when(results.getMetaData()).thenReturn(resultsMeta);
+        when(resultsMeta.getColumnCount()).thenReturn(1);
+        
+        ResultSetHandler<List<Object>> handler = new ResultSetHandler<List<Object>>()
+        {
+            @Override
+            public List<Object> handle(ResultSet rs) throws SQLException
+            {
+                List<Object> objects = new ArrayList<Object>();
+                while (rs.next())
+                {
+                    objects.add(new Object());
+                }
+                return objects;
+            }
+        };
+        
+        Object[][] params = new Object[2][2];
+        params[0][0] = "Test";
+        params[0][1] = "Blah";
+        params[1][0] = "Test2";
+        params[1][1] = "Blah2";
+        
+        List<Object> generatedKeys = runner.insertBatch("INSERT INTO blah(col1, col2) VALUES(?,?)", handler, params);
+
+        verify(stmt, times(2)).addBatch();
+        verify(stmt, times(1)).executeBatch();
+        verify(stmt, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we closed the connection
+        
+        Assert.assertEquals(2, generatedKeys.size());
+    }
+
     // helper method for calling batch when an exception is expected
     private void callUpdateWithException(Object... params) throws Exception {
         boolean caught = false;
@@ -704,6 +765,29 @@ public class QueryRunnerTest_OE25Dev {
     //
     // Execute with ResultSetHandler
     //
+
+    @Test
+    public void testExecuteWithMultipleResultSets() throws Exception {
+        when(call.execute()).thenReturn(true);
+        when(call.getMoreResults()).thenAnswer(new Answer<Boolean>()
+        {
+            int count = 1;
+            @Override
+            public Boolean answer(InvocationOnMock invocation)
+            {
+                return ++count <= 3;
+            }
+        });
+        when(meta.getParameterCount()).thenReturn(0);
+        List<Object[]> objects = runner.execute("{call my_proc()}", handler);
+
+        Assert.assertEquals(3, objects.size());
+        verify(call, times(1)).execute();
+        verify(results, times(3)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we close the connection
+
+    }
 
     private void callGoodExecuteWithResultSet(Connection conn) throws Exception {
         when(call.execute()).thenReturn(true);

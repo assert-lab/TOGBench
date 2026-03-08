@@ -29,6 +29,28 @@ import static org.junit.jupiter.api.Assertions.fail;
  */
 class ZigguratNormalizedGaussianSamplerTest_OE25Dev {
     // Cf. RNG-56
+    @Test
+    void testInfiniteLoop() {
+        // A bad implementation whose only purpose is to force access
+        // to the rarest branch.
+        final UniformRandomProvider bad = new UniformRandomProvider() {
+                // CHECKSTYLE: stop all
+                public long nextLong(long n) { return 0; }
+                public long nextLong() { return Long.MAX_VALUE; }
+                public int nextInt(int n) { return 0; }
+                public int nextInt() { return Integer.MAX_VALUE; }
+                public float nextFloat() { return 1; }
+                public double nextDouble() { return 1;}
+                public void nextBytes(byte[] bytes, int start, int len) {}
+                public void nextBytes(byte[] bytes) {}
+                public boolean nextBoolean() { return false; }
+                // CHECKSTYLE: resume all
+            };
+
+        // Infinite loop (in v1.1).
+        Assertions.assertThrows(StackOverflowError.class,
+            () -> new ZigguratNormalizedGaussianSampler(bad).sample());
+    }
 
     /**
      * Test the SharedStateSampler implementation.

@@ -138,7 +138,58 @@ public class MethodKeyTest_OE25Dev {
         final String out = BY_KEY.get(key);
         Assert.assertNotNull(out);
     }
+
+    @Test
+    public void testDebugString() throws Exception {
+        final MethodKey c = KEY_LIST[0];
+        final String str = c.debugString();
+        Assert.assertNotNull(str);
+    }
+
+    @Test
+    public void testObjectKey() throws Exception {
+        for (final MethodKey ctl : KEY_LIST) {
+            final MethodKey key = makeKey(ctl.getMethod(), ctl.getParameters());
+            final String out = BY_KEY.get(key);
+            Assert.assertNotNull(out);
+            Assert.assertEquals(ctl.toString() + " != " + out, ctl.toString(), out);
+        }
+
+    }
+
+    @Test
+    public void testStringKey() throws Exception {
+        for (final MethodKey ctl : KEY_LIST) {
+            final String key = makeStringKey(ctl.getMethod(), ctl.getParameters());
+            final MethodKey out = BY_STRING.get(key);
+            Assert.assertNotNull(out);
+            Assert.assertEquals(ctl.toString() + " != " + key, ctl, out);
+        }
+
+    }
     private static final int LOOP = 3;//00;
+
+    @Test
+    public void testPerfKey() throws Exception {
+        for (int l = 0; l < LOOP; ++l) {
+            for (final MethodKey ctl : KEY_LIST) {
+                final MethodKey key = makeKey(ctl.getMethod(), ctl.getParameters());
+                final String out = BY_KEY.get(key);
+                Assert.assertNotNull(out);
+            }
+        }
+    }
+
+    @Test
+    public void testPerfString() throws Exception {
+        for (int l = 0; l < LOOP; ++l) {
+            for (final MethodKey ctl : KEY_LIST) {
+                final String key = makeStringKey(ctl.getMethod(), ctl.getParameters());
+                final MethodKey out = BY_STRING.get(key);
+                Assert.assertNotNull(out);
+            }
+        }
+    }
 
     @Test
     public void testPerfKey2() throws Exception {

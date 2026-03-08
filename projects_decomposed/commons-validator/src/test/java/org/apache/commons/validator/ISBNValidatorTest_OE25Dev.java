@@ -37,6 +37,26 @@ public class ISBNValidatorTest_OE25Dev extends TestCase {
         super(name);
     }
 
+    public void testIsValid() throws Exception {
+        ISBNValidator validator = new ISBNValidator();
+        assertFalse(validator.isValid(null));
+        assertFalse(validator.isValid(""));
+        assertFalse(validator.isValid("1"));
+        assertFalse(validator.isValid("12345678901234"));
+        assertFalse(validator.isValid("dsasdsadsads"));
+        assertFalse(validator.isValid("535365"));
+        assertFalse(validator.isValid("I love sparrows!"));
+        assertFalse(validator.isValid("--1 930110 99 5"));
+        assertFalse(validator.isValid("1 930110 99 5--"));
+        assertFalse(validator.isValid("1 930110-99 5-"));
+
+        assertTrue(validator.isValid(VALID_ISBN_RAW));
+        assertTrue(validator.isValid(VALID_ISBN_DASHES));
+        assertTrue(validator.isValid(VALID_ISBN_SPACES));
+        assertTrue(validator.isValid(VALID_ISBN_X));
+        assertFalse(validator.isValid(INVALID_ISBN));
+    }
+
     public void testIsValid_1_oe() throws Exception {
         ISBNValidator validator = new ISBNValidator();
         assertFalse(validator.isValid(null));

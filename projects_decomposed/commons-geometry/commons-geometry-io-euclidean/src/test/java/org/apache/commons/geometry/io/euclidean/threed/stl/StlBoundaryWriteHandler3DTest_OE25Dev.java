@@ -65,6 +65,42 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Test
+    void testProperties() {
+        // assert
+        Assertions.assertEquals(GeometryFormat3D.STL, handler.getFormat());
+        Assertions.assertEquals(51200, handler.getinitialBufferSize());
+    }
+
+    @Test
+    void testSetInitialBufferSize() {
+        // act
+        handler.setInitialBufferSize(10);
+
+        // assert
+        Assertions.assertEquals(10, handler.getinitialBufferSize());
+    }
+
+    @Test
+    void setInitialBufferSize_invalidArg() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(
+                () -> handler.setInitialBufferSize(0),
+                IllegalArgumentException.class, "Buffer size must be greater than 0");
+    }
+
+    @Test
+    void testWrite_boundarySource_empty() {
+        // arrange
+        final BoundarySource3D src = BoundarySource3D.of();
+
+        // act
+        handler.write(src, new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals(0, readOutput().count());
+    }
+
+    @Test
     void testWrite_boundaryList() {
         // arrange
         final BoundarySource3D src = EuclideanIOTestUtils.cubeMinusSphere(TEST_PRECISION);
@@ -90,6 +126,43 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
     }
 
     @Test
+    void testWrite_triangleMesh_empty() {
+        // arrange
+        final TriangleMesh mesh = SimpleTriangleMesh.builder(TEST_PRECISION)
+                .build();
+
+        // act
+        handler.write(mesh, new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals(0, readOutput().count());
+    }
+
+    @Test
+    void testWriteStream_ioException() {
+        // arrange
+        final Stream<PlaneConvexSubset> stream = EuclideanIOTestUtils.cubeMinusSphere(TEST_PRECISION).boundaryStream();
+        final OutputStream failOut = new OutputStream() {
+            @Override
+            public void write(final int b) throws IOException {
+                // do nothing
+            }
+
+            @Override
+            public void close() throws IOException {
+                throw new IOException("close");
+            }
+        };
+        final GeometryOutput output = new StreamGeometryOutput(failOut);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(
+                () -> handler.write(stream, output),
+                UncheckedIOException.class,
+                "IOException: close");
+    }
+
+    @Test
     void testWriteFacets_list() {
         // arrange
         final List<FacetDefinition> facets = cubeFacets();
@@ -99,6 +172,37 @@ class StlBoundaryWriteHandler3DTest_OE25Dev {
 
         // assert
         EuclideanIOTestUtils.assertCube(readOutput(), MODEL_TEST_EPS);
+    }
+
+    @Test
+    void testWriteFacets_list_empty() {
+        // act
+        handler.writeFacets(Collections.emptyList(), new StreamGeometryOutput(out));
+
+        // assert
+        Assertions.assertEquals(0, readOutput().count());
+    }
+
+    @Test
+    void testWriteFacets_includesStlFacetAttribute() {
+        // arrange
+        final List<Vector3D> vertices = Arrays.asList(Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(0, 1, 0));
+        final Vector3D normal = Vector3D.Unit.PLUS_Z;
+        final int attr = 12;
+
+        final BinaryStlFacetDefinition facet = new BinaryStlFacetDefinition(vertices, normal, attr);
+
+        // act
+        handler.writeFacets(Collections.singletonList(facet), new StreamGeometryOutput(out));
+
+        // assert
+        BinaryStlFacetDefinitionReader reader =
+                new BinaryStlFacetDefinitionReader(new ByteArrayInputStream(out.toByteArray()));
+        BinaryStlFacetDefinition result = reader.readFacet();
+
+        EuclideanIOTestUtils.assertFacetVertices(result, vertices, MODEL_TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(normal, result.getNormal(), MODEL_TEST_EPS);
+        Assertions.assertEquals(attr, result.getAttributeValue());
     }
 
     private BoundaryList3D readOutput() {

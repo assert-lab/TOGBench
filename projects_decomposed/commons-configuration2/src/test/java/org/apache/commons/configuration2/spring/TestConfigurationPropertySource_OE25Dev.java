@@ -66,8 +66,14 @@ public class TestConfigurationPropertySource_OE25Dev {
     private String value;
 
     @Test
-    public void testValueInjection_1_oe() {
+    public void testValueInjection() {
         Assert.assertEquals(TEST_VALUE, value);
+    }
+
+    @Test
+    public void testValueInjection_1_oe() {
+        Object a = TEST_VALUE;
+        Assert.assertEquals(a, value);
     }
 
 }

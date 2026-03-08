@@ -23,6 +23,14 @@ import org.junit.jupiter.api.Test;
 public class IptcTypeLookupTest_OE25Dev{
 
     @Test
+    public void testGetIptcTypeWithPositive() {
+        final IptcType iptcType = IptcTypeLookup.getIptcType(1117);
+
+        assertEquals(1117, iptcType.getType());
+        assertEquals("Unknown", iptcType.getName());
+    }
+
+    @Test
     public void testGetIptcTypeWithPositive_1_oe() {
         final IptcType iptcType = IptcTypeLookup.getIptcType(1117);
 

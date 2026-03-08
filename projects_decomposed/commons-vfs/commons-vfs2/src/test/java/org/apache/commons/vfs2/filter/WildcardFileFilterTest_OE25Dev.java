@@ -31,6 +31,141 @@ import org.junit.Test;
 public class WildcardFileFilterTest_OE25Dev extends BaseFilterTest {
 
     @Test
+    public void testAcceptList() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("*.txt");
+        list.add("*.a??");
+        final WildcardFileFilter filter = new WildcardFileFilter(list);
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ABC"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptListIOCaseInsensitive() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("*.txt");
+        list.add("*.a??");
+        final WildcardFileFilter filter = new WildcardFileFilter(IOCase.INSENSITIVE, list);
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.ABC"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptListIOCaseSensitive() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("*.txt");
+        list.add("*.a??");
+        final WildcardFileFilter filter = new WildcardFileFilter(IOCase.SENSITIVE, list);
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ABC"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptString() throws FileSystemException {
+
+        // PREPARE
+        final WildcardFileFilter filter = new WildcardFileFilter("*.txt", "*.a??");
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ABC"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptStringIOCaseInsensitive() throws FileSystemException {
+
+        // PREPARE
+        final WildcardFileFilter filter = new WildcardFileFilter(IOCase.INSENSITIVE, "*.txt", "*.a??");
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.ABC"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptStringIOCaseSensitive() throws FileSystemException {
+
+        // PREPARE
+        final WildcardFileFilter filter = new WildcardFileFilter(IOCase.SENSITIVE, "*.txt", "*.a??");
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.a"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ab"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.abc"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.ABC"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aaa"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.Aaa"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test.aAA"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.abcd"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
     public void testAcceptList_1_oe() throws FileSystemException {
 
         // PREPARE

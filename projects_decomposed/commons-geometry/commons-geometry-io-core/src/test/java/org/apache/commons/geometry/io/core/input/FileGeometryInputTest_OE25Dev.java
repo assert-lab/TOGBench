@@ -35,6 +35,67 @@ class FileGeometryInputTest_OE25Dev {
     Path tempDir;
 
     @Test
+    void testCtor_fileOnly() {
+        // arrange
+        final Path file = Paths.get("some/path/test.txt");
+
+        // act
+        final FileGeometryInput in = new FileGeometryInput(file);
+
+        // assert
+        Assertions.assertEquals(file, in.getFile());
+        Assertions.assertEquals("test.txt", in.getFileName());
+        Assertions.assertNull(in.getCharset());
+    }
+
+    @Test
+    void testCtor_fileAndCharset() {
+        // arrange
+        final Path file = Paths.get("TEST");
+        final Charset charset = StandardCharsets.UTF_8;
+
+        // act
+        final FileGeometryInput in = new FileGeometryInput(file, charset);
+
+        // assert
+        Assertions.assertEquals(file, in.getFile());
+        Assertions.assertEquals("TEST", in.getFileName());
+        Assertions.assertEquals(charset, in.getCharset());
+    }
+
+    @Test
+    void testGetInputStream() throws IOException {
+        // arrange
+        final Path file = tempDir.resolve("test");
+        final byte[] bytes = "abc".getBytes(StandardCharsets.UTF_8);
+        Files.write(file, bytes);
+
+        final FileGeometryInput input = new FileGeometryInput(file);
+
+        // act/assert
+        try (InputStream in = input.getInputStream()) {
+            Assertions.assertEquals(BufferedInputStream.class, in.getClass());
+
+            final byte[] readBytes = new byte[3];
+            in.read(readBytes);
+
+            Assertions.assertArrayEquals(bytes, readBytes);
+        }
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final FileGeometryInput in = new FileGeometryInput(Paths.get("some/path/test.txt"));
+
+        // act
+        final String result = in.toString();
+
+        // assert
+        Assertions.assertEquals("FileGeometryInput[file= some/path/test.txt]",result.replaceAll("\\\\","/"));
+    }
+
+    @Test
     void testCtor_fileOnly_1_oe() {
         // arrange
         final Path file = Paths.get("some/path/test.txt");

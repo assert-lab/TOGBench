@@ -35,6 +35,65 @@ class FileGeometryOutputTest_OE25Dev {
     Path tempDir;
 
     @Test
+    void testCtor_fileOnly() {
+        // arrange
+        final Path file = Paths.get("some/path/test.txt");
+
+        // act
+        final FileGeometryOutput out = new FileGeometryOutput(file);
+
+        // assert
+        Assertions.assertEquals(file, out.getFile());
+        Assertions.assertEquals("test.txt", out.getFileName());
+        Assertions.assertNull(out.getCharset());
+    }
+
+    @Test
+    void testCtor_fileAndCharset() {
+        // arrange
+        final Path file = Paths.get("TEST");
+        final Charset charset = StandardCharsets.UTF_8;
+
+        // act
+        final FileGeometryOutput out = new FileGeometryOutput(file, charset);
+
+        // assert
+        Assertions.assertEquals(file, out.getFile());
+        Assertions.assertEquals("TEST", out.getFileName());
+        Assertions.assertEquals(charset, out.getCharset());
+    }
+
+    @Test
+    void testGetOutputStream() throws IOException {
+        // arrange
+        final Path file = tempDir.resolve("test");
+        final byte[] bytes = "abc".getBytes(StandardCharsets.UTF_8);
+
+        final FileGeometryOutput output = new FileGeometryOutput(file);
+
+        // act/assert
+        try (OutputStream out = output.getOutputStream()) {
+            out.write(bytes);
+
+            Assertions.assertEquals(BufferedOutputStream.class, out.getClass());
+        }
+
+        Assertions.assertArrayEquals(bytes, Files.readAllBytes(file));
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final FileGeometryOutput out = new FileGeometryOutput(Paths.get("some/path/test.txt"));
+
+        // act
+        final String result = out.toString();
+
+        // assert
+        Assertions.assertEquals("FileGeometryOutput[file= some/path/test.txt]",result.replaceAll("\\\\","/"));
+    }
+
+    @Test
     void testCtor_fileOnly_1_oe() {
         // arrange
         final Path file = Paths.get("some/path/test.txt");

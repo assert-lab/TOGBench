@@ -28,10 +28,45 @@ class CoordinatesTest_OE25Dev {
     /**
      * Test {@link Coordinates#requireFinite(double[], String)} detects infinite and NaN.
      */
+    @Test
+    void testRequireFiniteWithMessageThrows() {
+        final double[] c = {0, 1, 2};
+        final String message = "This should be prepended";
+        Assertions.assertSame(c, Coordinates.requireFinite(c, message));
+        final double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
+        for (int i = 0; i < c.length; i++) {
+            final int ii = i;
+            for (final double d : bad) {
+                final double value = c[i];
+                c[i] = d;
+                final IllegalArgumentException ex = Assertions.assertThrows(IllegalArgumentException.class,
+                    () -> Coordinates.requireFinite(c, message),
+                    () -> String.format("Did not detect non-finite coordinate: %d = %s", ii, d));
+                Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
+                c[i] = value;
+            }
+        }
+    }
 
     /**
      * Test {@link Coordinates#requireLength(double[], int, String)} detects invalid lengths.
      */
+    @Test
+    void testRequireLengthWithMessageThrows() {
+        final String message = "This should be prepended";
+        for (final double[] c : new double[][] {{0, 1}, {0, 1, 2}}) {
+            final int length = c.length;
+            Assertions.assertSame(c, Coordinates.requireLength(c, length, message));
+            IllegalArgumentException ex = Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Coordinates.requireLength(c, length - 1, message),
+                () -> "Did not detect length was too long: " + (length - 1));
+            Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
+            ex = Assertions.assertThrows(IllegalArgumentException.class,
+                () -> Coordinates.requireLength(c, length + 1, message),
+                () -> "Did not detect length was too short: " + (length + 1));
+            Assertions.assertTrue(ex.getMessage().startsWith(message), "Missing message prefix");
+        }
+    }
 
     @Test
     void testRequireFiniteWithMessageThrows_1_oe() {

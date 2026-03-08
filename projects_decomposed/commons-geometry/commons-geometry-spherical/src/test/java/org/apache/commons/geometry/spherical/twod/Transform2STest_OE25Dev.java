@@ -29,6 +29,26 @@ class Transform2STest_OE25Dev {
     private static final double TEST_EPS = 1e-10;
 
     @Test
+    void testIdentity() {
+        // act
+        final Transform2S t = Transform2S.identity();
+
+        // assert
+        Assertions.assertTrue(t.preservesOrientation());
+        Assertions.assertArrayEquals(new double[] {
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0
+        }, t.getEuclideanTransform().toArray(), 0);
+
+        SphericalTestUtils.assertPointsEqual(Point2S.PLUS_I, t.apply(Point2S.PLUS_I), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point2S.PLUS_J, t.apply(Point2S.PLUS_J), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point2S.PLUS_K, t.apply(Point2S.PLUS_K), TEST_EPS);
+
+        checkInverse(t);
+    }
+
+    @Test
     void testRotation() {
         // arrange
         final Transform2S aroundPole = Transform2S.createRotation(Point2S.PLUS_K, Angle.PI_OVER_TWO);
@@ -97,6 +117,130 @@ class Transform2STest_OE25Dev {
         SphericalTestUtils.assertPointsEqual(Point2S.PLUS_I, t.apply(Point2S.PLUS_K), TEST_EPS);
 
         checkInverse(t);
+    }
+
+    @Test
+    void testReflection_point() {
+        // arrange
+        final Point2S a = Point2S.of(1, 1);
+        final Point2S b = Point2S.of(-1, 1);
+
+        final Point2S c = Point2S.of(1, Math.PI - 1);
+        final Point2S d = Point2S.of(-1, Math.PI - 1);
+
+        // act
+        final Transform2S t = Transform2S.createReflection(Point2S.PLUS_I);
+
+        // assert
+        Assertions.assertFalse(t.preservesOrientation());
+
+        SphericalTestUtils.assertPointsEqual(Point2S.MINUS_I, t.apply(Point2S.PLUS_I), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point2S.PLUS_J, t.apply(Point2S.PLUS_J), TEST_EPS);
+        SphericalTestUtils.assertPointsEq(Point2S.PLUS_K, t.apply(Point2S.PLUS_K), TEST_EPS);
+
+        SphericalTestUtils.assertPointsEqual(Point2S.of(Math.PI - 1, 1), t.apply(a), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point2S.of(Math.PI + 1, 1), t.apply(b), TEST_EPS);
+
+        SphericalTestUtils.assertPointsEqual(Point2S.of(Math.PI - 1, Math.PI - 1), t.apply(c), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point2S.of(Math.PI + 1, Math.PI - 1), t.apply(d), TEST_EPS);
+
+        checkInverse(t);
+    }
+
+    @Test
+    void testReflection_vector() {
+        // arrange
+        final Point2S a = Point2S.of(1, 1);
+        final Point2S b = Point2S.of(-1, 1);
+
+        final Point2S c = Point2S.of(1, Math.PI - 1);
+        final Point2S d = Point2S.of(-1, Math.PI - 1);
+
+        // act
+        final Transform2S t = Transform2S.createReflection(Vector3D.Unit.PLUS_Y);
+
+        // assert
+        Assertions.assertFalse(t.preservesOrientation());
+
+        SphericalTestUtils.assertPointsEqual(Point2S.PLUS_I, t.apply(Point2S.PLUS_I), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point2S.MINUS_J, t.apply(Point2S.PLUS_J), TEST_EPS);
+        SphericalTestUtils.assertPointsEq(Point2S.PLUS_K, t.apply(Point2S.PLUS_K), TEST_EPS);
+
+        SphericalTestUtils.assertPointsEqual(b, t.apply(a), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(a, t.apply(b), TEST_EPS);
+
+        SphericalTestUtils.assertPointsEqual(d, t.apply(c), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(c, t.apply(d), TEST_EPS);
+
+        checkInverse(t);
+    }
+
+    @Test
+    void testDoubleReflection() {
+        // arrange
+        final Point2S a = Point2S.of(1, 1);
+        final Point2S b = Point2S.of(-1, 1);
+
+        final Point2S c = Point2S.of(1, Math.PI - 1);
+        final Point2S d = Point2S.of(-1, Math.PI - 1);
+
+        // act
+        final Transform2S t = Transform2S.identity()
+                .reflect(Point2S.PLUS_I)
+                .reflect(Vector3D.Unit.PLUS_Y);
+
+        // assert
+        Assertions.assertTrue(t.preservesOrientation());
+
+        SphericalTestUtils.assertPointsEqual(Point2S.MINUS_I, t.apply(Point2S.PLUS_I), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point2S.MINUS_J, t.apply(Point2S.PLUS_J), TEST_EPS);
+        SphericalTestUtils.assertPointsEq(Point2S.PLUS_K, t.apply(Point2S.PLUS_K), TEST_EPS);
+
+        SphericalTestUtils.assertPointsEqual(Point2S.of(Math.PI + 1, 1), t.apply(a), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point2S.of(Math.PI - 1, 1), t.apply(b), TEST_EPS);
+
+        SphericalTestUtils.assertPointsEqual(Point2S.of(Math.PI + 1, Math.PI - 1), t.apply(c), TEST_EPS);
+        SphericalTestUtils.assertPointsEqual(Point2S.of(Math.PI - 1,  Math.PI - 1), t.apply(d), TEST_EPS);
+
+        checkInverse(t);
+    }
+
+    @Test
+    void testHashcode() {
+        // arrange
+        final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
+        final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
+        final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
+        final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
+
+        // act
+        final int hash = a.hashCode();
+
+        // assert
+        Assertions.assertEquals(hash, a.hashCode());
+
+        Assertions.assertNotEquals(hash, b.hashCode());
+        Assertions.assertNotEquals(hash, c.hashCode());
+
+        Assertions.assertEquals(hash, d.hashCode());
+    }
+
+    @Test
+    void testEquals() {
+        // arrange
+        final Transform2S a = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
+        final Transform2S b = Transform2S.createRotation(Point2S.PLUS_J, Angle.PI_OVER_TWO);
+        final Transform2S c = Transform2S.createRotation(Point2S.PLUS_I, Math.PI);
+        final Transform2S d = Transform2S.createRotation(Point2S.PLUS_I, Angle.PI_OVER_TWO);
+
+        // act/assert
+        GeometryTestUtils.assertSimpleEqualsCases(a);
+
+        Assertions.assertNotEquals(a, b);
+        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertEquals(a, d);
+        Assertions.assertEquals(d, a);
     }
 
     @Test

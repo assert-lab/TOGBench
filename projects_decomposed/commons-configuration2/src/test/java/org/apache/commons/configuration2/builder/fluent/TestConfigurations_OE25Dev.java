@@ -177,18 +177,44 @@ public class TestConfigurations_OE25Dev {
     /**
      * Tests whether a default {@code Parameters} instance is created if necessary.
      */
+    @Test
+    public void testDefaultParameters() {
+        final Configurations configs = new Configurations();
+        assertNotNull("No parameters", configs.getParameters());
+    }
 
     /**
      * Tests whether a builder for a file-based configuration can be created if an input File is specified.
      */
+    @Test
+    public void testFileBasedBuilderWithFile() {
+        final Configurations configs = new Configurations();
+        final File file = ConfigurationAssert.getTestFile(TEST_PROPERTIES);
+        final FileBasedConfigurationBuilder<PropertiesConfiguration> builder = configs.fileBasedBuilder(PropertiesConfiguration.class, file);
+        assertEquals("Wrong file", file.toURI(), builder.getFileHandler().getFile().toURI());
+    }
 
     /**
      * Tests whether a builder for a file-based configuration can be created if a file name is specified.
      */
+    @Test
+    public void testFileBasedBuilderWithPath() {
+        final Configurations configs = new Configurations();
+        final String filePath = absolutePath(TEST_PROPERTIES);
+        final FileBasedConfigurationBuilder<PropertiesConfiguration> builder = configs.fileBasedBuilder(PropertiesConfiguration.class, filePath);
+        assertEquals("Wrong path", filePath, builder.getFileHandler().getFileName());
+    }
 
     /**
      * Tests whether a builder for a file-based configuration can be created if a URL is specified.
      */
+    @Test
+    public void testFileBasedBuilderWithURL() {
+        final Configurations configs = new Configurations();
+        final URL url = ConfigurationAssert.getTestURL("test.properties");
+        final FileBasedConfigurationBuilder<PropertiesConfiguration> builder = configs.fileBasedBuilder(PropertiesConfiguration.class, url);
+        assertEquals("Wrong URL", url, builder.getFileHandler().getURL());
+    }
 
     /**
      * Tests whether a file-based configuration can be loaded from a file.
@@ -283,6 +309,12 @@ public class TestConfigurations_OE25Dev {
     /**
      * Tests whether parameters can be passed in at construction time.
      */
+    @Test
+    public void testInitWithParameters() {
+        final Parameters params = new Parameters();
+        final Configurations configs = new Configurations(params);
+        assertSame("Wrong parameters", params, configs.getParameters());
+    }
 
     /**
      * Tests whether a builder for a properties configuration can be created for a given file.
@@ -324,6 +356,51 @@ public class TestConfigurations_OE25Dev {
      * Tests whether a builder for a properties configuration can be created for a given file path when an include is not
      * found.
      */
+    @Test
+    public void testPropertiesBuilderFromPathIncludeNotFoundPass() throws ConfigurationException {
+        final Configurations configs = new Configurations();
+        final String absPath = absolutePath("include-not-found.properties");
+        final FileBasedConfigurationBuilder<PropertiesConfiguration> builderFail = configs.propertiesBuilder(absPath);
+        // Expect failure:
+        try {
+            builderFail.getConfiguration();
+            Assert.fail("Expected ConfigurationException");
+        } catch (final ConfigurationException e) {
+            // Ignore
+            // e.printStackTrace();
+        }
+        // Expect failure:
+        try {
+            configs.properties(absPath);
+        } catch (final ConfigurationException e) {
+            // Ignore
+            // e.printStackTrace();
+        }
+        {
+            // Expect success:
+            // @formatter:off
+            final Map<String, Object> map =
+                    new Parameters().properties()
+                            .setPath(absPath)
+                            .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER)
+                            .getParameters();
+            // @formatter:on
+            final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(absPath).addParameters(map);
+            final PropertiesConfiguration configuration = builderOk.getConfiguration();
+            assertEquals("valueA", configuration.getString("keyA"));
+        }
+        {
+            // Expect success:
+            // @formatter:off
+            final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(
+                    new Parameters().properties()
+                        .setPath(absPath)
+                        .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER));
+            // @formatter:on
+            final PropertiesConfiguration configuration = builderOk.getConfiguration();
+            assertEquals("valueA", configuration.getString("keyA"));
+        }
+    }
 
     /**
      * Tests whether a builder for a properties configuration can be created for a given URL.
@@ -467,30 +544,20 @@ public class TestConfigurations_OE25Dev {
         final Configurations configs = new Configurations();
         final String absPath = absolutePath("include-not-found.properties");
         final FileBasedConfigurationBuilder<PropertiesConfiguration> builderFail = configs.propertiesBuilder(absPath);
-        // Expect failure:
         try {
             builderFail.getConfiguration();
-            // removed other assertion
         } catch (final ConfigurationException e) {
-            // Ignore
-            // e.printStackTrace();
         }
-        // Expect failure:
         try {
             configs.properties(absPath);
         } catch (final ConfigurationException e) {
-            // Ignore
-            // e.printStackTrace();
         }
         {
-            // Expect success:
-            // @formatter:off
             final Map<String, Object> map =
                     new Parameters().properties()
                             .setPath(absPath)
                             .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER)
                             .getParameters();
-            // @formatter:on
             final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(absPath).addParameters(map);
             final PropertiesConfiguration configuration = builderOk.getConfiguration();
             assertEquals("valueA", configuration.getString("keyA"));
@@ -502,42 +569,28 @@ public class TestConfigurations_OE25Dev {
         final Configurations configs = new Configurations();
         final String absPath = absolutePath("include-not-found.properties");
         final FileBasedConfigurationBuilder<PropertiesConfiguration> builderFail = configs.propertiesBuilder(absPath);
-        // Expect failure:
         try {
             builderFail.getConfiguration();
-            // removed other assertion
         } catch (final ConfigurationException e) {
-            // Ignore
-            // e.printStackTrace();
         }
-        // Expect failure:
         try {
             configs.properties(absPath);
         } catch (final ConfigurationException e) {
-            // Ignore
-            // e.printStackTrace();
         }
         {
-            // Expect success:
-            // @formatter:off
             final Map<String, Object> map =
                     new Parameters().properties()
                             .setPath(absPath)
                             .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER)
                             .getParameters();
-            // @formatter:on
             final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(absPath).addParameters(map);
             final PropertiesConfiguration configuration = builderOk.getConfiguration();
-            // removed other assertion
         }
         {
-            // Expect success:
-            // @formatter:off
             final BasicConfigurationBuilder<PropertiesConfiguration> builderOk = configs.propertiesBuilder(
                     new Parameters().properties()
                         .setPath(absPath)
                         .setIncludeListener(PropertiesConfiguration.NOOP_INCLUDE_LISTENER));
-            // @formatter:on
             final PropertiesConfiguration configuration = builderOk.getConfiguration();
             assertEquals("valueA", configuration.getString("keyA"));
     }

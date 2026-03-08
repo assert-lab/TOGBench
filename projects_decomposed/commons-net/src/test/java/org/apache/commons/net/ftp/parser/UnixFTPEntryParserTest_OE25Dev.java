@@ -96,9 +96,145 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
         return goodsamples;
     }
 
+    public void testNumericDateFormat()
+    {
+        final String testNumericDF =
+            "-rw-r-----   1 neeme neeme   346 2005-04-08 11:22 services.vsp";
+        final String testNumericDF2 =
+            "lrwxrwxrwx   1 neeme neeme    23 2005-03-02 18:06 macros -> ./../../global/macros/.";
+
+        final UnixFTPEntryParser parser =
+            new UnixFTPEntryParser(UnixFTPEntryParser.NUMERIC_DATE_CONFIG);
+
+        final FTPFile f = parser.parseFTPEntry(testNumericDF);
+        assertNotNull("Failed to parse " + testNumericDF, f);
+
+
+        final Calendar cal = Calendar.getInstance();
+        cal.clear();
+        cal.set(Calendar.YEAR, 2005);
+        cal.set(Calendar.MONTH, Calendar.APRIL);
+
+        cal.set(Calendar.DAY_OF_MONTH, 8);
+        cal.set(Calendar.HOUR_OF_DAY, 11);
+        cal.set(Calendar.MINUTE, 22);
+        assertEquals(cal.getTime(), f.getTimestamp().getTime());
+
+        final FTPFile f2 = parser.parseFTPEntry(testNumericDF2);
+        assertNotNull("Failed to parse " + testNumericDF2, f2);
+        assertEquals("symbolic link", "./../../global/macros/.", f2.getLink());
+
+    }
+
     @Override
     protected FTPFileEntryParser getParser() {
         return new UnixFTPEntryParser();
+    }
+
+    public void testOwnerNameWithSpaces() {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13 zxbox");
+        assertNotNull(f);
+        assertEquals("john smith", f.getUser());
+    }
+
+    public void testOwnerAndGroupNameWithSpaces() {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 john smith     test group         4096 Mar  2 15:13 zxbox");
+        assertNotNull(f);
+        assertEquals("john smith", f.getUser());
+        assertEquals("test group", f.getGroup());
+    }
+
+    public void testNET294() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxrwx---   1 ftp      ftp-admin 816026400 Oct  5  2008 bloplab 7 cd1.img");
+        assertNotNull(f);
+        assertEquals("ftp", f.getUser());
+        assertEquals("ftp-admin", f.getGroup());
+        assertEquals(816026400L,f.getSize());
+        assertNotNull("Timestamp should not be null",f.getTimestamp());
+        assertEquals(2008,f.getTimestamp().get(Calendar.YEAR));
+        assertEquals("bloplab 7 cd1.img",f.getName());
+    }
+
+    public void testGroupNameWithSpaces() {
+        final FTPFile f = getParser().parseFTPEntry("drwx------ 4 maxm Domain Users 512 Oct 2 10:59 .metadata");
+        assertNotNull(f);
+        assertEquals("maxm", f.getUser());
+        assertEquals("Domain Users", f.getGroup());
+    }
+
+    public void testTrailingSpaces() {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13 zxbox     ");
+        assertNotNull(f);
+        assertEquals("zxbox     ", f.getName());
+    }
+
+    public void testLeadingSpacesDefault() { // the default has been changed to keep spaces
+        final FTPFile f = getParser().parseFTPEntry("drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13   zxbox");
+        assertNotNull(f);
+        assertEquals("  zxbox", f.getName() ); // leading spaces retained
+    }
+
+    public void testLeadingSpacesNET566() { // check new behavior
+        final FTPFile f = new UnixFTPEntryParser(null, false).parseFTPEntry(
+            "drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13   zxbox");
+        assertNotNull(f);
+        assertEquals("  zxbox", f.getName() ); // leading spaces retained
+    }
+
+    public void testTrimLeadingSpacesNET566() { // check can trim spaces as before
+        final FTPFile f = new UnixFTPEntryParser(null, true).parseFTPEntry(
+            "drwxr-xr-x   2 john smith     group         4096 Mar  2 15:13   zxbox");
+        assertNotNull(f);
+        assertEquals("zxbox", f.getName() ); // leading spaces trimmed
+    }
+
+    public void testNameWIthPunctuation() {
+        final FTPFile f = getParser().parseFTPEntry("drwx------ 4 maxm Domain Users 512 Oct 2 10:59 abc(test)123.pdf");
+        assertNotNull(f);
+        assertEquals("abc(test)123.pdf", f.getName());
+    }
+
+    public void testNoSpacesBeforeFileSize() {
+        final FTPFile f = getParser().parseFTPEntry("drwxr-x---+1464 chrism   chrism     41472 Feb 25 13:17 20090225");
+        assertNotNull(f);
+        assertEquals(41472, f.getSize());
+        assertEquals(f.getType(), FTPFile.DIRECTORY_TYPE);
+        assertEquals("chrism", f.getUser());
+        assertEquals("chrism", f.getGroup());
+        assertEquals(1464, f.getHardLinkCount());
+    }
+
+    public void testCorrectGroupNameParsing() {
+        final FTPFile f = getParser().parseFTPEntry("-rw-r--r--   1 ftpuser  ftpusers 12414535 Mar 17 11:07 test 1999 abc.pdf");
+        assertNotNull(f);
+        assertEquals(1, f.getHardLinkCount());
+        assertEquals("ftpuser", f.getUser());
+        assertEquals("ftpusers", f.getGroup());
+        assertEquals(12414535, f.getSize());
+        assertEquals("test 1999 abc.pdf", f.getName());
+
+        final Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, Calendar.MARCH);
+        cal.set(Calendar.DAY_OF_MONTH, 17);
+        cal.set(Calendar.HOUR_OF_DAY, 11);
+        cal.set(Calendar.MINUTE, 7);
+        cal.set(Calendar.SECOND, 0);
+        cal.set(Calendar.MILLISECOND, 0);
+
+        assertEquals(f.getTimestamp().get(Calendar.MONTH), cal.get(Calendar.MONTH));
+        assertEquals(f.getTimestamp().get(Calendar.DAY_OF_MONTH), cal.get(Calendar.DAY_OF_MONTH));
+        assertEquals(f.getTimestamp().get(Calendar.HOUR_OF_DAY), cal.get(Calendar.HOUR_OF_DAY));
+        assertEquals(f.getTimestamp().get(Calendar.MINUTE), cal.get(Calendar.MINUTE));
+        assertEquals(f.getTimestamp().get(Calendar.SECOND), cal.get(Calendar.SECOND));
+    }
+
+    public void testFilenamesWithEmbeddedNumbers() {
+        final FTPFile f = getParser().parseFTPEntry("-rw-rw-rw-   1 user group 5840 Mar 19 09:34 123 456 abc.csv");
+        assertEquals("123 456 abc.csv", f.getName());
+        assertEquals(5840, f.getSize());
+        assertEquals("user", f.getUser());
+        assertEquals("group", f.getGroup());
     }
 
     @Override
@@ -184,8 +320,57 @@ public class UnixFTPEntryParserTest_OE25Dev extends FTPParseTestFramework {
     }
 
     // https://mail-archives.apache.org/mod_mbox/commons-dev/200408.mbox/%3c4122F3C1.9090402@tanukisoftware.com%3e
+    public void testParseFieldsOnFileJapaneseTime()
+    {
+        final FTPFile f = getParser().parseFTPEntry("-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 15:13 zxbox");
+        assertNotNull("Could not parse entry.", f);
+        assertTrue("Should have been a file.", f.isFile());
+        checkPermissions(f);
+        assertEquals(2, f.getHardLinkCount());
+        assertEquals("user", f.getUser());
+        assertEquals("group", f.getGroup());
+        assertEquals("zxbox", f.getName());
+        assertEquals(4096, f.getSize());
+
+        assertNotNull("Timestamp not null", f.getTimestamp());
+        final Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.MONTH, Calendar.MARCH);
+        cal.set(Calendar.DATE,1);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        if (f.getTimestamp().getTime().before(cal.getTime())) {
+            cal.add(Calendar.YEAR, -1);
+        }
+        cal.set(Calendar.DATE,2);
+        cal.set(Calendar.HOUR_OF_DAY, 15);
+        cal.set(Calendar.MINUTE, 13);
+        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
+    }
 
  // https://mail-archives.apache.org/mod_mbox/commons-dev/200408.mbox/%3c4122F3C1.9090402@tanukisoftware.com%3e
+    public void testParseFieldsOnFileJapaneseYear() {
+        final FTPFile f = getParser().parseFTPEntry(
+                "-rwxr-xr-x 2 user group 4096 3\u6708 2\u65e5 2003\u5e74 \u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv");
+        assertNotNull("Could not parse entry.", f);
+        assertTrue("Should have been a file.", f.isFile());
+        checkPermissions(f);
+        assertEquals(2, f.getHardLinkCount());
+        assertEquals("user", f.getUser());
+        assertEquals("group", f.getGroup());
+        assertEquals("\u8a66\u9a13\u30d5\u30a1\u30a4\u30eb.csv", f.getName());
+        assertEquals(4096, f.getSize());
+
+        assertNotNull("Timestamp not null", f.getTimestamp());
+        final Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, 2003);
+        cal.set(Calendar.MONTH, Calendar.MARCH);
+        cal.set(Calendar.DATE, 2);
+        cal.set(Calendar.HOUR_OF_DAY, 0);
+        cal.set(Calendar.MINUTE, 0);
+        cal.set(Calendar.SECOND, 0);
+        assertEquals(df.format(cal.getTime()), df.format(f.getTimestamp().getTime()));
+    }
 
     @Override
     protected void doAdditionalGoodTests(final String test, final FTPFile f) {

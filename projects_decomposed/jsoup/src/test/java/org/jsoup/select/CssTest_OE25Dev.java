@@ -166,12 +166,56 @@ public class CssTest_OE25Dev {
 		check(html.select("div:not(#only) :last-of-type"), "10", "10", "10", "10", "10");
 	}
 
+	@Test
+	public void empty() {
+		final Elements sel = html.select(":empty");
+		assertEquals(3, sel.size());
+		assertEquals("head", sel.get(0).tagName());
+		assertEquals("br", sel.get(1).tagName());
+		assertEquals("p", sel.get(2).tagName());
+	}
+
+	@Test
+	public void onlyChild() {
+		final Elements sel = html.select("span :only-child");
+		assertEquals(1, sel.size());
+		assertEquals("br", sel.get(0).tagName());
+
+		check(html.select("#only :only-child"), "only");
+	}
+
+	@Test
+	public void onlyOfType() {
+		final Elements sel = html.select(":only-of-type");
+		assertEquals(6, sel.size());
+		assertEquals("head", sel.get(0).tagName());
+		assertEquals("body", sel.get(1).tagName());
+		assertEquals("span", sel.get(2).tagName());
+		assertEquals("br", sel.get(3).tagName());
+		assertEquals("p", sel.get(4).tagName());
+		assertTrue(sel.get(4).hasClass("empty"));
+		assertEquals("em", sel.get(5).tagName());
+	}
+
 	protected void check(Elements result, String...expectedContent ) {
 		assertEquals(expectedContent.length, result.size(), "Number of elements");
 		for (int i = 0; i < expectedContent.length; i++) {
 			assertNotNull(result.get(i));
 			assertEquals(expectedContent[i], result.get(i).ownText(), "Expected element");
 		}
+	}
+
+	@Test
+	public void root() {
+		Elements sel = html.select(":root");
+		assertEquals(1, sel.size());
+		assertNotNull(sel.get(0));
+		assertEquals(Tag.valueOf("html"), sel.get(0).tag());
+
+		Elements sel2 = html.select("body").select(":root");
+		assertEquals(1, sel2.size());
+		assertNotNull(sel2.get(0));
+		assertEquals(Tag.valueOf("body"), sel2.get(0).tag());
 	}
 
 	@Test

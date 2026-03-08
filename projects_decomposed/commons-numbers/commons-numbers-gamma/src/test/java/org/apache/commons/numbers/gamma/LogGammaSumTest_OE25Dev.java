@@ -131,6 +131,50 @@ class LogGammaSumTest_OE25Dev {
     };
 
     @Test
+    void testLogGammaSum() {
+        final int ulps = 2;
+        for (int i = 0; i < LOG_GAMMA_SUM_REF.length; i++) {
+            final double[] ref = LOG_GAMMA_SUM_REF[i];
+            final double a = ref[0];
+            final double b = ref[1];
+            final double expected = ref[2];
+            final double actual = LogGammaSum.value(a, b);
+            final double tol = ulps * Math.ulp(expected);
+            final StringBuilder builder = new StringBuilder();
+            builder.append(a).append(", ").append(b);
+            Assertions.assertEquals(expected, actual, tol, builder.toString());
+        }
+    }
+
+    @Test
+    void testLogGammaSumPrecondition1() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> LogGammaSum.value(0, 1)
+        );
+    }
+
+    @Test
+    void testLogGammaSumPrecondition2() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> LogGammaSum.value(3, 1)
+        );
+    }
+
+    @Test
+    void testLogGammaSumPrecondition3() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> LogGammaSum.value(1, 0)
+        );
+    }
+
+    @Test
+    void testLogGammaSumPrecondition4() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> LogGammaSum.value(1, 3)
+        );
+    }
+
+    @Test
     void testLogGammaSum_1_oe() {
         final int ulps = 2;
         for (int i = 0; i < LOG_GAMMA_SUM_REF.length; i++) {

@@ -51,10 +51,24 @@ public class TestTrackedNodeHandler_OE25Dev {
     /**
      * Tests whether a parent node can be queried.
      */
+    @Test
+    public void testGetParent() {
+        final ImmutableNode node = new ImmutableNode.Builder().name("node").create();
+        final ImmutableNode parent = new ImmutableNode.Builder().name("parent").create();
+        EasyMock.expect(parentHandler.getParent(node)).andReturn(parent);
+        EasyMock.replay(parentHandler);
+
+        assertSame("Wrong parent node", parent, handler.getParent(node));
+        EasyMock.verify(parentHandler);
+    }
 
     /**
      * Tests whether the correct root node is returned.
      */
+    @Test
+    public void testGetRootNode() {
+        assertSame("Wrong root node", root, handler.getRootNode());
+    }
 
     @Test
     public void testGetParent_1_oe() {
@@ -68,7 +82,8 @@ public class TestTrackedNodeHandler_OE25Dev {
 
     @Test
     public void testGetRootNode_1_oe() {
-        assertSame("Wrong root node", root, handler.getRootNode());
+        Object a = root;
+        assertSame("Wrong root node", a, handler.getRootNode());
     }
 
 }

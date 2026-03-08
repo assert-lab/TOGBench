@@ -26,6 +26,19 @@ import org.junit.jupiter.api.Test;
 public class RgbBufferedImageFactoryTest_OE25Dev{
 
     @Test
+    public void testGetColorBufferedImageThrowsIllegalArgumentException() {
+        final RgbBufferedImageFactory rgbBufferedImageFactory = new RgbBufferedImageFactory();
+
+        try {
+            rgbBufferedImageFactory.getColorBufferedImage(0, 0, true);
+            fail("Expecting exception: IllegalArgumentException");
+        } catch(final IllegalArgumentException e) {
+            assertEquals("Width (0) and height (0) cannot be <= 0",e.getMessage());
+            assertEquals(DirectColorModel.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }
+
+    @Test
     public void testGetColorBufferedImageThrowsIllegalArgumentException_2_oe() {
         final RgbBufferedImageFactory rgbBufferedImageFactory = new RgbBufferedImageFactory();
 

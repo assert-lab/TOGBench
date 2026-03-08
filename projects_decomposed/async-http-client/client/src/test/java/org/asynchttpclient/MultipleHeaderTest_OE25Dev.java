@@ -77,6 +77,109 @@ public class MultipleHeaderTest_OE25Dev extends AbstractBasicTest {
   }
 
   @Test
+  public void testMultipleOtherHeaders() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    final String[] xffHeaders = new String[]{null, null};
+
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Request req = get("http://localhost:" + port1 + "/MultiOther").build();
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(req, new AsyncHandler<Void>() {
+        public void onThrowable(Throwable t) {
+          t.printStackTrace(System.out);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders response) {
+          int i = 0;
+          for (String header : response.getAll("X-Forwarded-For")) {
+            xffHeaders[i++] = header;
+          }
+          latch.countDown();
+          return State.CONTINUE;
+        }
+
+        public Void onCompleted() {
+          return null;
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (!latch.await(2, TimeUnit.SECONDS)) {
+        fail("Time out");
+      }
+      assertNotNull(xffHeaders[0]);
+      assertNotNull(xffHeaders[1]);
+      try {
+        assertEquals(xffHeaders[0], "abc");
+        assertEquals(xffHeaders[1], "def");
+      } catch (AssertionError ex) {
+        assertEquals(xffHeaders[1], "abc");
+        assertEquals(xffHeaders[0], "def");
+      }
+    }
+  }
+
+  @Test
+  public void testMultipleEntityHeaders() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    final String[] clHeaders = new String[]{null, null};
+
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Request req = get("http://localhost:" + port1 + "/MultiEnt").build();
+      final CountDownLatch latch = new CountDownLatch(1);
+      ahc.executeRequest(req, new AsyncHandler<Void>() {
+        public void onThrowable(Throwable t) {
+          t.printStackTrace(System.out);
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart objectHttpResponseBodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus objectHttpResponseStatus) {
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders response) {
+          try {
+            int i = 0;
+            for (String header : response.getAll("X-Duplicated-Header")) {
+              clHeaders[i++] = header;
+            }
+          } finally {
+            latch.countDown();
+          }
+          return State.CONTINUE;
+        }
+
+        public Void onCompleted() {
+          return null;
+        }
+      }).get(3, TimeUnit.SECONDS);
+
+      if (!latch.await(2, TimeUnit.SECONDS)) {
+        fail("Time out");
+      }
+      assertNotNull(clHeaders[0]);
+      assertNotNull(clHeaders[1]);
+
+      // We can predict the order
+      try {
+        assertEquals(clHeaders[0], "2");
+        assertEquals(clHeaders[1], "1");
+      } catch (Throwable ex) {
+        assertEquals(clHeaders[0], "1");
+        assertEquals(clHeaders[1], "2");
+      }
+    }
+  }
+
+  @Test
   public void testMultipleOtherHeaders_1_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
     final String[] xffHeaders = new String[]{null, null};
 

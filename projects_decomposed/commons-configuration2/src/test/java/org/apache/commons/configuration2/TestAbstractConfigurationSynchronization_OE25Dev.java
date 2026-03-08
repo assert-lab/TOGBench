@@ -111,6 +111,11 @@ public class TestAbstractConfigurationSynchronization_OE25Dev {
     /**
      * Tests whether containsKey() is correctly synchronized.
      */
+    @Test
+    public void testContainsKeySychronized() {
+        assertTrue("Wrong result", config.containsKey(PROP));
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests whether the copy() method uses synchronization.
@@ -125,6 +130,10 @@ public class TestAbstractConfigurationSynchronization_OE25Dev {
     /**
      * Tests the Synchronizer used by default.
      */
+    @Test
+    public void testDefaultSynchronizer() {
+        assertSame("Wrong default synchronizer", NoOpSynchronizer.INSTANCE, new PropertiesConfiguration().getSynchronizer());
+    }
 
     /**
      * Tests whether getKeys(String prefix) is correctly synchronized.
@@ -138,14 +147,30 @@ public class TestAbstractConfigurationSynchronization_OE25Dev {
     /**
      * Tests whether getKeys() is correctly synchronized.
      */
+    @Test
+    public void testGetKeysSynchronized() {
+        assertTrue("No keys", config.getKeys().hasNext());
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests whether read access to properties is synchronized.
      */
+    @Test
+    public void testGetPropertySynchronized() {
+        assertEquals("Wrong raw value", "true", config.getProperty(PROP));
+        assertTrue("Wrong boolean value", config.getBoolean(PROP));
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ, Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests whether isEmpty() is correctly synchronized.
      */
+    @Test
+    public void testIsEmptySynchronized() {
+        assertFalse("Configuration is empty", config.isEmpty());
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests lock() with a null argument.
@@ -186,10 +211,21 @@ public class TestAbstractConfigurationSynchronization_OE25Dev {
     /**
      * Tests whether size() is correctly synchronized.
      */
+    @Test
+    public void testSizeSynchronized() {
+        assertFalse("Wrong size", config.isEmpty());
+        sync.verify(Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests synchronization of subset().
      */
+    @Test
+    public void testSubsetSynchronized() {
+        final AbstractConfiguration subset = (AbstractConfiguration) config.subset("configuration");
+        sync.verify();
+        assertEquals("Wrong synchronizer for subset", NoOpSynchronizer.INSTANCE, subset.getSynchronizer());
+    }
 
     /**
      * Tests whether a read lock can be released.
@@ -211,38 +247,44 @@ public class TestAbstractConfigurationSynchronization_OE25Dev {
 
     @Test
     public void testContainsKeySychronized_1_oe() {
-        assertTrue("Wrong result", config.containsKey(PROP));
+        boolean a = config.containsKey(PROP);
+        assertTrue("Wrong result", a);
     }
 
     @Test
     public void testDefaultSynchronizer_1_oe() {
-        assertSame("Wrong default synchronizer", NoOpSynchronizer.INSTANCE, new PropertiesConfiguration().getSynchronizer());
+        Object a = NoOpSynchronizer.INSTANCE;
+        assertSame("Wrong default synchronizer", a, new PropertiesConfiguration().getSynchronizer());
     }
 
     @Test
     public void testGetKeysSynchronized_1_oe() {
-        assertTrue("No keys", config.getKeys().hasNext());
+        boolean a = config.getKeys().hasNext();
+        assertTrue("No keys", a);
     }
 
     @Test
     public void testGetPropertySynchronized_1_oe() {
-        assertEquals("Wrong raw value", "true", config.getProperty(PROP));
+        String a = "true";
+        assertEquals("Wrong raw value", a, config.getProperty(PROP));
     }
 
     @Test
     public void testGetPropertySynchronized_2_oe() {
-        // removed other assertion
-        assertTrue("Wrong boolean value", config.getBoolean(PROP));
+        boolean a = config.getBoolean(PROP);
+        assertTrue("Wrong boolean value", a);
     }
 
     @Test
     public void testIsEmptySynchronized_1_oe() {
-        assertFalse("Configuration is empty", config.isEmpty());
+        boolean a = config.isEmpty();
+        assertFalse("Configuration is empty", a);
     }
 
     @Test
     public void testSizeSynchronized_1_oe() {
-        assertFalse("Wrong size", config.isEmpty());
+        boolean a = config.isEmpty();
+        assertFalse("Wrong size", a);
     }
 
     @Test

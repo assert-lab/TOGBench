@@ -31,6 +31,58 @@ import static org.junit.jupiter.api.Assertions.fail;
  * tests too).
  */
 class BaseProviderTest_OE25Dev {
+    @Test
+    void testStateSizeTooSmall() {
+        final DummyGenerator dummy = new DummyGenerator();
+        final int size = dummy.getStateSize();
+        Assumptions.assumeTrue(size > 0);
+        final RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size - 1]);
+        Assertions.assertThrows(IllegalStateException.class, () -> dummy.restoreState(state));
+    }
+
+    @Test
+    void testStateSizeTooLarge() {
+        final DummyGenerator dummy = new DummyGenerator();
+        final int size = dummy.getStateSize();
+        final RandomProviderDefaultState state = new RandomProviderDefaultState(new byte[size + 1]);
+        Assertions.assertThrows(IllegalStateException.class, () -> dummy.restoreState(state));
+    }
+
+    @Test
+    void testFillStateInt() {
+        final int[] state = new int[10];
+        final int[] seed = {1, 2, 3};
+
+        for (int i = 0; i < state.length; i++) {
+            Assertions.assertEquals(0, state[i]);
+        }
+
+        new DummyGenerator().fillState(state, seed);
+        for (int i = 0; i < seed.length; i++) {
+            Assertions.assertEquals(seed[i], state[i]);
+        }
+        for (int i = seed.length; i < state.length; i++) {
+            Assertions.assertNotEquals(0, state[i]);
+        }
+    }
+
+    @Test
+    void testFillStateLong() {
+        final long[] state = new long[10];
+        final long[] seed = {1, 2, 3};
+
+        for (int i = 0; i < state.length; i++) {
+            Assertions.assertEquals(0, state[i]);
+        }
+
+        new DummyGenerator().fillState(state, seed);
+        for (int i = 0; i < seed.length; i++) {
+            Assertions.assertEquals(seed[i], state[i]);
+        }
+        for (int i = seed.length; i < state.length; i++) {
+            Assertions.assertNotEquals(0, state[i]);
+        }
+    }
 
     /**
      * Dummy class for checking the behaviorof the IntProvider. Tests:

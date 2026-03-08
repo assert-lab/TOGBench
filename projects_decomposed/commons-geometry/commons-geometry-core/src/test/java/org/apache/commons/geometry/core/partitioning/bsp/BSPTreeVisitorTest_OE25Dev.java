@@ -28,6 +28,15 @@ import org.junit.jupiter.api.Test;
 class BSPTreeVisitorTest_OE25Dev {
 
     @Test
+    void testDefaultVisitOrder() {
+        // arrange
+        final BSPTreeVisitor<TestPoint2D, TestNode> visitor = n -> BSPTreeVisitor.Result.CONTINUE;
+
+        // act/assert
+        Assertions.assertEquals(BSPTreeVisitor.Order.NODE_MINUS_PLUS, visitor.visitOrder(null));
+    }
+
+    @Test
     void testClosestFirst() {
         // arrange
         final TestBSPTree tree = new TestBSPTree();

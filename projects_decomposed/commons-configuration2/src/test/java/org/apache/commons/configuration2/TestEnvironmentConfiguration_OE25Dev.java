@@ -67,6 +67,18 @@ public class TestEnvironmentConfiguration_OE25Dev {
      * Tests whether a newly created configuration contains some properties. (We expect that at least some properties are
      * set in each environment.)
      */
+    @Test
+    public void testInit() {
+        boolean found = false;
+        assertFalse("No properties found", config.isEmpty());
+        for (final Iterator<String> it = config.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue("Key not found: " + key, config.containsKey(key));
+            assertNotNull("No value for property " + key, config.getString(key));
+            found = true;
+        }
+        assertTrue("No property keys returned", found);
+    }
 
     /**
      * Tries to set the value of a property. This should cause an exception.
@@ -85,7 +97,6 @@ public class TestEnvironmentConfiguration_OE25Dev {
     @Test
     public void testInit_2_oe() {
         boolean found = false;
-        // removed other assertion
         for (final Iterator<String> it = config.getKeys(); it.hasNext();) {
             final String key = it.next();
             assertTrue("Key not found: " + key, config.containsKey(key));
@@ -95,10 +106,8 @@ public class TestEnvironmentConfiguration_OE25Dev {
     @Test
     public void testInit_3_oe() {
         boolean found = false;
-        // removed other assertion
         for (final Iterator<String> it = config.getKeys(); it.hasNext();) {
             final String key = it.next();
-            // removed other assertion
             assertNotNull("No value for property " + key, config.getString(key));
     }
     }
@@ -106,11 +115,8 @@ public class TestEnvironmentConfiguration_OE25Dev {
     @Test
     public void testInit_4_oe() {
         boolean found = false;
-        // removed other assertion
         for (final Iterator<String> it = config.getKeys(); it.hasNext();) {
             final String key = it.next();
-            // removed other assertion
-            // removed other assertion
             found = true;
         }
         assertTrue("No property keys returned", found);

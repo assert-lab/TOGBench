@@ -66,6 +66,119 @@ public class OrFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
+    public void testAccept() throws FileSystemException {
+
+        final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
+
+        // Empty
+        Assert.assertFalse(new OrFileFilter().accept(any));
+
+        // True
+        Assert.assertTrue(new OrFileFilter(new True()).accept(any));
+        Assert.assertTrue(new OrFileFilter(new True(), new True()).accept(any));
+        Assert.assertTrue(new OrFileFilter(new False(), new True()).accept(any));
+        Assert.assertTrue(new OrFileFilter(new True(), new False()).accept(any));
+
+        // False
+        Assert.assertFalse(new OrFileFilter(new False()).accept(any));
+        Assert.assertFalse(new OrFileFilter(new False(), new False()).accept(any));
+
+    }
+
+    @Test
+    public void testAddFileFilter() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+
+        // TEST
+        final OrFileFilter testee = new OrFileFilter();
+        testee.addFileFilter(filter1);
+        testee.addFileFilter(filter2);
+        testee.addFileFilter(filter3);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+
+    }
+
+    @Test
+    public void testOrFileFilterFileFilter() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+
+        // TEST
+        final OrFileFilter testee = new OrFileFilter(filter1, filter2, filter3);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+
+    }
+
+    @Test
+    public void testOrFileFilterList() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final List<FileFilter> list = new ArrayList<>();
+        list.add(filter1);
+        list.add(filter2);
+        list.add(filter3);
+
+        // TEST
+        final OrFileFilter testee = new OrFileFilter(list);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+
+    }
+
+    @Test
+    public void testRemoveFileFilter() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final OrFileFilter testee = new OrFileFilter(filter1, filter2, filter3);
+
+        // TEST
+        testee.removeFileFilter(filter2);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter3);
+
+    }
+
+    @Test
+    public void testSetFileFilters() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final List<FileFilter> list = new ArrayList<>();
+        list.add(filter1);
+        list.add(filter2);
+        list.add(filter3);
+        final OrFileFilter testee = new OrFileFilter();
+
+        // TEST
+        testee.setFileFilters(list);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+
+    }
+
+    @Test
     public void testAccept_1_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));

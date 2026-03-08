@@ -24,6 +24,14 @@ import org.junit.jupiter.api.Test;
 public class TagInfoByteTest_OE25Dev {
 
     @Test
+    public void testCreatesTagInfoByteTakingFourArgumentsAndCallsEncodeValue() {
+        final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
+        final TagInfoByte tagInfoByte = new TagInfoByte("", 347, tiffDirectoryType);
+
+        assertArrayEquals(new byte[]{(byte) 0}, tagInfoByte.encodeValue(null, (byte) 0));
+    }
+
+    @Test
     public void testCreatesTagInfoByteTakingFourArgumentsAndCallsEncodeValue_1_oe() {
         final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.TIFF_DIRECTORY_IFD0;
         final TagInfoByte tagInfoByte = new TagInfoByte("", 347, tiffDirectoryType);

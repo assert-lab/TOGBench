@@ -53,6 +53,13 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
     private final StlBoundaryReadHandler3D handler = new StlBoundaryReadHandler3D();
 
     @Test
+    void testProperties() {
+        // assert
+        Assertions.assertEquals(GeometryFormat3D.STL, handler.getFormat());
+        Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
+    }
+
+    @Test
     void testReadMethods_cubeAscii() throws IOException {
         // arrange
         final URL url = EuclideanIOTestUtils.resource("/models/cube-ascii.stl");
@@ -80,6 +87,102 @@ class StlBoundaryReadHandler3DTest_OE25Dev {
         EuclideanIOTestUtils.assertCube(handler.readTriangleMesh(input, TEST_PRECISION), TEST_EPS);
         EuclideanIOTestUtils.assertCube(
                 boundariesToBoundarySource(handler.boundaries(input, TEST_PRECISION)), TEST_EPS);
+    }
+
+    @Test
+    void testRead_usesInputCharset() {
+        // arrange
+        final String content = "solid test\n" +
+                "facet normal 1 2 3 " +
+                "outer loop " +
+                    "vertex 4 5 6 " +
+                    "vertex 7 8 9 " +
+                    "vertex 10 11 12 " +
+                "endloop " +
+            "endfacet " +
+            "endsolid test";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
+        final GeometryInput input = new StreamGeometryInput(in, null, StandardCharsets.UTF_16);
+
+        // act/assert
+        try (FacetDefinitionReader reader = handler.facetDefinitionReader(input)) {
+            Assertions.assertNotNull(reader.readFacet());
+            Assertions.assertNull(reader.readFacet());
+        }
+    }
+
+    @Test
+    void testRead_setDefaultCharset() {
+        // arrange
+        final String content = "solid test\n" +
+                "facet normal 1 2 3 " +
+                "outer loop " +
+                    "vertex 4 5 6 " +
+                    "vertex 7 8 9 " +
+                    "vertex 10 11 12 " +
+                "endloop " +
+            "endfacet " +
+            "endsolid test";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
+        final GeometryInput input = new StreamGeometryInput(in);
+
+        // act
+        handler.setDefaultCharset(StandardCharsets.UTF_16);
+
+        // assert
+        try (FacetDefinitionReader reader = handler.facetDefinitionReader(input)) {
+            Assertions.assertNotNull(reader.readFacet());
+            Assertions.assertNull(reader.readFacet());
+        }
+    }
+
+    @Test
+    void testRead_incorrectCharset() {
+        // arrange
+        final String content = "solid test\n" +
+                "facet normal 1 2 3 " +
+                "outer loop " +
+                    "vertex 4 5 6 " +
+                    "vertex 7 8 9 " +
+                    "vertex 10 11 12 " +
+                "endloop " +
+            "endfacet " +
+            "endsolid test";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
+        final GeometryInput input = new StreamGeometryInput(in);
+
+        // act/assert
+        try (FacetDefinitionReader reader = handler.facetDefinitionReader(input)) {
+            Assertions.assertNotNull(reader.readFacet());
+            Assertions.assertNotNull(reader.readFacet());
+
+            Assertions.assertThrows(IllegalStateException.class, () -> reader.readFacet());
+        }
+    }
+
+    @Test
+    void testRead_notEnoughBytes() {
+        // arrange
+        final ByteArrayInputStream in = new ByteArrayInputStream(new byte[1]);
+        final GeometryInput input = new StreamGeometryInput(in);
+
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> handler.facetDefinitionReader(input));
+    }
+
+    @Test
+    void testRead_closesInputOnReaderCreationFailure() {
+        // arrange
+        final CloseCountInputStream in = new CloseCountInputStream(new ByteArrayInputStream(new byte[1]));
+        final GeometryInput input = new StreamGeometryInput(in);
+
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> handler.facetDefinitionReader(input));
+
+        Assertions.assertEquals(1, in.getCloseCount());
     }
 
     private static BoundarySource3D boundariesToBoundarySource(final Stream<? extends PlaneConvexSubset> boundaries) {

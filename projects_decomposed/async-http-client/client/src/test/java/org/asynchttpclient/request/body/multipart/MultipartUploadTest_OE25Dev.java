@@ -65,6 +65,77 @@ public class MultipartUploadTest_OE25Dev extends AbstractBasicTest {
     port1 = connector.getLocalPort();
   }
 
+  @Test
+  public void testSendingSmallFilesAndByteArray() throws Exception {
+    String expectedContents = "filecontent: hello";
+    String expectedContents2 = "gzipcontent: hello";
+    String expectedContents3 = "filecontent: hello2";
+    String testResource1 = "textfile.txt";
+    String testResource2 = "gzip.txt.gz";
+    String testResource3 = "textfile2.txt";
+
+    File testResource1File = getClasspathFile(testResource1);
+    File testResource2File = getClasspathFile(testResource2);
+    File testResource3File = getClasspathFile(testResource3);
+    InputStream inputStreamFile1 = new BufferedInputStream(new FileInputStream(testResource1File));
+    InputStream inputStreamFile2 = new BufferedInputStream(new FileInputStream(testResource2File));
+    InputStream inputStreamFile3 = new BufferedInputStream(new FileInputStream(testResource3File));
+
+    List<File> testFiles = new ArrayList<>();
+    testFiles.add(testResource1File);
+    testFiles.add(testResource2File);
+    testFiles.add(testResource3File);
+    testFiles.add(testResource3File);
+    testFiles.add(testResource2File);
+    testFiles.add(testResource1File);
+
+    List<String> expected = new ArrayList<>();
+    expected.add(expectedContents);
+    expected.add(expectedContents2);
+    expected.add(expectedContents3);
+    expected.add(expectedContents3);
+    expected.add(expectedContents2);
+    expected.add(expectedContents);
+
+    List<Boolean> gzipped = new ArrayList<>();
+    gzipped.add(false);
+    gzipped.add(true);
+    gzipped.add(false);
+    gzipped.add(false);
+    gzipped.add(true);
+    gzipped.add(false);
+
+    File tmpFile = File.createTempFile("textbytearray", ".txt");
+    try (OutputStream os = Files.newOutputStream(tmpFile.toPath())) {
+      IOUtils.write(expectedContents.getBytes(UTF_8), os);
+
+      testFiles.add(tmpFile);
+      expected.add(expectedContents);
+      gzipped.add(false);
+    }
+
+    try (AsyncHttpClient c = asyncHttpClient(config())) {
+      Request r = post("http://localhost" + ":" + port1 + "/upload")
+              .addBodyPart(new FilePart("file1", testResource1File, "text/plain", UTF_8))
+              .addBodyPart(new FilePart("file2", testResource2File, "application/x-gzip", null))
+              .addBodyPart(new StringPart("Name", "Dominic"))
+              .addBodyPart(new FilePart("file3", testResource3File, "text/plain", UTF_8))
+              .addBodyPart(new StringPart("Age", "3")).addBodyPart(new StringPart("Height", "shrimplike"))
+              .addBodyPart(new InputStreamPart("inputStream3", inputStreamFile3, testResource3File.getName(), testResource3File.length(), "text/plain", UTF_8))
+              .addBodyPart(new InputStreamPart("inputStream2", inputStreamFile2, testResource2File.getName(), testResource2File.length(), "application/x-gzip", null))
+              .addBodyPart(new StringPart("Hair", "ridiculous")).addBodyPart(new ByteArrayPart("file4",
+                      expectedContents.getBytes(UTF_8), "text/plain", UTF_8, "bytearray.txt"))
+              .addBodyPart(new InputStreamPart("inputStream1", inputStreamFile1, testResource1File.getName(), testResource1File.length(), "text/plain", UTF_8))
+              .build();
+
+      Response res = c.executeRequest(r).get();
+
+      assertEquals(res.getStatusCode(), 200);
+
+      testSentFile(expected, testFiles, res, gzipped);
+    }
+  }
+
   private void sendEmptyFile0(boolean disableZeroCopy) throws Exception {
     File file = getClasspathFile("empty.txt");
     try (AsyncHttpClient c = asyncHttpClient(config().setDisableZeroCopy(disableZeroCopy))) {

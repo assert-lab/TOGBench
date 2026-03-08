@@ -27,6 +27,28 @@ import org.junit.jupiter.api.Test;
 public class TagInfoByteOrShortTest_OE25Dev {
 
     @Test
+    public void testEncodeValueTakingByteOrderAndByteArrayOne() {
+        final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+        final TagInfoByteOrShort tagInfoByteOrShort = new TagInfoByteOrShort("r", 500, 500, tiffDirectoryType);
+        final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+        final short[] shortArray = new short[2];
+        final byte[] byteArray = tagInfoByteOrShort.encodeValue(byteOrder, shortArray);
+
+        assertArrayEquals(new byte[]{(byte) 0, (byte) 0, (byte) 0, (byte) 0}, byteArray);
+    }
+
+    @Test
+    public void testEncodeValueTakingByteOrderAndByteArrayTwo() {
+        final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
+        final TagInfoByteOrShort tagInfoByteOrShort = new TagInfoByteOrShort("r", 500, 500, tiffDirectoryType);
+        final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+        final byte[] byteArray = new byte[2];
+        final byte[] byteArrayTwo = tagInfoByteOrShort.encodeValue(byteOrder, byteArray);
+
+        assertSame(byteArrayTwo, byteArray);
+    }
+
+    @Test
     public void testEncodeValueTakingByteOrderAndByteArrayOne_1_oe() {
         final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.EXIF_DIRECTORY_MAKER_NOTES;
         final TagInfoByteOrShort tagInfoByteOrShort = new TagInfoByteOrShort("r", 500, 500, tiffDirectoryType);

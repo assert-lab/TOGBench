@@ -36,6 +36,12 @@ public class SuppressGAOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTest
     /**
      * test of the constructors.
      */
+    @Override
+    public void testConstructors()
+    {
+        assertEquals(opthand1.getOptionCode(), TelnetOption.SUPPRESS_GO_AHEAD);
+        super.testConstructors();
+    }
 
     /**
      * test of client-driven subnegotiation.

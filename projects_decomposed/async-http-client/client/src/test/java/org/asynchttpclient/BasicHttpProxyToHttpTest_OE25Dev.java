@@ -91,6 +91,22 @@ public class BasicHttpProxyToHttpTest_OE25Dev {
     }
   }
 
+  @Test
+  public void nonPreemptiveProxyAuthWithPlainHttpTarget() throws IOException, InterruptedException, ExecutionException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      String targetUrl = "http://localhost:" + httpPort + "/foo/bar";
+      Request request = get(targetUrl)
+              .setProxyServer(proxyServer("127.0.0.1", proxyPort).setRealm(realm(AuthScheme.BASIC, "johndoe", "pass")))
+              // .setRealm(realm(AuthScheme.BASIC, "user", "passwd"))
+              .build();
+      Future<Response> responseFuture = client.executeRequest(request);
+      Response response = responseFuture.get();
+
+      Assert.assertEquals(response.getStatusCode(), HttpServletResponse.SC_OK);
+      Assert.assertEquals("/foo/bar", response.getHeader("X-pathInfo"));
+    }
+  }
+
   @SuppressWarnings("serial")
   public static class BasicAuthProxyServlet extends ProxyServlet {
 

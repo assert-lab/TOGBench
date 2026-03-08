@@ -33,6 +33,22 @@ public class NettyConnectionResetByPeerTest_OE25Dev {
         resettingServerAddress = createResettingServer();
     }
 
+    @Test
+    public void testAsyncHttpClientConnectionResetByPeer() throws InterruptedException {
+        try {
+            DefaultAsyncHttpClientConfig config = new DefaultAsyncHttpClientConfig.Builder()
+                    .setRequestTimeout(1500)
+                    .build();
+            new DefaultAsyncHttpClient(config).executeRequest(
+                    new RequestBuilder("GET").setUrl(resettingServerAddress)
+            )
+                    .get();
+        } catch (ExecutionException e) {
+            Throwable ex = e.getCause();
+            assertThat(ex, is(instanceOf(IOException.class)));
+        }
+    }
+
     private static String createResettingServer() {
         return createServer(sock -> {
             try (Socket socket = sock) {

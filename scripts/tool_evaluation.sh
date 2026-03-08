@@ -1,9 +1,9 @@
-python3 scripts/remove_assertion.py --root projects_decomposed/JSON-java
+python3 scripts/remove_assertion.py --root projects_decomposed/joda-time
 
 python3 scripts/inject_assertion.py \
-  --inputs projects_decomposed/JSON-java/dataset/inputs_no_assert.csv \
-  --preds  projects_decomposed/JSON-java/dataset/doc2oracll.csv \
-  --out    projects_decomposed/JSON-java/dataset/inputs_llm.csv
+  --inputs projects_decomposed/joda-time/dataset/inputs_no_assert.csv \
+  --preds  projects_decomposed/joda-time/dataset/doc2oracll.csv \
+  --out    projects_decomposed/joda-time/dataset/inputs_llm.csv
 
 find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 
@@ -15,7 +15,7 @@ mvn test -Dtest="*_OE25Dev#*_oe"
 
 python3 scripts/comment-incompatible_assertions.py
 
-grep -R --include="*OE25Dev.java" "// incorrect assertion" projects_decomposed/JSON-java | wc -l
+grep -R --include="*OE25Dev.java" "// incorrect assertion" projects_decomposed/joda-time | wc -l
 
 
 
@@ -24,12 +24,12 @@ python3 - <<'PY'
 import csv
 
 inputs="dataset/inputs.csv"
-inputs_try="dataset_MUST_THROW/inputs_passed.csv"
+inputs_try="dataset/inputs_multiline.csv"
 meta="dataset/meta.csv"
 meta_try="dataset_MUST_THROW/meta_passed.csv"
 
 out_inputs="dataset/inputs_final.csv"
-out_meta="dataset/meta_final.csv"
+out_meta="dataset/meta_delete.csv"
 
 def replace_add_rows(src,repl,out):
     with open(src) as f:

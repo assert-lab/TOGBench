@@ -33,6 +33,21 @@ import org.junit.Test;
 public class CleanProcessorTest_OE25Dev extends WeaverTestBase {
 
     @Test
+    public void testWeaveVisiting() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put("configKey", "configValue");
+
+        final CleanProcessor cp = new CleanProcessor(getClassPathEntries(), getTargetFolder(), config);
+        cp.clean();
+
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithMethodAnnotation.class.getName().replace('.',File.separatorChar)+ ".class").exists());
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithClassAnnotation.class.getName().replace('.',File.separatorChar)+ ".class").exists());
+    }
+
+    @Test
     public void testWeaveVisiting_1_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);

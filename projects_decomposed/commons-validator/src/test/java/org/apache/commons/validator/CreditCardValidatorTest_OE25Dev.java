@@ -40,6 +40,37 @@ public class CreditCardValidatorTest_OE25Dev extends TestCase {
     public CreditCardValidatorTest_OE25Dev(String name) {
         super(name);
     }
+
+    public void testIsValid() {
+        CreditCardValidator ccv = new CreditCardValidator();
+        
+        assertFalse(ccv.isValid(null));
+        assertFalse(ccv.isValid(""));
+        assertFalse(ccv.isValid("123456789012"));// too short assertFalse(ccv.isValid("12345678901234567890"));// too long assertFalse(ccv.isValid("4417123456789112"));
+        assertFalse(ccv.isValid("4417q23456w89113"));
+        assertTrue(ccv.isValid(VALID_VISA));
+        assertTrue(ccv.isValid(VALID_SHORT_VISA));
+        assertTrue(ccv.isValid(VALID_AMEX));
+        assertTrue(ccv.isValid(VALID_MASTERCARD));
+        assertTrue(ccv.isValid(VALID_DISCOVER));
+        
+        // disallow Visa so it should fail even with good number
+        ccv = new CreditCardValidator(CreditCardValidator.AMEX);
+        assertFalse(ccv.isValid("4417123456789113"));
+    }
+    
+    public void testAddAllowedCardType() {
+        CreditCardValidator ccv = new CreditCardValidator(CreditCardValidator.NONE);
+        // Turned off all cards so even valid numbers should fail
+        assertFalse(ccv.isValid(VALID_VISA));
+        assertFalse(ccv.isValid(VALID_AMEX));
+        assertFalse(ccv.isValid(VALID_MASTERCARD));
+        assertFalse(ccv.isValid(VALID_DISCOVER));
+        
+        // test our custom type
+        ccv.addAllowedCardType(new DinersClub());
+        assertTrue(ccv.isValid(VALID_DINERS));
+    }
     
     /**
      * Test a custom implementation of CreditCardType.

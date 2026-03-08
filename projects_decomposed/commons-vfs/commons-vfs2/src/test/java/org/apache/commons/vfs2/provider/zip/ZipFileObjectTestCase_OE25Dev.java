@@ -77,12 +77,38 @@ public class ZipFileObjectTestCase_OE25Dev {
      *
      * @throws IOException
      */
+    @Test
+    @Ignore("Shows that leaving a stream open and not closing any resource leaves the container file locked")
+    public void testLeaveNestedFileOpen() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
+            @SuppressWarnings({ "resource" })
+            final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
+            getInputStreamAndAssert(zipFileObject1, "1");
+        }
+        assertDelete(newZipFile);
+    }
 
     /**
      * Tests that we can read more than one file within a Zip file, especially after closing each FileObject.
      *
      * @throws IOException
      */
+    @Test
+    public void testReadingFilesInZipFile() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
+            try (final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1)) {
+                try (final InputStream inputStream = zipFileObject1.getContent().getInputStream()) {
+                    readAndAssert(zipFileObject1, inputStream, "1");
+                }
+            }
+            resolveReadAssert(zipFileObject, NESTED_FILE_2);
+        }
+        assertDelete(newZipFile);
+    }
 
     /**
      * Tests that we can get a stream from one file in a zip file, then close another file from the same zip, then
@@ -90,6 +116,23 @@ public class ZipFileObjectTestCase_OE25Dev {
      *
      * @throws IOException
      */
+    @Test
+    public void testReadingOneAfterClosingAnotherFile() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        final FileObject zipFileObject1;
+        final InputStream inputStream1;
+        try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
+            // leave resources open
+            zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
+            inputStream1 = zipFileObject1.getContent().getInputStream();
+        }
+        // The zip file is "closed", but we read from the stream now.
+        readAndAssert(zipFileObject1, inputStream1, "1");
+        // clean up
+        zipFileObject1.close();
+        assertDelete(newZipFile);
+    }
 
     /**
      * Tests that we can get a stream from one file in a zip file, then close another file from the same zip, then
@@ -97,10 +140,49 @@ public class ZipFileObjectTestCase_OE25Dev {
      *
      * @throws IOException
      */
+    @Test
+    public void testReadingOneAfterClosingAnotherStream() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        final FileObject zipFileObject1;
+        final InputStream inputStream1;
+        try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
+            // leave resources open (note that internal counters are updated)
+            zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
+            inputStream1 = zipFileObject1.getContent().getInputStream();
+            resolveReadAssert(zipFileObject, NESTED_FILE_2);
+        }
+        // The Zip file is "closed", but we read from the stream now, which currently fails.
+        // Why aren't internal counters preventing the stream from closing?
+        readAndAssert(zipFileObject1, inputStream1, "1");
+        // clean up
+        zipFileObject1.close();
+        assertDelete(newZipFile);
+    }
 
     /**
      * Test read file with special name in a zip file
      */
+    @Test
+    public void testReadSpecialNameFileInZipFile() throws FileSystemException {
+
+        final File testFile = new File("src/test/resources/test-data/special_fileName.zip");
+        final String[] fileNames = {"file.txt", "file^.txt", "file~.txt", "file?.txt", "file@.txt", "file$.txt",
+                                    "file*.txt", "file&.txt", "file#.txt", "file%.txt", "file!.txt"};
+        final FileSystemManager manager = VFS.getManager();
+        final String baseUrl = "zip:file:"+testFile.getAbsolutePath();
+
+        // test
+        try (final FileObject fileObject = manager.resolveFile(baseUrl)) {
+            // test getChildren() number equal
+            Assert.assertEquals(fileObject.getChildren().length, fileNames.length);
+
+            // test getChild(String)
+            for (final String fileName : fileNames) {
+                Assert.assertNotNull("can't read file " + fileName, fileObject.getChild(fileName));
+            }
+        }
+    }
 
     /**
      * Tests that we can resolve a file in a Zip file, then close the container zip, which should still let us delete
@@ -108,6 +190,17 @@ public class ZipFileObjectTestCase_OE25Dev {
      *
      * @throws IOException
      */
+    @Test
+    public void testResolveNestedFileWithoutCleanup() throws IOException {
+        final File newZipFile = createTempFile();
+        final FileSystemManager manager = VFS.getManager();
+        try (final FileObject zipFileObject = manager.resolveFile("zip:file:" + newZipFile.getAbsolutePath())) {
+            @SuppressWarnings({ "unused", "resource" })
+            // We resolve a nested file and do nothing else.
+            final FileObject zipFileObject1 = zipFileObject.resolveFile(NESTED_FILE_1);
+        }
+        assertDelete(newZipFile);
+    }
 
     @Test
     public void testReadSpecialNameFileInZipFile_1_oe() throws FileSystemException {

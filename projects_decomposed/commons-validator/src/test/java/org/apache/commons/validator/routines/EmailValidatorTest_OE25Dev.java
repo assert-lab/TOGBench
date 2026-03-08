@@ -55,29 +55,92 @@ public class EmailValidatorTest_OE25Dev {
    /**
     * Tests the e-mail validation.
     */
+    @Test
+    public void testEmail()  {
+       assertTrue(validator.isValid("jsmith@apache.org"));
+    }
 
    /**
     * Tests the email validation with numeric domains.
     */
+    @Test
+    public void testEmailWithNumericAddress()  {
+        assertTrue(validator.isValid("someone@[216.109.118.76]"));
+        assertTrue(validator.isValid("someone@yahoo.com"));
+    }
 
     /**
      * Tests the e-mail validation.
      */
+    @Test
+    public void testEmailExtension()  {
+        assertTrue(validator.isValid("jsmith@apache.org"));
+
+        assertTrue(validator.isValid("jsmith@apache.com"));
+
+        assertTrue(validator.isValid("jsmith@apache.net"));
+
+        assertTrue(validator.isValid("jsmith@apache.info"));
+
+        assertFalse(validator.isValid("jsmith@apache."));
+
+        assertFalse(validator.isValid("jsmith@apache.c"));
+
+        assertTrue(validator.isValid("someone@yahoo.museum"));
+
+        assertFalse(validator.isValid("someone@yahoo.mu-seum"));
+    }
 
    /**
     * <p>Tests the e-mail validation with a dash in
     * the address.</p>
     */
+    @Test
+    public void testEmailWithDash()  {
+       assertTrue(validator.isValid("andy.noble@data-workshop.com"));
+
+       assertFalse(validator.isValid("andy-noble@data-workshop.-com"));
+
+       assertFalse(validator.isValid("andy-noble@data-workshop.c-om"));
+
+       assertFalse(validator.isValid("andy-noble@data-workshop.co-m"));
+   }
 
    /**
     * Tests the e-mail validation with a dot at the end of
     * the address.
     */
+    @Test
+    public void testEmailWithDotEnd()  {
+      assertFalse(validator.isValid("andy.noble@data-workshop.com."));
+   }
 
     /**
      * Tests the e-mail validation with an RCS-noncompliant character in
      * the address.
      */
+    @Test
+    public void testEmailWithBogusCharacter()  {
+
+        assertFalse(validator.isValid("andy.noble@\u008fdata-workshop.com"));
+
+        // The ' character is valid in an email username.
+        assertTrue(validator.isValid("andy.o'reilly@data-workshop.com"));
+
+        // But not in the domain name.
+        assertFalse(validator.isValid("andy@o'reilly.data-workshop.com"));
+
+        // The + character is valid in an email username.
+        assertTrue(validator.isValid("foo+bar@i.am.not.in.us.example.com"));
+
+        // But not in the domain name
+        assertFalse(validator.isValid("foo+bar@example+3.com"));
+
+        // Domains with only special characters aren't allowed (VALIDATOR-286) 
+        assertFalse(validator.isValid("test@%*.com"));
+        assertFalse(validator.isValid("test@^&#.com"));
+
+    }
 
     @Test
     public void testVALIDATOR_315() {
@@ -91,33 +154,171 @@ public class EmailValidatorTest_OE25Dev {
         assertFalse(validator.isValid("someone@test-.com"));// hostname ends with dash/hyphen
     }
 
+    @Test
+    public void testValidator235() {
+        String version = System.getProperty("java.version");
+        if (version.compareTo("1.6") < 0) {
+            System.out.println("Cannot run Unicode IDN tests");
+            return; // Cannot run the test
+        }
+        assertTrue("xn--d1abbgf6aiiy.xn--p1ai should validate", validator.isValid("someone@xn--d1abbgf6aiiy.xn--p1ai"));
+        assertTrue("президент.рф should validate", validator.isValid("someone@президент.рф"));
+        assertTrue("www.b\u00fccher.ch should validate", validator.isValid("someone@www.b\u00fccher.ch"));
+        assertFalse("www.\uFFFD.ch FFFD should fail", validator.isValid("someone@www.\uFFFD.ch"));
+        assertTrue("www.b\u00fccher.ch should validate", validator.isValid("someone@www.b\u00fccher.ch"));
+        assertFalse("www.\uFFFD.ch FFFD should fail", validator.isValid("someone@www.\uFFFD.ch"));
+    }
+
     /**
     * Tests the email validation with commas.
     */
+    @Test
+    public void testEmailWithCommas()  {
+        assertFalse(validator.isValid("joeblow@apa,che.org"));
+
+        assertFalse(validator.isValid("joeblow@apache.o,rg"));
+
+        assertFalse(validator.isValid("joeblow@apache,org"));
+
+    }
 
    /**
     * Tests the email validation with spaces.
     */
+    @Test
+    public void testEmailWithSpaces()  {
+        assertFalse(validator.isValid("joeblow @apache.org"));
+
+        assertFalse(validator.isValid("joeblow@ apache.org"));
+
+        assertFalse(validator.isValid(" joeblow@apache.org"));
+
+        assertFalse(validator.isValid("joeblow@apache.org "));
+
+        assertFalse(validator.isValid("joe blow@apache.org "));
+
+        assertFalse(validator.isValid("joeblow@apa che.org "));
+
+        assertTrue(validator.isValid("\"joeblow \"@apache.org"));
+
+        assertTrue(validator.isValid("\" joeblow\"@apache.org"));
+
+        assertTrue(validator.isValid("\" joe blow \"@apache.org"));
+
+    }
 
    /**
     * Tests the email validation with ascii control characters.
     * (i.e. Ascii chars 0 - 31 and 127)
     */
+    @Test
+    public void testEmailWithControlChars()  {
+        for (char c = 0; c < 32; c++) {
+            assertFalse("Test control char " + ((int)c), validator.isValid("foo" + c + "bar@domain.com"));
+        }
+        assertFalse("Test control char 127", validator.isValid("foo" + ((char)127) + "bar@domain.com"));
+    }
     
     /**
      * Test that @localhost and @localhost.localdomain
      *  addresses are declared as valid when requested. 
      */
+    @Test
+    public void testEmailLocalhost() {
+       // Check the default is not to allow
+       EmailValidator noLocal = EmailValidator.getInstance(false);
+       EmailValidator allowLocal = EmailValidator.getInstance(true);
+       assertEquals(validator, noLocal);
+       
+       // Depends on the validator
+       assertTrue("@localhost.localdomain should be accepted but wasn't",allowLocal.isValid("joe@localhost.localdomain"));
+       assertTrue("@localhost should be accepted but wasn't",allowLocal.isValid("joe@localhost"));
+       
+       assertFalse("@localhost.localdomain should be accepted but wasn't",noLocal.isValid("joe@localhost.localdomain"));
+       assertFalse("@localhost should be accepted but wasn't",noLocal.isValid("joe@localhost"));
+    }
     
     /**
      * VALIDATOR-296 - A / or a ! is valid in the user part,
      *  but not in the domain part 
      */
+    @Test
+    public void testEmailWithSlashes() {
+       assertTrue("/ and ! valid in username",validator.isValid("joe!/blow@apache.org"));
+       assertFalse("/ not valid in domain",validator.isValid("joe@ap/ache.org"));
+       assertFalse("! not valid in domain",validator.isValid("joe@apac!he.org"));
+    }
 
     /**
      * Write this test according to parts of RFC, as opposed to the type of character
      * that is being tested.
      */
+    @Test
+    public void testEmailUserName()  {
+
+        assertTrue(validator.isValid("joe1blow@apache.org"));
+
+        assertTrue(validator.isValid("joe$blow@apache.org"));
+
+        assertTrue(validator.isValid("joe-@apache.org"));
+
+        assertTrue(validator.isValid("joe_@apache.org"));
+
+        assertTrue(validator.isValid("joe+@apache.org"));// + is valid unquoted assertTrue(validator.isValid("joe!@apache.org"));// ! is valid unquoted assertTrue(validator.isValid("joe*@apache.org"));// * is valid unquoted assertTrue(validator.isValid("joe'@apache.org"));// ' is valid unquoted assertTrue(validator.isValid("joe%45@apache.org"));// % is valid unquoted assertTrue(validator.isValid("joe?@apache.org"));// ? is valid unquoted assertTrue(validator.isValid("joe&@apache.org"));// & ditto assertTrue(validator.isValid("joe=@apache.org"));// = ditto assertTrue(validator.isValid("+joe@apache.org"));// + is valid unquoted assertTrue(validator.isValid("!joe@apache.org"));// ! is valid unquoted assertTrue(validator.isValid("*joe@apache.org"));// * is valid unquoted assertTrue(validator.isValid("'joe@apache.org"));// ' is valid unquoted assertTrue(validator.isValid("%joe45@apache.org"));// % is valid unquoted assertTrue(validator.isValid("?joe@apache.org"));// ? is valid unquoted assertTrue(validator.isValid("&joe@apache.org"));// & ditto assertTrue(validator.isValid("=joe@apache.org"));// = ditto assertTrue(validator.isValid("+@apache.org"));// + is valid unquoted assertTrue(validator.isValid("!@apache.org"));// ! is valid unquoted assertTrue(validator.isValid("*@apache.org"));// * is valid unquoted assertTrue(validator.isValid("'@apache.org"));// ' is valid unquoted assertTrue(validator.isValid("%@apache.org"));// % is valid unquoted assertTrue(validator.isValid("?@apache.org"));// ? is valid unquoted assertTrue(validator.isValid("&@apache.org"));// & ditto assertTrue(validator.isValid("=@apache.org"));// = ditto assertFalse(validator.isValid("joe.@apache.org"));// . not allowed at end of local part assertFalse(validator.isValid(".joe@apache.org"));// . not allowed at start of local part assertFalse(validator.isValid(".@apache.org"));// . not allowed alone assertTrue(validator.isValid("joe.ok@apache.org"));// . allowed embedded assertFalse(validator.isValid("joe..ok@apache.org"));// .. not allowed embedded assertFalse(validator.isValid("..@apache.org"));// .. not allowed alone assertFalse(validator.isValid("joe(@apache.org"));assertFalse(validator.isValid("joe)@apache.org"));
+
+        assertFalse(validator.isValid("joe,@apache.org"));
+
+        assertFalse(validator.isValid("joe;@apache.org"));
+
+
+        //Quoted Special characters are valid
+        assertTrue(validator.isValid("\"joe.\"@apache.org"));
+
+        assertTrue(validator.isValid("\".joe\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe+\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe@\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe!\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe*\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe'\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe(\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe)\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe,\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe%45\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe;\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe?\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe&\"@apache.org"));
+
+        assertTrue(validator.isValid("\"joe=\"@apache.org"));
+
+        assertTrue(validator.isValid("\"..\"@apache.org"));
+
+        // escaped quote character valid in quoted string
+        assertTrue(validator.isValid("\"john\\\"doe\"@apache.org"));
+
+        assertTrue(validator.isValid("john56789.john56789.john56789.john56789.john56789.john56789.john@example.com"));
+
+        assertFalse(validator.isValid("john56789.john56789.john56789.john56789.john56789.john56789.john5@example.com"));
+
+        assertTrue(validator.isValid("\\>escape\\\\special\\^characters\\<@example.com"));
+
+        assertTrue(validator.isValid("Abc\\@def@example.com"));
+
+        assertFalse(validator.isValid("Abc@def@example.com"));
+
+        assertTrue(validator.isValid("space\\ monkey@example.com"));
+    }
 
     /**
      * These test values derive directly from RFC 822 &
@@ -218,6 +419,20 @@ public class EmailValidatorTest_OE25Dev {
         assertEquals("Expected 0 errors", 0, errors);
     }
 
+    @Test
+    public void testValidator293(){
+        assertTrue(validator.isValid("abc-@abc.com"));
+        assertTrue(validator.isValid("abc_@abc.com"));
+        assertTrue(validator.isValid("abc-def@abc.com"));
+        assertTrue(validator.isValid("abc_def@abc.com"));
+        assertFalse(validator.isValid("abc@abc_def.com"));
+    }
+
+    @Test
+    public void testValidator365() {
+        assertFalse(validator.isValid("Loremipsumdolorsitametconsecteturadipiscingelit.Nullavitaeligulamattisrhoncusnuncegestasmattisleo."+ "Donecnonsapieninmagnatristiquedictumaacturpis.Fusceorciduifacilisisutsapieneuconsequatpharetralectus."+ "Quisqueenimestpulvinarutquamvitaeportamattisex.Nullamquismaurisplaceratconvallisjustoquisportamauris."+ "Innullalacusconvalliseufringillautvenenatissitametdiam.Maecenasluctusligulascelerisquepulvinarfeugiat."+ "Sedmolestienullaaliquetorciluctusidpharetranislfinibus.Suspendissemalesuadatinciduntduisitametportaarcusollicitudinnec."+ "Donecetmassamagna.Curabitururnadiampretiumveldignissimporttitorfringillaeuneque."+ "Duisantetelluspharetraidtinciduntinterdummolestiesitametfelis.Utquisquamsitametantesagittisdapibusacnonodio."+ "Namrutrummolestiediamidmattis.Cumsociisnatoquepenatibusetmagnisdisparturientmontesnasceturridiculusmus."+ "Morbiposueresedmetusacconsectetur.Etiamquisipsumvitaejustotempusmaximus.Sedultriciesplaceratvolutpat."+ "Integerlacuslectusmaximusacornarequissagittissitametjusto."+ "Cumsociisnatoquepenatibusetmagnisdisparturientmontesnasceturridiculusmus.Maecenasindictumpurussedrutrumex.Nullafacilisi."+ "Integerfinibusfinibusmietpharetranislfaucibusvel.Maecenasegetdolorlacinialobortisjustovelullamcorpersem."+ "Vivamusaliquetpurusidvariusornaresapienrisusrutrumnisitinciduntmollissemnequeidmetus."+ "Etiamquiseleifendpurus.Nuncfelisnuncscelerisqueiddignissimnecfinibusalibero."+ "Nuncsemperenimnequesitamethendreritpurusfacilisisac.Maurisdapibussemperfelisdignissimgravida."+ "Aeneanultricesblanditnequealiquamfinibusodioscelerisqueac.Aliquamnecmassaeumaurisfaucibusfringilla."+ "Etiamconsequatligulanisisitametaliquamnibhtemporquis.Nuncinterdumdignissimnullaatsodalesarcusagittiseu."+ "Proinpharetrametusneclacuspulvinarsedvolutpatliberoornare.Sedligulanislpulvinarnonlectuseublanditfacilisisante."+ "Sedmollisnislalacusauctorsuscipit.Inhachabitasseplateadictumst.Phasellussitametvelittemporvenenatisfeliseuegestasrisus."+ "Aliquameteratsitametnibhcommodofinibus.Morbiefficiturodiovelpulvinariaculis."+ "Aeneantemporipsummassaaconsecteturturpisfaucibusultrices.Praesentsodalesmaurisquisportafermentum."+ "Etiamnisinislvenenatisvelauctorutullamcorperinjusto.Proinvelligulaerat.Phasellusvestibulumgravidamassanonfeugiat."+ "Maecenaspharetraeuismodmetusegetefficitur.Suspendisseamet@gmail.com"));
+    }
+
     /**
      * Tests the e-mail validation with a user at a TLD
      *
@@ -225,6 +440,22 @@ public class EmailValidatorTest_OE25Dev {
      * (In the case of a top-level domain used by itself in an
      * email address, a single string is used without any dots)
      */
+    @Test
+    public void testEmailAtTLD() {
+        EmailValidator val = EmailValidator.getInstance(false, true);
+        assertTrue(val.isValid("test@com"));
+    }
+
+    @Test
+    public void testValidator359() {
+        EmailValidator val = EmailValidator.getInstance(false, true);
+        assertFalse(val.isValid("test@.com"));
+    }
+
+    @Test
+    public void testValidator374() {
+        assertTrue(validator.isValid("abc@school.school"));
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void testValidator473_1() { // reject null DomainValidator

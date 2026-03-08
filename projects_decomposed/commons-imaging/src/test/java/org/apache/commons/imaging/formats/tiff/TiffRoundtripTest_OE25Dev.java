@@ -34,6 +34,42 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class TiffRoundtripTest_OE25Dev extends TiffBaseTest {
 
     @Test
+    public void test() throws Exception {
+        final List<File> images = getTiffImages();
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            assertNotNull(metadata);
+
+            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            assertNotNull(imageInfo);
+
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            assertNotNull(image);
+
+            final int[] compressions = new int[]{
+                    TiffConstants.TIFF_COMPRESSION_UNCOMPRESSED,
+                    TiffConstants.TIFF_COMPRESSION_LZW,
+                    TiffConstants.TIFF_COMPRESSION_PACKBITS,
+                    TiffConstants.TIFF_COMPRESSION_DEFLATE_ADOBE
+            };
+            final TiffImageParser tiffImageParser = new TiffImageParser();
+            for (final int compression : compressions) {
+                final File tempFile = File.createTempFile(imageFile.getName() + "-" + compression + ".", ".tif");
+                final TiffImagingParameters params = new TiffImagingParameters();
+                params.setCompression(compression);
+                try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+                    tiffImageParser.writeImage(image, fos, params);
+                }
+                final BufferedImage image2 = Imaging.getBufferedImage(tempFile);
+                assertNotNull(image2);
+            }
+        }
+    }
+
+    @Test
     public void test_1_oe() throws Exception {
         final List<File> images = getTiffImages();
         for (final File imageFile : images) {

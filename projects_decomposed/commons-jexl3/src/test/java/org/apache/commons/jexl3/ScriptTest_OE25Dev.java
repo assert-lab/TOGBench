@@ -54,10 +54,89 @@ public class ScriptTest_OE25Dev extends JexlTestCase {
     /**
      * Test creating a script from spaces.
      */
+    @Test
+    public void testSpacesScript() throws Exception {
+        final String code = " ";
+        final JexlScript s = JEXL.createScript(code);
+        Assert.assertNotNull(s);
+    }
 
     /**
      * Test creating a script from a string.
      */
+    @Test
+    public void testSimpleScript() throws Exception {
+        final String code = "while (x < 10) x = x + 1;";
+        final JexlScript s = JEXL.createScript(code);
+        final JexlContext jc = new MapContext();
+        jc.set("x", new Integer(1));
+
+        final Object o = s.execute(jc);
+        Assert.assertEquals("Result is wrong", new Integer(10), o);
+        Assert.assertEquals("getText is wrong", code, s.getSourceText());
+    }
+
+    @Test
+    public void testScriptFromFile() throws Exception {
+        final File testScript = new File(TEST1);
+        final JexlScript s = JEXL.createScript(testScript);
+        final JexlContext jc = new MapContext();
+        jc.set("out", System.out);
+        final Object result = s.execute(jc);
+        Assert.assertNotNull("No result", result);
+        Assert.assertEquals("Wrong result", new Integer(7), result);
+    }
+
+    @Test
+    public void testArgScriptFromFile() throws Exception {
+        final File testScript = new File(TEST_ADD);
+        final JexlScript s = JEXL.createScript(testScript,"x", "y");
+        final JexlContext jc = new MapContext();
+        jc.set("out", System.out);
+        final Object result = s.execute(jc, 13, 29);
+        Assert.assertNotNull("No result", result);
+        Assert.assertEquals("Wrong result", new Integer(42), result);
+    }
+
+    @Test
+    public void testScriptFromURL() throws Exception {
+        final URL testUrl = new File(TEST1).toURI().toURL();
+        final JexlScript s = JEXL.createScript(testUrl);
+        final JexlContext jc = new MapContext();
+        jc.set("out", System.out);
+        final Object result = s.execute(jc);
+        Assert.assertNotNull("No result", result);
+        Assert.assertEquals("Wrong result", new Integer(7), result);
+    }
+
+    @Test
+    public void testArgScriptFromURL() throws Exception {
+        final URL testUrl = new File(TEST_ADD).toURI().toURL();
+        final JexlScript s = JEXL.createScript(testUrl,"x", "y");
+        final JexlContext jc = new MapContext();
+        jc.set("out", System.out);
+        final Object result = s.execute(jc, 13, 29);
+        Assert.assertNotNull("No result", result);
+        Assert.assertEquals("Wrong result", new Integer(42), result);
+    }
+
+    @Test
+    public void testScriptUpdatesContext() throws Exception {
+        final String jexlCode = "resultat.setCode('OK')";
+        final JexlExpression e = JEXL.createExpression(jexlCode);
+        final JexlScript s = JEXL.createScript(jexlCode);
+
+        final Tester resultatJexl = new Tester();
+        final JexlContext jc = new MapContext();
+        jc.set("resultat", resultatJexl);
+
+        resultatJexl.setCode("");
+        e.evaluate(jc);
+        Assert.assertEquals("OK", resultatJexl.getCode());
+        resultatJexl.setCode("");
+        s.execute(jc);
+        Assert.assertEquals("OK", resultatJexl.getCode());
+    }
 
     @Test
     public void testSpacesScript_1_oe() throws Exception {

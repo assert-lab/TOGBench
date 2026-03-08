@@ -32,10 +32,28 @@ class InverseTransformParetoSamplerTest_OE25Dev {
     /**
      * Test the constructor with a bad scale.
      */
+    @Test
+    void testConstructorThrowsWithZeroScale() {
+        final RestorableUniformRandomProvider rng =
+            RandomSource.SPLIT_MIX_64.create(0L);
+        final double scale = 0;
+        final double shape = 1;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> InverseTransformParetoSampler.of(rng, scale, shape));
+    }
 
     /**
      * Test the constructor with a bad shape.
      */
+    @Test
+    void testConstructorThrowsWithZeroShape() {
+        final RestorableUniformRandomProvider rng =
+            RandomSource.SPLIT_MIX_64.create(0L);
+        final double scale = 1;
+        final double shape = 0;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> InverseTransformParetoSampler.of(rng, scale, shape));
+    }
 
     /**
      * Test the SharedStateSampler implementation.

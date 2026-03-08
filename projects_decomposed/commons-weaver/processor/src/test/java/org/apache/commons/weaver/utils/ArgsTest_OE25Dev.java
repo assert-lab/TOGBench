@@ -30,6 +30,20 @@ import org.junit.Test;
 public class ArgsTest_OE25Dev {
 
     @Test
+    public void testCompare() {
+        assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, ArrayUtils.EMPTY_CLASS_ARRAY) == 0);
+        assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, new Class[] { String.class }) < 0);
+        assertTrue(Args.compare(new Class[] { String.class }, ArrayUtils.EMPTY_CLASS_ARRAY) > 0);
+        assertTrue(Args.compare(new Class[] { String.class }, new Class[] { String.class }) == 0);
+        assertTrue(Args.compare(new Class[] { int.class }, new Class[] { String.class }) < 0);
+        assertTrue(Args.compare(new Class[] { String.class }, new Class[] { int.class }) > 0);
+        assertTrue(Args.compare(new Class[] { int.class, String.class }, new Class[] { int.class, String.class}) == 0);
+        assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, String.class}) == 0);
+        assertTrue(Args.compare(new Class[] { String.class, int.class }, new Class[] { String.class, String.class}) < 0);
+        assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, int.class}) > 0);
+    }
+
+    @Test
     public void testCompare_1_oe() {
         assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, ArrayUtils.EMPTY_CLASS_ARRAY) == 0);
     }

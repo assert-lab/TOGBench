@@ -73,9 +73,91 @@ class BoundaryIOManager3DTest_OE25Dev {
     private final BoundaryIOManager3D manager = new BoundaryIOManager3D();
 
     @Test
+    void testRegisterDefaultHandlers() {
+        // act
+        manager.registerDefaultHandlers();
+
+        // assert
+        // ensure that we have default read/write handlers for every defined format
+        final GeometryFormat3D[] fmts = GeometryFormat3D.values();
+
+        Assertions.assertEquals(fmts.length, manager.getReadHandlers().size());
+        Assertions.assertEquals(fmts.length, manager.getWriteHandlers().size());
+
+        for (final GeometryFormat3D fmt : fmts) {
+            Assertions.assertNotNull(manager.getReadHandlerForFormat(fmt));
+            Assertions.assertNotNull(manager.getWriteHandlerForFormat(fmt));
+        }
+    }
+
+    @Test
+    void testFacetDefinitionReader_formatGiven() {
+        // arrange
+        final StubReadHandler3D readHandler = new StubReadHandler3D();
+        manager.registerReadHandler(readHandler);
+
+        final GeometryInput in = new FileGeometryInput(Paths.get("myfile"));
+
+        // act
+        final FacetDefinitionReader result = manager.facetDefinitionReader(in, TEST_FMT);
+
+        // assert
+        Assertions.assertSame(FACET_DEF_READER, result);
+        Assertions.assertSame(in, readHandler.inArg);
+    }
+
+    @Test
+    void testFacetDefinitionReader_nullFormat() {
+        // arrange
+        final StubReadHandler3D readHandler = new StubReadHandler3D();
+        manager.registerReadHandler(readHandler);
+
+        final GeometryInput in = new FileGeometryInput(Paths.get("myfile.test"));
+
+        // act
+        final FacetDefinitionReader result = manager.facetDefinitionReader(in, null);
+
+        // assert
+        Assertions.assertSame(FACET_DEF_READER, result);
+        Assertions.assertSame(in, readHandler.inArg);
+    }
+
+    @Test
     void testFacetDefinitionReader_unknownHandler() {
         // act/assert
         checkUnknownReadHandler(manager::facetDefinitionReader);
+    }
+
+    @Test
+    void testFacets_formatGiven() {
+        // arrange
+        final StubReadHandler3D readHandler = new StubReadHandler3D();
+        manager.registerReadHandler(readHandler);
+
+        final GeometryInput in = new FileGeometryInput(Paths.get("myfile"));
+
+        // act
+        final Stream<FacetDefinition> result = manager.facets(in, TEST_FMT);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(FACET), result.collect(Collectors.toList()));
+        Assertions.assertSame(in, readHandler.inArg);
+    }
+
+    @Test
+    void testFacets_nullFormat() {
+        // arrange
+        final StubReadHandler3D readHandler = new StubReadHandler3D();
+        manager.registerReadHandler(readHandler);
+
+        final GeometryInput in = new FileGeometryInput(Paths.get("myfile.test"));
+
+        // act
+        final Stream<FacetDefinition> result = manager.facets(in, null);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(FACET), result.collect(Collectors.toList()));
+        Assertions.assertSame(in, readHandler.inArg);
     }
 
     @Test
@@ -85,9 +167,77 @@ class BoundaryIOManager3DTest_OE25Dev {
     }
 
     @Test
+    void testTriangles_formatGiven() {
+        // arrange
+        final StubReadHandler3D readHandler = new StubReadHandler3D();
+        manager.registerReadHandler(readHandler);
+
+        final GeometryInput in = new FileGeometryInput(Paths.get("myfile"));
+
+        // act
+        final Stream<Triangle3D> result = manager.triangles(in, TEST_FMT, TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(TRI), result.collect(Collectors.toList()));
+        Assertions.assertSame(in, readHandler.inArg);
+        Assertions.assertSame(TEST_PRECISION, readHandler.precisionArg);
+    }
+
+    @Test
+    void testTriangles_nullFormat() {
+        // arrange
+        final StubReadHandler3D readHandler = new StubReadHandler3D();
+        manager.registerReadHandler(readHandler);
+
+        final GeometryInput in = new FileGeometryInput(Paths.get("myfile.test"));
+
+        // act
+        final Stream<Triangle3D> result = manager.triangles(in, null, TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(TRI), result.collect(Collectors.toList()));
+        Assertions.assertSame(in, readHandler.inArg);
+        Assertions.assertSame(TEST_PRECISION, readHandler.precisionArg);
+    }
+
+    @Test
     void testTriangles_unknownHandler() {
         // act/assert
         checkUnknownReadHandler((in, fmt) -> manager.triangles(in, fmt, TEST_PRECISION));
+    }
+
+    @Test
+    void testReadTriangleMesh_formatGiven() {
+        // arrange
+        final StubReadHandler3D readHandler = new StubReadHandler3D();
+        manager.registerReadHandler(readHandler);
+
+        final GeometryInput in = new FileGeometryInput(Paths.get("myfile"));
+
+        // act
+        final TriangleMesh result = manager.readTriangleMesh(in, TEST_FMT, TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(TRI_MESH, result);
+        Assertions.assertSame(in, readHandler.inArg);
+        Assertions.assertSame(TEST_PRECISION, readHandler.precisionArg);
+    }
+
+    @Test
+    void testReadTriangleMesh_nullFormat() {
+        // arrange
+        final StubReadHandler3D readHandler = new StubReadHandler3D();
+        manager.registerReadHandler(readHandler);
+
+        final GeometryInput in = new FileGeometryInput(Paths.get("myfile.test"));
+
+        // act
+        final TriangleMesh result = manager.readTriangleMesh(in, null, TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(TRI_MESH, result);
+        Assertions.assertSame(in, readHandler.inArg);
+        Assertions.assertSame(TEST_PRECISION, readHandler.precisionArg);
     }
 
     @Test
@@ -97,15 +247,111 @@ class BoundaryIOManager3DTest_OE25Dev {
     }
 
     @Test
+    void testWrite_stream_formatGiven() {
+        // arrange
+        final StubWriteHandler3D writeHandler = new StubWriteHandler3D();
+        manager.registerWriteHandler(writeHandler);
+
+        final GeometryOutput out = new FileGeometryOutput(Paths.get("myfile"));
+
+        // act
+        manager.write(Stream.of(TRI), out, TEST_FMT);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(TRI), writeHandler.boundariesArg);
+        Assertions.assertSame(out, writeHandler.outArg);
+    }
+
+    @Test
+    void testWrite_stream_nullFormat() {
+        // arrange
+        final StubWriteHandler3D writeHandler = new StubWriteHandler3D();
+        manager.registerWriteHandler(writeHandler);
+
+        final GeometryOutput out = new FileGeometryOutput(Paths.get("myfile.TEST"));
+
+        // act
+        manager.write(Stream.of(TRI), out, null);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(TRI), writeHandler.boundariesArg);
+        Assertions.assertSame(out, writeHandler.outArg);
+    }
+
+    @Test
     void testWrite_stream_unknownHandler() {
         // act/assert
         checkUnknownWriteHandler((out, fmt) -> manager.write(Stream.of(TRI), out, fmt));
     }
 
     @Test
+    void testWriteFacets_stream_formatGiven() {
+        // arrange
+        final StubWriteHandler3D writeHandler = new StubWriteHandler3D();
+        manager.registerWriteHandler(writeHandler);
+
+        final GeometryOutput out = new FileGeometryOutput(Paths.get("myfile"));
+
+        // act
+        manager.writeFacets(Stream.of(FACET), out, TEST_FMT);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(FACET), writeHandler.facetsArg);
+        Assertions.assertSame(out, writeHandler.outArg);
+    }
+
+    @Test
+    void testWriteFacets_stream_nullFormat() {
+        // arrange
+        final StubWriteHandler3D writeHandler = new StubWriteHandler3D();
+        manager.registerWriteHandler(writeHandler);
+
+        final GeometryOutput out = new FileGeometryOutput(Paths.get("myfile.TEST"));
+
+        // act
+        manager.writeFacets(Stream.of(FACET), out, null);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(FACET), writeHandler.facetsArg);
+        Assertions.assertSame(out, writeHandler.outArg);
+    }
+
+    @Test
     void testWriteFacets_stream_unknownHandler() {
         // act/assert
         checkUnknownWriteHandler((out, fmt) -> manager.writeFacets(Stream.of(FACET), out, fmt));
+    }
+
+    @Test
+    void testWriteFacets_collection_formatGiven() {
+        // arrange
+        final StubWriteHandler3D writeHandler = new StubWriteHandler3D();
+        manager.registerWriteHandler(writeHandler);
+
+        final GeometryOutput out = new FileGeometryOutput(Paths.get("myfile"));
+
+        // act
+        manager.writeFacets(Collections.singletonList(FACET), out, TEST_FMT);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(FACET), writeHandler.facetsArg);
+        Assertions.assertSame(out, writeHandler.outArg);
+    }
+
+    @Test
+    void testWriteFacets_collection_nullFormat() {
+        // arrange
+        final StubWriteHandler3D writeHandler = new StubWriteHandler3D();
+        manager.registerWriteHandler(writeHandler);
+
+        final GeometryOutput out = new FileGeometryOutput(Paths.get("myfile.TEST"));
+
+        // act
+        manager.writeFacets(Collections.singletonList(FACET), out, null);
+
+        // assert
+        Assertions.assertEquals(Collections.singletonList(FACET), writeHandler.facetsArg);
+        Assertions.assertSame(out, writeHandler.outArg);
     }
 
     @Test

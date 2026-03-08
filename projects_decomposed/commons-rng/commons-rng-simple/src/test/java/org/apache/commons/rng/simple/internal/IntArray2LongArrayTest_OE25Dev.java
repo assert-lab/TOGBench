@@ -23,6 +23,19 @@ import org.junit.jupiter.api.Test;
  * Tests for the {@link IntArray2LongArray} converter.
  */
 class IntArray2LongArrayTest_OE25Dev {
+    @Test
+    void testSeedSizeIsMultipleOfLongSize() {
+        final int[] seed = new int[12];
+        final long[] out = new IntArray2LongArray().convert(seed);
+        Assertions.assertEquals(6, out.length);
+    }
+
+    @Test
+    void testSeedSizeIsNotMultipleOfLongSize() {
+        final int[] seed = new int[13];
+        final long[] out = new IntArray2LongArray().convert(seed);
+        Assertions.assertEquals(7, out.length);
+    }
 
     @Test
     void testSeedSizeIsMultipleOfLongSize_1_oe() {

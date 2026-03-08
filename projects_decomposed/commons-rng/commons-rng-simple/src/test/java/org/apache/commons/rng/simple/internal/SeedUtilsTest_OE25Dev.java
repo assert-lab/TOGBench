@@ -34,6 +34,30 @@ class SeedUtilsTest_OE25Dev {
      * A uniformity test is performed on to check each hex digits is used evenly at each
      * character position.
      */
+    @Test
+    void testCreateIntHexPermutation() {
+        final UniformRandomProvider rng = new SplitMix64(-567435247L);
+        final long[][] samples = new long[8][16];
+        for (int i = 0; i < 1000; i++) {
+            int sample = SeedUtils.createIntHexPermutation(rng);
+            int observed = 0;
+            for (int j = 0; j < 8; j++) {
+                final int digit = sample & 0xf;
+                Assertions.assertEquals(0, observed & (1 << digit), "Duplicate digit in sample");
+                observed |= 1 << digit;
+                samples[j][digit]++;
+                sample >>>= 4;
+            }
+        }
+
+        final ChiSquareTest chiSquareTest = new ChiSquareTest();
+        final double[] expected = new double[16];
+        Arrays.fill(expected, 1.0 / 16);
+        // Pass if we cannot reject null hypothesis that distributions are the same.
+        for (int j = 0; j < 8; j++) {
+            Assertions.assertFalse(chiSquareTest.chiSquareTest(expected,samples[j],0.001),"Not uniform in digit " + j);
+        }
+    }
 
     /**
      * Test the long hex permutation has 8 unique hex digits per permutation in the upper and
@@ -41,6 +65,40 @@ class SeedUtilsTest_OE25Dev {
      * A uniformity test is performed on to check each hex digits is used evenly at each
      * character position.
      */
+    @Test
+    void testCreateLongHexPermutation() {
+        final UniformRandomProvider rng = new SplitMix64(34645768L);
+        final long[][] samples = new long[16][16];
+        for (int i = 0; i < 1000; i++) {
+            long sample = SeedUtils.createLongHexPermutation(rng);
+            // Check lower 32-bits
+            long observed = 0;
+            for (int j = 0; j < 8; j++) {
+                final int digit = (int) (sample & 0xfL);
+                Assertions.assertEquals(0, observed & (1 << digit), "Duplicate digit in lower sample");
+                observed |= 1 << digit;
+                samples[j][digit]++;
+                sample >>>= 4;
+            }
+            // Check upper 32-bits
+            observed = 0;
+            for (int j = 8; j < 16; j++) {
+                final int digit = (int) (sample & 0xfL);
+                Assertions.assertEquals(0, observed & (1 << digit), "Duplicate digit in upper sample");
+                observed |= 1 << digit;
+                samples[j][digit]++;
+                sample >>>= 4;
+            }
+        }
+
+        final ChiSquareTest chiSquareTest = new ChiSquareTest();
+        final double[] expected = new double[16];
+        Arrays.fill(expected, 1.0 / 16);
+        // Pass if we cannot reject null hypothesis that distributions are the same.
+        for (int j = 0; j < 16; j++) {
+            Assertions.assertFalse(chiSquareTest.chiSquareTest(expected,samples[j],0.001),"Not uniform in digit " + j);
+        }
+    }
 
     @Test
     void testCreateIntHexPermutation_1_oe() {

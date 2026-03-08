@@ -55,22 +55,74 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
     /**
      * Tests whether the refresh delay is correctly passed to the base class.
      */
+    @Test
+    public void testGetRefreshDelay() throws Exception {
+        final long delay = 20130325L;
+        final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector(null, delay);
+        assertNotNull("No file handler was created", strategy.getFileHandler());
+        assertEquals("Wrong refresh delay", delay, strategy.getRefreshDelay());
+    }
 
     /**
      * Tests whether the last modification date of an existing file can be obtained.
      */
+    @Test
+    public void testLastModificationDateExisting() throws IOException {
+        final File file = folder.newFile();
+        writeTestFile(file, "value1");
+        final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector();
+        strategy.getFileHandler().setFile(file);
+        strategy.getFileHandler().setFileSystem(new VFSFileSystem());
+        final long modificationDate = strategy.getLastModificationDate();
+        // Workaround OpenJDK 8 and 9 bug JDK-8177809
+        // https://bugs.openjdk.java.net/browse/JDK-8177809
+        final long expectedMillis = Files.getLastModifiedTime(file.toPath()).toMillis();
+        assertEquals("Wrong modification date", expectedMillis, modificationDate);
+    }
 
     /**
      * Tests whether a file system exception is handled when accessing the file object.
      */
+    @Test
+    public void testLastModificationDateFileSystemEx() throws FileSystemException {
+        final FileObject fo = EasyMock.createMock(FileObject.class);
+        final FileName name = EasyMock.createMock(FileName.class);
+        EasyMock.expect(fo.exists()).andReturn(Boolean.TRUE);
+        EasyMock.expect(fo.getContent()).andThrow(new FileSystemException("error"));
+        EasyMock.expect(fo.getName()).andReturn(name);
+        EasyMock.expect(name.getURI()).andReturn("someURI");
+        EasyMock.replay(fo, name);
+        final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector() {
+            @Override
+            protected FileObject getFileObject() {
+                return fo;
+            }
+        };
+        assertEquals("Got a modification date", 0, strategy.getLastModificationDate());
+        EasyMock.verify(fo);
+    }
 
     /**
      * Tests whether a non existing file is handled correctly.
      */
+    @Test
+    public void testLastModificationDateNonExisting() {
+        final File file = ConfigurationAssert.getOutFile("NonExistingFile.xml");
+        final FileHandler handler = new FileHandler();
+        handler.setFileSystem(new VFSFileSystem());
+        handler.setFile(file);
+        final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector(handler);
+        assertEquals("Got a modification date", 0, strategy.getLastModificationDate());
+    }
 
     /**
      * Tests whether an undefined file handler is handler correctly.
      */
+    @Test
+    public void testLastModificationDateUndefinedHandler() {
+        final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector();
+        assertEquals("Got a modification date", 0, strategy.getLastModificationDate());
+    }
 
     /**
      * Tests a URI which cannot be resolved.
@@ -112,7 +164,6 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
     public void testGetRefreshDelay_2_oe() throws Exception {
         final long delay = 20130325L;
         final VFSFileHandlerReloadingDetector strategy = new VFSFileHandlerReloadingDetector(null, delay);
-        // removed other assertion
         assertEquals("Wrong refresh delay", delay, strategy.getRefreshDelay());
     }
 
@@ -124,8 +175,6 @@ public class TestVFSFileHandlerReloadingDetector_OE25Dev {
         strategy.getFileHandler().setFile(file);
         strategy.getFileHandler().setFileSystem(new VFSFileSystem());
         final long modificationDate = strategy.getLastModificationDate();
-        // Workaround OpenJDK 8 and 9 bug JDK-8177809
-        // https://bugs.openjdk.java.net/browse/JDK-8177809
         final long expectedMillis = Files.getLastModifiedTime(file.toPath()).toMillis();
         assertEquals("Wrong modification date", expectedMillis, modificationDate);
     }

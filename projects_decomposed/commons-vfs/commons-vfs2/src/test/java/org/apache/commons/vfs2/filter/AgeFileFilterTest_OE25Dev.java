@@ -111,6 +111,98 @@ public class AgeFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
+    public void testAgeFileFilterDate() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(new Date());
+        Assert.assertTrue(testee.accept(oldFileInfo));
+        Assert.assertTrue(testee.accept(currentFileInfo));
+        Assert.assertFalse(testee.accept(newFileInfo));
+
+    }
+
+    @Test
+    public void testAgeFileFilterDateBoolean() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(new Date(), true);
+        Assert.assertTrue(testee.accept(oldFileInfo));
+        Assert.assertTrue(testee.accept(currentFileInfo));
+        Assert.assertFalse(testee.accept(newFileInfo));
+
+        testee = new AgeFileFilter(new Date(), false);
+        Assert.assertFalse(testee.accept(oldFileInfo));
+        Assert.assertFalse(testee.accept(currentFileInfo));
+        Assert.assertTrue(testee.accept(newFileInfo));
+
+    }
+
+    @Test
+    public void testAgeFileFilterFile() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(currentFileInfo.getFile());
+        Assert.assertTrue(testee.accept(oldFileInfo));
+        Assert.assertTrue(testee.accept(currentFileInfo));
+        Assert.assertFalse(testee.accept(newFileInfo));
+
+    }
+
+    @Test
+    public void testAgeFileFilterFileBoolean() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), true);
+        Assert.assertTrue(testee.accept(oldFileInfo));
+        Assert.assertTrue(testee.accept(currentFileInfo));
+        Assert.assertFalse(testee.accept(newFileInfo));
+
+        testee = new AgeFileFilter(currentFileInfo.getFile(), false);
+        Assert.assertFalse(testee.accept(oldFileInfo));
+        Assert.assertFalse(testee.accept(currentFileInfo));
+        Assert.assertTrue(testee.accept(newFileInfo));
+
+    }
+
+    @Test
+    public void testAgeFileFilterLong() throws FileSystemException {
+
+        final AgeFileFilter testee = new AgeFileFilter(NOW_MILLIS);
+        Assert.assertTrue(testee.accept(oldFileInfo));
+        Assert.assertTrue(testee.accept(currentFileInfo));
+        Assert.assertFalse(testee.accept(newFileInfo));
+
+    }
+
+    @Test
+    public void testAgeFileFilterLongBoolean() throws FileSystemException {
+
+        AgeFileFilter testee;
+
+        testee = new AgeFileFilter(NOW_MILLIS, true);
+        Assert.assertTrue(testee.accept(oldFileInfo));
+        Assert.assertTrue(testee.accept(currentFileInfo));
+        Assert.assertFalse(testee.accept(newFileInfo));
+
+        testee = new AgeFileFilter(NOW_MILLIS, false);
+        Assert.assertFalse(testee.accept(oldFileInfo));
+        Assert.assertFalse(testee.accept(currentFileInfo));
+        Assert.assertTrue(testee.accept(newFileInfo));
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, true)));
+        assertContains(files, oldFile.getName(), currentFile.getName());
+        Assert.assertEquals(2, files.length);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(new AgeFileFilter(NOW_MILLIS, false)));
+        assertContains(files, newFile.getName());
+        Assert.assertEquals(1, files.length);
+
+    }
+
+    @Test
     public void testAgeFileFilterDate_1_oe() throws FileSystemException {
 
         final AgeFileFilter testee = new AgeFileFilter(new Date());

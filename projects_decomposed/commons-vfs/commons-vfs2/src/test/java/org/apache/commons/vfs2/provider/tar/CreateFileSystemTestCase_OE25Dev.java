@@ -44,6 +44,33 @@ public class CreateFileSystemTestCase_OE25Dev {
     }
 
     @Test
+    public void testTarFile() throws IOException {
+
+        final String testFilePath = "src/test/resources/test-data/test.tar";
+        try (FileObject fileObject = createFileSystem(testFilePath)) {
+            Assert.assertTrue(fileObject instanceof TarFileObject);
+        }
+    }
+
+    @Test
+    public void testTbz2File() throws IOException {
+
+        final String testFilePath = "src/test/resources/test-data/test.tbz2";
+        try (FileObject fileObject = createFileSystem(testFilePath)) {
+            Assert.assertTrue(fileObject instanceof TarFileObject);
+        }
+    }
+
+    @Test
+    public void testTgzFile() throws IOException {
+
+        final String testFilePath = "src/test/resources/test-data/test.tgz";
+        try (FileObject fileObject = createFileSystem(testFilePath)) {
+            Assert.assertTrue(fileObject instanceof TarFileObject);
+        }
+    }
+
+    @Test
     public void testTarFile_1_oe() throws IOException {
 
         final String testFilePath = "src/test/resources/test-data/test.tar";

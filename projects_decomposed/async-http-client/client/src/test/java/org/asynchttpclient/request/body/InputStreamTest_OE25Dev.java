@@ -45,6 +45,43 @@ public class InputStreamTest_OE25Dev extends AbstractBasicTest {
     return new InputStreamHandler();
   }
 
+  @Test
+  public void testInvalidInputStream() throws IOException, ExecutionException, InterruptedException {
+
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      HttpHeaders h = new DefaultHttpHeaders().add(CONTENT_TYPE, HttpHeaderValues.APPLICATION_X_WWW_FORM_URLENCODED);
+
+      InputStream is = new InputStream() {
+
+        int readAllowed;
+
+        @Override
+        public int available() {
+          return 1; // Fake
+        }
+
+        @Override
+        public int read() {
+          int fakeCount = readAllowed++;
+          if (fakeCount == 0) {
+            return (int) 'a';
+          } else if (fakeCount == 1) {
+            return (int) 'b';
+          } else if (fakeCount == 2) {
+            return (int) 'c';
+          } else {
+            return -1;
+          }
+        }
+      };
+
+      Response resp = c.preparePost(getTargetUrl()).setHeaders(h).setBody(is).execute().get();
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getHeader("X-Param"), "abc");
+    }
+  }
+
   private static class InputStreamHandler extends AbstractHandler {
     public void handle(String s, Request r, HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
       if ("POST".equalsIgnoreCase(request.getMethod())) {

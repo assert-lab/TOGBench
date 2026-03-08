@@ -41,6 +41,20 @@ public class TestFileSystemLocationStrategy_OE25Dev {
     /**
      * Tests a locate() operation.
      */
+    @Test
+    public void testLocate() {
+        final FileSystem fs = EasyMock.createMock(FileSystem.class);
+        final URL url = ConfigurationAssert.getTestURL("test.xml");
+        final String basePath = "testBasePath";
+        final String fileName = "testFileName.txt";
+        EasyMock.expect(fs.locateFromURL(basePath, fileName)).andReturn(url);
+        EasyMock.replay(fs);
+        final FileLocator locator = FileLocatorUtils.fileLocator().basePath(basePath).fileName(fileName).fileSystem(FileLocatorUtils.DEFAULT_FILE_SYSTEM)
+            .sourceURL(ConfigurationAssert.getTestURL("test.properties")).create();
+
+        assertSame("Wrong result", url, strategy.locate(fs, locator));
+        EasyMock.verify(fs);
+    }
 
     @Test
     public void testLocate_1_oe() {

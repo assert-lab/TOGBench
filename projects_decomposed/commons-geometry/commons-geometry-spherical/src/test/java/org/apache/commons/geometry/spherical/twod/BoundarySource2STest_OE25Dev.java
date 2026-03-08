@@ -30,6 +30,62 @@ class BoundarySource2STest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
+    void testToList() {
+        // act
+        final BoundarySource2S src = BoundarySource2S.of(
+            GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION),
+            GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION)
+        );
+
+        // act
+        final BoundaryList2S list = src.toList();
+
+        // assert
+        Assertions.assertEquals(2, list.count());
+    }
+
+    @Test
+    void testToList_noBoundaries() {
+        // act
+        final BoundarySource2S src = BoundarySource2S.of();
+
+        // act
+        final BoundaryList2S list = src.toList();
+
+        // assert
+        Assertions.assertEquals(0, list.count());
+    }
+
+    @Test
+    void testToTree() {
+        // act
+        final BoundarySource2S src = BoundarySource2S.of(
+                GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION));
+
+        // act
+        final RegionBSPTree2S tree = src.toTree();
+
+        // assert
+        Assertions.assertEquals(3, tree.count());
+        Assertions.assertFalse(tree.isFull());
+        Assertions.assertFalse(tree.isEmpty());
+    }
+
+    @Test
+    void testToTree_noBoundaries() {
+        // act
+        final BoundarySource2S src = BoundarySource2S.of(Collections.emptyList());
+
+        // act
+        final RegionBSPTree2S tree = src.toTree();
+
+        // assert
+        Assertions.assertEquals(1, tree.count());
+        Assertions.assertFalse(tree.isFull());
+        Assertions.assertTrue(tree.isEmpty());
+    }
+
+    @Test
     void testToList_1_oe() {
         // act
         final BoundarySource2S src = BoundarySource2S.of(

@@ -35,6 +35,12 @@ public class WindowSizeOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTest
     /**
      * test of the constructors.
      */
+    @Override
+    public void testConstructors()
+    {
+        assertEquals(TelnetOption.WINDOW_SIZE, opthand1.getOptionCode());
+        super.testConstructors();
+    }
 
     /**
      * test of client-driven subnegotiation.
@@ -52,6 +58,21 @@ public class WindowSizeOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTest
      * test of client-driven subnegotiation.
      *
      */
+    public void testStartSubnegotiationLocal()
+    {
+        final int[] exp1 = {31, 0, 80, 0, 24};
+        final int[] start1 = opthand1.startSubnegotiationLocal();
+        assertEquals(5, start1.length);
+        equalInts(exp1, start1);
+
+        final int[] exp2 = {31, 0, 255, 255, 0, 255, 255};
+        final int[] start2 = opthand2.startSubnegotiationLocal();
+        equalInts(exp2, start2);
+
+        final int[] exp3 = {31, 255, 255, 255, 255, 0, 255, 255};
+        final int[] start3 = opthand3.startSubnegotiationLocal();
+        equalInts(exp3, start3);
+    }
 
 
 

@@ -33,6 +33,36 @@ public class JexlScriptEngineOptionalTest_OE25Dev {
     private final ScriptEngine engine = manager.getEngineByName("jexl");
 
     @Test
+    public void testOutput() throws Exception {
+        final String output = factory.getOutputStatement("foo\u00a9bar");
+        Assert.assertEquals("JEXL.out.print('foo\\u00a9bar')", output);
+        // redirect output to capture evaluation result
+        final StringWriter outContent = new StringWriter();
+        engine.getContext().setWriter(outContent);
+        engine.eval(output);
+        Assert.assertEquals("foo\u00a9bar", outContent.toString());
+    }
+
+    @Test
+    public void testError() throws Exception {
+        final String error = "JEXL.err.print('ERROR')";
+        // redirect error to capture evaluation result
+        final StringWriter outContent = new StringWriter();
+        engine.getContext().setErrorWriter(outContent);
+        engine.eval(error);
+        Assert.assertEquals("ERROR", outContent.toString());
+    }
+
+    @Test
+    public void testCompilable() throws Exception {
+        Assert.assertTrue("Engine should implement Compilable", engine instanceof Compilable);
+        final Compilable cengine = (Compilable) engine;
+        final CompiledScript script = cengine.compile("40 + 2");
+        Assert.assertEquals(42, script.eval());
+        Assert.assertEquals(42, script.eval());
+    }
+
+    @Test
     public void testOutput_1_oe() throws Exception {
         final String output = factory.getOutputStatement("foo\u00a9bar");
         Assert.assertEquals("JEXL.out.print('foo\\u00a9bar')", output);

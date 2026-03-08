@@ -30,6 +30,16 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class PpmFileInfoTest_OE25Dev {
 
   @Test
+  public void testCreatesPpmFileInfoOne() {
+      Assertions.assertThrows(ImageReadException.class, () -> new PpmFileInfo(0, 0, false, 16711680));
+  }
+
+  @Test
+  public void testCreatesPpmFileInfoThree() {
+      Assertions.assertThrows(ImageReadException.class, () -> new PpmFileInfo(0, 0, true, 0));
+  }
+
+  @Test
   public void testCreatesPpmFileInfoOne_1_oe() throws Exception {
       try {
     new PpmFileInfo(0, 0, false, 16711680);

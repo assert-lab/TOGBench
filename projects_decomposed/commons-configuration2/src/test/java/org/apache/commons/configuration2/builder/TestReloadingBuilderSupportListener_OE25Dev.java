@@ -35,10 +35,40 @@ public class TestReloadingBuilderSupportListener_OE25Dev {
     /**
      * Tests that the builder is reset when a reloading event notification occurs.
      */
+    @Test
+    public void testResetBuilderOnReloadingEvent() {
+        final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
+        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
+        EasyMock.replay(detector);
+        final ReloadingController controller = new ReloadingController(detector);
+        final BasicConfigurationBuilder<Configuration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
+        final BuilderEventListenerImpl builderListener = new BuilderEventListenerImpl();
+        builder.addEventListener(ConfigurationBuilderEvent.ANY, builderListener);
+
+        final ReloadingBuilderSupportListener listener = ReloadingBuilderSupportListener.connect(builder, controller);
+        assertNotNull("No listener returned", listener);
+        controller.checkForReloading(null);
+        builderListener.nextEvent(ConfigurationBuilderEvent.RESET);
+        builderListener.assertNoMoreEvents();
+    }
 
     /**
      * Tests that the controller's reloading state is reset when a new result object is created.
      */
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testResetReloadingStateOnResultCreation() throws ConfigurationException {
+        final ReloadingController controller = EasyMock.createMock(ReloadingController.class);
+        controller.addEventListener(EasyMock.eq(ReloadingEvent.ANY), EasyMock.anyObject(EventListener.class));
+        controller.resetReloadingState();
+        EasyMock.replay(controller);
+        final BasicConfigurationBuilder<Configuration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
+
+        final ReloadingBuilderSupportListener listener = ReloadingBuilderSupportListener.connect(builder, controller);
+        assertNotNull("No listener returned", listener);
+        builder.getConfiguration();
+        EasyMock.verify(controller);
+    }
 
     @Test
     public void testResetBuilderOnReloadingEvent_1_oe() {

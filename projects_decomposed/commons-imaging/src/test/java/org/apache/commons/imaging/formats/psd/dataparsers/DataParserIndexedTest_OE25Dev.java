@@ -25,6 +25,18 @@ import org.junit.jupiter.api.Test;
 public class DataParserIndexedTest_OE25Dev{
 
   @Test
+  public void testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException() {
+      final byte[] byteArray = new byte[24];
+      try {
+        new DataParserIndexed(byteArray);
+        fail("Expecting exception: ArrayIndexOutOfBoundsException");
+      } catch(final ArrayIndexOutOfBoundsException e) {
+         assertTrue(e.getMessage().contains("256"));
+         assertEquals(DataParserIndexed.class.getName(), e.getStackTrace()[0].getClassName());
+      }
+  }
+
+  @Test
   public void testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_2_oe() {
       final byte[] byteArray = new byte[24];
       try {

@@ -44,6 +44,43 @@ class MarsagliaNormalisedGaussianSamplerTest_OE25Dev {
      * Test the edge case where the pair of samples are rejected. This occurs when the distance
      * of the pair is outside the unit circle or lies on the origin.
      */
+    @Test
+    void testSamplePairIsRejected() {
+        final double value = 0.25;
+        final UniformRandomProvider rng = new IntProvider() {
+            private int i;
+
+            @Override
+            public int next() {
+                // Not used
+                return 0;
+            }
+
+            @Override
+            public double nextDouble() {
+                i++;
+                if (i <= 2) {
+                    // First two samples are one.
+                    // This is outside the unit circle.
+                    return 1.0;
+                }
+                if (i <= 4) {
+                    // Next two samples are 0.5.
+                    // The pair lies at the origin.
+                    return 0.5;
+                }
+                return value;
+            }
+        };
+
+        final MarsagliaNormalizedGaussianSampler sampler = new MarsagliaNormalizedGaussianSampler(rng);
+
+        // Compute as per the algorithm
+        final double x = 2 * value - 1;
+        final double r2 = x * x + x * x;
+        final double expected = x * Math.sqrt(-2 * Math.log(r2) / r2);
+        Assertions.assertEquals(expected, sampler.sample());
+    }
 
     @Test
     void testSamplePairIsRejected_1_oe() {

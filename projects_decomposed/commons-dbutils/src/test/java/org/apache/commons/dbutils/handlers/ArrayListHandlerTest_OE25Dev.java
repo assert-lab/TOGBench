@@ -28,6 +28,41 @@ import org.apache.commons.dbutils.ResultSetHandler;
  */
 public class ArrayListHandlerTest_OE25Dev extends BaseTestCase {
 
+    public void testHandle() throws SQLException {
+        ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
+        List<Object[]> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Iterator<Object[]> iter = results.iterator();
+        Object[] row = null;
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.length);
+        assertEquals("1", row[0]);
+        assertEquals("2", row[1]);
+        assertEquals("THREE", row[2]);
+
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.length);
+
+        assertEquals("4", row[0]);
+        assertEquals("5", row[1]);
+        assertEquals("SIX", row[2]);
+
+        assertFalse(iter.hasNext());
+    }
+
+    public void testEmptyResultSetHandle() throws SQLException {
+        ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
+        List<Object[]> results = h.handle(this.emptyResultSet);
+
+        assertNotNull(results);
+        assertTrue(results.isEmpty());
+    }
+
     public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
         List<Object[]> results = h.handle(this.rs);

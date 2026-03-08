@@ -53,6 +53,14 @@ public class FileTypeTest_OE25Dev {
     }
 
     @Test
+    public void testSerializationContainer() {
+        final Fixture expectedFixture = new Fixture();
+        final byte[] serialized = SerializationUtils.serialize(expectedFixture);
+        final Fixture actualFixture = (Fixture) SerializationUtils.deserialize(serialized);
+        assertEquals(expectedFixture.getFileType(), actualFixture.getFileType());
+    }
+
+    @Test
     public void testSerializationFile() {
         test(FileType.FILE);
     }

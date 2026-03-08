@@ -39,8 +39,43 @@ public class StaticUsingArgsTest_OE25Dev {
     }
 
     @Test
+    public void testGetProperty() {
+        assertEquals("foo-value", StaticUsingArgs.getProperty("foo"));
+        assertEquals("bar-value", StaticUsingArgs.getProperty("bar"));
+        assertEquals("baz-value", StaticUsingArgs.getProperty("baz"));
+    }
+
+    @Test
+    public void testGetProperties() {
+        assertTrue(Arrays.equals(new String[] { "foo-value", "bar-value", "baz-value" },
+            StaticUsingArgs.getProperties("foo", "bar", "baz")));
+        assertEquals(0, StaticUsingArgs.getProperties().length);
+        assertNull(StaticUsingArgs.getProperties((String[]) null));
+    }
+
+    @Test
     public void testThrowAwayProperty() {
         StaticUsingArgs.throwAwayProperty('f', "o", 'o');
+    }
+
+    @Test
+    public void testAssembleAndGetProperty() {
+        assertEquals("foo-value", StaticUsingArgs.assembleAndGetProperty('f', new StringBuilder().append('o'), 'o'));
+        assertEquals("bar-value", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'r'));
+        assertEquals("baz-value", StaticUsingArgs.assembleAndGetProperty('b', new StringBuilder().append('a'), 'z'));
+    }
+
+    @Test
+    public void testThrowingCheckedException() throws CheckedException1, CheckedException2 {
+        assertEquals(0, StaticUsingArgs.throwingCheckedException(0, "foo"));
+        try {
+            StaticUsingArgs.throwingCheckedException(1, "bar");
+        } catch (CheckedException1 e) {
+        }
+        try {
+            StaticUsingArgs.throwingCheckedException(2, "baz");
+        } catch (CheckedException2 e) {
+        }
     }
 
     @Test

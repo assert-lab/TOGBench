@@ -70,10 +70,20 @@ class JumpableProvidersParametricTest_OE25Dev {
     /**
      * Test that the random generator returned from the jump is a new instance of the same class.
      */
+    @ParameterizedTest
+    @MethodSource("getJumpableProviders")
+    void testJumpReturnsACopy(JumpableUniformRandomProvider generator) {
+        assertJumpReturnsACopy(generator::jump, generator);
+    }
 
     /**
      * Test that the random generator returned from the long jump is a new instance of the same class.
      */
+    @ParameterizedTest
+    @MethodSource("getJumpableProviders")
+    void testLongJumpReturnsACopy(JumpableUniformRandomProvider generator) {
+        assertJumpReturnsACopy(getLongJumpFunction(generator), generator);
+    }
 
     /**
      * Assert that the random generator returned from the jump function is a new instance of the same class.

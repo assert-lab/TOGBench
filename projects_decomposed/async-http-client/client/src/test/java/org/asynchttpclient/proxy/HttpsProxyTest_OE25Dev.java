@@ -64,6 +64,73 @@ public class HttpsProxyTest_OE25Dev extends AbstractBasicTest {
   }
 
   @Test
+  public void testRequestProxy() throws Exception {
+
+    try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config().setFollowRedirect(true).setUseInsecureTrustManager(true))) {
+      RequestBuilder rb = get(getTargetUrl2()).setProxyServer(proxyServer("localhost", port1));
+      Response r = asyncHttpClient.executeRequest(rb.build()).get();
+      assertEquals(r.getStatusCode(), 200);
+    }
+  }
+
+  @Test
+  public void testConfigProxy() throws Exception {
+    AsyncHttpClientConfig config = config()
+            .setFollowRedirect(true)
+            .setProxyServer(proxyServer("localhost", port1).build())
+            .setUseInsecureTrustManager(true)
+            .build();
+    try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config)) {
+      Response r = asyncHttpClient.executeRequest(get(getTargetUrl2())).get();
+      assertEquals(r.getStatusCode(), 200);
+    }
+  }
+
+  @Test
+  public void testNoDirectRequestBodyWithProxy() throws Exception {
+    AsyncHttpClientConfig config = config()
+      .setFollowRedirect(true)
+      .setProxyServer(proxyServer("localhost", port1).build())
+      .setUseInsecureTrustManager(true)
+      .build();
+    try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config)) {
+      Response r = asyncHttpClient.executeRequest(post(getTargetUrl2()).setBody(new ByteArrayBodyGenerator(LARGE_IMAGE_BYTES))).get();
+      assertEquals(r.getStatusCode(), 200);
+    }
+  }
+
+  @Test
+  public void testDecompressBodyWithProxy() throws Exception {
+    AsyncHttpClientConfig config = config()
+      .setFollowRedirect(true)
+      .setProxyServer(proxyServer("localhost", port1).build())
+      .setUseInsecureTrustManager(true)
+      .build();
+    try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config)) {
+      String body = "hello world";
+      Response r = asyncHttpClient.executeRequest(post(getTargetUrl2())
+        .setHeader("X-COMPRESS", "true")
+        .setBody(body)).get();
+      assertEquals(r.getStatusCode(), 200);
+      assertEquals(r.getResponseBody(), body);
+    }
+  }
+
+  @Test
+  public void testPooledConnectionsWithProxy() throws Exception {
+
+    try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config().setFollowRedirect(true).setUseInsecureTrustManager(true).setKeepAlive(true))) {
+      RequestBuilder rb = get(getTargetUrl2()).setProxyServer(proxyServer("localhost", port1));
+
+      Response r1 = asyncHttpClient.executeRequest(rb.build()).get();
+      assertEquals(r1.getStatusCode(), 200);
+
+      Response r2 = asyncHttpClient.executeRequest(rb.build()).get();
+      assertEquals(r2.getStatusCode(), 200);
+    }
+  }
+
+  @Test
   public void testRequestProxy_1_oe() throws Exception {
 
     try (AsyncHttpClient asyncHttpClient = asyncHttpClient(config().setFollowRedirect(true).setUseInsecureTrustManager(true))) {

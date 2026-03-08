@@ -47,6 +47,20 @@ public class TestPatternSubtreeConfiguration_OE25Dev {
     /**
      * Rigourous Test :-)
      */
+    @Test
+    public void testMultiConfiguration() {
+        final PatternSubtreeConfigurationWrapper config = new PatternSubtreeConfigurationWrapper(this.conf, PATTERN);
+        config.setExpressionEngine(new XPathExpressionEngine());
+
+        System.setProperty("Id", "1001");
+        assertEquals(15, config.getInt("rowsPerPage"));
+
+        System.setProperty("Id", "1002");
+        assertEquals(25, config.getInt("rowsPerPage"));
+
+        System.setProperty("Id", "1003");
+        assertEquals(35, config.getInt("rowsPerPage"));
+    }
 
     /**
      * Tests a read operation if the wrapped configuration does not implement FileBased.
@@ -83,7 +97,6 @@ public class TestPatternSubtreeConfiguration_OE25Dev {
         config.setExpressionEngine(new XPathExpressionEngine());
 
         System.setProperty("Id", "1001");
-        // removed other assertion
 
         System.setProperty("Id", "1002");
         assertEquals(25, config.getInt("rowsPerPage"));
@@ -95,10 +108,8 @@ public class TestPatternSubtreeConfiguration_OE25Dev {
         config.setExpressionEngine(new XPathExpressionEngine());
 
         System.setProperty("Id", "1001");
-        // removed other assertion
 
         System.setProperty("Id", "1002");
-        // removed other assertion
 
         System.setProperty("Id", "1003");
         assertEquals(35, config.getInt("rowsPerPage"));

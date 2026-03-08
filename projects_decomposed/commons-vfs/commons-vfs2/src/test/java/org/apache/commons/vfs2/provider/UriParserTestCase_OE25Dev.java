@@ -34,6 +34,50 @@ public class UriParserTestCase_OE25Dev {
 	}
 
 	@Test
+	public void testColonInFileName() {
+        Assert.assertNull(UriParser.extractScheme("some/path/some:file"));
+	}
+
+	@Test
+	public void testColonInFileNameAndNotSupportedScheme() {
+        Assert.assertNull(UriParser.extractScheme(schemes, "some:file"));
+	}
+
+	@Test
+	public void testColonInFileNameWithPath() {
+        Assert.assertNull(UriParser.extractScheme(schemes, "some/path/some:file"));
+	}
+
+	@Test
+	public void testColonNotFollowedBySlash() {
+		Assert.assertEquals("file", UriParser.extractScheme(schemes, "file:user/subdir/some/path/some:file"));
+	}
+
+	@Test
+	public void testNormalScheme() {
+		Assert.assertEquals("ftp", UriParser.extractScheme(schemes, "ftp://user:pass@host/some/path/some:file"));
+	}
+
+	@Test
+	public void testNormalSchemeWithBuffer() {
+		final StringBuilder buffer = new StringBuilder();
+		UriParser.extractScheme(schemes, "ftp://user:pass@host/some/path/some:file", buffer);
+		Assert.assertEquals("//user:pass@host/some/path/some:file", buffer.toString());
+	}
+
+	@Test
+	public void testOneSlashScheme() {
+		Assert.assertEquals("file", UriParser.extractScheme(schemes, "file:/user:pass@host/some/path/some:file"));
+	}
+
+	@Test
+	public void testOneSlashSchemeWithBuffer() {
+		final StringBuilder buffer = new StringBuilder();
+		UriParser.extractScheme(schemes, "file:/user:pass@host/some/path/some:file", buffer);
+		Assert.assertEquals("/user:pass@host/some/path/some:file", buffer.toString());
+	}
+
+	@Test
 	public void testColonInFileName_1_oe() {
         Assert.assertNull(UriParser.extractScheme("some/path/some:file"));
 	}

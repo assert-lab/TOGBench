@@ -25,6 +25,20 @@ import org.junit.jupiter.api.Test;
 public class TransparencyFilterIndexedColorTest_OE25Dev{
 
     @Test
+    public void testFilterWithNegativeAndNegative() {
+        final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
+        final TransparencyFilterIndexedColor transparencyFilterIndexedColor = new TransparencyFilterIndexedColor(byteArray);
+
+        try {
+            transparencyFilterIndexedColor.filter((-416), (-398));
+            fail("Expecting exception: Exception");
+        } catch(final Exception e) {
+            assertEquals("TransparencyFilterIndexedColor index: -398, bytes.length: 0",e.getMessage());
+            assertEquals(TransparencyFilterIndexedColor.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }
+
+    @Test
     public void testFilterWithNegativeAndNegative_2_oe() {
         final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
         final TransparencyFilterIndexedColor transparencyFilterIndexedColor = new TransparencyFilterIndexedColor(byteArray);

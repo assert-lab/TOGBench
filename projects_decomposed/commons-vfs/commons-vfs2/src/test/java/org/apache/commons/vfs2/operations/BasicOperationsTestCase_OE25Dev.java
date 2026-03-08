@@ -128,24 +128,74 @@ public class BasicOperationsTestCase_OE25Dev {
      *
      * @throws FileSystemException for runtime problems
      */
+    @Test
+    public void testLifecycleComp() throws FileSystemException {
+        final MyFileOprationProviderBase myop = new MyFileOperationProviderComp();
+        assertEquals(0, myop.ops);
+        manager.addOperationProvider("file", myop);
+        assertEquals(7, myop.ops);
+        manager.close();
+        assertEquals("close() not called", 15, myop.ops); // VFS-577
+
+        // fixture will close again
+    }
 
     /**
      * Ensure you can use FileOperationProvider which is not a VfsComponnt.
      *
      * @throws FileSystemException for runtime problems
      */
+    @Test
+    public void testLifecycleNoncomp() throws FileSystemException {
+        final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
+        manager.addOperationProvider("file", myop);
+        final FileOperationProvider[] ops = manager.getOperationProviders("file");
+        assertSame("exactly one provider registered", 1, ops.length);
+        assertSame(myop, ops[0]);
+        assertEquals(0, myop.ops); // collect not invoked
+    }
 
     /**
      * Ensures getOperations calls collect and allows empty response.
      *
      * @throws FileSystemException for runtime problems
      */
+    @Test
+    public void testNotFoundAny() throws FileSystemException {
+        final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
+        manager.addOperationProvider("file", myop);
+        final FileObject fo = manager.toFileObject(new File("."));
+
+        final FileOperations ops = fo.getFileOperations();
+        assertNotNull(ops);
+
+        final Class<? extends FileOperation>[] oparray = ops.getOperations();
+        assertSame("no ops should be found", 0, oparray.length);
+        assertSame(16, myop.ops); // collect
+    }
 
     /**
      * Ensure proper response for not found FileOperation.
      *
      * @throws FileSystemException for runtime problems
      */
+    @Test
+    public void testNotFoundOperation() throws FileSystemException {
+        final MyFileOprationProviderBase myop = new MyFileOperationProviderNoncomp();
+        manager.addOperationProvider("file", myop);
+        final FileObject fo = manager.toFileObject(new File("."));
+
+        final FileOperations ops = fo.getFileOperations();
+        assertNotNull(ops);
+
+        try {
+            final FileOperation logop = ops.getOperation(VcsLog.class);
+            fail("Must throw but returned " + logop);
+        } catch (final FileSystemException e) {
+            assertEquals("vfs.operation/operation-not-supported.error", e.getCode());
+        }
+        assertSame(32, myop.ops); // getOperation was called
+    }
 
     @Test
     public void testLifecycleComp_1_oe() throws FileSystemException {

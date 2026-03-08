@@ -55,6 +55,21 @@ public class ResponseWrapperDelegationTest_OE25Dev {
     }
 
     @Test
+    public void filters_can_detect_response_status() throws Exception {
+        UrlResponse response = testUtil.get("/204");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("ok", response.body);
+    }
+
+    @Test
+    public void filters_can_detect_content_type() throws Exception {
+        UrlResponse response = testUtil.get("/json");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("{\"status\": \"ok\"}", response.body);
+        Assert.assertEquals("text/plain", response.headers.get("Content-Type"));
+    }
+
+    @Test
     public void filters_can_detect_response_status_1_oe() throws Exception {
         UrlResponse response = testUtil.get("/204");
         Assert.assertEquals(200, response.status);

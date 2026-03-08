@@ -35,6 +35,32 @@ public class Webdav4FileObjectTest_OE25Dev {
     private static final String INTERNAL_WEBDAV4S_URL = "https://www.apache.org/licenses/LICENSE-2.0.txt";
 
     @Test
+    public void testWebdav4FileObjectURLs() throws FileSystemException {
+        final FileSystemManager fsm = VFS.getManager();
+
+        try (final FileObject file = fsm.resolveFile(WEBDAV4_URL)) {
+            assertEquals(WEBDAV4_URL, file.getURL().toString());
+            assertTrue(file instanceof Webdav4FileObject);
+
+            final Webdav4FileObject webdav4File = (Webdav4FileObject) file;
+            assertEquals(INTERNAL_WEBDAV4_URL, webdav4File.toUrlString((GenericURLFileName) webdav4File.getName()));
+        }
+    }
+
+    @Test
+    public void testWebdav4sFileObjectURLs() throws FileSystemException {
+        final FileSystemManager fsm = VFS.getManager();
+
+        try (final FileObject file = fsm.resolveFile(WEBDAV4S_URL)) {
+            assertEquals(WEBDAV4S_URL, file.getURL().toString());
+            assertTrue(file instanceof Webdav4FileObject);
+
+            final Webdav4FileObject webdav4File = (Webdav4FileObject) file;
+            assertEquals(INTERNAL_WEBDAV4S_URL, webdav4File.toUrlString((GenericURLFileName) webdav4File.getName()));
+        }
+    }
+
+    @Test
     public void testWebdav4FileObjectURLs_1_oe() throws FileSystemException {
         final FileSystemManager fsm = VFS.getManager();
 

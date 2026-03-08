@@ -33,18 +33,47 @@ public class TestEventListenerParameters_OE25Dev {
     /**
      * Tests whether an event listener with its type can be added.
      */
+    @Test
+    public void testAddEventListener() {
+        final EventListenerTestImpl listener = new EventListenerTestImpl(null);
+        final EventListenerParameters parameters = new EventListenerParameters();
+        assertSame("Wrong result", parameters, parameters.addEventListener(ConfigurationEvent.ADD_PROPERTY, listener));
+        assertEquals("Wrong number of registrations", 1, parameters.getListeners().getRegistrations().size());
+        final EventListenerRegistrationData<?> reg = parameters.getListeners().getRegistrations().get(0);
+        assertEquals("Wrong event type", ConfigurationEvent.ADD_PROPERTY, reg.getEventType());
+        assertEquals("Wrong listener", listener, reg.getListener());
+    }
 
     /**
      * Tests whether an event listener registration can be added.
      */
+    @Test
+    public void testAddEventListenerRegistration() {
+        final EventListenerRegistrationData<ConfigurationEvent> reg = new EventListenerRegistrationData<>(ConfigurationEvent.SET_PROPERTY,
+            new EventListenerTestImpl(null));
+        final EventListenerParameters parameters = new EventListenerParameters();
+        assertSame("Wrong result", parameters, parameters.addEventListener(reg));
+        assertEquals("Wrong number of registrations", 1, parameters.getListeners().getRegistrations().size());
+        assertEquals("Wrong registration", reg, parameters.getListeners().getRegistrations().get(0));
+    }
 
     /**
      * Tests the map with parameters.
      */
+    @Test
+    public void testGetParameters() {
+        final EventListenerParameters parameters = new EventListenerParameters();
+        assertTrue("Got parameters", parameters.getParameters().isEmpty());
+    }
 
     /**
      * Tests that the list of event listeners is empty for a newly created instance.
      */
+    @Test
+    public void testRegistrationsAfterCreation() {
+        final EventListenerParameters parameters = new EventListenerParameters();
+        assertTrue("Got registrations", parameters.getListeners().getRegistrations().isEmpty());
+    }
 
     @Test
     public void testAddEventListener_1_oe() {

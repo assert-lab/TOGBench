@@ -32,6 +32,32 @@ public class SftpFileSystemConfigBuilderTestCase_OE25Dev {
     private static final Duration ONE_MINUTE = Duration.ofMinutes(1);
 
     @Test
+    public void testConnectTimeout() {
+        final FileSystemOptions options = new FileSystemOptions();
+        final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();
+        builder.setConnectTimeout(options, ONE_MINUTE);
+        assertEquals(ONE_MINUTE, builder.getConnectTimeout(options));
+        assertEquals(ONE_MINUTE.toMillis(), (long) builder.getConnectTimeoutMillis(options));
+        //
+        builder.setConnectTimeoutMillis(options, (int) ONE_MINUTE.toMillis());
+        assertEquals(ONE_MINUTE, builder.getConnectTimeout(options));
+        assertEquals(ONE_MINUTE.toMillis(), (long) builder.getConnectTimeoutMillis(options));
+    }
+
+    @Test
+    public void testSessionTimeout() {
+        final FileSystemOptions options = new FileSystemOptions();
+        final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();
+        builder.setSessionTimeout(options, ONE_MINUTE);
+        assertEquals(ONE_MINUTE, builder.getSessionTimeout(options));
+        assertEquals(ONE_MINUTE.toMillis(), (long) builder.getSessionTimeoutMillis(options));
+        //
+        builder.setSessionTimeoutMillis(options, (int) ONE_MINUTE.toMillis());
+        assertEquals(ONE_MINUTE, builder.getSessionTimeout(options));
+        assertEquals(ONE_MINUTE.toMillis(), (long) builder.getSessionTimeoutMillis(options));
+    }
+
+    @Test
     public void testConnectTimeout_1_oe() {
         final FileSystemOptions options = new FileSystemOptions();
         final SftpFileSystemConfigBuilder builder = SftpFileSystemConfigBuilder.getInstance();

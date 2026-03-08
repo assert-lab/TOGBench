@@ -72,6 +72,14 @@ public class ClassPathRepositoryTestCase_OE25Dev {
         }
     }
 
+    @Test
+    public void testClassPath() throws IOException {
+        try (final ClassPath classPath = new ClassPath("")) {
+            final ClassPathRepository repository = new ClassPathRepository(classPath);
+            Assert.assertEquals(classPath, repository.getClassPath());
+        }
+    }
+
     @Test(expected = ClassNotFoundException.class)
     public void testNoClassNotFound() throws ClassNotFoundException, IOException {
         try (final ClassPath classPath = new ClassPath("")) {

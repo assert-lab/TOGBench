@@ -171,6 +171,13 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests whether addAttributes() handles null input.
      */
+    @Test
+    public void testAddAttributesNull() {
+        final ImmutableNode.Builder builder = setUpBuilder();
+        builder.addAttributes(null);
+        final ImmutableNode node = builder.create();
+        assertTrue("Got attributes", node.getAttributes().isEmpty());
+    }
 
     /**
      * Tests whether a child node can be added.
@@ -195,6 +202,13 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests whether addChildren() can deal with null input.
      */
+    @Test
+    public void testAddChildrenNull() {
+        final ImmutableNode.Builder builder = setUpBuilder();
+        builder.addChildren(null);
+        final ImmutableNode node = builder.create();
+        assertTrue("Got children", node.getChildren().isEmpty());
+    }
 
     /**
      * Tests whether null entries in a collection with new child nodes are ignored.
@@ -229,14 +243,39 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests getting named children.
      */
+    @Test
+    public void testGetChildrenByMissingName() {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        final ImmutableNode child2 = new ImmutableNode.Builder().name("child2").create();
+        final ImmutableNode node2 = node.addChild(child2);
+        checkUpdatedNode(node, node2);
+        assertTrue(node2.getChildren("NotFound").isEmpty());
+    }
 
     /**
      * Tests getting named children.
      */
+    @Test
+    public void testGetChildrenByName() {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        final ImmutableNode child2 = new ImmutableNode.Builder().name("child2").create();
+        final ImmutableNode node2 = node.addChild(child2);
+        checkUpdatedNode(node, node2);
+        assertEquals("child2", node2.getChildren("child2").get(0).getNodeName());
+        assertEquals(child2, node2.getChildren("child2").get(0));
+    }
 
     /**
      * Tests getting named children.
      */
+    @Test
+    public void testGetChildrenByNullName() {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        final ImmutableNode child2 = new ImmutableNode.Builder().name("child2").create();
+        final ImmutableNode node2 = node.addChild(child2);
+        checkUpdatedNode(node, node2);
+        assertTrue(node2.getChildren(null).isEmpty());
+    }
 
     /**
      * Tests whether multiple child nodes can be added to a builder.
@@ -275,6 +314,15 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests that the map of attributes cannot be changed by a later manipulation of the builder.
      */
+    @Test
+    public void testNodeWithAttributesManipulateLater() {
+        final ImmutableNode.Builder builder = setUpBuilder();
+        builder.addAttribute(ATTR, ATTR_VALUE);
+        final ImmutableNode node = builder.create();
+        builder.addAttribute("attr2", "a2");
+        assertEquals("Wrong number of attributes", 1, node.getAttributes().size());
+        assertEquals("Wrong attribute", ATTR_VALUE, node.getAttributes().get(ATTR));
+    }
 
     /**
      * Tests whether child nodes can be added.
@@ -336,10 +384,24 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests whether an existing attribute can be removed.
      */
+    @Test
+    public void testRemoveAttributeExisting() {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        final String attrName = node.getAttributes().keySet().iterator().next();
+        final ImmutableNode node2 = node.removeAttribute(attrName);
+        checkUpdatedNode(node, node2);
+        assertSame("Wrong children", node.getChildren(), node2.getChildren());
+        assertTrue("Attribute not deleted", node2.getAttributes().isEmpty());
+    }
 
     /**
      * Tests removeAttribute() if the attribute does not exist.
      */
+    @Test
+    public void testRemoveAttributeNotExisting() {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        assertSame("Got different instance", node, node.removeAttribute(ATTR));
+    }
 
     /**
      * Tests whether a child node can be removed.
@@ -367,6 +429,11 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests whether the behavior of removeChildNode() if the node in question is not found.
      */
+    @Test
+    public void testRemoveChildNodeNotExisting() {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        assertSame("Got different instance", node, node.removeChild(null));
+    }
 
     /**
      * Tests whether a child node can be replaced by another one.
@@ -384,6 +451,11 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests replaceChild() if the child node cannot be found.
      */
+    @Test
+    public void testReplaceChildNotExisting() {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        assertSame("Got different instance", node, node.replaceChild(createChild(), createChild()));
+    }
 
     /**
      * Tries to replace a child node by null.
@@ -423,6 +495,16 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests whether attribute values can be set.
      */
+    @Test
+    public void testSetAttribute() {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        final ImmutableNode node2 = node.setAttribute("attr", ATTR_VALUE);
+        checkUpdatedNode(node, node2);
+        assertSame("Wrong children", node.getChildren(), node2.getChildren());
+        final Map<String, Object> newAttrs = new HashMap<>(node.getAttributes());
+        newAttrs.put(ATTR, ATTR_VALUE);
+        checkAttributes(node2, newAttrs);
+    }
 
     /**
      * Tests whether an attribute can be overridden.
@@ -443,6 +525,17 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests whether multiple attributes can be set.
      */
+    @Test
+    public void testSetAttributes() {
+        final ImmutableNode node = createDefaultNode(VALUE);
+        final Map<String, Object> attributes = new HashMap<>();
+        attributes.put("newAttribute1", "value1");
+        attributes.put("newAttribute2", "value2");
+        final ImmutableNode node2 = node.setAttributes(attributes);
+        assertEquals("Wrong number of attributes", attributes.size() + node.getAttributes().size(), node2.getAttributes().size());
+        checkAttributesContained(node2, attributes);
+        checkAttributesContained(node2, node.getAttributes());
+    }
 
     /**
      * Tests setAttributes() if an empty map is passed in.
@@ -463,14 +556,37 @@ public class TestImmutableNode_OE25Dev {
     /**
      * Tests whether the name of a node can be changed for a new instance.
      */
+    @Test
+    public void testSetName() {
+        final ImmutableNode node = createDefaultNode("anotherName", VALUE);
+        final ImmutableNode node2 = node.setName(NAME);
+        checkUpdatedNode(node, node2);
+        assertSame("Different children", node.getChildren(), node2.getChildren());
+        assertSame("Different attributes", node.getAttributes(), node2.getAttributes());
+    }
 
     /**
      * Tests whether a new node with a changed value can be created.
      */
+    @Test
+    public void testSetValue() {
+        final ImmutableNode node = createDefaultNode("test");
+        final ImmutableNode node2 = node.setValue(VALUE);
+        checkUpdatedNode(node, node2);
+        assertSame("Different children", node.getChildren(), node2.getChildren());
+        assertSame("Different attributes", node.getAttributes(), node2.getAttributes());
+    }
 
     /**
      * Tests whether a node with basic properties can be created.
      */
+    @Test
+    public void testSimpleProperties() {
+        final ImmutableNode node = setUpBuilder().create();
+        assertEquals("Wrong node name", NAME, node.getNodeName());
+        assertTrue("Got children", node.getChildren().isEmpty());
+        assertTrue("Got attributes", node.getAttributes().isEmpty());
+    }
 
     @Test
     public void testAddAttributesNull_1_oe() {
@@ -512,7 +628,6 @@ public class TestImmutableNode_OE25Dev {
         final ImmutableNode child2 = new ImmutableNode.Builder().name("child2").create();
         final ImmutableNode node2 = node.addChild(child2);
         checkUpdatedNode(node, node2);
-        // removed other assertion
         assertEquals(child2, node2.getChildren("child2").get(0));
     }
 
@@ -540,7 +655,6 @@ public class TestImmutableNode_OE25Dev {
         builder.addAttribute(ATTR, ATTR_VALUE);
         final ImmutableNode node = builder.create();
         builder.addAttribute("attr2", "a2");
-        // removed other assertion
         assertEquals("Wrong attribute", ATTR_VALUE, node.getAttributes().get(ATTR));
     }
 
@@ -559,7 +673,6 @@ public class TestImmutableNode_OE25Dev {
         final String attrName = node.getAttributes().keySet().iterator().next();
         final ImmutableNode node2 = node.removeAttribute(attrName);
         checkUpdatedNode(node, node2);
-        // removed other assertion
         assertTrue("Attribute not deleted", node2.getAttributes().isEmpty());
     }
 
@@ -612,7 +725,6 @@ public class TestImmutableNode_OE25Dev {
         final ImmutableNode node = createDefaultNode("anotherName", VALUE);
         final ImmutableNode node2 = node.setName(NAME);
         checkUpdatedNode(node, node2);
-        // removed other assertion
         assertSame("Different attributes", node.getAttributes(), node2.getAttributes());
     }
 
@@ -629,7 +741,6 @@ public class TestImmutableNode_OE25Dev {
         final ImmutableNode node = createDefaultNode("test");
         final ImmutableNode node2 = node.setValue(VALUE);
         checkUpdatedNode(node, node2);
-        // removed other assertion
         assertSame("Different attributes", node.getAttributes(), node2.getAttributes());
     }
 
@@ -642,15 +753,12 @@ public class TestImmutableNode_OE25Dev {
     @Test
     public void testSimpleProperties_2_oe() {
         final ImmutableNode node = setUpBuilder().create();
-        // removed other assertion
         assertTrue("Got children", node.getChildren().isEmpty());
     }
 
     @Test
     public void testSimpleProperties_3_oe() {
         final ImmutableNode node = setUpBuilder().create();
-        // removed other assertion
-        // removed other assertion
         assertTrue("Got attributes", node.getAttributes().isEmpty());
     }
 

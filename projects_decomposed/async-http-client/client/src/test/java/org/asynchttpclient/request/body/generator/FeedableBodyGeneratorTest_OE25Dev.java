@@ -38,6 +38,13 @@ public class FeedableBodyGeneratorTest_OE25Dev {
   }
 
   @Test
+  public void feedNotifiesListener() throws Exception {
+    feedableBodyGenerator.feed(Unpooled.EMPTY_BUFFER, false);
+    feedableBodyGenerator.feed(Unpooled.EMPTY_BUFFER, true);
+    assertEquals(listener.getCalls(), 2);
+  }
+
+  @Test
   public void readingBytesReturnsFedContentWithoutChunkBoundaries() throws Exception {
     byte[] content = "Test123".getBytes(StandardCharsets.US_ASCII);
 

@@ -32,6 +32,33 @@ import static org.junit.jupiter.api.Assertions.fail;
  */
 class CollectionSamplerTest_OE25Dev {
 
+    @Test
+    void testSampleTrivial() {
+        final ArrayList<String> list = new ArrayList<>();
+        list.add("Apache");
+        list.add("Commons");
+        list.add("RNG");
+
+        final CollectionSampler<String> sampler =
+            new CollectionSampler<>(RandomSource.MWC_256.create(),
+                                          list);
+        final String word = sampler.sample();
+        for (String w : list) {
+            if (word.equals(w)) {
+                return;
+            }
+        }
+        Assertions.fail(word + " not in list");
+    }
+
+    @Test
+    void testSamplePrecondition() {
+        // Must fail for empty collection.
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new CollectionSampler<>(RandomSource.SPLIT_MIX_64.create(0L),
+                                                new ArrayList<>()));
+    }
+
     /**
      * Test the SharedStateSampler implementation.
      */

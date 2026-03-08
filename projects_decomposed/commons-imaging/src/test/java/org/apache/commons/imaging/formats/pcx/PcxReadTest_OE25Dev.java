@@ -33,6 +33,25 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class PcxReadTest_OE25Dev extends PcxBaseTest {
 
     @Test
+    public void test() throws Exception {
+        Debug.debug("start");
+
+        final List<File> images = getPcxImages();
+        for (final File imageFile : images) {
+
+            Debug.debug("imageFile", imageFile);
+
+            final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+            Assertions.assertFalse(metadata instanceof File);// Dummy check to avoid unused warning(it may be null)
+            final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+            assertNotNull(imageInfo);
+
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            assertNotNull(image);
+        }
+    }
+
+    @Test
     public void test_1_oe() throws Exception {
         Debug.debug("start");
 

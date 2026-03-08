@@ -29,6 +29,49 @@ import org.junit.jupiter.api.Test;
 
 class HyperplaneSubsetsTest_OE25Dev {
 
+    @Test
+    void testClassify() {
+        // arrange
+        final TestLine line = TestLine.X_AXIS;
+        final StubRegion1D region = new StubRegion1D();
+
+        // act/assert
+        Assertions.assertEquals(RegionLocation.INSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1,0),line,region));
+        Assertions.assertEquals(RegionLocation.BOUNDARY,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(0,0),line,region));
+
+        Assertions.assertEquals(RegionLocation.OUTSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(0,1),line,region));
+        Assertions.assertEquals(RegionLocation.OUTSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1,1),line,region));
+        Assertions.assertEquals(RegionLocation.OUTSIDE,HyperplaneSubsets.classifyAgainstEmbeddedRegion(new TestPoint2D(-1,-1),line,region));
+    }
+
+    @Test
+    void testClosest() {
+        // arrange
+        final TestLine line = TestLine.X_AXIS;
+        final StubRegion1D region = new StubRegion1D();
+        final StubRegion1D emptyRegion = new StubRegion1D(true);
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0),
+                HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(-1, 0), line, region));
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0),
+                HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(0, 0), line, region));
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0),
+                HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(1, 0), line, region));
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0),
+                HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(1, 1), line, region));
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0, 0),
+                HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(1, -1), line, region));
+
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0),
+                HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(-1, 1), line, region));
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-1, 0),
+                HyperplaneSubsets.closestToEmbeddedRegion(new TestPoint2D(-1, -1), line, region));
+
+        Assertions.assertNull(HyperplaneSubsets.closestToEmbeddedRegion(TestPoint2D.ZERO, line, emptyRegion));
+    }
+
     /** Stub region implementation. Negative numbers are on the inside of the region.
      */
     private static class StubRegion1D implements HyperplaneBoundedRegion<TestPoint1D> {

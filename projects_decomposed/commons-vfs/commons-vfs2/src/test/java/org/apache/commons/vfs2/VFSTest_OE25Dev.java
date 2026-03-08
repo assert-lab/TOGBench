@@ -34,6 +34,33 @@ public class VFSTest_OE25Dev {
      * @since 2.5.0
      */
     @Test
+    public void test_close() throws FileSystemException {
+        try (FileSystemManager fileSystemManager = new StandardFileSystemManager()) {
+            VFS.setManager(fileSystemManager);
+            VFS.setManager(null);
+        }
+        Assert.assertNotNull(VFS.getManager());
+        Assert.assertFalse(VFS.getManager().resolveFile(Paths.get("DoesNotExist.not").toUri()).exists());
+    }
+
+    @Test
+    public void test_setManager() throws FileSystemException {
+        final StandardFileSystemManager fileSystemManager = new StandardFileSystemManager();
+        VFS.setManager(fileSystemManager);
+        Assert.assertEquals(fileSystemManager, VFS.getManager());
+        // Reset global for other tests
+        VFS.setManager(null);
+        Assert.assertNotNull(VFS.getManager());
+        Assert.assertNotEquals(fileSystemManager, VFS.getManager());
+    }
+
+    @Test
+    public void testStaticClose() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        VFS.close();
+        assertNotEquals(manager, VFS.getManager());
+    }
+    @Test
     public void testStaticCloseRepeatable() throws FileSystemException {
         VFS.close();
         VFS.close();

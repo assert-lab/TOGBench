@@ -136,6 +136,16 @@ public class TestTrackedNodeModel_OE25Dev {
     /**
      * Tests whether a sub tree can be cleared.
      */
+    @Test
+    public void testClearTree() {
+        final QueryResult<ImmutableNode> result = QueryResult.createNodeResult(NodeStructureHelper.createNode("test", null));
+        final List<QueryResult<ImmutableNode>> removed = Collections.singletonList(result);
+        EasyMock.expect(parentModel.clearTree(KEY, selector, resolver)).andReturn(removed);
+        EasyMock.replay(parentModel);
+
+        assertSame("Wrong removed elements", removed, setUpModel().clearTree(KEY, resolver));
+        EasyMock.verify(parentModel);
+    }
 
     /**
      * Tests whether the model can be closed.
@@ -166,10 +176,28 @@ public class TestTrackedNodeModel_OE25Dev {
     /**
      * Tests whether the correct in-memory representation can be queried.
      */
+    @Test
+    public void testGetInMemoryRepresentation() {
+        final NodeHandler<ImmutableNode> handler = expectGetNodeHandler();
+        final ImmutableNode root = NodeStructureHelper.createNode("Root", null);
+        EasyMock.expect(handler.getRootNode()).andReturn(root);
+        EasyMock.replay(handler, parentModel);
+
+        final TrackedNodeModel model = setUpModel();
+        assertSame("Wrong root node", root, model.getInMemoryRepresentation());
+    }
 
     /**
      * Tests whether a node handler can be queried.
      */
+    @Test
+    public void testGetNodeHandler() {
+        final NodeHandler<ImmutableNode> handler = expectGetNodeHandler();
+        EasyMock.replay(handler, parentModel);
+
+        assertSame("Wrong node handler", handler, setUpModel().getNodeHandler());
+        EasyMock.verify(parentModel);
+    }
 
     /**
      * Tries to create an instance without a parent model.

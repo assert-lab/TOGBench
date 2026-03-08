@@ -38,6 +38,16 @@ public abstract class ColumnHandlerTestBase_OE25Dev {
     }
 
     @Test
+    public void testMatch() {
+        assertTrue(handler.match(matchingType));
+    }
+
+    @Test
+    public void testMatchNegative() {
+        assertFalse(handler.match(Integer.class));
+    }
+
+    @Test
     public abstract void testApplyType() throws Exception;
 
     @Test

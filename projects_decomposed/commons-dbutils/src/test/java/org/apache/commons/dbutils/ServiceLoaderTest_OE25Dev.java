@@ -35,15 +35,59 @@ public class ServiceLoaderTest_OE25Dev {
         properties = ServiceLoader.load(PropertyHandler.class);
     }
 
-    /**
-     * Verifying 'more than 1' shows that we found more than we loaded locally which assumes the core handlers
-     * were loaded, too.
-     */
+    @Test
+    public void testFindsLocalColumnHandler() {
+        boolean found = false;
+        for (ColumnHandler handler : columns) {
+            // this class is defined outside of the main classes in dbutils
+            if (handler instanceof TestColumnHandler) {
+                found = true;
+            }
+        }
+
+        assertTrue(found);
+    }
+
+    @Test
+    public void testFindsLocalPropertyHandler() {
+        boolean found = false;
+        for (PropertyHandler handler : properties) {
+            // this class is defined outside of the main classes in dbutils
+            if (handler instanceof TestPropertyHandler) {
+                found = true;
+            }
+        }
+
+        assertTrue(found);
+    }
 
     /**
      * Verifying 'more than 1' shows that we found more than we loaded locally which assumes the core handlers
      * were loaded, too.
      */
+    @Test
+    public void testFindMoreThanLocalColumns() {
+        int count = 0;
+        for (ColumnHandler handler : columns) {
+            count++;
+        }
+
+        assertTrue(count > 1);
+    }
+
+    /**
+     * Verifying 'more than 1' shows that we found more than we loaded locally which assumes the core handlers
+     * were loaded, too.
+     */
+    @Test
+    public void testFindMoreThanLocalProperties() {
+        int count = 0;
+        for (PropertyHandler handler : properties) {
+            count++;
+        }
+
+        assertTrue(count > 1);
+    }
 
     @Test
     public void testFindsLocalColumnHandler_1_oe() {

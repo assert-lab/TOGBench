@@ -36,6 +36,67 @@ class UrlGeometryInputTest_OE25Dev {
     Path tempDir;
 
     @Test
+    void testCtor_fileOnly() throws IOException {
+        // arrange
+        final URL url = Paths.get("some/path/test.txt").toUri().toURL();
+
+        // act
+        final UrlGeometryInput in = new UrlGeometryInput(url);
+
+        // assert
+        Assertions.assertEquals(url, in.getUrl());
+        Assertions.assertEquals("test.txt", in.getFileName());
+        Assertions.assertNull(in.getCharset());
+    }
+
+    @Test
+    void testCtor_fileAndCharset() {
+        // arrange
+        final URL url = getClass().getResource("/java/lang/String.class");
+        final Charset charset = StandardCharsets.UTF_8;
+
+        // act
+        final UrlGeometryInput in = new UrlGeometryInput(url, charset);
+
+        // assert
+        Assertions.assertEquals(url, in.getUrl());
+        Assertions.assertEquals("String.class", in.getFileName());
+        Assertions.assertEquals(charset, in.getCharset());
+    }
+
+    @Test
+    void testGetInputStream() throws IOException {
+        // arrange
+        final Path file = tempDir.resolve("test");
+        final byte[] bytes = "abc".getBytes(StandardCharsets.UTF_8);
+        Files.write(file, bytes);
+
+        final UrlGeometryInput input = new UrlGeometryInput(file.toUri().toURL());
+
+        // act/assert
+        try (InputStream in = input.getInputStream()) {
+            Assertions.assertEquals(BufferedInputStream.class, in.getClass());
+
+            final byte[] readBytes = new byte[3];
+            in.read(readBytes);
+
+            Assertions.assertArrayEquals(bytes, readBytes);
+        }
+    }
+
+    @Test
+    void testToString() throws IOException {
+        // arrange
+        final UrlGeometryInput in = new UrlGeometryInput(Paths.get("some/path/test.txt").toUri().toURL());
+
+        // act
+        final String result = in.toString();
+
+        // assert
+        Assertions.assertTrue(result.startsWith("UrlGeometryInput[url= file:"));
+    }
+
+    @Test
     void testCtor_fileOnly_1_oe() throws IOException {
         // arrange
         final URL url = Paths.get("some/path/test.txt").toUri().toURL();

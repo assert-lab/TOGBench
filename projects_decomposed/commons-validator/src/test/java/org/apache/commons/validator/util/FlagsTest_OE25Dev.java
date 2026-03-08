@@ -39,10 +39,65 @@ public class FlagsTest_OE25Dev extends TestCase {
         super(name);
     }
 
+    public void testHashCode() {
+        Flags f = new Flags(45);
+        assertEquals(f.hashCode(), 45);
+    }
+
+    public void testGetFlags() {
+        Flags f = new Flags(45);
+        assertEquals(f.getFlags(), 45);
+    }
+
+    public void testIsOnOff() {
+        Flags f = new Flags();
+        f.turnOn(LONG_FLAG);
+        f.turnOn(INT_FLAG);
+        assertTrue(f.isOn(LONG_FLAG));
+        assertTrue(!f.isOff(LONG_FLAG));
+
+        assertTrue(f.isOn(INT_FLAG));
+        assertTrue(!f.isOff(INT_FLAG));
+
+        assertTrue(f.isOff(LONG_FLAG_2));
+    }
+
     public void testTurnOnOff() {
     }
 
     public void testTurnOff() {
+    }
+
+    public void testTurnOffAll() {
+        Flags f = new Flags(98432);
+        f.turnOffAll();
+        assertEquals(0, f.getFlags());
+    }
+    
+    public void testClear() {
+        Flags f = new Flags(98432);
+        f.clear();
+        assertEquals(0, f.getFlags());
+    }
+
+    public void testTurnOnAll() {
+        Flags f = new Flags();
+        f.turnOnAll();
+        assertEquals(~0, f.getFlags());
+    }
+
+    public void testIsOn_isFalseWhenNotAllFlagsInArgumentAreOn() {
+        Flags first = new Flags(1);
+        long firstAndSecond = 3;
+        
+        assertFalse(first.isOn(firstAndSecond)); 
+    }
+
+    public void testIsOn_isTrueWhenHighOrderBitIsSetAndQueried() {
+        Flags allOn = new Flags(~0);
+        long highOrderBit = 0x8000000000000000L;
+        
+        assertTrue(allOn.isOn(highOrderBit));
     }
 
     /**
@@ -60,6 +115,17 @@ public class FlagsTest_OE25Dev extends TestCase {
     /**
      * Test for String toString()
      */
+    public void testToString() {
+        Flags f = new Flags();
+        String s = f.toString();
+        assertEquals(64, s.length());
+
+        f.turnOn(INT_FLAG);
+        s = f.toString();
+        assertEquals(64, s.length());
+
+        assertEquals("0000000000000000000000000000000000000000000000000000000000000100",s);
+    }
 
     public void testHashCode_1_oe() {
         Flags f = new Flags(45);

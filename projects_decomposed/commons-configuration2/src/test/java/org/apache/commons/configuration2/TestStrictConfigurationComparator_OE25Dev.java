@@ -40,17 +40,10 @@ public class TestStrictConfigurationComparator_OE25Dev {
     /**
      * Tests the comparator.
      */
-
     @Test
-    public void testCompare_1_oe() {
+    public void testCompare() {
         // Identity comparison for empty configuration
         assertTrue("Compare an empty configuration with itself", comparator.compare(configuration, configuration));
-    }
-
-    @Test
-    public void testCompare_2_oe() {
-        // Identity comparison for empty configuration
-        // removed other assertion
 
         configuration.setProperty("one", "1");
         configuration.setProperty("two", "2");
@@ -58,40 +51,10 @@ public class TestStrictConfigurationComparator_OE25Dev {
 
         // Identify comparison for non-empty configuration
         assertTrue("Compare a configuration with itself", comparator.compare(configuration, configuration));
-    }
-
-    @Test
-    public void testCompare_3_oe() {
-        // Identity comparison for empty configuration
-        // removed other assertion
-
-        configuration.setProperty("one", "1");
-        configuration.setProperty("two", "2");
-        configuration.setProperty("three", "3");
-
-        // Identify comparison for non-empty configuration
-        // removed other assertion
 
         // Create the second configuration
         final Configuration other = new BaseConfiguration();
         assertFalse("Compare a configuration with an empty one", comparator.compare(configuration, other));
-    }
-
-    @Test
-    public void testCompare_4_oe() {
-        // Identity comparison for empty configuration
-        // removed other assertion
-
-        configuration.setProperty("one", "1");
-        configuration.setProperty("two", "2");
-        configuration.setProperty("three", "3");
-
-        // Identify comparison for non-empty configuration
-        // removed other assertion
-
-        // Create the second configuration
-        final Configuration other = new BaseConfiguration();
-        // removed other assertion
 
         other.setProperty("one", "1");
         other.setProperty("two", "2");
@@ -99,30 +62,80 @@ public class TestStrictConfigurationComparator_OE25Dev {
 
         // Two identical, non-empty configurations
         assertTrue("Compare a configuration with an identical one", comparator.compare(configuration, other));
+
+        other.setProperty("four", "4");
+        assertFalse("Compare our configuration with another that has an additional key mapping", comparator.compare(configuration, other));
+
+        configuration.setProperty("four", "4");
+        assertTrue("Compare our configuration with another that is identical", comparator.compare(configuration, other));
     }
 
     @Test
-    public void testCompare_5_oe() {
-        // Identity comparison for empty configuration
-        // removed other assertion
+    public void testCompareNull() {
+        assertTrue(comparator.compare(null, null));
+        assertFalse(comparator.compare(configuration, null));
+        assertFalse(comparator.compare(null, configuration));
+    }
+
+    @Test
+    public void testCompare_1_oe() {
+        boolean a = comparator.compare(configuration, configuration);
+        assertTrue("Compare an empty configuration with itself", a);
+    }
+
+    @Test
+    public void testCompare_2_oe() {
 
         configuration.setProperty("one", "1");
         configuration.setProperty("two", "2");
         configuration.setProperty("three", "3");
 
-        // Identify comparison for non-empty configuration
-        // removed other assertion
+        assertTrue("Compare a configuration with itself", comparator.compare(configuration, configuration));
+    }
 
-        // Create the second configuration
+    @Test
+    public void testCompare_3_oe() {
+
+        configuration.setProperty("one", "1");
+        configuration.setProperty("two", "2");
+        configuration.setProperty("three", "3");
+
+
         final Configuration other = new BaseConfiguration();
-        // removed other assertion
+        assertFalse("Compare a configuration with an empty one", comparator.compare(configuration, other));
+    }
+
+    @Test
+    public void testCompare_4_oe() {
+
+        configuration.setProperty("one", "1");
+        configuration.setProperty("two", "2");
+        configuration.setProperty("three", "3");
+
+
+        final Configuration other = new BaseConfiguration();
 
         other.setProperty("one", "1");
         other.setProperty("two", "2");
         other.setProperty("three", "3");
 
-        // Two identical, non-empty configurations
-        // removed other assertion
+        assertTrue("Compare a configuration with an identical one", comparator.compare(configuration, other));
+    }
+
+    @Test
+    public void testCompare_5_oe() {
+
+        configuration.setProperty("one", "1");
+        configuration.setProperty("two", "2");
+        configuration.setProperty("three", "3");
+
+
+        final Configuration other = new BaseConfiguration();
+
+        other.setProperty("one", "1");
+        other.setProperty("two", "2");
+        other.setProperty("three", "3");
+
 
         other.setProperty("four", "4");
         assertFalse("Compare our configuration with another that has an additional key mapping", comparator.compare(configuration, other));
@@ -130,29 +143,20 @@ public class TestStrictConfigurationComparator_OE25Dev {
 
     @Test
     public void testCompare_6_oe() {
-        // Identity comparison for empty configuration
-        // removed other assertion
 
         configuration.setProperty("one", "1");
         configuration.setProperty("two", "2");
         configuration.setProperty("three", "3");
 
-        // Identify comparison for non-empty configuration
-        // removed other assertion
 
-        // Create the second configuration
         final Configuration other = new BaseConfiguration();
-        // removed other assertion
 
         other.setProperty("one", "1");
         other.setProperty("two", "2");
         other.setProperty("three", "3");
 
-        // Two identical, non-empty configurations
-        // removed other assertion
 
         other.setProperty("four", "4");
-        // removed other assertion
 
         configuration.setProperty("four", "4");
         assertTrue("Compare our configuration with another that is identical", comparator.compare(configuration, other));
@@ -160,20 +164,20 @@ public class TestStrictConfigurationComparator_OE25Dev {
 
     @Test
     public void testCompareNull_1_oe() {
-        assertTrue(comparator.compare(null, null));
+        boolean a = comparator.compare(null, null);
+        assertTrue(a);
     }
 
     @Test
     public void testCompareNull_2_oe() {
-        // removed other assertion
-        assertFalse(comparator.compare(configuration, null));
+        boolean a = comparator.compare(configuration, null);
+        assertFalse(a);
     }
 
     @Test
     public void testCompareNull_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertFalse(comparator.compare(null, configuration));
+        boolean a = comparator.compare(null, configuration);
+        assertFalse(a);
     }
 
 }

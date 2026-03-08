@@ -86,6 +86,49 @@ class PrimesTest_OE25Dev {
         }
     }
 
+    @Test
+    void testNextPrime() {
+
+        Assertions.assertEquals(2, Primes.nextPrime(0));
+        Assertions.assertEquals(2, Primes.nextPrime(1));
+        Assertions.assertEquals(2, Primes.nextPrime(2));
+        Assertions.assertEquals(3, Primes.nextPrime(3));
+        Assertions.assertEquals(5, Primes.nextPrime(4));
+        Assertions.assertEquals(5, Primes.nextPrime(5));
+
+        for (int i = 0; i < SmallPrimes.PRIMES.length - 1; i++) {
+            for (int j = SmallPrimes.PRIMES[i] + 1; j <= SmallPrimes.PRIMES[i + 1]; j++) {
+                Assertions.assertEquals(SmallPrimes.PRIMES[i + 1], Primes.nextPrime(j));
+            }
+        }
+
+        Assertions.assertEquals(25325981, Primes.nextPrime(25325981));
+        for (int i = 25325981 + 1; i <= 25326023; i++) {
+            Assertions.assertEquals(25326023, Primes.nextPrime(i));
+        }
+
+        Assertions.assertEquals(Integer.MAX_VALUE, Primes.nextPrime(Integer.MAX_VALUE - 10));
+        Assertions.assertEquals(Integer.MAX_VALUE, Primes.nextPrime(Integer.MAX_VALUE - 1));
+        Assertions.assertEquals(Integer.MAX_VALUE, Primes.nextPrime(Integer.MAX_VALUE));
+
+        assertNextPrimeException(Integer.MIN_VALUE, MessageFormat.format(Primes.NUMBER_TOO_SMALL, Integer.MIN_VALUE, 0));
+        assertNextPrimeException(-1, MessageFormat.format(Primes.NUMBER_TOO_SMALL, -1, 0));
+        assertNextPrimeException(-13, MessageFormat.format(Primes.NUMBER_TOO_SMALL, -13, 0));
+    }
+
+    @Test
+    void testIsPrime() throws Exception {
+        for (int i : BELOW_2) {
+            Assertions.assertFalse(Primes.isPrime(i));
+        }
+        for (int i:NOT_PRIMES) {
+            Assertions.assertFalse(Primes.isPrime(i));
+        }
+        for (int i:PRIMES) {
+            Assertions.assertTrue(Primes.isPrime(i));
+        }
+    }
+
     static int sum(List<Integer> numbers) {
         int out = 0;
         for (int i:numbers) {
@@ -107,6 +150,24 @@ class PrimesTest_OE25Dev {
             if (!PRIMES_SET.contains(p)) {
                 Assertions.fail("Not found in primes list: " + p);
             }
+        }
+    }
+
+    @Test
+    void testPrimeFactors() throws Exception {
+        for (int i : BELOW_2) {
+            assertPrimeFactorsException(i, MessageFormat.format(Primes.NUMBER_TOO_SMALL, i, 2));
+        }
+        for (int i : NOT_PRIMES) {
+            List<Integer> factors = Primes.primeFactors(i);
+            checkPrimeFactors(factors);
+            int prod = product(factors);
+            Assertions.assertEquals(i, prod);
+        }
+        for (int i : PRIMES) {
+            List<Integer> factors = Primes.primeFactors(i);
+            Assertions.assertEquals(i, (int)factors.get(0));
+            Assertions.assertEquals(1, factors.size());
         }
     }
 

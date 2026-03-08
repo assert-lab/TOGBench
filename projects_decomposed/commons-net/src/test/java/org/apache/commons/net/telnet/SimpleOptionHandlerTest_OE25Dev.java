@@ -35,6 +35,14 @@ public class SimpleOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTestAbst
     /**
      * test of the constructors.
      */
+    @Override
+    public void testConstructors()
+    {
+        assertEquals(opthand1.getOptionCode(), 4);
+        assertEquals(opthand2.getOptionCode(), 8);
+        assertEquals(opthand3.getOptionCode(), 91);
+        super.testConstructors();
+    }
 
     /**
      * test of client-driven subnegotiation.

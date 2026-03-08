@@ -43,6 +43,15 @@ public class CompressingSerializerUnitTest_OE25Dev
      * @throws ClassNotFoundException
      * @throws IOException
      */
+    public void testDeserialize_NullInput()
+        throws IOException, ClassNotFoundException
+    {
+        // DO WORK
+        final Object result = serializer.deSerialize( null, null );
+
+        // VERIFY
+        assertNull( "Should have nothing.", result );
+    }
 
     /**
      * Test simple back and forth with a string.
@@ -51,18 +60,57 @@ public class CompressingSerializerUnitTest_OE25Dev
      * <p>
      * @throws Exception on error
      */
+    public void testSimpleBackAndForth()
+        throws Exception
+    {
+        // DO WORK
+        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdsfdsafdsafsa333 31231";
+        final String after = (String) serializer.deSerialize( serializer.serialize( before ), null );
+
+        // VERIFY
+        assertEquals( "Before and after should be the same.", before, after );
+    }
 
     /**
      * Test serialization with a null object. Verify that we don't get an error.
      * <p>
      * @throws Exception on error
      */
+    public void testSerialize_NullInput()
+        throws Exception
+    {
+        final String before = null;
+
+        // DO WORK
+        final byte[] serialized = serializer.serialize( before );
+        final String after = (String) serializer.deSerialize( serialized, null );
+
+        // VERIFY
+        assertNull( "Should have nothing. after =" + after, after );
+    }
 
     /**
      * Verify that the compressed is smaller.
      * <p>
      * @throws Exception on error
      */
+    public void testSerialize_CompareCompressedAndUncompressed()
+        throws Exception
+    {
+        // I hate for loops.
+        final String before = "adsfdsafdsafdsafdsafdsafdsafdsagfdsafdsafdssaf dsaf sadf dsaf dsaf dsaf "
+            + "dsafdsa fdsaf dsaf dsafdsa dsaf dsaf dsaf dsaf dsafdsa76f dsa798f dsa6fdsa 087f  "
+            + "gh 987dsahb dsahbuhbfnui nufdsa hbv87 f8vhdsgbnfv h8fdg8dfjvn8fdwgj fdsgjb9fdsjbv"
+            + "jvhjv hg98f-dsaghj j9fdsb gfsb 9fdshjbgb987fdsbfdwgh ujbhjbhb hbfdsgh fdshb "
+            + "Ofdsgyfesgyfdsafdsafsa333 31231";
+
+        // DO WORK
+        final byte[] compressed = serializer.serialize( before );
+        final byte[] nonCompressed = new StandardSerializer().serialize( before );
+
+        // VERIFY
+        assertTrue("Compressed should be smaller. compressed size = " + compressed.length + "nonCompressed size = " + nonCompressed.length,compressed.length < nonCompressed.length);
+    }
 
     public void testDeserialize_NullInput_1_oe()
         throws IOException, ClassNotFoundException

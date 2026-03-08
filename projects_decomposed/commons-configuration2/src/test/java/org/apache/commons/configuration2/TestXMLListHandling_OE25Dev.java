@@ -148,6 +148,15 @@ public class TestXMLListHandling_OE25Dev {
     /**
      * Tests whether a list consisting of multiple elements where some elements define multiple values is handled correctly.
      */
+    @Test
+    public void testMixedList() throws ConfigurationException {
+        final List<String> expected = Arrays.asList("foo", "blah", "bar", "baz");
+        assertEquals("Wrong list value (1)", expected, config.getList("mixed.values"));
+        final String xml = saveToString();
+
+        final XMLConfiguration c2 = readFromString(xml);
+        assertEquals("Wrong list value (2)", expected, c2.getList("mixed.values"));
+    }
 
     /**
      * Tests that a list item can be removed without affecting the format.
@@ -182,7 +191,6 @@ public class TestXMLListHandling_OE25Dev {
     @Test
     public void testMixedList_2_oe() throws ConfigurationException {
         final List<String> expected = Arrays.asList("foo", "blah", "bar", "baz");
-        // removed other assertion
         final String xml = saveToString();
 
         final XMLConfiguration c2 = readFromString(xml);

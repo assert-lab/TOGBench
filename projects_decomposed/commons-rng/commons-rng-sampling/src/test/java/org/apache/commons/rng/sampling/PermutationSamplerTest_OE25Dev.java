@@ -36,6 +36,23 @@ class PermutationSamplerTest_OE25Dev {
     private final ChiSquareTest chiSquareTest = new ChiSquareTest();
 
     @Test
+    void testSampleTrivial() {
+        final int n = 6;
+        final int k = 3;
+        final PermutationSampler sampler = new PermutationSampler(RandomSource.KISS.create(),
+                                                                  n, k);
+        final int[] random = sampler.sample();
+        SAMPLE: for (int s : random) {
+            for (int i = 0; i < n; i++) {
+                if (i == s) {
+                    continue SAMPLE;
+                }
+            }
+            Assertions.fail("number " + s + " not in array");
+        }
+    }
+
+    @Test
     void testSampleChiSquareTest() {
         final int n = 3;
         final int k = 3;
@@ -56,6 +73,123 @@ class PermutationSamplerTest_OE25Dev {
                            {1, 3}, {3, 1},
                            {2, 3}, {3, 2}};
         runSampleChiSquareTest(n, k, p);
+    }
+
+    @Test
+    void testSampleBoundaryCase() {
+        // Check size = 1 boundary case.
+        final PermutationSampler sampler = new PermutationSampler(rng, 1, 1);
+        final int[] perm = sampler.sample();
+        Assertions.assertEquals(1, perm.length);
+        Assertions.assertEquals(0, perm[0]);
+    }
+
+    @Test
+    void testSamplePrecondition1() {
+        // Must fail for k > n.
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new PermutationSampler(rng, 2, 3));
+    }
+
+    @Test
+    void testSamplePrecondition2() {
+        // Must fail for n = 0.
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new PermutationSampler(rng, 0, 0));
+    }
+
+    @Test
+    void testSamplePrecondition3() {
+        // Must fail for k < n < 0.
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new PermutationSampler(rng, -1, 0));
+    }
+
+    @Test
+    void testSamplePrecondition4() {
+        // Must fail for k < n < 0.
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new PermutationSampler(rng, 1, -1));
+    }
+
+    @Test
+    void testNatural() {
+        final int n = 4;
+        final int[] expected = {0, 1, 2, 3};
+
+        final int[] natural = PermutationSampler.natural(n);
+        for (int i = 0; i < n; i++) {
+            Assertions.assertEquals(expected[i], natural[i]);
+        }
+    }
+
+    @Test
+    void testNaturalZero() {
+        final int[] natural = PermutationSampler.natural(0);
+        Assertions.assertEquals(0, natural.length);
+    }
+
+    @Test
+    void testShuffleNoDuplicates() {
+        final int n = 100;
+        final int[] orig = PermutationSampler.natural(n);
+        PermutationSampler.shuffle(rng, orig);
+
+        // Test that all (unique) entries exist in the shuffled array.
+        final int[] count = new int[n];
+        for (int i = 0; i < n; i++) {
+            count[orig[i]] += 1;
+        }
+
+        for (int i = 0; i < n; i++) {
+            Assertions.assertEquals(1, count[i]);
+        }
+    }
+
+    @Test
+    void testShuffleTail() {
+        final int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        final int[] list = orig.clone();
+        final int start = 4;
+        PermutationSampler.shuffle(rng, list, start, false);
+
+        // Ensure that all entries below index "start" did not move.
+        for (int i = 0; i < start; i++) {
+            Assertions.assertEquals(orig[i], list[i]);
+        }
+
+        // Ensure that at least one entry has moved.
+        boolean ok = false;
+        for (int i = start; i < orig.length - 1; i++) {
+            if (orig[i] != list[i]) {
+                ok = true;
+                break;
+            }
+        }
+        Assertions.assertTrue(ok);
+    }
+
+    @Test
+    void testShuffleHead() {
+        final int[] orig = new int[] {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};
+        final int[] list = orig.clone();
+        final int start = 4;
+        PermutationSampler.shuffle(rng, list, start, true);
+
+        // Ensure that all entries above index "start" did not move.
+        for (int i = start + 1; i < orig.length; i++) {
+            Assertions.assertEquals(orig[i], list[i]);
+        }
+
+        // Ensure that at least one entry has moved.
+        boolean ok = false;
+        for (int i = 0; i <= start; i++) {
+            if (orig[i] != list[i]) {
+                ok = true;
+                break;
+            }
+        }
+        Assertions.assertTrue(ok);
     }
 
     /**

@@ -66,6 +66,14 @@ public class TestMergeCombiner_OE25Dev extends AbstractCombinerTest {
     /**
      * Tests combination of attributes.
      */
+    @Test
+    public void testAttributes() throws ConfigurationException {
+        final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        assertEquals("Wrong value of min attribute", 1, config.getInt("gui.level[@min]"));
+        assertEquals("Wrong value of default attribute", 2, config.getInt("gui.level[@default]"));
+        assertEquals("Wrong number of id attributes", 0, config.getMaxIndex("database.tables.table(0)[@id]"));
+        assertEquals("Wrong value of table id", 1, config.getInt("database.tables.table(0)[@id]"));
+    }
 
     /**
      * Tests the combination of the table structure. With the merge combiner both table 1 and table 2 should be present.
@@ -78,18 +86,64 @@ public class TestMergeCombiner_OE25Dev extends AbstractCombinerTest {
     /**
      * Tests if a list from the first node structure overrides a list in the second structure.
      */
+    @Test
+    public void testListFromFirstStructure() throws ConfigurationException {
+        final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        assertEquals("Wrong number of services", 0, config.getMaxIndex("net.service.url"));
+        assertEquals("Wrong service", "http://service1.org", config.getString("net.service.url"));
+        assertFalse("Type attribute available", config.containsKey("net.service.url[@type]"));
+    }
 
     /**
      * Tests if a list from the second structure is added if it is not defined in the first structure.
      */
+    @Test
+    public void testListFromSecondStructure() throws ConfigurationException {
+        final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        assertEquals("Wrong number of servers", 3, config.getMaxIndex("net.server.url"));
+        assertEquals("Wrong server", "http://testsvr.com", config.getString("net.server.url(2)"));
+    }
+
+    @Test
+    public void testMerge() throws ConfigurationException {
+        // combiner.setDebugStream(System.out);
+        final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        config.setExpressionEngine(new XPathExpressionEngine());
+        assertEquals("Wrong number of Channels", 3, config.getMaxIndex("Channels/Channel"));
+        assertEquals("Bad Channel 1 Name", "My Channel", config.getString("Channels/Channel[@id='1']/Name"));
+        assertEquals("Bad Channel Type", "half", config.getString("Channels/Channel[@id='1']/@type"));
+        assertEquals("Bad Channel 2 Name", "Channel 2", config.getString("Channels/Channel[@id='2']/Name"));
+        assertEquals("Bad Channel Type", "full", config.getString("Channels/Channel[@id='2']/@type"));
+        assertEquals("Bad Channel Data", "test 1 data", config.getString("Channels/Channel[@id='1']/ChannelData"));
+        assertEquals("Bad Channel Data", "test 2 data", config.getString("Channels/Channel[@id='2']/ChannelData"));
+        assertEquals("Bad Channel Data", "more test 2 data", config.getString("Channels/Channel[@id='2']/MoreChannelData"));
+
+    }
 
     /**
      * Tests whether property values are correctly overridden.
      */
+    @Test
+    public void testOverrideValues() throws ConfigurationException {
+        final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        assertEquals("Wrong user", "Admin", config.getString("base.services.security.login.user"));
+        assertEquals("Wrong user type", "default", config.getString("base.services.security.login.user[@type]"));
+        assertNull("Wrong password", config.getString("base.services.security.login.passwd"));
+        assertEquals("Wrong password type", "secret", config.getString("base.services.security.login.passwd[@type]"));
+    }
 
     /**
      * Tests combination of simple elements.
      */
+    @Test
+    public void testSimpleValues() throws ConfigurationException {
+        final BaseHierarchicalConfiguration config = createCombinedConfiguration();
+        assertEquals("Wrong number of bgcolors", 0, config.getMaxIndex("gui.bgcolor"));
+        assertEquals("Wrong bgcolor", "green", config.getString("gui.bgcolor"));
+        assertEquals("Wrong selcolor", "yellow", config.getString("gui.selcolor"));
+        assertEquals("Wrong fgcolor", "blue", config.getString("gui.fgcolor"));
+        assertEquals("Wrong level", 1, config.getInt("gui.level"));
+    }
 
     @Test
     public void testAttributes_1_oe() throws ConfigurationException {
@@ -100,24 +154,18 @@ public class TestMergeCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testAttributes_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
         assertEquals("Wrong value of default attribute", 2, config.getInt("gui.level[@default]"));
     }
 
     @Test
     public void testAttributes_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong number of id attributes", 0, config.getMaxIndex("database.tables.table(0)[@id]"));
     }
 
     @Test
     public void testAttributes_4_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong value of table id", 1, config.getInt("database.tables.table(0)[@id]"));
     }
 
@@ -130,15 +178,12 @@ public class TestMergeCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testListFromFirstStructure_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
         assertEquals("Wrong service", "http://service1.org", config.getString("net.service.url"));
     }
 
     @Test
     public void testListFromFirstStructure_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
-        // removed other assertion
         assertFalse("Type attribute available", config.containsKey("net.service.url[@type]"));
     }
 
@@ -151,13 +196,11 @@ public class TestMergeCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testListFromSecondStructure_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
         assertEquals("Wrong server", "http://testsvr.com", config.getString("net.server.url(2)"));
     }
 
     @Test
     public void testMerge_1_oe() throws ConfigurationException {
-        // combiner.setDebugStream(System.out);
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         config.setExpressionEngine(new XPathExpressionEngine());
         assertEquals("Wrong number of Channels", 3, config.getMaxIndex("Channels/Channel"));
@@ -165,85 +208,50 @@ public class TestMergeCombiner_OE25Dev extends AbstractCombinerTest {
 
     @Test
     public void testMerge_2_oe() throws ConfigurationException {
-        // combiner.setDebugStream(System.out);
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         config.setExpressionEngine(new XPathExpressionEngine());
-        // removed other assertion
         assertEquals("Bad Channel 1 Name", "My Channel", config.getString("Channels/Channel[@id='1']/Name"));
     }
 
     @Test
     public void testMerge_3_oe() throws ConfigurationException {
-        // combiner.setDebugStream(System.out);
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         config.setExpressionEngine(new XPathExpressionEngine());
-        // removed other assertion
-        // removed other assertion
         assertEquals("Bad Channel Type", "half", config.getString("Channels/Channel[@id='1']/@type"));
     }
 
     @Test
     public void testMerge_4_oe() throws ConfigurationException {
-        // combiner.setDebugStream(System.out);
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         config.setExpressionEngine(new XPathExpressionEngine());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Bad Channel 2 Name", "Channel 2", config.getString("Channels/Channel[@id='2']/Name"));
     }
 
     @Test
     public void testMerge_5_oe() throws ConfigurationException {
-        // combiner.setDebugStream(System.out);
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         config.setExpressionEngine(new XPathExpressionEngine());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Bad Channel Type", "full", config.getString("Channels/Channel[@id='2']/@type"));
     }
 
     @Test
     public void testMerge_6_oe() throws ConfigurationException {
-        // combiner.setDebugStream(System.out);
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         config.setExpressionEngine(new XPathExpressionEngine());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Bad Channel Data", "test 1 data", config.getString("Channels/Channel[@id='1']/ChannelData"));
     }
 
     @Test
     public void testMerge_7_oe() throws ConfigurationException {
-        // combiner.setDebugStream(System.out);
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         config.setExpressionEngine(new XPathExpressionEngine());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Bad Channel Data", "test 2 data", config.getString("Channels/Channel[@id='2']/ChannelData"));
     }
 
     @Test
     public void testMerge_8_oe() throws ConfigurationException {
-        // combiner.setDebugStream(System.out);
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
         config.setExpressionEngine(new XPathExpressionEngine());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Bad Channel Data", "more test 2 data", config.getString("Channels/Channel[@id='2']/MoreChannelData"));
     }
 
@@ -256,24 +264,18 @@ public class TestMergeCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testOverrideValues_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
         assertEquals("Wrong user type", "default", config.getString("base.services.security.login.user[@type]"));
     }
 
     @Test
     public void testOverrideValues_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
-        // removed other assertion
         assertNull("Wrong password", config.getString("base.services.security.login.passwd"));
     }
 
     @Test
     public void testOverrideValues_4_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong password type", "secret", config.getString("base.services.security.login.passwd[@type]"));
     }
 
@@ -286,34 +288,24 @@ public class TestMergeCombiner_OE25Dev extends AbstractCombinerTest {
     @Test
     public void testSimpleValues_2_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
         assertEquals("Wrong bgcolor", "green", config.getString("gui.bgcolor"));
     }
 
     @Test
     public void testSimpleValues_3_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong selcolor", "yellow", config.getString("gui.selcolor"));
     }
 
     @Test
     public void testSimpleValues_4_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong fgcolor", "blue", config.getString("gui.fgcolor"));
     }
 
     @Test
     public void testSimpleValues_5_oe() throws ConfigurationException {
         final BaseHierarchicalConfiguration config = createCombinedConfiguration();
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong level", 1, config.getInt("gui.level"));
     }
 

@@ -26,6 +26,26 @@ import static org.testng.Assert.assertEquals;
 public class ListenableFutureTest_OE25Dev extends AbstractBasicTest {
 
   @Test
+  public void testListenableFuture() throws Exception {
+    final AtomicInteger statusCode = new AtomicInteger(500);
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      final CountDownLatch latch = new CountDownLatch(1);
+      final ListenableFuture<Response> future = ahc.prepareGet(getTargetUrl()).execute();
+      future.addListener(() -> {
+        try {
+          statusCode.set(future.get().getStatusCode());
+          latch.countDown();
+        } catch (InterruptedException | ExecutionException e) {
+          e.printStackTrace();
+        }
+      }, Executors.newFixedThreadPool(1));
+
+      latch.await(10, TimeUnit.SECONDS);
+      assertEquals(statusCode.get(), 200);
+    }
+  }
+
+  @Test
   public void testListenableFutureAfterCompletion() throws Exception {
 
     final CountDownLatch latch = new CountDownLatch(1);

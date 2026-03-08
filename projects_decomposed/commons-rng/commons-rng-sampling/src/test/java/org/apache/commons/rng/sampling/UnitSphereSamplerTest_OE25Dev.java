@@ -36,10 +36,21 @@ class UnitSphereSamplerTest_OE25Dev {
     /**
      * Test a non-positive dimension.
      */
+    @Test
+    void testInvalidDimensionThrows() {
+        // Use instance constructor not factory constructor to exercise 1.X public API
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new UnitSphereSampler(0, null));
+    }
 
     /**
      * Test a non-positive dimension.
      */
+    @Test
+    void testInvalidDimensionThrowsWithFactoryConstructor() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> UnitSphereSampler.of(null, 0));
+    }
 
     /**
      * Test the distribution of points in one dimension.
@@ -336,14 +347,29 @@ class UnitSphereSamplerTest_OE25Dev {
     /**
      * Test infinite recursion occurs with a bad provider in 2D.
      */
+    @Test
+    void testBadProvider2D() {
+        Assertions.assertThrows(StackOverflowError.class,
+            () -> testBadProvider(2));
+    }
 
     /**
      * Test infinite recursion occurs with a bad provider in 3D.
      */
+    @Test
+    void testBadProvider3D() {
+        Assertions.assertThrows(StackOverflowError.class,
+            () -> testBadProvider(3));
+    }
 
     /**
      * Test infinite recursion occurs with a bad provider in 4D.
      */
+    @Test
+    void testBadProvider4D() {
+        Assertions.assertThrows(StackOverflowError.class,
+            () -> testBadProvider(4));
+    }
 
     /**
      * Test the edge case where the normalisation sum to divide by is always zero.
@@ -417,6 +443,16 @@ class UnitSphereSamplerTest_OE25Dev {
      * Test to demonstrate that using floating-point equality of the norm squared with
      * zero is valid. Any norm squared after zero should produce a valid scaling factor.
      */
+    @Test
+    void testNextNormSquaredAfterZeroIsValid() {
+        // The sampler explicitly handles length == 0 using recursion.
+        // Anything above zero should be valid.
+        final double normSq = Math.nextUp(0.0);
+        // Map to the scaling factor
+        final double f = 1 / Math.sqrt(normSq);
+        // As long as this is finite positive then the sampler is valid
+        Assertions.assertTrue(f > 0 && f <= Double.MAX_VALUE);
+    }
 
     /**
      * Test the SharedStateSampler implementation for 1D.

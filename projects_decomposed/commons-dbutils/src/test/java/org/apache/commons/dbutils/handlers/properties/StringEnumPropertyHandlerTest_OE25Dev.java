@@ -31,6 +31,18 @@ public class StringEnumPropertyHandlerTest_OE25Dev {
     }
 
     @Test
+    public void testMatch() {
+        assertTrue(handler.match(TestEnum.class, "test"));
+    }
+
+    @Test
+    public void testMatchNegative() {
+        assertFalse(handler.match(TestEnum.class, Double.valueOf(1)));
+
+        assertFalse(handler.match(Integer.class, ""));
+    }
+
+    @Test
     public void testMatch_1_oe() {
         assertTrue(handler.match(TestEnum.class, "test"));
     }

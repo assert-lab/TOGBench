@@ -52,10 +52,20 @@ public class TestClasspathLocationStrategy_OE25Dev {
     /**
      * Tests a failed locate() operation.
      */
+    @Test
+    public void testLocateFailed() {
+        final FileLocator locator = FileLocatorUtils.fileLocator().fileName("non existing resource name!").create();
+        assertNull("Got a URL", strategy.locate(fileSystem, locator));
+    }
 
     /**
      * Tests a locate() operation if no file name is provided.
      */
+    @Test
+    public void testLocateNoFileName() {
+        final FileLocator locator = FileLocatorUtils.fileLocator().fileName("").create();
+        assertNull("Got a URL", strategy.locate(fileSystem, locator));
+    }
 
     /**
      * Tests a successful location of a provided resource name.

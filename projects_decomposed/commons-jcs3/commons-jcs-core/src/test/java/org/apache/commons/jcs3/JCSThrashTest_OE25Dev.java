@@ -76,11 +76,50 @@ public class JCSThrashTest_OE25Dev
      * Tests adding an entry.
      * @throws Exception
      */
+    public void testPut()
+        throws Exception
+    {
+        final String value = "value";
+        final String key = "key";
+
+        // Make sure the element is not found
+        assertEquals( 0, getListSize() );
+
+        assertNull( jcs.get( key ) );
+
+        jcs.put( key, value );
+
+        // Get the element
+        LOG.info( "jcs.getStats(): " + jcs.getStatistics() );
+        assertEquals( 1, getListSize() );
+        assertNotNull( jcs.get( key ) );
+        assertEquals( value, jcs.get( key ) );
+    }
 
     /**
      * Test elements can be removed from the store
      * @throws Exception
      */
+    public void testRemove()
+        throws Exception
+    {
+        jcs.put( "key1", "value1" );
+        assertEquals( 1, getListSize() );
+
+        jcs.remove( "key1" );
+        assertEquals( 0, getListSize() );
+
+        jcs.put( "key2", "value2" );
+        jcs.put( "key3", "value3" );
+        assertEquals( 2, getListSize() );
+
+        jcs.remove( "key2" );
+        assertEquals( 1, getListSize() );
+
+        // Try to remove an object that is not there in the store
+        jcs.remove( "key4" );
+        assertEquals( 1, getListSize() );
+    }
 
     /**
      * This does a bunch of work and then verifies that the memory has not grown by much. Most of

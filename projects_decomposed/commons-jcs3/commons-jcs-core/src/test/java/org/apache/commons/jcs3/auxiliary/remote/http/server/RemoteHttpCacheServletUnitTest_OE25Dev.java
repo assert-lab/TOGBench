@@ -63,18 +63,117 @@ public class RemoteHttpCacheServletUnitTest_OE25Dev
     }
 
     /** Verify that we balk and return an error. */
+    public void testProcessRequest_null()
+    {
+        final RemoteCacheRequest<Serializable, Serializable> request = null;
+
+        // DO WORK
+        final RemoteCacheResponse<Object> result = servlet.processRequest( request );
+
+        // VERIFY
+        assertNotNull( "Should have a result.", result );
+        assertTrue( "Should have 'The request is null' in the errorMessage", result.getErrorMessage().indexOf( "The request is null" ) != -1 );
+        assertTrue( "Should have 'The request is null' in the toString", result.toString().indexOf( "The request is null" ) != -1 );
+    }
 
     /** Verify that the service is called. */
+    public void testProcessRequest_Get()
+    {
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
+        final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createGetRequest( cacheName, key, requesterId );
+
+        // DO WORK
+        final RemoteCacheResponse<Object> result = servlet.processRequest( request );
+
+        // VERIFY
+        assertNotNull( "Should have a result.", result );
+        assertEquals( "Wrong key.", key, remoteHttpCacheService.lastGetKey );
+    }
 
     /** Verify that the service is called. */
+    public void testProcessRequest_GetMatching()
+    {
+        final String cacheName = "test";
+        final String pattern = "pattern";
+        final long requesterId = 2;
+        final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createGetMatchingRequest( cacheName, pattern,
+                                                                                                  requesterId );
+
+        // DO WORK
+        final RemoteCacheResponse<Object> result = servlet.processRequest( request );
+
+        // VERIFY
+        assertNotNull( "Should have a result.", result );
+        assertEquals( "Wrong pattern.", pattern, remoteHttpCacheService.lastGetMatchingPattern );
+    }
 
     /** Verify that the service is called. */
+    public void testProcessRequest_GetMultiple()
+    {
+        final String cacheName = "test";
+        final Set<Serializable> keys = Collections.emptySet();
+        final long requesterId = 2;
+        final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createGetMultipleRequest( cacheName, keys,
+                                                                                                  requesterId );
+
+        // DO WORK
+        final RemoteCacheResponse<Object> result = servlet.processRequest( request );
+
+        // VERIFY
+        assertNotNull( "Should have a result.", result );
+        assertEquals( "Wrong keys.", keys, remoteHttpCacheService.lastGetMultipleKeys );
+
+    }
 
     /** Verify that the service is called. */
+    public void testProcessRequest_Update()
+    {
+        final String cacheName = "test";
+        final String key = "key";
+        final long requesterId = 2;
+        final CacheElement<Serializable, Serializable> element = new CacheElement<>( cacheName, key, null );
+        final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createUpdateRequest( element, requesterId );
+
+        // DO WORK
+        final RemoteCacheResponse<Object> result = servlet.processRequest( request );
+
+        // VERIFY
+        assertNotNull( "Should have a result.", result );
+        assertEquals( "Wrong object.", element, remoteHttpCacheService.lastUpdate );
+    }
 
     /** Verify that the service is called. */
+    public void testProcessRequest_Remove()
+    {
+        final String cacheName = "test";
+        final Serializable key = "key";
+        final long requesterId = 2;
+        final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createRemoveRequest( cacheName, key, requesterId );
+
+        // DO WORK
+        final RemoteCacheResponse<Object> result = servlet.processRequest( request );
+
+        // VERIFY
+        assertNotNull( "Should have a result.", result );
+        assertEquals( "Wrong key.", key, remoteHttpCacheService.lastRemoveKey );
+    }
 
     /** Verify that the service is called. */
+    public void testProcessRequest_RemoveAll()
+    {
+        final String cacheName = "testRemoveALl";
+        final long requesterId = 2;
+        final RemoteCacheRequest<Serializable, Serializable> request = RemoteCacheRequestFactory.createRemoveAllRequest( cacheName, requesterId );
+
+        // DO WORK
+        final RemoteCacheResponse<Object> result = servlet.processRequest( request );
+
+        // VERIFY
+        assertNotNull( "Should have a result.", result );
+        assertEquals( "Wrong cacheName.", cacheName, remoteHttpCacheService.lastRemoveAllCacheName );
+    }
 
     public void testProcessRequest_null_1_oe()
     {

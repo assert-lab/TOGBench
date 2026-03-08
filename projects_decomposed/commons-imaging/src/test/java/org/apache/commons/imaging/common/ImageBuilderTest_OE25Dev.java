@@ -58,10 +58,59 @@ public class ImageBuilderTest_OE25Dev {
     /**
      * Test whether sub-image is consistent with source
      */
+    @Test
+    public void testSubimageAccess() {
+        final ImageBuilder imageBuilder = new ImageBuilder(100, 100, false );
+        populate(imageBuilder);
+        final BufferedImage bImage = imageBuilder.getSubimage(25, 25, 25, 25);
+        final int w = bImage.getWidth();
+        final int h = bImage.getHeight();
+        assertEquals(w, 25, "Width of subimage does not match");
+        assertEquals(h, 25, "Height of subimage does not match");
+
+        for(int x=25; x<50; x++){
+            for(int y=25; y<50; y++){
+                final int k = bImage.getRGB(x-25, y-25);
+                final int rgb = imageBuilder.getRGB(x, y);
+                assertEquals(k, rgb, "Invalid buffered image subpixel at "+x+", "+y);
+            }
+        }
+
+        final ImageBuilder testBuilder = imageBuilder.getSubset(25, 25, 25, 25);
+        for(int x=25; x<50; x++){
+            for(int y=25; y<50; y++){
+                final int k = testBuilder.getRGB(x-25, y-25);
+                final int rgb = imageBuilder.getRGB(x, y);
+                assertEquals(k, rgb, "Invalid image builder subpixel at "+x+", "+y);
+            }
+        }
+    }
 
     /**
      * Test whether color model is properly applied to buffered images
      */
+    @Test
+    void testImageColorModel() {
+        ImageBuilder  imageBuilder;
+        BufferedImage bImage;
+        ColorModel    model;
+        imageBuilder = new ImageBuilder(100, 100, false );
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        assertFalse(model.hasAlpha(), "Output image has alpha where not specified");
+
+        imageBuilder = new ImageBuilder(100, 100, true, false);
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        assertTrue(model.hasAlpha(), "Output image does not have alpha where specified");
+        assertFalse(model.isAlphaPremultiplied(), "Output image has alpha pre-multiplied where not specified");
+
+        imageBuilder = new ImageBuilder(100, 100, true, true);
+        bImage = imageBuilder.getBufferedImage();
+        model = bImage.getColorModel();
+        assertTrue(model.hasAlpha(), "Output image does not have alpha where specified");
+        assertTrue(model.isAlphaPremultiplied(), "Output image does not have alpha pre-multiplied where specified");
+    }
 
     void executeBadBounds(final ImageBuilder imageBuilder, final int x, final int y, final int w, final int h){
         try{

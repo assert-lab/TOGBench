@@ -88,6 +88,50 @@ public class DefaultRxHttpClientTest_OE25Dev {
   }
 
   @Test
+  public void emitsNullPointerExceptionWhenNullHandlerIsSupplied() {
+    // given
+    given(handlerSupplier.get()).willReturn(null);
+    final TestObserver<Object> subscriber = new TestObserver<>();
+
+    // when
+    underTest.prepare(request, handlerSupplier).subscribe(subscriber);
+
+    // then
+    subscriber.assertTerminated();
+    subscriber.assertNoValues();
+    subscriber.assertError(NullPointerException.class);
+    then(handlerSupplier).should().get();
+    verifyNoMoreInteractions(handlerSupplier);
+  }
+
+  @Test
+  public void usesVanillaAsyncHandler() {
+    // given
+    given(handlerSupplier.get()).willReturn(handler);
+
+    // when
+    underTest.prepare(request, handlerSupplier).subscribe();
+
+    // then
+    then(asyncHttpClient).should().executeRequest(eq(request), handlerCaptor.capture());
+    final AsyncHandler<Object> bridge = handlerCaptor.getValue();
+    assertThat(bridge, is(not(instanceOf(ProgressAsyncHandler.class))));
+  }
+
+  @Test
+  public void usesProgressAsyncHandler() {
+    given(handlerSupplier.get()).willReturn(progressHandler);
+
+    // when
+    underTest.prepare(request, handlerSupplier).subscribe();
+
+    // then
+    then(asyncHttpClient).should().executeRequest(eq(request), handlerCaptor.capture());
+    final AsyncHandler<Object> bridge = handlerCaptor.getValue();
+    assertThat(bridge, is(instanceOf(ProgressAsyncHandler.class)));
+  }
+
+  @Test
   public void callsSupplierForEachSubscription() {
     // given
     given(handlerSupplier.get()).willReturn(handler);
@@ -99,6 +143,24 @@ public class DefaultRxHttpClientTest_OE25Dev {
 
     // then
     then(handlerSupplier).should(times(2)).get();
+  }
+
+  @Test
+  public void cancelsResponseFutureOnDispose() throws Exception {
+    given(handlerSupplier.get()).willReturn(handler);
+    given(asyncHttpClient.executeRequest(eq(request), any())).willReturn(responseFuture);
+
+    /* when */
+    underTest.prepare(request, handlerSupplier).subscribe().dispose();
+
+    // then
+    then(asyncHttpClient).should().executeRequest(eq(request), handlerCaptor.capture());
+    final AsyncHandler<Object> bridge = handlerCaptor.getValue();
+    then(responseFuture).should().cancel(true);
+    verifyZeroInteractions(handler);
+    assertThat(bridge.onStatusReceived(null), is(AsyncHandler.State.ABORT));
+    verify(handler).onThrowable(isA(DisposedException.class));
+    verifyNoMoreInteractions(handler);
   }
 
   @Test

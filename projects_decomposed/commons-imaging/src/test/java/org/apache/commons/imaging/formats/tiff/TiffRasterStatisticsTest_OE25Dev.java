@@ -59,30 +59,70 @@ public class TiffRasterStatisticsTest_OE25Dev {
     /**
      * Test of getCountOfSamples method, of class TiffRasterStatistics.
      */
+    @Test
+    public void testGetCountOfSamples() {
+        assertEquals(width * height - 1, stat0.getCountOfSamples());
+        assertEquals(width * height - 2, stat1.getCountOfSamples());
+    }
 
     /**
      * Test of getCountOfNulls method, of class TiffRasterStatistics.
      */
+    @Test
+    public void testGetCountOfNulls() {
+        assertEquals(1, stat0.getCountOfNulls());
+        assertEquals(1, stat1.getCountOfNulls());
+    }
 
     /**
      * Test of getMinValue method, of class TiffRasterStatistics.
      */
+    @Test
+    public void testGetMinValue() {
+        assertEquals(0, stat0.getMinValue());
+        assertEquals(0, stat1.getMinValue());
+    }
 
     /**
      * Test of getMaxValue method, of class TiffRasterStatistics.
      */
+    @Test
+    public void testGetMaxValue() {
+        assertEquals(width * height - 1, stat0.getMaxValue());
+        assertEquals(width * height - 2, stat1.getMaxValue());
+    }
 
     /**
      * Test of getMeanValue method, of class TiffRasterStatistics.
      */
+    @Test
+    public void testGetMeanValue() {
+        assertNotEquals(0, stat0.getMeanValue());
+
+        final float[] zero = new float[100];
+        Arrays.fill(zero, 10);
+        final TiffRasterData zeroData = new TiffRasterDataFloat(10, 10, zero);
+        final TiffRasterStatistics zeroStat = zeroData.getSimpleStatistics(10);
+        assertEquals(0.0f,zeroStat.getMeanValue(),"Invalid mean data for excluded value");
+    }
 
     /**
      * Test of isAnExcludedValueSet method, of class TiffRasterStatistics.
      */
+    @Test
+    public void testIsAnExcludedValueSet() {
+        assertFalse(stat0.isAnExcludedValueSet());
+        assertTrue(stat1.isAnExcludedValueSet());
+    }
 
     /**
      * Test of getExcludedValue method, of class TiffRasterStatistics.
      */
+    @Test
+    public void testGetExcludedValue() {
+        assertTrue(Float.isNaN(stat0.getExcludedValue()));
+        assertEquals(width * height - 1, stat1.getExcludedValue());
+    }
 
     @Test
     public void testGetCountOfSamples_1_oe() {

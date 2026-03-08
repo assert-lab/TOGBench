@@ -25,6 +25,31 @@ import static org.junit.jupiter.api.Assertions.fail;
  * Test cases for the {@link Factorial} class.
  */
 class FactorialTest_OE25Dev {
+    @Test
+    void testFactorialZero() {
+        Assertions.assertEquals(1, Factorial.value(0), "0!");
+    }
+
+    @Test
+    void testFactorial() {
+        for (int i = 1; i < 21; i++) {
+            Assertions.assertEquals(factorial(i), Factorial.value(i), i + "!");
+        }
+    }
+
+    @Test
+    void testPrecondition1() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> Factorial.value(-1)
+        );
+    }
+
+    @Test
+    void testPrecondition2() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> Factorial.value(21)
+        );
+    }
 
     /**
      * Direct multiplication implementation.

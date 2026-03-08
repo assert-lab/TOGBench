@@ -22,6 +22,21 @@ public class FitBitJsonTokenExtractorTest_OE25Dev {
             + ERROR_DESCRIPTION + "\"}],\"success\":false}";
 
     @Test
+    public void testErrorExtraction() throws IOException {
+
+        final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();
+        final OAuth2AccessTokenErrorResponse thrown = assertThrows(OAuth2AccessTokenErrorResponse.class,
+                new ThrowingRunnable() {
+            @Override
+            public void run() throws Throwable {
+                extractor.generateError(new Response(403, null, null, ERROR_JSON));
+            }
+        });
+        assertSame(OAuth2Error.INVALID_GRANT, thrown.getError());
+        assertEquals(ERROR_DESCRIPTION, thrown.getErrorDescription());
+    }
+
+    @Test
     public void testErrorExtraction_1_oe() throws IOException {
 
         final FitBitJsonTokenExtractor extractor = new FitBitJsonTokenExtractor();

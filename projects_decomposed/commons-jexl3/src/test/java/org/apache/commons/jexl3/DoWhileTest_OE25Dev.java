@@ -44,6 +44,93 @@ public class DoWhileTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
+    public void testWhileExecutesExpressionWhenLooping() throws Exception {
+        JexlScript e = JEXL.createScript("do x = x + 1 while (x < 10)");
+        final JexlContext jc = new MapContext();
+        jc.set("x", 1);
+
+        Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
+        Assert.assertEquals(10, jc.get("x"));
+
+        e = JEXL.createScript("var x = 0; do x += 1; while (x < 23)");
+        o = e.execute(jc);
+        Assert.assertEquals(23, o);
+
+
+        jc.set("x", 1);
+        e = JEXL.createScript("do x += 1; while (x < 23); return 42;");
+        o = e.execute(jc);
+        Assert.assertEquals(23, jc.get("x"));
+        Assert.assertEquals(42, o);
+    }
+
+    @Test
+    public void testWhileWithBlock() throws Exception {
+        final JexlScript e = JEXL.createScript("do { x = x + 1; y = y * 2; } while (x < 10)");
+        final JexlContext jc = new MapContext();
+        jc.set("x", new Integer(1));
+        jc.set("y", new Integer(1));
+
+        final Object o = e.execute(jc);
+        Assert.assertEquals("Result is wrong", new Integer(512), o);
+        Assert.assertEquals("x is wrong", new Integer(10), jc.get("x"));
+        Assert.assertEquals("y is wrong", new Integer(512), jc.get("y"));
+    }
+
+    @Test
+    public void testForEachBreakInsideFunction() throws Exception {
+        try {
+            final JexlScript e = JEXL.createScript("for (i : 1..2) {  y = function() { break; } }");
+            Assert.fail("break is out of loop!");
+        } catch (final JexlException.Parsing xparse) {
+            final String str = xparse.detailedMessage();
+            Assert.assertTrue(str.contains("break"));
+        }
+    }
+
+    @Test
+    public void testForEachContinueInsideFunction() throws Exception {
+        try {
+            final JexlScript e = JEXL.createScript("for (i : 1..2) {  y = function() { continue; } }");
+            Assert.fail("continue is out of loop!");
+        } catch (final JexlException.Parsing xparse) {
+            final String str = xparse.detailedMessage();
+            Assert.assertTrue(str.contains("continue"));
+        }
+    }
+
+    @Test
+    public void testForEachLambda() throws Exception {
+        final JexlScript e = JEXL.createScript("(x)->{ for (i : 1..2) {  continue; var y = function() { 42; } break; } }");
+        Assert.assertNotNull(e);
+    }
+
+    @Test
+    public void testEmptyBody() throws Exception {
+        final JexlScript e = JEXL.createScript("var i = 0; do ; while((i+=1) < 10); i");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
+    }
+
+    @Test
+    public void testEmptyStmtBody() throws Exception {
+        final JexlScript e = JEXL.createScript("var i = 0; do {} while((i+=1) < 10); i");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
+    }
+
+    @Test
+    public void testWhileEmptyBody() throws Exception {
+        final JexlScript e = JEXL.createScript("var i = 0; while((i+=1) < 10); i");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals(10, o);
+    }
+
+    @Test
     public void testWhileEmptyStmtBody() throws Exception {
         final JexlScript e = JEXL.createScript("var i = 0; while((i+=1) < 10) {}; i");
         final JexlContext jc = new MapContext();

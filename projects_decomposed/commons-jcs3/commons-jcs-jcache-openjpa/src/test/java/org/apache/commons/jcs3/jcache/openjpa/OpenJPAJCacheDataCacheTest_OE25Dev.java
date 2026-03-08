@@ -59,6 +59,30 @@ public class OpenJPAJCacheDataCacheTest_OE25Dev
     }};
 
     @Test
+    public void entity()
+    {
+        final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);
+        final OpenJPAConfiguration conf = OpenJPAEntityManagerFactorySPI.class.cast(emf).getConfiguration();
+
+        final EntityManager em = emf.createEntityManager();
+
+        final MyEntity entity = new MyEntity();
+        entity.setName("cacheMe1");
+        em.getTransaction().begin();
+        em.persist(entity);
+        em.getTransaction().commit();
+        assertNotNull(conf.getDataCacheManagerInstance().getDataCache("default"));
+
+        assertThat(conf.getDataCacheManagerInstance(), instanceOf(OpenJPAJCacheDataCacheManager.class));
+        assertThat(conf.getDataCacheManagerInstance().getDataCache("default"), instanceOf(OpenJPAJCacheDataCache.class));
+        assertTrue(conf.getDataCacheManagerInstance().getDataCache("default").contains(JPAFacadeHelper.toOpenJPAObjectId(conf.getMetaDataRepositoryInstance().getCachedMetaData(MyEntity.class), entity.getId())));
+
+        em.close();
+
+        emf.close();
+    }
+
+    @Test
     public void query()
     {
         final EntityManagerFactory emf = Persistence.createEntityManagerFactory("test-jcache", props);

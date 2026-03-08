@@ -53,6 +53,22 @@ public class IptcFullDiscardTest_OE25Dev {
     }
 
     @Test
+    public void leaveApp13Segment() throws Exception {
+        final byte[] originalImage = generateImage();
+        final byte[] taggedImage = addMetaData(originalImage);
+        final byte[] untaggedImage = removeMetaData(taggedImage, false);
+        Assertions.assertEquals(18, untaggedImage.length - originalImage.length);
+    }
+
+    @Test
+    public void removeApp13Segment() throws Exception {
+        final byte[] originalImage = generateImage();
+        final byte[] taggedImage = addMetaData(originalImage);
+        final byte[] untaggedImage = removeMetaData(taggedImage, true);
+        Assertions.assertEquals(originalImage.length, untaggedImage.length);
+    }
+
+    @Test
     public void leaveApp13Segment_1_oe() throws Exception {
         final byte[] originalImage = generateImage();
         final byte[] taggedImage = addMetaData(originalImage);

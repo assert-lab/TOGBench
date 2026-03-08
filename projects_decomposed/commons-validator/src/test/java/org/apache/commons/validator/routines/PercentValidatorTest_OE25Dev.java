@@ -56,14 +56,61 @@ public class PercentValidatorTest_OE25Dev extends TestCase {
     /**
      * Test Format Type
      */
+    public void testFormatType() {
+        assertEquals("Format Type A", 2, PercentValidator.getInstance().getFormatType());
+        assertEquals("Format Type B", AbstractNumberValidator.PERCENT_FORMAT, PercentValidator.getInstance().getFormatType());
+    }
 
     /**
      * Test Valid percentage values
      */
+    public void testValid() {
+        // Set the default Locale
+        Locale origDefault = Locale.getDefault();
+        Locale.setDefault(Locale.UK);
+
+        BigDecimalValidator validator = PercentValidator.getInstance();
+        BigDecimal expected = new BigDecimal("0.12");
+        BigDecimal negative = new BigDecimal("-0.12");
+        BigDecimal hundred  = new BigDecimal("1.00");
+
+        assertEquals("Default locale", expected, validator.validate("12%"));
+        assertEquals("Default negtve", negative, validator.validate("-12%"));
+
+        // Invalid UK
+        assertEquals("UK locale",      expected, validator.validate("12%",   Locale.UK));
+        assertEquals("UK negative",    negative, validator.validate("-12%",  Locale.UK));
+        assertEquals("UK No symbol",   expected, validator.validate("12",    Locale.UK));
+
+        // Invalid US - can't find a Locale with different symbols!
+        assertEquals("US locale",      expected, validator.validate("12%",   Locale.US));
+        assertEquals("US negative",    negative, validator.validate("-12%",  Locale.US));
+        assertEquals("US No symbol",   expected, validator.validate("12",    Locale.US));
+
+        assertEquals("100%",           hundred, validator.validate("100%"));
+
+        // Restore the original default
+        Locale.setDefault(origDefault);
+    }
 
     /**
      * Test Invalid percentage values
      */
+    public void testInvalid() {
+        BigDecimalValidator validator = PercentValidator.getInstance();
+
+        // Invalid Missing
+        assertFalse("isValid() Null Value",    validator.isValid(null));
+        assertFalse("isValid() Empty Value",   validator.isValid(""));
+        assertNull("validate() Null Value",    validator.validate(null));
+        assertNull("validate() Empty Value",   validator.validate(""));
+
+        // Invalid UK
+        assertFalse("UK wrong symbol",validator.isValid("12@",Locale.UK));// ??? assertFalse("UK wrong negative",validator.isValid("(12%)",Locale.UK));
+
+        // Invalid US - can't find a Locale with different symbols!
+        assertFalse("US wrong symbol",validator.isValid("12@",Locale.US));// ??? assertFalse("US wrong negative",validator.isValid("(12%)",Locale.US));
+    }
 
     public void testFormatType_1_oe() {
         assertEquals("Format Type A", 2, PercentValidator.getInstance().getFormatType());

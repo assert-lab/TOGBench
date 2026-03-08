@@ -41,5 +41,5 @@ def comment_toga_assertion(path):
 
 if __name__ == "__main__":
 
-    path="projects_decomposed/JSON-java/mvn_log.txt"
+    path="projects_decomposed/joda-time/mvn_log.txt"
     comment_toga_assertion(path)

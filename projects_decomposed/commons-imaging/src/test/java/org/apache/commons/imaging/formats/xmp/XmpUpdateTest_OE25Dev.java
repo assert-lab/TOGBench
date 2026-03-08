@@ -38,6 +38,52 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class XmpUpdateTest_OE25Dev extends ImagingTest {
 
     @Test
+    public void test() throws Exception {
+        final List<File> images = getTestImages();
+        for (final File imageFile : images) {
+
+            if (imageFile.getName().toLowerCase().endsWith(".png")
+                    && isInvalidPNGTestFile(imageFile)) {
+                continue;
+            }
+
+            Debug.debug("imageFile", imageFile);
+            Debug.debug();
+
+            final ImageFormat imageFormat = Imaging.guessFormat(imageFile);
+            if (!imageFormat.equals(ImageFormats.PNG) || !imageFormat.equals(ImageFormats.TIFF) || !imageFormat.equals(ImageFormats.GIF)) {
+                continue;
+            }
+
+            String xmpXml = Imaging.getXmpXml(imageFile);
+            if (null == xmpXml
+                    && imageFormat.equals(ImageFormats.GIF)) {
+                xmpXml = "temporary test until I can locate a GIF with XMP in the wild.";
+            }
+            if (null == xmpXml) {
+                continue;
+            }
+
+            final File tempFile = File.createTempFile(imageFile.getName() + ".", "." + imageFormat.getDefaultExtension());
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+
+            // ----
+
+            ImageParser parser = Util.getImageParser("." + imageFormat.getDefaultExtension());
+            ImagingParameters params = parser.getDefaultParameters();
+            ((XmpImagingParameters) params).setXmpXml(xmpXml);
+            try (FileOutputStream fos = new FileOutputStream(tempFile)) {
+                parser.writeImage(image, fos, params);
+            }
+
+            final String xmpXmlOut = Imaging.getXmpXml(tempFile);
+
+            assertNotNull(xmpXmlOut);
+            assertEquals(xmpXmlOut, xmpXml);
+        }
+    }
+
+    @Test
     public void test_1_oe() throws Exception {
         final List<File> images = getTestImages();
         for (final File imageFile : images) {

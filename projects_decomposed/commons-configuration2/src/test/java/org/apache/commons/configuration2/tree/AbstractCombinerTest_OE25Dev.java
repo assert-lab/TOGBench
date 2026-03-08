@@ -79,16 +79,22 @@ public abstract class AbstractCombinerTest_OE25Dev {
     /**
      * Tests a newly created combiner.
      */
+    @Test
+    public void testInit() {
+        assertTrue("Combiner has list nodes", combiner.getListNodes().isEmpty());
+        assertFalse("Node is list node", combiner.isListNode(NodeStructureHelper.createNode("test", null)));
+    }
 
     @Test
     public void testInit_1_oe() {
-        assertTrue("Combiner has list nodes", combiner.getListNodes().isEmpty());
+        boolean a = combiner.getListNodes().isEmpty();
+        assertTrue("Combiner has list nodes", a);
     }
 
     @Test
     public void testInit_2_oe() {
-        // removed other assertion
-        assertFalse("Node is list node", combiner.isListNode(NodeStructureHelper.createNode("test", null)));
+        boolean a = combiner.isListNode(NodeStructureHelper.createNode("test", null));
+        assertFalse("Node is list node", a);
     }
 
 }

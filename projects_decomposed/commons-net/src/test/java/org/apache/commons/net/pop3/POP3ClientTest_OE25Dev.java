@@ -115,6 +115,26 @@ public class POP3ClientTest_OE25Dev extends TestCase
      * Test to try to run the login method from the
      * disconnected, transaction and update states
      */
+    public void testLoginFromWrongState() throws Exception
+    {
+        reset();
+
+        //Not currently connected, not in authorization state
+        //Try to login with good name/password
+        assertFalse(p.login(user, password));
+
+        //Now connect and set the state to 'transaction' and try again
+        connect();
+        p.setState(POP3.TRANSACTION_STATE);
+        assertFalse(p.login(user, password));
+        p.disconnect();
+
+        //Now connect and set the state to 'update' and try again
+        connect();
+        p.setState(POP3.UPDATE_STATE);
+        assertFalse(p.login(user, password));
+        p.disconnect();
+    }
 
     public void testLogoutFromAllStates() throws Exception
     {

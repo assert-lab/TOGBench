@@ -43,6 +43,26 @@ class Rotation2DTest_OE25Dev {
     private static final double THREE_PI_OVER_TWO = 3 * Math.PI / 2;
 
     @Test
+    void testIdentity() {
+        // act
+        final Rotation2D r = Rotation2D.identity();
+
+        // assert
+        Assertions.assertEquals(0.0, r.getAngle(), 0.0);
+        Assertions.assertTrue(r.preservesOrientation());
+    }
+
+    @Test
+    void testProperties() {
+        // act
+        final Rotation2D r = Rotation2D.of(100.0);
+
+        // assert
+        Assertions.assertEquals(100.0, r.getAngle(), 0.0);
+        Assertions.assertTrue(r.preservesOrientation());
+    }
+
+    @Test
     void testApply() {
         // act/assert
         checkApply(1.0, Vector2D.ZERO, Vector2D.ZERO);
@@ -71,6 +91,19 @@ class Rotation2DTest_OE25Dev {
     }
 
     @Test
+    void testInverse_properties() {
+        // arrange
+        final Rotation2D orig = Rotation2D.of(100.0);
+
+        // act
+        final Rotation2D r = orig.inverse();
+
+        // assert
+        Assertions.assertEquals(-100.0, r.getAngle(), 0.0);
+        Assertions.assertTrue(r.preservesOrientation());
+    }
+
+    @Test
     void testInverse_apply() {
         // arrange
         final Rotation2D orig = Rotation2D.of(100.0);
@@ -86,6 +119,25 @@ class Rotation2DTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(v2, inv.apply(orig.apply(v2)), TEST_EPS);
         EuclideanTestUtils.assertCoordinatesEqual(v3, orig.apply(inv.apply(v3)), TEST_EPS);
         EuclideanTestUtils.assertCoordinatesEqual(v4, inv.apply(orig.apply(v4)), TEST_EPS);
+    }
+
+    @Test
+    void testToMatrix() {
+        // arrange
+        final double angle = 0.1 * Math.PI;
+
+        // act
+        final AffineTransformMatrix2D m = Rotation2D.of(angle).toMatrix();
+
+        // assert
+        final double sin = Math.sin(angle);
+        final double cos = Math.cos(angle);
+
+        final double[] expected = {
+            cos, -sin, 0,
+            sin, cos, 0
+        };
+        Assertions.assertArrayEquals(expected, m.toArray(), 0.0);
     }
 
     @Test
@@ -115,6 +167,76 @@ class Rotation2DTest_OE25Dev {
                 Assertions.assertEquals(0.0, v.dot(r.apply(u.orthogonal())), TEST_EPS); // preserves orthogonality
             });
         });
+    }
+
+    @Test
+    void testCreateRotationVector_invalidVectors() {
+        // arrange
+        final Vector2D vec = Vector2D.of(1, 1);
+
+        final Vector2D zero = Vector2D.ZERO;
+        final Vector2D nan = Vector2D.NaN;
+        final Vector2D posInf = Vector2D.POSITIVE_INFINITY;
+        final Vector2D negInf = Vector2D.POSITIVE_INFINITY;
+
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(zero, vec));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(vec, zero));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(nan, vec));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(vec, nan));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(posInf, vec));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(vec, negInf));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(zero, nan));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Rotation2D.createVectorRotation(negInf, posInf));
+    }
+
+    @Test
+    void testHashCode() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        final int hash = a.hashCode();
+
+        // act/assert
+        Assertions.assertEquals(hash, a.hashCode());
+
+        Assertions.assertNotEquals(hash, b.hashCode());
+        Assertions.assertNotEquals(hash, c.hashCode());
+
+        Assertions.assertEquals(hash, d.hashCode());
+    }
+
+    @Test
+    void testEquals() {
+        // arrange
+        final Rotation2D a = Rotation2D.of(1.0);
+        final Rotation2D b = Rotation2D.of(0.0);
+        final Rotation2D c = Rotation2D.of(-1.0);
+        final Rotation2D d = Rotation2D.of(1.0);
+
+        // act/assert
+        GeometryTestUtils.assertSimpleEqualsCases(a);
+
+        Assertions.assertNotEquals(a, b);
+        Assertions.assertNotEquals(a, c);
+
+        Assertions.assertEquals(a, d);
+        Assertions.assertEquals(d, a);
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final Rotation2D r = Rotation2D.of(1.0);
+
+        // act
+        final String str = r.toString();
+
+        // assert
+        Assertions.assertEquals("Rotation2D[angle=1.0]", str);
     }
 
     private static void checkApply(final double angle, final Vector2D pt, final Vector2D expectedPt) {

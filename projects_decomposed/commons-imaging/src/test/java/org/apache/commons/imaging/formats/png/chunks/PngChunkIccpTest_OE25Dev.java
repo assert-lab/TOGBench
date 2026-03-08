@@ -42,6 +42,48 @@ public class PngChunkIccpTest_OE25Dev {
     private static final int chunkType = 1766015824;
 
     @Test
+    public void testErrorOnNoProfileName() {
+        final byte[] data = ImagingConstants.EMPTY_BYTE_ARRAY;
+        Assertions.assertThrows(ImageReadException.class, () -> new PngChunkIccp(0, chunkType, 0, data));
+    }
+
+    @Test
+    public void testParsingIccpChunk() throws ImageReadException, IOException {
+        final List<Byte> bytes = new ArrayList<>();
+        final String profileName = "my-profile-01";
+        for (final byte b : profileName.getBytes(StandardCharsets.ISO_8859_1)) {
+            bytes.add(b);
+        }
+        bytes.add((byte) 0); // null
+        bytes.add((byte) 0); // 0=deflate compression method
+
+        // generate some 100 bytes of dummy data
+        final byte[] uncompressedData = new byte[100];
+        IntStream.range(0, 100).forEach(i -> {
+            uncompressedData[i] = (byte) (i + 1); // dummy data
+        });
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream(100)) {
+            // compress the dummy data with deflate
+            final Deflater def = new Deflater();
+            try (DeflaterOutputStream ios = new DeflaterOutputStream(baos, def)) {
+                ios.write(uncompressedData);
+            }
+            baos.flush();
+            final byte[] compressedData = baos.toByteArray();
+            final byte[] data = new byte[bytes.size() + compressedData.length];
+            // gather everything, except for the compressed data
+            for (int i = 0; i < bytes.size(); ++i) {
+                data[i] = bytes.get(i).byteValue();
+            }
+            // gather the compressed data
+            IntStream.range(0, compressedData.length).forEach(i -> data[bytes.size() + i] = compressedData[i]);
+            // create the chunk
+            final PngChunkIccp chunk = new PngChunkIccp(data.length, chunkType, 0, data);
+            assertArrayEquals(uncompressedData, chunk.getUncompressedProfile());
+        }
+    }
+
+    @Test
     public void testErrorOnNoProfileName_1_oe() throws Exception {
         final byte[] data = ImagingConstants.EMPTY_BYTE_ARRAY;
         try {

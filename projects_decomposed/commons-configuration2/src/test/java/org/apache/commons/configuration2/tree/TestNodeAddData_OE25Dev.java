@@ -48,6 +48,15 @@ public class TestNodeAddData_OE25Dev {
     /**
      * Tests whether a defensive copy of the collection with path nodes is created.
      */
+    @Test
+    public void testInitPathNodesDefensiveCopy() {
+        final List<String> pathNodes = new ArrayList<>();
+        pathNodes.add(PATH_NODE_NAME);
+        final NodeAddData<ImmutableNode> data = new NodeAddData<>(parentNode, TEST_NODENAME, false, pathNodes);
+        pathNodes.add("anotherNode");
+        assertEquals("Wrong number of path nodes", 1, data.getPathNodes().size());
+        assertEquals("Wrong path node", PATH_NODE_NAME, data.getPathNodes().get(0));
+    }
 
     /**
      * Tests that the collection with path nodes cannot be modified if data is available.
@@ -61,6 +70,11 @@ public class TestNodeAddData_OE25Dev {
     /**
      * Tests whether the constructor can handle a null collection of path nodes.
      */
+    @Test
+    public void testPathNodesNull() {
+        final NodeAddData<ImmutableNode> data = new NodeAddData<>(parentNode, TEST_NODENAME, false, null);
+        assertTrue("Got path nodes", data.getPathNodes().isEmpty());
+    }
 
     /**
      * Tests whether the collection with path nodes cannot be modified if no data is available.
@@ -86,7 +100,6 @@ public class TestNodeAddData_OE25Dev {
         pathNodes.add(PATH_NODE_NAME);
         final NodeAddData<ImmutableNode> data = new NodeAddData<>(parentNode, TEST_NODENAME, false, pathNodes);
         pathNodes.add("anotherNode");
-        // removed other assertion
         assertEquals("Wrong path node", PATH_NODE_NAME, data.getPathNodes().get(0));
     }
 

@@ -56,12 +56,126 @@ public class UDPDiscoveryServiceUnitTest_OE25Dev
     }
 
     /** Verify that the list is updated. */
+    public void testAddOrUpdateService_NotInList()
+    {
+        final DiscoveredService discoveredService = new DiscoveredService();
+        discoveredService.setServiceAddress( host );
+        discoveredService.setCacheNames( new ArrayList<>() );
+        discoveredService.setServicePort( 1000 );
+        discoveredService.setLastHearFromTime( 100 );
+
+        // DO WORK
+        service.addOrUpdateService( discoveredService );
+
+        // VERIFY
+        assertTrue("Service should be in the service list.",service.getDiscoveredServices().contains(discoveredService));
+        assertTrue("Service should be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
+    }
 
     /** Verify that the list is updated. */
+    public void testAddOrUpdateService_InList_NamesDoNotChange()
+    {
+        final ArrayList<String> sameCacheNames = new ArrayList<>();
+        sameCacheNames.add( "name1" );
+
+        final DiscoveredService discoveredService = new DiscoveredService();
+        discoveredService.setServiceAddress( host );
+        discoveredService.setCacheNames( sameCacheNames );
+        discoveredService.setServicePort( 1000 );
+        discoveredService.setLastHearFromTime( 100 );
+
+
+        final DiscoveredService discoveredService2 = new DiscoveredService();
+        discoveredService2.setServiceAddress( host );
+        discoveredService2.setCacheNames( sameCacheNames );
+        discoveredService2.setServicePort( 1000 );
+        discoveredService2.setLastHearFromTime( 500 );
+
+        // DO WORK
+        service.addOrUpdateService( discoveredService );
+        // again
+        service.addOrUpdateService( discoveredService2 );
+
+        // VERIFY
+        assertEquals( "Should only be one in the set.", 1, service.getDiscoveredServices().size() );
+        assertTrue("Service should be in the service list.",service.getDiscoveredServices().contains(discoveredService));
+        assertTrue("Service should be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
+
+        // need to update the time this sucks. add has no effect convert to a map
+        for (final DiscoveredService service1 : service.getDiscoveredServices())
+        {
+            if ( discoveredService.equals( service1 ) )
+            {
+                assertEquals("The match should have the new last heard from time.",service1.getLastHearFromTime(),discoveredService2.getLastHearFromTime());
+            }
+        }
+        // the mock has a list from all add calls.
+        // it should have been called when the list changed.
+        //assertEquals( "Mock should have been called once.", 1, discoveryListener.discoveredServices.size() );
+        // logic changed.  it's called every time.
+        assertEquals( "Mock should have been called twice.", 2, discoveryListener.discoveredServices.size() );
+    }
 
     /** Verify that the list is updated. */
+    public void testAddOrUpdateService_InList_NamesChange()
+    {
+        final DiscoveredService discoveredService = new DiscoveredService();
+        discoveredService.setServiceAddress( host );
+        discoveredService.setCacheNames( new ArrayList<>() );
+        discoveredService.setServicePort( 1000 );
+        discoveredService.setLastHearFromTime( 100 );
+
+        final ArrayList<String> differentCacheNames = new ArrayList<>();
+        differentCacheNames.add( "name1" );
+        final DiscoveredService discoveredService2 = new DiscoveredService();
+        discoveredService2.setServiceAddress( host );
+        discoveredService2.setCacheNames( differentCacheNames );
+        discoveredService2.setServicePort( 1000 );
+        discoveredService2.setLastHearFromTime( 500 );
+
+        // DO WORK
+        service.addOrUpdateService( discoveredService );
+        // again
+        service.addOrUpdateService( discoveredService2 );
+
+        // VERIFY
+        assertEquals( "Should only be one in the set.", 1, service.getDiscoveredServices().size() );
+        assertTrue("Service should be in the service list.",service.getDiscoveredServices().contains(discoveredService));
+        assertTrue("Service should be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
+
+        // need to update the time this sucks. add has no effect convert to a map
+        for (final DiscoveredService service1 : service.getDiscoveredServices())
+        {
+            if ( discoveredService.equals( service1 ) )
+            {
+                assertEquals("The match should have the new last heard from time.",service1.getLastHearFromTime(),discoveredService2.getLastHearFromTime());
+                assertEquals( "The names should be updated.", service1.getCacheNames() + "", differentCacheNames + "" );
+            }
+        }
+        // the mock has a list from all add calls.
+        // it should have been called when the list changed.
+        assertEquals( "Mock should have been called twice.", 2, discoveryListener.discoveredServices.size() );
+        assertEquals("The second mock listener add should be discoveredService2",discoveredService2,discoveryListener.discoveredServices.get(1));
+    }
 
     /** Verify that the list is updated. */
+    public void testRemoveDiscoveredService()
+    {
+        final DiscoveredService discoveredService = new DiscoveredService();
+        discoveredService.setServiceAddress( host );
+        discoveredService.setCacheNames( new ArrayList<>() );
+        discoveredService.setServicePort( 1000 );
+        discoveredService.setLastHearFromTime( 100 );
+
+        service.addOrUpdateService( discoveredService );
+
+        // DO WORK
+        service.removeDiscoveredService( discoveredService );
+
+        // VERIFY
+        assertFalse("Service should not be in the service list.",service.getDiscoveredServices().contains(discoveredService));
+        assertFalse("Service should not be in the listener list.",discoveryListener.discoveredServices .contains(discoveredService));
+    }
 
     public void testAddOrUpdateService_NotInList_1_oe()
     {

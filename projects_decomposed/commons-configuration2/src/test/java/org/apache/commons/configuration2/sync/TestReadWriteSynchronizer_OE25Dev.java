@@ -224,6 +224,41 @@ public class TestReadWriteSynchronizer_OE25Dev {
      * Performs a test of the synchronizer based on the classic example of account objects. Money is transferred between two
      * accounts. If everything goes well, the total amount of money stays constant over time.
      */
+    @Test
+    public void testSynchronizerInAction() throws InterruptedException {
+        final int numberOfUpdates = 10000;
+        final int numberOfReads = numberOfUpdates / 2;
+        final int readThreadCount = 3;
+        final int updateThreadCount = 2;
+
+        final Synchronizer sync = new ReadWriteSynchronizer();
+        final Account account1 = new Account();
+        final Account account2 = new Account();
+        account1.change(TOTAL_MONEY / 2);
+        account2.change(TOTAL_MONEY / 2);
+
+        final UpdateThread[] updateThreads = new UpdateThread[updateThreadCount];
+        for (int i = 0; i < updateThreads.length; i++) {
+            updateThreads[i] = new UpdateThread(sync, numberOfUpdates, account1, account2);
+            updateThreads[i].start();
+        }
+        final ReaderThread[] readerThreads = new ReaderThread[readThreadCount];
+        for (int i = 0; i < readerThreads.length; i++) {
+            readerThreads[i] = new ReaderThread(sync, numberOfReads, account1, account2);
+            readerThreads[i].start();
+        }
+
+        for (final UpdateThread t : updateThreads) {
+            t.join();
+        }
+        for (final ReaderThread t : readerThreads) {
+            t.join();
+            assertEquals("Got read errors", 0, t.getErrors());
+        }
+        sync.beginRead();
+        assertEquals("Wrong sum of money", TOTAL_MONEY, sumUpAccounts(account1, account2));
+        sync.endRead();
+    }
 
     @Test
     public void testSynchronizerInAction_1_oe() throws InterruptedException {
@@ -287,7 +322,6 @@ public class TestReadWriteSynchronizer_OE25Dev {
         }
         for (final ReaderThread t : readerThreads) {
             t.join();
-            // removed other assertion
         }
         sync.beginRead();
         assertEquals("Wrong sum of money", TOTAL_MONEY, sumUpAccounts(account1, account2));

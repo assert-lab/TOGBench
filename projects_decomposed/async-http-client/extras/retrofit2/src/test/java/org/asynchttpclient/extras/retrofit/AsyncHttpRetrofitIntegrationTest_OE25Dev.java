@@ -85,6 +85,78 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
   }
 
   // begin: synchronous execution
+  @Test
+  public void testSynchronousService_OK() throws Throwable {
+    // given
+    val service = synchronousSetup();
+
+    // when:
+    val resultRef = new AtomicReference<List<Contributor>>();
+    withServer(server).run(srv -> {
+      configureTestServer(srv, 200, expectedContributors, "utf-8");
+
+      val contributors = service.contributors(OWNER, REPO).execute().body();
+      resultRef.compareAndSet(null, contributors);
+    });
+
+    // then
+    assertContributors(expectedContributors, resultRef.get());
+  }
+
+  @Test
+  public void testSynchronousService_OK_WithBadEncoding() throws Throwable {
+    // given
+    val service = synchronousSetup();
+
+    // when:
+    val resultRef = new AtomicReference<List<Contributor>>();
+    withServer(server).run(srv -> {
+      configureTestServer(srv, 200, expectedContributors, "us-ascii");
+
+      val contributors = service.contributors(OWNER, REPO).execute().body();
+      resultRef.compareAndSet(null, contributors);
+    });
+
+    // then
+    assertContributorsWithWrongCharset(expectedContributors, resultRef.get());
+  }
+
+  @Test
+  public void testSynchronousService_FAIL() throws Throwable {
+    // given
+    val service = synchronousSetup();
+
+    // when:
+    val resultRef = new AtomicReference<List<Contributor>>();
+    withServer(server).run(srv -> {
+      configureTestServer(srv, 500, expectedContributors, "utf-8");
+
+      val contributors = service.contributors(OWNER, REPO).execute().body();
+      resultRef.compareAndSet(null, contributors);
+    });
+
+    // then:
+    assertNull(resultRef.get());
+  }
+
+  @Test
+  public void testSynchronousService_NOT_FOUND() throws Throwable {
+    // given
+    val service = synchronousSetup();
+
+    // when:
+    val resultRef = new AtomicReference<List<Contributor>>();
+    withServer(server).run(srv -> {
+      configureTestServer(srv, 404, expectedContributors, "utf-8");
+
+      val contributors = service.contributors(OWNER, REPO).execute().body();
+      log.info("contributors: {}", contributors);
+      resultRef.compareAndSet(null, contributors);
+    });
+
+    // then:
+    assertNull(resultRef.get());
+  }
 
   private TestServices.GithubSync synchronousSetup() {
     val callFactory = AsyncHttpClientCallFactory.builder().httpClient(httpClient).build();
@@ -96,6 +168,46 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
   // end: synchronous execution
 
   // begin: rxjava 1.x
+  @Test(dataProvider = "testRxJava1Service")
+  public void testRxJava1Service_OK(RxJavaCallAdapterFactory rxJavaCallAdapterFactory) throws Throwable {
+    // given
+    val service = rxjava1Setup(rxJavaCallAdapterFactory);
+    val expectedContributors = generateContributors();
+
+    // when
+    val resultRef = new AtomicReference<List<Contributor>>();
+    withServer(server).run(srv -> {
+      configureTestServer(srv, 200, expectedContributors, "utf-8");
+
+      // execute retrofit request
+      val contributors = service.contributors(OWNER, REPO).toBlocking().first();
+      resultRef.compareAndSet(null, contributors);
+    });
+
+    // then
+    assertContributors(expectedContributors, resultRef.get());
+  }
+
+  @Test(dataProvider = "testRxJava1Service")
+  public void testRxJava1Service_OK_WithBadEncoding(RxJavaCallAdapterFactory rxJavaCallAdapterFactory)
+          throws Throwable {
+    // given
+    val service = rxjava1Setup(rxJavaCallAdapterFactory);
+    val expectedContributors = generateContributors();
+
+    // when
+    val resultRef = new AtomicReference<List<Contributor>>();
+    withServer(server).run(srv -> {
+      configureTestServer(srv, 200, expectedContributors, "us-ascii");
+
+      // execute retrofit request
+      val contributors = service.contributors(OWNER, REPO).toBlocking().first();
+      resultRef.compareAndSet(null, contributors);
+    });
+
+    // then
+    assertContributorsWithWrongCharset(expectedContributors, resultRef.get());
+  }
 
   @Test(dataProvider = "testRxJava1Service", expectedExceptions = HttpException.class,
           expectedExceptionsMessageRegExp = ".*HTTP 500 Server Error.*")
@@ -155,6 +267,46 @@ public class AsyncHttpRetrofitIntegrationTest_OE25Dev extends HttpTest {
   // end: rxjava 1.x
 
   // begin: rxjava 2.x
+  @Test(dataProvider = "testRxJava2Service")
+  public void testRxJava2Service_OK(RxJava2CallAdapterFactory rxJavaCallAdapterFactory) throws Throwable {
+    // given
+    val service = rxjava2Setup(rxJavaCallAdapterFactory);
+    val expectedContributors = generateContributors();
+
+    // when
+    val resultRef = new AtomicReference<List<Contributor>>();
+    withServer(server).run(srv -> {
+      configureTestServer(srv, 200, expectedContributors, "utf-8");
+
+      // execute retrofit request
+      val contributors = service.contributors(OWNER, REPO).blockingGet();
+      resultRef.compareAndSet(null, contributors);
+    });
+
+    // then
+    assertContributors(expectedContributors, resultRef.get());
+  }
+
+  @Test(dataProvider = "testRxJava2Service")
+  public void testRxJava2Service_OK_WithBadEncoding(RxJava2CallAdapterFactory rxJavaCallAdapterFactory)
+          throws Throwable {
+    // given
+    val service = rxjava2Setup(rxJavaCallAdapterFactory);
+    val expectedContributors = generateContributors();
+
+    // when
+    val resultRef = new AtomicReference<List<Contributor>>();
+    withServer(server).run(srv -> {
+      configureTestServer(srv, 200, expectedContributors, "us-ascii");
+
+      // execute retrofit request
+      val contributors = service.contributors(OWNER, REPO).blockingGet();
+      resultRef.compareAndSet(null, contributors);
+    });
+
+    // then
+    assertContributorsWithWrongCharset(expectedContributors, resultRef.get());
+  }
 
   @Test(dataProvider = "testRxJava2Service", expectedExceptions = HttpException.class,
           expectedExceptionsMessageRegExp = ".*HTTP 500 Server Error.*")

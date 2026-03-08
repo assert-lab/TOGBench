@@ -28,6 +28,14 @@ import org.junit.jupiter.api.Test;
 public class AppnSegmentTest_OE25Dev{
 
   @Test
+  public void testCreatesAppnSegment() throws IOException {
+      final InputStream inputStream = new ByteArrayInputStream(ImagingConstants.EMPTY_BYTE_ARRAY);
+      final AppnSegment appnSegment = new AppnSegment(0, 0, inputStream);
+
+      assertEquals("[Segment: APPN (APP-65504) (Unknown)]", appnSegment.toString());
+  }
+
+  @Test
   public void testCreatesAppnSegment_1_oe() throws IOException {
       final InputStream inputStream = new ByteArrayInputStream(ImagingConstants.EMPTY_BYTE_ARRAY);
       final AppnSegment appnSegment = new AppnSegment(0, 0, inputStream);

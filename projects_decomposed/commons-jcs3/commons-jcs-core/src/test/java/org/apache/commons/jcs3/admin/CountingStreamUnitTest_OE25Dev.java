@@ -38,18 +38,44 @@ public class CountingStreamUnitTest_OE25Dev
      *
      * @throws Exception
      */
+    public void testSingleByte() throws Exception
+    {
+        final CountingOnlyOutputStream out = new CountingOnlyOutputStream();
+        out.write( 1 );
+        assertEquals( "Wrong number of bytes written.", 1, out.getCount() );
+        out.write( 1 );
+        assertEquals( "Wrong number of bytes written.", 2, out.getCount() );
+        out.close();
+    }
 
     /**
      * This should count the size of the array.
      *
      * @throws Exception
      */
+    public void testByteArray() throws Exception
+    {
+        final CountingOnlyOutputStream out = new CountingOnlyOutputStream();
+        final byte[] array = new byte[]{1,2,3,4,5};
+        out.write( array );
+        assertEquals( "Wrong number of bytes written.", array.length, out.getCount() );
+        out.close();
+    }
 
     /**
      * This should count the len -- the third arg
      *
      * @throws Exception
      */
+    public void testByteArrayLenCount() throws Exception
+    {
+        final CountingOnlyOutputStream out = new CountingOnlyOutputStream();
+        final byte[] array = new byte[]{1,2,3,4,5};
+        final int len = 3;
+        out.write( array, 0, len );
+        assertEquals( "Wrong number of bytes written.", len, out.getCount() );
+        out.close();
+    }
 
     public void testSingleByte_1_oe() throws Exception
     {

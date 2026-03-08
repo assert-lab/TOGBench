@@ -27,6 +27,20 @@ import org.junit.jupiter.api.Test;
 public class JfifSegmentTest_OE25Dev{
 
   @Test
+  public void testCreatesJfifSegment() throws IOException {
+      final byte[] byteArray = new byte[25];
+
+      try {
+        new JfifSegment((-2275), byteArray);
+        fail("Expecting exception: Exception");
+      } catch(final ImageReadException e) {
+         assertEquals("Not a Valid JPEG File: missing JFIF string",e.getMessage());
+         assertEquals(JfifSegment.class.getName(), e.getStackTrace()[0].getClassName());
+      }
+
+  }
+
+  @Test
   public void testCreatesJfifSegment_2_oe() throws IOException {
       final byte[] byteArray = new byte[25];
 

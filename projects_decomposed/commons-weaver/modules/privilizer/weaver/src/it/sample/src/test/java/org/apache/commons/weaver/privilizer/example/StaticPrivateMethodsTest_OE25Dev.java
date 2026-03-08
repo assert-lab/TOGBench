@@ -33,6 +33,13 @@ public class StaticPrivateMethodsTest_OE25Dev {
     }
 
     @Test
+    public void testGet() {
+        assertEquals("foo-value", StaticPrivateMethods.get("foo"));
+        assertEquals("bar-value", StaticPrivateMethods.get("bar"));
+        assertEquals("baz-value", StaticPrivateMethods.get("baz"));
+    }
+
+    @Test
     public void testGet_1_oe() {
         assertEquals("foo-value", StaticPrivateMethods.get("foo"));
     }

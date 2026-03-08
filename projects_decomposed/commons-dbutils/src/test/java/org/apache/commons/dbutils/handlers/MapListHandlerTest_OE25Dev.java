@@ -29,6 +29,41 @@ import org.apache.commons.dbutils.ResultSetHandler;
  */
 public class MapListHandlerTest_OE25Dev extends BaseTestCase {
 
+    public void testHandle() throws SQLException {
+        ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
+        List<Map<String,Object>> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Iterator<Map<String,Object>> iter = results.iterator();
+        Map<String,Object> row = null;
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.keySet().size());
+        assertEquals("1", row.get("one"));
+        assertEquals("2", row.get("TWO"));
+        assertEquals("THREE", row.get("Three"));
+
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.keySet().size());
+
+        assertEquals("4", row.get("one"));
+        assertEquals("5", row.get("TWO"));
+        assertEquals("SIX", row.get("Three"));
+
+        assertFalse(iter.hasNext());
+    }
+
+    public void testEmptyResultSetHandle() throws SQLException {
+        ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
+        List<Map<String,Object>> results = h.handle(this.emptyResultSet);
+
+        assertNotNull(results);
+        assertTrue(results.isEmpty());
+    }
+
     public void testHandle_1_oe() throws SQLException {
         ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
         List<Map<String,Object>> results = h.handle(this.rs);

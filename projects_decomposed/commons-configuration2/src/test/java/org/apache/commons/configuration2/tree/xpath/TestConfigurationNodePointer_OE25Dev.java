@@ -73,22 +73,52 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
      * Tests whether a comparison of child node pointers handle the case that the child nodes are unknown. (This should not
      * happen in practice.)
      */
+    @Test
+    public void testCompareChildNodePointersAttributes() {
+        final ImmutableNode n1 = new ImmutableNode.Builder().name("n1").create();
+        final ImmutableNode n2 = new ImmutableNode.Builder().name("n2").create();
+        final NodePointer p1 = new ConfigurationNodePointer<>(pointer, n1, handler);
+        final NodePointer p2 = new ConfigurationNodePointer<>(pointer, n2, handler);
+        assertEquals("Incorrect order", 0, pointer.compareChildNodePointers(p1, p2));
+        assertEquals("Incorrect symmetric order", 0, pointer.compareChildNodePointers(p2, p1));
+    }
 
     /**
      * Tests comparing child node pointers for child nodes.
      */
+    @Test
+    public void testCompareChildNodePointersChildren() {
+        final NodePointer p1 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(1), handler);
+        final NodePointer p2 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(3), handler);
+        assertEquals("Incorrect order", -1, pointer.compareChildNodePointers(p1, p2));
+        assertEquals("Incorrect symmetric order", 1, pointer.compareChildNodePointers(p2, p1));
+    }
 
     /**
      * Tests the attribute flag.
      */
+    @Test
+    public void testIsAttribute() {
+        assertFalse("Node is an attribute", pointer.isAttribute());
+    }
 
     /**
      * Tests the leaf flag for a real leaf node.
      */
+    @Test
+    public void testIsLeafTrue() {
+        final ImmutableNode leafNode = new ImmutableNode.Builder().name("leafNode").create();
+        pointer = new ConfigurationNodePointer<>(pointer, leafNode, handler);
+        assertTrue("Not a leaf node", pointer.isLeaf());
+    }
 
     /**
      * Tests if leaves in the tree are correctly detected.
      */
+    @Test
+    public void testIsLeave() {
+        assertFalse("Root node is leaf", pointer.isLeaf());
+    }
 
     /**
      * Tests the iterators returned by the node pointer.
@@ -121,7 +151,6 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
         final ImmutableNode n2 = new ImmutableNode.Builder().name("n2").create();
         final NodePointer p1 = new ConfigurationNodePointer<>(pointer, n1, handler);
         final NodePointer p2 = new ConfigurationNodePointer<>(pointer, n2, handler);
-        // removed other assertion
         assertEquals("Incorrect symmetric order", 0, pointer.compareChildNodePointers(p2, p1));
     }
 
@@ -136,13 +165,13 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
     public void testCompareChildNodePointersChildren_2_oe() {
         final NodePointer p1 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(1), handler);
         final NodePointer p2 = new ConfigurationNodePointer<>(pointer, root.getChildren().get(3), handler);
-        // removed other assertion
         assertEquals("Incorrect symmetric order", 1, pointer.compareChildNodePointers(p2, p1));
     }
 
     @Test
     public void testIsAttribute_1_oe() {
-        assertFalse("Node is an attribute", pointer.isAttribute());
+        boolean a = pointer.isAttribute();
+        assertFalse("Node is an attribute", a);
     }
 
     @Test
@@ -154,7 +183,8 @@ public class TestConfigurationNodePointer_OE25Dev extends AbstractXPathTest {
 
     @Test
     public void testIsLeave_1_oe() {
-        assertFalse("Root node is leaf", pointer.isLeaf());
+        boolean a = pointer.isLeaf();
+        assertFalse("Root node is leaf", a);
     }
 
 }

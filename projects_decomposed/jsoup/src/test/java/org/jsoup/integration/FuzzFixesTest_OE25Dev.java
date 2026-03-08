@@ -29,6 +29,39 @@ public class FuzzFixesTest_OE25Dev {
     }
 
     @Test
+    public void blankAbsAttr() {
+        // https://github.com/jhy/jsoup/issues/1541
+        String html = "b<bodY abs: abs:abs: abs:abs:abs>";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+    }
+
+    @Test
+    public void bookmark() {
+        // https://github.com/jhy/jsoup/issues/1576
+        String html = "<?a<U<P<A ";
+        Document doc = Jsoup.parse(html);
+        assertNotNull(doc);
+
+        Document xmlDoc = Parser.xmlParser().parseInput(html, "");
+        assertNotNull(xmlDoc);
+    }
+
+    @ParameterizedTest
+    @MethodSource("testFiles")
+    void testHtmlParse(File file) throws IOException {
+        Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/");
+        assertNotNull(doc);
+    }
+
+    @ParameterizedTest
+    @MethodSource("testFiles")
+    void testXmlParse(File file) throws IOException {
+        Document doc = Jsoup.parse(file, "UTF-8", "https://example.com/", Parser.xmlParser());
+        assertNotNull(doc);
+    }
+
+    @Test
     public void blankAbsAttr_1_oe() {
         // https://github.com/jhy/jsoup/issues/1541
         String html = "b<bodY abs: abs:abs: abs:abs:abs>";

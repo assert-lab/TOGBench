@@ -36,6 +36,17 @@ public class NTLMProxyTest_OE25Dev extends AbstractBasicTest {
     return new NTLMProxyHandler();
   }
 
+  @Test
+  public void ntlmProxyTest() throws IOException, InterruptedException, ExecutionException {
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Request request = get("http://localhost").setProxyServer(ntlmProxy()).build();
+      Future<Response> responseFuture = client.executeRequest(request);
+      int status = responseFuture.get().getStatusCode();
+      Assert.assertEquals(status, 200);
+    }
+  }
+
   private ProxyServer ntlmProxy() {
     Realm realm = ntlmAuthRealm("Zaphod", "Beeblebrox")
             .setNtlmDomain("Ursa-Minor")

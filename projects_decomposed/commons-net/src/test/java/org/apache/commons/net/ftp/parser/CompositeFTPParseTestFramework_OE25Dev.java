@@ -61,14 +61,67 @@ public abstract class CompositeFTPParseTestFramework_OE25Dev extends FTPParseTes
     /* (non-Javadoc)
      * @see org.apache.commons.net.ftp.parser.FTPParseTestFramework#testGoodListing()
      */
+    public void testConsistentListing()
+    {
+        final String goodsamples[][] = getGoodListings();
+
+        for (final String[] goodsample : goodsamples)
+        {
+            final FTPFileEntryParser parser = getParser();
+            for (final String test : goodsample) {
+                final FTPFile f = parser.parseFTPEntry(test);
+                assertNotNull("Failed to parse " + test,f);
+
+                doAdditionalGoodTests(test, f);
+            }
+        }
+    }
 
     /* (non-Javadoc)
      * @see org.apache.commons.net.ftp.parser.FTPParseTestFramework#testGoodListing()
      */
+    @Override
+    public void testBadListing()
+    {
+        final String badsamples[][] = getBadListings();
+
+        for (final String[] badsample : badsamples)
+        {
+            final FTPFileEntryParser parser = getParser();
+            for (final String test : badsample) {
+                final FTPFile f = parser.parseFTPEntry(test);
+                assertNull("Should have Failed to parse " + test,nullFileOrNullDate(f));
+
+                doAdditionalBadTests(test, f);
+            }
+        }
+    }
 
     // even though all these listings are good using one parser
     // or the other, this tests that a parser that has succeeded
     // on one format will fail if another format is substituted.
+    public void testInconsistentListing()
+    {
+        final String goodsamples[][] = getGoodListings();
+
+        final FTPFileEntryParser parser = getParser();
+
+        for (int i = 0; i < goodsamples.length; i++)
+        {
+            final String test = goodsamples[i][0];
+            final FTPFile f = parser.parseFTPEntry(test);
+
+            switch (i)
+            {
+            case 0:
+                assertNotNull("Failed to parse " + test, f);
+                break;
+            case 1:
+                assertNull("Should have failed to parse " + test, f);
+                break;
+            }
+        }
+    }
 
     public void testConsistentListing_1_oe()
     {

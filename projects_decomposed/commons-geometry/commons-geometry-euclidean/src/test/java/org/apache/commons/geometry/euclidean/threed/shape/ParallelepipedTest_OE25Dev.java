@@ -53,6 +53,259 @@ class ParallelepipedTest_OE25Dev {
         return cmp;
     };
 
+    @Test
+    void testUnitCube() {
+        // act
+        final Parallelepiped p = Parallelepiped.unitCube(TEST_PRECISION);
+
+        // assert
+        Assertions.assertEquals(1, p.getSize(), TEST_EPS);
+        Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.getCentroid(), TEST_EPS);
+
+        final List<PlaneConvexSubset> boundaries = p.getBoundaries();
+        Assertions.assertEquals(6, boundaries.size());
+
+        assertVertices(p,
+            Vector3D.of(-0.5, -0.5, -0.5),
+            Vector3D.of(0.5, -0.5, -0.5),
+            Vector3D.of(0.5, 0.5, -0.5),
+            Vector3D.of(-0.5, 0.5, -0.5),
+
+            Vector3D.of(-0.5, -0.5, 0.5),
+            Vector3D.of(0.5, -0.5, 0.5),
+            Vector3D.of(0.5, 0.5, 0.5),
+            Vector3D.of(-0.5, 0.5, 0.5)
+        );
+    }
+
+    @Test
+    void testFromTransformedUnitCube() {
+        // arrange
+        final AffineTransformMatrix3D t = AffineTransformMatrix3D.createTranslation(Vector3D.of(1, 0, 2))
+                .rotate(QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, Math.PI * 0.25))
+                .scale(Vector3D.of(2, 1, 1));
+
+        // act
+        final Parallelepiped p = Parallelepiped.fromTransformedUnitCube(t, TEST_PRECISION);
+
+        // assert
+        final double sqrt2 = Math.sqrt(2);
+        final double invSqrt2 = 1 / sqrt2;
+
+        Assertions.assertEquals(2, p.getSize(), TEST_EPS);
+        Assertions.assertEquals(4 + (4 * Math.sqrt(2.5)), p.getBoundarySize(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2 * invSqrt2, invSqrt2, 2),
+                p.getCentroid(), TEST_EPS);
+
+        assertVertices(p,
+            Vector3D.of(0, invSqrt2, 1.5),
+            Vector3D.of(2 * invSqrt2, 0, 1.5),
+            Vector3D.of(2 * sqrt2, invSqrt2, 1.5),
+            Vector3D.of(2 * invSqrt2, sqrt2, 1.5),
+
+            Vector3D.of(0, invSqrt2, 2.5),
+            Vector3D.of(2 * invSqrt2, 0, 2.5),
+            Vector3D.of(2 * sqrt2, invSqrt2, 2.5),
+            Vector3D.of(2 * invSqrt2, sqrt2, 2.5)
+        );
+    }
+
+    @Test
+    void testFromTransformedUnitCube_transformDoesNotPreserveOrientation() {
+        // arrange
+        final AffineTransformMatrix3D t = AffineTransformMatrix3D.createTranslation(Vector3D.of(1, 0, 2))
+                .rotate(QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, Math.PI * 0.25))
+                .scale(Vector3D.of(2, 1, -1));
+
+        // act
+        final Parallelepiped p = Parallelepiped.fromTransformedUnitCube(t, TEST_PRECISION);
+
+        // assert
+        final double sqrt2 = Math.sqrt(2);
+        final double invSqrt2 = 1 / sqrt2;
+
+        Assertions.assertEquals(2, p.getSize(), TEST_EPS);
+        Assertions.assertEquals(4 + (4 * Math.sqrt(2.5)), p.getBoundarySize(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2 * invSqrt2, invSqrt2, -2),
+                p.getCentroid(), TEST_EPS);
+
+        assertVertices(p,
+            Vector3D.of(0, invSqrt2, -1.5),
+            Vector3D.of(2 * invSqrt2, 0, -1.5),
+            Vector3D.of(2 * sqrt2, invSqrt2, -1.5),
+            Vector3D.of(2 * invSqrt2, sqrt2, -1.5),
+
+            Vector3D.of(0, invSqrt2, -2.5),
+            Vector3D.of(2 * invSqrt2, 0, -2.5),
+            Vector3D.of(2 * sqrt2, invSqrt2, -2.5),
+            Vector3D.of(2 * invSqrt2, sqrt2, -2.5)
+        );
+    }
+
+    @Test
+    void testFromTransformedUnitCube_zeroSizeRegion() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.fromTransformedUnitCube(AffineTransformMatrix3D.createScale(Vector3D.of(1e-16, 1, 1)),
+                TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.fromTransformedUnitCube(AffineTransformMatrix3D.createScale(Vector3D.of(1, 1e-16, 1)),
+                TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.fromTransformedUnitCube(AffineTransformMatrix3D.createScale(Vector3D.of(1, 1, 1e-16)),
+                TEST_PRECISION));
+    }
+
+    @Test
+    void testAxisAligned_minFirst() {
+        // act
+        final Parallelepiped p = Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
+
+        // assert
+        final List<PlaneConvexSubset> boundaries = p.getBoundaries();
+        Assertions.assertEquals(6, boundaries.size());
+
+        assertVertices(p,
+            Vector3D.of(1, 2, 3),
+            Vector3D.of(4, 2, 3),
+            Vector3D.of(4, 5, 3),
+            Vector3D.of(1, 5, 3),
+
+            Vector3D.of(1, 2, 6),
+            Vector3D.of(4, 2, 6),
+            Vector3D.of(4, 5, 6),
+            Vector3D.of(1, 5, 6)
+        );
+    }
+
+    @Test
+    void testAxisAligned_maxFirst() {
+        // act
+        final Parallelepiped p = Parallelepiped.axisAligned(Vector3D.of(4, 5, 6), Vector3D.of(1, 2, 3), TEST_PRECISION);
+
+        // assert
+        final List<PlaneConvexSubset> boundaries = p.getBoundaries();
+        Assertions.assertEquals(6, boundaries.size());
+
+        assertVertices(p,
+            Vector3D.of(1, 2, 3),
+            Vector3D.of(4, 2, 3),
+            Vector3D.of(4, 5, 3),
+            Vector3D.of(1, 5, 3),
+
+            Vector3D.of(1, 2, 6),
+            Vector3D.of(4, 2, 6),
+            Vector3D.of(4, 5, 6),
+            Vector3D.of(1, 5, 6)
+        );
+    }
+
+    @Test
+    void testAxisAligned_illegalArgs() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(1, 5, 6), TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(4, 2, 6), TEST_PRECISION));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(1, 5, 3), TEST_PRECISION));
+    }
+
+    @Test
+    void testBuilder_defaultValues() {
+        // arrange
+        final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
+
+        // act
+        final Parallelepiped p = builder.build();
+
+        // assert
+        Assertions.assertEquals(1, p.getSize(), TEST_EPS);
+        Assertions.assertEquals(6, p.getBoundarySize(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.getCentroid(), TEST_EPS);
+
+        final List<PlaneConvexSubset> boundaries = p.getBoundaries();
+        Assertions.assertEquals(6, boundaries.size());
+
+        assertVertices(p,
+            Vector3D.of(-0.5, -0.5, -0.5),
+            Vector3D.of(0.5, -0.5, -0.5),
+            Vector3D.of(0.5, 0.5, -0.5),
+            Vector3D.of(-0.5, 0.5, -0.5),
+
+            Vector3D.of(-0.5, -0.5, 0.5),
+            Vector3D.of(0.5, -0.5, 0.5),
+            Vector3D.of(0.5, 0.5, 0.5),
+            Vector3D.of(-0.5, 0.5, 0.5)
+        );
+    }
+
+    @Test
+    void testBuilder_withRotation() {
+        // arrange
+        final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
+
+        // act
+        final Parallelepiped p = builder
+                .setScale(1, 2, 3)
+                .setRotation(QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, Angle.PI_OVER_TWO))
+                .setPosition(Vector3D.of(1, 2, -1))
+                .build();
+
+        // assert
+        Assertions.assertEquals(6, p.getSize(), TEST_EPS);
+        Assertions.assertEquals(22, p.getBoundarySize(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(1, 2, -1), p.getCentroid(), TEST_EPS);
+
+        assertVertices(p,
+            Vector3D.of(0, 1.5, 0.5),
+            Vector3D.of(2, 1.5, 0.5),
+            Vector3D.of(2, 2.5, 0.5),
+            Vector3D.of(0, 2.5, 0.5),
+
+            Vector3D.of(0, 1.5, -2.5),
+            Vector3D.of(2, 1.5, -2.5),
+            Vector3D.of(2, 2.5, -2.5),
+            Vector3D.of(0, 2.5, -2.5)
+        );
+    }
+
+    @Test
+    void testBuilder_withUniformScale() {
+        // arrange
+        final Parallelepiped.Builder builder = Parallelepiped.builder(TEST_PRECISION);
+
+        // act
+        final Parallelepiped p = builder
+                .setScale(0.5)
+                .build();
+
+        // assert
+        Assertions.assertEquals(0.125, p.getSize(), TEST_EPS);
+        Assertions.assertEquals(1.5, p.getBoundarySize(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, p.getCentroid(), TEST_EPS);
+
+        assertVertices(p,
+            Vector3D.of(-0.25, -0.25, -0.25),
+            Vector3D.of(0.25, -0.25, -0.25),
+            Vector3D.of(0.25, 0.25, -0.25),
+            Vector3D.of(-0.25, 0.25, -0.25),
+
+            Vector3D.of(-0.25, -0.25, 0.25),
+            Vector3D.of(0.25, -0.25, 0.25),
+            Vector3D.of(0.25, 0.25, 0.25),
+            Vector3D.of(-0.25, 0.25, 0.25)
+        );
+    }
+
+    @Test
+    void testToTree() {
+        // arrange
+        final Parallelepiped p = Parallelepiped.axisAligned(Vector3D.of(1, 2, 3), Vector3D.of(4, 5, 6), TEST_PRECISION);
+
+        // act
+        final RegionBSPTree3D tree = p.toTree();
+
+        // assert
+        Assertions.assertEquals(27, tree.getSize(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.of(2.5, 3.5, 4.5), tree.getCentroid(), TEST_EPS);
+    }
+
     private static void assertVertices(final Parallelepiped p, final Vector3D... vertices) {
         final Set<Vector3D> expectedVertices = new TreeSet<>(VERTEX_COMPARATOR);
         expectedVertices.addAll(Arrays.asList(vertices));

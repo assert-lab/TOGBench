@@ -33,6 +33,33 @@ class LineSpanningSubsetTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
+    void testProperties() {
+        // arrange
+        final Line line = Lines.fromPoints(Vector2D.ZERO, Vector2D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final LineSpanningSubset result = new LineSpanningSubset(line);
+
+        // assert
+        Assertions.assertSame(line, result.getHyperplane());
+        Assertions.assertSame(line, result.getLine());
+
+        Assertions.assertTrue(result.isFull());
+        Assertions.assertFalse(result.isEmpty());
+        Assertions.assertTrue(result.isInfinite());
+        Assertions.assertFalse(result.isFinite());
+
+        GeometryTestUtils.assertPositiveInfinity(result.getSize());
+        Assertions.assertNull(result.getCentroid());
+        Assertions.assertNull(result.getBounds());
+
+        Assertions.assertNull(result.getStartPoint());
+        GeometryTestUtils.assertNegativeInfinity(result.getSubspaceStart());
+        Assertions.assertNull(result.getEndPoint());
+        GeometryTestUtils.assertPositiveInfinity(result.getSubspaceEnd());
+    }
+
+    @Test
     void testTransform() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createRotation(-0.5 * Math.PI)
@@ -85,6 +112,54 @@ class LineSpanningSubsetTest_OE25Dev {
         EuclideanTestUtils.assertCoordinatesEqual(Vector2D.ZERO, span.closest(Vector2D.ZERO), TEST_EPS);
         EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, 0.5), span.closest(Vector2D.of(1, 0.5)), TEST_EPS);
         EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(0, -0.5), span.closest(Vector2D.of(-2, -0.5)), TEST_EPS);
+    }
+
+    @Test
+    void testClassify() {
+        // arrange
+        final LineConvexSubset span =
+                Lines.fromPointAndDirection(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, TEST_PRECISION).span();
+
+        // act/assert
+        for (double x = -10; x <= 10; x += 1) {
+            EuclideanTestUtils.assertRegionLocation(span, RegionLocation.INSIDE, Vector2D.of(x, 1 + 1e-11));
+
+            EuclideanTestUtils.assertRegionLocation(span, RegionLocation.OUTSIDE,
+                    Vector2D.of(x, 0), Vector2D.of(x, 2));
+        }
+    }
+
+    @Test
+    void testSplit() {
+        // --- arrange
+        final Vector2D pt = Vector2D.of(1, 1);
+
+        final LineConvexSubset span = Lines.fromPointAndDirection(pt, Vector2D.Unit.PLUS_X, TEST_PRECISION).span();
+
+        // --- act
+        Split<LineConvexSubset> split;
+
+        // parallel
+        split = span.split(Lines.fromPointAndAngle(Vector2D.of(2, 2), 0, TEST_PRECISION));
+        Assertions.assertNull(split.getMinus());
+        Assertions.assertSame(span, split.getPlus());
+
+        split = span.split(Lines.fromPointAndAngle(Vector2D.of(2, 2), Math.PI, TEST_PRECISION));
+        Assertions.assertSame(span, split.getMinus());
+        Assertions.assertNull(split.getPlus());
+
+        // coincident
+        split = span.split(Lines.fromPointAndDirection(pt, Vector2D.Unit.PLUS_X, TEST_PRECISION));
+        Assertions.assertNull(split.getMinus());
+        Assertions.assertNull(split.getPlus());
+
+        // through point on line
+        checkSplit(span.split(Lines.fromPointAndAngle(pt, 1, TEST_PRECISION)),
+                null, pt,
+                pt, null);
+        checkSplit(span.split(Lines.fromPointAndAngle(pt, -1, TEST_PRECISION)),
+                pt, null,
+                null, pt);
     }
 
     @Test

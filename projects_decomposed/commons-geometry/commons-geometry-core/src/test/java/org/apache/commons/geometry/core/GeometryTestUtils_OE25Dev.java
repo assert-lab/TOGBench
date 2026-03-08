@@ -31,16 +31,30 @@ public final class GeometryTestUtils_OE25Dev {
     /** Asserts that the given value is positive infinity.
      * @param value
      */
+    public static void assertPositiveInfinity(final double value) {
+        final String msg = "Expected value to be positive infinity but was " + value;
+        Assertions.assertTrue(Double.isInfinite(value), msg);
+        Assertions.assertTrue(value > 0, msg);
+    }
 
     /** Asserts that the given value is negative infinity..
      * @param value
      */
+    public static void assertNegativeInfinity(final double value) {
+        final String msg = "Expected value to be negative infinity but was " + value;
+        Assertions.assertTrue(Double.isInfinite(value), msg);
+        Assertions.assertTrue(value < 0, msg);
+    }
 
     /** Asserts that the Executable throws an exception matching the given type and message.
      * @param executable the Executable instance
      * @param exceptionType the expected exception type
      * @param message the expected exception message; may be null
      */
+    public static <T extends Throwable> void assertThrowsWithMessage(final Executable executable,
+            final Class<T> exceptionType, final String message) {
+        Assertions.assertEquals(message, Assertions.assertThrows(exceptionType, executable).getMessage());
+    }
 
     /** Asserts that the Executable throws an exception of the given type with a non-null message matching
      * the specified regex pattern.
@@ -48,11 +62,20 @@ public final class GeometryTestUtils_OE25Dev {
      * @param exceptionType the expected exception type
      * @param pattern regex pattern to match
      */
+    public static <T extends Throwable> void assertThrowsWithMessage(final Executable executable,
+            final Class<T> exceptionType, final Pattern pattern) {
+        final String message = Assertions.assertThrows(exceptionType, executable).getMessage();
+        Assertions.assertTrue(pattern.matcher(message).matches(),"Expected exception message to match /" + pattern + "/ but was [" + message + "]");
+    }
 
     /** Assert that a string contains a given substring value.
      * @param substr
      * @param actual
      */
+    public static void assertContains(final String substr, final String actual) {
+        final String msg = "Expected string to contain [" + substr + "] but was [" + actual + "]";
+        Assertions.assertTrue(actual.contains(substr), msg);
+    }
 
     /** Assert that the {@code equals} method of the argument meets the following requirements:
      * <ol>
@@ -62,6 +85,18 @@ public final class GeometryTestUtils_OE25Dev {
      * </ol>
      * @param obj object to test the {@code equals} method of
      */
+    public static void assertSimpleEqualsCases(final Object obj) {
+        // Use the JUnit boolean assertions here to ensure that the equals methods are actually
+        // invoked and no assertion shortcuts are taken
+
+        Assertions.assertFalse(obj.equals(null), "Object should not equal null");
+
+        if (obj.getClass().getSuperclass() != null) {
+            Assertions.assertFalse(obj.equals(new Object()), "Object should not equal an instance of different type");
+        }
+
+        Assertions.assertTrue(obj.equals(obj), "Object should equal itself");
+    }
 
 public static void assertPositiveInfinity_1_oe(final double value) { final String msg = "Expected value to be positive infinity but was " + value;
 }

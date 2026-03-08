@@ -57,6 +57,112 @@ class TextBoundaryWriteHandler3DTest_OE25Dev {
     private final ByteArrayOutputStream out = new ByteArrayOutputStream();
 
     @Test
+    void testProperties() {
+        // arrange
+        final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
+
+        // act/assert
+        Assertions.assertEquals(GeometryFormat3D.TXT, handler.getFormat());
+        Assertions.assertEquals(StandardCharsets.UTF_8, handler.getDefaultCharset());
+        Assertions.assertEquals("\n", handler.getLineSeparator());
+        Assertions.assertEquals(" ", handler.getVertexComponentSeparator());
+        Assertions.assertEquals("; ", handler.getVertexSeparator());
+        Assertions.assertNotNull(handler.getDoubleFormat());
+        Assertions.assertEquals(-1, handler.getFacetVertexCount());
+    }
+
+    @Test
+    void testWriteFacets() {
+        // arrange
+        final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
+        final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
+
+        // act
+        handler.writeFacets(TRI_FACETS, new StreamGeometryOutput(closeOut));
+
+        // assert
+        Assertions.assertEquals(1, closeOut.getCloseCount());
+        Assertions.assertEquals("0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void testWriteFacets_usesOutputCharset() {
+        // arrange
+        final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
+        final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
+
+        // act
+        handler.writeFacets(TRI_FACETS, new StreamGeometryOutput(closeOut, null, StandardCharsets.UTF_16));
+
+        // assert
+        Assertions.assertEquals(1, closeOut.getCloseCount());
+        Assertions.assertEquals("0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
+    }
+
+    @Test
+    void testWriteFacets_customConfiguration() {
+        // arrange
+        final DecimalFormat fmt =
+                new DecimalFormat("0.0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+        final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
+        handler.setDefaultCharset(StandardCharsets.UTF_16);
+        handler.setLineSeparator("\r\n");
+        handler.setDoubleFormat(fmt::format);
+        handler.setVertexComponentSeparator("|");
+        handler.setVertexSeparator(" | ");
+        handler.setFacetVertexCount(4);
+
+        final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
+
+        // act
+        handler.writeFacets(QUAD_FACETS, new StreamGeometryOutput(closeOut));
+
+        // assert
+        Assertions.assertEquals(1, closeOut.getCloseCount());
+        Assertions.assertEquals("0.0|0.0|0.0 | 0.3|0.0|0.0 | 1.0|1.0|0.0 | 0.0|1.0|0.0\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
+    }
+
+    @Test
+    void testWriteBoundarySource() {
+        // arrange
+        final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
+        final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
+
+        // act
+        handler.write(QUAD_SRC, new StreamGeometryOutput(closeOut));
+
+        // assert
+        Assertions.assertEquals(1, closeOut.getCloseCount());
+        Assertions.assertEquals("0.0 0.0 0.0;0.3333333333333333 0.0 0.0;1.0 1.0 0.0;0.0 1.0 0.0\n",new String(out.toByteArray(),StandardCharsets.UTF_8));
+    }
+
+    @Test
+    void testWriteBoundarySource_customConfiguration() {
+        // arrange
+        // arrange
+        final DecimalFormat fmt =
+                new DecimalFormat("0.0", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+        final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();
+        handler.setDefaultCharset(StandardCharsets.UTF_16);
+        handler.setLineSeparator("\r\n");
+        handler.setDoubleFormat(fmt::format);
+        handler.setVertexComponentSeparator("|");
+        handler.setVertexSeparator(" | ");
+        handler.setFacetVertexCount(4);
+
+        final CloseCountOutputStream closeOut = new CloseCountOutputStream(out);
+
+        // act
+        handler.write(QUAD_SRC, new StreamGeometryOutput(closeOut));
+
+        // assert
+        Assertions.assertEquals(1, closeOut.getCloseCount());
+        Assertions.assertEquals("0.0|0.0|0.0 | 0.3|0.0|0.0 | 1.0|1.0|0.0 | 0.0|1.0|0.0\r\n",new String(out.toByteArray(),StandardCharsets.UTF_16));
+    }
+
+    @Test
     void testProperties_1_oe() {
         // arrange
         final TextBoundaryWriteHandler3D handler = new TextBoundaryWriteHandler3D();

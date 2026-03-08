@@ -61,6 +61,37 @@ public class RedirectTest_OE25Dev extends AbstractBasicWebSocketTest {
     logger.info("Local HTTP server started successfully");
   }
 
+  @Test(timeOut = 60000)
+  public void testRedirectToWSResource() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      final CountDownLatch latch = new CountDownLatch(1);
+      final AtomicReference<String> text = new AtomicReference<>("");
+
+      WebSocket websocket = c.prepareGet(getRedirectURL()).execute(new WebSocketUpgradeHandler.Builder().addWebSocketListener(new WebSocketListener() {
+
+        @Override
+        public void onOpen(WebSocket websocket) {
+          text.set("OnOpen");
+          latch.countDown();
+        }
+
+        @Override
+        public void onClose(WebSocket websocket, int code, String reason) {
+        }
+
+        @Override
+        public void onError(Throwable t) {
+          t.printStackTrace();
+          latch.countDown();
+        }
+      }).build()).get();
+
+      latch.await();
+      assertEquals(text.get(), "OnOpen");
+      websocket.sendCloseFrame();
+    }
+  }
+
   private String getRedirectURL() {
     return String.format("ws://localhost:%d/", port2);
   }

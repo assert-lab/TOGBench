@@ -100,6 +100,19 @@ public class EmptyBodyTest_OE25Dev extends AbstractBasicTest {
     }
   }
 
+  @Test
+  public void testPutEmptyBody() throws Exception {
+    try (AsyncHttpClient ahc = asyncHttpClient()) {
+      Response response = ahc.preparePut(getTargetUrl()).setBody("String").execute().get();
+
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 204);
+      assertEquals(response.getResponseBody(), "");
+      assertNotNull(response.getResponseBodyAsStream());
+      assertEquals(response.getResponseBodyAsStream().read(), -1);
+    }
+  }
+
   private class NoBodyResponseHandler extends AbstractHandler {
     public void handle(String s, Request request, HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
 

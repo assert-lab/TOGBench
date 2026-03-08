@@ -33,12 +33,84 @@ import static org.junit.jupiter.api.Assertions.fail;
  * Test for {@link DirichletSampler}.
  */
 class DirichletSamplerTest_OE25Dev {
+    @Test
+    void testDistributionThrowsWithInvalidNumberOfCategories() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.of(rng, 1.0));
+    }
+
+    @Test
+    void testDistributionThrowsWithZeroConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.of(rng, 1.0, 0.0));
+    }
+
+    @Test
+    void testDistributionThrowsWithNaNConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.of(rng, 1.0, Double.NaN));
+    }
+
+    @Test
+    void testDistributionThrowsWithInfiniteConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.of(rng, 1.0, Double.POSITIVE_INFINITY));
+    }
+
+    @Test
+    void testSymmetricDistributionThrowsWithInvalidNumberOfCategories() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+                () -> DirichletSampler.symmetric(rng, 1, 1.0));
+    }
+
+    @Test
+    void testSymmetricDistributionThrowsWithZeroConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.symmetric(rng, 2, 0.0));
+    }
+
+    @Test
+    void testSymmetricDistributionThrowsWithNaNConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.symmetric(rng, 2, Double.NaN));
+    }
+
+    @Test
+    void testSymmetricDistributionThrowsWithInfiniteConcentration() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> DirichletSampler.symmetric(rng, 2, Double.POSITIVE_INFINITY));
+    }
 
     /**
      * Create condition so that all samples are zero and it is impossible to normalise the
      * samples to sum to 1. These should be ignored and the sample is repeated until
      * normalisation is possible.
      */
+    @Test
+    void testInvalidSampleIsIgnored() {
+        // An RNG implementation which should create zero samples from the underlying
+        // exponential sampler for an initial sequence.
+        final UniformRandomProvider rng = new SplitMix64(0L) {
+            private int i;
+
+            @Override
+            public long next() {
+                return i++ < 10 ? 0L : super.next();
+            }
+        };
+
+        // Alpha=1 will use an exponential sampler
+        final DirichletSampler sampler = DirichletSampler.symmetric(rng, 2, 1.0);
+        assertSample(2, sampler.sample());
+    }
 
     @Test
     void testSharedStateSampler() {
@@ -81,6 +153,39 @@ class DirichletSamplerTest_OE25Dev {
     /**
      * Test the toString method. This is added to ensure coverage.
      */
+    @Test
+    void testToString() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        final DirichletSampler sampler1 = DirichletSampler.symmetric(rng, 2, 1.0);
+        final DirichletSampler sampler2 = DirichletSampler.of(rng, 0.5, 1, 1.5);
+        Assertions.assertTrue(sampler1.toString().toLowerCase().contains("dirichlet"));
+        Assertions.assertTrue(sampler2.toString().toLowerCase().contains("dirichlet"));
+    }
+
+    @Test
+    void testSampling1() {
+        assertSamples(1, 2, 3);
+    }
+
+    @Test
+    void testSampling2() {
+        assertSamples(1, 1, 1);
+    }
+
+    @Test
+    void testSampling3() {
+        assertSamples(0.5, 1, 1.5);
+    }
+
+    @Test
+    void testSampling4() {
+        assertSamples(1, 3);
+    }
+
+    @Test
+    void testSampling5() {
+        assertSamples(1, 2, 3, 4);
+    }
 
     /**
      * Assert samples from the distribution. The variates are tested against the expected

@@ -74,6 +74,141 @@ public class ByteMessageTest_OE25Dev extends AbstractBasicWebSocketTest {
   }
 
   @Test
+  public void echoTwoMessagesTest() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      final CountDownLatch latch = new CountDownLatch(2);
+      final AtomicReference<byte[]> text = new AtomicReference<>(null);
+
+      WebSocket websocket = c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().addWebSocketListener(new WebSocketListener() {
+
+        @Override
+        public void onOpen(WebSocket websocket) {
+        }
+
+        @Override
+        public void onClose(WebSocket websocket, int code, String reason) {
+          latch.countDown();
+        }
+
+        @Override
+        public void onError(Throwable t) {
+          t.printStackTrace();
+          latch.countDown();
+        }
+
+        @Override
+        public void onBinaryFrame(byte[] frame, boolean finalFragment, int rsv) {
+          if (text.get() == null) {
+            text.set(frame);
+          } else {
+            byte[] n = new byte[text.get().length + frame.length];
+            System.arraycopy(text.get(), 0, n, 0, text.get().length);
+            System.arraycopy(frame, 0, n, text.get().length, frame.length);
+            text.set(n);
+          }
+          latch.countDown();
+        }
+
+      }).build()).get();
+
+      websocket.sendBinaryFrame(ECHO_BYTES);
+      websocket.sendBinaryFrame(ECHO_BYTES);
+
+      latch.await();
+      assertEquals(text.get(), "ECHOECHO".getBytes());
+    }
+  }
+
+  @Test
+  public void echoOnOpenMessagesTest() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      final CountDownLatch latch = new CountDownLatch(2);
+      final AtomicReference<byte[]> text = new AtomicReference<>(null);
+
+      c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().addWebSocketListener(new WebSocketListener() {
+
+        @Override
+        public void onOpen(WebSocket websocket) {
+          websocket.sendBinaryFrame(ECHO_BYTES);
+          websocket.sendBinaryFrame(ECHO_BYTES);
+        }
+
+        @Override
+        public void onClose(WebSocket websocket, int code, String reason) {
+          latch.countDown();
+        }
+
+        @Override
+        public void onError(Throwable t) {
+          t.printStackTrace();
+          latch.countDown();
+        }
+
+        @Override
+        public void onBinaryFrame(byte[] frame, boolean finalFragment, int rsv) {
+          if (text.get() == null) {
+            text.set(frame);
+          } else {
+            byte[] n = new byte[text.get().length + frame.length];
+            System.arraycopy(text.get(), 0, n, 0, text.get().length);
+            System.arraycopy(frame, 0, n, text.get().length, frame.length);
+            text.set(n);
+          }
+          latch.countDown();
+        }
+
+      }).build()).get();
+
+      latch.await();
+      assertEquals(text.get(), "ECHOECHO".getBytes());
+    }
+  }
+
+  @Test
+  public void echoFragments() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      final CountDownLatch latch = new CountDownLatch(1);
+      final AtomicReference<byte[]> text = new AtomicReference<>(null);
+
+      WebSocket websocket = c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().addWebSocketListener(new WebSocketListener() {
+
+        @Override
+        public void onOpen(WebSocket websocket) {
+        }
+
+        @Override
+        public void onClose(WebSocket websocket, int code, String reason) {
+          latch.countDown();
+        }
+
+        @Override
+        public void onError(Throwable t) {
+          t.printStackTrace();
+          latch.countDown();
+        }
+
+        @Override
+        public void onBinaryFrame(byte[] frame, boolean finalFragment, int rsv) {
+          if (text.get() == null) {
+            text.set(frame);
+          } else {
+            byte[] n = new byte[text.get().length + frame.length];
+            System.arraycopy(text.get(), 0, n, 0, text.get().length);
+            System.arraycopy(frame, 0, n, text.get().length, frame.length);
+            text.set(n);
+          }
+          latch.countDown();
+        }
+
+      }).build()).get();
+      websocket.sendBinaryFrame(ECHO_BYTES, false, 0);
+      websocket.sendContinuationFrame(ECHO_BYTES, true, 0);
+      latch.await();
+      assertEquals(text.get(), "ECHOECHO".getBytes());
+    }
+  }
+
+  @Test
   public void echoTwoMessagesTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       final CountDownLatch latch = new CountDownLatch(2);

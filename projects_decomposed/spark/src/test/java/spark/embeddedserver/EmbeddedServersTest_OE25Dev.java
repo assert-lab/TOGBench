@@ -49,6 +49,30 @@ public class EmbeddedServersTest_OE25Dev {
         verify(serverFactory).create(0, 0, 0);
     }
 
+    @Test
+    public void testAdd_whenConfigureRoutes_createsCustomServer() throws Exception {
+        File requestLogDir = temporaryFolder.newFolder();
+        File requestLogFile = new File(requestLogDir, "request.log");
+        // Register custom server
+        EmbeddedServers.add(EmbeddedServers.Identifiers.JETTY, new EmbeddedJettyFactory(new JettyServerFactory() {
+            @Override
+            public Server create(int maxThreads, int minThreads, int threadTimeoutMillis) {
+                Server server = new Server();
+                server.setRequestLog(new NCSARequestLog(requestLogFile.getAbsolutePath()));
+                return server;
+            }
+
+            @Override
+            public Server create(ThreadPool threadPool) {
+                return null;
+            }
+        }));
+        Spark.get("/", (request, response) -> "OK");
+        Spark.awaitInitialization();
+
+        assertTrue(requestLogFile.exists());
+    }
+
     @AfterClass
     public static void tearDown() {
         Spark.stop();

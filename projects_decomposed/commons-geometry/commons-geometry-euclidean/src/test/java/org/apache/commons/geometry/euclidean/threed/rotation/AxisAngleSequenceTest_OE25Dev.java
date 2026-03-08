@@ -23,6 +23,128 @@ import org.junit.jupiter.api.Test;
 class AxisAngleSequenceTest_OE25Dev {
 
     @Test
+    void testConstructor() {
+        // act
+        final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.RELATIVE, AxisSequence.XYZ, 1, 2, 3);
+
+        // assert
+        Assertions.assertEquals(AxisReferenceFrame.RELATIVE, seq.getReferenceFrame());
+        Assertions.assertEquals(AxisSequence.XYZ, seq.getAxisSequence());
+        Assertions.assertEquals(1, seq.getAngle1(), 0.0);
+        Assertions.assertEquals(2, seq.getAngle2(), 0.0);
+        Assertions.assertEquals(3, seq.getAngle3(), 0.0);
+    }
+
+    @Test
+    void testGetAngles() {
+        // arrange
+        final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.RELATIVE, AxisSequence.XYZ, 1, 2, 3);
+
+        // act
+        final double[] angles = seq.getAngles();
+
+        // assert
+        Assertions.assertArrayEquals(new double[] {1, 2, 3}, angles, 0.0);
+    }
+
+    @Test
+    void testHashCode() {
+        // arrange
+        final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
+
+        // act/assert
+        Assertions.assertNotEquals(seq.hashCode(), new AxisAngleSequence(AxisReferenceFrame.RELATIVE, AxisSequence.XYZ, 1, 2, 3).hashCode());
+        Assertions.assertNotEquals(seq.hashCode(), new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.ZYX, 1, 2, 3).hashCode());
+        Assertions.assertNotEquals(seq.hashCode(), new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 9, 2, 3).hashCode());
+        Assertions.assertNotEquals(seq.hashCode(), new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 9, 3).hashCode());
+        Assertions.assertNotEquals(seq.hashCode(), new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 9).hashCode());
+
+        Assertions.assertEquals(seq.hashCode(), new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3).hashCode());
+    }
+
+    @Test
+    void testEquals() {
+        // arrange
+        final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
+
+        // act/assert
+        GeometryTestUtils.assertSimpleEqualsCases(seq);
+
+        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.RELATIVE, AxisSequence.XYZ, 1, 2, 3));
+        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.ZYX, 1, 2, 3));
+        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 9, 2, 3));
+        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 9, 3));
+        Assertions.assertNotEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 9));
+
+        Assertions.assertEquals(seq, new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3));
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency() {
+        // arrange
+        final AxisAngleSequence a = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ,
+                0.0, -0.0, 0.0);
+        final AxisAngleSequence b = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ,
+                -0.0, 0.0, -0.0);
+        final AxisAngleSequence c = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ,
+                0.0, -0.0, 0.0);
+        final AxisAngleSequence d = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ,
+                -0.0, 0.0, -0.0);
+
+        // act/assert
+        Assertions.assertFalse(a.equals(b));
+        Assertions.assertNotEquals(a.hashCode(), b.hashCode());
+
+        Assertions.assertTrue(a.equals(c));
+        Assertions.assertEquals(a.hashCode(), c.hashCode());
+
+        Assertions.assertTrue(b.equals(d));
+        Assertions.assertEquals(b.hashCode(), d.hashCode());
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.ABSOLUTE, AxisSequence.XYZ, 1, 2, 3);
+
+        // act
+        final String str = seq.toString();
+
+        // assert
+        Assertions.assertTrue(str.contains("ABSOLUTE"));
+        Assertions.assertTrue(str.contains("XYZ"));
+        Assertions.assertTrue(str.contains("1"));
+        Assertions.assertTrue(str.contains("2"));
+        Assertions.assertTrue(str.contains("3"));
+    }
+
+    @Test
+    void testCreateRelative() {
+        // act
+        final AxisAngleSequence seq = AxisAngleSequence.createRelative(AxisSequence.XYZ, 1, 2, 3);
+
+        // assert
+        Assertions.assertEquals(AxisReferenceFrame.RELATIVE, seq.getReferenceFrame());
+        Assertions.assertEquals(AxisSequence.XYZ, seq.getAxisSequence());
+        Assertions.assertEquals(1, seq.getAngle1(), 0.0);
+        Assertions.assertEquals(2, seq.getAngle2(), 0.0);
+        Assertions.assertEquals(3, seq.getAngle3(), 0.0);
+    }
+
+    @Test
+    void testCreateAbsolute() {
+        // act
+        final AxisAngleSequence seq = AxisAngleSequence.createAbsolute(AxisSequence.XYZ, 1, 2, 3);
+
+        // assert
+        Assertions.assertEquals(AxisReferenceFrame.ABSOLUTE, seq.getReferenceFrame());
+        Assertions.assertEquals(AxisSequence.XYZ, seq.getAxisSequence());
+        Assertions.assertEquals(1, seq.getAngle1(), 0.0);
+        Assertions.assertEquals(2, seq.getAngle2(), 0.0);
+        Assertions.assertEquals(3, seq.getAngle3(), 0.0);
+    }
+
+    @Test
     void testConstructor_1_oe() {
         // act
         final AxisAngleSequence seq = new AxisAngleSequence(AxisReferenceFrame.RELATIVE, AxisSequence.XYZ, 1, 2, 3);

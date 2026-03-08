@@ -205,6 +205,39 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
     /**
      * Tests concurrent access to a reloading builder for combined configurations.
      */
+    @Test
+    public void testConcurrentGetAndReload() throws Exception {
+        final int threadCount = 4;
+        final int loopCount = 100;
+        final ReloadingDetectorFactory detectorFactory = (handler, params) -> new RandomReloadingDetector();
+        final BaseHierarchicalConfiguration defConf = new BaseHierarchicalConfiguration();
+        defConf.addProperty("header.result.nodeCombiner[@config-class]", MergeCombiner.class.getName());
+        defConf.addProperty("header.result.expressionEngine[@config-class]", XPathExpressionEngine.class.getName());
+        addReloadSource(defConf, "configA.xml");
+        addReloadSource(defConf, "configB.xml");
+        final Synchronizer sync = new ReadWriteSynchronizer();
+        builder.configure(parameters.combined().setDefinitionBuilder(new ConstantConfigurationBuilder(defConf)).setSynchronizer(sync)
+            .registerChildDefaultsHandler(BasicBuilderProperties.class, new CopyObjectDefaultHandler(new BasicBuilderParameters().setSynchronizer(sync)))
+            .registerChildDefaultsHandler(FileBasedBuilderProperties.class,
+                new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingDetectorFactory(detectorFactory))));
+
+        assertEquals("Wrong initial value", "100", builder.getConfiguration().getString("/property[@name='config']/@value"));
+
+        final Thread testThreads[] = new Thread[threadCount];
+        final int failures[] = new int[threadCount];
+
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i] = new ReloadThread(builder, failures, i, loopCount);
+            testThreads[i].start();
+        }
+
+        int totalFailures = 0;
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i].join();
+            totalFailures += failures[i];
+        }
+        assertEquals(totalFailures + " failures Occurred", 0, totalFailures);
+    }
 
     /**
      * Tests whether the default definition builder is capable of detecting a change in the definition configuration.
@@ -231,6 +264,32 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
     /**
      * Tests whether a changed file is detected on disk.
      */
+    @Test
+    public void testReloadFromFile() throws ConfigurationException, IOException {
+        final File xmlConf1 = writeReloadFile(null, 1, 0);
+        final File xmlConf2 = writeReloadFile(null, 2, 0);
+        final ReloadingDetectorFactory detectorFactory = (handler, params) -> new AlwaysReloadingDetector();
+        final BaseHierarchicalConfiguration defConf = new BaseHierarchicalConfiguration();
+        addReloadSource(defConf, xmlConf1.getAbsolutePath());
+        addReloadSource(defConf, xmlConf2.getAbsolutePath());
+        builder.configure(parameters.combined().setDefinitionBuilder(new ConstantConfigurationBuilder(defConf)).registerChildDefaultsHandler(
+            FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingDetectorFactory(detectorFactory))));
+        CombinedConfiguration config = builder.getConfiguration();
+        assertEquals("Wrong initial value (1)", 0, config.getInt(testProperty(1)));
+        assertEquals("Wrong initial value (2)", 0, config.getInt(testProperty(2)));
+
+        writeReloadFile(xmlConf1, 1, 1);
+        builder.getReloadingController().checkForReloading(null);
+        config = builder.getConfiguration();
+        assertEquals("Updated value not reloaded (1)", 1, config.getInt(testProperty(1)));
+        assertEquals("Value modified", 0, config.getInt(testProperty(2)));
+
+        writeReloadFile(xmlConf2, 2, 2);
+        builder.getReloadingController().checkForReloading(null);
+        config = builder.getConfiguration();
+        assertEquals("Wrong value for config 1", 1, config.getInt(testProperty(1)));
+        assertEquals("Updated value not reloaded (2)", 2, config.getInt(testProperty(2)));
+    }
 
     /**
      * Writes a configuration definition file that refers to the specified file source.
@@ -317,7 +376,6 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         builder.configure(parameters.combined().setDefinitionBuilder(new ConstantConfigurationBuilder(defConf)).registerChildDefaultsHandler(
             FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingDetectorFactory(detectorFactory))));
         CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
         assertEquals("Wrong initial value (2)", 0, config.getInt(testProperty(2)));
     }
 
@@ -332,8 +390,6 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         builder.configure(parameters.combined().setDefinitionBuilder(new ConstantConfigurationBuilder(defConf)).registerChildDefaultsHandler(
             FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingDetectorFactory(detectorFactory))));
         CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        // removed other assertion
 
         writeReloadFile(xmlConf1, 1, 1);
         builder.getReloadingController().checkForReloading(null);
@@ -352,13 +408,10 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         builder.configure(parameters.combined().setDefinitionBuilder(new ConstantConfigurationBuilder(defConf)).registerChildDefaultsHandler(
             FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingDetectorFactory(detectorFactory))));
         CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        // removed other assertion
 
         writeReloadFile(xmlConf1, 1, 1);
         builder.getReloadingController().checkForReloading(null);
         config = builder.getConfiguration();
-        // removed other assertion
         assertEquals("Value modified", 0, config.getInt(testProperty(2)));
     }
 
@@ -373,14 +426,10 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         builder.configure(parameters.combined().setDefinitionBuilder(new ConstantConfigurationBuilder(defConf)).registerChildDefaultsHandler(
             FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingDetectorFactory(detectorFactory))));
         CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        // removed other assertion
 
         writeReloadFile(xmlConf1, 1, 1);
         builder.getReloadingController().checkForReloading(null);
         config = builder.getConfiguration();
-        // removed other assertion
-        // removed other assertion
 
         writeReloadFile(xmlConf2, 2, 2);
         builder.getReloadingController().checkForReloading(null);
@@ -399,19 +448,14 @@ public class TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev {
         builder.configure(parameters.combined().setDefinitionBuilder(new ConstantConfigurationBuilder(defConf)).registerChildDefaultsHandler(
             FileBasedBuilderProperties.class, new CopyObjectDefaultHandler(new FileBasedBuilderParametersImpl().setReloadingDetectorFactory(detectorFactory))));
         CombinedConfiguration config = builder.getConfiguration();
-        // removed other assertion
-        // removed other assertion
 
         writeReloadFile(xmlConf1, 1, 1);
         builder.getReloadingController().checkForReloading(null);
         config = builder.getConfiguration();
-        // removed other assertion
-        // removed other assertion
 
         writeReloadFile(xmlConf2, 2, 2);
         builder.getReloadingController().checkForReloading(null);
         config = builder.getConfiguration();
-        // removed other assertion
         assertEquals("Updated value not reloaded (2)", 2, config.getInt(testProperty(2)));
     }
 

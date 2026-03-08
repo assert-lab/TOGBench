@@ -42,6 +42,56 @@ import static org.testng.Assert.assertNotNull;
  */
 public class PostWithQueryStringTest_OE25Dev extends AbstractBasicTest {
 
+  @Test
+  public void postWithQueryString() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.preparePost("http://localhost:" + port1 + "/?a=b").setBody("abc".getBytes()).execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+    }
+  }
+
+  @Test
+  public void postWithNullQueryParam() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.preparePost("http://localhost:" + port1 + "/?a=b&c&d=e").setBody("abc".getBytes()).execute(new AsyncCompletionHandlerBase() {
+
+        @Override
+        public State onStatusReceived(final HttpResponseStatus status) throws Exception {
+          if (!status.getUri().toUrl().equals("http://localhost:" + port1 + "/?a=b&c&d=e")) {
+            throw new IOException("failed to parse the query properly");
+          }
+          return super.onStatusReceived(status);
+        }
+
+      });
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+    }
+  }
+
+  @Test
+  public void postWithEmptyParamsQueryString() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.preparePost("http://localhost:" + port1 + "/?a=b&c=&d=e").setBody("abc".getBytes()).execute(new AsyncCompletionHandlerBase() {
+
+        @Override
+        public State onStatusReceived(final HttpResponseStatus status) throws Exception {
+          if (!status.getUri().toUrl().equals("http://localhost:" + port1 + "/?a=b&c=&d=e")) {
+            throw new IOException("failed to parse the query properly");
+          }
+          return super.onStatusReceived(status);
+        }
+
+      });
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+    }
+  }
+
   @Override
   public AbstractHandler configureHandler() throws Exception {
     return new PostWithQueryStringHandler();

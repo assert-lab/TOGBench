@@ -112,6 +112,18 @@ public class TestDefaultParametersManager_OE25Dev {
      * Tests whether multiple handlers can be registered for the same classes and whether they are called in the correct
      * order.
      */
+    @Test
+    public void testApplyDefaultsMultipleHandlers() {
+        final ExpressionEngine engine = EasyMock.createMock(ExpressionEngine.class);
+        manager.registerDefaultsHandler(XMLBuilderParameters.class, parameters -> parameters.setThrowExceptionOnMissing(false)
+            .setListDelimiterHandler(EasyMock.createMock(ListDelimiterHandler.class)).setExpressionEngine(engine));
+        manager.registerDefaultsHandler(FileBasedBuilderParameters.class, new FileBasedDefaultsHandler());
+        final XMLBuilderParameters params = parameters.xml();
+        manager.initializeParameters(params);
+        final Map<String, Object> map = params.getParameters();
+        checkDefaultValues(map);
+        assertSame("Expression engine not set", engine, map.get("expressionEngine"));
+    }
 
     /**
      * Tests whether default values are also applied when a sub parameters class is created.

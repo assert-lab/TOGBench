@@ -104,6 +104,52 @@ public class PngWriteReadTest_OE25Dev extends ImagingTest {
         writeAndReadMultipleEXt(smallBlackPixels);
     }
 
+    @Test
+    public void testTransparency() throws Exception {
+        // Test for https://issues.apache.org/jira/browse/SANSELAN-52
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes = Imaging.writeImageToBytes(imageDataToBufferedImage(smallAscendingPixels), ImageFormats.PNG);
+        assertTrue(Imaging.getImageInfo(pngBytes).isTransparent());
+    }
+
+    @Test
+    public void testPhysicalScaleMeters() throws Exception {
+        final PngImageParser pngImageParser = new PngImageParser();
+        final PngImagingParameters optionalParams = new PngImagingParameters();
+        optionalParams.setPhysicalScale(PhysicalScale.createFromMeters(0.01, 0.02));
+
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(imageDataToBufferedImage(smallAscendingPixels), baos, optionalParams);
+            pngBytes = baos.toByteArray();
+        }
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
+        final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        assertTrue(physicalScale.isInMeters());
+        assertEquals(0.01, physicalScale.getHorizontalUnitsPerPixel(), 0.001);
+        assertEquals(0.02, physicalScale.getVerticalUnitsPerPixel(), 0.001);
+    }
+
+    @Test
+    public void testPhysicalScaleRadians() throws Exception {
+        final PngImageParser pngImageParser = new PngImageParser();
+        final PngImagingParameters optionalParams = new PngImagingParameters();
+        optionalParams.setPhysicalScale(PhysicalScale.createFromRadians(0.01, 0.02));
+
+        final int[][] smallAscendingPixels = getAscendingRawData(256, 256);
+        final byte[] pngBytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(imageDataToBufferedImage(smallAscendingPixels), baos, optionalParams);
+            pngBytes = baos.toByteArray();
+        }
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(pngBytes);
+        final PhysicalScale physicalScale = imageInfo.getPhysicalScale();
+        assertTrue(physicalScale.isInRadians());
+        assertEquals(0.01, physicalScale.getHorizontalUnitsPerPixel(), 0.001);
+        assertEquals(0.02, physicalScale.getVerticalUnitsPerPixel(), 0.001);
+    }
+
     private BufferedImage imageDataToBufferedImage(final int[][] rawData) {
         final int width = rawData[0].length;
         final int height = rawData.length;

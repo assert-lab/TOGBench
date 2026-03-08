@@ -32,16 +32,45 @@ class GeometricSamplerTest_OE25Dev {
      * Test the edge case where the probability of success is 1. This is a valid geometric
      * distribution where the sample should always be 0.
      */
+    @Test
+    void testProbabilityOfSuccessIsOneGeneratesZeroForSamples() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        final SharedStateDiscreteSampler sampler = GeometricSampler.of(rng, 1);
+        // All samples should be 0
+        for (int i = 0; i < 10; i++) {
+            Assertions.assertEquals(0, sampler.sample(), "p=1 should have 0 for all samples");
+        }
+    }
 
     /**
      * Test to demonstrate that any probability of success under one produces a valid
      * mean for the exponential distribution.
      */
+    @Test
+    void testProbabilityOfSuccessUnderOneIsValid() {
+        // The sampler explicitly handles probabilityOfSuccess == 1 as an edge case.
+        // Anything under it should be valid for sampling from an ExponentialDistribution.
+        final double probabilityOfSuccess = Math.nextDown(1);
+        // Map to the mean
+        final double exponentialMean = 1.0 / (-Math.log1p(-probabilityOfSuccess));
+        // As long as this is finite positive then the sampler is valid
+        Assertions.assertTrue(exponentialMean > 0 && exponentialMean <= Double.MAX_VALUE);
+        // The internal exponential sampler validates the mean so demonstrate creating a
+        // geometric sampler does not throw.
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        GeometricSampler.of(rng, probabilityOfSuccess);
+    }
 
     /**
      * Test the edge case where the probability of success is 1 since it uses a different
      * {@link Object#toString()} method to the normal case tested elsewhere.
      */
+    @Test
+    void testProbabilityOfSuccessIsOneSamplerToString() {
+        final UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
+        final SharedStateDiscreteSampler sampler = GeometricSampler.of(unusedRng, 1);
+        Assertions.assertTrue(sampler.toString().contains("Geometric"),"Missing 'Geometric' from toString");
+    }
 
     /**
      * Test the edge case where the probability of success is nearly 0. This is a valid geometric
@@ -52,14 +81,37 @@ class GeometricSamplerTest_OE25Dev {
      * <p>This test can be changed in future if a lower bound limit for the probability of success
      * is introduced.
      */
+    @Test
+    void testProbabilityOfSuccessIsAlmostZeroGeneratesMaxValueForSamples() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        final SharedStateDiscreteSampler sampler = GeometricSampler.of(rng, Double.MIN_VALUE);
+        // All samples should be max value
+        for (int i = 0; i < 10; i++) {
+            Assertions.assertEquals(Integer.MAX_VALUE,sampler.sample(),"p=(almost 0)should have Integer.MAX_VALUE for all samples");
+        }
+    }
 
     /**
      * Test probability of success {@code >1} is not allowed.
      */
+    @Test
+    void testProbabilityOfSuccessAboveOneThrows() {
+        final UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
+        final double probabilityOfSuccess = Math.nextUp(1.0);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> GeometricSampler.of(unusedRng, probabilityOfSuccess));
+    }
 
     /**
      * Test probability of success {@code 0} is not allowed.
      */
+    @Test
+    void testProbabilityOfSuccessIsZeroThrows() {
+        final UniformRandomProvider unusedRng = RandomSource.SPLIT_MIX_64.create(0L);
+        final double probabilityOfSuccess = 0;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> GeometricSampler.of(unusedRng, probabilityOfSuccess));
+    }
 
     /**
      * Test the SharedStateSampler implementation.

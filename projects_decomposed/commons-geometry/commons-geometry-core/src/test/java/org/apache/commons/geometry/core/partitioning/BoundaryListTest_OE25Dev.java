@@ -32,6 +32,57 @@ import static org.junit.jupiter.api.Assertions.fail;
 class BoundaryListTest_OE25Dev {
 
     @Test
+    void testBoundaries() {
+        // arrange
+        final List<TestLineSegment> boundaries = new ArrayList<>();
+        boundaries.add(new TestLineSegment(0, 0, 1, 1));
+        boundaries.add(new TestLineSegment(1, 1, 0, 2));
+
+        // act
+        final BoundaryList<TestPoint2D, TestLineSegment> list = new BoundaryList<>(boundaries);
+
+        // assert
+        Assertions.assertNotSame(boundaries, list.getBoundaries());
+        Assertions.assertEquals(boundaries, list.getBoundaries());
+        Assertions.assertEquals(boundaries, list.boundaryStream().collect(Collectors.toList()));
+    }
+
+    @Test
+    void testGetBoundaries_listCannotBeModified() {
+        // arrange
+        final List<TestLineSegment> boundaries = new ArrayList<>();
+        boundaries.add(new TestLineSegment(0, 0, 1, 1));
+
+        final BoundaryList<TestPoint2D, TestLineSegment> list = new BoundaryList<>(boundaries);
+        final List<TestLineSegment> items = list.getBoundaries();
+        final TestLineSegment segment = new TestLineSegment(1, 1, 0, 2);
+
+        // act/assert
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> items.add(segment));
+    }
+
+    @Test
+    void testCount() {
+        // act/assert
+        Assertions.assertEquals(0, new BoundaryList<>(Collections.emptyList()).count());
+        Assertions.assertEquals(1,new BoundaryList<>(Collections.singletonList(new TestLineSegment(0,0,1,1))).count());
+        Assertions.assertEquals(2,new BoundaryList<>(Arrays.asList(new TestLineSegment(0,0,1,1),new TestLineSegment(1,1,0,2))).count());
+    }
+
+    @Test
+    void testToString() {
+        // arrange
+        final BoundaryList<TestPoint2D, TestLineSegment> empty = new BoundaryList<>(Collections.emptyList());
+        final BoundaryList<TestPoint2D, TestLineSegment> single = new BoundaryList<>(Collections.singletonList(
+                new TestLineSegment(0, 0, 1, 1)
+        ));
+
+        // act
+        Assertions.assertEquals("BoundaryList[count= 0]", empty.toString());
+        Assertions.assertEquals("BoundaryList[count= 1]", single.toString());
+    }
+
+    @Test
     void testBoundaries_1_oe() {
         // arrange
         final List<TestLineSegment> boundaries = new ArrayList<>();

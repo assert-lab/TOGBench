@@ -119,18 +119,48 @@ class RandomSourceInternalParametricTest_OE25Dev {
      *
      * @param randomSourceInternal Internal identifier for the random source.
      */
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeed(RandomSourceInternal randomSourceInternal) {
+        final Class<?> type = getType(randomSourceInternal);
+        final Object seed = randomSourceInternal.createSeed();
+        Assertions.assertNotNull(seed);
+        Assertions.assertEquals(type, seed.getClass(), "Seed was not the correct class");
+        Assertions.assertTrue(randomSourceInternal.isNativeSeed(seed), "Seed was not identified as the native type");
+    }
 
     /**
      * Test the seed can be converted to the correct type from any of the supported input types.
      *
      * @param randomSourceInternal Internal identifier for the random source.
      */
+    @ParameterizedTest
+    @EnumSource
+    void testConvertSupportedSeed(RandomSourceInternal randomSourceInternal) {
+        final Class<?> type = getType(randomSourceInternal);
+        for (final Object input : SUPPORTED_SEEDS) {
+            final Object seed = randomSourceInternal.convertSeed(input);
+            final Supplier<String> msg = () -> input.getClass() + " input seed was not converted";
+            Assertions.assertNotNull(seed, msg);
+            Assertions.assertEquals(type, seed.getClass(), msg);
+            Assertions.assertTrue(randomSourceInternal.isNativeSeed(seed), msg);
+        }
+    }
 
     /**
      * Test unsupported input seed types are rejected.
      *
      * @param randomSourceInternal Internal identifier for the random source.
      */
+    @ParameterizedTest
+    @EnumSource
+    void testCannotConvertUnsupportedSeed(RandomSourceInternal randomSourceInternal) {
+        for (final Object input : UNSUPPORTED_SEEDS) {
+            Assertions.assertThrows(UnsupportedOperationException.class,
+                () -> randomSourceInternal.convertSeed(input),
+                () -> input.getClass() + " input seed was not rejected as unsupported");
+        }
+    }
 
     /**
      * Test the seed byte size is reported as the size of a int/long primitive for Int/Long
@@ -138,6 +168,27 @@ class RandomSourceInternalParametricTest_OE25Dev {
      *
      * @param randomSourceInternal Internal identifier for the random source.
      */
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+
+        final int size = seed.length;
+        Assertions.assertNotEquals(0, size, "Seed is empty");
+
+        if (randomSourceInternal.isNativeSeed(Integer.valueOf(0))) {
+            Assertions.assertEquals(4, size, "Expect 4 bytes for Integer");
+        } else if (randomSourceInternal.isNativeSeed(Long.valueOf(0))) {
+            Assertions.assertEquals(8, size, "Expect 8 bytes for Long");
+        } else if (randomSourceInternal.isNativeSeed(new int[0])) {
+            Assertions.assertEquals(0, size % 4, "Expect 4n bytes for int[]");
+        } else if (randomSourceInternal.isNativeSeed(new long[0])) {
+            Assertions.assertEquals(0, size % 8, "Expect 8n bytes for long[]");
+        } else {
+            Assertions.fail("Unknown native seed type");
+        }
+    }
 
     /**
      * Test the seed byte size against the expected value.
@@ -149,6 +200,17 @@ class RandomSourceInternalParametricTest_OE25Dev {
      *
      * @param randomSourceInternal Internal identifier for the random source.
      */
+    @ParameterizedTest
+    @EnumSource
+    void testCreateSeedBytes(RandomSourceInternal randomSourceInternal) {
+        // This should be the full length seed
+        final byte[] seed = randomSourceInternal.createSeedBytes(new SplitMix64(12345L));
+        final int size = seed.length;
+
+        final Integer expected = EXPECTED_SEED_BYTES.get(randomSourceInternal);
+        Assertions.assertNotNull(expected, () -> "Missing expected seed byte size: " + randomSourceInternal);
+        Assertions.assertEquals(expected.intValue(), size, () -> randomSourceInternal.toString());
+    }
 
     @ParameterizedTest
     @EnumSource

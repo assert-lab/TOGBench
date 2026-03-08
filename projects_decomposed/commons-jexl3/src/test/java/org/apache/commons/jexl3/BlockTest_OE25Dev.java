@@ -34,6 +34,56 @@ public class BlockTest_OE25Dev extends JexlTestCase {
     }
 
     @Test
+    public void testBlockSimple() throws Exception {
+        final JexlScript e = JEXL.createScript("if (true) { 'hello'; }");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals("Result is wrong", "hello", o);
+    }
+
+    @Test
+    public void testBlockExecutesAll() throws Exception {
+        final JexlScript e = JEXL.createScript("if (true) { x = 'Hello'; y = 'World';}");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals("First result is wrong", "Hello", jc.get("x"));
+        Assert.assertEquals("Second result is wrong", "World", jc.get("y"));
+        Assert.assertEquals("Block result is wrong", "World", o);
+    }
+
+    @Test
+    public void testEmptyBlock() throws Exception {
+        final JexlScript e = JEXL.createScript("if (true) { }");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertNull("Result is wrong", o);
+    }
+
+    @Test
+    public void testBlockLastExecuted01() throws Exception {
+        final JexlScript e = JEXL.createScript("if (true) { x = 1; } else { x = 2; }");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals("Block result is wrong", new Integer(1), o);
+    }
+
+    @Test
+    public void testBlockLastExecuted02() throws Exception {
+        final JexlScript e = JEXL.createScript("if (false) { x = 1; } else { x = 2; }");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals("Block result is wrong", new Integer(2), o);
+    }
+
+    @Test
+    public void testNestedBlock() throws Exception {
+        final JexlScript e = JEXL.createScript("if (true) { x = 'hello'; y = 'world';" + " if (true) { x; } y; }");
+        final JexlContext jc = new MapContext();
+        final Object o = e.execute(jc);
+        Assert.assertEquals("Block result is wrong", "world", o);
+    }
+
+    @Test
     public void testBlockSimple_1_oe() throws Exception {
         final JexlScript e = JEXL.createScript("if (true) { 'hello'; }");
         final JexlContext jc = new MapContext();

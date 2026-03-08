@@ -32,10 +32,32 @@ public class PropertyHandlerTest_OE25Dev {
         loader = ServiceLoader.load(PropertyHandler.class);
     }
 
+    @Test
+    public void testServiceLoaderFindsMultipleRegistries() {
+        boolean found = false;
+        for (PropertyHandler handler : loader) {
+            // this class is defined outside of the main classes of dbutils
+            if (handler instanceof TestPropertyHandler) {
+                found = true;
+            }
+        }
+
+        assertTrue(found);
+    }
+
     /**
      * Verifying 'more than 1' shows that we found more than we loaded locally which assumes the core handlers
      * were loaded, too.
      */
+    @Test
+    public void testFoundMoreThanLocal() {
+        int count = 0;
+        for (PropertyHandler handler : loader) {
+            count++;
+        }
+
+        assertTrue(count > 1);
+    }
 
     @Test
     public void testServiceLoaderFindsMultipleRegistries_1_oe() {

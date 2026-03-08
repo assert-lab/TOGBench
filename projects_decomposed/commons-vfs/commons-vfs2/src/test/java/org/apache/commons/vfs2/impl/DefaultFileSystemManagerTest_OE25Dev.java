@@ -50,6 +50,38 @@ public class DefaultFileSystemManagerTest_OE25Dev {
      *
      * @throws FileSystemException
      */
+    @Test
+    public void test_close() throws FileSystemException {
+        try (FileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            VFS.setManager(fileSystemManager);
+            VFS.setManager(null);
+        }
+        Assert.assertNotNull(VFS.getManager());
+        Assert.assertFalse(VFS.getManager().resolveFile(Paths.get("DoesNotExist.not").toUri()).exists());
+    }
+
+    @Test
+    public void testAddAndRemoveProvider() throws FileSystemException {
+        try (DefaultFileSystemManager fileSystemManager = new DefaultFileSystemManager()) {
+            fileSystemManager.setFilesCache(new NullFilesCache());
+            fileSystemManager.setCacheStrategy(CacheStrategy.MANUAL);
+
+            final RamFileProvider provider = Mockito.spy(new RamFileProvider());
+            fileSystemManager.addProvider("ram1", provider);
+            fileSystemManager.addProvider("ram2", provider);
+            Assert.assertNotNull(fileSystemManager.resolveFile("ram1:///"));
+            Assert.assertNotNull(fileSystemManager.resolveFile("ram2:///"));
+
+            fileSystemManager.removeProvider("ram1");
+            Mockito.verify(provider, Mockito.never()).close();
+            Assert.assertThrows(FileSystemException.class, () -> fileSystemManager.resolveFile("ram1:///"));
+            Assert.assertNotNull(fileSystemManager.resolveFile("ram2:///"));
+
+            fileSystemManager.removeProvider("ram2");
+            Mockito.verify(provider).close();
+            Assert.assertThrows(FileSystemException.class, () -> fileSystemManager.resolveFile("ram2:///"));
+        }
+    }
 
     @Test
     public void testCreateBz2FileSystem() throws FileSystemException {
@@ -78,6 +110,43 @@ public class DefaultFileSystemManagerTest_OE25Dev {
     @Test
     public void testCreateZipFileSystem() throws FileSystemException {
         testCreateFileSystem("src/test/resources/test-data/nested.zip", ZipFileObject.class);
+    }
+
+    @Test
+    public void testFileCacheEmptyAfterManagerClose() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        Assert.assertNotNull(manager);
+        try (final FileObject fileObject = manager
+                .resolveFile(Paths.get("src/test/resources/test-data/read-tests/file1.txt").toUri())) {
+            Assert.assertTrue(fileObject.exists());
+            final FilesCache filesCache = manager.getFilesCache();
+            final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
+            Assert.assertNotNull(filesCache.getFile(fileObject.getFileSystem(), name));
+            manager.close();
+            // Cache MUST now be empty.
+            Assert.assertNull(filesCache.getFile(fileObject.getFileSystem(), name));
+        } finally {
+            // Makes sure we reset the singleton or other tests will fail.
+            VFS.close();
+        }
+    }
+
+    @Test
+    public void testFileCacheEmptyAfterVFSClose() throws FileSystemException {
+        final FileSystemManager manager = VFS.getManager();
+        Assert.assertNotNull(manager);
+        try (final FileObject fileObject = manager
+                .resolveFile(Paths.get("src/test/resources/test-data/read-tests/file1.txt").toUri())) {
+            Assert.assertTrue(fileObject.exists());
+            final FilesCache filesCache = manager.getFilesCache();
+            final FileName name = fileObject.getName();
+            // Make sure we have file object in the cache.
+            Assert.assertNotNull(filesCache.getFile(fileObject.getFileSystem(), name));
+            VFS.close();
+            // Cache MUST now be empty.
+            Assert.assertNull(filesCache.getFile(fileObject.getFileSystem(), name));
+        }
     }
 
     /**

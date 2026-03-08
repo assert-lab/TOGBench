@@ -23,6 +23,22 @@ import org.junit.jupiter.api.Test;
  * Tests for {@link Digamma}.
  */
 class DigammaTest_OE25Dev {
+    @Test
+    void testDigammaLargeArgs() {
+        double eps = 1e-8;
+        Assertions.assertEquals(4.6001618527380874002, Digamma.value(100), eps);
+        Assertions.assertEquals(3.9019896734278921970, Digamma.value(50), eps);
+        Assertions.assertEquals(2.9705239922421490509, Digamma.value(20), eps);
+        Assertions.assertEquals(2.9958363947076465821, Digamma.value(20.5), eps);
+        Assertions.assertEquals(2.2622143570941481605, Digamma.value(10.1), eps);
+        Assertions.assertEquals(2.1168588189004379233, Digamma.value(8.8), eps);
+        Assertions.assertEquals(1.8727843350984671394, Digamma.value(7), eps);
+        Assertions.assertEquals(0.42278433509846713939, Digamma.value(2), eps);
+        Assertions.assertEquals(-100.56088545786867450, Digamma.value(0.01), eps);
+        Assertions.assertEquals(-4.0390398965921882955, Digamma.value(-0.8), eps);
+        Assertions.assertEquals(4.2003210041401844726, Digamma.value(-6.3), eps);
+        Assertions.assertEquals(-3.110625123035E-5, Digamma.value(1.4616), eps);
+    }
 
     @Test
     void testDigammaSmallArgs() {
@@ -39,6 +55,22 @@ class DigammaTest_OE25Dev {
         for (double n = 1; n < 30; n++) {
             checkRelativeError(String.format("Test %.0f: ", n), expected[(int) (n - 1)], Digamma.value(Math.pow(10.0, -n)), 1e-8);
         }
+    }
+
+    @Test
+    void testDigammaZero() {
+        // webMathematica states Complexinfinity.
+        // The value computed is Double.NEGATIVE_INFINITY but we leave this as a test for infinity
+        // since the next value down -Double.MIN_VALUE is Double.POSITIVE_INFINITY indicating
+        // a branch-but in the complex plane around 0.
+        Assertions.assertTrue(Double.isInfinite(Digamma.value(0.0)));
+    }
+
+    @Test
+    void testDigammaNonRealArgs() {
+        Assertions.assertTrue(Double.isNaN(Digamma.value(Double.NaN)));
+        Assertions.assertTrue(Double.isInfinite(Digamma.value(Double.POSITIVE_INFINITY)));
+        Assertions.assertTrue(Double.isInfinite(Digamma.value(Double.NEGATIVE_INFINITY)));
     }
 
     private void checkRelativeError(String msg,

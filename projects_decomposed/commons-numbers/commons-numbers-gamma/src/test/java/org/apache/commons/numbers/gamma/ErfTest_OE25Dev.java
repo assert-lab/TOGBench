@@ -43,10 +43,44 @@ class ErfTest_OE25Dev {
         "2.807, 0.995",
         "3.291, 0.999",
     })
+    void testErf(double x, double expected) {
+        // Input must be divided by root(2)
+        x /= Math.sqrt(2);
+
+        double actual = Erf.value(x);
+        Assertions.assertEquals(expected, actual, 1e-5);
+        Assertions.assertEquals(1 - expected, Erfc.value(x), 1e-5);
+
+        actual = Erf.value(-x);
+        expected = -expected;
+        Assertions.assertEquals(expected, actual, 1e-5);
+        Assertions.assertEquals(1 - expected, Erfc.value(-x), 1e-5);
+    }
 
     /**
      * MATH-301, MATH-456
      */
+    @Test
+    void testLargeValues() {
+        for (int i = 1; i < 200; i *= 10) {
+            double result = Erf.value(i);
+            Assertions.assertFalse(Double.isNaN(result));
+            Assertions.assertTrue(result > 0 && result <= 1);
+            result = Erf.value(-i);
+            Assertions.assertFalse(Double.isNaN(result));
+            Assertions.assertTrue(result >= -1 && result < 0);
+            result = Erfc.value(i);
+            Assertions.assertFalse(Double.isNaN(result));
+            Assertions.assertTrue(result >= 0 && result < 1);
+            result = Erfc.value(-i);
+            Assertions.assertFalse(Double.isNaN(result));
+            Assertions.assertTrue(result >= 1 && result <= 2);
+        }
+        Assertions.assertEquals(-1, Erf.value(Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(1, Erf.value(Double.POSITIVE_INFINITY));
+        Assertions.assertEquals(2, Erfc.value(Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(0, Erfc.value(Double.POSITIVE_INFINITY));
+    }
 
     /**
      * Compare Erf.value against reference values computed using GCC 4.2.1

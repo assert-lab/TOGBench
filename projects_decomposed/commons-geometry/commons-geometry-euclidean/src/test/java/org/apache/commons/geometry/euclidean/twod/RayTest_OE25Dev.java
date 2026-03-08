@@ -36,6 +36,149 @@ class RayTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
+    void testFromPointAndDirection() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 2);
+        final Vector2D p1 = Vector2D.of(2, 2);
+
+        // act
+        final Ray ray = Lines.rayFromPointAndDirection(p0, p0.vectorTo(p1), TEST_PRECISION);
+
+        // assert
+        Assertions.assertFalse(ray.isFull());
+        Assertions.assertFalse(ray.isEmpty());
+        Assertions.assertTrue(ray.isInfinite());
+        Assertions.assertFalse(ray.isFinite());
+
+        EuclideanTestUtils.assertCoordinatesEqual(p0, ray.getStartPoint(), TEST_EPS);
+        Assertions.assertNull(ray.getEndPoint());
+
+        Assertions.assertEquals(1, ray.getSubspaceStart(), TEST_EPS);
+        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
+
+        GeometryTestUtils.assertPositiveInfinity(ray.getSize());
+        Assertions.assertNull(ray.getCentroid());
+        Assertions.assertNull(ray.getBounds());
+
+        EuclideanTestUtils.assertCoordinatesEqual(p0.vectorTo(p1), ray.getDirection(), TEST_EPS);
+    }
+
+    @Test
+    void testFromPointAndDirection_invalidArgs() {
+        // arrange
+        final Vector2D p = Vector2D.of(0, 2);
+        final Vector2D d = Vector2D.of(1e-17, -1e-12);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            Lines.rayFromPointAndDirection(p, d, TEST_PRECISION);
+        }, IllegalArgumentException.class, "Line direction cannot be zero");
+    }
+
+    @Test
+    void testFromPoint() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 1);
+        final Vector2D p1 = Vector2D.of(1, 2);
+        final Vector2D p3 = Vector2D.of(3, 3);
+
+        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
+
+        // act
+        final Ray ray = Lines.rayFromPoint(line, p3);
+
+        // assert
+        Assertions.assertFalse(ray.isFull());
+        Assertions.assertFalse(ray.isEmpty());
+        Assertions.assertTrue(ray.isInfinite());
+        Assertions.assertFalse(ray.isFinite());
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, 3), ray.getStartPoint(), TEST_EPS);
+        Assertions.assertNull(ray.getEndPoint());
+
+        Assertions.assertEquals(3, ray.getSubspaceStart(), TEST_EPS);
+        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
+
+        GeometryTestUtils.assertPositiveInfinity(ray.getSize());
+        Assertions.assertNull(ray.getCentroid());
+        Assertions.assertNull(ray.getBounds());
+
+        EuclideanTestUtils.assertCoordinatesEqual(p0.vectorTo(p1), ray.getDirection(), TEST_EPS);
+    }
+
+    @Test
+    void testFromPoint_invalidArgs() {
+        // arrange
+        final Vector2D p = Vector2D.of(0, 2);
+        final Vector2D d = Vector2D.of(1, 1);
+        final Line line = Lines.fromPointAndDirection(p, d, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            Lines.rayFromPoint(line, Vector2D.NaN);
+        }, IllegalArgumentException.class, "Invalid ray start point: (NaN, NaN)");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            Lines.rayFromPoint(line, Vector2D.POSITIVE_INFINITY);
+        }, IllegalArgumentException.class, "Invalid ray start point: (Infinity, Infinity)");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            Lines.rayFromPoint(line, Vector2D.NEGATIVE_INFINITY);
+        }, IllegalArgumentException.class, "Invalid ray start point: (-Infinity, -Infinity)");
+    }
+
+    @Test
+    void testFromLocation() {
+        // arrange
+        final Vector2D p0 = Vector2D.of(1, 1);
+        final Vector2D p1 = Vector2D.of(1, 2);
+
+        final Line line = Lines.fromPoints(p0, p1, TEST_PRECISION);
+
+        // act
+        final Ray ray = Lines.rayFromLocation(line, -2);
+
+        // assert
+        Assertions.assertFalse(ray.isFull());
+        Assertions.assertFalse(ray.isEmpty());
+        Assertions.assertTrue(ray.isInfinite());
+        Assertions.assertFalse(ray.isFinite());
+
+        EuclideanTestUtils.assertCoordinatesEqual(Vector2D.of(1, -2), ray.getStartPoint(), TEST_EPS);
+        Assertions.assertNull(ray.getEndPoint());
+
+        Assertions.assertEquals(-2, ray.getSubspaceStart(), TEST_EPS);
+        GeometryTestUtils.assertPositiveInfinity(ray.getSubspaceEnd());
+
+        GeometryTestUtils.assertPositiveInfinity(ray.getSize());
+        Assertions.assertNull(ray.getCentroid());
+        Assertions.assertNull(ray.getBounds());
+
+        EuclideanTestUtils.assertCoordinatesEqual(p0.vectorTo(p1), ray.getDirection(), TEST_EPS);
+    }
+
+    @Test
+    void testFromLocation_invalidArgs() {
+        // arrange
+        final Vector2D p = Vector2D.of(0, 2);
+        final Vector2D d = Vector2D.of(1, 1);
+        final Line line = Lines.fromPointAndDirection(p, d, TEST_PRECISION);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            Lines.rayFromLocation(line, Double.NaN);
+        }, IllegalArgumentException.class, "Invalid ray start location: NaN");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            Lines.rayFromLocation(line, Double.POSITIVE_INFINITY);
+        }, IllegalArgumentException.class, "Invalid ray start location: Infinity");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> {
+            Lines.rayFromLocation(line, Double.NEGATIVE_INFINITY);
+        }, IllegalArgumentException.class, "Invalid ray start location: -Infinity");
+    }
+
+    @Test
     void testTransform() {
         // arrange
         final AffineTransformMatrix2D t = AffineTransformMatrix2D.createRotation(-0.5 * Math.PI)
@@ -113,6 +256,23 @@ class RayTest_OE25Dev {
     }
 
     @Test
+    void testClassify() {
+        // arrange
+        final Ray ray = Lines.rayFromPointAndDirection(Vector2D.of(1, 1), Vector2D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act/assert
+        EuclideanTestUtils.assertRegionLocation(ray, RegionLocation.OUTSIDE,
+                Vector2D.of(2, 2), Vector2D.of(2, 0),
+                Vector2D.of(-5, 1), Vector2D.of(0, 1));
+
+        EuclideanTestUtils.assertRegionLocation(ray, RegionLocation.BOUNDARY,
+                Vector2D.of(1, 1), Vector2D.of(1 + 1e-16, 1));
+
+        EuclideanTestUtils.assertRegionLocation(ray, RegionLocation.INSIDE,
+                Vector2D.of(2, 1), Vector2D.of(5, 1 + 1e-16));
+    }
+
+    @Test
     void testSplit() {
         // --- arrange
         final Vector2D p0 = Vector2D.of(1, 1);
@@ -161,6 +321,40 @@ class RayTest_OE25Dev {
         checkSplit(ray.split(Lines.fromPointAndAngle(low, -1, TEST_PRECISION)),
                 p0, null,
                 null, null);
+    }
+
+    @Test
+    void testSplit_smallAngle_pointOnSplitter() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-5);
+
+        final Ray ray = Lines.rayFromPointAndDirection(Vector2D.of(1, 1e-6), Vector2D.of(-1, -1e-2), precision);
+
+        final Line splitter = Lines.fromPointAndAngle(Vector2D.ZERO, 0, precision);
+
+        // act
+        final Split<LineConvexSubset> split = ray.split(splitter);
+
+        // assert
+        Assertions.assertEquals(SplitLocation.PLUS, split.getLocation());
+
+        Assertions.assertNull(split.getMinus());
+        Assertions.assertSame(ray, split.getPlus());
+    }
+
+    @Test
+    void testGetInterval() {
+        // arrange
+        final Ray ray = Lines.rayFromPointAndDirection(Vector2D.of(2, -1), Vector2D.Unit.PLUS_X, TEST_PRECISION);
+
+        // act
+        final Interval interval = ray.getInterval();
+
+        // assert
+        Assertions.assertEquals(2, interval.getMin(), TEST_EPS);
+        GeometryTestUtils.assertPositiveInfinity(interval.getMax());
+
+        Assertions.assertSame(ray.getLine().getPrecision(), interval.getMinBoundary().getPrecision());
     }
 
     @Test

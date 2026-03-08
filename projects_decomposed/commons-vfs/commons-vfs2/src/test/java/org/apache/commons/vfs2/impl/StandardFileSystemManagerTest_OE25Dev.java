@@ -37,6 +37,15 @@ public class StandardFileSystemManagerTest_OE25Dev {
      *
      * @throws FileSystemException
      */
+    @Test
+    public void test_close() throws FileSystemException {
+        try (FileSystemManager fileSystemManager = new StandardFileSystemManager()) {
+            VFS.setManager(fileSystemManager);
+            VFS.setManager(null);
+        }
+        Assert.assertNotNull(VFS.getManager());
+        Assert.assertFalse(VFS.getManager().resolveFile(Paths.get("DoesNotExist.not").toUri()).exists());
+    }
 
     @Test
     public void test_close_1_oe() throws FileSystemException {

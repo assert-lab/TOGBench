@@ -36,6 +36,32 @@ public class ColorCieLuvTest_OE25Dev {
     }
 
     @Test
+    public void testLAssignment() {
+        assertEquals(1.0, color.L, 0.0);
+    }
+
+    @Test
+    public void testUAssignment() {
+        assertEquals(2.0, color.u, 0.0);
+    }
+
+    @Test
+    public void testVAssignment() {
+        assertEquals(3.0, color.v, 0.0);
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals("{L: 1.0, u: 2.0, v: 3.0}", color.toString());
+    }
+
+    @Test
+    public void testHashCodeAndEquals() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+
+    @Test
     public void testLAssignment_1_oe() {
         assertEquals(1.0, color.L, 0.0);
     }

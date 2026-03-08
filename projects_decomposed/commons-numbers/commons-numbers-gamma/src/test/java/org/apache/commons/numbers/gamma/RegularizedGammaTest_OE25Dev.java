@@ -87,6 +87,18 @@ class RegularizedGammaTest_OE25Dev {
     }
 
     @Test
+    void testRegularizedGammaMaxIterationsExceededThrows() {
+        final double a = 1.0;
+        final double x = 1.0;
+        // OK without
+        Assertions.assertEquals(0.632120558828558, RegularizedGamma.P.value(a, x), 1e-15);
+
+        final int maxIterations = 3;
+        Assertions.assertThrows(ArithmeticException.class, () ->
+            RegularizedGamma.P.value(a, x, 1e-15, maxIterations));
+    }
+
+    @Test
     void testRegularizedGammaMaxIterationsExceededThrows_1_oe() {
         final double a = 1.0;
         final double x = 1.0;

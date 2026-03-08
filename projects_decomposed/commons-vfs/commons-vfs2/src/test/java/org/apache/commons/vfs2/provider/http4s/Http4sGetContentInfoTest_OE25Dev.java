@@ -66,6 +66,17 @@ public class Http4sGetContentInfoTest_OE25Dev extends TestCase {
      * @throws FileSystemException thrown when the getContentInfo API fails.
      * @throws MalformedURLException thrown when the System environment contains an invalid URL for an HTTPS proxy.
      */
+    @Test
+    public void testGetContentInfo() throws FileSystemException, MalformedURLException {
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = "http4://www.apache.org/licenses/LICENSE-2.0.txt";
+        try (final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxy())) {
+            final FileContent content = fo.getContent();
+            Assert.assertNotNull(content);
+            // Used to NPE before fix:
+            content.getContentInfo();
+        }
+    }
 
     @Test
     public void testGetContentInfo_1_oe() throws FileSystemException, MalformedURLException {

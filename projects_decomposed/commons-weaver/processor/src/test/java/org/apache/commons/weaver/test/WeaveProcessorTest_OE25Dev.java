@@ -35,6 +35,34 @@ import org.junit.Test;
 public class WeaveProcessorTest_OE25Dev extends WeaverTestBase {
 
     @Test
+    public void testWeaveVisiting() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put("configKey", "configValue");
+
+        WeaveProcessor wp = new WeaveProcessor(getClassPathEntries(), getTargetFolder(), config);
+
+        TestWeaver.wovenClasses.clear();
+        TestWeaver.wovenMethods.clear();
+
+        wp.weave();
+
+        Assert.assertEquals(1, TestWeaver.wovenClasses.size());
+        Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.wovenClasses.get(0));
+
+        Assert.assertEquals(1, TestWeaver.wovenMethods.size());
+        Assert.assertEquals(TestBeanWithMethodAnnotation.class, TestWeaver.wovenMethods.get(0).getDeclaringClass());
+        
+        Assert.assertEquals(1, TestWeaver.implementors.size());
+        Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.implementors.get(0));
+        
+        Assert.assertEquals(2, TestWeaver.subclasses.size());
+        Assert.assertTrue(TestWeaver.subclasses.containsAll(Arrays.<Class<?>> asList(TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class)));
+    }
+
+    @Test
     public void testWeaveVisiting_1_oe() throws Exception {
         addClassForScanning(TestBeanWithMethodAnnotation.class);
         addClassForScanning(TestBeanWithClassAnnotation.class);

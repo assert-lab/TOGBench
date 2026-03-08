@@ -53,6 +53,14 @@ public class UriParserTest_OE25Dev {
   }
 
   @Test
+  public void testUrlHasLeadingAndTrailingWhiteSpace() {
+    UriParser parser = new UriParser();
+    String url = "  http://user@example.com:8080/test?q=1  ";
+    parser.parse(null, url);
+    assertUriEquals(parser, URI.create(url.trim()));
+  }
+
+  @Test
   public void testResolveAbsoluteUriAgainstContext() {
     Uri context = new Uri("https", null, "example.com", 80, "/path", "", null);
     validateAgainstRelativeURI(context, "https://example.com:80/path", "http://example.com/path");

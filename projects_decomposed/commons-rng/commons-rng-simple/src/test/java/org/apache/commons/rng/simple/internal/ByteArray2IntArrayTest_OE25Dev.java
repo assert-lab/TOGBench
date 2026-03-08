@@ -23,6 +23,23 @@ import org.junit.jupiter.api.Test;
  * Tests for the {@link ByteArray2IntArray} converter.
  */
 class ByteArray2IntArrayTest_OE25Dev {
+    @Test
+    void testSeedSizeIsMultipleOfIntSize() {
+        final byte[] seed = new byte[128];
+        final int[] out = new ByteArray2IntArray().convert(seed);
+        Assertions.assertEquals(32, out.length);
+    }
+
+    @Test
+    void testSeedSizeIsNotMultipleOfIntSize() {
+        final int len = 16;
+        final ByteArray2IntArray conv = new ByteArray2IntArray();
+        for (int i = 1; i < 4; i++) {
+            final byte[] seed = new byte[len + i];
+            final int[] out = conv.convert(seed);
+            Assertions.assertEquals(5, out.length);
+        }
+    }
 
     @Test
     void testSeedSizeIsMultipleOfIntSize_1_oe() {

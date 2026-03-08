@@ -119,12 +119,106 @@ public class JDBCDiskCacheShrinkUnitTest_OE25Dev
      * @throws CacheException
      * @throws InterruptedException
      */
+    @Test
+    public void testDidNotExpire()
+        throws CacheException, InterruptedException
+    {
+        final String region = "expire100Second";
+        final int items = 200;
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( "BEFORE PUT \n" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + ":key", region + " data " + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        SleepUtil.sleepAtLeast( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + ":key" );
+
+            assertEquals( "key = [" + i + ":key] value = [" + value + "]", region + " data " + i, value );
+        }
+
+        // Remove all the items
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.remove( i + ":key" );
+        }
+
+        // Verify removal
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull( "Removed key should be null: " + i + ":key", jcs.get( i + ":key" ) );
+        }
+    }
 
     /**
      * Verify that eternal trumps max life.
      * @throws CacheException
      * @throws InterruptedException
      */
+    @Test
+    public void testDidNotExpireEternal()
+        throws CacheException, InterruptedException
+    {
+        final String region = "eternal";
+        final int items = 200;
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+//        System.out.println( "BEFORE PUT \n" + jcs.getStats() );
+
+        // Add items to cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.put( i + ":key", region + " data " + i );
+        }
+
+//        System.out.println( jcs.getStats() );
+
+        SleepUtil.sleepAtLeast( 1000 );
+
+//        System.out.println( jcs.getStats() );
+
+        // Test that all items are in cache
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            final String value = jcs.get( i + ":key" );
+
+            assertEquals( "key = [" + i + ":key] value = [" + value + "]", region + " data " + i, value );
+        }
+
+        // Remove all the items
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            jcs.remove( i + ":key" );
+        }
+
+        // Verify removal
+
+        for ( int i = 0; i <= items; i++ )
+        {
+            assertNull( "Removed key should be null: " + i + ":key", jcs.get( i + ":key" ) );
+        }
+    }
 
     @Test
     public void testDidNotExpire_2_oe()

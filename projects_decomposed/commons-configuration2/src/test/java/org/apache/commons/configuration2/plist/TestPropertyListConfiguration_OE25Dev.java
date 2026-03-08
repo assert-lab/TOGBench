@@ -104,10 +104,169 @@ public class TestPropertyListConfiguration_OE25Dev {
     /**
      * Ensure that addProperty doesn't alter an array of byte
      */
+    @Test
+    public void testAddDataProperty() throws Exception {
+        final File saveFile = folder.newFile();
+        final byte[] expected = {1, 2, 3, 4};
+        config = new PropertyListConfiguration();
+        config.addProperty("foo", expected);
+        saveConfig(saveFile);
+
+        final PropertyListConfiguration config2 = new PropertyListConfiguration();
+        load(config2, saveFile);
+        final Object array = config2.getProperty("foo");
+
+        assertNotNull("data not found", array);
+        assertEquals("property type", byte[].class, array.getClass());
+        ArrayAssert.assertEquals(expected, (byte[]) array);
+    }
+
+    @Test
+    public void testArray() {
+        final String key = "array";
+        assertNotNull("array null", config.getProperty(key));
+
+        final List<?> list = (List<?>) config.getProperty(key);
+        assertFalse("array is empty", list.isEmpty());
+
+        assertEquals("1st value", "value1", list.get(0));
+        assertEquals("2nd value", "value2", list.get(1));
+        assertEquals("3rd value", "value3", list.get(2));
+    }
+
+    @Test
+    public void testData() {
+        ObjectAssert.assertInstanceOf("data", ArrayUtils.EMPTY_BYTE_ARRAY.getClass(), config.getProperty("data"));
+        ArrayAssert.assertEquals("data", "foo bar".getBytes(), (byte[]) config.getProperty("data"));
+    }
+
+    @Test
+    public void testDate() throws Exception {
+        final Calendar cal = Calendar.getInstance();
+        cal.clear();
+        cal.set(2002, Calendar.MARCH, 22, 11, 30, 0);
+        cal.setTimeZone(TimeZone.getTimeZone("GMT+0100"));
+        final Date date = cal.getTime();
+
+        assertEquals("date", date, config.getProperty("date"));
+    }
+
+    @Test
+    public void testDictionary() {
+        assertEquals("1st element in dictionary", "bar1", config.getProperty("dictionary.foo1"));
+        assertEquals("2nd element in dictionary", "bar2", config.getProperty("dictionary.foo2"));
+    }
+
+    @Test
+    public void testDictionaryArray() {
+        final String key = "dictionary-array";
+
+        final Object array = config.getProperty(key);
+
+        // root array
+        assertNotNull("array not found", array);
+        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        final List<?> list = config.getList(key);
+
+        assertFalse("empty array", list.isEmpty());
+        assertEquals("size", 2, list.size());
+
+        // 1st dictionary
+        ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(0));
+        final Configuration conf1 = (Configuration) list.get(0);
+        assertFalse("configuration 1 is empty", conf1.isEmpty());
+        assertEquals("configuration element", "bar", conf1.getProperty("foo"));
+
+        // 2nd dictionary
+        ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(1));
+        final Configuration conf2 = (Configuration) list.get(1);
+        assertFalse("configuration 2 is empty", conf2.isEmpty());
+        assertEquals("configuration element", "value", conf2.getProperty("key"));
+    }
+
+    @Test
+    public void testEmptyArray() {
+        final String key = "empty-array";
+        assertNotNull("array null", config.getProperty(key));
+
+        final List<?> list = (List<?>) config.getProperty(key);
+        assertTrue("array is not empty", list.isEmpty());
+    }
 
     /**
      * Tests formatting a date.
      */
+    @Test
+    public void testFormatDate() {
+        final Calendar cal = Calendar.getInstance();
+        cal.clear();
+        cal.set(2007, Calendar.OCTOBER, 29, 23, 4, 30);
+        cal.setTimeZone(TimeZone.getTimeZone("GMT-0230"));
+        assertEquals("Wrong date literal (1)", "<*D2007-10-29 23:04:30 -0230>", PropertyListConfiguration.formatDate(cal));
+        cal.clear();
+        cal.set(2007, Calendar.OCTOBER, 30, 22, 2, 15);
+        cal.setTimeZone(TimeZone.getTimeZone("GMT+1111"));
+        assertEquals("Wrong date literal (2)", "<*D2007-10-30 22:02:15 +1111>", PropertyListConfiguration.formatDate(cal));
+    }
+
+    @Test
+    public void testInitCopy() {
+        final PropertyListConfiguration copy = new PropertyListConfiguration(config);
+        assertFalse("Nothing was copied", copy.isEmpty());
+    }
+
+    @Test
+    public void testLoad() {
+        assertFalse("the configuration is empty", config.isEmpty());
+    }
+
+    @Test
+    public void testLoadWithError() {
+        config = new PropertyListConfiguration();
+        try {
+            new FileHandler(config).load(new StringReader(""));
+            fail("No exception thrown on loading an empty file");
+        } catch (final ConfigurationException e) {
+            // expected
+            assertNotNull(e.getMessage());
+        }
+    }
+
+    @Test
+    public void testNestedArrays() {
+        final String key = "nested-arrays";
+
+        final Object array = config.getProperty(key);
+
+        // root array
+        assertNotNull("array not found", array);
+        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
+        final List<?> list = config.getList(key);
+
+        assertFalse("empty array", list.isEmpty());
+        assertEquals("size", 2, list.size());
+
+        // 1st array
+        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
+        final List<?> list1 = (List<?>) list.get(0);
+        assertFalse("nested array 1 is empty", list1.isEmpty());
+        assertEquals("size", 2, list1.size());
+        assertEquals("1st element", "a", list1.get(0));
+        assertEquals("2nd element", "b", list1.get(1));
+
+        // 2nd array
+        ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(1));
+        final List<?> list2 = (List<?>) list.get(1);
+        assertFalse("nested array 2 is empty", list2.isEmpty());
+        assertEquals("size", 2, list2.size());
+        assertEquals("1st element", "c", list2.get(0));
+        assertEquals("2nd element", "d", list2.get(1));
+    }
+
+    @Test
+    public void testNestedDictionaries() {
+        assertEquals("nested property", "value", config.getString("nested-dictionaries.foo.bar.key"));
+    }
 
     /**
      * Tests parsing a date that contains an invalid separator character.
@@ -141,9 +300,109 @@ public class TestPropertyListConfiguration_OE25Dev {
         PropertyListConfiguration.parseDate("<*D2002-03-22 11:3>");
     }
 
+    @Test
+    public void testQuotedString() {
+        assertEquals("quoted-string", "string2", config.getProperty("quoted-string"));
+        assertEquals("quoted-string2", "this is a string", config.getProperty("quoted-string2"));
+        assertEquals("complex-string", "this is a \"complex\" string {(=,;)}", config.getProperty("complex-string"));
+    }
+
+    @Test
+    public void testQuoteString() {
+        assertNull("null string", config.quoteString(null));
+        assertEquals("simple string", "abcd", config.quoteString("abcd"));
+        assertEquals("string with a space", "\"ab cd\"", config.quoteString("ab cd"));
+        assertEquals("string with a quote", "\"foo\\\"bar\"", config.quoteString("foo\"bar"));
+        assertEquals("string with a special char", "\"foo;bar\"", config.quoteString("foo;bar"));
+    }
+
+    @Test
+    public void testSave() throws Exception {
+        final File savedFile = folder.newFile("testsave.plist");
+
+        // save the configuration
+        saveConfig(savedFile);
+        assertTrue("The saved file doesn't exist", savedFile.exists());
+
+        // read the configuration and compare the properties
+        final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
+        load(checkConfig, savedFile);
+
+        final Iterator<String> it = config.getKeys();
+        while (it.hasNext()) {
+            final String key = it.next();
+            assertTrue("The saved configuration doesn't contain the key '" + key + "'", checkConfig.containsKey(key));
+
+            final Object value = checkConfig.getProperty(key);
+            if (value instanceof byte[]) {
+                final byte[] array = (byte[]) value;
+                ArrayAssert.assertEquals("Value of the '" + key + "' property", (byte[]) config.getProperty(key), array);
+            } else if (value instanceof List) {
+                final List<?> list1 = (List<?>) config.getProperty(key);
+                final List<?> list2 = (List<?>) value;
+
+                assertEquals("The size of the list for the key '" + key + "' doesn't match", list1.size(), list2.size());
+
+                for (int i = 0; i < list2.size(); i++) {
+                    final Object value1 = list1.get(i);
+                    final Object value2 = list2.get(i);
+
+                    if (value1 instanceof Configuration) {
+                        final ConfigurationComparator comparator = new StrictConfigurationComparator();
+                        assertTrue("The dictionnary at index " + i + " for the key '" + key + "' doesn't match",comparator.compare((Configuration)value1,(Configuration)value2));
+                    } else {
+                        assertEquals("Element at index " + i + " for the key '" + key + "'", value1, value2);
+                    }
+                }
+
+                ListAssert.assertEquals("Value of the '" + key + "' property", (List<?>) config.getProperty(key), list1);
+            } else {
+                assertEquals("Value of the '" + key + "' property", config.getProperty(key), checkConfig.getProperty(key));
+            }
+
+        }
+    }
+
+    @Test
+    public void testSaveEmptyDictionary() throws Exception {
+        final File savedFile = folder.newFile("testsave.plist");
+
+        // save the configuration
+        saveConfig(savedFile);
+        assertTrue("The saved file doesn't exist", savedFile.exists());
+
+        // read the configuration and compare the properties
+        final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
+        load(checkConfig, savedFile);
+
+        assertFalse(getNamedChildren(config, "empty-dictionary").isEmpty());
+        assertFalse(getNamedChildren(checkConfig, "empty-dictionary").isEmpty());
+    }
+
     /**
      * Ensure that setProperty doesn't alter an array of byte since it's a first class type in plist file
      */
+    @Test
+    public void testSetDataProperty() throws Exception {
+        final File saveFile = folder.newFile();
+        final byte[] expected = {1, 2, 3, 4};
+        config = new PropertyListConfiguration();
+        config.setProperty("foo", expected);
+        saveConfig(saveFile);
+
+        final PropertyListConfiguration config2 = new PropertyListConfiguration();
+        load(config2, saveFile);
+        final Object array = config2.getProperty("foo");
+
+        assertNotNull("data not found", array);
+        assertEquals("property type", byte[].class, array.getClass());
+        ArrayAssert.assertEquals(expected, (byte[]) array);
+    }
+
+    @Test
+    public void testString() {
+        assertEquals("simple-string", "string1", config.getProperty("simple-string"));
+    }
 
     @Test
     public void testAddDataProperty_1_oe() throws Exception {
@@ -172,7 +431,6 @@ public class TestPropertyListConfiguration_OE25Dev {
         load(config2, saveFile);
         final Object array = config2.getProperty("foo");
 
-        // removed other assertion
         assertEquals("property type", byte[].class, array.getClass());
     }
 
@@ -188,8 +446,6 @@ public class TestPropertyListConfiguration_OE25Dev {
         load(config2, saveFile);
         final Object array = config2.getProperty("foo");
 
-        // removed other assertion
-        // removed other assertion
         ArrayAssert.assertEquals(expected, (byte[]) array);
     }
 
@@ -202,7 +458,6 @@ public class TestPropertyListConfiguration_OE25Dev {
     @Test
     public void testArray_2_oe() {
         final String key = "array";
-        // removed other assertion
 
         final List<?> list = (List<?>) config.getProperty(key);
         assertFalse("array is empty", list.isEmpty());
@@ -211,10 +466,8 @@ public class TestPropertyListConfiguration_OE25Dev {
     @Test
     public void testArray_3_oe() {
         final String key = "array";
-        // removed other assertion
 
         final List<?> list = (List<?>) config.getProperty(key);
-        // removed other assertion
 
         assertEquals("1st value", "value1", list.get(0));
     }
@@ -222,31 +475,23 @@ public class TestPropertyListConfiguration_OE25Dev {
     @Test
     public void testArray_4_oe() {
         final String key = "array";
-        // removed other assertion
 
         final List<?> list = (List<?>) config.getProperty(key);
-        // removed other assertion
 
-        // removed other assertion
         assertEquals("2nd value", "value2", list.get(1));
     }
 
     @Test
     public void testArray_5_oe() {
         final String key = "array";
-        // removed other assertion
 
         final List<?> list = (List<?>) config.getProperty(key);
-        // removed other assertion
 
-        // removed other assertion
-        // removed other assertion
         assertEquals("3rd value", "value3", list.get(2));
     }
 
     @Test
     public void testData_2_oe() {
-        // removed other assertion
         ArrayAssert.assertEquals("data", "foo bar".getBytes(), (byte[]) config.getProperty("data"));
     }
 
@@ -263,13 +508,14 @@ public class TestPropertyListConfiguration_OE25Dev {
 
     @Test
     public void testDictionary_1_oe() {
-        assertEquals("1st element in dictionary", "bar1", config.getProperty("dictionary.foo1"));
+        String a = "bar1";
+        assertEquals("1st element in dictionary", a, config.getProperty("dictionary.foo1"));
     }
 
     @Test
     public void testDictionary_2_oe() {
-        // removed other assertion
-        assertEquals("2nd element in dictionary", "bar2", config.getProperty("dictionary.foo2"));
+        String a = "bar2";
+        assertEquals("2nd element in dictionary", a, config.getProperty("dictionary.foo2"));
     }
 
     @Test
@@ -278,7 +524,6 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
         assertNotNull("array not found", array);
     }
 
@@ -288,9 +533,6 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
         assertFalse("empty array", list.isEmpty());
@@ -302,12 +544,8 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
         assertEquals("size", 2, list.size());
     }
 
@@ -317,16 +555,9 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st dictionary
-        // removed other assertion
         final Configuration conf1 = (Configuration) list.get(0);
         assertFalse("configuration 1 is empty", conf1.isEmpty());
     }
@@ -337,18 +568,10 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st dictionary
-        // removed other assertion
         final Configuration conf1 = (Configuration) list.get(0);
-        // removed other assertion
         assertEquals("configuration element", "bar", conf1.getProperty("foo"));
     }
 
@@ -358,22 +581,11 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st dictionary
-        // removed other assertion
         final Configuration conf1 = (Configuration) list.get(0);
-        // removed other assertion
-        // removed other assertion
 
-        // 2nd dictionary
-        // removed other assertion
         final Configuration conf2 = (Configuration) list.get(1);
         assertFalse("configuration 2 is empty", conf2.isEmpty());
     }
@@ -384,24 +596,12 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st dictionary
-        // removed other assertion
         final Configuration conf1 = (Configuration) list.get(0);
-        // removed other assertion
-        // removed other assertion
 
-        // 2nd dictionary
-        // removed other assertion
         final Configuration conf2 = (Configuration) list.get(1);
-        // removed other assertion
         assertEquals("configuration element", "value", conf2.getProperty("key"));
     }
 
@@ -414,7 +614,6 @@ public class TestPropertyListConfiguration_OE25Dev {
     @Test
     public void testEmptyArray_2_oe() {
         final String key = "empty-array";
-        // removed other assertion
 
         final List<?> list = (List<?>) config.getProperty(key);
         assertTrue("array is not empty", list.isEmpty());
@@ -435,7 +634,6 @@ public class TestPropertyListConfiguration_OE25Dev {
         cal.clear();
         cal.set(2007, Calendar.OCTOBER, 29, 23, 4, 30);
         cal.setTimeZone(TimeZone.getTimeZone("GMT-0230"));
-        // removed other assertion
         cal.clear();
         cal.set(2007, Calendar.OCTOBER, 30, 22, 2, 15);
         cal.setTimeZone(TimeZone.getTimeZone("GMT+1111"));
@@ -450,7 +648,8 @@ public class TestPropertyListConfiguration_OE25Dev {
 
     @Test
     public void testLoad_1_oe() {
-        assertFalse("the configuration is empty", config.isEmpty());
+        boolean a = config.isEmpty();
+        assertFalse("the configuration is empty", a);
     }
 
     @Test
@@ -458,9 +657,8 @@ public class TestPropertyListConfiguration_OE25Dev {
         config = new PropertyListConfiguration();
         try {
             new FileHandler(config).load(new StringReader(""));
-            // removed other assertion
+            fail("No exception thrown on loading an empty file");
         } catch (final ConfigurationException e) {
-            // expected
             assertNotNull(e.getMessage());
     }
     }
@@ -471,7 +669,6 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
         assertNotNull("array not found", array);
     }
 
@@ -481,9 +678,6 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
         assertFalse("empty array", list.isEmpty());
@@ -495,12 +689,8 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
         assertEquals("size", 2, list.size());
     }
 
@@ -510,16 +700,9 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
-        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
         assertFalse("nested array 1 is empty", list1.isEmpty());
     }
@@ -530,18 +713,10 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
-        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
         assertEquals("size", 2, list1.size());
     }
 
@@ -551,19 +726,10 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
-        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
         assertEquals("1st element", "a", list1.get(0));
     }
 
@@ -573,20 +739,10 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
-        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("2nd element", "b", list1.get(1));
     }
 
@@ -596,24 +752,11 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
-        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // 2nd array
-        // removed other assertion
         final List<?> list2 = (List<?>) list.get(1);
         assertFalse("nested array 2 is empty", list2.isEmpty());
     }
@@ -624,26 +767,12 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
-        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // 2nd array
-        // removed other assertion
         final List<?> list2 = (List<?>) list.get(1);
-        // removed other assertion
         assertEquals("size", 2, list2.size());
     }
 
@@ -653,27 +782,12 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
-        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // 2nd array
-        // removed other assertion
         final List<?> list2 = (List<?>) list.get(1);
-        // removed other assertion
-        // removed other assertion
         assertEquals("1st element", "c", list2.get(0));
     }
 
@@ -683,94 +797,73 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
-        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // 2nd array
-        // removed other assertion
         final List<?> list2 = (List<?>) list.get(1);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("2nd element", "d", list2.get(1));
     }
 
     @Test
     public void testNestedDictionaries_1_oe() {
-        assertEquals("nested property", "value", config.getString("nested-dictionaries.foo.bar.key"));
+        String a = "value";
+        assertEquals("nested property", a, config.getString("nested-dictionaries.foo.bar.key"));
     }
 
     @Test
     public void testQuotedString_1_oe() {
-        assertEquals("quoted-string", "string2", config.getProperty("quoted-string"));
+        String a = "string2";
+        assertEquals("quoted-string", a, config.getProperty("quoted-string"));
     }
 
     @Test
     public void testQuotedString_2_oe() {
-        // removed other assertion
-        assertEquals("quoted-string2", "this is a string", config.getProperty("quoted-string2"));
+        String a = "this is a string";
+        assertEquals("quoted-string2", a, config.getProperty("quoted-string2"));
     }
 
     @Test
     public void testQuotedString_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertEquals("complex-string", "this is a \"complex\" string {(=,;)}", config.getProperty("complex-string"));
+        String a = "this is a \"complex\" string {(=,;)}";
+        assertEquals("complex-string", a, config.getProperty("complex-string"));
     }
 
     @Test
     public void testQuoteString_1_oe() {
-        assertNull("null string", config.quoteString(null));
+        Object a = config.quoteString(null);
+        assertNull("null string", a);
     }
 
     @Test
     public void testQuoteString_2_oe() {
-        // removed other assertion
-        assertEquals("simple string", "abcd", config.quoteString("abcd"));
+        String a = "abcd";
+        assertEquals("simple string", a, config.quoteString("abcd"));
     }
 
     @Test
     public void testQuoteString_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertEquals("string with a space", "\"ab cd\"", config.quoteString("ab cd"));
+        String a = "\"ab cd\"";
+        assertEquals("string with a space", a, config.quoteString("ab cd"));
     }
 
     @Test
     public void testQuoteString_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("string with a quote", "\"foo\\\"bar\"", config.quoteString("foo\"bar"));
+        String a = "\"foo\\\"bar\"";
+        assertEquals("string with a quote", a, config.quoteString("foo\"bar"));
     }
 
     @Test
     public void testQuoteString_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("string with a special char", "\"foo;bar\"", config.quoteString("foo;bar"));
+        String a = "\"foo;bar\"";
+        assertEquals("string with a special char", a, config.quoteString("foo;bar"));
     }
 
     @Test
     public void testSave_1_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
         assertTrue("The saved file doesn't exist", savedFile.exists());
     }
@@ -779,11 +872,8 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSave_2_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
-        // removed other assertion
 
-        // read the configuration and compare the properties
         final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
         load(checkConfig, savedFile);
 
@@ -798,18 +888,14 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSave_3_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
-        // removed other assertion
 
-        // read the configuration and compare the properties
         final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
         load(checkConfig, savedFile);
 
         final Iterator<String> it = config.getKeys();
         while (it.hasNext()) {
             final String key = it.next();
-            // removed other assertion
 
             final Object value = checkConfig.getProperty(key);
             if (value instanceof byte[]) {
@@ -823,23 +909,18 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSave_4_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
-        // removed other assertion
 
-        // read the configuration and compare the properties
         final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
         load(checkConfig, savedFile);
 
         final Iterator<String> it = config.getKeys();
         while (it.hasNext()) {
             final String key = it.next();
-            // removed other assertion
 
             final Object value = checkConfig.getProperty(key);
             if (value instanceof byte[]) {
                 final byte[] array = (byte[]) value;
-                // removed other assertion
             } else if (value instanceof List) {
                 final List<?> list1 = (List<?>) config.getProperty(key);
                 final List<?> list2 = (List<?>) value;
@@ -853,28 +934,22 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSave_5_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
-        // removed other assertion
 
-        // read the configuration and compare the properties
         final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
         load(checkConfig, savedFile);
 
         final Iterator<String> it = config.getKeys();
         while (it.hasNext()) {
             final String key = it.next();
-            // removed other assertion
 
             final Object value = checkConfig.getProperty(key);
             if (value instanceof byte[]) {
                 final byte[] array = (byte[]) value;
-                // removed other assertion
             } else if (value instanceof List) {
                 final List<?> list1 = (List<?>) config.getProperty(key);
                 final List<?> list2 = (List<?>) value;
 
-                // removed other assertion
 
                 for (int i = 0; i < list2.size(); i++) {
                     final Object value1 = list1.get(i);
@@ -893,28 +968,22 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSave_6_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
-        // removed other assertion
 
-        // read the configuration and compare the properties
         final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
         load(checkConfig, savedFile);
 
         final Iterator<String> it = config.getKeys();
         while (it.hasNext()) {
             final String key = it.next();
-            // removed other assertion
 
             final Object value = checkConfig.getProperty(key);
             if (value instanceof byte[]) {
                 final byte[] array = (byte[]) value;
-                // removed other assertion
             } else if (value instanceof List) {
                 final List<?> list1 = (List<?>) config.getProperty(key);
                 final List<?> list2 = (List<?>) value;
 
-                // removed other assertion
 
                 for (int i = 0; i < list2.size(); i++) {
                     final Object value1 = list1.get(i);
@@ -922,7 +991,6 @@ public class TestPropertyListConfiguration_OE25Dev {
 
                     if (value1 instanceof Configuration) {
                         final ConfigurationComparator comparator = new StrictConfigurationComparator();
-                        // removed other assertion
                     } else {
                         assertEquals("Element at index " + i + " for the key '" + key + "'", value1, value2);
     }
@@ -935,28 +1003,22 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSave_7_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
-        // removed other assertion
 
-        // read the configuration and compare the properties
         final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
         load(checkConfig, savedFile);
 
         final Iterator<String> it = config.getKeys();
         while (it.hasNext()) {
             final String key = it.next();
-            // removed other assertion
 
             final Object value = checkConfig.getProperty(key);
             if (value instanceof byte[]) {
                 final byte[] array = (byte[]) value;
-                // removed other assertion
             } else if (value instanceof List) {
                 final List<?> list1 = (List<?>) config.getProperty(key);
                 final List<?> list2 = (List<?>) value;
 
-                // removed other assertion
 
                 for (int i = 0; i < list2.size(); i++) {
                     final Object value1 = list1.get(i);
@@ -964,9 +1026,7 @@ public class TestPropertyListConfiguration_OE25Dev {
 
                     if (value1 instanceof Configuration) {
                         final ConfigurationComparator comparator = new StrictConfigurationComparator();
-                        // removed other assertion
                     } else {
-                        // removed other assertion
                     }
                 }
 
@@ -979,28 +1039,22 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSave_8_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
-        // removed other assertion
 
-        // read the configuration and compare the properties
         final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
         load(checkConfig, savedFile);
 
         final Iterator<String> it = config.getKeys();
         while (it.hasNext()) {
             final String key = it.next();
-            // removed other assertion
 
             final Object value = checkConfig.getProperty(key);
             if (value instanceof byte[]) {
                 final byte[] array = (byte[]) value;
-                // removed other assertion
             } else if (value instanceof List) {
                 final List<?> list1 = (List<?>) config.getProperty(key);
                 final List<?> list2 = (List<?>) value;
 
-                // removed other assertion
 
                 for (int i = 0; i < list2.size(); i++) {
                     final Object value1 = list1.get(i);
@@ -1008,13 +1062,10 @@ public class TestPropertyListConfiguration_OE25Dev {
 
                     if (value1 instanceof Configuration) {
                         final ConfigurationComparator comparator = new StrictConfigurationComparator();
-                        // removed other assertion
                     } else {
-                        // removed other assertion
                     }
                 }
 
-                // removed other assertion
             } else {
                 assertEquals("Value of the '" + key + "' property", config.getProperty(key), checkConfig.getProperty(key));
     }
@@ -1025,7 +1076,6 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSaveEmptyDictionary_1_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
         assertTrue("The saved file doesn't exist", savedFile.exists());
     }
@@ -1034,11 +1084,8 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSaveEmptyDictionary_2_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
-        // removed other assertion
 
-        // read the configuration and compare the properties
         final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
         load(checkConfig, savedFile);
 
@@ -1049,15 +1096,11 @@ public class TestPropertyListConfiguration_OE25Dev {
     public void testSaveEmptyDictionary_3_oe() throws Exception {
         final File savedFile = folder.newFile("testsave.plist");
 
-        // save the configuration
         saveConfig(savedFile);
-        // removed other assertion
 
-        // read the configuration and compare the properties
         final PropertyListConfiguration checkConfig = new PropertyListConfiguration();
         load(checkConfig, savedFile);
 
-        // removed other assertion
         assertFalse(getNamedChildren(checkConfig, "empty-dictionary").isEmpty());
     }
 
@@ -1088,7 +1131,6 @@ public class TestPropertyListConfiguration_OE25Dev {
         load(config2, saveFile);
         final Object array = config2.getProperty("foo");
 
-        // removed other assertion
         assertEquals("property type", byte[].class, array.getClass());
     }
 
@@ -1104,14 +1146,13 @@ public class TestPropertyListConfiguration_OE25Dev {
         load(config2, saveFile);
         final Object array = config2.getProperty("foo");
 
-        // removed other assertion
-        // removed other assertion
         ArrayAssert.assertEquals(expected, (byte[]) array);
     }
 
     @Test
     public void testString_1_oe() {
-        assertEquals("simple-string", "string1", config.getProperty("simple-string"));
+        String a = "string1";
+        assertEquals("simple-string", a, config.getProperty("simple-string"));
     }
 
 @Test
@@ -1125,8 +1166,6 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
         ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
     }
 
@@ -1136,15 +1175,9 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st dictionary
         ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(0));
     }
 
@@ -1154,21 +1187,11 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st dictionary
-        // removed other assertion
         final Configuration conf1 = (Configuration) list.get(0);
-        // removed other assertion
-        // removed other assertion
 
-        // 2nd dictionary
         ObjectAssert.assertInstanceOf("the dict element is not parsed as a Configuration", Configuration.class, list.get(1));
     }
 
@@ -1178,8 +1201,6 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
         ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, array);
     }
 
@@ -1189,15 +1210,9 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
         ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(0));
     }
 
@@ -1207,23 +1222,11 @@ public class TestPropertyListConfiguration_OE25Dev {
 
         final Object array = config.getProperty(key);
 
-        // root array
-        // removed other assertion
-        // removed other assertion
         final List<?> list = config.getList(key);
 
-        // removed other assertion
-        // removed other assertion
 
-        // 1st array
-        // removed other assertion
         final List<?> list1 = (List<?>) list.get(0);
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // 2nd array
         ObjectAssert.assertInstanceOf("the array element is not parsed as a List", List.class, list.get(1));
     }
 

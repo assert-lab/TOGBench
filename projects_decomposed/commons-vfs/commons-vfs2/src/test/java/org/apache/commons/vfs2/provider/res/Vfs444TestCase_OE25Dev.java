@@ -36,6 +36,58 @@ import org.junit.Test;
 public class Vfs444TestCase_OE25Dev extends AbstractProviderTestConfig {
 
     public static class Vfs444Tests extends AbstractProviderTestCase {
+
+        @Test
+        public void testResolveFullPathFile0() throws FileSystemException {
+            final FileObject result = getManager().resolveFile("res:test-data/test.zip");
+            Assert.assertTrue(result.exists());
+        }
+
+        @Test
+        public void testResolveFullPathFile1() throws FileSystemException {
+            final FileObject result = getManager().resolveFile("res:/test-data/test.zip");
+            Assert.assertTrue(result.exists());
+        }
+
+        @Test
+        public void testResolveFullPathFile2() throws FileSystemException {
+        	final FileObject result = getManager().resolveFile("res://test-data/test.zip");
+            Assert.assertTrue(result.exists());
+        }
+
+        @Test
+        public void testResolveFullPathURI0() throws FileSystemException {
+            final FileName result = getManager().resolveURI("res:test-data/test.zip");
+            Assert.assertTrue(result.isFile());
+        }
+
+        @Test
+        public void testResolveFullPathURI1() throws FileSystemException {
+            final FileName result = getManager().resolveURI("res:/test-data/test.zip");
+            Assert.assertTrue(result.isFile());
+        }
+
+        @Test
+        public void testResolveFullPathURI2() throws FileSystemException {
+            final FileName result = getManager().resolveURI("res://test-data/test.zip");
+            Assert.assertTrue(result.isFile());
+        }
+
+        @Test
+        public void testResolvePartialPath1() throws FileSystemException {
+            final FileName result = getManager().resolveURI("res:test-data");
+            Assert.assertTrue(result.isFile());
+        }
+
+        @Test
+        public void testResolvePartialPath2() throws FileSystemException {
+            final FileName root = getManager().resolveURI("res:test-data");
+            final FileName file = getManager().resolveName(root, "test.zip");
+            final String uri = file.getURI();
+            final FileObject result = getManager().resolveFile(uri);
+            Assert.assertNotNull(result);
+            Assert.assertTrue(result.exists());
+        }
     }
 
     public static junit.framework.Test suite() throws Exception {

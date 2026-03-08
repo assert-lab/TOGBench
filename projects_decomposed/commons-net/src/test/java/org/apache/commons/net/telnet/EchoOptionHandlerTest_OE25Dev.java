@@ -36,6 +36,12 @@ public class EchoOptionHandlerTest_OE25Dev extends TelnetOptionHandlerTestAbstra
     /**
      * test of the constructors.
      */
+    @Override
+    public void testConstructors()
+    {
+        assertEquals(opthand1.getOptionCode(), TelnetOption.ECHO);
+        super.testConstructors();
+    }
 
     /**
      * test of client-driven subnegotiation.

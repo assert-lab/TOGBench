@@ -39,6 +39,17 @@ public class JCSUnitTest_OE25Dev
     /**
      * @throws Exception
      */
+    public void testJCS()
+        throws Exception
+    {
+        final CacheAccess<String, LinkedList<HashMap<String, String>>> jcs = JCS.getInstance( "testCache1" );
+
+        final LinkedList<HashMap<String, String>> list = buildList();
+
+        jcs.put( "some:key", list );
+
+        assertEquals( list, jcs.get( "some:key" ) );
+    }
 
     /**
      * @return builds a list

@@ -22,6 +22,25 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class AbstractFileNameTest_OE25Dev {
+    @Test
+    public void testHashSignEncoded() {
+        final AbstractFileName fileName = new AbstractFileName("file", "/foo/bar/file#name.txt", FileType.FILE) {
+            @Override
+            protected void appendRootUri(final StringBuilder buffer, final boolean addPassword) {
+                if (addPassword) {
+                    buffer.append("pass");
+                }
+            }
+
+            @Override
+            public FileName createName(final String absolutePath, final FileType fileType) {
+                return null;
+            }
+        };
+
+        Assert.assertEquals("pass/foo/bar/file%23name.txt", fileName.getURI());
+        Assert.assertEquals("/foo/bar/file%23name.txt", fileName.getFriendlyURI());
+    }
 
     @Test
     public void testHashSignEncoded_1_oe() {

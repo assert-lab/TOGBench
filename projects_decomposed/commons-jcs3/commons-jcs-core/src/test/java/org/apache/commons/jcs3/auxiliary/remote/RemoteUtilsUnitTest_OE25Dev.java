@@ -42,6 +42,27 @@ public class RemoteUtilsUnitTest_OE25Dev
         assertNotNull("Registry should not be null", registry);
     }
 
+    public void testGetNamingURL()
+    {
+        assertEquals("//host:1/servicename", RemoteUtils.getNamingURL("host",1,"servicename"));
+        assertEquals("//127.0.0.1:2/servicename", RemoteUtils.getNamingURL("127.0.0.1",2,"servicename"));
+        assertEquals("//[0:0:0:0:0:0:0:1%251]:3/servicename", RemoteUtils.getNamingURL("0:0:0:0:0:0:0:1%1",3,"servicename"));
+    }
+
+    public void testParseServerAndPort()
+    {
+        RemoteLocation loc = RemoteLocation.parseServerAndPort("server1:1234");
+        assertEquals("server1", loc.getHost());
+        assertEquals(1234, loc.getPort());
+
+        loc = RemoteLocation.parseServerAndPort("  server2  :  4567  ");
+        assertEquals("server2", loc.getHost());
+        assertEquals(4567, loc.getPort());
+
+        loc = RemoteLocation.parseServerAndPort("server2  :  port");
+        assertNull(loc);
+    }
+
     public void testGetNamingURL_1_oe()
     {
         assertEquals("//host:1/servicename", RemoteUtils.getNamingURL("host",1,"servicename"));

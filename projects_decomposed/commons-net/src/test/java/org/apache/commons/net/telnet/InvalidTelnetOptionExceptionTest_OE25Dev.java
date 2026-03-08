@@ -41,6 +41,11 @@ public class InvalidTelnetOptionExceptionTest_OE25Dev extends TestCase
     /**
      * test of the constructors.
      */
+    public void testConstructors()
+    {
+        assertTrue(exc1.getMessage().indexOf(msg1) >= 0);
+        assertTrue(exc1.getMessage().indexOf("" +code1) >= 0);
+    }
 
     public void testConstructors_1_oe()
     {

@@ -32,6 +32,25 @@ public class QueueUtilTest_OE25Dev {
 	}
 
 	@Test
+	public void stack() {
+
+		Queue<String> stack = QueueUtil.createStack(10);
+		Queue<String> stack2 = QueueUtil.createConcurrentStack();
+
+		stack.offer("1");
+		stack.offer("2");
+		
+		assertThat(stack.poll()).isEqualTo("2");
+		assertThat(stack.poll()).isEqualTo("1");
+		
+		stack2.offer("1");
+		stack2.offer("2");
+		
+		assertThat(stack2.poll()).isEqualTo("2");
+		assertThat(stack2.poll()).isEqualTo("1");
+	}
+
+	@Test
 	public void stack_1_oe() {
 
 		Queue<String> stack = QueueUtil.createStack(10);

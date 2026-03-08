@@ -48,10 +48,69 @@ public class TimeTCPClientTest_OE25Dev extends TestCase
      *  tests the constant basetime used by TimeClient against tha
      *  computed from Calendar class.
      */
+    public void testInitial() {
+        final TimeZone utcZone = TimeZone.getTimeZone("UTC");
+        final Calendar calendar = Calendar.getInstance(utcZone);
+        calendar.set(1900, Calendar.JANUARY, 1, 0, 0, 0);
+        calendar.set(Calendar.MILLISECOND, 0);
+        final long baseTime = calendar.getTime().getTime() / 1000L;
+
+        assertEquals(baseTime, -TimeTCPClient.SECONDS_1900_TO_1970);
+    }
 
     /*
      * tests the times retrieved via the Time protocol implementation.
      */
+    public void testCompareTimes() throws Exception
+    {
+        openConnections();
+
+        long time, time2;
+        long clientTime, clientTime2;
+        final TimeTCPClient client = new TimeTCPClient();
+        try
+        {
+            // Not sure why code used to use getLocalHost.
+            final InetAddress localHost = InetAddress.getByName("localhost"); // WAS InetAddress.getLocalHost();
+            try
+            {
+                // We want to timeout if a response takes longer than 60 seconds
+                client.setDefaultTimeout(60000);
+                client.connect(localHost, _port);
+                clientTime = client.getDate().getTime();
+                time = System.currentTimeMillis();
+            } catch (final IOException e) { // catch the first connect error; assume second will work if this does
+                fail("IOError <"+e+"> trying to connect to " + localHost + " " + _port );
+                throw e;
+            } finally
+            {
+              if(client.isConnected()) {
+                  client.disconnect();
+              }
+            }
+
+            try
+            {
+                // We want to timeout if a response takes longer than 60 seconds
+                client.setDefaultTimeout(60000);
+                client.connect(localHost, _port);
+                clientTime2 = (client.getTime() - TimeTCPClient.SECONDS_1900_TO_1970)*1000L;
+                time2 = System.currentTimeMillis();
+            } finally
+            {
+              if(client.isConnected()) {
+                  client.disconnect();
+              }
+            }
+        } finally
+        {
+            closeConnections();
+        }
+
+        // current time shouldn't differ from time reported via network by 5 seconds
+        assertTrue(Math.abs(time - clientTime) < 5000);
+        assertTrue(Math.abs(time2 - clientTime2) < 5000);
+    }
 
     protected void closeConnections()
     {

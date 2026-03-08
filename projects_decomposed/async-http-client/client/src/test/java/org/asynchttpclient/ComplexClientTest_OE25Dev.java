@@ -25,6 +25,32 @@ import static org.testng.Assert.assertEquals;
 public class ComplexClientTest_OE25Dev extends AbstractBasicTest {
 
   @Test
+  public void multipleRequestsTest() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      String body = "hello there";
+
+      // once
+      Response response = c.preparePost(getTargetUrl()).setBody(body).setHeader("Content-Type", "text/html").execute().get(TIMEOUT, TimeUnit.SECONDS);
+
+      assertEquals(response.getResponseBody(), body);
+
+      // twice
+      response = c.preparePost(getTargetUrl()).setBody(body).setHeader("Content-Type", "text/html").execute().get(TIMEOUT, TimeUnit.SECONDS);
+
+      assertEquals(response.getResponseBody(), body);
+    }
+  }
+
+  @Test
+  public void urlWithoutSlashTest() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      String body = "hello there";
+      Response response = c.preparePost(String.format("http://localhost:%d/foo/test", port1)).setBody(body).setHeader("Content-Type", "text/html").execute().get(TIMEOUT, TimeUnit.SECONDS);
+      assertEquals(response.getResponseBody(), body);
+    }
+  }
+
+  @Test
   public void multipleRequestsTest_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient()) {
       String body = "hello there";

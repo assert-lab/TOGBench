@@ -56,6 +56,25 @@ public class JCSvsHashtablePerformanceTest_OE25Dev
      * A unit test for JUnit
      * @throws Exception Description of the Exception
      */
+    public void testSimpleLoad()
+        throws Exception
+    {
+        final Log log1 = LogManager.getLog( LRUMemoryCache.class );
+        if ( log1.isDebugEnabled() )
+        {
+            System.out.println( "The log level must be at info or above for the a performance test." );
+            return;
+        }
+        final Log log2 = LogManager.getLog( JCS.class );
+        if ( log2.isDebugEnabled() )
+        {
+            System.out.println( "The log level must be at info or above for the a performance test." );
+            return;
+        }
+        doWork();
+        assertTrue( this.ratioPut < target );
+        assertTrue( this.ratioGet < target );
+    }
 
     /**
      *

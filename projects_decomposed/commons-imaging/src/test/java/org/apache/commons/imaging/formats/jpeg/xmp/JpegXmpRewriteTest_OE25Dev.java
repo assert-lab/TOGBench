@@ -42,6 +42,71 @@ public class JpegXmpRewriteTest_OE25Dev extends JpegXmpBaseTest {
 
     @ParameterizedTest
     @MethodSource("data")
+    public void testRemoveInsertUpdate(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+        final JpegImagingParameters params = new JpegImagingParameters();
+        final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+        assertNotNull(xmpXml);
+
+        final File noXmpFile = File.createTempFile(imageFile.getName() + ".", ".jpg");
+        {
+            // test remove
+
+            try (FileOutputStream fos = new FileOutputStream(noXmpFile);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().removeXmpXml(byteSource, os);
+            }
+
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(noXmpFile));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(noXmpFile), params);
+            Assertions.assertNull(outXmp);
+        }
+
+        {
+            // test update
+
+            final String newXmpXml = "test";
+            final File updated = File.createTempFile(imageFile.getName() + ".", ".jpg");
+            try (FileOutputStream fos = new FileOutputStream(updated);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().updateXmpXml(byteSource, os, newXmpXml);
+            }
+
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(updated), params);
+            assertNotNull(outXmp);
+            assertEquals(outXmp, newXmpXml);
+        }
+
+        {
+            // test insert
+
+            final String newXmpXml = "test";
+            final File updated = File.createTempFile(imageFile.getName() + ".", ".jpg");
+            try (FileOutputStream fos = new FileOutputStream(updated);
+                    OutputStream os = new BufferedOutputStream(fos)) {
+                new JpegXmpRewriter().updateXmpXml(new ByteSourceFile(
+                        noXmpFile), os, newXmpXml);
+            }
+
+            // Debug.debug("Source Segments:");
+            // new JpegUtils().dumpJFIF(new ByteSourceFile(updated));
+
+            final String outXmp = new JpegImageParser().getXmpXml(
+                    new ByteSourceFile(updated), params);
+            assertNotNull(outXmp);
+            assertEquals(outXmp, newXmpXml);
+        }
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
     public void testRemoveInsertUpdate_1_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
         final JpegImagingParameters params = new JpegImagingParameters();

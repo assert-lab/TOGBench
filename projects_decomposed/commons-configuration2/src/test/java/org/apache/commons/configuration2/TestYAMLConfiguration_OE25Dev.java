@@ -59,6 +59,105 @@ public class TestYAMLConfiguration_OE25Dev {
     }
 
     @Test
+    public void testCopyConstructor() {
+        final BaseHierarchicalConfiguration c = new BaseHierarchicalConfiguration();
+        c.addProperty("foo", "bar");
+
+        yamlConfiguration = new YAMLConfiguration(c);
+        assertEquals("bar", yamlConfiguration.getString("foo"));
+    }
+
+    @Test
+    public void testGetProperty_dictionary() {
+        assertEquals("Martin D'vloper", yamlConfiguration.getProperty("martin.name"));
+        assertEquals("Developer", yamlConfiguration.getProperty("martin.job"));
+        assertEquals("Elite", yamlConfiguration.getProperty("martin.skill"));
+    }
+
+    @Test
+    public void testGetProperty_integer() {
+        final Object property = yamlConfiguration.getProperty("int1");
+        assertTrue("property should be an Integer", property instanceof Integer);
+        assertEquals(37, property);
+    }
+
+    @Test
+    public void testGetProperty_nested() {
+        assertEquals("value23", yamlConfiguration.getProperty("key2.key3"));
+    }
+
+    @Test
+    public void testGetProperty_nested_with_list() {
+        assertEquals(Arrays.asList("col1", "col2"), yamlConfiguration.getProperty("key4.key5"));
+    }
+
+    @Test
+    public void testGetProperty_simple() {
+        assertEquals("value1", yamlConfiguration.getProperty("key1"));
+    }
+
+    @Test
+    public void testGetProperty_subset() {
+        final Configuration subset = yamlConfiguration.subset("key4");
+        assertEquals(Arrays.asList("col1", "col2"), subset.getProperty("key5"));
+    }
+
+    @Test
+    public void testGetProperty_very_nested_properties() {
+        final Object property = yamlConfiguration.getProperty("very.nested.properties");
+        assertEquals(Arrays.asList("nested1", "nested2", "nested3"), property);
+    }
+
+    @Test
+    public void testObjectCreationFromReader() {
+        final File createdFile = new File(temporaryFolder.getRoot(), "data.txt");
+        final String yaml = "!!java.io.FileOutputStream [" + createdFile.getAbsolutePath() + "]";
+
+        try {
+            yamlConfiguration.read(new StringReader(yaml));
+            fail("Loading configuration did not cause an exception!");
+        } catch (final ConfigurationException e) {
+            // expected
+        }
+        assertFalse("Java object was created", createdFile.exists());
+    }
+
+    @Test
+    public void testObjectCreationFromStream() {
+        final File createdFile = new File(temporaryFolder.getRoot(), "data.txt");
+        final String yaml = "!!java.io.FileOutputStream [" + createdFile.getAbsolutePath() + "]";
+
+        try {
+            yamlConfiguration.read(new ByteArrayInputStream(yaml.getBytes(StandardCharsets.UTF_8)));
+            fail("Loading configuration did not cause an exception!");
+        } catch (final ConfigurationException e) {
+            // expected
+        }
+        assertFalse("Java object was created", createdFile.exists());
+    }
+
+    @Test
+    public void testSave() throws IOException, ConfigurationException {
+        // save the YAMLConfiguration as a String...
+        final StringWriter sw = new StringWriter();
+        yamlConfiguration.write(sw);
+        final String output = sw.toString();
+
+        // ..and then try parsing it back as using SnakeYAML
+        final Map parsed = new Yaml().loadAs(output, Map.class);
+        assertEquals(6, parsed.entrySet().size());
+        assertEquals("value1", parsed.get("key1"));
+
+        final Map key2 = (Map) parsed.get("key2");
+        assertEquals("value23", key2.get("key3"));
+
+        final List<String> key5 = (List<String>) ((Map) parsed.get("key4")).get("key5");
+        assertEquals(2, key5.size());
+        assertEquals("col1", key5.get(0));
+        assertEquals("col2", key5.get(1));
+    }
+
+    @Test
     public void testCopyConstructor_1_oe() {
         final BaseHierarchicalConfiguration c = new BaseHierarchicalConfiguration();
         c.addProperty("foo", "bar");
@@ -69,20 +168,20 @@ public class TestYAMLConfiguration_OE25Dev {
 
     @Test
     public void testGetProperty_dictionary_1_oe() {
-        assertEquals("Martin D'vloper", yamlConfiguration.getProperty("martin.name"));
+        Object a = yamlConfiguration.getProperty("martin.name");
+        assertEquals("Martin D'vloper", a);
     }
 
     @Test
     public void testGetProperty_dictionary_2_oe() {
-        // removed other assertion
-        assertEquals("Developer", yamlConfiguration.getProperty("martin.job"));
+        Object a = yamlConfiguration.getProperty("martin.job");
+        assertEquals("Developer", a);
     }
 
     @Test
     public void testGetProperty_dictionary_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Elite", yamlConfiguration.getProperty("martin.skill"));
+        Object a = yamlConfiguration.getProperty("martin.skill");
+        assertEquals("Elite", a);
     }
 
     @Test
@@ -94,23 +193,25 @@ public class TestYAMLConfiguration_OE25Dev {
     @Test
     public void testGetProperty_integer_2_oe() {
         final Object property = yamlConfiguration.getProperty("int1");
-        // removed other assertion
         assertEquals(37, property);
     }
 
     @Test
     public void testGetProperty_nested_1_oe() {
-        assertEquals("value23", yamlConfiguration.getProperty("key2.key3"));
+        Object a = yamlConfiguration.getProperty("key2.key3");
+        assertEquals("value23", a);
     }
 
     @Test
     public void testGetProperty_nested_with_list_1_oe() {
-        assertEquals(Arrays.asList("col1", "col2"), yamlConfiguration.getProperty("key4.key5"));
+        Object a = Arrays.asList("col1", "col2");
+        assertEquals(a, yamlConfiguration.getProperty("key4.key5"));
     }
 
     @Test
     public void testGetProperty_simple_1_oe() {
-        assertEquals("value1", yamlConfiguration.getProperty("key1"));
+        Object a = yamlConfiguration.getProperty("key1");
+        assertEquals("value1", a);
     }
 
     @Test
@@ -132,9 +233,7 @@ public class TestYAMLConfiguration_OE25Dev {
 
         try {
             yamlConfiguration.read(new StringReader(yaml));
-            // removed other assertion
         } catch (final ConfigurationException e) {
-            // expected
         }
         assertFalse("Java object was created", createdFile.exists());
     }
@@ -146,49 +245,38 @@ public class TestYAMLConfiguration_OE25Dev {
 
         try {
             yamlConfiguration.read(new ByteArrayInputStream(yaml.getBytes(StandardCharsets.UTF_8)));
-            // removed other assertion
         } catch (final ConfigurationException e) {
-            // expected
         }
         assertFalse("Java object was created", createdFile.exists());
     }
 
     @Test
     public void testSave_1_oe() throws IOException, ConfigurationException {
-        // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
         yamlConfiguration.write(sw);
         final String output = sw.toString();
 
-        // ..and then try parsing it back as using SnakeYAML
         final Map parsed = new Yaml().loadAs(output, Map.class);
         assertEquals(6, parsed.entrySet().size());
     }
 
     @Test
     public void testSave_2_oe() throws IOException, ConfigurationException {
-        // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
         yamlConfiguration.write(sw);
         final String output = sw.toString();
 
-        // ..and then try parsing it back as using SnakeYAML
         final Map parsed = new Yaml().loadAs(output, Map.class);
-        // removed other assertion
         assertEquals("value1", parsed.get("key1"));
     }
 
     @Test
     public void testSave_3_oe() throws IOException, ConfigurationException {
-        // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
         yamlConfiguration.write(sw);
         final String output = sw.toString();
 
-        // ..and then try parsing it back as using SnakeYAML
         final Map parsed = new Yaml().loadAs(output, Map.class);
-        // removed other assertion
-        // removed other assertion
 
         final Map key2 = (Map) parsed.get("key2");
         assertEquals("value23", key2.get("key3"));
@@ -196,18 +284,13 @@ public class TestYAMLConfiguration_OE25Dev {
 
     @Test
     public void testSave_4_oe() throws IOException, ConfigurationException {
-        // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
         yamlConfiguration.write(sw);
         final String output = sw.toString();
 
-        // ..and then try parsing it back as using SnakeYAML
         final Map parsed = new Yaml().loadAs(output, Map.class);
-        // removed other assertion
-        // removed other assertion
 
         final Map key2 = (Map) parsed.get("key2");
-        // removed other assertion
 
         final List<String> key5 = (List<String>) ((Map) parsed.get("key4")).get("key5");
         assertEquals(2, key5.size());
@@ -215,42 +298,29 @@ public class TestYAMLConfiguration_OE25Dev {
 
     @Test
     public void testSave_5_oe() throws IOException, ConfigurationException {
-        // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
         yamlConfiguration.write(sw);
         final String output = sw.toString();
 
-        // ..and then try parsing it back as using SnakeYAML
         final Map parsed = new Yaml().loadAs(output, Map.class);
-        // removed other assertion
-        // removed other assertion
 
         final Map key2 = (Map) parsed.get("key2");
-        // removed other assertion
 
         final List<String> key5 = (List<String>) ((Map) parsed.get("key4")).get("key5");
-        // removed other assertion
         assertEquals("col1", key5.get(0));
     }
 
     @Test
     public void testSave_6_oe() throws IOException, ConfigurationException {
-        // save the YAMLConfiguration as a String...
         final StringWriter sw = new StringWriter();
         yamlConfiguration.write(sw);
         final String output = sw.toString();
 
-        // ..and then try parsing it back as using SnakeYAML
         final Map parsed = new Yaml().loadAs(output, Map.class);
-        // removed other assertion
-        // removed other assertion
 
         final Map key2 = (Map) parsed.get("key2");
-        // removed other assertion
 
         final List<String> key5 = (List<String>) ((Map) parsed.get("key4")).get("key5");
-        // removed other assertion
-        // removed other assertion
         assertEquals("col2", key5.get(1));
     }
 

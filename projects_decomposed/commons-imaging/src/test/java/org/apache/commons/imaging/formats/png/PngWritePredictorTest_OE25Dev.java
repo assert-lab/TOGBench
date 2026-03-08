@@ -76,6 +76,63 @@ public class PngWritePredictorTest_OE25Dev {
   }
 
   @Test
+  void testWriteWithPredictor() {
+    int[] argb = populateARGB();
+
+    // Test the RGB (no alpha) case ---------------------
+    BufferedImage bImage = new BufferedImage(256, 256, BufferedImage.TYPE_INT_RGB);
+    bImage.setRGB(0, 0, 256, 256, argb, 0, 256);
+
+    File tempFile = null;
+
+    try {
+      tempFile = File.createTempFile("PngWritePredictorRGB", ".png");
+    } catch (IOException ioex) {
+      fail("Failed to create temporary file, " + ioex.getMessage());
+    }
+    PngImagingParameters params = new PngImagingParameters();
+    params.setPredictorEnabled(true);
+    PngImageParser parser = new PngImageParser();
+    try ( FileOutputStream fos = new FileOutputStream(tempFile);  BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+      parser.writeImage(bImage, bos, params);
+      bos.flush();
+    } catch (IOException | ImageWriteException ex) {
+      fail("Failed writing RGB with exception " + ex.getMessage());
+    }
+
+    try {
+      int[] brgb = new int[256 * 256];
+      bImage = ImageIO.read(tempFile);
+      bImage.getRGB(0, 0, 256, 256, brgb, 0, 256);
+      assertArrayEquals(argb, brgb, "Round trip for RGB failed");
+    } catch (IOException ex) {
+      fail("Failed reading RGB with exception " + ex.getMessage());
+    }
+
+     // Test the ARGB (some semi-transparent alpha) case ---------------------
+    for (int i = 0; i < 256; i++) {
+      argb[i * 256 + i] &= 0x88ffffff;
+    }
+    bImage = new BufferedImage(256, 256, BufferedImage.TYPE_INT_ARGB);
+    bImage.setRGB(0, 0, 256, 256, argb, 0, 256);
+    try ( FileOutputStream fos = new FileOutputStream(tempFile);  BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+      parser.writeImage(bImage, bos, params);
+      bos.flush();
+    } catch (IOException | ImageWriteException ex) {
+      fail("Failed writing ARGB with exception " + ex.getMessage());
+    }
+    try {
+      int[] brgb = new int[256 * 256];
+      bImage = ImageIO.read(tempFile);
+      bImage.getRGB(0, 0, 256, 256, brgb, 0, 256);
+      assertArrayEquals(argb, brgb, "Round trip for ARGB failed");
+    } catch (IOException ex) {
+      fail("Failed reading ARGB with exception " + ex.getMessage());
+    }
+
+  }
+
+  @Test
   void testWriteWithPredictor_1_oe() {
     int[] argb = populateARGB();
 

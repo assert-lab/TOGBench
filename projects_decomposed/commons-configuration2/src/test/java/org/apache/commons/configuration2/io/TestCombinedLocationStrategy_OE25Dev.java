@@ -152,14 +152,40 @@ public class TestCombinedLocationStrategy_OE25Dev {
     /**
      * Tests a failed locate() operation.
      */
+    @Test
+    public void testLocateFailed() {
+        EasyMock.expect(getSubStrategies()[0].locate(getFileSystem(), locator)).andReturn(null);
+        EasyMock.expect(getSubStrategies()[1].locate(getFileSystem(), locator)).andReturn(null);
+        replaySubStrategies();
+        final CombinedLocationStrategy strategy = createCombinedStrategy();
+        assertNull("Got a URL", strategy.locate(getFileSystem(), locator));
+        verifySubStrategies();
+    }
 
     /**
      * Tests a successful locate() operation if the first sub strategy can locate the file.
      */
+    @Test
+    public void testLocateSuccessFirstSubStrategy() {
+        EasyMock.expect(getSubStrategies()[0].locate(getFileSystem(), locator)).andReturn(locateURL);
+        replaySubStrategies();
+        final CombinedLocationStrategy strategy = createCombinedStrategy();
+        assertSame("Wrong result", locateURL, strategy.locate(getFileSystem(), locator));
+        verifySubStrategies();
+    }
 
     /**
      * Tests a successful locate() operation if the 2nd sub strategy can locate the file.
      */
+    @Test
+    public void testLocateSuccessSecondSubStrategy() {
+        EasyMock.expect(getSubStrategies()[0].locate(getFileSystem(), locator)).andReturn(null);
+        EasyMock.expect(getSubStrategies()[1].locate(getFileSystem(), locator)).andReturn(locateURL);
+        replaySubStrategies();
+        final CombinedLocationStrategy strategy = createCombinedStrategy();
+        assertSame("Wrong result", locateURL, strategy.locate(getFileSystem(), locator));
+        verifySubStrategies();
+    }
 
     /**
      * Verifies the mock objects for the sub strategies.

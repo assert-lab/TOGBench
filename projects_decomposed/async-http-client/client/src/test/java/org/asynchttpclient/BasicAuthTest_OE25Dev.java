@@ -101,6 +101,180 @@ public class BasicAuthTest_OE25Dev extends AbstractBasicTest {
     return new SimpleHandler();
   }
 
+  @Test
+  public void basicAuthTest() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.prepareGet(getTargetUrl())
+              .setRealm(basicAuthRealm(USER, ADMIN).build())
+              .execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertNotNull(resp.getHeader("X-Auth"));
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+    }
+  }
+
+  @Test
+  public void redirectAndBasicAuthTest() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient(config().setFollowRedirect(true).setMaxRedirects(10))) {
+      Future<Response> f = client.prepareGet(getTargetUrl2())
+              .setRealm(basicAuthRealm(USER, ADMIN).build())
+              .execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertNotNull(resp);
+      assertNotNull(resp.getHeader("X-Auth"));
+    }
+  }
+
+  @Test
+  public void basic401Test() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      BoundRequestBuilder r = client.prepareGet(getTargetUrl())
+              .setHeader("X-401", "401")
+              .setRealm(basicAuthRealm(USER, ADMIN).build());
+
+      Future<Integer> f = r.execute(new AsyncHandler<Integer>() {
+
+        private HttpResponseStatus status;
+
+        public void onThrowable(Throwable t) {
+
+        }
+
+        public State onBodyPartReceived(HttpResponseBodyPart bodyPart) {
+          return State.CONTINUE;
+        }
+
+        public State onStatusReceived(HttpResponseStatus responseStatus) {
+          this.status = responseStatus;
+
+          if (status.getStatusCode() != 200) {
+            return State.ABORT;
+          }
+          return State.CONTINUE;
+        }
+
+        public State onHeadersReceived(HttpHeaders headers) {
+          return State.CONTINUE;
+        }
+
+        public Integer onCompleted() {
+          return status.getStatusCode();
+        }
+      });
+      Integer statusCode = f.get(10, TimeUnit.SECONDS);
+      assertNotNull(statusCode);
+      assertEquals(statusCode.intValue(), 401);
+    }
+  }
+
+  @Test
+  public void basicAuthTestPreemptiveTest() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      // send the request to the no-auth endpoint to be able to verify the
+      // auth header is really sent preemptively for the initial call.
+      Future<Response> f = client.prepareGet(getTargetUrlNoAuth())
+              .setRealm(basicAuthRealm(USER, ADMIN).setUsePreemptiveAuth(true).build())
+              .execute();
+
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertNotNull(resp.getHeader("X-Auth"));
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+    }
+  }
+
+  @Test
+  public void basicAuthNegativeTest() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.prepareGet(getTargetUrl())
+              .setRealm(basicAuthRealm("fake", ADMIN).build())
+              .execute();
+
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), 401);
+    }
+  }
+
+  @Test
+  public void basicAuthInputStreamTest() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.preparePost(getTargetUrl())
+              .setBody(new ByteArrayInputStream("test".getBytes()))
+              .setRealm(basicAuthRealm(USER, ADMIN).build())
+              .execute();
+
+      Response resp = f.get(30, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertNotNull(resp.getHeader("X-Auth"));
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getResponseBody(), "test");
+    }
+  }
+
+  @Test
+  public void basicAuthFileTest() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Future<Response> f = client.preparePost(getTargetUrl())
+              .setBody(SIMPLE_TEXT_FILE)
+              .setRealm(basicAuthRealm(USER, ADMIN).build())
+              .execute();
+
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertNotNull(resp.getHeader("X-Auth"));
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
+    }
+  }
+
+  @Test
+  public void basicAuthAsyncConfigTest() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient(config().setRealm(basicAuthRealm(USER, ADMIN)))) {
+      Future<Response> f = client.preparePost(getTargetUrl())
+              .setBody(SIMPLE_TEXT_FILE_STRING)
+              .execute();
+
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertNotNull(resp.getHeader("X-Auth"));
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
+    }
+  }
+
+  @Test
+  public void basicAuthFileNoKeepAliveTest() throws Exception {
+    try (AsyncHttpClient client = asyncHttpClient(config().setKeepAlive(false))) {
+
+      Future<Response> f = client.preparePost(getTargetUrl())
+              .setBody(SIMPLE_TEXT_FILE)
+              .setRealm(basicAuthRealm(USER, ADMIN).build())
+              .execute();
+
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertNotNull(resp.getHeader("X-Auth"));
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getResponseBody(), SIMPLE_TEXT_FILE_STRING);
+    }
+  }
+
+  @Test
+  public void noneAuthTest() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      BoundRequestBuilder r = client.prepareGet(getTargetUrl()).setRealm(basicAuthRealm(USER, ADMIN).build());
+
+      Future<Response> f = r.execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertNotNull(resp.getHeader("X-Auth"));
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+    }
+  }
+
   private static class RedirectHandler extends AbstractHandler {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(RedirectHandler.class);

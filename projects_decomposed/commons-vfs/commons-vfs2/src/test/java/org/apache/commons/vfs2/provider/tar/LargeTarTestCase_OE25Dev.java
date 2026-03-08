@@ -176,6 +176,22 @@ public class LargeTarTestCase_OE25Dev {
     }
 
     @Test
+    public void testLargeFile() throws Exception {
+        final File realFile = new File(largeFilePath + largeFileName + ".tar.gz");
+
+        final FileObject file = manager.resolveFile("tgz:file://" + realFile.getCanonicalPath() + "!/");
+
+        assertNotNull(file);
+        final List<FileObject> files = Arrays.asList(file.getChildren());
+
+        assertNotNull(files);
+        assertEquals(1, files.size());
+        final FileObject f = files.get(0);
+
+        assertEquals("Expected file not found: " + largeFileName + ".txt", f.getName().getBaseName(), largeFileName + ".txt");
+    }
+
+    @Test
     public void testLargeFile_1_oe() throws Exception {
         final File realFile = new File(largeFilePath + largeFileName + ".tar.gz");
 

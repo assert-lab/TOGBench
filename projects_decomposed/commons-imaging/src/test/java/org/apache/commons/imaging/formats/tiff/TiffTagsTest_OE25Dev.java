@@ -24,6 +24,14 @@ import org.junit.jupiter.api.Test;
 public class TiffTagsTest_OE25Dev{
 
     @Test
+    public void testGetTagWithNegativeAndPositive() {
+        final TagInfo tagInfo = TiffTags.getTag((-1), 50933);
+
+        assertEquals((-1), tagInfo.tag);
+        assertEquals( "Unknown Tag", tagInfo.name );
+    }
+
+    @Test
     public void testGetTagWithNegativeAndPositive_1_oe() {
         final TagInfo tagInfo = TiffTags.getTag((-1), 50933);
 

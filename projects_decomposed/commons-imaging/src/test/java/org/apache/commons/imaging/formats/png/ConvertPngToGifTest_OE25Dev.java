@@ -31,6 +31,27 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 public class ConvertPngToGifTest_OE25Dev extends PngBaseTest {
 
     @Test
+    public void test() throws Exception {
+
+        final List<File> images = getPngImages();
+        for (final File imageFile : images) {
+
+            if (isInvalidPNGTestFile(imageFile))
+             {
+                continue;
+            }
+
+            final BufferedImage image = Imaging.getBufferedImage(imageFile);
+            assertNotNull(image);
+
+            final File outFile = File.createTempFile(imageFile.getName() + ".", ".gif");
+
+            Imaging.writeImage(image, outFile, ImageFormats.GIF);
+        }
+        Debug.debug("complete.");
+    }
+
+    @Test
     public void test_1_oe() throws Exception {
 
         final List<File> images = getPngImages();

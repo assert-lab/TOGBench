@@ -45,37 +45,81 @@ public final class PartitionTestUtils_OE25Dev {
      * @param expected
      * @param actual
      */
+    public static void assertPointsEqual(final TestPoint2D expected, final TestPoint2D actual) {
+        final String msg = "Expected points to equal " + expected + " but was " + actual + ";";
+        Assertions.assertEquals(expected.getX(), actual.getX(), EPS, msg);
+        Assertions.assertEquals(expected.getY(), actual.getY(), EPS, msg);
+    }
 
     /** Assert that two line segments are equal using the default test epsilon.
      * @param expected
      * @param actual
      */
+    public static void assertSegmentsEqual(final TestLineSegment expected, final TestLineSegment actual) {
+        final String msg = "Expected line segment to equal " + expected + " but was " + actual;
+
+        Assertions.assertEquals(expected.getStartPoint().getX(),actual.getStartPoint().getX(),EPS,msg);
+        Assertions.assertEquals(expected.getStartPoint().getY(),actual.getStartPoint().getY(),EPS,msg);
+
+        Assertions.assertEquals(expected.getEndPoint().getX(),actual.getEndPoint().getX(),EPS,msg);
+        Assertions.assertEquals(expected.getEndPoint().getY(),actual.getEndPoint().getY(),EPS,msg);
+    }
 
     /** Assert that all given points lie in the expected location of the region.
      * @param region region to test
      * @param location expected location of all points
      * @param points points to test
      */
+    public static void assertPointLocations(final Region<TestPoint2D> region, final RegionLocation location,
+            final TestPoint2D... points) {
+        assertPointLocations(region, location, Arrays.asList(points));
+    }
 
     /** Assert that all given points lie in the expected location of the region.
      * @param region region to test
      * @param location expected location of all points
      * @param points points to test
      */
+    public static void assertPointLocations(final Region<TestPoint2D> region, final RegionLocation location,
+            final List<TestPoint2D> points) {
+
+        for (final TestPoint2D p : points) {
+            Assertions.assertEquals(location, region.classify(p), "Unexpected location for point " + p);
+        }
+    }
 
     /** Assert that the given node is a consistent internal node.
      * @param node
      */
+    public static void assertIsInternalNode(final Node<?, ?> node) {
+        Assertions.assertNotNull(node.getCut());
+        Assertions.assertNotNull(node.getMinus());
+        Assertions.assertNotNull(node.getPlus());
+
+        Assertions.assertTrue(node.isInternal());
+        Assertions.assertFalse(node.isLeaf());
+    }
 
     /** Assert that the given node is a consistent leaf node.
      * @param node
      */
+    public static void assertIsLeafNode(final Node<?, ?> node) {
+        Assertions.assertNull(node.getCut());
+        Assertions.assertNull(node.getMinus());
+        Assertions.assertNull(node.getPlus());
+
+        Assertions.assertFalse(node.isInternal());
+        Assertions.assertTrue(node.isLeaf());
+    }
 
     /** Assert that the given tree for has a valid, consistent internal structure. This checks that all nodes
      * in the tree are owned by the tree, that the node depth values are correct, and the cut nodes have children
      * and non-cut nodes do not.
      * @param tree tree to check
      */
+    public static <P extends Point<P>, N extends BSPTree.Node<P, N>> void assertTreeStructure(final BSPTree<P, N> tree) {
+        assertTreeStructureRecursive(tree, tree.getRoot(), 0);
+    }
 
     /** Recursive method to assert that a tree has a valid internal structure.
      * @param tree tree to check

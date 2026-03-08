@@ -36,6 +36,100 @@ class AbstractTextFormatWriterTest_OE25Dev {
 
     private StringWriter out = new StringWriter();
 
+    @Test
+    void testDefaults() {
+        // act
+        try (TestWriter writer = new TestWriter(out)) {
+            // assert
+            Assertions.assertEquals("\n", writer.getLineSeparator());
+            Assertions.assertNotNull(writer.getDoubleFormat());
+            Assertions.assertSame(out, writer.getWriter());
+        }
+    }
+
+    @Test
+    void testWrite_defaultConfig() {
+        // arrange
+        final double n = 20000.0 / 3.0;
+        final CloseCountWriter closeCountWriter = new CloseCountWriter(out);
+        try (TestWriter writer = new TestWriter(closeCountWriter)) {
+            // act
+            writer.write('a');
+            writer.write("bc");
+            writer.writeNewLine();
+            writer.write(n);
+            writer.writeNewLine();
+            writer.write(Double.POSITIVE_INFINITY);
+            writer.writeNewLine();
+            writer.write(5);
+
+            // assert
+            Assertions.assertEquals("abc\n" + n + "\nInfinity\n5", out.toString());
+        }
+
+        Assertions.assertEquals(1, closeCountWriter.getCloseCount());
+    }
+
+    @Test
+    void testWrite_customConfig() {
+        // arrange
+        final CloseCountWriter closeCountWriter = new CloseCountWriter(out);
+        try (TestWriter writer = new TestWriter(closeCountWriter)) {
+
+            writer.setLineSeparator("\r\n");
+
+            final DecimalFormat fmt = new DecimalFormat("0.00", DecimalFormatSymbols.getInstance(Locale.ENGLISH));
+
+            final DoubleFunction<String> df = fmt::format;
+            writer.setDoubleFormat(df);
+
+            // act
+            writer.write('a');
+            writer.write("bc");
+            writer.writeNewLine();
+            writer.write(20000.0 / 3.0);
+            writer.writeNewLine();
+            writer.write(5);
+
+            // assert
+            Assertions.assertEquals("abc\r\n6666.67\r\n5", out.toString());
+        }
+
+        Assertions.assertEquals(1, closeCountWriter.getCloseCount());
+    }
+
+    @Test
+    void testWrite_failure() {
+        // arrange
+        final Writer failWriter = new Writer() {
+            @Override
+            public void write(char[] cbuf, int off, int len) throws IOException {
+                throw new IOException("test");
+            }
+
+            @Override
+            public void flush() {
+            }
+
+            @Override
+            public void close() {
+            }
+        };
+
+        // act/assert
+        try (TestWriter writer = new TestWriter(failWriter)) {
+            GeometryTestUtils.assertThrowsWithMessage(
+                    () -> writer.write('a'),
+                    UncheckedIOException.class,
+                    "IOException: test");
+
+            GeometryTestUtils.assertThrowsWithMessage(
+                    () -> writer.write("abc"),
+                    UncheckedIOException.class,
+                    "IOException: test");
+        }
+    }
+
     private static final class TestWriter extends AbstractTextFormatWriter {
 
         protected TestWriter(final Writer writer) {

@@ -25,6 +25,104 @@ import static org.junit.jupiter.api.Assertions.fail;
  * Test cases for the {@link FactorialDouble} class.
  */
 class FactorialDoubleTest_OE25Dev {
+    @Test
+    void testFactorialZero() {
+        Assertions.assertEquals(1, FactorialDouble.create().value(0), "0!");
+    }
+
+    @Test
+    void testFactorialDirect() {
+        for (int i = 1; i < 21; i++) {
+            Assertions.assertEquals(factorialDirect(i),FactorialDouble.create().value(i),i + "!");
+        }
+    }
+
+    @Test
+    void testLargestFactorialDouble() {
+        final int n = 170;
+        Assertions.assertNotEquals(Double.POSITIVE_INFINITY,FactorialDouble.create().value(n),()-> n + "!");
+    }
+
+    @Test
+    void testFactorialDoubleTooLarge() {
+        final int n = 171;
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,FactorialDouble.create().value(n),()-> n + "!");
+    }
+
+    @Test
+    void testNonPositiveArgumentWithCache() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> FactorialDouble.create().withCache(-1)
+        );
+    }
+
+    @Test
+    void testNonPositiveArgument() {
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> FactorialDouble.create().value(-1)
+        );
+    }
+
+    @Test
+    void testCompareDirectWithoutCache() {
+        // This test shows that delegating to the "Gamma" class will also lead to a
+        // less accurate result.
+
+        final int max = 100;
+        final FactorialDouble f = FactorialDouble.create();
+
+        for (int i = 0; i < max; i++) {
+            final double expected = factorialDirect(i);
+            Assertions.assertEquals(expected,f.value(i),100 * Math.ulp(expected),i + "! ");
+        }
+    }
+
+    @Test
+    void testCompareDirectWithCache() {
+        final int max = 100;
+        final FactorialDouble f = FactorialDouble.create().withCache(max);
+
+        for (int i = 0; i < max; i++) {
+            final double expected = factorialDirect(i);
+            Assertions.assertEquals(expected,f.value(i),100 * Math.ulp(expected),i + "! ");
+        }
+    }
+
+    @Test
+    void testCacheIncrease() {
+        final int max = 100;
+        final FactorialDouble f1 = FactorialDouble.create().withCache(max);
+        final FactorialDouble f2 = f1.withCache(2 * max);
+
+        final int val = max + max / 2;
+        Assertions.assertEquals(f1.value(val), f2.value(val));
+    }
+
+    @Test
+    void testZeroCache() {
+        // Ensure that no exception is thrown.
+        final FactorialDouble f = FactorialDouble.create().withCache(0);
+        Assertions.assertEquals(1, f.value(0));
+        Assertions.assertEquals(1, f.value(1));
+    }
+
+    @Test
+    void testUselessCache() {
+        Assertions.assertDoesNotThrow(() -> {
+            LogFactorial.create().withCache(1);
+            LogFactorial.create().withCache(2);
+        });
+    }
+
+    @Test
+    void testCacheDecrease() {
+        final int max = 100;
+        final FactorialDouble f1 = FactorialDouble.create().withCache(max);
+        final FactorialDouble f2 = f1.withCache(max / 2);
+
+        final int val = max / 4;
+        Assertions.assertEquals(f1.value(val), f2.value(val));
+    }
 
     /**
      * Direct multiplication implementation.

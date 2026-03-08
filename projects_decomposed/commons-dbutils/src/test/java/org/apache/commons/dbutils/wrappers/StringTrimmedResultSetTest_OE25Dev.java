@@ -34,10 +34,37 @@ public class StringTrimmedResultSetTest_OE25Dev extends BaseTestCase {
         this.rs = StringTrimmedResultSet.wrap(this.rs);
     }
 
+    public void testGetString() throws SQLException {
+        this.rs.next();
+        assertEquals("notInBean", rs.getString(4));
+    }
+
+    public void testGetObject() throws SQLException {
+        this.rs.next();
+        assertEquals("notInBean", rs.getObject(4));
+    }
+
     /**
      * Make sure 2 wrappers work together.
      * @throws SQLException if a database access error occurs
      */
+    public void testMultipleWrappers() throws Exception {
+        // Create a ResultSet with data
+        Object[][] rows = new Object[][] { { null }
+        };
+        ResultSet rs = MockResultSet.create(metaData, rows);
+
+        // Wrap the ResultSet with a null checked version
+        SqlNullCheckedResultSet ncrs = new SqlNullCheckedResultSet(rs);
+        ncrs.setNullString("   trim this   ");
+        rs = ProxyFactory.instance().createResultSet(ncrs);
+
+        // Wrap the wrapper with a string trimmed version
+        rs = StringTrimmedResultSet.wrap(rs);
+
+        rs.next();
+        assertEquals("trim this", rs.getString(1));
+    }
 
     public void testGetString_1_oe() throws SQLException {
         this.rs.next();

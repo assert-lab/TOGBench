@@ -36,6 +36,32 @@ public class ColorHsvTest_OE25Dev {
     }
 
     @Test
+    public void testHAssignment() {
+        assertEquals(1.0, color.H, 0.0);
+    }
+
+    @Test
+    public void testSAssignment() {
+        assertEquals(2.0, color.S, 0.0);
+    }
+
+    @Test
+    public void testVAssignment() {
+        assertEquals(3.0, color.V, 0.0);
+    }
+
+    @Test
+    public void testToString() {
+        assertEquals("{H: 1.0, S: 2.0, V: 3.0}", color.toString());
+    }
+
+    @Test
+    public void testHashCodeAndEquals() {
+        assertTrue(color.equals(colorCopy) && colorCopy.equals(color));
+        assertThat(color.hashCode(), is(colorCopy.hashCode()));
+    }
+
+    @Test
     public void testHAssignment_1_oe() {
         assertEquals(1.0, color.H, 0.0);
     }

@@ -72,6 +72,132 @@ class InteriorAngleGreatArcConnectorTest_OE25Dev {
         });
     }
 
+    @Test
+    void testConnectAll_maximize_instance() {
+        // arrange
+        final GreatArc a1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
+        final GreatArc a2 = GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
+        final GreatArc a3 = GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        final GreatArc b1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.MINUS_I, TEST_PRECISION);
+        final GreatArc b2 = GreatCircles.arcFromPoints(Point2S.MINUS_I, Point2S.MINUS_J, TEST_PRECISION);
+        final GreatArc b3 = GreatCircles.arcFromPoints(Point2S.MINUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        final InteriorAngleGreatArcConnector connector = new InteriorAngleGreatArcConnector.Maximize();
+
+        // act
+        final List<GreatArcPath> paths = connector.connectAll(Arrays.asList(b3, b1, a1, a3, b2, a2));
+
+        // assert
+        Assertions.assertEquals(1, paths.size());
+
+        assertPathPoints(paths.get(0),
+            Point2S.PLUS_K,
+            Point2S.MINUS_I,
+            Point2S.MINUS_J,
+            Point2S.PLUS_K,
+            Point2S.PLUS_I,
+            Point2S.PLUS_J,
+            Point2S.PLUS_K
+        );
+    }
+
+    @Test
+    void testConnectAll_maximize_method() {
+        // arrange
+        final GreatArc a1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
+        final GreatArc a2 = GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
+        final GreatArc a3 = GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        final GreatArc b1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.MINUS_I, TEST_PRECISION);
+        final GreatArc b2 = GreatCircles.arcFromPoints(Point2S.MINUS_I, Point2S.MINUS_J, TEST_PRECISION);
+        final GreatArc b3 = GreatCircles.arcFromPoints(Point2S.MINUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        // act
+        final List<GreatArcPath> paths = InteriorAngleGreatArcConnector.connectMaximized(
+                Arrays.asList(b3, b1, a1, a3, b2, a2));
+
+        // assert
+        Assertions.assertEquals(1, paths.size());
+
+        assertPathPoints(paths.get(0),
+            Point2S.PLUS_K,
+            Point2S.MINUS_I,
+            Point2S.MINUS_J,
+            Point2S.PLUS_K,
+            Point2S.PLUS_I,
+            Point2S.PLUS_J,
+            Point2S.PLUS_K
+        );
+    }
+
+    @Test
+    void testConnectAll_minimize_instance() {
+        // arrange
+        final GreatArc a1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
+        final GreatArc a2 = GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
+        final GreatArc a3 = GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        final GreatArc b1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.MINUS_I, TEST_PRECISION);
+        final GreatArc b2 = GreatCircles.arcFromPoints(Point2S.MINUS_I, Point2S.MINUS_J, TEST_PRECISION);
+        final GreatArc b3 = GreatCircles.arcFromPoints(Point2S.MINUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        final InteriorAngleGreatArcConnector connector = new InteriorAngleGreatArcConnector.Minimize();
+
+        // act
+        final List<GreatArcPath> paths = connector.connectAll(Arrays.asList(b3, b1, a1, a3, b2, a2));
+
+        // assert
+        Assertions.assertEquals(2, paths.size());
+
+        assertPathPoints(paths.get(0),
+            Point2S.PLUS_K,
+            Point2S.MINUS_I,
+            Point2S.MINUS_J,
+            Point2S.PLUS_K
+        );
+
+        assertPathPoints(paths.get(1),
+            Point2S.PLUS_K,
+            Point2S.PLUS_I,
+            Point2S.PLUS_J,
+            Point2S.PLUS_K
+        );
+    }
+
+    @Test
+    void testConnectAll_minimize_method() {
+        // arrange
+        final GreatArc a1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.PLUS_I, TEST_PRECISION);
+        final GreatArc a2 = GreatCircles.arcFromPoints(Point2S.PLUS_I, Point2S.PLUS_J, TEST_PRECISION);
+        final GreatArc a3 = GreatCircles.arcFromPoints(Point2S.PLUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        final GreatArc b1 = GreatCircles.arcFromPoints(Point2S.PLUS_K, Point2S.MINUS_I, TEST_PRECISION);
+        final GreatArc b2 = GreatCircles.arcFromPoints(Point2S.MINUS_I, Point2S.MINUS_J, TEST_PRECISION);
+        final GreatArc b3 = GreatCircles.arcFromPoints(Point2S.MINUS_J, Point2S.PLUS_K, TEST_PRECISION);
+
+        // act
+        final List<GreatArcPath> paths = InteriorAngleGreatArcConnector.connectMinimized(
+                Arrays.asList(b3, b1, a1, a3, b2, a2));
+
+        // assert
+        Assertions.assertEquals(2, paths.size());
+
+        assertPathPoints(paths.get(0),
+            Point2S.PLUS_K,
+            Point2S.MINUS_I,
+            Point2S.MINUS_J,
+            Point2S.PLUS_K
+        );
+
+        assertPathPoints(paths.get(1),
+            Point2S.PLUS_K,
+            Point2S.PLUS_I,
+            Point2S.PLUS_J,
+            Point2S.PLUS_K
+        );
+    }
+
     /**
      * Run the given consumer function twice, once with a Maximize instance and once with
      * a Minimize instance.

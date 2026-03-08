@@ -83,10 +83,46 @@ public class TestSystemConfiguration_OE25Dev {
     /**
      * Tests whether the configuration can be used to change system properties.
      */
+    @Test
+    public void testChangeSystemProperties() {
+        final String testProperty = "someTest";
+        final SystemConfiguration config = new SystemConfiguration();
+        config.setProperty(testProperty, "true");
+        assertEquals("System property not changed", "true", System.getProperty(testProperty));
+    }
+
+    @Test
+    public void testSetSystemProperties() {
+        final PropertiesConfiguration props = new PropertiesConfiguration();
+        props.addProperty("test.name", "Apache");
+        SystemConfiguration.setSystemProperties(props);
+        assertEquals("System Properties", "Apache", System.getProperty("test.name"));
+    }
 
     /**
      * Tests whether system properties can be set from a configuration file.
      */
+    @Test
+    public void testSetSystemPropertiesFromPropertiesFile() throws ConfigurationException, IOException {
+        final File file = folder.newFile("sys.properties");
+        final PropertiesConfiguration pconfig = new PropertiesConfiguration();
+        final FileHandler handler = new FileHandler(pconfig);
+        pconfig.addProperty("fromFile", Boolean.TRUE);
+        handler.setFile(file);
+        handler.save();
+        SystemConfiguration.setSystemProperties(handler.getBasePath(), handler.getFileName());
+        final SystemConfiguration sconf = new SystemConfiguration();
+        assertTrue("Property from file not found", sconf.getBoolean("fromFile"));
+    }
+
+    @Test
+    public void testSystemConfiguration() {
+        final Properties props = System.getProperties();
+        props.put("test.number", "123");
+
+        final Configuration conf = new SystemConfiguration();
+        assertEquals("number", 123, conf.getInt("test.number"));
+    }
 
     @Test
     public void testChangeSystemProperties_1_oe() {

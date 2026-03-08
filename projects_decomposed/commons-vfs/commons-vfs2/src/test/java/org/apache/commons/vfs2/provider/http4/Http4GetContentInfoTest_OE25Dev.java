@@ -99,12 +99,35 @@ public class Http4GetContentInfoTest_OE25Dev extends TestCase {
      *
      * @throws FileSystemException thrown when the getContentInfo API fails.
      */
+    @Test
+    public void testGetContentInfo() throws FileSystemException, MalformedURLException {
+        @SuppressWarnings("resource") // getManager() returns a global.
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = "http4://www.apache.org/licenses/LICENSE-2.0.txt";
+        try (final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxy());
+            final FileContent content = fo.getContent()) {
+            Assert.assertNotNull(content);
+            // Used to NPE before fix:
+            content.getContentInfo();
+        }
+    }
 
     /**
      * Tests VFS-782 pass correct proxy authentication credentials.
      *
      * @throws FileSystemException thrown when the authentication fails.
      */
+    @Test
+    public void testGetContentWithProxyAuthInfo() throws FileSystemException, MalformedURLException {
+        @SuppressWarnings("resource") // getManager() returns a global.
+        final FileSystemManager fsManager = VFS.getManager();
+        final String uri = "http4://www.apache.org/licenses/LICENSE-2.0.txt";
+        try (final FileObject fo = fsManager.resolveFile(uri, getOptionsWithProxyAuthentication());
+            final FileContent content = fo.getContent()) {
+            Assert.assertNotNull(content);
+            content.getContentInfo();
+        }
+    }
 
     @Test
     public void testGetContentInfo_1_oe() throws FileSystemException, MalformedURLException {

@@ -77,18 +77,55 @@ public class TestNodeUpdateData_OE25Dev {
     /**
      * Tests whether a defensive copy is created from the changed values.
      */
+    @Test
+    public void testInitChangedValuesDefensiveCopy() {
+        final Map<QueryResult<Object>, Object> map = new HashMap<>();
+        map.put(result("test"), "value");
+        final NodeUpdateData<Object> data = new NodeUpdateData<>(map, null, null, null);
+        map.put(result("anotherTest"), "anotherValue");
+        final Map<QueryResult<Object>, Object> changedValues = data.getChangedValues();
+        assertEquals("Wrong number of changed values", 1, changedValues.size());
+        assertEquals("Wrong changed value", "value", changedValues.get(result("test")));
+    }
 
     /**
      * Tests whether a defensive copy is created from the new values.
      */
+    @Test
+    public void testInitNewValuesDefensiveCopy() {
+        final Collection<Object> col = new LinkedList<>();
+        col.add(42);
+        final NodeUpdateData<Object> data = new NodeUpdateData<>(null, col, null, null);
+        col.add("anotherValue");
+        final Collection<Object> newValues = data.getNewValues();
+        assertEquals("Wrong number of new values", 1, newValues.size());
+        assertEquals("Wrong value", 42, newValues.iterator().next());
+    }
 
     /**
      * Tests whether null parameters for collections are converted to empty collections.
      */
+    @Test
+    public void testInitNoData() {
+        final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, null, null);
+        assertTrue("Got changed values", data.getChangedValues().isEmpty());
+        assertTrue("Got new values", data.getNewValues().isEmpty());
+        assertTrue("Got removed nodes", data.getRemovedNodes().isEmpty());
+    }
 
     /**
      * Tests whether a defensive copy is created from the removed nodes.
      */
+    @Test
+    public void testInitRemovedNodesDefensiveCopy() {
+        final Collection<QueryResult<Object>> col = new LinkedList<>();
+        col.add(result("n1"));
+        final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, col, null);
+        col.add(result("n2"));
+        final Collection<QueryResult<Object>> removedNodes = data.getRemovedNodes();
+        assertEquals("Wrong number of new values", 1, removedNodes.size());
+        assertEquals("Wrong value", result("n1"), removedNodes.iterator().next());
+    }
 
     @Test
     public void testInitChangedValuesDefensiveCopy_1_oe() {
@@ -107,7 +144,6 @@ public class TestNodeUpdateData_OE25Dev {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(map, null, null, null);
         map.put(result("anotherTest"), "anotherValue");
         final Map<QueryResult<Object>, Object> changedValues = data.getChangedValues();
-        // removed other assertion
         assertEquals("Wrong changed value", "value", changedValues.get(result("test")));
     }
 
@@ -128,7 +164,6 @@ public class TestNodeUpdateData_OE25Dev {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, col, null, null);
         col.add("anotherValue");
         final Collection<Object> newValues = data.getNewValues();
-        // removed other assertion
         assertEquals("Wrong value", 42, newValues.iterator().next());
     }
 
@@ -141,15 +176,12 @@ public class TestNodeUpdateData_OE25Dev {
     @Test
     public void testInitNoData_2_oe() {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, null, null);
-        // removed other assertion
         assertTrue("Got new values", data.getNewValues().isEmpty());
     }
 
     @Test
     public void testInitNoData_3_oe() {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, null, null);
-        // removed other assertion
-        // removed other assertion
         assertTrue("Got removed nodes", data.getRemovedNodes().isEmpty());
     }
 
@@ -170,7 +202,6 @@ public class TestNodeUpdateData_OE25Dev {
         final NodeUpdateData<Object> data = new NodeUpdateData<>(null, null, col, null);
         col.add(result("n2"));
         final Collection<QueryResult<Object>> removedNodes = data.getRemovedNodes();
-        // removed other assertion
         assertEquals("Wrong value", result("n1"), removedNodes.iterator().next());
     }
 

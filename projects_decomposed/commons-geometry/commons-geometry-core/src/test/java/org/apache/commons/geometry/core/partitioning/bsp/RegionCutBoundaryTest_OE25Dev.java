@@ -35,6 +35,44 @@ class RegionCutBoundaryTest_OE25Dev {
     private static final double TEST_EPS = 1e-10;
 
     @Test
+    void testProperties() {
+        // arrange
+        final List<HyperplaneConvexSubset<TestPoint2D>> insideFacing =
+                Collections.singletonList(new TestLineSegment(TestPoint2D.ZERO, new TestPoint2D(1, 0)));
+        final List<HyperplaneConvexSubset<TestPoint2D>> outsideFacing =
+                Collections.singletonList(new TestLineSegment(new TestPoint2D(-1, 0), TestPoint2D.ZERO));
+
+        // act
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(insideFacing, outsideFacing);
+
+        // assert
+        Assertions.assertNotSame(insideFacing, boundary.getInsideFacing());
+        Assertions.assertEquals(insideFacing, boundary.getInsideFacing());
+
+        Assertions.assertNotSame(outsideFacing, boundary.getOutsideFacing());
+        Assertions.assertEquals(outsideFacing, boundary.getOutsideFacing());
+    }
+
+    @Test
+    void testProperties_nullLists() {
+        // act
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
+
+        // assert
+        Assertions.assertEquals(0, boundary.getInsideFacing().size());
+        Assertions.assertEquals(0, boundary.getOutsideFacing().size());
+    }
+
+    @Test
+    void testGetSize_noSize() {
+        // act
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
+
+        // assert
+        Assertions.assertEquals(0, boundary.getSize(), TEST_EPS);
+    }
+
+    @Test
     void testGetSize_infinite() {
         // act
         final TestLine line = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
@@ -44,6 +82,125 @@ class RegionCutBoundaryTest_OE25Dev {
 
         // assert
         GeometryTestUtils.assertPositiveInfinity(boundary.getSize());
+    }
+
+    @Test
+    void testGetSize_finite() {
+        // act
+        final TestLine line = new TestLine(new TestPoint2D(0, 0), new TestPoint2D(1, 0));
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(
+                Arrays.asList(new TestLineSegment(1, 2, line), new TestLineSegment(3, 4, line)),
+                Collections.singletonList(new TestLineSegment(-3, -1, line)));
+
+        // assert
+        Assertions.assertEquals(4, boundary.getSize(), TEST_EPS);
+    }
+
+    @Test
+    void testClosest() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+        final TestPoint2D c = new TestPoint2D(1, 0);
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
+                Collections.singletonList(outsideFacing));
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(a, boundary.closest(new TestPoint2D(-2, 1)));
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-0.5, 0), boundary.closest(new TestPoint2D(-0.5, -1)));
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(TestPoint2D.ZERO));
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(0, 2)));
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(0.5, 0), boundary.closest(new TestPoint2D(0.5, 3)));
+        PartitionTestUtils.assertPointsEqual(c, boundary.closest(new TestPoint2D(1, -4)));
+        PartitionTestUtils.assertPointsEqual(c, boundary.closest(new TestPoint2D(3, -5)));
+    }
+
+    @Test
+    void testClosest_nullInsideFacing() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment outsideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, Collections.singletonList(outsideFacing));
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(a, boundary.closest(new TestPoint2D(-2, 1)));
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-0.5, 0), boundary.closest(new TestPoint2D(-0.5, -1)));
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(TestPoint2D.ZERO));
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(1, 2)));
+    }
+
+    @Test
+    void testClosest_nullOutsideFacing() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing), null);
+
+        // act/assert
+        PartitionTestUtils.assertPointsEqual(a, boundary.closest(new TestPoint2D(-2, 1)));
+        PartitionTestUtils.assertPointsEqual(new TestPoint2D(-0.5, 0), boundary.closest(new TestPoint2D(-0.5, -1)));
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(TestPoint2D.ZERO));
+        PartitionTestUtils.assertPointsEqual(b, boundary.closest(new TestPoint2D(1, 2)));
+    }
+
+    @Test
+    void testClosest_nullInsideAndOutsideFacing() {
+        // arrange
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
+
+        // act/assert
+        Assertions.assertNull(boundary.closest(TestPoint2D.ZERO));
+        Assertions.assertNull(boundary.closest(new TestPoint2D(1, 1)));
+    }
+
+    @Test
+    void testContains() {
+        // arrange
+        final TestPoint2D a = new TestPoint2D(-1, 0);
+        final TestPoint2D b = TestPoint2D.ZERO;
+        final TestPoint2D c = new TestPoint2D(1, 0);
+
+        final TestLineSegment insideFacing = new TestLineSegment(a, b);
+        final TestLineSegment outsideFacing = new TestLineSegment(b, c);
+
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(Collections.singletonList(insideFacing),
+                Collections.singletonList(outsideFacing));
+
+        // act/assert
+        Assertions.assertFalse(boundary.contains(new TestPoint2D(-2, 0)));
+
+        Assertions.assertTrue(boundary.contains(new TestPoint2D(-1, 0)));
+        Assertions.assertTrue(boundary.contains(new TestPoint2D(-0.5, 0)));
+        Assertions.assertTrue(boundary.contains(new TestPoint2D(0, 0)));
+        Assertions.assertTrue(boundary.contains(new TestPoint2D(0.5, 0)));
+        Assertions.assertTrue(boundary.contains(new TestPoint2D(1, 0)));
+
+        Assertions.assertFalse(boundary.contains(new TestPoint2D(2, 0)));
+
+        Assertions.assertFalse(boundary.contains(new TestPoint2D(-1, 1)));
+        Assertions.assertFalse(boundary.contains(new TestPoint2D(0, -1)));
+        Assertions.assertFalse(boundary.contains(new TestPoint2D(1, 1)));
+    }
+
+    @Test
+    void testContains_nullHyperplaneSubsets() {
+        // arrange
+        final RegionCutBoundary<TestPoint2D> boundary = new RegionCutBoundary<>(null, null);
+
+        // act/assert
+        Assertions.assertFalse(boundary.contains(new TestPoint2D(-1, 0)));
+        Assertions.assertFalse(boundary.contains(new TestPoint2D(0, 0)));
+        Assertions.assertFalse(boundary.contains(new TestPoint2D(1, 0)));
     }
 
     @Test

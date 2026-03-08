@@ -32,6 +32,40 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
+    void testGetBounds_noBoundaries() {
+        // arrange
+        final BoundarySource3D src = BoundarySource3D.of(new ArrayList<>());
+        final BoundarySourceBoundsBuilder3D builder = new BoundarySourceBoundsBuilder3D();
+
+        // act
+        final Bounds3D b = builder.getBounds(src);
+
+        // assert
+        Assertions.assertNull(b);
+    }
+
+    @Test
+    void testGetBounds_singleFiniteBoundary() {
+        // arrange
+        final ConvexPolygon3D poly = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(1, 1, 1),
+                Vector3D.of(1, 0, 2),
+                Vector3D.of(3, 4, 5)), TEST_PRECISION);
+
+        final BoundarySource3D src = BoundarySource3D.of(poly);
+        final BoundarySourceBoundsBuilder3D builder = new BoundarySourceBoundsBuilder3D();
+
+        // act
+        final Bounds3D b = builder.getBounds(src);
+
+        // assert
+        checkBounds(b, Vector3D.of(1, 0, 1), Vector3D.of(3, 4, 5));
+        for (final Vector3D pt : poly.getVertices()) {
+            Assertions.assertTrue(b.contains(pt));
+        }
+    }
+
+    @Test
     void testGetBounds_multipleFiniteBoundaries() {
         // arrange
         final ConvexPolygon3D poly1 = Planes.convexPolygonFromVertices(Arrays.asList(
@@ -63,6 +97,54 @@ class BoundarySourceBoundsBuilder3DTest_OE25Dev {
                 Assertions.assertTrue(b.contains(pt));
             }
         });
+    }
+
+    @Test
+    void testGetBounds_singleInfiniteBoundary() {
+        // arrange
+        final PlaneConvexSubset boundary = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION)
+                .span();
+        final BoundarySource3D src = BoundarySource3D.of(boundary);
+        final BoundarySourceBoundsBuilder3D builder = new BoundarySourceBoundsBuilder3D();
+
+        // act
+        final Bounds3D b = builder.getBounds(src);
+
+        // assert
+        Assertions.assertNull(b);
+    }
+
+    @Test
+    void testGetBounds_mixedFiniteAndInfiniteBoundaries() {
+        // arrange
+        final PlaneConvexSubset inf = Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Z, TEST_PRECISION)
+                .span()
+                .split(Planes.fromPointAndNormal(Vector3D.ZERO, Vector3D.Unit.PLUS_Y, TEST_PRECISION))
+                .getMinus();
+
+        final ConvexPolygon3D poly1 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(1, 1, 1),
+                Vector3D.of(1, 0, 2),
+                Vector3D.of(3, 4, 5)), TEST_PRECISION);
+
+        final ConvexPolygon3D poly2 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(-1, 1, 1),
+                Vector3D.of(1, 4, 4),
+                Vector3D.of(7, 4, 5)), TEST_PRECISION);
+
+        final ConvexPolygon3D poly3 = Planes.convexPolygonFromVertices(Arrays.asList(
+                Vector3D.of(-2, 1, 1),
+                Vector3D.of(1, 7, 2),
+                Vector3D.of(5, 4, 10)), TEST_PRECISION);
+
+        final BoundarySource3D src = BoundarySource3D.of(poly1, poly2, inf, poly3);
+        final BoundarySourceBoundsBuilder3D builder = new BoundarySourceBoundsBuilder3D();
+
+        // act
+        final Bounds3D b = builder.getBounds(src);
+
+        // assert
+        Assertions.assertNull(b);
     }
 
     private static void checkBounds(final Bounds3D b, final Vector3D min, final Vector3D max) {

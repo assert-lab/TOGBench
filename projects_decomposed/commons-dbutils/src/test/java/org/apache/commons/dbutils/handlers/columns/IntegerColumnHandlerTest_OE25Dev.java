@@ -32,6 +32,12 @@ public class IntegerColumnHandlerTest_OE25Dev extends ColumnHandlerTestBase {
 
     @Override
     @Test
+    public void testMatchNegative() {
+        assertFalse(handler.match(Float.class));
+    }
+
+    @Override
+    @Test
     public void testApplyType() throws Exception {
         when(rs.getInt(1)).thenReturn(Integer.MIN_VALUE);
         assertEquals(Integer.class, handler.apply(rs, 1).getClass());

@@ -3,7 +3,7 @@
 #!/bin/bash
 set -e
 
-folder="projects_decomposed/JSON-java"
+folder="projects_decomposed/joda-time"
 
 echo "running $folder"
 cd "$folder"

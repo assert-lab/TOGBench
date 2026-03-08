@@ -54,6 +54,20 @@ public class JCSvsCommonsLRUMapPerformanceTest_OE25Dev
      * @throws Exception
      *                Description of the Exception
      */
+    public void testSimpleLoad()
+        throws Exception
+    {
+        final Log log = LogManager.getLog( LRUMap.class );
+        if ( log.isDebugEnabled() )
+        {
+            System.out.println( "The log level must be at info or above for the a performance test." );
+            return;
+        }
+
+        doWork();
+        assertTrue( this.ratioPut < target );
+        assertTrue( this.ratioGet < target );
+    }
 
     /**
      *

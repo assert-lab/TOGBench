@@ -90,6 +90,77 @@ public class StaticFilesMemberTest_OE25Dev {
         Spark.awaitInitialization();
     }
 
+    @Test
+    public void testStaticFileCssStyleCss() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/css/style.css", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("Content of css file", response.body);
+
+        testGet();
+    }
+
+    @Test
+    public void testStaticFileMjs() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/js/module.mjs", null);
+
+        String expectedContentType = response.headers.get("Content-Type");
+        Assert.assertEquals(expectedContentType, "application/javascript");
+
+        String body = response.body;
+        Assert.assertEquals("export default function () { console.log(\"Hello, I'm a .mjs file\"); }\n", body);
+    }
+
+    @Test
+    public void testStaticFilePagesIndexHtml() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/pages/index.html", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("<html><body>Hello Static World!</body></html>", response.body);
+
+        testGet();
+    }
+
+    @Test
+    public void testStaticFilePageHtml() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/page.html", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("<html><body>Hello Static Files World!</body></html>", response.body);
+
+        testGet();
+    }
+
+    @Test
+    public void testExternalStaticFile() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/externalFile.html", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("Content of external file", response.body);
+
+        testGet();
+    }
+
+    @Test
+    public void testStaticFileHeaders() throws Exception {
+        staticFiles.headers(new HashMap() {
+            {
+                put("Server", "Microsoft Word");
+                put("Cache-Control", "private, max-age=600");
+            }
+        });
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/pages/index.html", null);
+        Assert.assertEquals("Microsoft Word", response.headers.get("Server"));
+        Assert.assertEquals("private, max-age=600", response.headers.get("Cache-Control"));
+
+        testGet();
+    }
+
+    @Test
+    public void testStaticFileExpireTime() throws Exception {
+        staticFiles.expireTime(600);
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/pages/index.html", null);
+        Assert.assertEquals("private, max-age=600", response.headers.get("Cache-Control"));
+
+        testGet();
+    }
+
     /**
      * Used to verify that "normal" functionality works after static files mapping
      */
@@ -98,6 +169,14 @@ public class StaticFilesMemberTest_OE25Dev {
 
         Assert.assertEquals(200, response.status);
         Assert.assertTrue(response.body.contains(FO_SHIZZY));
+    }
+
+    @Test
+    public void testExceptionMapping404() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("GET", "/filethatdoesntexist.html", null);
+
+        Assert.assertEquals(404, response.status);
+        Assert.assertEquals(NOT_FOUND_BRO, response.body);
     }
 
     @Test

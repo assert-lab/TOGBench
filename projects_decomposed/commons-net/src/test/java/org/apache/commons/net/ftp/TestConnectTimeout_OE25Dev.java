@@ -29,6 +29,22 @@ import junit.framework.TestCase;
  */
 public class TestConnectTimeout_OE25Dev extends TestCase {
 
+    public void testConnectTimeout() throws SocketException, IOException {
+        final FTPClient client = new FTPClient();
+        client.setConnectTimeout(1000);
+
+        try {
+            // Connect to a valid host on a bogus port
+            // TODO use a local server if possible
+            client.connect("www.apache.org", 1234);
+            fail("Expecting an Exception");
+        } catch (final ConnectException | SocketTimeoutException | UnknownHostException ue) {
+            // Not much we can do about this, we may be firewalled
+            assertTrue(true);
+        }
+
+    }
+
     public void testConnectTimeout_2_oe() throws SocketException, IOException {
         final FTPClient client = new FTPClient();
         client.setConnectTimeout(1000);

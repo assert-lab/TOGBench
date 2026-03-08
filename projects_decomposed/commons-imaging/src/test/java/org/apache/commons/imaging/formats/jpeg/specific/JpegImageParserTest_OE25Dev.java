@@ -37,6 +37,18 @@ public class JpegImageParserTest_OE25Dev {
      * @throws ImageReadException
      * @throws IOException
      */
+    @Test
+    public void testGetBufferedImage10() throws ImageReadException, IOException {
+        final File imageFile = new File(
+                JpegDecoderTest.class.getResource("/IMAGING-136/1402522741337.jpg")
+                .getFile());
+        final JpegImageParser parser = new JpegImageParser();
+        final BufferedImage image = parser.getBufferedImage(new ByteSourceFile(imageFile), null);
+        assertEquals(680, image.getWidth());
+        assertEquals(241, image.getHeight());
+        assertEquals(-16777216, image.getRGB(0, 0));
+        assertEquals(-12177367, image.getRGB(198, 13));
+    }
 
     @Test
     public void testGetBufferedImage10_1_oe() throws ImageReadException, IOException {

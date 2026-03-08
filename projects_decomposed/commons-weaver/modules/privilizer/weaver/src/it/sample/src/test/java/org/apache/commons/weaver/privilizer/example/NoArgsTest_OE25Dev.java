@@ -43,12 +43,38 @@ public class NoArgsTest_OE25Dev {
     }
 
     @Test
+    public void testGetFoo() {
+        assertEquals("foo-value", noArgs.getFoo());
+    }
+
+    @Test
+    public void testGetTrue() {
+        assertSame(Boolean.TRUE, noArgs.getTrue());
+    }
+
+    @Test
+    public void testGetFalse() {
+        assertFalse(noArgs.getFalse());
+    }
+
+    @Test
     public void testThrowingCheckedException1() {
         try {
             noArgs.throwingCheckedException1();
             fail();
         } catch (CheckedException1 e) {
         }
+    }
+
+    @Test
+    public void testThrowingCheckedException2() {
+        try {
+            noArgs.throwingCheckedException2();
+        } catch (CheckedException1 e) {
+        } catch (CheckedException2 e) {
+            return;
+        }
+        fail();
     }
 
     @Test

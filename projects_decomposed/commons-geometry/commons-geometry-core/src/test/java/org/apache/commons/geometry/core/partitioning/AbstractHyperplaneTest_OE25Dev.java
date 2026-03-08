@@ -25,6 +25,48 @@ import org.junit.jupiter.api.Test;
 
 class AbstractHyperplaneTest_OE25Dev {
 
+    @Test
+    void testGetPrecision() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        Assertions.assertSame(precision, hyper.getPrecision());
+    }
+
+    @Test
+    void testClassify() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        Assertions.assertEquals(HyperplaneLocation.MINUS, hyper.classify(new TestPoint2D(1, 1)));
+
+        Assertions.assertEquals(HyperplaneLocation.ON, hyper.classify(new TestPoint2D(1, 0.09)));
+        Assertions.assertEquals(HyperplaneLocation.ON, hyper.classify(new TestPoint2D(1, 0)));
+        Assertions.assertEquals(HyperplaneLocation.ON, hyper.classify(new TestPoint2D(1, -0.09)));
+
+        Assertions.assertEquals(HyperplaneLocation.PLUS, hyper.classify(new TestPoint2D(1, -1)));
+    }
+
+    @Test
+    void testContains() {
+        // arrange
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-1);
+        final StubHyperplane hyper = new StubHyperplane(precision);
+
+        // act/assert
+        Assertions.assertFalse(hyper.contains(new TestPoint2D(1, 1)));
+
+        Assertions.assertTrue(hyper.contains(new TestPoint2D(1, 0.09)));
+        Assertions.assertTrue(hyper.contains(new TestPoint2D(1, 0)));
+        Assertions.assertTrue(hyper.contains(new TestPoint2D(1, -0.09)));
+
+        Assertions.assertFalse(hyper.contains(new TestPoint2D(1, -1)));
+    }
+
     private static class StubHyperplane extends AbstractHyperplane<TestPoint2D> {
 
         StubHyperplane(final Precision.DoubleEquivalence precision) {

@@ -34,6 +34,20 @@ public class InvertIncludeFileSelectorTest_OE25Dev {
     }
 
     @Test
+    public void testInvertMatchAll() throws Exception {
+        final FileObject[] list = PatternFileSelectorTest.getBaseFolder()
+                .findFiles(new InvertIncludeFileSelector(new PatternFileSelector(".*")));
+        Assert.assertEquals(0, list.length);
+    }
+
+    @Test
+    public void testInvertMatchSome() throws Exception {
+        final FileObject[] list = PatternFileSelectorTest.getBaseFolder()
+                .findFiles(new InvertIncludeFileSelector(new PatternFileSelector(".*\\.html")));
+        Assert.assertEquals(7, list.length);
+    }
+
+    @Test
     public void testInvertMatchAll_1_oe() throws Exception {
         final FileObject[] list = PatternFileSelectorTest.getBaseFolder()
                 .findFiles(new InvertIncludeFileSelector(new PatternFileSelector(".*")));

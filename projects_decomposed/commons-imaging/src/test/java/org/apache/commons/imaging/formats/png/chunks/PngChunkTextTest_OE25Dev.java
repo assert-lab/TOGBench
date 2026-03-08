@@ -25,6 +25,18 @@ import org.junit.jupiter.api.Test;
 public class PngChunkTextTest_OE25Dev{
 
     @Test
+    public void testCreatesPngChunkText() {
+        final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
+        try {
+            new PngChunkText(1214, 1214, 0, byteArray);
+            fail("Expecting exception: Exception");
+        } catch(final Throwable e) {
+            assertEquals("PNG tEXt chunk keyword is not terminated.",e.getMessage());
+            assertEquals(PngChunkText.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }
+
+    @Test
     public void testCreatesPngChunkText_2_oe() {
         final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
         try {

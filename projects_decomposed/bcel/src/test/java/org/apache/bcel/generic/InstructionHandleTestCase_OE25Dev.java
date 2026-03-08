@@ -25,6 +25,30 @@ public class InstructionHandleTestCase_OE25Dev {
     // Test that setInstruction only allows Instructions that are not BranchInstructions
 
     @Test(expected=ClassGenException.class)
+    public void testsetInstructionNull() {
+        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);
+        ih.setInstruction(null);
+        Assert.assertNotNull(ih);
+    }
+
+    @Test
+    public void testsetInstructionI() {
+        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);
+        ih.setInstruction(new NOP());
+        Assert.assertNotNull(ih);
+    }
+
+    @Test(expected=ClassGenException.class)
+    public void testsetInstructionnotI() {
+        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);
+        ih.setInstruction(new GOTO(null));
+        Assert.assertNotNull(ih);
+    }
+
+    @Test(expected=ClassGenException.class)
     public void testGetIHnull() {
         InstructionHandle.getInstructionHandle(null);
     }

@@ -118,30 +118,107 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
     /**
      * Test of interpretPixel method, of class PhotometricInterpreterFloat.
      */
+    @Test
+    public void testInterpretPixel() {
+        for (int i = 0; i < 256; i++) {
+            final int lowTest = (i / 32) * 32;
+            final int argb = imageBuilder.getRGB(i, i);
+            final int b = argb & 0xff;
+            assertEquals(b, lowTest, "Invalid conversion for level " + i);
+        }
+
+        // nothing should match the i=256 case.
+        // The last entry in the palette has values
+        // in the range  224.0/256.0 <= value < 256.0/256.0.  So when it
+        // was rendered, there was not palette entry that matched it,
+        // and the corresponding pixel was set to zero.
+        int argb = imageBuilder.getRGB(256, 256);
+        assertEquals(argb, 0, "Invalid upper-bound test");
+
+        // Now inspect the banded palette case
+        argb = bandedImageBuilder.getRGB(0, 0);
+        assertEquals(Color.gray.getRGB(), argb, "Invalid mapping of NaN");
+        argb = bandedImageBuilder.getRGB(50, 10);
+        assertEquals(green.getRGB(), argb, "Invalid mapping of green range");
+        argb = bandedImageBuilder.getRGB(150, 10);
+        assertEquals(Color.white.getRGB(), argb, "Invalid mapping of white range");
+        argb = bandedImageBuilder.getRGB(250, 10);
+        assertEquals(orange.getRGB(), argb, "Invalid mapping of orange range");
+    }
 
     /**
      * Test of getMinFound method, of class PhotometricInterpreterFloat.
      */
+    @Test
+    public void testGetMinFound() {
+        final float expResult = 0.0F;
+        final float result = pInterp.getMinFound();
+        assertEquals(expResult, result, 0.0, "Invalid minimum value");
+    }
 
     /**
      * Test of getMaxXY method, of class PhotometricInterpreterFloat.
      */
+    @Test
+    public void testGetMaxXY() {
+        final int[] expResult = new int[]{256, 256};
+        final int[] result = pInterp.getMaxXY();
+        assertArrayEquals(expResult, result);
+    }
 
     /**
      * Test of getMaxFound method, of class PhotometricInterpreterFloat.
      */
+    @Test
+    public void testGetMaxFound() {
+        final float expResult = 1.0F;
+        final float result = pInterp.getMinFound();
+        assertEquals(expResult, result, 1.0, "Invalid maximum value");
+    }
 
     /**
      * Test of getMinXY method, of class PhotometricInterpreterFloat.
      */
+    @Test
+    public void testGetMinXY() {
+        final int[] expResult = new int[]{0, 0};
+        final int[] result = pInterp.getMinXY();
+        assertArrayEquals(expResult, result);
+    }
 
     /**
      * Test of getMeanFound method, of class PhotometricInterpreterFloat.
      */
+    @Test
+    public void testGetMeanFound() {
+        final float expResult = 0.5F;
+        final float result = pInterp.getMinFound();
+        assertEquals(expResult, result, 1.0, "Invalid mean value");
+    }
 
     /**
      * Test of interpretPixel method, of class PhotometricInterpreterFloat.
      */
+    @Test
+    public void testMapValueToARGB() {
+
+        int argb = pInterp.mapValueToARGB(0.5f);
+        int test = imageBuilder.getRGB(128, 128);
+        assertEquals(test, argb, "Conflicting results from value-to-ARGB map");
+
+        // pInterp does not define a state for NaN, but bandedInterp does.
+        // so test both variations
+        argb = pInterp.mapValueToARGB(Float.NaN);
+        assertEquals(0, argb, "Non-defined NaN did not return ARGB of zero");
+
+        // to test mappings for special values, use the banded-interpreter
+        argb = bandedInterp.mapValueToARGB(Float.NaN);
+        test = Color.gray.getRGB();
+        assertEquals(test, argb, "Float.NaN mapped to incorrect ARGB");
+        argb = bandedInterp.mapValueToARGB(-1f);
+        test = Color.gray.getRGB();
+        assertEquals(test, argb, "Excluded value mapped to incorrect ARGB");
+    }
 
     @Test
     public void testConstructors() {
@@ -167,6 +244,31 @@ public class PhotometricInterpreterFloatTest_OE25Dev {
      /**
      * Test of overlapping entries
      */
+    @Test
+    public void testOverlappingEntriesEntry() throws ImageReadException, IOException  {
+        final Color c0 = new Color(0xff0000ff);
+        final Color c1 = new Color(0xff00ff00);
+        final List<PaletteEntry> overlapList = new ArrayList<>();
+        overlapList.add(new PaletteEntryForRange(0.0f, 1.0f, c0));
+        overlapList.add(new PaletteEntryForRange(0.0f, 1.5f, c1));
+
+        final PhotometricInterpreterFloat interpreter = new PhotometricInterpreterFloat(overlapList);
+
+        imageBuilder = new ImageBuilder(257, 257, false);
+        final int[] samples = new int[1];
+        samples[0] = Float.floatToRawIntBits(0.5f);
+        interpreter.interpretPixel(imageBuilder, samples, 0, 0);
+        samples[0] = Float.floatToRawIntBits(1.2f);
+        interpreter.interpretPixel(imageBuilder, samples, 1, 1);
+        int argb0 = imageBuilder.getRGB(0,0)|0xff000000;
+        int argb1 = imageBuilder.getRGB(1,1)|0xff000000;
+        assertEquals(argb0, c0.getRGB(), "Invalid result for overlapping palette entry 0");
+        assertEquals(argb1, c1.getRGB(), "Invalid result for overlapping palette entry 1");
+        argb0 = interpreter.mapValueToARGB(0.5f);
+        argb1 = interpreter.mapValueToARGB(1.2f);
+        assertEquals(argb0, c0.getRGB(), "Invalid mapping for overlapping palette entry 0");
+        assertEquals(argb1, c1.getRGB(), "Invalid mapping for overlapping palette entry 1");
+    }
 
     @Test
     public void testInterpretPixel_1_oe() {

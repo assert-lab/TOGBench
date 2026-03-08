@@ -54,36 +54,191 @@ public class LHMLRUMemoryCacheUnitTest_OE25Dev
      * <p>
      * @throws CacheException
      */
+    public void testLoadFromCCF()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( "testLoadFromCCF" );
+        final String memoryCacheName = cache.getCacheAttributes().getMemoryCacheName();
+        assertTrue( "Cache name should have LHMLRU in it.", memoryCacheName.indexOf( "LHMLRUMemoryCache" ) != -1 );
+    }
 
     /**
      * put twice as many as the max.  verify that the second half is in the cache.
      * <p>
      * @throws CacheException
      */
+    public void testPutGetThroughHub()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHub" );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max * 2;
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( i + ":key", "myregion" + " data " + i );
+        }
+
+        // Test that first items are not in the cache
+        for ( int i = max -1; i >= 0; i-- )
+        {
+            final String value = cache.get( i + ":key" );
+            assertNull( "Should not have value for key [" + i + ":key" + "] in the cache." + cache.getStats(), value );
+        }
+
+        // Test that last items are in cache
+        // skip 2 for the buffer.
+        for ( int i = max + 2; i < items; i++ )
+        {
+            final String value = cache.get( i + ":key" );
+            assertEquals( "myregion" + " data " + i, value );
+        }
+
+        // Test that getMultiple returns all the items remaining in cache and none of the missing ones
+        final Set<String> keys = new HashSet<>();
+        for ( int i = 0; i < items; i++ )
+        {
+            keys.add( i + ":key" );
+        }
+
+        final Map<String, ICacheElement<String, String>> elements = cache.getCacheElements( keys );
+        for ( int i = max-1; i >= 0; i-- )
+        {
+            assertNull( "Should not have value for key [" + i + ":key" + "] in the cache." + cache.getStats(), elements.get( i + ":key" ) );
+        }
+        for ( int i = max + 2; i < items; i++ )
+        {
+            final ICacheElement<String, String> element = elements.get( i + ":key" );
+            assertNotNull( "element " + i + ":key is missing", element );
+            assertEquals( "value " + i + ":key", "myregion" + " data " + i, element.getVal() );
+        }
+    }
 
     /**
      * Put twice as many as the max, twice. verify that the second half is in the cache.
      * <p>
      * @throws CacheException
      */
+    public void testPutGetThroughHubTwice()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( "testPutGetThroughHubTwice" );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max * 2;
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( i + ":key", "myregion" + " data " + i );
+        }
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( i + ":key", "myregion" + " data " + i );
+        }
+
+        // Test that first items are not in the cache
+        for ( int i = max -1; i >= 0; i-- )
+        {
+            final String value = cache.get( i + ":key" );
+            assertNull( "Should not have value for key [" + i + ":key" + "] in the cache.", value );
+        }
+
+        // Test that last items are in cache
+        // skip 2 for the buffer.
+        for ( int i = max + 2; i < items; i++ )
+        {
+            final String value = cache.get( i + ":key" );
+            assertEquals( "myregion" + " data " + i, value );
+        }
+
+    }
 
     /**
      * put the max and remove each. verify that they are all null.
      * <p>
      * @throws CacheException
      */
+    public void testPutRemoveThroughHub()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( "testPutRemoveThroughHub" );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max * 2;
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( i + ":key", "myregion" + " data " + i );
+        }
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.remove( i + ":key" );
+        }
+
+        // Test that first items are not in the cache
+        for ( int i = max; i >= 0; i-- )
+        {
+            final String value = cache.get( i + ":key" );
+            assertNull( "Should not have value for key [" + i + ":key" + "] in the cache.", value );
+        }
+    }
 
     /**
      * put the max and clear. verify that no elements remain.
      * <p>
      * @throws CacheException
      */
+    public void testClearThroughHub()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( "testClearThroughHub" );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max * 2;
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( i + ":key", "myregion" + " data " + i );
+        }
+
+        cache.clear();
+
+        // Test that first items are not in the cache
+        for ( int i = max; i >= 0; i-- )
+        {
+            final String value = cache.get( i + ":key" );
+            assertNull( "Should not have value for key [" + i + ":key" + "] in the cache.", value );
+        }
+    }
 
     /**
      * Get stats.
      * <p>
      * @throws CacheException
      */
+    public void testGetStatsThroughHub()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( "testGetStatsThroughHub" );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max * 2;
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( i + ":key", "myregion" + " data " + i );
+        }
+
+        final String stats = cache.getStats();
+
+        //System.out.println( stats );
+
+        // TODO improve stats check
+        assertTrue( "Should have 200 puts" + stats, stats.indexOf( "200" ) != -1 );
+    }
 
     /**
      * Put half the max and clear. get the key array and verify that it has the correct number of
@@ -91,12 +246,70 @@ public class LHMLRUMemoryCacheUnitTest_OE25Dev
      * <p>
      * @throws Exception
      */
+    public void testGetKeyArray()
+        throws Exception
+    {
+        final CompositeCacheManager cacheMgr = CompositeCacheManager.getUnconfiguredInstance();
+        cacheMgr.configure( "/TestLHMLRUCache.ccf" );
+        final CompositeCache<String, String> cache = cacheMgr.getCache( "testGetKeyArray" );
+
+        final LHMLRUMemoryCache<String, String> mru = new LHMLRUMemoryCache<>();
+        mru.initialize( cache );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max / 2;
+
+        for ( int i = 0; i < items; i++ )
+        {
+            final ICacheElement<String, String> ice = new CacheElement<>( cache.getCacheName(), i + ":key", cache.getCacheName() + " data " + i );
+            ice.setElementAttributes( cache.getElementAttributes() );
+            mru.update( ice );
+        }
+
+        final Set<String> keys = mru.getKeySet();
+
+        assertEquals( "Wrong number of keys.", items, keys.size() );
+    }
 
     /**
      * Add a few keys with the delimiter. Remove them.
      * <p>
      * @throws CacheException
      */
+    public void testRemovePartialThroughHub()
+        throws CacheException
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( "testRemovePartialThroughHub" );
+
+        final int max = cache.getCacheAttributes().getMaxObjects();
+        final int items = max / 2;
+
+        cache.put( "test", "data" );
+
+        final String root = "myroot";
+
+        for ( int i = 0; i < items; i++ )
+        {
+            cache.put( root + ":" + i + ":key", "myregion" + " data " + i );
+        }
+
+        // Test that last items are in cache
+        for ( int i = 0; i < items; i++ )
+        {
+            final String value = cache.get( root + ":" + i + ":key" );
+            assertEquals( "myregion" + " data " + i, value );
+        }
+
+        // remove partial
+        cache.remove( root + ":" );
+
+        for ( int i = 0; i < items; i++ )
+        {
+            assertNull( "Should have been removed by partial loop.", cache.get( root + ":" + i + ":key" ) );
+        }
+
+        assertNotNull( "Other item should be in the cache.", cache.get( "test" ) );
+    }
 
     public void testLoadFromCCF_1_oe()
         throws CacheException

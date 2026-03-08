@@ -29,6 +29,26 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class JpegInputStreamTest_OE25Dev {
 
   @Test
+  public void testNextBitThrowsImageReadExceptionOne() {
+    final int[] byteArray = new int[6];
+    byteArray[0] = (byte) (-1);
+    byteArray[1] = (byte) 74;
+    final JpegInputStream jpegInputStream = new JpegInputStream(byteArray);
+
+    Assertions.assertThrows(ImageReadException.class, jpegInputStream::nextBit);
+
+  }
+
+  @Test
+  public void testNextBitThrowsImageReadExceptionTwo() {
+    final int[] byteArray = new int[0];
+    final JpegInputStream jpegInputStream = new JpegInputStream(byteArray);
+
+    Assertions.assertThrows(IllegalStateException.class, jpegInputStream::nextBit);
+
+  }
+
+  @Test
   public void testNextBitThrowsImageReadExceptionOne_1_oe() throws Exception {
     final int[] byteArray = new int[6];
     byteArray[0] = (byte) (-1);

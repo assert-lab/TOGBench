@@ -41,6 +41,108 @@ class StlFacetDefinitionReadersTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(TEST_EPS);
 
     @Test
+    void testCreate_cubeBinaryFile() throws IOException {
+        // arrange
+        final URL url = EuclideanIOTestUtils.resource("/models/cube-binary.stl");
+
+        // act
+        try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(url.openStream(), null)) {
+
+            // assert
+            Assertions.assertEquals(BinaryStlFacetDefinitionReader.class, reader.getClass());
+
+            BoundaryList3D boundaries = new BoundaryList3D(EuclideanIOTestUtils.readAll(reader).stream()
+                    .map(f -> FacetDefinitions.toPolygon(f, TEST_PRECISION))
+                    .collect(Collectors.toList()));
+            EuclideanIOTestUtils.assertCube(boundaries, TEST_EPS);
+        }
+    }
+
+    @Test
+    void testCreate_cubeAsciiFile() throws IOException {
+        // arrange
+        final URL url = EuclideanIOTestUtils.resource("/models/cube-ascii.stl");
+
+        // act
+        try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(url.openStream(), null)) {
+
+            // assert
+            Assertions.assertEquals(TextStlFacetDefinitionReader.class, reader.getClass());
+
+            BoundaryList3D boundaries = new BoundaryList3D(EuclideanIOTestUtils.readAll(reader).stream()
+                    .map(f -> FacetDefinitions.toPolygon(f, TEST_PRECISION))
+                    .collect(Collectors.toList()));
+            EuclideanIOTestUtils.assertCube(boundaries, TEST_EPS);
+        }
+    }
+
+    @Test
+    void testCreate_nonStandardCharset_charsetGiven() {
+        // arrange
+        final String content = "solid test\n" +
+                "facet normal 1 2 3 " +
+                "outer loop " +
+                    "vertex 4 5 6 " +
+                    "vertex 7 8 9 " +
+                    "vertex 10 11 12 " +
+                "endloop " +
+            "endfacet " +
+            "endsolid test";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
+
+        // act
+        try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(in, StandardCharsets.UTF_16)) {
+
+            // assert
+            Assertions.assertEquals(TextStlFacetDefinitionReader.class, reader.getClass());
+
+            Assertions.assertNotNull(reader.readFacet());
+            Assertions.assertNull(reader.readFacet());
+        }
+    }
+
+    @Test
+    void testCreate_nonStandardCharset_noCharsetGiven() {
+        // arrange
+        final String content = "solid test\n" +
+                "facet normal 1 2 3 " +
+                "outer loop " +
+                    "vertex 4 5 6 " +
+                    "vertex 7 8 9 " +
+                    "vertex 10 11 12 " +
+                "endloop " +
+            "endfacet " +
+            "endsolid test";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
+
+        // act
+        try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(in, null)) {
+
+            // assert
+            Assertions.assertEquals(BinaryStlFacetDefinitionReader.class, reader.getClass());
+
+            Assertions.assertNotNull(reader.readFacet());
+            Assertions.assertNotNull(reader.readFacet());
+            Assertions.assertThrows(IllegalStateException.class, () -> reader.readFacet());
+        }
+    }
+
+    @Test
+    void testCreate_notEnoughBytes() {
+        // arrange
+        final byte[] bytes = new byte[1];
+        final ByteArrayInputStream in = new ByteArrayInputStream(bytes);
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(
+                () -> StlFacetDefinitionReaders.create(in, null),
+                IllegalStateException.class,
+                "Cannot determine STL format: attempted to read 5 bytes but found only 1 available");
+    }
+
+    @Test
     void testCreate_cubeBinaryFile_1_oe() throws IOException {
         // arrange
         final URL url = EuclideanIOTestUtils.resource("/models/cube-binary.stl");

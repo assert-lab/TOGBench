@@ -27,6 +27,8 @@ import org.apache.commons.geometry.euclidean.twod.Vector2D;
 import org.apache.commons.numbers.core.Precision;
 import org.junit.jupiter.api.Assertions;
 
+import static org.junit.jupiter.api.Assertions.fail;
+
 /**
  * Class containing various Euclidean-related test utilities.
  */
@@ -143,6 +145,10 @@ public final class EuclideanTestUtils_OE25Dev {
      * @param actual
      * @param tolerance
      */
+    public static void assertCoordinatesEqual(final Vector1D expected, final Vector1D actual, final double tolerance) {
+        final String msg = "Expected coordinates to equal " + expected + " but was " + actual + ";";
+        Assertions.assertEquals(expected.getX(), actual.getX(), tolerance, msg);
+    }
 
     /**
      * Asserts that corresponding values in the given vectors are equal, using the
@@ -152,6 +158,11 @@ public final class EuclideanTestUtils_OE25Dev {
      * @param actual
      * @param tolerance
      */
+    public static void assertCoordinatesEqual(final Vector2D expected, final Vector2D actual, final double tolerance) {
+        final String msg = "Expected coordinates to equal " + expected + " but was " + actual + ";";
+        Assertions.assertEquals(expected.getX(), actual.getX(), tolerance, msg);
+        Assertions.assertEquals(expected.getY(), actual.getY(), tolerance, msg);
+    }
 
     /**
      * Asserts that corresponding values in the given vectors are equal, using the
@@ -161,12 +172,23 @@ public final class EuclideanTestUtils_OE25Dev {
      * @param actual
      * @param tolerance
      */
+    public static void assertCoordinatesEqual(final Vector3D expected, final Vector3D actual, final double tolerance) {
+        final String msg = "Expected coordinates to equal " + expected + " but was " + actual + ";";
+        Assertions.assertEquals(expected.getX(), actual.getX(), tolerance, msg);
+        Assertions.assertEquals(expected.getY(), actual.getY(), tolerance, msg);
+        Assertions.assertEquals(expected.getZ(), actual.getZ(), tolerance, msg);
+    }
 
     /**
      * Asserts that the given value is positive infinity.
      *
      * @param value
      */
+    public static void assertPositiveInfinity(final double value) {
+        final String msg = "Expected value to be positive infinity but was " + value;
+        Assertions.assertTrue(Double.isInfinite(value), msg);
+        Assertions.assertTrue(value > 0, msg);
+    }
 
     /**
      * Assert that the given lists represent equivalent vertex loops. The loops must contain the same sequence
@@ -176,12 +198,48 @@ public final class EuclideanTestUtils_OE25Dev {
      * @param actual
      * @param precision
      */
+    public static <V extends EuclideanVector<V>> void assertVertexLoopSequence(final List<V> expected, final List<V> actual,
+                                                                               final Precision.DoubleEquivalence precision) {
+        Assertions.assertEquals(expected.size(), actual.size(), "Vertex sequences have different sizes");
+
+        if (!expected.isEmpty()) {
+
+            int offset = -1;
+            final V start = expected.get(0);
+            for (int i = 0; i < actual.size(); ++i) {
+                if (actual.get(i).eq(start, precision)) {
+                    offset = i;
+                    break;
+                }
+            }
+
+            if (offset < 0) {
+                Assertions.fail("Vertex loops do not share any points: expected " + expected + " but was " + actual);
+            }
+
+            V expectedVertex;
+            V actualVertex;
+            for (int i = 0; i < expected.size(); ++i) {
+                expectedVertex = expected.get(i);
+                actualVertex = actual.get((i + offset) % actual.size());
+
+                if (!expectedVertex.eq(actualVertex, precision)) {
+                    Assertions.fail("Unexpected vertex at index " + i + ": expected " + expectedVertex + " but was " + actualVertex);
+                }
+            }
+        }
+    }
 
     /**
      * Asserts that the given value is negative infinity..
      *
      * @param value
      */
+    public static void assertNegativeInfinity(final double value) {
+        final String msg = "Expected value to be negative infinity but was " + value;
+        Assertions.assertTrue(Double.isInfinite(value), msg);
+        Assertions.assertTrue(value < 0, msg);
+    }
 
     /** Assert that all of the given points lie within the specified location relative to
      * {@code region}.
@@ -189,6 +247,11 @@ public final class EuclideanTestUtils_OE25Dev {
      * @param loc
      * @param pts
      */
+    public static void assertRegionLocation(final Region<Vector1D> region, final RegionLocation loc, final Vector1D... pts) {
+        for (final Vector1D pt : pts) {
+            Assertions.assertEquals(loc, region.classify(pt), "Unexpected region location for point " + pt);
+        }
+    }
 
     /** Assert that all of the given points lie within the specified location relative to
      * {@code region}.
@@ -196,6 +259,11 @@ public final class EuclideanTestUtils_OE25Dev {
      * @param loc
      * @param pts
      */
+    public static void assertRegionLocation(final Region<Vector2D> region, final RegionLocation loc, final Vector2D... pts) {
+        for (final Vector2D pt : pts) {
+            Assertions.assertEquals(loc, region.classify(pt), "Unexpected region location for point " + pt);
+        }
+    }
 
     /** Assert that all of the given points lie within the specified location relative to
      * {@code region}.
@@ -203,24 +271,44 @@ public final class EuclideanTestUtils_OE25Dev {
      * @param loc
      * @param pts
      */
+    public static void assertRegionLocation(final Region<Vector3D> region, final RegionLocation loc, final Vector3D... pts) {
+        for (final Vector3D pt : pts) {
+            Assertions.assertEquals(loc, region.classify(pt), "Unexpected region location for point " + pt);
+        }
+    }
 
     /** Assert that all of the given points lie within the specified location relative to {@code sub}.
      * @param sub
      * @param loc
      * @param pts
      */
+    public static void assertRegionLocation(final HyperplaneSubset<Vector1D> sub, final RegionLocation loc, final Vector1D... pts) {
+        for (final Vector1D pt : pts) {
+            Assertions.assertEquals(loc, sub.classify(pt), "Unexpected region location for point " + pt);
+        }
+    }
 
     /** Assert that all of the given points lie within the specified location relative to {@code sub}.
      * @param sub
      * @param loc
      * @param pts
      */
+    public static void assertRegionLocation(final HyperplaneSubset<Vector2D> sub, final RegionLocation loc, final Vector2D... pts) {
+        for (final Vector2D pt : pts) {
+            Assertions.assertEquals(loc, sub.classify(pt), "Unexpected region location for point " + pt);
+        }
+    }
 
     /** Assert that all of the given points lie within the specified location relative to {@code sub}.
      * @param sub
      * @param loc
      * @param pts
      */
+    public static void assertRegionLocation(final HyperplaneSubset<Vector3D> sub, final RegionLocation loc, final Vector3D... pts) {
+        for (final Vector3D pt : pts) {
+            Assertions.assertEquals(loc, sub.classify(pt), "Unexpected region location for point " + pt);
+        }
+    }
 
 public static void assertCoordinatesEqual_1_oe(final Vector1D expected, final Vector1D actual, final double tolerance) { final String msg = "Expected coordinates to equal " + expected + " but was " + actual + ";";
 }

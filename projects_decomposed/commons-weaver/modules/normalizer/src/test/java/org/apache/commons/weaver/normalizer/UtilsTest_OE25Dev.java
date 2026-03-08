@@ -26,6 +26,21 @@ import java.util.Map;
 import org.junit.Test;
 
 public class UtilsTest_OE25Dev {
+    @Test
+    public void testValidatePackageName() {
+        assertEquals("", Utils.validatePackageName(""));
+        assertEquals("", Utils.validatePackageName("    "));
+        assertEquals("foo", Utils.validatePackageName("foo"));
+        assertEquals("foo/bar", Utils.validatePackageName("foo.bar"));
+        assertEquals("foo/bar", Utils.validatePackageName("foo/bar"));
+        assertEquals("foo/bar/baz", Utils.validatePackageName("foo.bar.baz"));
+        assertEquals("foo/bar/baz", Utils.validatePackageName("foo.bar/baz"));
+        assertEquals("foo/bar/baz", Utils.validatePackageName("foo/bar.baz"));
+        assertEquals("foo/bar/baz", Utils.validatePackageName("foo/bar/baz"));
+        assertEquals("$foo", Utils.validatePackageName("$foo"));
+        assertEquals("_foo", Utils.validatePackageName("_foo"));
+        assertEquals("foo2", Utils.validatePackageName("foo2"));
+    }
 
     @Test(expected = IllegalArgumentException.class)
     public void testValidatePackageNameStartsWithDigit() {
@@ -35,6 +50,23 @@ public class UtilsTest_OE25Dev {
     @Test(expected = IllegalArgumentException.class)
     public void testValidatePackageNameEmbeddedWhitespace() {
         Utils.validatePackageName("foo bar");
+    }
+
+    @Test
+    public void testParseTypes() {
+        assertContainsInOrder(Utils.parseTypes(" java.lang.Number ", getClass().getClassLoader()), Number.class);
+        assertContainsInOrder(
+            Utils.parseTypes("java.lang.Number,java.lang.String,java.util.Map", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+        assertContainsInOrder(
+            Utils.parseTypes("java.lang.Number, java.lang.String, java.util.Map", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+        assertContainsInOrder(
+            Utils.parseTypes("java/lang/Number, java/lang/String, java/util/Map", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+        assertContainsInOrder(
+            Utils.parseTypes("java.lang.Number,\njava.lang.String,\njava.util.Map", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
     }
 
     @Test(expected = IllegalArgumentException.class)

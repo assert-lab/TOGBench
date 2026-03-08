@@ -30,6 +30,16 @@ import org.junit.Test;
 public class NotFileFilterTest_OE25Dev extends BaseFilterTest {
 
     @Test
+    public void testAccept() throws FileSystemException {
+
+        final FileSelectInfo any = createFileSelectInfo(new File("test1.txt"));
+
+        Assert.assertFalse(new NotFileFilter(TrueFileFilter.TRUE).accept(any));
+        Assert.assertTrue(new NotFileFilter(FalseFileFilter.FALSE).accept(any));
+
+    }
+
+    @Test
     public void testAccept_1_oe() throws FileSystemException {
 
         final FileSelectInfo any = createFileSelectInfo(new File("test1.txt"));

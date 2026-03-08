@@ -27,6 +27,35 @@ import static org.testng.Assert.assertTrue;
 
 public class CloseCodeReasonMessageTest_OE25Dev extends AbstractBasicWebSocketTest {
 
+  @Test(timeOut = 60000)
+  public void onCloseWithCode() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      final CountDownLatch latch = new CountDownLatch(1);
+      final AtomicReference<String> text = new AtomicReference<>("");
+
+      WebSocket websocket = c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().addWebSocketListener(new Listener(latch, text)).build()).get();
+
+      websocket.sendCloseFrame();
+
+      latch.await();
+      assertTrue(text.get().startsWith("1000"), "Expected a 1000 code but got " + text.get());
+    }
+  }
+
+  @Test(timeOut = 60000)
+  public void onCloseWithCodeServerClose() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      final CountDownLatch latch = new CountDownLatch(1);
+      final AtomicReference<String> text = new AtomicReference<>("");
+
+      c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().addWebSocketListener(new Listener(latch, text)).build()).get();
+
+      latch.await();
+      // used to be correct 001-Idle Timeout prior to Jetty 9.4.15...
+      assertEquals(text.get(), "1000-");
+    }
+  }
+
   @Test(groups = "online", timeOut = 60000, expectedExceptions = ExecutionException.class)
   public void getWebSocketThrowsException() throws Throwable {
     final CountDownLatch latch = new CountDownLatch(1);

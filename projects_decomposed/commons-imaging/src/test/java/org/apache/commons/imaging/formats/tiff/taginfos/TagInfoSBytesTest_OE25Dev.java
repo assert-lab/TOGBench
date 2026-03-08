@@ -26,6 +26,17 @@ import org.junit.jupiter.api.Test;
 public class TagInfoSBytesTest_OE25Dev{
 
   @Test
+  public void testCreatesTagInfoSBytesAndCallsEncodeValue() {
+      final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
+      final TagInfoSBytes tagInfoSBytes = new TagInfoSBytes("", (-198), 10, tiffDirectoryType);
+      final ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;
+      final byte[] byteArray = new byte[2];
+      final byte[] byteArrayTwo = tagInfoSBytes.encodeValue(byteOrder, byteArray);
+
+      assertSame(byteArrayTwo, byteArray);
+  }
+
+  @Test
   public void testCreatesTagInfoSBytesAndCallsEncodeValue_1_oe() {
       final TiffDirectoryType tiffDirectoryType = TiffDirectoryType.TIFF_DIRECTORY_IFD3;
       final TagInfoSBytes tagInfoSBytes = new TagInfoSBytes("", (-198), 10, tiffDirectoryType);

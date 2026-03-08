@@ -52,6 +52,33 @@ public class JDBCDiskCacheRemovalUnitTest_OE25Dev
      * Setup an hsql db. Add an item. Remove using partial key.
      * @throws Exception
      */
+    public void testPartialKeyRemoval_Good()
+        throws Exception
+    {
+        // SETUP
+        setupDatabase();
+
+        final String keyPart1 = "part1";
+        final String keyPart2 = "part2";
+        final String region = "testCache1";
+        final String data = "adfadsfasfddsafasasd";
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( region );
+
+        // DO WORK
+        jcs.put( keyPart1 + ":" + keyPart2, data );
+        Thread.sleep( 1000 );
+
+        // VERIFY
+        final String resultBeforeRemove = jcs.get( keyPart1 + ":" + keyPart2 );
+        assertEquals( "Wrong result", data, resultBeforeRemove );
+
+        jcs.remove( keyPart1 + ":" );
+        final String resultAfterRemove = jcs.get( keyPart1 + ":" + keyPart2 );
+        assertNull( "Should not have a result after removal.", resultAfterRemove );
+
+//        System.out.println( jcs.getStats() );
+    }
 
     /**
      * Create the database.

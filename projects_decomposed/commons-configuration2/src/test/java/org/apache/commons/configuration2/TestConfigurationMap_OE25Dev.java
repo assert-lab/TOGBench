@@ -58,6 +58,17 @@ public class TestConfigurationMap_OE25Dev {
     /**
      * Class under test for Object put(Object, Object)
      */
+    @Test
+    public void testPut() {
+        for (int i = 0; i < properties.length; i++) {
+            Object object = map.put(properties[i], values[i]);
+            assertNotNull("Returned null from put.", object);
+            assertEquals("Returned wrong result.", values[i], object);
+            object = map.get(properties[i]);
+            assertNotNull("Returned null from get.", object);
+            assertEquals("Returned wrong result.", values[i], object);
+        }
+    }
 
     @Test
     public void testPut_1_oe() {
@@ -71,7 +82,6 @@ public class TestConfigurationMap_OE25Dev {
     public void testPut_2_oe() {
         for (int i = 0; i < properties.length; i++) {
             Object object = map.put(properties[i], values[i]);
-            // removed other assertion
             assertEquals("Returned wrong result.", values[i], object);
     }
     }
@@ -80,8 +90,6 @@ public class TestConfigurationMap_OE25Dev {
     public void testPut_3_oe() {
         for (int i = 0; i < properties.length; i++) {
             Object object = map.put(properties[i], values[i]);
-            // removed other assertion
-            // removed other assertion
             object = map.get(properties[i]);
             assertNotNull("Returned null from get.", object);
     }
@@ -91,10 +99,7 @@ public class TestConfigurationMap_OE25Dev {
     public void testPut_4_oe() {
         for (int i = 0; i < properties.length; i++) {
             Object object = map.put(properties[i], values[i]);
-            // removed other assertion
-            // removed other assertion
             object = map.get(properties[i]);
-            // removed other assertion
             assertEquals("Returned wrong result.", values[i], object);
     }
     }

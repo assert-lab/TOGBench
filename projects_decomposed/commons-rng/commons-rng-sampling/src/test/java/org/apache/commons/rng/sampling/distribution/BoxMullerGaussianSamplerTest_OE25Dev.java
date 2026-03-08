@@ -30,6 +30,16 @@ class BoxMullerGaussianSamplerTest_OE25Dev {
     /**
      * Test the constructor with a bad standard deviation.
      */
+    @SuppressWarnings({"deprecation"})
+    @Test
+    void testConstructorThrowsWithZeroStandardDeviation() {
+        final RestorableUniformRandomProvider rng =
+            RandomSource.SPLIT_MIX_64.create(0L);
+        final double mean = 1;
+        final double standardDeviation = 0;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> new BoxMullerGaussianSampler(rng, mean, standardDeviation));
+    }
 
     @Test
     void testConstructorThrowsWithZeroStandardDeviation_1_oe() {

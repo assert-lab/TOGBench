@@ -37,6 +37,35 @@ public class CompositeCacheConfiguratorUnitTest_OE25Dev
     /**
      * Verify that we can parse the event logger correctly
      */
+    public void testParseAuxiliary_CacheEventLogger_Normal()
+    {
+        // SETUP
+        final String regionName = "MyRegion";
+
+        final String auxName = "MockAux";
+        final String auxPrefix = CompositeCacheConfigurator.AUXILIARY_PREFIX + auxName;
+        final String auxiliaryClassName = MockAuxiliaryCacheFactory.class.getName();
+        final String eventLoggerClassName = MockCacheEventLogger.class.getName();
+        final String auxiliaryAttributeClassName = MockAuxiliaryCacheAttributes.class.getName();
+
+        final Properties props = new Properties();
+        props.put( auxPrefix, auxiliaryClassName );
+        props.put( auxPrefix + CompositeCacheConfigurator.ATTRIBUTE_PREFIX, auxiliaryAttributeClassName );
+        props.put( auxPrefix + AuxiliaryCacheConfigurator.CACHE_EVENT_LOGGER_PREFIX, eventLoggerClassName );
+
+//        System.out.print( props );
+
+        final CompositeCacheManager manager = CompositeCacheManager.getUnconfiguredInstance();
+        final CompositeCacheConfigurator configurator = new CompositeCacheConfigurator();
+
+        // DO WORK
+        final AuxiliaryCache<String, String> aux = configurator.parseAuxiliary( props, manager, auxName, regionName );
+        final MockAuxiliaryCache<String, String> result = (MockAuxiliaryCache<String, String>)aux;
+
+        // VERIFY
+        assertNotNull( "Should have an auxcache.", result );
+        assertNotNull( "Should have an event logger.", result.getCacheEventLogger() );
+    }
 
     /**
      * Verify that we can parse the spool chunk size

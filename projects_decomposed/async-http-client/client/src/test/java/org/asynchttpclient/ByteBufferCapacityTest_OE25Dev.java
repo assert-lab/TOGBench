@@ -38,6 +38,28 @@ public class ByteBufferCapacityTest_OE25Dev extends AbstractBasicTest {
     return new BasicHandler();
   }
 
+  @Test
+  public void basicByteBufferTest() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      File largeFile = createTempFile(1024 * 100 * 10);
+      final AtomicInteger byteReceived = new AtomicInteger();
+
+      Response response = c.preparePut(getTargetUrl()).setBody(largeFile).execute(new AsyncCompletionHandlerAdapter() {
+        @Override
+        public State onBodyPartReceived(final HttpResponseBodyPart content) throws Exception {
+          byteReceived.addAndGet(content.getBodyByteBuffer().capacity());
+          return super.onBodyPartReceived(content);
+        }
+
+      }).get();
+
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertEquals(byteReceived.get(), largeFile.length());
+      assertEquals(response.getResponseBody().length(), largeFile.length());
+    }
+  }
+
   public String getTargetUrl() {
     return String.format("http://localhost:%d/foo/test", port1);
   }

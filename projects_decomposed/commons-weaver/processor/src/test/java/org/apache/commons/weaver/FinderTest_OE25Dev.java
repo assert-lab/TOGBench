@@ -266,6 +266,40 @@ public class FinderTest_OE25Dev extends WeaverTestBase {
         }
     }
 
+    @Test
+    public void testFindAssignableTypes() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        final Set<Class<?>> implementors = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
+            implementors.add(annotated.get());
+        }
+        assertEquals(1, implementors.size());
+        assertTrue(implementors.contains(TestBeanWithClassAnnotation.class));
+
+        final Set<Class<?>> subclasses = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
+            subclasses.add(annotated.get());
+        }
+        assertEquals(2, subclasses.size());
+        assertTrue(subclasses.contains(TestBeanWithClassAnnotation.class));
+        assertTrue(subclasses.contains(TestBeanWithMethodAnnotation.class));
+    }
+
+    @Test
+    public void testFindAllTypes() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        List<Annotated<Class<?>>> allClasses = finder().withAnnotations().getAllClasses();
+        assertThat(extract(allClasses),Matchers.<Class<?>> containsInAnyOrder(TestBeanInterface.class,AbstractTestBean.class,TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class));
+    }
+
     private List<Class<?>> extract(List<Annotated<Class<?>>> input) {
         Validate.noNullElements(input);
         if (input.isEmpty()) {

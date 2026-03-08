@@ -159,10 +159,20 @@ public class TestBaseConfigurationBuilderProvider_OE25Dev {
     /**
      * Tests whether a builder without reloading support can be created.
      */
+    @Test
+    public void testGetBuilderNotReloading() throws ConfigurationException {
+        final ConfigurationBuilder<? extends Configuration> builder = checkBuilder(false);
+        assertEquals("Wrong builder class", FileBasedConfigurationBuilder.class, builder.getClass());
+    }
 
     /**
      * Tests whether a builder with reloading support can be created.
      */
+    @Test
+    public void testGetBuilderReloading() throws ConfigurationException {
+        final ConfigurationBuilder<? extends Configuration> builder = checkBuilder(true);
+        assertEquals("Wrong builder class", ReloadingFileBasedConfigurationBuilder.class, builder.getClass());
+    }
 
     /**
      * Tests that the collection with parameter classes cannot be modified.
@@ -205,6 +215,12 @@ public class TestBaseConfigurationBuilderProvider_OE25Dev {
     /**
      * Tests whether a null collection of parameter classes is handled correctly.
      */
+    @Test
+    public void testInitNoParameterClasses() {
+        final BaseConfigurationBuilderProvider provider = new BaseConfigurationBuilderProvider(BasicConfigurationBuilder.class.getName(), null,
+            PropertiesConfiguration.class.getName(), null);
+        assertTrue("Got parameter classes", provider.getParameterClasses().isEmpty());
+    }
 
     @Test
     public void testGetBuilderNotReloading_1_oe() throws ConfigurationException {

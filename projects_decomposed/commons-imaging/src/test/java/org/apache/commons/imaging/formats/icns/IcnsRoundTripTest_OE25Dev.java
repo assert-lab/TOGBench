@@ -324,6 +324,58 @@ public class IcnsRoundTripTest_OE25Dev extends IcnsBaseTest {
     }
 
     @Test
+    public void test32BPPHalfMaskedIcon() throws Exception {
+        final int foreground = 0xff000000;
+        final int background = 0xff0000ff;
+        try (final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                final BinaryOutputStream bos = new BinaryOutputStream(baos, ByteOrder.BIG_ENDIAN)) {
+            bos.write4Bytes(IcnsImageParser.ICNS_MAGIC);
+            bos.write4Bytes(4 + 4 + 4 + 4 + 4 * 16 * 16 + 4 + 4 + 16 * 16 / 8);
+            bos.write4Bytes(IcnsType.ICNS_16x16_32BIT_IMAGE.getType());
+            bos.write4Bytes(4 + 4 + 4 * 16 * 16);
+            for (int y = 0; y < 16; y++) {
+                for (int x = 0; x < 16; x++) {
+                    // argb, a ignored
+                    bos.write(0);
+                    final int pixel;
+                    if (IMAGE[y][x] != 0) {
+                        pixel = foreground;
+                    } else {
+                        pixel = background;
+                    }
+                    bos.write(0xff & (pixel >> 16));
+                    bos.write(0xff & (pixel >> 8));
+                    bos.write(0xff & pixel);
+                }
+            }
+            bos.write4Bytes(IcnsType.ICNS_16x16_1BIT_IMAGE_AND_MASK.getType());
+            bos.write4Bytes(4 + 4 + 16 * 16 / 8);
+            // 1 bit image
+            for (int y = 0; y < 16; y++) {
+                for (int x = 0; x < 16; x += 8) {
+                    int eightBits = 0;
+                    for (int pos = 0; pos < 8; pos++) {
+                        if (IMAGE[y][x + pos] != 0) {
+                            eightBits |= (1 << (7 - pos));
+                        }
+                    }
+                    bos.write(eightBits);
+                }
+            }
+            // Missing 1 bit mask!!!
+            bos.flush();
+
+            boolean threw = false;
+            try {
+                writeAndReadImageData("32bpp-half-masked-CORRUPT", baos.toByteArray(), foreground, background);
+            } catch (final ImageReadException imageReadException) {
+                threw = true;
+            }
+            assertTrue(threw);
+        }
+    }
+
+    @Test
     public void test32BPPMaskMissingIcon() throws Exception {
         final int foreground = 0xff000000;
         final int background = 0xff0000ff;

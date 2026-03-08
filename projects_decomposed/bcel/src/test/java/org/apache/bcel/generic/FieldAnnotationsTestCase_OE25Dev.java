@@ -44,11 +44,73 @@ public class FieldAnnotationsTestCase_OE25Dev extends AbstractTestCase
     /**
      * Check field AnnotationEntrys (de)serialize ok.
      */
+    public void testFieldAnnotationEntrysReadWrite() throws ClassNotFoundException,
+            IOException
+    {
+        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedFields");
+        checkAnnotatedField(clazz, "i", "L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;", "id", "1");
+        checkAnnotatedField(clazz, "s", "L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;", "id", "2");
+        // Write it out
+        final File tfile = createTestdataFile("AnnotatedFields.class");
+        clazz.dump(tfile);
+        final SyntheticRepository repos2 = createRepos(".");
+        repos2.loadClass("AnnotatedFields");
+        checkAnnotatedField(clazz, "i", "L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;", "id", "1");
+        checkAnnotatedField(clazz, "s", "L"+PACKAGE_BASE_SIG+"/data/SimpleAnnotation;", "id", "2");
+        assertTrue(tfile.delete());
+    }
 
     /**
      * Check we can load in a class, modify its field AnnotationEntrys, save it,
      * reload it and everything is correct.
      */
+    public void testFieldAnnotationModification()
+            throws ClassNotFoundException
+    {
+        final boolean dbg = false;
+        final JavaClass clazz = getTestClass(PACKAGE_BASE_NAME+".data.AnnotatedFields");
+        final ClassGen clg = new ClassGen(clazz);
+        Field f = clg.getFields()[0];
+        if (dbg) {
+            System.err.println("Field in freshly constructed class is: " + f);
+        }
+        if (dbg) {
+            System.err.println("AnnotationEntrys on field are: "
+                    + dumpAnnotationEntries(f.getAnnotationEntries()));
+        }
+        final AnnotationEntryGen fruitBasedAnnotationEntry = createFruitAnnotationEntry(clg
+                .getConstantPool(), "Tomato", false);
+        final FieldGen fg = new FieldGen(f, clg.getConstantPool());
+        if (dbg) {
+            System.err.println("Adding AnnotationEntry to the field");
+        }
+        fg.addAnnotationEntry(fruitBasedAnnotationEntry);
+        if (dbg) {
+            System.err.println("FieldGen (mutable field) is " + fg);
+        }
+        if (dbg) {
+            System.err.println("with AnnotationEntrys: "
+                    + dumpAnnotationEntries(fg.getAnnotationEntries()));
+        }
+        if (dbg) {
+            System.err
+                    .println("Replacing original field with new field that has extra AnnotationEntry");
+        }
+        clg.removeField(f);
+        clg.addField(fg.getField());
+        f = clg.getFields()[1]; // there are two fields in the class, removing
+                                // and readding has changed the order
+        // so this time index [1] is the 'int i' field
+        if (dbg) {
+            System.err.println("Field now looks like this: " + f);
+        }
+        if (dbg) {
+            System.err.println("With AnnotationEntrys: "
+                    + dumpAnnotationEntries(f.getAnnotationEntries()));
+        }
+        assertTrue("Should be 2 AnnotationEntrys on this field, but there are "
+                + f.getAnnotationEntries().length, f.getAnnotationEntries().length == 2);
+    }
 
     // helper methods
     public void checkAnnotatedField(final JavaClass clazz, final String fieldname,

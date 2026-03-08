@@ -69,6 +69,12 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
      * <p>
      * @throws CacheException
      */
+    public void testSwapConfig()
+        throws CacheException
+    {
+        final CacheAccess<String, String> swap = JCS.getInstance( "Swap" );
+        assertEquals(ICompositeCacheAttributes.DiskUsagePattern.SWAP,swap.getCacheAttributes().getDiskUsagePattern());
+    }
 
     /**
      * Verify that the swap region is set to the correct pattern.
@@ -86,11 +92,58 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
      * Setup a disk cache. Configure the disk usage pattern to swap. Call spool. Verify that the
      * item is put to disk.
      */
+    public void testSpoolAllowed()
+    {
+        // SETUP
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setCacheName(CACHE_NAME);
+        cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.SWAP );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, String> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxCache<String, String> mock = new MockAuxCache<>();
+        mock.cacheType = CacheType.DISK_CACHE;
+        cache.setAuxCaches(Arrays.asList(mock));
+
+        final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
+
+        // DO WORK
+        cache.spoolToDisk( inputElement );
+
+        // VERIFY
+        assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
+        assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
+    }
 
     /**
      * Setup a disk cache. Configure the disk usage pattern to not swap. Call spool. Verify that the
      * item is not put to disk.
      */
+    public void testSpoolNotAllowed()
+    {
+        // SETUP
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setCacheName(CACHE_NAME);
+        cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, String> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxCache<String, String> mock = new MockAuxCache<>();
+        mock.cacheType = CacheType.DISK_CACHE;
+        cache.setAuxCaches(Arrays.asList(mock));
+
+        final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
+
+        // DO WORK
+        cache.spoolToDisk( inputElement );
+
+        // VERIFY
+        assertEquals( "Wrong number of calls to the disk cache update.", 0, mock.updateCount );
+    }
 
     /**
      * Setup a disk cache. Configure the disk usage pattern to UPDATE. Call updateAuxiliaries.
@@ -100,6 +153,31 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
      * appropriately.
      * @throws IOException
      */
+    public void testUpdateAllowed()
+        throws IOException
+    {
+        // SETUP
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setCacheName(CACHE_NAME);
+        cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, String> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxCache<String, String> mock = new MockAuxCache<>();
+        mock.cacheType = CacheType.DISK_CACHE;
+        cache.setAuxCaches(Arrays.asList(mock));
+
+        final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
+
+        // DO WORK
+        cache.updateAuxiliaries( inputElement, true );
+
+        // VERIFY
+        assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
+        assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
+    }
 
     /**
      * Setup a disk cache. Configure the disk usage pattern to UPDATE. Call updateAuxiliaries with
@@ -110,6 +188,31 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
      * <p>
      * @throws IOException
      */
+    public void testUpdateAllowed_localFalse()
+        throws IOException
+    {
+        // SETUP
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setCacheName(CACHE_NAME);
+        cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, String> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxCache<String, String> mock = new MockAuxCache<>();
+        mock.cacheType = CacheType.DISK_CACHE;
+        cache.setAuxCaches(Arrays.asList(mock));
+
+        final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
+
+        // DO WORK
+        cache.updateAuxiliaries( inputElement, false );
+
+        // VERIFY
+        assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
+        assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
+    }
 
     /**
      * Setup a disk cache. Configure the disk usage pattern to SWAP. Call updateAuxiliaries. Verify
@@ -120,6 +223,30 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
      * <p>
      * @throws IOException
      */
+    public void testUpdateNotAllowed()
+        throws IOException
+    {
+        // SETUP
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setCacheName(CACHE_NAME);
+        cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.SWAP );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, String> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxCache<String, String> mock = new MockAuxCache<>();
+        mock.cacheType = CacheType.DISK_CACHE;
+        cache.setAuxCaches(Arrays.asList(mock));
+
+        final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
+
+        // DO WORK
+        cache.updateAuxiliaries( inputElement, true );
+
+        // VERIFY
+        assertEquals( "Wrong number of calls to the disk cache update.", 0, mock.updateCount );
+    }
 
     /**
      * Setup a disk cache. Configure the disk usage pattern to UPDATE. Call updateAuxiliaries.
@@ -129,6 +256,37 @@ public class CompositeCacheDiskUsageUnitTest_OE25Dev
      * appropriately.
      * @throws IOException
      */
+    public void testUpdateAllowed_withOtherCaches()
+        throws IOException
+    {
+        // SETUP
+        final ICompositeCacheAttributes cattr = new CompositeCacheAttributes();
+        cattr.setCacheName(CACHE_NAME);
+        cattr.setDiskUsagePattern( ICompositeCacheAttributes.DiskUsagePattern.UPDATE );
+
+        final IElementAttributes attr = new ElementAttributes();
+
+        final CompositeCache<String, String> cache = new CompositeCache<>( cattr, attr );
+
+        final MockAuxCache<String, String> mock = new MockAuxCache<>();
+        mock.cacheType = CacheType.DISK_CACHE;
+
+        final MockAuxCache<String, String> mockLateral = new MockAuxCache<>();
+        mockLateral.cacheType = CacheType.LATERAL_CACHE;
+        cache.setAuxCaches(Arrays.asList(mock, mockLateral));
+
+        final ICacheElement<String, String> inputElement = new CacheElement<>( CACHE_NAME, "key", "value" );
+
+        // DO WORK
+        cache.updateAuxiliaries( inputElement, false );
+
+        // VERIFY
+        assertEquals( "Wrong number of calls to the disk cache update.", 1, mock.updateCount );
+        assertEquals( "Wrong element updated.", inputElement, mock.lastUpdatedItem );
+
+        assertEquals( "Wrong number of calls to the lateral cache update.", 1, mockLateral.updateCount );
+        assertEquals( "Wrong element updated with lateral.", inputElement, mockLateral.lastUpdatedItem );
+    }
 
     /**
      * Used to test the disk cache functionality.

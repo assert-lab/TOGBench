@@ -14,6 +14,18 @@ public class TimestampServiceTest_OE25Dev {
         service.setTimer(new TimerStub());
     }
 
+    @Test
+    public void shouldReturnTimestampInSeconds() {
+        final String expected = "1000";
+        assertEquals(expected, service.getTimestampInSeconds());
+    }
+
+    @Test
+    public void shouldReturnNonce() {
+        final String expected = "1042";
+        assertEquals(expected, service.getNonce());
+    }
+
     private static class TimerStub extends TimestampServiceImpl.Timer {
 
         @Override

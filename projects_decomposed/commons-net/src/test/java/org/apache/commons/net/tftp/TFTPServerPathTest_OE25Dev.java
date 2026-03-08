@@ -35,6 +35,46 @@ public class TFTPServerPathTest_OE25Dev extends TestCase
     String filePrefix = "tftp-";
     File serverDirectory = new File(System.getProperty("java.io.tmpdir"));
 
+    public void testReadOnly() throws IOException
+    {
+        // Start a read-only server
+        final TFTPServer tftpS = new TFTPServer(serverDirectory, serverDirectory, SERVER_PORT,
+                ServerMode.GET_ONLY, null, null);
+
+        // Create our TFTP instance to handle the file transfer.
+        final TFTPClient tftp = new TFTPClient();
+        tftp.open();
+        tftp.setSoTimeout(2000);
+
+        // make a file to work with.
+        final File file = new File(serverDirectory, filePrefix + "source.txt");
+        file.createNewFile();
+
+        // Read the file from the tftp server.
+        final File out = new File(serverDirectory, filePrefix + "out");
+
+        // cleanup old failed runs
+        out.delete();
+        assertTrue("Couldn't clear output location", !out.exists());
+
+        try (final FileOutputStream output = new FileOutputStream(out)) {
+            tftp.receiveFile(file.getName(), TFTP.BINARY_MODE, output, "localhost", SERVER_PORT);
+        }
+
+        assertTrue("file not created", out.exists());
+
+        out.delete();
+
+        try (final FileInputStream fis = new FileInputStream(file)) {
+            tftp.sendFile(out.getName(), TFTP.BINARY_MODE, fis, "localhost", SERVER_PORT);
+            fail("Server allowed write");
+        } catch (final IOException e) {
+            // expected path
+        }
+        file.delete();
+        tftpS.shutdown();
+    }
+
     public void testWriteOnly() throws IOException
     {
         // Start a write-only server

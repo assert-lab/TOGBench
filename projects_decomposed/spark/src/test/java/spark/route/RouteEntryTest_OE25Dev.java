@@ -30,6 +30,46 @@ public class RouteEntryTest_OE25Dev {
     }
 
     @Test
+    public void testMatches_NotAllPathsAndDidNotMatchHttpMethod() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.post;
+        entry.path = "/test";
+
+        assertFalse("Should return false because path names did not match",entry.matches(HttpMethod.get,"/path"));
+    }
+
+    @Test
+    public void testMatches_RouteDoesNotEndWithSlash() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = "/test";
+
+        assertFalse("Should return false because route path does not end with a slash,does not end with " + "a wildcard,and the route pah supplied ends with a slash ",entry.matches(HttpMethod.get,"/test/"));
+    }
+
+    @Test
+    public void testMatches_PathDoesNotEndInSlash() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = "/test/";
+
+        assertFalse("Should return false because route path ends with a slash while path supplied as parameter does" + "not end with a slash",entry.matches(HttpMethod.get,"/test"));
+    }
+
+    @Test
+    public void testMatches_MatchingPaths() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = "/test/";
+
+        assertTrue("Should return true because route path and path is exactly the same",entry.matches(HttpMethod.get,"/test/"));
+    }
+
+    @Test
     public void testMatches_WithWildcardOnEntryPath() {
 
         RouteEntry entry = new RouteEntry();
@@ -37,6 +77,16 @@ public class RouteEntryTest_OE25Dev {
         entry.path = "/test/*";
 
         assertTrue("Should return true because path specified is covered by the route path wildcard",entry.matches(HttpMethod.get,"/test/me"));
+    }
+
+    @Test
+    public void testMatches_PathsDoNotMatch() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = "/test/me";
+
+        assertFalse("Should return false because path does not match route path",entry.matches(HttpMethod.get,"/test/other"));
     }
 
     @Test

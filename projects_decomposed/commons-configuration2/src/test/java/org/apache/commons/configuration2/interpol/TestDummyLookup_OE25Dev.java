@@ -28,16 +28,22 @@ public class TestDummyLookup_OE25Dev {
     /**
      * Tests the lookup() method.
      */
+    @Test
+    public void testLookup() {
+        assertNull("Got a result (1)", DummyLookup.INSTANCE.lookup("someVariable"));
+        assertNull("Got a result (2)", DummyLookup.INSTANCE.lookup(null));
+    }
 
     @Test
     public void testLookup_1_oe() {
-        assertNull("Got a result (1)", DummyLookup.INSTANCE.lookup("someVariable"));
+        Object a = DummyLookup.INSTANCE.lookup("someVariable");
+        assertNull("Got a result (1)", a);
     }
 
     @Test
     public void testLookup_2_oe() {
-        // removed other assertion
-        assertNull("Got a result (2)", DummyLookup.INSTANCE.lookup(null));
+        Object a = DummyLookup.INSTANCE.lookup(null);
+        assertNull("Got a result (2)", a);
     }
 
 }

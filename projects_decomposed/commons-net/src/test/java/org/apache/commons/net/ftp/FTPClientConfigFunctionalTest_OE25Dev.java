@@ -118,6 +118,43 @@ public class FTPClientConfigFunctionalTest_OE25Dev extends TestCase {
         return sorted;
     }
 
+    public void testTimeZoneFunctionality() throws Exception {
+        final java.util.Date now = new java.util.Date();
+        final FTPFile[] files = FTP.listFiles();
+        final TreeSet<FTPFile> sorted = getSortedList(files);
+        //SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yyyy HH:mm z" );
+        FTPFile lastfile = null;
+        FTPFile firstfile = null;
+        for (final FTPFile thisfile : sorted) {
+            if (firstfile == null) {
+                firstfile = thisfile;
+            }
+            //System.out.println(sdf.format(thisfile.getTimestamp().getTime())
+            //        + " " +thisfile.getName());
+            if (lastfile != null) {
+                // verify that the list is sorted earliest to latest.
+                assertTrue(lastfile.getTimestamp().before(thisfile.getTimestamp()));
+            }
+            lastfile = thisfile;
+        }
+
+        if (firstfile == null || lastfile == null)  {
+            fail("No files found");
+        } else {
+            // test that notwithstanding any time zone differences, the newest file
+            // is older than now.
+            assertTrue(lastfile.getTimestamp().getTime().before(now));
+            final Calendar first = firstfile.getTimestamp();
+
+            // test that the oldest is less than two days older than the newest
+            // and, in particular, that no files have been considered "future"
+            // by the parser and therefore been relegated to the same date a
+            // year ago.
+            first.add(Calendar.DAY_OF_MONTH, 2);
+            assertTrue(lastfile.getTimestamp().getTime().toString()+ " before "+ first.getTime().toString(),lastfile.getTimestamp().before(first));
+        }
+    }
+
     public void testTimeZoneFunctionality_1_oe() throws Exception {
         final java.util.Date now = new java.util.Date();
         final FTPFile[] files = FTP.listFiles();

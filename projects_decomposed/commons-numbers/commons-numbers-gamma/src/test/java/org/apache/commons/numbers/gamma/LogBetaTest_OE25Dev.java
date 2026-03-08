@@ -618,6 +618,22 @@ class LogBetaTest_OE25Dev {
     }
 
     @Test
+    void testLogGammaMinusLogGammaSum() {
+        final int ulps = 4;
+        for (int i = 0; i < LOG_GAMMA_MINUS_LOG_GAMMA_SUM_REF.length; i++) {
+            final double[] ref = LOG_GAMMA_MINUS_LOG_GAMMA_SUM_REF[i];
+            final double a = ref[0];
+            final double b = ref[1];
+            final double expected = ref[2];
+            final double actual = logGammaMinusLogGammaSum(a, b);
+            final double tol = ulps * Math.ulp(expected);
+            final StringBuilder builder = new StringBuilder();
+            builder.append(a).append(", ").append(b);
+            Assertions.assertEquals(expected, actual, tol, builder.toString());
+        }
+    }
+
+    @Test
     void testLogGammaMinusLogGammaSumPrecondition1() {
         Assertions.assertThrows(IllegalArgumentException.class,
             () -> logGammaMinusLogGammaSum(-1, 8)
@@ -654,6 +670,22 @@ class LogBetaTest_OE25Dev {
         }
 
         return Double.NaN;
+    }
+
+    @Test
+    void testSumDeltaMinusDeltaSum() {
+        final int ulps = 3;
+        for (int i = 0; i < SUM_DELTA_MINUS_DELTA_SUM_REF.length; i++) {
+            final double[] ref = SUM_DELTA_MINUS_DELTA_SUM_REF[i];
+            final double a = ref[0];
+            final double b = ref[1];
+            final double expected = ref[2];
+            final double actual = sumDeltaMinusDeltaSum(a, b);
+            final double tol = ulps * Math.ulp(expected);
+            final StringBuilder builder = new StringBuilder();
+            builder.append(a).append(", ").append(b);
+            Assertions.assertEquals(expected, actual, tol, builder.toString());
+        }
     }
 
     @Test

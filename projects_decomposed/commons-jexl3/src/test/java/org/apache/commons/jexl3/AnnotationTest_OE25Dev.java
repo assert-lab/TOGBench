@@ -41,6 +41,14 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
         super("AnnotationTest_OE25Dev");
     }
 
+    @Test
+    public void test197a() throws Exception {
+        final JexlContext jc = new MapContext();
+        final JexlScript e = JEXL.createScript("@synchronized { return 42; }");
+        final Object r = e.execute(jc);
+        Assert.assertEquals(42, r);
+    }
+
     public static class AnnotationContext extends MapContext implements JexlContext.AnnotationProcessor {
         private int count = 0;
         private final Set<String> names = new TreeSet<String>();
@@ -127,6 +135,124 @@ public class AnnotationTest_OE25Dev extends JexlTestCase {
             }
             return statement.call();
         }
+    }
+
+    @Test
+    public void testVarStmt() throws Exception {
+        final OptAnnotationContext jc = new OptAnnotationContext();
+        final JexlOptions options = jc.getEngineOptions();
+        jc.getEngineOptions().set(JEXL);
+        options.setSharedInstance(true);
+        JexlScript e;
+        Object r;
+        e = JEXL.createScript("(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }");
+
+        // wont make an error
+        try {
+            r = e.execute(jc, false, true);
+            Assert.assertEquals(42, r);
+        } catch (final JexlException.Variable xjexl) {
+            Assert.fail("should not have thrown");
+        }
+
+        r = null;
+        // will make an error and throw
+        options.setSafe(false);
+        try {
+            r = e.execute(jc, true, false);
+            Assert.fail("should have thrown");
+        } catch (final JexlException.Variable xjexl) {
+            Assert.assertNull(r);
+        }
+
+        r = null;
+        // will make an error and will not throw but result is null
+        try {
+            r = e.execute(jc, true, true);
+            Assert.assertNull(r);
+        } catch (final JexlException.Variable xjexl) {
+            Assert.fail("should not have thrown");
+        }
+        options.setSafe(true);
+
+        r = null;
+        // will not make an error and will not throw
+        try {
+            r = e.execute(jc, false, false);
+            Assert.assertEquals(42, r);
+        } catch (final JexlException.Variable xjexl) {
+            Assert.fail("should not have thrown");
+        }
+        //Assert.assertEquals(42, r);
+        Assert.assertTrue(options.isStrict());
+        e = JEXL.createScript("@scale(5) 42;");
+        r = e.execute(jc);
+        Assert.assertEquals(42, r);
+        Assert.assertTrue(options.isStrict());
+        Assert.assertEquals(5, options.getMathScale());
+    }
+
+    @Test
+    public void testNoArg() throws Exception {
+        final AnnotationContext jc = new AnnotationContext();
+        final JexlScript e = JEXL.createScript("@synchronized { return 42; }");
+        final Object r = e.execute(jc);
+        Assert.assertEquals(42, r);
+        Assert.assertEquals(1, jc.getCount());
+        Assert.assertTrue(jc.getNames().contains("synchronized"));
+    }
+
+    @Test
+    public void testNoArgExpression() throws Exception {
+        final AnnotationContext jc = new AnnotationContext();
+        final JexlScript e = JEXL.createScript("@synchronized 42");
+        final Object r = e.execute(jc);
+        Assert.assertEquals(42, r);
+        Assert.assertEquals(1, jc.getCount());
+        Assert.assertTrue(jc.getNames().contains("synchronized"));
+    }
+
+    @Test
+    public void testNoArgStatement() throws Exception {
+        final AnnotationContext jc = new AnnotationContext();
+        final JexlScript e = JEXL.createScript("@synchronized if (true) 2 * 3 * 7; else -42;");
+        final Object r = e.execute(jc);
+        Assert.assertEquals(42, r);
+        Assert.assertEquals(1, jc.getCount());
+        Assert.assertTrue(jc.getNames().contains("synchronized"));
+    }
+
+    @Test
+    public void testHoistingStatement() throws Exception {
+        final AnnotationContext jc = new AnnotationContext();
+        final JexlScript e = JEXL.createScript("var t = 1; @synchronized for(var x : [2,3,7]) t *= x; t");
+        final Object r = e.execute(jc);
+        Assert.assertEquals(42, r);
+        Assert.assertEquals(1, jc.getCount());
+        Assert.assertTrue(jc.getNames().contains("synchronized"));
+    }
+
+    @Test
+    public void testOneArg() throws Exception {
+        final AnnotationContext jc = new AnnotationContext();
+        final JexlScript e = JEXL.createScript("@one(1) { return 42; }");
+        final Object r = e.execute(jc);
+        Assert.assertEquals(42, r);
+        Assert.assertEquals(1, jc.getCount());
+        Assert.assertTrue(jc.getNames().contains("one"));
+        Assert.assertTrue(jc.getNames().contains("1"));
+    }
+
+    @Test
+    public void testMultiple() throws Exception {
+        final AnnotationContext jc = new AnnotationContext();
+        final JexlScript e = JEXL.createScript("@one(1) @synchronized { return 42; }");
+        final Object r = e.execute(jc);
+        Assert.assertEquals(42, r);
+        Assert.assertEquals(2, jc.getCount());
+        Assert.assertTrue(jc.getNames().contains("synchronized"));
+        Assert.assertTrue(jc.getNames().contains("one"));
+        Assert.assertTrue(jc.getNames().contains("1"));
     }
 
     @Test

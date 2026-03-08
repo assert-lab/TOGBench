@@ -42,6 +42,26 @@ public class PhotometricInterpreterRgbTest_OE25Dev {
     }
 
     @Test
+    public void testConstructor() {
+        assertEquals(samplesPerPixel, p.samplesPerPixel);
+        for (int i = 0; i < bitsPerSample.length; i++) {
+            assertEquals(bitsPerSample[i], p.getBitsPerSample(i));
+        }
+        assertEquals(predictor, p.predictor);
+        assertEquals(width, p.width);
+        assertEquals(height, p.height);
+    }
+
+    @Test
+    public void testInterpretPixel() throws ImageReadException, IOException {
+        final ImageBuilder imgBuilder = new ImageBuilder(600, 400, /*alpha*/ true);
+        final int x = 10;
+        final int y = 20;
+        p.interpretPixel(imgBuilder, new int[] {255, 255, 255}, x, y);
+        assertEquals(0xffffffff, imgBuilder.getRGB(x, y));
+    }
+
+    @Test
     public void testConstructor_1_oe() {
         assertEquals(samplesPerPixel, p.samplesPerPixel);
     }

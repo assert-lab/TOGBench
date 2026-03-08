@@ -124,26 +124,99 @@ public abstract class AbstractCalendarValidatorTest_OE25Dev extends TestCase {
     /**
      * Test Valid Dates with "pattern" validation
      */
+    public void testPatternValid() {
+        for (int i = 0; i < patternValid.length; i++) {
+            String text = i + " value=[" +patternValid[i]+"] failed ";
+            Object date = validator.parse(patternValid[i], "yy-MM-dd", null, null);
+            assertNotNull("validateObj() " + text + date,  date);
+            assertTrue("isValid() " + text,  validator.isValid(patternValid[i], "yy-MM-dd"));
+            if (date instanceof Calendar) {
+                date = ((Calendar)date).getTime();
+            }
+            assertEquals("compare " + text, patternExpect[i], date);
+        }
+    }
 
     /**
      * Test Invalid Dates with "pattern" validation
      */
+    public void testPatternInvalid() {
+        for (int i = 0; i < patternInvalid.length; i++) {
+            String text = i + " value=[" +patternInvalid[i]+"] passed ";
+            Object date = validator.parse(patternInvalid[i], "yy-MM-dd", null, null);
+            assertNull("validateObj() " + text + date,  date);
+            assertFalse("isValid() " + text,  validator.isValid(patternInvalid[i], "yy-MM-dd"));
+        }
+    }
 
     /**
      * Test Valid Dates with "locale" validation
      */
+    public void testLocaleValid() {
+        for (int i = 0; i < localeValid.length; i++) {
+            String text = i + " value=[" +localeValid[i]+"] failed ";
+            Object date = validator.parse(localeValid[i], null, Locale.US, null);
+            assertNotNull("validateObj() " + text + date,  date);
+            assertTrue("isValid() " + text,  validator.isValid(localeValid[i], Locale.US));
+            if (date instanceof Calendar) {
+                date = ((Calendar)date).getTime();
+            }
+            assertEquals("compare " + text, patternExpect[i], date);
+        }
+    }
 
     /**
      * Test Invalid Dates with "locale" validation
      */
+    public void testLocaleInvalid() {
+        for (int i = 0; i < localeInvalid.length; i++) {
+            String text = i + " value=[" +localeInvalid[i]+"] passed ";
+            Object date = validator.parse(localeInvalid[i], null, Locale.US, null);
+            assertNull("validateObj() " + text + date,  date);
+            assertFalse("isValid() " + text,  validator.isValid(localeInvalid[i], Locale.US));
+        }
+    }
 
     /**
      * Test Invalid Dates with "locale" validation
      */
+    public void testFormat() {
+
+        // Create a Date or Calendar
+        Object test = validator.parse("2005-11-28", "yyyy-MM-dd", null, null);
+        assertNotNull("Test Date ", test);
+        assertEquals("Format pattern", "28.11.05", validator.format(test, "dd.MM.yy"));
+        assertEquals("Format locale",  "11/28/05", validator.format(test, Locale.US));
+    }
 
     /**
      * Test validator serialization.
      */
+    public void testSerialization() {
+        // Serialize the check digit routine
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try {
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
+            oos.writeObject(validator);
+            oos.flush();
+            oos.close();
+        } catch (Exception e) {
+            fail(validator.getClass().getName() + " error during serialization: " + e);
+        }
+
+        // Deserialize the test object
+        Object result = null;
+        try {
+            ByteArrayInputStream bais =
+                new ByteArrayInputStream(baos.toByteArray());
+            ObjectInputStream ois = new ObjectInputStream(bais);
+            result = ois.readObject();
+            bais.close();
+        } catch (Exception e) {
+            fail(validator.getClass().getName() + " error during deserialization: " + e);
+        }
+        assertNotNull(result);
+    }
 
     /**
      * Create a calendar instance for a specified time zone, date and time.

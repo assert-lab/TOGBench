@@ -144,6 +144,40 @@ public class HttpProviderTestCase_OE25Dev extends AbstractProviderTestConfig {
     }
 
     /** Ensure VFS-453 options are present. */
+    public void testHttpTimeoutConfig() {
+        final FileSystemOptions options = new FileSystemOptions();
+        final HttpFileSystemConfigBuilder builder = HttpFileSystemConfigBuilder.getInstance();
+
+        // ensure defaults are 0
+        assertEquals(0, builder.getConnectionTimeout(options));
+        assertEquals(0, builder.getConnectionTimeoutDuration(options).toMillis());
+        assertEquals(0, builder.getSoTimeout(options));
+        assertEquals("Jakarta-Commons-VFS", builder.getUserAgent(options));
+
+        // Set with deprecated milliseconds APIs.
+        builder.setConnectionTimeout(options, 60000);
+        builder.setSoTimeout(options, 60000);
+        builder.setUserAgent(options, "foo/bar");
+
+        // ensure changes are visible
+        assertEquals(60000, builder.getConnectionTimeout(options));
+        assertEquals(ONE_MINUTE, builder.getConnectionTimeoutDuration(options));
+        assertEquals(60000, builder.getSoTimeout(options));
+        assertEquals("foo/bar", builder.getUserAgent(options));
+
+        // Set with Duration APIs.
+        builder.setConnectionTimeout(options, ONE_MINUTE);
+        builder.setSoTimeout(options, ONE_MINUTE);
+
+        // ensure changes are visible
+        assertEquals(60000, builder.getConnectionTimeout(options));
+        assertEquals(ONE_MINUTE, builder.getConnectionTimeoutDuration(options));
+        assertEquals(60000, builder.getSoTimeout(options));
+        assertEquals(ONE_MINUTE, builder.getSoTimeoutDuration(options));
+        assertEquals("foo/bar", builder.getUserAgent(options));
+
+        // TODO: should also check the created HTTPClient
+    }
 
     private void testResloveFolderSlash(final String uri, final boolean followRedirect) throws FileSystemException {
         VFS.getManager().getFilesCache().close();

@@ -61,6 +61,28 @@ public class TestConfigurationSet_OE25Dev {
     /**
      * Class under test for Iterator iterator()
      */
+    @Test
+    public void testIterator() {
+        final Iterator<Map.Entry<Object, Object>> iterator = set.iterator();
+        while (iterator.hasNext()) {
+            final Map.Entry<Object, Object> entry = iterator.next();
+            boolean found = false;
+            for (int i = 0; i < properties.length; i++) {
+                if (entry.getKey().equals(properties[i])) {
+                    assertEquals("Incorrect value for property " + properties[i], values[i], entry.getValue());
+                    found = true;
+                }
+            }
+            assertTrue("Could not find property " + entry.getKey(), found);
+            iterator.remove();
+        }
+        assertTrue("Iterator failed to remove all properties.", set.isEmpty());
+    }
+
+    @Test
+    public void testSize() {
+        assertEquals("Entry set does not match properties size.", properties.length, set.size());
+    }
 
     @Test
     public void testIterator_1_oe() {
@@ -84,7 +106,6 @@ public class TestConfigurationSet_OE25Dev {
             boolean found = false;
             for (int i = 0; i < properties.length; i++) {
                 if (entry.getKey().equals(properties[i])) {
-                    // removed other assertion
                     found = true;
                 }
             }
@@ -100,11 +121,9 @@ public class TestConfigurationSet_OE25Dev {
             boolean found = false;
             for (int i = 0; i < properties.length; i++) {
                 if (entry.getKey().equals(properties[i])) {
-                    // removed other assertion
                     found = true;
                 }
             }
-            // removed other assertion
             iterator.remove();
         }
         assertTrue("Iterator failed to remove all properties.", set.isEmpty());
@@ -112,7 +131,8 @@ public class TestConfigurationSet_OE25Dev {
 
     @Test
     public void testSize_1_oe() {
-        assertEquals("Entry set does not match properties size.", properties.length, set.size());
+        Object a = properties.length;
+        assertEquals("Entry set does not match properties size.", a, set.size());
     }
 
 }

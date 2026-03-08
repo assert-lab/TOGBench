@@ -37,14 +37,60 @@ class LineSamplerTest_OE25Dev {
     /**
      * Test an unsupported dimension.
      */
+    @Test
+    void testInvalidDimensionThrows() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> LineSampler.of(rng, new double[0], new double[0]));
+    }
 
     /**
      * Test a dimension mismatch between vertices.
      */
+    @Test
+    void testDimensionMismatchThrows() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        final double[] c2 = new double[2];
+        final double[] c3 = new double[3];
+        for (double[][] c : new double[][][] {
+            {c2, c3},
+            {c3, c2},
+        }) {
+            Assertions.assertThrows(IllegalArgumentException.class,
+                () -> LineSampler.of(rng, c[0], c[1]),
+                () -> String.format("Did not detect dimension mismatch: %d,%d",
+                    c[0].length, c[1].length));
+        }
+    }
 
     /**
      * Test non-finite vertices.
      */
+    @Test
+    void testNonFiniteVertexCoordinates() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        // A valid line
+        final double[][] c = new double[][] {
+            {0, 1, 2}, {-1, 2, 3}
+        };
+        Assertions.assertNotNull(LineSampler.of(rng, c[0],  c[1]));
+        final double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
+        for (int i = 0; i < c.length; i++) {
+            final int ii = i;
+            for (int j = 0; j < c[0].length; j++) {
+                final int jj = j;
+                for (final double d : bad) {
+                    final double value = c[i][j];
+                    c[i][j] = d;
+                    Assertions.assertThrows(IllegalArgumentException.class,
+                        () -> LineSampler.of(rng, c[0], c[1]),
+                        () -> String.format("Did not detect non-finite coordinate: %d,%d = %s",
+                            ii, jj, d));
+                    c[i][j] = value;
+                }
+            }
+        }
+    }
 
     /**
      * Test a line with coordinates that are separated by more than

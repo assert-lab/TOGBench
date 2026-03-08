@@ -66,6 +66,18 @@ public class BodyAvailabilityTest_OE25Dev {
     }
 
     @Test
+    public void testPost() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
+        LOGGER.info(response.body);
+        Assert.assertEquals(HTTP_OK, response.status);
+        Assert.assertTrue(response.body.contains(BODY_CONTENT));
+
+        Assert.assertEquals(BODY_CONTENT, beforeBody);
+        Assert.assertEquals(BODY_CONTENT, routeBody);
+        Assert.assertEquals(BODY_CONTENT, afterBody);
+    }
+
+    @Test
     public void testPost_1_oe() throws Exception {
         SparkTestUtil.UrlResponse response = testUtil.doMethod("POST", "/hello", BODY_CONTENT);
         LOGGER.info(response.body);

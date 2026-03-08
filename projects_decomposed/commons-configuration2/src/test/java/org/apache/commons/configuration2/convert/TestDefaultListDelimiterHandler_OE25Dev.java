@@ -56,29 +56,66 @@ public class TestDefaultListDelimiterHandler_OE25Dev {
         handler = new DefaultListDelimiterHandler(',');
     }
 
+    @Test
+    public void testEscapeIntegerList() {
+        final ValueTransformer trans = ListDelimiterHandler.NOOP_TRANSFORMER;
+        final List<Integer> data = Arrays.asList(1, 2, 3, 4);
+        assertEquals("1,2,3,4", handler.escapeList(data, trans));
+    }
+
     /**
      * Tests whether a list is correctly escaped.
      */
+    @Test
+    public void testEscapeList() {
+        final ValueTransformer trans = value -> String.valueOf(value) + "_trans";
+        final List<String> data = Arrays.asList("simple", "Hello,world!", "\\,\\", "end");
+        assertEquals("Wrong result", "simple_trans,Hello\\,world!_trans," + "\\\\\\,\\\\_trans,end_trans", handler.escapeList(data, trans));
+    }
 
     /**
      * Tests whether a backslash is correctly escaped.
      */
+    @Test
+    public void testEscapeStringBackslash() {
+        assertEquals("Wrong result", "C:\\\\Temp\\\\", handler.escapeString("C:\\Temp\\"));
+    }
 
     /**
      * Tests whether the list delimiter character is correctly escaped in a string.
      */
+    @Test
+    public void testEscapeStringListDelimiter() {
+        assertEquals("Wrong result", "3\\,1415", handler.escapeString("3,1415"));
+    }
 
     /**
      * Tests whether combinations of list delimiters and backslashes are correctly escaped.
      */
+    @Test
+    public void testEscapeStringListDelimiterAndBackslash() {
+        assertEquals("Wrong result", "C:\\\\Temp\\\\\\,\\\\\\\\Share\\,/root", handler.escapeString("C:\\Temp\\,\\\\Share,/root"));
+    }
 
     /**
      * Tests whether a string is correctly escaped which does not contain any special character.
      */
+    @Test
+    public void testEscapeStringNoSpecialCharacter() {
+        assertEquals("Wrong result", "test", handler.escapeString("test"));
+    }
 
     /**
      * Tests whether a value transformer is correctly called when escaping a single value.
      */
+    @Test
+    public void testEscapeWithTransformer() {
+        final ValueTransformer trans = EasyMock.createMock(ValueTransformer.class);
+        EasyMock.expect(trans.transformValue("a\\,b")).andReturn("ok");
+        EasyMock.replay(trans);
+        assertEquals("Wrong result", "ok", handler.escape("a,b", trans));
+        EasyMock.verify(trans);
+    }
 
     /**
      * Tests whether split() deals correctly with escaped backslashes.
@@ -152,22 +189,26 @@ public class TestDefaultListDelimiterHandler_OE25Dev {
 
     @Test
     public void testEscapeStringBackslash_1_oe() {
-        assertEquals("Wrong result", "C:\\\\Temp\\\\", handler.escapeString("C:\\Temp\\"));
+        String a = "C:\\\\Temp\\\\";
+        assertEquals("Wrong result", a, handler.escapeString("C:\\Temp\\"));
     }
 
     @Test
     public void testEscapeStringListDelimiter_1_oe() {
-        assertEquals("Wrong result", "3\\,1415", handler.escapeString("3,1415"));
+        String a = "3\\,1415";
+        assertEquals("Wrong result", a, handler.escapeString("3,1415"));
     }
 
     @Test
     public void testEscapeStringListDelimiterAndBackslash_1_oe() {
-        assertEquals("Wrong result", "C:\\\\Temp\\\\\\,\\\\\\\\Share\\,/root", handler.escapeString("C:\\Temp\\,\\\\Share,/root"));
+        String a = "C:\\\\Temp\\\\\\,\\\\\\\\Share\\,/root";
+        assertEquals("Wrong result", a, handler.escapeString("C:\\Temp\\,\\\\Share,/root"));
     }
 
     @Test
     public void testEscapeStringNoSpecialCharacter_1_oe() {
-        assertEquals("Wrong result", "test", handler.escapeString("test"));
+        String a = "test";
+        assertEquals("Wrong result", a, handler.escapeString("test"));
     }
 
     @Test

@@ -36,6 +36,29 @@ public class PropertySetterUnitTest_OE25Dev
     enum EnumTest { ONE, TWO, THREE }
 
     @Test
+    public void testConvertArg()
+    {
+        final PropertySetter ps = new PropertySetter(this);
+        final Object s = ps.convertArg("test", String.class);
+        assertEquals("Should be a string", "test", s);
+
+        final Object i = ps.convertArg("1", Integer.TYPE);
+        assertEquals("Should be an integer", Integer.valueOf(1), i);
+
+        final Object l = ps.convertArg("1", Long.TYPE);
+        assertEquals("Should be a long", Long.valueOf(1), l);
+
+        final Object b = ps.convertArg("true", Boolean.TYPE);
+        assertEquals("Should be a boolean", Boolean.TRUE, b);
+
+        final Object e = ps.convertArg("TWO", EnumTest.class);
+        assertEquals("Should be an enum", EnumTest.TWO, e);
+
+        final Object f = ps.convertArg("test.conf", File.class);
+        assertTrue("Should be a file", f instanceof File);
+    }
+
+    @Test
     public void testConvertArg_1_oe()
     {
         final PropertySetter ps = new PropertySetter(this);

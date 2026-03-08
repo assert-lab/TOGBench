@@ -125,6 +125,151 @@ public class ReactiveStreamsErrorTest_OE25Dev extends AbstractBasicTest {
     }
   }
 
+  @Test
+  public void notRequestingForLongerThanReadTimeoutDoesNotCauseTimeout() throws Throwable {
+    ServletResponseHandler responseHandler = response -> {
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+      Thread.sleep(100);
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+      response.getOutputStream().close();
+    };
+
+    ManualRequestSubscriber subscriber = new ManualRequestSubscriber() {
+      @Override
+      public void onSubscribe(Subscription s) {
+        super.onSubscribe(s);
+        new Thread(() -> {
+          try {
+            // chunk 1
+            s.request(1);
+
+            // there will be no read for longer than the read timeout
+            Thread.sleep(1_500);
+
+            // read the rest
+            s.request(Long.MAX_VALUE);
+          } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+          }
+        }).start();
+      }
+    };
+
+    execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+
+    subscriber.await();
+
+    assertEquals(subscriber.elements.size(), 2);
+  }
+
+  @Test
+  public void readTimeoutCancelsBodyStream() throws Throwable {
+    ServletResponseHandler responseHandler = response -> {
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+      Thread.sleep(2_000);
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+      response.getOutputStream().close();
+    };
+
+    ManualRequestSubscriber subscriber = new ManualRequestSubscriber() {
+      @Override
+      public void onSubscribe(Subscription s) {
+        super.onSubscribe(s);
+        s.request(Long.MAX_VALUE);
+      }
+    };
+
+    try {
+      execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      fail("Request should have timed out");
+    } catch (ExecutionException e) {
+      expectReadTimeout(e.getCause());
+    }
+
+    subscriber.await();
+
+    assertEquals(subscriber.elements.size(), 1);
+  }
+
+  @Test
+  public void requestTimeoutCancelsBodyStream() throws Throwable {
+    ServletResponseHandler responseHandler = response -> {
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+      Thread.sleep(900);
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+      Thread.sleep(900);
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+      Thread.sleep(900);
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+      Thread.sleep(900);
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+      response.getOutputStream().close();
+    };
+
+    ManualRequestSubscriber subscriber = new ManualRequestSubscriber() {
+      @Override
+      public void onSubscribe(Subscription subscription) {
+        super.onSubscribe(subscription);
+        subscription.request(Long.MAX_VALUE);
+      }
+    };
+
+    try {
+      execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      fail("Request should have timed out");
+    } catch (ExecutionException e) {
+      expectRequestTimeout(e.getCause());
+    }
+
+    subscriber.await();
+
+    expectRequestTimeout(subscriber.error);
+    assertEquals(subscriber.elements.size(), 4);
+  }
+
+  @Test
+  public void ioErrorsArePropagatedToSubscriber() throws Throwable {
+    ServletResponseHandler responseHandler = response -> {
+      response.setContentLength(100);
+
+      response.getOutputStream().write(BODY_CHUNK);
+      response.getOutputStream().flush();
+
+      response.getOutputStream().close();
+    };
+
+    ManualRequestSubscriber subscriber = new ManualRequestSubscriber() {
+      @Override
+      public void onSubscribe(Subscription subscription) {
+        super.onSubscribe(subscription);
+        subscription.request(Long.MAX_VALUE);
+      }
+    };
+
+    Throwable error = null;
+    try {
+      execute(responseHandler, bodyPublisher -> bodyPublisher.subscribe(subscriber));
+      fail("Request should have failed");
+    } catch (ExecutionException e) {
+      error = e.getCause();
+      assertTrue(error instanceof RemotelyClosedException, "Unexpected error: " + e);
+    }
+
+    subscriber.await();
+
+    assertEquals(subscriber.error, error);
+    assertEquals(subscriber.elements.size(), 1);
+  }
+
   private void expectReadTimeout(Throwable e) {
     assertTrue(e instanceof TimeoutException,"Expected a read timeout,but got " + e);
     assertTrue(e.getMessage().contains("Read timeout"),"Expected read timeout,but was " + e);

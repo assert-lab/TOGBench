@@ -44,11 +44,41 @@ class UniformLongSamplerTest_OE25Dev {
     /**
      * Test the constructor with a bad range.
      */
+    @Test
+    void testConstructorThrowsWithLowerAboveUpper() {
+        final long upper = 55;
+        final long lower = upper + 1;
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> UniformLongSampler.of(rng, lower, upper));
+    }
+
+    @Test
+    void testSamplesWithRangeOf1() {
+        final long upper = 99;
+        final long lower = upper;
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create();
+        final UniformLongSampler sampler = UniformLongSampler.of(rng, lower, upper);
+        for (int i = 0; i < 5; i++) {
+            Assertions.assertEquals(lower, sampler.sample());
+        }
+    }
 
     /**
      * Test samples with a full long range.
      * The output should be the same as the long values produced from a RNG.
      */
+    @Test
+    void testSamplesWithFullRange() {
+        final long upper = Long.MAX_VALUE;
+        final long lower = Long.MIN_VALUE;
+        final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+        final UniformLongSampler sampler = UniformLongSampler.of(rng2, lower, upper);
+        for (int i = 0; i < 10; i++) {
+            Assertions.assertEquals(rng1.nextLong(), sampler.sample());
+        }
+    }
 
     /**
      * Test samples with a non-power of 2 range.
@@ -56,6 +86,20 @@ class UniformLongSamplerTest_OE25Dev {
      * based on o.a.c.rng.core.BaseProvider as the rejection algorithm is
      * the same.
      */
+    @Test
+    void testSamplesWithSmallNonPowerOf2Range() {
+        final long upper = 234293789329234L;
+        for (final long lower : new long[] {-13, 0, 13}) {
+            final long n = upper - lower + 1;
+            // Use an RNG that forces the rejection path on the first sample
+            final UniformRandomProvider rng1 = createRngWithFullBitsOnFirstCall();
+            final UniformRandomProvider rng2 = createRngWithFullBitsOnFirstCall();
+            final UniformLongSampler sampler = UniformLongSampler.of(rng2, lower, upper);
+            for (int i = 0; i < 10; i++) {
+                Assertions.assertEquals(lower + rng1.nextLong(n), sampler.sample());
+            }
+        }
+    }
 
     /**
      * Creates a RNG which will return full bits for the first sample.
@@ -76,16 +120,96 @@ class UniformLongSamplerTest_OE25Dev {
      * Test samples with a power of 2 range.
      * This tests the minimum and maximum output should be the range limits.
      */
+    @Test
+    void testSamplesWithPowerOf2Range() {
+        final UniformRandomProvider rngZeroBits = new LongProvider() {
+            @Override
+            public long next() {
+                // No bits
+                return 0L;
+            }
+        };
+        final UniformRandomProvider rngAllBits = new LongProvider() {
+            @Override
+            public long next() {
+                // All bits
+                return -1L;
+            }
+        };
+
+        final long lower = -3;
+        UniformLongSampler sampler;
+        // The upper range for a positive long is 2^63-1. So the max positive power of
+        // 2 is 2^62. However the sampler should handle a bit shift of 63 to create a range
+        // of Long.MIN_VALUE as this is a power of 2 as an unsigned long (2^63).
+        for (int i = 0; i < 64; i++) {
+            final long range = 1L << i;
+            final long upper = lower + range - 1;
+            sampler = UniformLongSampler.of(rngZeroBits, lower, upper);
+            Assertions.assertEquals(lower, sampler.sample(), "Zero bits sample");
+            sampler = UniformLongSampler.of(rngAllBits, lower, upper);
+            Assertions.assertEquals(upper, sampler.sample(), "All bits sample");
+        }
+    }
 
     /**
      * Test samples with a power of 2 range.
      * This tests the output is created using a bit shift.
      */
+    @Test
+    void testSamplesWithPowerOf2RangeIsBitShift() {
+        final long lower = 0;
+        UniformLongSampler sampler;
+        // Power of 2 sampler used for a bit shift of 1 to 63.
+        for (int i = 1; i <= 63; i++) {
+            // Upper is inclusive so subtract 1
+            final long upper = (1L << i) - 1;
+            final int shift = 64 - i;
+            final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+            final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+            sampler = UniformLongSampler.of(rng2, lower, upper);
+            for (int j = 0; j < 10; j++) {
+                Assertions.assertEquals(rng1.nextLong() >>> shift, sampler.sample());
+            }
+        }
+    }
 
     /**
      * Test samples with a large non-power of 2 range.
      * This tests the large range algorithm uses a rejection method.
      */
+    @Test
+    void testSamplesWithLargeNonPowerOf2RangeIsRejectionMethod() {
+        // Create a range bigger than 2^63
+        final long upper = Long.MAX_VALUE / 2 + 1;
+        final long lower = Long.MIN_VALUE / 2 - 1;
+        final UniformRandomProvider rng1 = RandomSource.SPLIT_MIX_64.create(0L);
+        final UniformRandomProvider rng2 = RandomSource.SPLIT_MIX_64.create(0L);
+        final UniformLongSampler sampler = UniformLongSampler.of(rng2, lower, upper);
+        for (int i = 0; i < 10; i++) {
+            // Get the expected value by the rejection method
+            long expected;
+            do {
+                expected = rng1.nextLong();
+            } while (expected < lower || expected > upper);
+            Assertions.assertEquals(expected, sampler.sample());
+        }
+    }
+
+    @Test
+    void testOffsetSamplesWithNonPowerOf2Range() {
+        assertOffsetSamples(257);
+    }
+
+    @Test
+    void testOffsetSamplesWithPowerOf2Range() {
+        assertOffsetSamples(256);
+    }
+
+    @Test
+    void testOffsetSamplesWithRangeOf1() {
+        assertOffsetSamples(1);
+    }
 
     private static void assertOffsetSamples(long range) {
         final Long seed = RandomSource.createLong();
@@ -112,6 +236,62 @@ class UniformLongSamplerTest_OE25Dev {
     /**
      * Test the sample uniformity when using a small range that is a power of 2.
      */
+    @Test
+    void testSampleUniformityWithPowerOf2Range() {
+        // Test using a RNG that outputs a counter of integers.
+        // The n most significant bits will be represented uniformly over a
+        // sequence that is a 2^n long.
+        final UniformRandomProvider rng = new LongProvider() {
+            private long bits = 0;
+
+            @Override
+            public long next() {
+                // We reverse the bits because the most significant bits are used
+                return Long.reverse(bits++);
+            }
+        };
+
+        // n = upper range exclusive
+        final int n = 32; // power of 2
+        final int[] histogram = new int[n];
+
+        final long lower = 0;
+        final long upper = n - 1;
+
+        final UniformLongSampler sampler = UniformLongSampler.of(rng, lower, upper);
+
+        final int expected = 2;
+        for (int i = expected * n; i-- > 0;) {
+            histogram[(int) sampler.sample()]++;
+        }
+
+        // This should be even across the entire range
+        for (int value : histogram) {
+            Assertions.assertEquals(expected, value);
+        }
+    }
+
+    @Test
+    void testSharedStateSamplerWithSmallRange() {
+        assertSharedStateSampler(5, 67);
+    }
+
+    @Test
+    void testSharedStateSamplerWithLargeRange() {
+        // Set the range so rejection below or above the threshold occurs with approximately
+        // p=0.25 for each bound.
+        assertSharedStateSampler(Long.MIN_VALUE / 2 - 1, Long.MAX_VALUE / 2 + 1);
+    }
+
+    @Test
+    void testSharedStateSamplerWithPowerOf2Range() {
+        assertSharedStateSampler(0, (1L << 45) - 1);
+    }
+
+    @Test
+    void testSharedStateSamplerWithRangeOf1() {
+        assertSharedStateSampler(968757657572323L, 968757657572323L);
+    }
 
     /**
      * Test the SharedStateSampler implementation returns the same sequence as the source sampler
@@ -126,6 +306,27 @@ class UniformLongSamplerTest_OE25Dev {
         final UniformLongSampler sampler1 = UniformLongSampler.of(rng1, lower, upper);
         final UniformLongSampler sampler2 = sampler1.withUniformRandomProvider(rng2);
         RandomAssert.assertProduceSameSequence(sampler1, sampler2);
+    }
+
+    @Test
+    void testToStringWithSmallRange() {
+        assertToString(5, 67);
+    }
+
+    @Test
+    void testToStringWithLargeRange() {
+        assertToString(-99999999, Long.MAX_VALUE);
+    }
+
+    @Test
+    void testToStringWithPowerOf2Range() {
+        // Note the range is upper - lower + 1
+        assertToString(0, 31);
+    }
+
+    @Test
+    void testToStringWithRangeOf1() {
+        assertToString(9, 9);
     }
 
     /**

@@ -66,6 +66,48 @@ public class TiffRoundTripInt32Test_OE25Dev extends TiffBaseTest {
         }
     }
 
+
+
+    @Test
+    public void test() throws Exception {
+        final File[] testFile = new File[4];
+        testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
+        testFile[1] = writeFile(32, ByteOrder.BIG_ENDIAN, false);
+        testFile[2] = writeFile(32, ByteOrder.LITTLE_ENDIAN, true);
+        testFile[3] = writeFile(32, ByteOrder.BIG_ENDIAN, true);
+        for (int i = 0; i < testFile.length; i++) {
+            final String name = testFile[i].getName();
+            final ByteSourceFile byteSource = new ByteSourceFile(testFile[i]);
+            final TiffReader tiffReader = new TiffReader(true);
+            final TiffContents contents = tiffReader.readDirectories(
+                byteSource,
+                true, // indicates that application should read image data, if present
+                FormatCompliance.getDefault());
+            final TiffDirectory directory = contents.directories.get(0);
+            TiffRasterData rdInt = directory.getRasterData(null);
+            int []test = rdInt.getIntData();
+            for(int j=0; j<sample.length; j++){
+                  assertEquals(sample[j],test[j],"Extracted data does not match original,test "+name+": " + i + ",index " + j);
+            }
+            final TiffImagingParameters params = new TiffImagingParameters();
+            params.setSubImage(2, 2, width-4, height-4);
+            TiffRasterData rdSub = directory.getRasterData(params);
+            assertEquals(width-4, rdSub.getWidth(), "Invalid sub-image width");
+            assertEquals(height-4, rdSub.getHeight(), "Invalid sub-image height");
+            for(int x = 2; x<width-2; x++){
+                for(int y=2; y<height-2; y++){
+                    final int a = rdInt.getIntValue(x, y);
+                    final int b = rdSub.getIntValue(x-2, y-2);
+                    assertEquals(a, b, "Sub Image test failed at (" + x + "," + y + ")");
+                }
+            }
+            final TiffImagingParameters xparams = new TiffImagingParameters();
+            xparams.setSubImage(2, 2, width, height);
+            assertThrows(ImageReadException.class, ()->directory.getRasterData(xparams),
+                "Failed to catch bad subimage for test "+name);
+        }
+    }
+
     private File writeFile(final int bitsPerSample, final ByteOrder byteOrder, final boolean useTiles)
         throws IOException, ImageWriteException {
         final String name = String.format("Int32RoundTrip_%2d_%s_%s.tiff",

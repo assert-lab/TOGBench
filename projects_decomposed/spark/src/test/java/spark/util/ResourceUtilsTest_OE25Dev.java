@@ -32,6 +32,19 @@ public class ResourceUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testGetFile_whenURLProtocolIsFile_thenReturnFileObject() throws
+                                                                         MalformedURLException,
+                                                                         FileNotFoundException,
+                                                                         URISyntaxException {
+        //given
+        URL url = new URL("file://public/file.txt");
+        File file = ResourceUtils.getFile(url, "Some description");
+
+        //then
+        assertEquals("Should be equals because URL protocol is file", file, new File(ResourceUtils.toURI(url).getSchemeSpecificPart()));
+    }
+
+    @Test
     public void testGetFile_whenURLProtocolIsFile_thenReturnFileObject_1_oe() throws
                                                                          MalformedURLException,
                                                                          FileNotFoundException,

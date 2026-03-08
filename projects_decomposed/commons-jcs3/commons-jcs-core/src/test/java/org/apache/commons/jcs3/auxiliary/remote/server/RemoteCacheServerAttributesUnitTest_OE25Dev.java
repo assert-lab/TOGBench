@@ -35,14 +35,33 @@ public class RemoteCacheServerAttributesUnitTest_OE25Dev
     /**
      * Verify that we get a string, even if not attributes are set.
      */
+    public void testToString()
+    {
+        final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
+        assertNotNull( "Should have a string.", attributes.toString() );
+    }
 
     /**
      * Verify that the type is set correctly and that the correct name is returned for the type.
      */
+    public void testSetRemoteTypeName_local()
+    {
+        final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
+        attributes.setRemoteTypeName( "LOCAL" );
+        assertEquals( "Wrong type.", RemoteType.LOCAL, attributes.getRemoteType() );
+        assertEquals( "Wrong name", "LOCAL", attributes.getRemoteTypeName() );
+    }
 
     /**
      * Verify that the type is set correctly and that the correct name is returned for the type.
      */
+    public void testSetRemoteTypeName_cluster()
+    {
+        final RemoteCacheServerAttributes attributes = new RemoteCacheServerAttributes();
+        attributes.setRemoteTypeName( "CLUSTER" );
+        assertEquals( "Wrong type.", RemoteType.CLUSTER, attributes.getRemoteType() );
+        assertEquals( "Wrong name", "CLUSTER", attributes.getRemoteTypeName() );
+    }
 
     public void testToString_1_oe()
     {

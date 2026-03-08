@@ -133,42 +133,106 @@ public class TestXMLBeanDeclaration_OE25Dev {
     /**
      * Tests fetching the bean's class name.
      */
+    @Test
+    public void testGetBeanClassName() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.addProperty(KEY + "[@config-class]", getClass().getName());
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+        assertEquals("Wrong class name", getClass().getName(), decl.getBeanClassName());
+    }
 
     /**
      * Tests whether a default bean class name is taken into account.
      */
+    @Test
+    public void testGetBeanClassNameFromDefault() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.addProperty(KEY + "[@someProperty]", Boolean.TRUE);
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY, false, getClass().getName());
+        assertEquals("Wrong class name", getClass().getName(), decl.getBeanClassName());
+    }
 
     /**
      * Tests fetching the bean's class name if it is undefined.
      */
+    @Test
+    public void testGetBeanClassNameUndefined() {
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(new BaseHierarchicalConfiguration());
+        assertNull(decl.getBeanClassName());
+    }
 
     /**
      * Tests that a missing bean class name does not cause an exception.
      */
+    @Test
+    public void testGetBeanClassNameUndefinedWithEx() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.setThrowExceptionOnMissing(true);
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config);
+        assertNull("Got a bean class name", decl.getBeanClassName());
+    }
 
     /**
      * Tests fetching the name of the bean factory.
      */
+    @Test
+    public void testGetBeanFactoryName() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.addProperty(KEY + "[@config-factory]", "myFactory");
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+        assertEquals("Wrong factory name", "myFactory", decl.getBeanFactoryName());
+    }
 
     /**
      * Tests fetching the name of the bean factory if it is undefined.
      */
+    @Test
+    public void testGetBeanFactoryNameUndefined() {
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(new BaseHierarchicalConfiguration());
+        assertNull(decl.getBeanFactoryName());
+    }
 
     /**
      * Tests that a missing bean factory name does not throw an exception.
      */
+    @Test
+    public void testGetBeanFactoryNameUndefinedWithEx() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.setThrowExceptionOnMissing(true);
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config);
+        assertNull("Got a factory name", decl.getBeanFactoryName());
+    }
 
     /**
      * Tests fetching the parameter for the bean factory.
      */
+    @Test
+    public void testGetBeanFactoryParameter() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.addProperty(KEY + "[@config-factoryParam]", "myFactoryParameter");
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+        assertEquals("Wrong factory parameter", "myFactoryParameter", decl.getBeanFactoryParameter());
+    }
 
     /**
      * Tests fetching the parameter for the bean factory if it is undefined.
      */
+    @Test
+    public void testGetBeanFactoryParameterUndefined() {
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(new BaseHierarchicalConfiguration());
+        assertNull(decl.getBeanFactoryParameter());
+    }
 
     /**
      * Tests that an undefined bean factory parameter does not cause an exception.
      */
+    @Test
+    public void testGetBeanFactoryParameterUndefinedWithEx() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.setThrowExceptionOnMissing(true);
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config);
+        assertNull("Got a factory parameter", decl.getBeanFactoryParameter());
+    }
 
     /**
      * Tests if the bean's properties are correctly extracted from the configuration object.
@@ -184,6 +248,12 @@ public class TestXMLBeanDeclaration_OE25Dev {
     /**
      * Tests fetching properties if none are defined.
      */
+    @Test
+    public void testGetBeanPropertiesEmpty() {
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(new BaseHierarchicalConfiguration());
+        final Map<String, Object> props = decl.getBeanProperties();
+        assertTrue("Properties found", props == null || props.isEmpty());
+    }
 
     /**
      * Tests obtaining the bean's properties when reserved attributes are involved. These should be ignored.
@@ -201,10 +271,39 @@ public class TestXMLBeanDeclaration_OE25Dev {
     /**
      * Tests whether constructor arguments can be queried.
      */
+    @Test
+    public void testGetConstructorArgs() {
+        final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+        final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        assertEquals("Wrong number of constructor arguments", 2, args.size());
+        final Iterator<ConstructorArg> it = args.iterator();
+        final ConstructorArg arg1 = it.next();
+        assertTrue("No bean declaration", arg1.isNestedBeanDeclaration());
+        checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
+        assertNull("Got a type", arg1.getTypeName());
+        assertEquals("Wrong class name", "TestClass", arg1.getBeanDeclaration().getBeanClassName());
+        final ConstructorArg arg2 = it.next();
+        assertFalse("A bean declaration", arg2.isNestedBeanDeclaration());
+        assertEquals("Wrong value", CTOR_ID, arg2.getValue());
+        assertEquals("Wrong type", "long", arg2.getTypeName());
+    }
 
     /**
      * Tests whether a constructor argument with a null value can be defined.
      */
+    @Test
+    public void testGetConstructorArgsNullArg() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
+        config.addProperty(KEY + ".config-constrarg", "");
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+        final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        assertEquals("Wrong number of constructor arguments", 1, args.size());
+        final ConstructorArg arg = args.iterator().next();
+        assertFalse("A bean declaration", arg.isNestedBeanDeclaration());
+        assertNull("Got a value", arg.getValue());
+    }
 
     /**
      * Tests whether interpolation of bean properties works.
@@ -225,23 +324,83 @@ public class TestXMLBeanDeclaration_OE25Dev {
     /**
      * Tests whether interpolation is done on constructor arguments.
      */
+    @Test
+    public void testGetInterpolatedConstructorArgs() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        final String expectedValue = "ctorArg";
+        config.addProperty("value", expectedValue);
+        setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
+        config.addProperty(KEY + ".config-constrarg[@config-value]", "${value}");
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+        final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        final ConstructorArg arg = args.iterator().next();
+        assertEquals("Wrong interpolated value", expectedValue, arg.getValue());
+    }
 
     /**
      * Tests fetching nested bean declarations.
      */
+    @Test
+    public void testGetNestedBeanDeclarations() {
+        final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+        checkProperties(decl, TEST_PROPS, TEST_VALUES);
+
+        final Map<String, Object> nested = decl.getNestedBeanDeclarations();
+        assertEquals("Wrong number of nested declarations", COMPLEX_PROPS.length, nested.size());
+        for (int i = 0; i < COMPLEX_PROPS.length; i++) {
+            final XMLBeanDeclaration d = (XMLBeanDeclaration) nested.get(COMPLEX_PROPS[i]);
+            assertNotNull("No declaration found for " + COMPLEX_PROPS[i], d);
+            checkProperties(d, COMPLEX_ATTRIBUTES[i], COMPLEX_VALUES[i]);
+            assertEquals("Wrong bean class", COMPLEX_CLASSES[i], d.getBeanClassName());
+        }
+    }
 
     /**
      * Tests fetching nested bean declarations if none are defined.
      */
+    @Test
+    public void testGetNestedBeanDeclarationsEmpty() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+        final Map<String, Object> nested = decl.getNestedBeanDeclarations();
+        assertTrue("Found nested declarations", nested == null || nested.isEmpty());
+    }
 
     /**
      * Tests whether the factory method for creating nested bean declarations gets called.
      */
+    @Test
+    public void testGetNestedBeanDeclarationsFactoryMethod() {
+        final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY) {
+            @Override
+            BeanDeclaration createBeanDeclaration(final NodeData<?> node) {
+                return new XMLBeanDeclarationTestImpl(getConfiguration().configurationAt(node.nodeName()), node);
+            }
+        };
+        final Map<String, Object> nested = decl.getNestedBeanDeclarations();
+        for (final String element : COMPLEX_PROPS) {
+            final Object d = nested.get(element);
+            assertTrue("Wrong class for bean declaration: " + d, d instanceof XMLBeanDeclarationTestImpl);
+        }
+    }
 
     /**
      * Tests whether reserved characters in the node names of nested bean declarations are handled correctly. This is
      * related to CONFIGURATION-567.
      */
+    @Test
+    public void testGetNestedBeanDeclarationsReservedCharacter() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        final String key = KEY + ".address..private";
+        setupBeanDeclaration(config, key, COMPLEX_ATTRIBUTES[0], COMPLEX_VALUES[0]);
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+
+        final Map<String, Object> nested = decl.getNestedBeanDeclarations();
+        assertTrue("Key not found", nested.containsKey("address.private"));
+    }
 
     /**
      * Tests constructing a bean declaration from a key with multiple values. This should cause an exception because keys
@@ -285,14 +444,41 @@ public class TestXMLBeanDeclaration_OE25Dev {
      * Tests constructing a bean declaration from a key, which is undefined when the optional flag is set. In this case an
      * empty declaration should be created, which can be used for creating beans as long as a default class is provided.
      */
+    @Test
+    public void testInitFromUndefinedKeyOptional() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, "undefined_key", true);
+        assertNull("Found a bean class", decl.getBeanClassName());
+    }
 
     /**
      * Tests interpolate() if no ConfigurationInterpolator is available.
      */
+    @Test
+    public void testInterpolateNoInterpolator() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.addProperty("value", "expectedValue");
+        setupBeanDeclaration(config, KEY, TEST_PROPS, TEST_VALUES);
+        final String value = "${value}";
+        config.addProperty(KEY + ".config-constrarg[@config-value]", value);
+        config.setInterpolator(null);
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
+        final Collection<ConstructorArg> args = decl.getConstructorArgs();
+        final ConstructorArg arg = args.iterator().next();
+        assertEquals("Value was changed", value, arg.getValue());
+    }
 
     /**
      * Tests whether a default bean class name is overridden by a value in the configuration.
      */
+    @Test
+    public void tetGetBeanClassNameDefaultOverride() {
+        final BaseHierarchicalConfiguration config = new BaseHierarchicalConfiguration();
+        config.addProperty(KEY + "[@config-class]", getClass().getName());
+        final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY, false, "someDefaultClassName");
+        assertEquals("Wrong class name", getClass().getName(), decl.getBeanClassName());
+    }
 
     @Test
     public void testGetBeanClassName_1_oe() {
@@ -388,7 +574,6 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
-        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
         assertTrue("No bean declaration", arg1.isNestedBeanDeclaration());
@@ -399,10 +584,8 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
-        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
-        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
         assertNull("Got a type", arg1.getTypeName());
     }
@@ -412,12 +595,9 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
-        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
-        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
-        // removed other assertion
         assertEquals("Wrong class name", "TestClass", arg1.getBeanDeclaration().getBeanClassName());
     }
 
@@ -426,13 +606,9 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
-        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
-        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
-        // removed other assertion
-        // removed other assertion
         final ConstructorArg arg2 = it.next();
         assertFalse("A bean declaration", arg2.isNestedBeanDeclaration());
     }
@@ -442,15 +618,10 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
-        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
-        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
-        // removed other assertion
-        // removed other assertion
         final ConstructorArg arg2 = it.next();
-        // removed other assertion
         assertEquals("Wrong value", CTOR_ID, arg2.getValue());
     }
 
@@ -459,16 +630,10 @@ public class TestXMLBeanDeclaration_OE25Dev {
         final BaseHierarchicalConfiguration config = prepareNestedBeanDeclarations();
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
-        // removed other assertion
         final Iterator<ConstructorArg> it = args.iterator();
         final ConstructorArg arg1 = it.next();
-        // removed other assertion
         checkProperties(arg1.getBeanDeclaration(), CTOR_COMPLEX_ATTRIBUTES, CTOR_COMPLEX_VALUES);
-        // removed other assertion
-        // removed other assertion
         final ConstructorArg arg2 = it.next();
-        // removed other assertion
-        // removed other assertion
         assertEquals("Wrong type", "long", arg2.getTypeName());
     }
 
@@ -489,7 +654,6 @@ public class TestXMLBeanDeclaration_OE25Dev {
         config.addProperty(KEY + ".config-constrarg", "");
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
-        // removed other assertion
         final ConstructorArg arg = args.iterator().next();
         assertFalse("A bean declaration", arg.isNestedBeanDeclaration());
     }
@@ -501,9 +665,7 @@ public class TestXMLBeanDeclaration_OE25Dev {
         config.addProperty(KEY + ".config-constrarg", "");
         final XMLBeanDeclaration decl = new XMLBeanDeclaration(config, KEY);
         final Collection<ConstructorArg> args = decl.getConstructorArgs();
-        // removed other assertion
         final ConstructorArg arg = args.iterator().next();
-        // removed other assertion
         assertNull("Got a value", arg.getValue());
     }
 
@@ -537,7 +699,6 @@ public class TestXMLBeanDeclaration_OE25Dev {
         checkProperties(decl, TEST_PROPS, TEST_VALUES);
 
         final Map<String, Object> nested = decl.getNestedBeanDeclarations();
-        // removed other assertion
         for (int i = 0; i < COMPLEX_PROPS.length; i++) {
             final XMLBeanDeclaration d = (XMLBeanDeclaration) nested.get(COMPLEX_PROPS[i]);
             assertNotNull("No declaration found for " + COMPLEX_PROPS[i], d);
@@ -551,10 +712,8 @@ public class TestXMLBeanDeclaration_OE25Dev {
         checkProperties(decl, TEST_PROPS, TEST_VALUES);
 
         final Map<String, Object> nested = decl.getNestedBeanDeclarations();
-        // removed other assertion
         for (int i = 0; i < COMPLEX_PROPS.length; i++) {
             final XMLBeanDeclaration d = (XMLBeanDeclaration) nested.get(COMPLEX_PROPS[i]);
-            // removed other assertion
             checkProperties(d, COMPLEX_ATTRIBUTES[i], COMPLEX_VALUES[i]);
             assertEquals("Wrong bean class", COMPLEX_CLASSES[i], d.getBeanClassName());
     }

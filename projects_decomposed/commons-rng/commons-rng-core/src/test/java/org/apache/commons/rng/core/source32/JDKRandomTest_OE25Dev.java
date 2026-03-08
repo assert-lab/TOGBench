@@ -60,10 +60,45 @@ class JDKRandomTest_OE25Dev {
         }
     }
 
+    @Test
+    void testReferenceCode() {
+        final long refSeed = -1357111213L;
+        final JDKRandom rng = new JDKRandom(refSeed);
+        final Random jdk = new Random(refSeed);
+
+        // This is a trivial test since "JDKRandom" delegates to "Random".
+
+        final int numRepeats = 1000;
+        for (int[] r = {0}; r[0] < numRepeats; r[0]++) {
+            Assertions.assertEquals(jdk.nextInt(), rng.nextInt(), () -> r[0] + " nextInt");
+        }
+    }
+
     /**
      * Test the state can be used to restore a new instance that has not previously had a call
      * to save the state.
      */
+    @Test
+    void testRestoreToNewInstance()  {
+        final long seed = 8796746234L;
+        final JDKRandom rng1 = new JDKRandom(seed);
+        final JDKRandom rng2 = new JDKRandom(seed + 1);
+
+        // Ensure different
+        final int numRepeats = 10;
+        for (int[] r = {0}; r[0] < numRepeats; r[0]++) {
+            Assertions.assertNotEquals(rng1.nextInt(), rng2.nextInt(), () -> r[0] + " nextInt");
+        }
+
+        final RandomProviderState state = rng1.saveState();
+        // This second instance will not know the state size required to write
+        // java.util.Random to serialized form. This is only known when the saveState
+        // method is called.
+        rng2.restoreState(state);
+
+        // Ensure the same
+        RandomAssert.assertNextIntEquals(numRepeats, rng1, rng2);
+    }
 
     /**
      * Test the deserialization code identifies bad states that do not contain a Random instance.
@@ -71,6 +106,27 @@ class JDKRandomTest_OE25Dev {
      *
      * @throws IOException Signals that an I/O exception has occurred.
      */
+    @Test
+    void testRestoreWithInvalidClass() throws IOException  {
+        // Serialize something
+        final ByteArrayOutputStream bos = new ByteArrayOutputStream();
+        try (ObjectOutputStream oos = new ObjectOutputStream(bos)) {
+            oos.writeObject(new SerializableTestObject());
+        }
+
+        // Compose the size with the state.
+        // This is what is expected by the JDKRandom class.
+        final byte[] state = bos.toByteArray();
+        final int stateSize = state.length;
+        final byte[] sizeAndState = new byte[4 + stateSize];
+        System.arraycopy(NumberFactory.makeByteArray(stateSize), 0, sizeAndState, 0, 4);
+        System.arraycopy(state, 0, sizeAndState, 4, stateSize);
+
+        final RandomProviderDefaultState dummyState = new RandomProviderDefaultState(sizeAndState);
+
+        final JDKRandom rng = new JDKRandom(13L);
+        Assertions.assertThrows(IllegalStateException.class, () -> rng.restoreState(dummyState));
+    }
 
     @Test
     void testReferenceCode_1_oe() {

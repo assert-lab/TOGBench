@@ -23,6 +23,29 @@ import org.junit.Test;
 public class BranchHandleTestCase_OE25Dev {
 
     // Test that setInstruction only allows BranchInstructions
+    @Test(expected=ClassGenException.class)
+    public void testsetInstructionNull() {
+        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);
+        bh.setInstruction(null);
+        Assert.assertNotNull(bh);
+    }
+
+    @Test
+    public void testsetInstructionBI() {
+        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);
+        bh.setInstruction(new GOTO(null));
+        Assert.assertNotNull(bh);
+    }
+
+    @Test(expected=ClassGenException.class)
+    public void testsetInstructionnotBI() {
+        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);
+        bh.setInstruction(new NOP());
+        Assert.assertNotNull(bh);
+    }
 
     @Test(expected=ClassGenException.class)
     public void testGetBHnull() {

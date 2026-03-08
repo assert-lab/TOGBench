@@ -66,6 +66,68 @@ public class RetryNonBlockingIssue_OE25Dev extends AbstractBasicTest {
     return client.executeRequest(r);
   }
 
+  @Test
+  public void testRetryNonBlocking() throws IOException, InterruptedException, ExecutionException {
+
+    AsyncHttpClientConfig config = config()
+            .setKeepAlive(true)
+            .setMaxConnections(100)
+            .setConnectTimeout(60000)
+            .setRequestTimeout(30000)
+            .build();
+
+    try (AsyncHttpClient client = asyncHttpClient(config)) {
+      List<ListenableFuture<Response>> res = new ArrayList<>();
+      for (int i = 0; i < 32; i++) {
+        res.add(testMethodRequest(client, 3, "servlet", UUID.randomUUID().toString()));
+      }
+
+      StringBuilder b = new StringBuilder();
+      for (ListenableFuture<Response> r : res) {
+        Response theres = r.get();
+        assertEquals(200, theres.getStatusCode());
+        b.append("==============\r\n")
+                .append("Response Headers\r\n");
+        HttpHeaders heads = theres.getHeaders();
+        b.append(heads).append("\r\n")
+                .append("==============\r\n");
+      }
+      System.out.println(b.toString());
+      System.out.flush();
+    }
+  }
+
+  @Test
+  public void testRetryNonBlockingAsyncConnect() throws IOException, InterruptedException, ExecutionException {
+
+    AsyncHttpClientConfig config = config()
+            .setKeepAlive(true)
+            .setMaxConnections(100)
+            .setConnectTimeout(60000)
+            .setRequestTimeout(30000)
+            .build();
+
+    try (AsyncHttpClient client = asyncHttpClient(config)) {
+      List<ListenableFuture<Response>> res = new ArrayList<>();
+      for (int i = 0; i < 32; i++) {
+        res.add(testMethodRequest(client, 3, "servlet", UUID.randomUUID().toString()));
+      }
+
+      StringBuilder b = new StringBuilder();
+      for (ListenableFuture<Response> r : res) {
+        Response theres = r.get();
+        assertEquals(theres.getStatusCode(), 200);
+        b.append("==============\r\n")
+                .append("Response Headers\r\n");
+        HttpHeaders heads = theres.getHeaders();
+        b.append(heads).append("\r\n")
+                .append("==============\r\n");
+      }
+      System.out.println(b.toString());
+      System.out.flush();
+    }
+  }
+
   @SuppressWarnings("serial")
   public class MockExceptionServlet extends HttpServlet {
 

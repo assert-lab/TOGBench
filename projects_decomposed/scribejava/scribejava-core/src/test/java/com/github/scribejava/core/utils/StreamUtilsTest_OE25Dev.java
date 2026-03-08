@@ -20,6 +20,14 @@ public class StreamUtilsTest_OE25Dev {
         }
     }
 
+    @Test
+    public void shouldCorrectlyDecodeAStream() throws IOException {
+        final String value = "expected";
+        final InputStream is = new ByteArrayInputStream(value.getBytes());
+        final String decoded = StreamUtils.getStreamContents(is);
+        assertEquals("expected", decoded);
+    }
+
     public void shouldFailForNullParameter() throws IOException {
         assertThrows(IllegalArgumentException.class, new ThrowingRunnable() {
             @Override

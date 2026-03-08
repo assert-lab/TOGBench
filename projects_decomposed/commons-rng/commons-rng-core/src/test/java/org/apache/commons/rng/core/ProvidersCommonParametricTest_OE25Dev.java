@@ -41,6 +41,33 @@ class ProvidersCommonParametricTest_OE25Dev {
 
     // Precondition tests
 
+    @ParameterizedTest
+    @MethodSource("getList")
+    void testPreconditionNextInt(UniformRandomProvider generator) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.nextInt(-1));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.nextInt(0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("getList")
+    void testPreconditionNextLong(UniformRandomProvider generator) {
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.nextLong(-1));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> generator.nextLong(0));
+    }
+
+    @ParameterizedTest
+    @MethodSource("getList")
+    void testPreconditionNextBytes(UniformRandomProvider generator) {
+        final int size = 10;
+        final int num = 1;
+        final byte[] buf = new byte[size];
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, -1, num));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, size, 0));
+        final int offset = 2;
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, offset, size - offset + 1));
+        Assertions.assertThrows(IndexOutOfBoundsException.class, () -> generator.nextBytes(buf, offset, -1));
+    }
+
     // Uniformity tests
 
     @ParameterizedTest
@@ -59,6 +86,30 @@ class ProvidersCommonParametricTest_OE25Dev {
         };
 
         Assertions.assertTrue(isUniformNextBytes(buffer, 0, size, nextMethod), generator::toString);
+    }
+
+    @ParameterizedTest
+    @MethodSource("getList")
+    void testUniformNextBytesPartialBuffer(UniformRandomProvider generator) {
+        final int totalSize = 1234;
+        final int offset = 567;
+        final int size = 89;
+
+        final byte[] buffer = new byte[totalSize];
+
+        final Runnable nextMethod = new Runnable() {
+            @Override
+            public void run() {
+                generator.nextBytes(buffer, offset, size);
+            }
+        };
+
+        // Test should pass for the part of the buffer where values are put.
+        Assertions.assertTrue(isUniformNextBytes(buffer, offset, offset + size, nextMethod), generator::toString);
+
+        // Test must fail for the parts of the buffer where no values are put.
+        Assertions.assertFalse(isUniformNextBytes(buffer, 0, offset, nextMethod));
+        Assertions.assertFalse(isUniformNextBytes(buffer, offset + size, buffer.length, nextMethod));
     }
 
     @ParameterizedTest
@@ -142,6 +193,38 @@ class ProvidersCommonParametricTest_OE25Dev {
     }
 
     // State save and restore tests.
+
+    @ParameterizedTest
+    @MethodSource("getList")
+    void testStateSettable(RestorableUniformRandomProvider generator) {
+        // Should be fairly large in order to ensure that all the internal
+        // state is away from its initial settings.
+        final int n = 10000;
+
+        // Save.
+        final RandomProviderState state = generator.saveState();
+        // Store some values.
+        final List<Number> listOrig = makeList(n, generator);
+        // Discard a few more.
+        final List<Number> listDiscard = makeList(n, generator);
+        Assertions.assertNotEquals(0, listDiscard.size());
+        Assertions.assertNotEquals(listOrig, listDiscard);
+        // Reset.
+        generator.restoreState(state);
+        // Replay.
+        final List<Number> listReplay = makeList(n, generator);
+        Assertions.assertNotSame(listOrig, listReplay);
+        // Check that the restored state is the same as the original.
+        Assertions.assertEquals(listOrig, listReplay);
+    }
+
+    @ParameterizedTest
+    @MethodSource("getList")
+    void testStateWrongSize(RestorableUniformRandomProvider generator) {
+        final RandomProviderState state = new DummyGenerator().saveState();
+        // Try to restore with an invalid state (wrong size).
+        Assertions.assertThrows(IllegalStateException.class, () -> generator.restoreState(state));
+    }
 
     @ParameterizedTest
     @MethodSource("getList")

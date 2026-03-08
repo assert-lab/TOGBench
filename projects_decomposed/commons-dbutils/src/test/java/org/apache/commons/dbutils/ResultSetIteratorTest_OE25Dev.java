@@ -29,6 +29,45 @@ import static org.mockito.Mockito.mock;
  */
 public class ResultSetIteratorTest_OE25Dev extends BaseTestCase {
 
+    public void testNext() {
+
+        Iterator<Object[]> iter = new ResultSetIterator(this.rs);
+
+        Object[] row = null;
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.length);
+        assertEquals("1", row[0]);
+        assertEquals("2", row[1]);
+        assertEquals("THREE", row[2]);
+
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.length);
+
+        assertEquals("4", row[0]);
+        assertEquals("5", row[1]);
+        assertEquals("SIX", row[2]);
+
+        assertFalse(iter.hasNext());
+    }
+
+    @Test
+    public void testRethrowThrowsRuntimeException() {
+
+        ResultSetIterator resultSetIterator = new ResultSetIterator((ResultSet) null);
+        Throwable throwable = new Throwable();
+        SQLException sQLException = new SQLException(throwable);
+
+        try {
+            resultSetIterator.rethrow(sQLException);
+            fail("Expecting exception: RuntimeException");
+        } catch(RuntimeException e) {
+            assertEquals(ResultSetIterator.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+
+    }
+
     @Test
     public void testCreatesResultSetIteratorTakingThreeArgumentsAndCallsRemove() {
 

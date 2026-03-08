@@ -51,6 +51,14 @@ public class IcoReadTest_OE25Dev extends IcoBaseTest {
 
     @ParameterizedTest
     @MethodSource("data")
+    public void testBufferedImage(final File imageFile) throws Exception {
+        final BufferedImage image = Imaging.getBufferedImage(imageFile);
+        assertNotNull(image);
+        // TODO assert more
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
     public void testBufferedImage_1_oe(final File imageFile) throws Exception {
         final BufferedImage image = Imaging.getBufferedImage(imageFile);
         assertNotNull(image);

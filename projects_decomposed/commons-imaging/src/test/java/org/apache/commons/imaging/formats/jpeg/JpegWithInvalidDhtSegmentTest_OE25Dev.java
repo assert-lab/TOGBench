@@ -33,6 +33,16 @@ import static org.junit.jupiter.api.Assertions.fail;
 public class JpegWithInvalidDhtSegmentTest_OE25Dev {
 
     @Test
+    public void testSingleImage() {
+        // we cannot use ImagingTest and getImageByFileName, as it would cause others
+        // tests to fail
+        final File imageFile = new File(JpegWithInvalidDhtSegmentTest_OE25Dev.class
+                .getResource("/IMAGING-215/ArrayIndexOutOfBoundsException_DhtSegment_79.jpeg")
+                .getFile());
+        Assertions.assertThrows(ImageReadException.class, () -> Imaging.getMetadata(imageFile));
+    }
+
+    @Test
     public void testSingleImage_1_oe() throws Exception {
         // we cannot use ImagingTest and getImageByFileName, as it would cause others
         // tests to fail

@@ -52,6 +52,22 @@ public class CustomValidatorResourcesTest_OE25Dev extends TestCase {
     /**
      * Test creating a custom validator resources.
      */
+    public void testCustomResources() {
+        // Load resources
+        InputStream in = null;
+        try {
+            in = this.getClass().getResourceAsStream("TestNumber-config.xml");
+        } catch(Exception e) {
+            fail("Error loading resources: " + e);
+        } finally {
+            try {
+                if (in != null) {
+                    in.close();
+                }
+            } catch(Exception e) {
+            }
+        }
+    }
 
     public void testCustomResources_1_oe() {
         // Load resources

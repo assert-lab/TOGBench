@@ -65,6 +65,140 @@ public class AndFileFilterTest_OE25Dev extends BaseFilterTest {
 
     }
 
+    @SuppressWarnings("deprecation")
+    @Test
+    public void testAccept() throws FileSystemException {
+
+        final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
+
+        // Empty
+        Assert.assertFalse(new AndFileFilter().accept(any));
+
+        // True
+        Assert.assertTrue(new AndFileFilter(new True()).accept(any));
+        Assert.assertTrue(new AndFileFilter(new True(), new True()).accept(any));
+
+        // False
+        Assert.assertFalse(new AndFileFilter(new False()).accept(any));
+        Assert.assertFalse(new AndFileFilter(new False(), new False()).accept(any));
+        Assert.assertFalse(new AndFileFilter(new False(), new True()).accept(any));
+        Assert.assertFalse(new AndFileFilter(new True(), new False()).accept(any));
+
+    }
+
+    @Test
+    public void testAcceptChecked() throws FileSystemException {
+
+        final FileSelectInfo any = createFileSelectInfo(new File("anyfile"));
+
+        // Empty
+        Assert.assertFalse(new AndFileFilter().accept(any));
+
+        // True
+        Assert.assertTrue(new AndFileFilter(new True()).accept(any));
+        Assert.assertTrue(new AndFileFilter(new True(), new True()).accept(any));
+
+        // False
+        Assert.assertFalse(new AndFileFilter(new False()).accept(any));
+        Assert.assertFalse(new AndFileFilter(new False(), new False()).accept(any));
+        Assert.assertFalse(new AndFileFilter(new False(), new True()).accept(any));
+        Assert.assertFalse(new AndFileFilter(new True(), new False()).accept(any));
+
+    }
+
+    @Test
+    public void testAddFileFilter() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+
+        // TEST
+        final AndFileFilter testee = new AndFileFilter();
+        testee.addFileFilter(filter1);
+        testee.addFileFilter(filter2);
+        testee.addFileFilter(filter3);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+
+    }
+
+    @Test
+    public void testAndFileFilterFileFilter() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+
+        // TEST
+        final AndFileFilter testee = new AndFileFilter(filter1, filter2, filter3);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+
+    }
+
+    @Test
+    public void testAndFileFilterList() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final List<FileFilter> list = new ArrayList<>();
+        list.add(filter1);
+        list.add(filter2);
+        list.add(filter3);
+
+        // TEST
+        final AndFileFilter testee = new AndFileFilter(list);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+
+    }
+
+    @Test
+    public void testRemoveFileFilter() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final AndFileFilter testee = new AndFileFilter(filter1, filter2, filter3);
+
+        // TEST
+        testee.removeFileFilter(filter2);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter3);
+
+    }
+
+    @Test
+    public void testSetFileFilters() {
+
+        // PREPARE
+        final FileFilter filter1 = new DummyFilter();
+        final FileFilter filter2 = new DummyFilter();
+        final FileFilter filter3 = new DummyFilter();
+        final List<FileFilter> list = new ArrayList<>();
+        list.add(filter1);
+        list.add(filter2);
+        list.add(filter3);
+        final AndFileFilter testee = new AndFileFilter();
+
+        // TEST
+        testee.setFileFilters(list);
+
+        // VERIFY
+        assertContainsOnly(testee.getFileFilters(), filter1, filter2, filter3);
+
+    }
+
     @Test
     public void testAccept_1_oe() throws FileSystemException {
 

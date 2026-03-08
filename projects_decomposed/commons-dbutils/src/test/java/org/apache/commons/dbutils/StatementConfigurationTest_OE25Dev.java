@@ -26,14 +26,59 @@ public class StatementConfigurationTest_OE25Dev {
     /**
      * Test that an empty builder yields null values for all configuration settings.
      */
+    @Test
+    public void testEmptyBuilder() {
+        StatementConfiguration config = new StatementConfiguration.Builder().build();
+
+        assertFalse(config.isFetchDirectionSet());
+        assertFalse(config.isFetchSizeSet());
+        assertFalse(config.isMaxFieldSizeSet());
+        assertFalse(config.isMaxRowsSet());
+        assertFalse(config.isQueryTimeoutSet());
+    }
 
     /**
      * Test that a builder with all values set yields like values in the constructed configuration.
      */
+    @Test
+    public void testBuilder() {
+        StatementConfiguration.Builder builder = new StatementConfiguration.Builder()
+                .fetchDirection(1)
+                .fetchSize(2)
+                .maxFieldSize(3)
+                .maxRows(4)
+                .queryTimeout(5);
+        StatementConfiguration config = builder.build();
+
+        assertTrue(config.isFetchDirectionSet());
+        assertEquals(Integer.valueOf(1), config.getFetchDirection());
+
+        assertTrue(config.isFetchSizeSet());
+        assertEquals(Integer.valueOf(2), config.getFetchSize());
+
+        assertTrue(config.isMaxFieldSizeSet());
+        assertEquals(Integer.valueOf(3), config.getMaxFieldSize());
+
+        assertTrue(config.isMaxRowsSet());
+        assertEquals(Integer.valueOf(4), config.getMaxRows());
+
+        assertTrue(config.isQueryTimeoutSet());
+        assertEquals(Integer.valueOf(5), config.getQueryTimeout());
+    }
 
     /**
      * Test that the constructor of <code>StatementConfiguration</code> correctly sets all values.
      */
+    @Test
+    public void testConstructor() {
+        StatementConfiguration config = new StatementConfiguration(1, 2, 3, 4, 5);
+
+        assertEquals(Integer.valueOf(1), config.getFetchDirection());
+        assertEquals(Integer.valueOf(2), config.getFetchSize());
+        assertEquals(Integer.valueOf(3), config.getMaxFieldSize());
+        assertEquals(Integer.valueOf(4), config.getMaxRows());
+        assertEquals(Integer.valueOf(5), config.getQueryTimeout());
+    }
 
     @Test
     public void testEmptyBuilder_1_oe() {

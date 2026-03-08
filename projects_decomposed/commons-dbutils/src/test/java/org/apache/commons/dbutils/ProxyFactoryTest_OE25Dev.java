@@ -35,6 +35,34 @@ public class ProxyFactoryTest_OE25Dev extends BaseTestCase {
         }
     };
 
+    public void testCreateConnection() {
+        assertNotNull(ProxyFactory.instance().createConnection(stub));
+    }
+
+    public void testCreateDriver() {
+        assertNotNull(ProxyFactory.instance().createDriver(stub));
+    }
+
+    public void testCreatePreparedStatement() {
+        assertNotNull(ProxyFactory.instance().createPreparedStatement(stub));
+    }
+
+    public void testCreateResultSet() {
+        assertNotNull(ProxyFactory.instance().createResultSet(stub));
+    }
+
+    public void testCreateResultSetMetaData() {
+        assertNotNull(ProxyFactory.instance().createResultSetMetaData(stub));
+    }
+
+    public void testCreateStatement() {
+        assertNotNull(ProxyFactory.instance().createStatement(stub));
+    }
+
+    public void testCreateCallableStatement() {
+        assertNotNull(ProxyFactory.instance().createCallableStatement(stub));
+    }
+
     public void testCreateConnection_1_oe() {
         assertNotNull(ProxyFactory.instance().createConnection(stub));
     }

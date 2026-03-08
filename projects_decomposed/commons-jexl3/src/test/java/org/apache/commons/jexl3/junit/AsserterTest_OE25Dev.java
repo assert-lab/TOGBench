@@ -33,6 +33,42 @@ public class AsserterTest_OE25Dev extends JexlTestCase {
         super("AsserterTest_OE25Dev");
     }
 
+    @Test
+    public void testThis() throws Exception {
+        final Asserter asserter = new Asserter(JEXL);
+        asserter.setVariable("this", new Foo());
+        asserter.assertExpression("this.repeat('abc')", "Repeat : abc");
+        try {
+            asserter.assertExpression("this.count", "Wrong Value");
+            Assert.fail("This method should have thrown an assertion exception");
+        }
+        catch (final AssertionError e) {
+            // it worked!
+        }
+    }
+
+    @Test
+    public void testVariable() throws Exception {
+        final Asserter asserter = new Asserter(JEXL);
+        asserter.setSilent(true);
+        asserter.setVariable("foo", new Foo());
+        asserter.setVariable("person", "James");
+
+        asserter.assertExpression("person", "James");
+        asserter.assertExpression("size(person)", new Integer(5));
+
+        asserter.assertExpression("foo.getCount()", new Integer(5));
+        asserter.assertExpression("foo.count", new Integer(5));
+
+        try {
+            asserter.assertExpression("bar.count", new Integer(5));
+            Assert.fail("This method should have thrown an assertion exception");
+        }
+        catch (final AssertionError e) {
+            // it worked!
+        }
+    }
+
 @Test
     public void testThis_1_oe() throws Exception {
         final Asserter asserter = new Asserter(JEXL);

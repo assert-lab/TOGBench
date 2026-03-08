@@ -23,6 +23,33 @@ import static org.junit.Assert.assertSame;
 import org.junit.Test;
 
 public class UserAuthenticationDataTestCase_OE25Dev {
+    @Test
+    public void testCharacterBasedData() {
+        final UserAuthenticationData data = new UserAuthenticationData();
+        final char[] array = "PMC".toCharArray();
+        data.setData(UserAuthenticationData.USERNAME, array);
+        data.setData(UserAuthenticationData.DOMAIN, "Apache".toCharArray());
+        assertSame(array, data.getData(UserAuthenticationData.USERNAME));
+        assertArrayEquals("Apache".toCharArray(), data.getData(UserAuthenticationData.DOMAIN));
+        data.setData(UserAuthenticationData.DOMAIN, "Apache Commons".toCharArray());
+        assertArrayEquals("Apache Commons".toCharArray(), data.getData(UserAuthenticationData.DOMAIN));
+        assertNull(data.getData(UserAuthenticationData.PASSWORD));
+
+        data.cleanup();
+        assertNull(data.getData(UserAuthenticationData.USERNAME));
+        assertNull(data.getData(UserAuthenticationData.DOMAIN));
+        final char[] nulls = { 0, 0, 0 };
+        assertArrayEquals(nulls, array);
+    }
+
+    @Test
+    public void testCustomType() {
+        final UserAuthenticationData.Type type = new UserAuthenticationData.Type("JUNIT");
+        final UserAuthenticationData data = new UserAuthenticationData();
+        final char[] array = "test".toCharArray();
+        data.setData(type, array);
+        assertSame(array, data.getData(type));
+    }
 
     @Test
     public void testCharacterBasedData_1_oe() {

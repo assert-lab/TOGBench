@@ -91,6 +91,15 @@ public class BCELifierTestCase_OE25Dev {
     }
 
     @Test
+    public void testStart() throws Exception {
+        final OutputStream os = new ByteArrayOutputStream();
+        final JavaClass java_class = BCELifier.getJavaClass("Java8Example");
+        assertNotNull(java_class);
+        final BCELifier bcelifier = new BCELifier(java_class, os);
+        bcelifier.start();
+    }
+
+    @Test
     public void testStart_1_oe() throws Exception {
         final OutputStream os = new ByteArrayOutputStream();
         final JavaClass java_class = BCELifier.getJavaClass("Java8Example");

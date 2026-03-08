@@ -57,17 +57,132 @@ public abstract class TestAbstractConfiguration_OE25Dev {
      */
     protected abstract AbstractConfiguration getEmptyConfiguration();
 
+    @Test
+    public void testAddPropertyDirect() {
+        final AbstractConfiguration config = getConfiguration();
+        config.addPropertyDirect("key3", "value3");
+        assertEquals("key3", "value3", config.getProperty("key3"));
+
+        config.addPropertyDirect("key3", "value4");
+        config.addPropertyDirect("key3", "value5");
+        final List<Object> list = config.getList("key3");
+        assertNotNull("no list found for the 'key3' property", list);
+
+        final List<Object> expected = new ArrayList<>();
+        expected.add("value3");
+        expected.add("value4");
+        expected.add("value5");
+
+        ListAssert.assertEquals("values for the 'key3' property", expected, list);
+    }
+
+    @Test
+    public void testClearProperty() {
+        final Configuration config = getConfiguration();
+        config.clearProperty("key2");
+        assertFalse("key2 not cleared", config.containsKey("key2"));
+    }
+
+    @Test
+    public void testContainsKey() {
+        final Configuration config = getConfiguration();
+        assertTrue("key1 not found", config.containsKey("key1"));
+        assertFalse("key3 found", config.containsKey("key3"));
+    }
+
     /**
      * Tests the exception message triggered by the conversion to BigInteger. This test is related to CONFIGURATION-357.
      */
+    @Test
+    public void testGetBigIntegerConversion() {
+        final Configuration config = getConfiguration();
+        try {
+            config.getBigInteger("key1");
+            fail("No conversion exception thrown!");
+        } catch (final ConversionException cex) {
+            assertTrue("Key not found in exception message: " + cex, cex.getMessage().contains("'key1'"));
+            assertTrue("Target class not found in exception message: " + cex, cex.getMessage().contains(BigInteger.class.getName()));
+            assertTrue("Value not found in exception message: " + cex, cex.getMessage().contains(config.getString("key1")));
+        }
+    }
+
+    @Test
+    public void testGetKeys() {
+        final Configuration config = getConfiguration();
+        final Iterator<String> keys = config.getKeys();
+
+        final List<String> expectedKeys = new ArrayList<>();
+        expectedKeys.add("key1");
+        expectedKeys.add("key2");
+        expectedKeys.add("list");
+        expectedKeys.add("listesc");
+
+        assertNotNull("null iterator", keys);
+        assertTrue("empty iterator", keys.hasNext());
+
+        final List<String> actualKeys = new ArrayList<>();
+        while (keys.hasNext()) {
+            actualKeys.add(keys.next());
+        }
+
+        ListAssert.assertEquals("keys", expectedKeys, actualKeys);
+    }
+
+    @Test
+    public void testGetProperty() {
+        final Configuration config = getConfiguration();
+        assertEquals("key1", "value1", config.getProperty("key1"));
+        assertEquals("key2", "value2", config.getProperty("key2"));
+        assertNull("key3", config.getProperty("key3"));
+    }
+
+    @Test
+    public void testIsEmpty() {
+        final Configuration config = getConfiguration();
+        assertFalse("the configuration is empty", config.isEmpty());
+        assertTrue("the configuration is not empty", getEmptyConfiguration().isEmpty());
+    }
+
+    @Test
+    public void testList() {
+        final Configuration config = getConfiguration();
+
+        final List<?> list = config.getList("list");
+        assertNotNull("list not found", config.getProperty("list"));
+        assertEquals("list size", 2, list.size());
+        assertTrue("'value1' is not in the list", list.contains("value1"));
+        assertTrue("'value2' is not in the list", list.contains("value2"));
+    }
 
     /**
      * Tests whether the escape character for list delimiters is recocknized and removed.
      */
+    @Test
+    public void testListEscaped() {
+        assertEquals("Wrong value for escaped list", "value1,value2", getConfiguration().getString("listesc"));
+    }
 
     /**
      * Tests accessing the configuration's logger.
      */
+    @Test
+    public void testSetLogger() {
+        final AbstractConfiguration config = getEmptyConfiguration();
+        assertNotNull("Default logger is null", config.getLogger());
+        final ConfigurationLogger log = new ConfigurationLogger(config.getClass());
+        config.setLogger(log);
+        assertSame("Logger was not set", log, config.getLogger());
+    }
+
+    @Test
+    public void testSize() {
+        assertEquals("Wrong size", 4, getConfiguration().size());
+    }
+
+    @Test
+    public void testSizeEmpty() {
+        assertEquals("Wrong size of empty configuration", 0, getEmptyConfiguration().size());
+    }
 
     @Test
     public void testAddPropertyDirect_1_oe() {
@@ -80,7 +195,6 @@ public abstract class TestAbstractConfiguration_OE25Dev {
     public void testAddPropertyDirect_2_oe() {
         final AbstractConfiguration config = getConfiguration();
         config.addPropertyDirect("key3", "value3");
-        // removed other assertion
 
         config.addPropertyDirect("key3", "value4");
         config.addPropertyDirect("key3", "value5");
@@ -92,12 +206,10 @@ public abstract class TestAbstractConfiguration_OE25Dev {
     public void testAddPropertyDirect_3_oe() {
         final AbstractConfiguration config = getConfiguration();
         config.addPropertyDirect("key3", "value3");
-        // removed other assertion
 
         config.addPropertyDirect("key3", "value4");
         config.addPropertyDirect("key3", "value5");
         final List<Object> list = config.getList("key3");
-        // removed other assertion
 
         final List<Object> expected = new ArrayList<>();
         expected.add("value3");
@@ -123,7 +235,6 @@ public abstract class TestAbstractConfiguration_OE25Dev {
     @Test
     public void testContainsKey_2_oe() {
         final Configuration config = getConfiguration();
-        // removed other assertion
         assertFalse("key3 found", config.containsKey("key3"));
     }
 
@@ -132,7 +243,7 @@ public abstract class TestAbstractConfiguration_OE25Dev {
         final Configuration config = getConfiguration();
         try {
             config.getBigInteger("key1");
-            // removed other assertion
+            fail("No conversion exception thrown!");
         } catch (final ConversionException cex) {
             assertTrue("Key not found in exception message: " + cex, cex.getMessage().contains("'key1'"));
     }
@@ -143,9 +254,8 @@ public abstract class TestAbstractConfiguration_OE25Dev {
         final Configuration config = getConfiguration();
         try {
             config.getBigInteger("key1");
-            // removed other assertion
+            fail("No conversion exception thrown!");
         } catch (final ConversionException cex) {
-            // removed other assertion
             assertTrue("Target class not found in exception message: " + cex, cex.getMessage().contains(BigInteger.class.getName()));
     }
     }
@@ -155,10 +265,8 @@ public abstract class TestAbstractConfiguration_OE25Dev {
         final Configuration config = getConfiguration();
         try {
             config.getBigInteger("key1");
-            // removed other assertion
+            fail("No conversion exception thrown!");
         } catch (final ConversionException cex) {
-            // removed other assertion
-            // removed other assertion
             assertTrue("Value not found in exception message: " + cex, cex.getMessage().contains(config.getString("key1")));
     }
     }
@@ -188,7 +296,6 @@ public abstract class TestAbstractConfiguration_OE25Dev {
         expectedKeys.add("list");
         expectedKeys.add("listesc");
 
-        // removed other assertion
         assertTrue("empty iterator", keys.hasNext());
     }
 
@@ -203,8 +310,6 @@ public abstract class TestAbstractConfiguration_OE25Dev {
         expectedKeys.add("list");
         expectedKeys.add("listesc");
 
-        // removed other assertion
-        // removed other assertion
 
         final List<String> actualKeys = new ArrayList<>();
         while (keys.hasNext()) {
@@ -223,15 +328,12 @@ public abstract class TestAbstractConfiguration_OE25Dev {
     @Test
     public void testGetProperty_2_oe() {
         final Configuration config = getConfiguration();
-        // removed other assertion
         assertEquals("key2", "value2", config.getProperty("key2"));
     }
 
     @Test
     public void testGetProperty_3_oe() {
         final Configuration config = getConfiguration();
-        // removed other assertion
-        // removed other assertion
         assertNull("key3", config.getProperty("key3"));
     }
 
@@ -244,7 +346,6 @@ public abstract class TestAbstractConfiguration_OE25Dev {
     @Test
     public void testIsEmpty_2_oe() {
         final Configuration config = getConfiguration();
-        // removed other assertion
         assertTrue("the configuration is not empty", getEmptyConfiguration().isEmpty());
     }
 
@@ -261,7 +362,6 @@ public abstract class TestAbstractConfiguration_OE25Dev {
         final Configuration config = getConfiguration();
 
         final List<?> list = config.getList("list");
-        // removed other assertion
         assertEquals("list size", 2, list.size());
     }
 
@@ -270,8 +370,6 @@ public abstract class TestAbstractConfiguration_OE25Dev {
         final Configuration config = getConfiguration();
 
         final List<?> list = config.getList("list");
-        // removed other assertion
-        // removed other assertion
         assertTrue("'value1' is not in the list", list.contains("value1"));
     }
 
@@ -280,15 +378,13 @@ public abstract class TestAbstractConfiguration_OE25Dev {
         final Configuration config = getConfiguration();
 
         final List<?> list = config.getList("list");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertTrue("'value2' is not in the list", list.contains("value2"));
     }
 
     @Test
     public void testListEscaped_1_oe() {
-        assertEquals("Wrong value for escaped list", "value1,value2", getConfiguration().getString("listesc"));
+        String a = "value1,value2";
+        assertEquals("Wrong value for escaped list", a, getConfiguration().getString("listesc"));
     }
 
     @Test
@@ -300,7 +396,6 @@ public abstract class TestAbstractConfiguration_OE25Dev {
     @Test
     public void testSetLogger_2_oe() {
         final AbstractConfiguration config = getEmptyConfiguration();
-        // removed other assertion
         final ConfigurationLogger log = new ConfigurationLogger(config.getClass());
         config.setLogger(log);
         assertSame("Logger was not set", log, config.getLogger());
@@ -308,12 +403,14 @@ public abstract class TestAbstractConfiguration_OE25Dev {
 
     @Test
     public void testSize_1_oe() {
-        assertEquals("Wrong size", 4, getConfiguration().size());
+        int a = 4;
+        assertEquals("Wrong size", a, getConfiguration().size());
     }
 
     @Test
     public void testSizeEmpty_1_oe() {
-        assertEquals("Wrong size of empty configuration", 0, getEmptyConfiguration().size());
+        int a = 0;
+        assertEquals("Wrong size of empty configuration", a, getEmptyConfiguration().size());
     }
 
 }

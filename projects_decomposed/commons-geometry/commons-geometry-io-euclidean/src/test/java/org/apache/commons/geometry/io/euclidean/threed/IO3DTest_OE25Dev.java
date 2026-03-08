@@ -69,6 +69,29 @@ class IO3DTest_OE25Dev {
     public Path tempDir;
 
     @Test
+    void testStreamExample() {
+        final Path origFile = tempDir.resolve("orig.obj");
+        final Path scaledFile = tempDir.resolve("scaled.csv");
+
+        final Precision.DoubleEquivalence precision = Precision.doubleEquivalenceOfEpsilon(1e-10);
+        final BoundarySource3D src = Parallelepiped.unitCube(precision);
+
+        IO3D.write(src, origFile);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createScale(2);
+
+        try (Stream<Triangle3D> stream = IO3D.triangles(origFile, precision)) {
+            IO3D.write(stream.map(t -> t.transform(transform)), scaledFile);
+        }
+
+        final RegionBSPTree3D result = IO3D.read(scaledFile, precision).toTree();
+
+        // assert
+        Assertions.assertEquals(8, result.getSize(), TEST_EPS);
+        EuclideanTestUtils.assertCoordinatesEqual(Vector3D.ZERO, result.getCentroid(), TEST_EPS);
+    }
+
+    @Test
     void testReadWriteFacets_facetDefinitionReader() throws Exception {
         // act/assert
         testReadWriteWithPath(

@@ -75,6 +75,11 @@ class XoRoShiRo128PlusPlusTest_OE25Dev {
     };
 
     @Test
+    void testReferenceCode() {
+        RandomAssert.assertEquals(EXPECTED_SEQUENCE, new XoRoShiRo128PlusPlus(SEED));
+    }
+
+    @Test
     void testConstructorWithZeroSeedIsNonFunctional() {
         RandomAssert.assertNextIntZeroOutput(new XoRoShiRo128PlusPlus(new long[SEED_SIZE]), 2 * SEED_SIZE);
     }
@@ -82,6 +87,13 @@ class XoRoShiRo128PlusPlusTest_OE25Dev {
     @Test
     void testConstructorWithSingleBitSeedIsFunctional() {
         RandomAssert.assertLongArrayConstructorWithSingleBitSeedIsFunctional(XoRoShiRo128PlusPlus.class, SEED_SIZE);
+    }
+
+    @Test
+    void testConstructorWithoutFullLengthSeed() {
+        // Hit the case when the input seed is self-seeded when not full length
+        RandomAssert.assertNextLongNonZeroOutput(new XoRoShiRo128PlusPlus(new long[] {SEED[0]}),
+                SEED_SIZE, SEED_SIZE);
     }
 
     @Test
@@ -106,6 +118,10 @@ class XoRoShiRo128PlusPlusTest_OE25Dev {
      * and the abstract nextOutput() method should not be used. This test checks the method
      * throws an exception if used.
      */
+    @Test
+    void testNextOutputThrows() {
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> new XoRoShiRo128PlusPlus(SEED).nextOutput());
+    }
 
     @Test
     void testReferenceCode_1_oe() {

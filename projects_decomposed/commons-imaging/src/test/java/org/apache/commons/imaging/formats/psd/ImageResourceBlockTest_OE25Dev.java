@@ -25,6 +25,14 @@ import org.junit.jupiter.api.Test;
 public class ImageResourceBlockTest_OE25Dev{
 
     @Test
+    public void testCreatesImageResourceBlockAndCallsGetName() {
+        final byte[] byteArray = new byte[3];
+        final ImageResourceBlock imageResourceBlock = new ImageResourceBlock(0, byteArray, byteArray);
+
+        assertEquals( new String(byteArray, StandardCharsets.ISO_8859_1), imageResourceBlock.getName());
+    }
+
+    @Test
     public void testCreatesImageResourceBlockAndCallsGetName_1_oe() {
         final byte[] byteArray = new byte[3];
         final ImageResourceBlock imageResourceBlock = new ImageResourceBlock(0, byteArray, byteArray);

@@ -31,6 +31,14 @@ public class FilterTest_OE25Dev {
     }
 
     @Test
+    public void testJustFilter() throws Exception {
+        UrlResponse response = testUtil.doMethod("GET", "/justfilter", null);
+
+        System.out.println("response.status = " + response.status);
+        Assert.assertEquals(404, response.status);
+    }
+
+    @Test
     public void testJustFilter_1_oe() throws Exception {
         UrlResponse response = testUtil.doMethod("GET", "/justfilter", null);
 

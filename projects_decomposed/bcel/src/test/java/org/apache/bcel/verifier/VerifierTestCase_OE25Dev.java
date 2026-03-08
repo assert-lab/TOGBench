@@ -24,6 +24,21 @@ import junit.framework.TestCase;
 
 public class VerifierTestCase_OE25Dev extends TestCase {
 
+    public void testDefaultMethodValidation() {
+        final String classname = Collection.class.getName();
+
+        final Verifier verifier = VerifierFactory.getVerifier(classname);
+        VerificationResult result = verifier.doPass1();
+
+        assertEquals("Pass 1 verification of " + classname + " failed: " + result.getMessage(), VerificationResult.VERIFIED_OK,
+                result.getStatus());
+
+        result = verifier.doPass2();
+
+        assertEquals("Pass 2 verification of " + classname + " failed: " + result.getMessage(), VerificationResult.VERIFIED_OK,
+                result.getStatus());
+    }
+
     public void testDefaultMethodValidation_1_oe() {
         final String classname = Collection.class.getName();
 

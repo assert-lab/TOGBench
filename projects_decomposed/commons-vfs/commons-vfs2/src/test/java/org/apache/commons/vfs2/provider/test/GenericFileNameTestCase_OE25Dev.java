@@ -67,6 +67,76 @@ public class GenericFileNameTestCase_OE25Dev extends AbstractVfsTestCase {
     /**
      * Tests parsing a URI into its parts.
      */
+    @Test
+    public void testParseUri() throws Exception {
+        final URLFileNameParser urlParser = new URLFileNameParser(21);
+        // Simple name
+        GenericFileName name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname/file");
+        assertEquals("ftp", name.getScheme());
+        assertNull(name.getUserName());
+        assertNull(name.getPassword());
+        assertEquals("hostname", name.getHostName());
+        assertEquals(21, name.getPort());
+        assertEquals(name.getDefaultPort(), name.getPort());
+        assertEquals("/file", name.getPath());
+        assertEquals("ftp://hostname/", name.getRootURI());
+        assertEquals("ftp://hostname/file", name.getURI());
+
+        // Name with port
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname:9090/file");
+        assertEquals("ftp", name.getScheme());
+        assertNull(name.getUserName());
+        assertNull(name.getPassword());
+        assertEquals("hostname", name.getHostName());
+        assertEquals(9090, name.getPort());
+        assertEquals("/file", name.getPath());
+        assertEquals("ftp://hostname:9090/", name.getRootURI());
+        assertEquals("ftp://hostname:9090/file", name.getURI());
+
+        // Name with no path
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://hostname");
+        assertEquals("ftp", name.getScheme());
+        assertNull(name.getUserName());
+        assertNull(name.getPassword());
+        assertEquals("hostname", name.getHostName());
+        assertEquals(21, name.getPort());
+        assertEquals("/", name.getPath());
+        assertEquals("ftp://hostname/", name.getRootURI());
+        assertEquals("ftp://hostname/", name.getURI());
+
+        // Name with username
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user@hostname/file");
+        assertEquals("ftp", name.getScheme());
+        assertEquals("user", name.getUserName());
+        assertNull(name.getPassword());
+        assertEquals("hostname", name.getHostName());
+        assertEquals(21, name.getPort());
+        assertEquals("/file", name.getPath());
+        assertEquals("ftp://user@hostname/", name.getRootURI());
+        assertEquals("ftp://user@hostname/file", name.getURI());
+
+        // Name with username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://user:password@hostname/file");
+        assertEquals("ftp", name.getScheme());
+        assertEquals("user", name.getUserName());
+        assertEquals("password", name.getPassword());
+        assertEquals("hostname", name.getHostName());
+        assertEquals(21, name.getPort());
+        assertEquals("/file", name.getPath());
+        assertEquals("ftp://user:password@hostname/", name.getRootURI());
+        assertEquals("ftp://user:password@hostname/file", name.getURI());
+
+        // Encoded username and password
+        name = (GenericFileName) urlParser.parseUri(null, null, "ftp://%75ser%3A:%40@hostname");
+        assertEquals("ftp", name.getScheme());
+        assertEquals("user:", name.getUserName());
+        assertEquals("@", name.getPassword());
+        assertEquals("hostname", name.getHostName());
+        assertEquals(21, name.getPort());
+        assertEquals("/", name.getPath());
+        assertEquals("ftp://user%3a:%40@hostname/", name.getRootURI());
+        assertEquals("ftp://user%3a:%40@hostname/", name.getURI());
+    }
 
     @Test
     public void testParseUri_1_oe() throws Exception {

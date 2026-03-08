@@ -44,28 +44,80 @@ class KempSmallMeanPoissonSamplerTest_OE25Dev {
     /**
      * Test the constructor with a bad mean.
      */
+    @Test
+    void testConstructorThrowsWithMeanLargerThanUpperBound() {
+        final double mean = SUPPORTED_UPPER_BOUND + 1;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
+    }
 
     /**
      * Test the constructor with zero mean.
      */
+    @Test
+    void testConstructorThrowsWithZeroMean() {
+        final double mean = 0;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
+    }
 
     /**
      * Test the constructor with a negative mean.
      */
+    @Test
+    void testConstructorThrowsWithNegativeMean() {
+        final double mean = -1;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
+    }
 
     /**
      * Test the constructor with a NaN mean.
      */
+    @Test
+    void testConstructorWithNaNMean() {
+        final double mean = Double.NaN;
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> KempSmallMeanPoissonSampler.of(dummyRng, mean));
+    }
 
     /**
      * Test the cumulative summation at the upper bound on the mean is close to zero when
      * starting from 1.
      */
+    @Test
+    void testSummationFrom1AtUpperBound() {
+        final double mean = SUPPORTED_UPPER_BOUND;
+        double u = 1;
+        int x = 0;
+        double p = Math.exp(-mean);
+        while (u > p && p != 0) {
+            u -= p;
+            x = x + 1;
+            p = p * mean / x;
+        }
+        Assertions.assertEquals(0, u, 1e-3, "Summation is not zero");
+        Assertions.assertTrue(u > 0, "Summation is not greater than zero");
+    }
 
     /**
      * Test the cumulative summation at the upper bound on the mean is close to one when
      * starting from 0.
      */
+    @Test
+    void testSummationTo1AtUpperBound() {
+        final double mean = SUPPORTED_UPPER_BOUND;
+        double u = 0;
+        int x = 0;
+        double p = Math.exp(-mean);
+        while (p != 0) {
+            u += p;
+            x = x + 1;
+            p = p * mean / x;
+        }
+        Assertions.assertEquals(1, u, 1e-3, "Summation is not one");
+        Assertions.assertTrue(u < 1, "Summation is not less than one");
+    }
 
     /**
      * Test the sampler functions at the upper bound on the mean.

@@ -73,6 +73,54 @@ public class RedirectBodyTest_OE25Dev extends AbstractBasicTest {
   }
 
   @Test
+  public void regular301LosesBody() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      String body = "hello there";
+      String contentType = "text/plain; charset=UTF-8";
+
+      Response response = c.preparePost(getTargetUrl()).setHeader(CONTENT_TYPE, contentType).setBody(body).setHeader("X-REDIRECT", "301").execute().get(TIMEOUT, TimeUnit.SECONDS);
+      assertEquals(response.getResponseBody(), "");
+      assertNull(receivedContentType);
+    }
+  }
+
+  @Test
+  public void regular302LosesBody() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      String body = "hello there";
+      String contentType = "text/plain; charset=UTF-8";
+
+      Response response = c.preparePost(getTargetUrl()).setHeader(CONTENT_TYPE, contentType).setBody(body).setHeader("X-REDIRECT", "302").execute().get(TIMEOUT, TimeUnit.SECONDS);
+      assertEquals(response.getResponseBody(), "");
+      assertNull(receivedContentType);
+    }
+  }
+
+  @Test
+  public void regular302StrictKeepsBody() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true).setStrict302Handling(true))) {
+      String body = "hello there";
+      String contentType = "text/plain; charset=UTF-8";
+
+      Response response = c.preparePost(getTargetUrl()).setHeader(CONTENT_TYPE, contentType).setBody(body).setHeader("X-REDIRECT", "302").execute().get(TIMEOUT, TimeUnit.SECONDS);
+      assertEquals(response.getResponseBody(), body);
+      assertEquals(receivedContentType, contentType);
+    }
+  }
+
+  @Test
+  public void regular307KeepsBody() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      String body = "hello there";
+      String contentType = "text/plain; charset=UTF-8";
+
+      Response response = c.preparePost(getTargetUrl()).setHeader(CONTENT_TYPE, contentType).setBody(body).setHeader("X-REDIRECT", "307").execute().get(TIMEOUT, TimeUnit.SECONDS);
+      assertEquals(response.getResponseBody(), body);
+      assertEquals(receivedContentType, contentType);
+    }
+  }
+
+  @Test
   public void regular301LosesBody_1_oe() throws Exception {
     try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
       String body = "hello there";

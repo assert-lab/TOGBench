@@ -39,14 +39,30 @@ public class TestManagedReloadingDetector_OE25Dev {
     /**
      * Tests the refresh() method.
      */
+    @Test
+    public void testRefresh() {
+        strategy.refresh();
+        assertTrue("Reloading request not detected", strategy.isReloadingRequired());
+        assertTrue("Reloading state not permanent", strategy.isReloadingRequired());
+    }
 
     /**
      * Tests whether the reloading state can be reset again.
      */
+    @Test
+    public void testReloadingPerformed() {
+        strategy.refresh();
+        strategy.reloadingPerformed();
+        assertFalse("Reloading state not reset", strategy.isReloadingRequired());
+    }
 
     /**
      * Tests the result of isReloadingRequired() for a newly created instance.
      */
+    @Test
+    public void testReloadingRequiredInitial() {
+        assertFalse("Wrong result", strategy.isReloadingRequired());
+    }
 
     @Test
     public void testRefresh_1_oe() {
@@ -57,7 +73,6 @@ public class TestManagedReloadingDetector_OE25Dev {
     @Test
     public void testRefresh_2_oe() {
         strategy.refresh();
-        // removed other assertion
         assertTrue("Reloading state not permanent", strategy.isReloadingRequired());
     }
 
@@ -70,7 +85,8 @@ public class TestManagedReloadingDetector_OE25Dev {
 
     @Test
     public void testReloadingRequiredInitial_1_oe() {
-        assertFalse("Wrong result", strategy.isReloadingRequired());
+        boolean a = strategy.isReloadingRequired();
+        assertFalse("Wrong result", a);
     }
 
 }

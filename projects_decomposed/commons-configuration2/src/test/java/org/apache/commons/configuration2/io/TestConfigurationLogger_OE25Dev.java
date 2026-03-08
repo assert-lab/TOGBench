@@ -45,14 +45,35 @@ public class TestConfigurationLogger_OE25Dev {
     /**
      * Tests the logger set per default.
      */
+    @Test
+    public void testAbstractConfigurationDefaultLogger() {
+        final AbstractConfiguration config = new BaseConfiguration();
+        assertThat("Wrong default logger", config.getLogger().getLog(), instanceOf(NoOpLog.class));
+    }
 
     /**
      * Tests whether the logger can be set.
      */
+    @Test
+    public void testAbstractConfigurationSetLogger() {
+        final ConfigurationLogger logger = new ConfigurationLogger(getClass());
+        final AbstractConfiguration config = new BaseConfiguration();
+
+        config.setLogger(logger);
+        assertThat("Logger not set", config.getLogger(), sameInstance(logger));
+    }
 
     /**
      * Tests that the logger can be disabled by setting it to null.
      */
+    @Test
+    public void testAbstractConfigurationSetLoggerNull() {
+        final AbstractConfiguration config = new BaseConfiguration();
+        config.setLogger(new ConfigurationLogger(getClass()));
+
+        config.setLogger(null);
+        assertThat("Logger not disabled", config.getLogger().getLog(), instanceOf(NoOpLog.class));
+    }
 
     /**
      * Tests whether debug logging is possible.
@@ -71,6 +92,12 @@ public class TestConfigurationLogger_OE25Dev {
     /**
      * Tests whether a dummy logger can be created.
      */
+    @Test
+    public void testDummyLogger() {
+        final ConfigurationLogger logger = ConfigurationLogger.newDummyLogger();
+
+        assertThat("Wrong internal logger", logger.getLog(), instanceOf(NoOpLog.class));
+    }
 
     /**
      * Tests whether error logging is possible.
@@ -134,18 +161,64 @@ public class TestConfigurationLogger_OE25Dev {
     /**
      * Tests whether a correct internal logger is created.
      */
+    @Test
+    public void testInitWithLoggerSpec() {
+        final ConfigurationLogger logger1 = new ConfigurationLogger(getClass().getName());
+        final ConfigurationLogger logger2 = new ConfigurationLogger(getClass());
+
+        assertNotNull("No internal logger", logger1.getLog());
+        if (logger1.getLog() instanceof Log4JLogger) {
+            assertEquals("Different internal Log4JLoggers", logger1.getLog(), logger2.getLog());
+        } else {
+            // TODO assert what for the Slf4j adapter?
+        }
+    }
 
     /**
      * Tests whether the debug status can be queried.
      */
+    @Test
+    public void testIsDebugEnabled() {
+        final Log log = EasyMock.createMock(Log.class);
+        EasyMock.expect(log.isDebugEnabled()).andReturn(Boolean.TRUE);
+        EasyMock.replay(log);
+        final ConfigurationLogger logger = new ConfigurationLogger(log);
+
+        assertTrue("No debug log", logger.isDebugEnabled());
+        EasyMock.verify(log);
+    }
 
     /**
      * Tests whether the info status can be queried.
      */
+    @Test
+    public void testIsInfoEnabled() {
+        final Log log = EasyMock.createMock(Log.class);
+        EasyMock.expect(log.isInfoEnabled()).andReturn(Boolean.FALSE);
+        EasyMock.replay(log);
+        final ConfigurationLogger logger = new ConfigurationLogger(log);
+
+        assertFalse("Wrong info log", logger.isInfoEnabled());
+        EasyMock.verify(log);
+    }
 
     /**
      * Tests that a derived class can be created for a logger.
      */
+    @Test
+    public void testSubClass() {
+        final StringBuilder buf = new StringBuilder();
+        final ConfigurationLogger logger = new ConfigurationLogger() {
+            @Override
+            public void info(final String msg) {
+                buf.append(msg);
+            }
+        };
+
+        assertNull("Got an internal logger", logger.getLog());
+        logger.info(MSG);
+        assertEquals("Message not logged", MSG, buf.toString());
+    }
 
     /**
      * Tests whether warn logging is possible.
@@ -220,7 +293,6 @@ public class TestConfigurationLogger_OE25Dev {
         final ConfigurationLogger logger1 = new ConfigurationLogger(getClass().getName());
         final ConfigurationLogger logger2 = new ConfigurationLogger(getClass());
 
-        // removed other assertion
         if (logger1.getLog() instanceof Log4JLogger) {
             assertEquals("Different internal Log4JLoggers", logger1.getLog(), logger2.getLog());
     }
@@ -269,7 +341,6 @@ public class TestConfigurationLogger_OE25Dev {
             }
         };
 
-        // removed other assertion
         logger.info(MSG);
         assertEquals("Message not logged", MSG, buf.toString());
     }

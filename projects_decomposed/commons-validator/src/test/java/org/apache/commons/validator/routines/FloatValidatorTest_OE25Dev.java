@@ -77,15 +77,94 @@ public class FloatValidatorTest_OE25Dev extends AbstractNumberValidatorTest {
     /**
      * Test FloatValidator validate Methods
      */
+    public void testFloatValidatorMethods() {
+        Locale locale     = Locale.GERMAN;
+        String pattern    = "0,00,00";
+        String patternVal = "1,23,45";
+        String localeVal  = "12.345";
+        String germanPatternVal = "1.23.45";
+        String defaultVal = "12,345";
+        String XXXX    = "XXXX"; 
+        Float expected = Float.valueOf(12345);
+        assertEquals("validate(A) default", expected, FloatValidator.getInstance().validate(defaultVal));
+        assertEquals("validate(A) locale ", expected, FloatValidator.getInstance().validate(localeVal, locale));
+        assertEquals("validate(A) pattern", expected, FloatValidator.getInstance().validate(patternVal, pattern));
+        assertEquals("validate(A) both",    expected, FloatValidator.getInstance().validate(germanPatternVal, pattern, Locale.GERMAN));
+
+        assertTrue("isValid(A) default", FloatValidator.getInstance().isValid(defaultVal));
+        assertTrue("isValid(A) locale ", FloatValidator.getInstance().isValid(localeVal, locale));
+        assertTrue("isValid(A) pattern", FloatValidator.getInstance().isValid(patternVal, pattern));
+        assertTrue("isValid(A) both",    FloatValidator.getInstance().isValid(germanPatternVal, pattern, Locale.GERMAN));
+
+        assertNull("validate(B) default", FloatValidator.getInstance().validate(XXXX));
+        assertNull("validate(B) locale ", FloatValidator.getInstance().validate(XXXX, locale));
+        assertNull("validate(B) pattern", FloatValidator.getInstance().validate(XXXX, pattern));
+        assertNull("validate(B) both",    FloatValidator.getInstance().validate(patternVal, pattern, Locale.GERMAN));
+
+        assertFalse("isValid(B) default", FloatValidator.getInstance().isValid(XXXX));
+        assertFalse("isValid(B) locale ", FloatValidator.getInstance().isValid(XXXX, locale));
+        assertFalse("isValid(B) pattern", FloatValidator.getInstance().isValid(XXXX, pattern));
+        assertFalse("isValid(B) both",    FloatValidator.getInstance().isValid(patternVal, pattern, Locale.GERMAN));
+    }
 
     /**
      * Test Float validation for values too small to handle.
      * (slightly different from max/min which are the largest +ve/-ve
      */
+    public void testFloatSmallestValues() {
+        String pattern = "#.#################################################################";
+        DecimalFormat fmt = new DecimalFormat(pattern);
+
+        // Validate Smallest +ve value
+        Float smallestPositive  = Float.valueOf(Float.MIN_VALUE);
+        String strSmallestPositive = fmt.format(smallestPositive);
+        assertEquals("Smallest +ve", smallestPositive, FloatValidator.getInstance().validate(strSmallestPositive, pattern));
+
+        // Validate Smallest -ve value
+        Float smallestNegative  = Float.valueOf(Float.MIN_VALUE * -1);
+        String strSmallestNegative = fmt.format(smallestNegative);
+        assertEquals("Smallest -ve", smallestNegative, FloatValidator.getInstance().validate(strSmallestNegative, pattern));
+
+        // Validate Too Small +ve
+        Double tooSmallPositive = Double.valueOf(((double)Float.MIN_VALUE / (double)10)); 
+        String strTooSmallPositive = fmt.format(tooSmallPositive);
+        assertFalse("Too small +ve", FloatValidator.getInstance().isValid(strTooSmallPositive, pattern));
+
+        // Validate Too Small -ve
+        Double tooSmallNegative = Double.valueOf(tooSmallPositive.doubleValue() * -1);
+        String strTooSmallNegative = fmt.format(tooSmallNegative);
+        assertFalse("Too small -ve", FloatValidator.getInstance().isValid(strTooSmallNegative, pattern));
+    }
 
     /**
      * Test Float Range/Min/Max
      */
+    public void testFloatRangeMinMax() {
+        FloatValidator validator = (FloatValidator)strictValidator;
+        Float number9  = validator.validate("9", "#");
+        Float number10 = validator.validate("10", "#");
+        Float number11 = validator.validate("11", "#");
+        Float number19 = validator.validate("19", "#");
+        Float number20 = validator.validate("20", "#");
+        Float number21 = validator.validate("21", "#");
+
+        // Test isInRange()
+        assertFalse("isInRange() < min",   validator.isInRange(number9,  10, 20));
+        assertTrue("isInRange() = min",    validator.isInRange(number10, 10, 20));
+        assertTrue("isInRange() in range", validator.isInRange(number11, 10, 20));
+        assertTrue("isInRange() = max",    validator.isInRange(number20, 10, 20));
+        assertFalse("isInRange() > max",   validator.isInRange(number21, 10, 20));
+
+        // Test minValue()
+        assertFalse("minValue() < min",    validator.minValue(number9,  10));
+        assertTrue("minValue() = min",     validator.minValue(number10, 10));
+        assertTrue("minValue() > min",     validator.minValue(number11, 10));
+
+        // Test minValue()
+        assertTrue("maxValue() < max",     validator.maxValue(number19, 20));
+        assertTrue("maxValue() = max",     validator.maxValue(number20, 20));
+        assertFalse("maxValue() > max",    validator.maxValue(number21, 20));
+    }
 
     public void testFloatValidatorMethods_1_oe() {
         Locale locale     = Locale.GERMAN;

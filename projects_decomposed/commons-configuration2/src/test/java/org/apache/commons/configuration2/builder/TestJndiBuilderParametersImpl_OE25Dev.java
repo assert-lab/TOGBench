@@ -44,18 +44,51 @@ public class TestJndiBuilderParametersImpl_OE25Dev {
     /**
      * Tests whether the parameters map contains inherited properties, too.
      */
+    @Test
+    public void testGetParametersBaseProperties() {
+        params.setPrefix("somePrefix");
+        params.setThrowExceptionOnMissing(true);
+        final Map<String, Object> paramsMap = params.getParameters();
+        assertEquals("Wrong exception flag", Boolean.TRUE, paramsMap.get("throwExceptionOnMissing"));
+    }
 
     /**
      * Tests whether properties can be set through BeanUtils.
      */
+    @Test
+    public void testSetBeanProperties() throws Exception {
+        final Context ctx = EasyMock.createMock(Context.class);
+        EasyMock.replay(ctx);
+        final String prefix = "testJndiPrefix";
+        BeanHelper.setProperty(params, "context", ctx);
+        BeanHelper.setProperty(params, "prefix", prefix);
+        final Map<String, Object> paramsMap = params.getParameters();
+        assertSame("Context not in map", ctx, paramsMap.get("context"));
+        assertEquals("Prefix not in map", prefix, paramsMap.get("prefix"));
+    }
 
     /**
      * Tests whether a JNDI context can be set.
      */
+    @Test
+    public void testSetContext() {
+        final Context ctx = EasyMock.createMock(Context.class);
+        EasyMock.replay(ctx);
+        assertSame("Wrong result", params, params.setContext(ctx));
+        final Map<String, Object> paramsMap = params.getParameters();
+        assertSame("Context not in map", ctx, paramsMap.get("context"));
+    }
 
     /**
      * Tests whether a prefix can be set.
      */
+    @Test
+    public void testSetPrefix() {
+        final String prefix = "testJndiPrefix";
+        assertSame("Wrong result", params, params.setPrefix(prefix));
+        final Map<String, Object> paramsMap = params.getParameters();
+        assertEquals("Prefix not in map", prefix, paramsMap.get("prefix"));
+    }
 
     @Test
     public void testGetParametersBaseProperties_1_oe() {
@@ -84,7 +117,6 @@ public class TestJndiBuilderParametersImpl_OE25Dev {
         BeanHelper.setProperty(params, "context", ctx);
         BeanHelper.setProperty(params, "prefix", prefix);
         final Map<String, Object> paramsMap = params.getParameters();
-        // removed other assertion
         assertEquals("Prefix not in map", prefix, paramsMap.get("prefix"));
     }
 

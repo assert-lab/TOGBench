@@ -68,6 +68,19 @@ public class SystemPropertyUsageUnitTest_OE25Dev
      * @throws Exception
      *
      */
+    public void testSystemPropertyUsage()
+        throws Exception
+    {
+        System.setProperty( JCS_DEFAULT_CACHEATTRIBUTES_MAX_OBJECTS, String.valueOf(testValue) );
+
+        JCS.setConfigFilename( "/TestSystemPropertyUsage.ccf" );
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( "someCacheNotInFile" );
+
+        manager = CompositeCacheManager.getInstance();
+
+        assertEquals( "System property value is not reflected.", testValue, jcs.getCacheAttributes().getMaxObjects());
+    }
 
     /**
      * Verify that the system properties are not used is specified.
@@ -75,6 +88,21 @@ public class SystemPropertyUsageUnitTest_OE25Dev
      * @throws Exception
      *
      */
+    public void testSystemPropertyUsage_inactive()
+        throws Exception
+    {
+        System.setProperty( JCS_DEFAULT_CACHEATTRIBUTES_MAX_OBJECTS, String.valueOf(testValue) );
+
+        manager = CompositeCacheManager.getUnconfiguredInstance();
+
+        final Properties props = PropertyLoader.loadProperties( "TestSystemPropertyUsage.ccf" );
+
+        manager.configure( props, false );
+
+        final CacheAccess<String, String> jcs = JCS.getInstance( "someCacheNotInFile" );
+
+        assertEquals("System property value should not be reflected",Integer.parseInt(props.getProperty(JCS_DEFAULT_CACHEATTRIBUTES_MAX_OBJECTS)),jcs.getCacheAttributes().getMaxObjects());
+    }
 
     public void testSystemPropertyUsage_1_oe()
         throws Exception

@@ -66,12 +66,34 @@ public class IcnsReadTest_OE25Dev extends IcnsBaseTest {
         Assertions.assertThrows(UnsupportedOperationException.class, () -> Imaging.getMetadata(imageFile));
     }
 
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testImageInfo(final File imageFile) throws Exception {
+        final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+        assertNotNull(imageInfo);
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
+    public void testBufferedImage(final File imageFile) throws Exception {
+        final BufferedImage image = Imaging.getBufferedImage(imageFile);
+        assertNotNull(image);
+        // TODO assert more
+    }
+
     /**
      * Test ICNS types such as mono (ICON) and some types for either JPEG2000 or PNG
      * (icp4, icp5, ic11, etc). For IMAGING-248.
      * @throws IOException if it fails to read the input stream
      * @throws ImageReadException if the image is corrupted or invalid
      */
+    @ParameterizedTest()
+    @MethodSource("provideIcnsImagesWithMonoAndJpegPngData")
+    public void testIcnsElementMonoPngJpeg(final String file, final int numberOfImages) throws ImageReadException, IOException {
+        final File testFile = new File(IcnsReadTest_OE25Dev.class.getResource(file).getFile());
+        final List<BufferedImage> images = new IcnsImageParser().getAllBufferedImages(testFile);
+        assertEquals(numberOfImages, images.size());
+    }
 
     @ParameterizedTest
     @MethodSource("data")

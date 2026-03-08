@@ -38,6 +38,36 @@ public class CacheManagerStatsUnitTest_OE25Dev
      *
      * @throws Exception
      */
+    public void testSimpleGetStats() throws Exception
+    {
+        final CacheAccess<String, String> cache = JCS.getInstance( "testCache1" );
+
+        // 1 miss, 1 hit, 1 put
+        cache.get( "testKey" );
+        cache.put( "testKey", "testdata" );
+        // should have 4 hits
+        cache.get( "testKey" );
+        cache.get( "testKey" );
+        cache.get( "testKey" );
+        cache.get( "testKey" );
+
+        final CompositeCacheManager mgr = CompositeCacheManager.getInstance();
+        final String statsString = mgr.getStats();
+
+//        System.out.println( statsString );
+
+        assertTrue( "Should have the cacheName in here.", statsString.indexOf("testCache1") != -1 );
+        assertTrue( "Should have the HitCountRam in here.", statsString.indexOf("HitCountRam") != -1 );
+        assertTrue( "Should have the 4 in here.", statsString.indexOf("4") != -1 );
+
+        final ICacheStats[] stats = mgr.getStatistics();
+        final int statsLen = stats.length;
+//        System.out.println( "statsLen = " + statsLen );
+        for ( int i = 0; i < statsLen; i++ )
+        {
+            // TODO finish
+        }
+    }
 
     public void testSimpleGetStats_1_oe() throws Exception
     {

@@ -116,6 +116,28 @@ public class SymbolicLinkFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
+    public void testAcceptActual() throws FileSystemException {
+        final FileFilter testee = SymbolicLinkFileFilter.ACTUAL;
+        Assert.assertTrue(targetFileInfo.getBaseFolder().exists());
+        Assert.assertTrue(targetFileInfo.getFile().exists());
+        Assert.assertTrue(targetFileInfo.toString(), testee.accept(targetFileInfo));
+        Assert.assertTrue(notExistingFileInfo.toString(), testee.accept(notExistingFileInfo));
+    }
+
+    @Test
+    public void testAcceptSymbolic() throws FileSystemException {
+        final FileFilter testee = SymbolicLinkFileFilter.SYMBOLIC;
+        Assert.assertTrue(linkFileInfo.toString(), testee.accept(linkFileInfo));
+        Assert.assertFalse(notExistingFileInfo.toString(), testee.accept(notExistingFileInfo));
+    }
+
+    @Test
+    public void testZipFile() throws FileSystemException {
+        final FileObject[] files = zipFileObject.findFiles(new FileFilterSelector(SymbolicLinkFileFilter.SYMBOLIC));
+        Assert.assertEquals(0, files.length);
+    }
+
+    @Test
     public void testAcceptActual_1_oe() throws FileSystemException {
         final FileFilter testee = SymbolicLinkFileFilter.ACTUAL;
         Assert.assertTrue(targetFileInfo.getBaseFolder().exists());

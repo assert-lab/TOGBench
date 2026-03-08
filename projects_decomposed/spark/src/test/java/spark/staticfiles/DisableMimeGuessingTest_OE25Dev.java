@@ -82,6 +82,24 @@ public class DisableMimeGuessingTest_OE25Dev {
         Spark.awaitInitialization();
     }
 
+    @Test
+    public void testMimeTypes() throws Exception {
+        Assert.assertNull(doGet("/pages/index.html").headers.get("Content-Type"));
+        Assert.assertNull(doGet("/js/scripts.js").headers.get("Content-Type"));
+        Assert.assertNull(doGet("/css/style.css").headers.get("Content-Type"));
+        Assert.assertNull(doGet("/img/sparklogo.png").headers.get("Content-Type"));
+        Assert.assertNull(doGet("/img/sparklogo.svg").headers.get("Content-Type"));
+        Assert.assertNull(doGet("/img/sparklogoPng").headers.get("Content-Type"));
+        Assert.assertNull(doGet("/img/sparklogoSvg").headers.get("Content-Type"));
+        Assert.assertNull(doGet("/externalFile.html").headers.get("Content-Type"));
+    }
+
+    @Test
+    public void testCustomMimeType() throws Exception {
+        staticFiles.registerMimeType("cxt", "custom-extension-type");
+        Assert.assertNull(doGet("/img/file.cxt").headers.get("Content-Type"));
+    }
+
     private SparkTestUtil.UrlResponse doGet(String fileName) throws Exception {
         return testUtil.doMethod("GET", fileName, null);
     }

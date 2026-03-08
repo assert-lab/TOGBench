@@ -42,10 +42,27 @@ public class TestDefaultReloadingDetectorFactory_OE25Dev {
     /**
      * Tests whether a reloading detector is created correctly.
      */
+    @Test
+    public void testCreateReloadingDetector() throws ConfigurationException {
+        final FileHandler handler = new FileHandler();
+        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
+        final Long refreshDelay = 10000L;
+        params.setReloadingRefreshDelay(refreshDelay);
+        final FileHandlerReloadingDetector detector = (FileHandlerReloadingDetector) factory.createReloadingDetector(handler, params);
+        assertSame("Wrong file handler", handler, detector.getFileHandler());
+        assertEquals("Wrong refresh delay", refreshDelay.longValue(), detector.getRefreshDelay());
+    }
 
     /**
      * Tests whether an undefined refresh delay is handled correctly.
      */
+    @Test
+    public void testCreateReloadingDetectorDefaultRefreshDelay() throws ConfigurationException {
+        final FileHandler handler = new FileHandler();
+        final FileBasedBuilderParametersImpl params = new FileBasedBuilderParametersImpl();
+        final FileHandlerReloadingDetector detector = (FileHandlerReloadingDetector) factory.createReloadingDetector(handler, params);
+        assertTrue("No default refresh delay", detector.getRefreshDelay() != 0);
+    }
 
     @Test
     public void testCreateReloadingDetector_1_oe() throws ConfigurationException {
@@ -64,7 +81,6 @@ public class TestDefaultReloadingDetectorFactory_OE25Dev {
         final Long refreshDelay = 10000L;
         params.setReloadingRefreshDelay(refreshDelay);
         final FileHandlerReloadingDetector detector = (FileHandlerReloadingDetector) factory.createReloadingDetector(handler, params);
-        // removed other assertion
         assertEquals("Wrong refresh delay", refreshDelay.longValue(), detector.getRefreshDelay());
     }
 

@@ -31,6 +31,33 @@ import static org.testng.Assert.fail;
 
 public class EventPipelineTest_OE25Dev extends AbstractBasicTest {
 
+  @Test
+  public void asyncPipelineTest() throws Exception {
+
+    Consumer<Channel> httpAdditionalPipelineInitializer = channel -> channel.pipeline().addBefore("inflater",
+            "copyEncodingHeader", new CopyEncodingHandler());
+
+    try (AsyncHttpClient p = asyncHttpClient(
+            config().setHttpAdditionalChannelInitializer(httpAdditionalPipelineInitializer))) {
+      final CountDownLatch l = new CountDownLatch(1);
+      p.executeRequest(get(getTargetUrl()), new AsyncCompletionHandlerAdapter() {
+        @Override
+        public Response onCompleted(Response response) {
+          try {
+            assertEquals(response.getStatusCode(), 200);
+            assertEquals(response.getHeader("X-Original-Content-Encoding"), "<original encoding>");
+          } finally {
+            l.countDown();
+          }
+          return response;
+        }
+      }).get();
+      if (!l.await(TIMEOUT, TimeUnit.SECONDS)) {
+        fail("Timeout out");
+      }
+    }
+  }
+
   private static class CopyEncodingHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object e) {

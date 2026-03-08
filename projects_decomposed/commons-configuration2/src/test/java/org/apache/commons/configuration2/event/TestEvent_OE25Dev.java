@@ -44,6 +44,12 @@ public class TestEvent_OE25Dev {
     /**
      * Tests the string representation.
      */
+    @Test
+    public void testToString() {
+        final Event event = new Event(this, Event.ANY);
+        final String s = event.toString();
+        assertEquals("Wrong string representation", "Event [ source=" + this + " eventType=" + Event.ANY + " ]", s);
+    }
 
     @Test
     public void testToString_1_oe() {

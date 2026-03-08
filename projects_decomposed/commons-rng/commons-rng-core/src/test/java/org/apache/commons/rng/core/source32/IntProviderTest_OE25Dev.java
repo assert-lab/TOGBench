@@ -55,6 +55,26 @@ class IntProviderTest_OE25Dev {
      *
      * <p>The order should be from the least-significant bit.
      */
+    @Test
+    void testNextBoolean() {
+        for (int i = 0; i < Integer.SIZE; i++) {
+            // Set only a single bit in the source
+            final int value = 1 << i;
+            final IntProvider provider = new FlipIntProvider(value);
+            // Test the result for a single pass over the long
+            for (int j = 0; j < Integer.SIZE; j++) {
+                final boolean expected = i == j;
+                final int index = j;
+                Assertions.assertEquals(expected, provider.nextBoolean(), () -> "Pass 1, bit " + index);
+            }
+            // The second pass should use the opposite bits
+            for (int j = 0; j < Integer.SIZE; j++) {
+                final boolean expected = i != j;
+                final int index = j;
+                Assertions.assertEquals(expected, provider.nextBoolean(), () -> "Pass 2, bit " + index);
+            }
+        }
+    }
 
     @Test
     void testNextBoolean_1_oe() {

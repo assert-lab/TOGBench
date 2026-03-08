@@ -38,6 +38,353 @@ class AffineTransformMatrix3DTest_OE25Dev {
             Precision.doubleEquivalenceOfEpsilon(EPS);
 
     @Test
+    void testOf() {
+        // arrange
+        final double[] arr = {
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            9, 10, 11, 12
+        };
+
+        // act
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.of(arr);
+
+        // assert
+        final double[] result = transform.toArray();
+        Assertions.assertNotSame(arr, result);
+        Assertions.assertArrayEquals(arr, result, 0.0);
+    }
+
+    @Test
+    void testOf_invalidDimensions() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix3D.of(1, 2),
+                IllegalArgumentException.class, "Dimension mismatch: 2 != 12");
+    }
+
+    @Test
+    void testFromColumnVectors_threeVectors() {
+        // arrange
+        final Vector3D u = Vector3D.of(1, 2, 3);
+        final Vector3D v = Vector3D.of(4, 5, 6);
+        final Vector3D w = Vector3D.of(7, 8, 9);
+
+        // act
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.fromColumnVectors(u, v, w);
+
+        // assert
+        Assertions.assertArrayEquals(new double[] {
+            1, 4, 7, 0,
+            2, 5, 8, 0,
+            3, 6, 9, 0
+        }, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testFromColumnVectors_fourVectors() {
+        // arrange
+        final Vector3D u = Vector3D.of(1, 2, 3);
+        final Vector3D v = Vector3D.of(4, 5, 6);
+        final Vector3D w = Vector3D.of(7, 8, 9);
+        final Vector3D t = Vector3D.of(10, 11, 12);
+
+        // act
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.fromColumnVectors(u, v, w, t);
+
+        // assert
+        Assertions.assertArrayEquals(new double[] {
+            1, 4, 7, 10,
+            2, 5, 8, 11,
+            3, 6, 9, 12
+        }, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testFrom() {
+        // act/assert
+        Assertions.assertArrayEquals(new double[] {
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0
+        }, AffineTransformMatrix3D.from(UnaryOperator.identity()).toArray(), EPS);
+        Assertions.assertArrayEquals(new double[] {
+            1, 0, 0, 2,
+            0, 1, 0, 3,
+            0, 0, 1, -4
+        }, AffineTransformMatrix3D.from(v -> v.add(Vector3D.of(2, 3, -4))).toArray(), EPS);
+        Assertions.assertArrayEquals(new double[] {
+            3, 0, 0, 0,
+            0, 3, 0, 0,
+            0, 0, 3, 0
+        }, AffineTransformMatrix3D.from(v -> v.multiply(3)).toArray(), EPS);
+        Assertions.assertArrayEquals(new double[] {
+            3, 0, 0, 6,
+            0, 3, 0, 9,
+            0, 0, 3, 12
+        }, AffineTransformMatrix3D.from(v -> v.add(Vector3D.of(2, 3, 4)).multiply(3)).toArray(), EPS);
+    }
+
+    @Test
+    void testFrom_invalidFunction() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix3D.from(v -> v.multiply(0)));
+    }
+
+    @Test
+    void testIdentity() {
+        // act
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.identity();
+
+        // assert
+        final double[] expected = {
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0
+        };
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateTranslation_xyz() {
+        // act
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createTranslation(2, 3, 4);
+
+        // assert
+        final double[] expected = {
+            1, 0, 0, 2,
+            0, 1, 0, 3,
+            0, 0, 1, 4
+        };
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateTranslation_vector() {
+        // act
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createTranslation(Vector3D.of(5, 6, 7));
+
+        // assert
+        final double[] expected = {
+            1, 0, 0, 5,
+            0, 1, 0, 6,
+            0, 0, 1, 7
+        };
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateScale_xyz() {
+        // act
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createScale(2, 3, 4);
+
+        // assert
+        final double[] expected = {
+            2, 0, 0, 0,
+            0, 3, 0, 0,
+            0, 0, 4, 0
+        };
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testTranslate_xyz() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    2, 0, 0, 10,
+                    0, 3, 0, 11,
+                    0, 0, 4, 12
+                );
+
+        // act
+        final AffineTransformMatrix3D result = a.translate(4, 5, 6);
+
+        // assert
+        final double[] expected = {
+            2, 0, 0, 14,
+            0, 3, 0, 16,
+            0, 0, 4, 18
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testTranslate_vector() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    2, 0, 0, 10,
+                    0, 3, 0, 11,
+                    0, 0, 4, 12
+                );
+
+        // act
+        final AffineTransformMatrix3D result = a.translate(Vector3D.of(7, 8, 9));
+
+        // assert
+        final double[] expected = {
+            2, 0, 0, 17,
+            0, 3, 0, 19,
+            0, 0, 4, 21
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateScale_vector() {
+        // act
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createScale(Vector3D.of(4, 5, 6));
+
+        // assert
+        final double[] expected = {
+            4, 0, 0, 0,
+            0, 5, 0, 0,
+            0, 0, 6, 0
+        };
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateScale_singleValue() {
+        // act
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createScale(7);
+
+        // assert
+        final double[] expected = {
+            7, 0, 0, 0,
+            0, 7, 0, 0,
+            0, 0, 7, 0
+        };
+        Assertions.assertArrayEquals(expected, transform.toArray(), 0.0);
+    }
+
+    @Test
+    void testScale_xyz() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    2, 0, 0, 10,
+                    0, 3, 0, 11,
+                    0, 0, 4, 12
+                );
+
+        // act
+        final AffineTransformMatrix3D result = a.scale(4, 5, 6);
+
+        // assert
+        final double[] expected = {
+            8, 0, 0, 40,
+            0, 15, 0, 55,
+            0, 0, 24, 72
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testScale_vector() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    2, 0, 0, 10,
+                    0, 3, 0, 11,
+                    0, 0, 4, 12
+                );
+
+        // act
+        final AffineTransformMatrix3D result = a.scale(Vector3D.of(7, 8, 9));
+
+        // assert
+        final double[] expected = {
+            14, 0, 0, 70,
+            0, 24, 0, 88,
+            0, 0, 36, 108
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testScale_singleValue() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    2, 0, 0, 10,
+                    0, 3, 0, 11,
+                    0, 0, 4, 12
+                );
+
+        // act
+        final AffineTransformMatrix3D result = a.scale(10);
+
+        // assert
+        final double[] expected = {
+            20, 0, 0, 100,
+            0, 30, 0, 110,
+            0, 0, 40, 120
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testCreateRotation() {
+        // arrange
+        final Vector3D center = Vector3D.of(1, 2, 3);
+        final QuaternionRotation rotation = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, Angle.PI_OVER_TWO);
+
+        // act
+        final AffineTransformMatrix3D result = AffineTransformMatrix3D.createRotation(center, rotation);
+
+        // assert
+        final double[] expected = {
+            0, -1, 0, 3,
+            1, 0, 0, 1,
+            0, 0, 1, 0
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), EPS);
+    }
+
+    @Test
+    void testRotate() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12
+                );
+
+        final QuaternionRotation rotation = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, Angle.PI_OVER_TWO);
+
+        // act
+        final AffineTransformMatrix3D result = a.rotate(rotation);
+
+        // assert
+        final double[] expected = {
+            -5, -6, -7, -8,
+            1, 2, 3, 4,
+            9, 10, 11, 12
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), EPS);
+    }
+
+    @Test
+    void testRotate_aroundCenter() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12
+                );
+
+        final Vector3D center = Vector3D.of(1, 2, 3);
+        final QuaternionRotation rotation = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, Angle.PI_OVER_TWO);
+
+        // act
+        final AffineTransformMatrix3D result = a.rotate(center, rotation);
+
+        // assert
+        final double[] expected = {
+            -5, -6, -7, -5,
+            1, 2, 3, 5,
+            9, 10, 11, 12
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), EPS);
+    }
+
+    @Test
     void testApply_identity() {
         // arrange
         final AffineTransformMatrix3D transform = AffineTransformMatrix3D.identity();
@@ -357,6 +704,66 @@ class AffineTransformMatrix3DTest_OE25Dev {
     }
 
     @Test
+    void testApplyDirection_illegalNorm() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix3D.createScale(1, 0, 1).applyDirection(Vector3D.Unit.PLUS_Y));
+        Assertions.assertThrows(IllegalArgumentException.class, () -> AffineTransformMatrix3D.createScale(2).applyDirection(Vector3D.ZERO));
+    }
+
+    @Test
+    void testMultiply() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12
+                );
+        final AffineTransformMatrix3D b = AffineTransformMatrix3D.of(
+                    13, 14, 15, 16,
+                    17, 18, 19, 20,
+                    21, 22, 23, 24
+                );
+
+        // act
+        final AffineTransformMatrix3D result = a.multiply(b);
+
+        // assert
+        final double[] arr = result.toArray();
+        Assertions.assertArrayEquals(new double[] {
+            110, 116, 122, 132,
+            314, 332, 350, 376,
+            518, 548, 578, 620
+        }, arr, EPS);
+    }
+
+    @Test
+    void testDeterminant() {
+        // act/assert
+        Assertions.assertEquals(1.0, AffineTransformMatrix3D.identity().determinant(), EPS);
+        Assertions.assertEquals(1.0,AffineTransformMatrix3D.of(1,0,0,10,0,1,0,11,0,0,1,12).determinant(),EPS);
+        Assertions.assertEquals(-1.0,AffineTransformMatrix3D.of(-1,0,0,10,0,1,0,11,0,0,1,12).determinant(),EPS);
+        Assertions.assertEquals(1.0,AffineTransformMatrix3D.of(-1,0,0,10,0,-1,0,11,0,0,1,12).determinant(),EPS);
+        Assertions.assertEquals(-1.0,AffineTransformMatrix3D.of(-1,0,0,10,0,-1,0,11,0,0,-1,12).determinant(),EPS);
+        Assertions.assertEquals(49.0,AffineTransformMatrix3D.of(2,-3,1,10,2,0,-1,11,1,4,5,-12).determinant(),EPS);
+        Assertions.assertEquals(0.0,AffineTransformMatrix3D.of(1,2,3,0,4,5,6,0,7,8,9,0).determinant(),EPS);
+    }
+
+    @Test
+    void testPreservesOrientation() {
+        // act/assert
+        Assertions.assertTrue(AffineTransformMatrix3D.identity().preservesOrientation());
+        Assertions.assertTrue(AffineTransformMatrix3D.of(1,0,0,10,0,1,0,11,0,0,1,12).preservesOrientation());
+        Assertions.assertTrue(AffineTransformMatrix3D.of(2,-3,1,10,2,0,-1,11,1,4,5,-12).preservesOrientation());
+
+        Assertions.assertFalse(AffineTransformMatrix3D.of(-1,0,0,10,0,1,0,11,0,0,1,12).preservesOrientation());
+
+        Assertions.assertTrue(AffineTransformMatrix3D.of(-1,0,0,10,0,-1,0,11,0,0,1,12).preservesOrientation());
+
+        Assertions.assertFalse(AffineTransformMatrix3D.of(-1,0,0,10,0,-1,0,11,0,0,-1,12).preservesOrientation());
+        Assertions.assertFalse(AffineTransformMatrix3D.of(1,2,3,0,4,5,6,0,7,8,9,0).preservesOrientation());
+    }
+
+    @Test
     void testMultiply_combinesTransformOperations() {
         // arrange
         final Vector3D translation1 = Vector3D.of(1, 2, 3);
@@ -382,6 +789,32 @@ class AffineTransformMatrix3DTest_OE25Dev {
 
             EuclideanTestUtils.assertCoordinatesEqual(expectedVec, transform.apply(vec), EPS);
         });
+    }
+
+    @Test
+    void testPremultiply() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    1, 2, 3, 4,
+                    5, 6, 7, 8,
+                    9, 10, 11, 12
+                );
+        final AffineTransformMatrix3D b = AffineTransformMatrix3D.of(
+                    13, 14, 15, 16,
+                    17, 18, 19, 20,
+                    21, 22, 23, 24
+                );
+
+        // act
+        final AffineTransformMatrix3D result = b.premultiply(a);
+
+        // assert
+        final double[] arr = result.toArray();
+        Assertions.assertArrayEquals(new double[] {
+            110, 116, 122, 132,
+            314, 332, 350, 376,
+            518, 548, 578, 620
+        }, arr, EPS);
     }
 
     @Test
@@ -413,6 +846,97 @@ class AffineTransformMatrix3DTest_OE25Dev {
     }
 
     @Test
+    void testInverse_identity() {
+        // act
+        final AffineTransformMatrix3D inverse = AffineTransformMatrix3D.identity().inverse();
+
+        // assert
+        final double[] expected = {
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0
+        };
+        Assertions.assertArrayEquals(expected, inverse.toArray(), 0.0);
+    }
+
+    @Test
+    void testInverse_multiplyByInverse_producesIdentity() {
+        // arrange
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(
+                    1, 3, 7, 8,
+                    2, 4, 9, 12,
+                    5, 6, 10, 11
+                );
+
+        final AffineTransformMatrix3D inv = a.inverse();
+
+        // act
+        final AffineTransformMatrix3D result = inv.multiply(a);
+
+        // assert
+        final double[] expected = {
+            1, 0, 0, 0,
+            0, 1, 0, 0,
+            0, 0, 1, 0
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), EPS);
+    }
+
+    @Test
+    void testInverse_translate() {
+        // arrange
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createTranslation(1, -2, 4);
+
+        // act
+        final AffineTransformMatrix3D inverse = transform.inverse();
+
+        // assert
+        final double[] expected = {
+            1, 0, 0, -1,
+            0, 1, 0, 2,
+            0, 0, 1, -4
+        };
+        Assertions.assertArrayEquals(expected, inverse.toArray(), 0.0);
+    }
+
+    @Test
+    void testInverse_scale() {
+        // arrange
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createScale(10, -2, 4);
+
+        // act
+        final AffineTransformMatrix3D inverse = transform.inverse();
+
+        // assert
+        final double[] expected = {
+            0.1, 0, 0, 0,
+            0, -0.5, 0, 0,
+            0, 0, 0.25, 0
+        };
+        Assertions.assertArrayEquals(expected, inverse.toArray(), 0.0);
+    }
+
+    @Test
+    void testInverse_rotate() {
+        // arrange
+        final Vector3D center = Vector3D.of(1, 2, 3);
+        final QuaternionRotation rotation = QuaternionRotation.fromAxisAngle(Vector3D.Unit.PLUS_Z, Angle.PI_OVER_TWO);
+
+        final AffineTransformMatrix3D transform = AffineTransformMatrix3D.createRotation(center, rotation);
+
+        // act
+        final AffineTransformMatrix3D inverse = transform.inverse();
+
+        // assert
+        final double[] expected = {
+            0, 1, 0, -1,
+            -1, 0, 0, 3,
+            0, 0, 1, 0
+        };
+        Assertions.assertArrayEquals(expected, inverse.toArray(), EPS);
+    }
+
+    @Test
     void testInverse_undoesOriginalTransform() {
         // arrange
         final Vector3D v1 = Vector3D.ZERO;
@@ -438,6 +962,85 @@ class AffineTransformMatrix3DTest_OE25Dev {
             EuclideanTestUtils.assertCoordinatesEqual(v3, inverse.apply(transform.apply(v3)), EPS);
             EuclideanTestUtils.assertCoordinatesEqual(v4, inverse.apply(transform.apply(v4)), EPS);
         });
+    }
+
+    @Test
+    void testInverse_nonInvertible() {
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix3D.of(
+                0, 0, 0, 0,
+                0, 0, 0, 0,
+                0, 0, 0, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; matrix determinant is 0.0");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix3D.of(
+                1, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, Double.NaN, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; matrix determinant is NaN");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix3D.of(
+                1, 0, 0, 0,
+                0, Double.NEGATIVE_INFINITY, 0, 0,
+                0, 0, 1, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; matrix determinant is NaN");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix3D.of(
+                Double.POSITIVE_INFINITY, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, 1, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; matrix determinant is NaN");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix3D.of(
+                1, 0, 0, Double.NaN,
+                0, 1, 0, 0,
+                0, 0, 1, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; invalid matrix element: NaN");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix3D.of(
+                1, 0, 0, 0,
+                0, 1, 0, Double.POSITIVE_INFINITY,
+                0, 0, 1, 0).inverse(), IllegalStateException.class, "Matrix is not invertible; invalid matrix element: Infinity");
+
+        GeometryTestUtils.assertThrowsWithMessage(() -> AffineTransformMatrix3D.of(
+                1, 0, 0, 0,
+                0, 1, 0, 0,
+                0, 0, 1, Double.NEGATIVE_INFINITY).inverse(), IllegalStateException.class, "Matrix is not invertible; invalid matrix element: -Infinity");
+    }
+
+    @Test
+    void testLinear() {
+        // arrange
+        final AffineTransformMatrix3D mat = AffineTransformMatrix3D.of(
+                2, 3, 4, 5,
+                6, 7, 8, 9,
+                10, 11, 12, 13);
+
+        // act
+        final AffineTransformMatrix3D result = mat.linear();
+
+        // assert
+        final double[] expected = {
+            2, 3, 4, 0,
+            6, 7, 8, 0,
+            10, 11, 12, 0
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
+    }
+
+    @Test
+    void testLinearTranspose() {
+        // arrange
+        final AffineTransformMatrix3D mat = AffineTransformMatrix3D.of(
+                2, 3, 4, 5,
+                6, 7, 8, 9,
+                10, 11, 12, 13);
+
+        // act
+        final AffineTransformMatrix3D result = mat.linearTranspose();
+
+        // assert
+        final double[] expected = {
+            2, 6, 10, 0,
+            3, 7, 11, 0,
+            4, 8, 12, 0
+        };
+        Assertions.assertArrayEquals(expected, result.toArray(), 0.0);
     }
 
     @Test
@@ -492,6 +1095,92 @@ class AffineTransformMatrix3DTest_OE25Dev {
 
             EuclideanTestUtils.assertCoordinatesEqual(expected, actual, EPS);
         });
+    }
+
+    @Test
+    void testNormalTransform_nonInvertible() {
+        // act/assert
+        Assertions.assertThrows(IllegalStateException.class, () -> AffineTransformMatrix3D.createScale(0).normalTransform());
+    }
+
+    @Test
+    void testHashCode() {
+        // arrange
+        final double[] values = {
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            9, 10, 11, 12
+        };
+
+        // act/assert
+        final int orig = AffineTransformMatrix3D.of(values).hashCode();
+        final int same = AffineTransformMatrix3D.of(values).hashCode();
+
+        Assertions.assertEquals(orig, same);
+
+        double[] temp;
+        for (int i = 0; i < values.length; ++i) {
+            temp = values.clone();
+            temp[i] = 0;
+
+            final int modified = AffineTransformMatrix3D.of(temp).hashCode();
+
+            Assertions.assertNotEquals(orig, modified);
+        }
+    }
+
+    @Test
+    void testEquals() {
+        // arrange
+        final double[] values = {
+            1, 2, 3, 4,
+            5, 6, 7, 8,
+            9, 10, 11, 12
+        };
+
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(values);
+
+        // act/assert
+        GeometryTestUtils.assertSimpleEqualsCases(a);
+
+        double[] temp;
+        for (int i = 0; i < values.length; ++i) {
+            temp = values.clone();
+            temp[i] = 0;
+
+            final AffineTransformMatrix3D modified = AffineTransformMatrix3D.of(temp);
+
+            Assertions.assertNotEquals(a, modified);
+        }
+    }
+
+    @Test
+    void testEqualsAndHashCode_signedZeroConsistency() {
+        // arrange
+        final double[] arrWithPosZero = {
+            1.0, 0.0, 0.0, 0.0,
+            0.0, 1.0, 0.0, 0.0,
+            0.0, 0.0, 1.0, 0.0,
+        };
+        final double[] arrWithNegZero = {
+            1.0, 0.0, 0.0, 0.0,
+            0.0, 1.0, 0.0, 0.0,
+            0.0, 0.0, 1.0, -0.0,
+        };
+        final AffineTransformMatrix3D a = AffineTransformMatrix3D.of(arrWithPosZero);
+        final AffineTransformMatrix3D b = AffineTransformMatrix3D.of(arrWithNegZero);
+        final AffineTransformMatrix3D c = AffineTransformMatrix3D.of(arrWithPosZero);
+        final AffineTransformMatrix3D d = AffineTransformMatrix3D.of(arrWithNegZero);
+
+        // act/assert
+        Assertions.assertFalse(a.equals(b));
+        Assertions.assertNotEquals(a.hashCode(), b.hashCode());
+
+        Assertions.assertTrue(a.equals(c));
+        Assertions.assertEquals(a.hashCode(), c.hashCode());
+
+        Assertions.assertTrue(b.equals(d));
+        Assertions.assertEquals(b.hashCode(), d.hashCode());
     }
 
     @Test

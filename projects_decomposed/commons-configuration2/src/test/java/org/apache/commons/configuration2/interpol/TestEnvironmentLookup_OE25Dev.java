@@ -39,10 +39,20 @@ public class TestEnvironmentLookup_OE25Dev {
     /**
      * Tests whether environment variables can be queried.
      */
+    @Test
+    public void testLookup() {
+        for (final Map.Entry<String, String> e : System.getenv().entrySet()) {
+            assertEquals("Wrong value for " + e.getKey(), e.getValue(), lookup.lookup(e.getKey()));
+        }
+    }
 
     /**
      * Tries to lookup a non existing property.
      */
+    @Test
+    public void testLookupNonExisting() {
+        assertNull("Got result for non existing environment variable", lookup.lookup("a non existing variable!"));
+    }
 
     @Test
     public void testLookup_1_oe() {
@@ -53,7 +63,8 @@ public class TestEnvironmentLookup_OE25Dev {
 
     @Test
     public void testLookupNonExisting_1_oe() {
-        assertNull("Got result for non existing environment variable", lookup.lookup("a non existing variable!"));
+        Object a = lookup.lookup("a non existing variable!");
+        assertNull("Got result for non existing environment variable", a);
     }
 
 }

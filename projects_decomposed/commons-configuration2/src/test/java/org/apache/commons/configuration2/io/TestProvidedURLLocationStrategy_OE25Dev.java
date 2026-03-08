@@ -42,10 +42,25 @@ public class TestProvidedURLLocationStrategy_OE25Dev {
     /**
      * Tests a failed locate() operation.
      */
+    @Test
+    public void testLocateFail() {
+        final FileSystem fs = EasyMock.createMock(FileSystem.class);
+        EasyMock.replay(fs);
+        final FileLocator locator = FileLocatorUtils.fileLocator().basePath("somePath").fileName("someFile.xml").create();
+        assertNull("Got a URL", strategy.locate(fs, locator));
+    }
 
     /**
      * Tests a successful locate() operation.
      */
+    @Test
+    public void testLocateSuccess() {
+        final FileSystem fs = EasyMock.createMock(FileSystem.class);
+        EasyMock.replay(fs);
+        final URL url = ConfigurationAssert.getTestURL("test.xml");
+        final FileLocator locator = FileLocatorUtils.fileLocator().sourceURL(url).create();
+        assertSame("Wrong URL", url, strategy.locate(fs, locator));
+    }
 
     @Test
     public void testLocateFail_1_oe() {

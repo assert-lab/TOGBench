@@ -40,6 +40,46 @@ public class UsingBlueprintsTest_OE25Dev {
     }
 
     @Test
+    public void testUtilsReadPublicConstant() {
+        assertEquals(Utils.FOO, usingBlueprints.utilsReadPublicConstant());
+    }
+
+    @Test
+    public void testUtilsReadPrivateField() {
+        assertEquals(999, usingBlueprints.utilsReadPrivateField());
+    }
+
+    @Test
+    public void testUtilsGetProperty() {
+        assertEquals("foo-value", usingBlueprints.utilsGetProperty());
+    }
+
+    @Test
+    public void testUtilsGetProperty_String() {
+        assertEquals("foo-value", usingBlueprints.utilsGetProperty("foo"));
+        assertEquals("bar-value", usingBlueprints.utilsGetProperty("bar"));
+        assertEquals("baz-value", usingBlueprints.utilsGetProperty("baz"));
+    }
+
+    @Test
+    public void testUtilsGetProperty_int_String() {
+        assertEquals("foo-value", usingBlueprints.utilsGetProperty(2, "foo"));
+        assertEquals("bar-value", usingBlueprints.utilsGetProperty(2, "bar"));
+        assertEquals("baz-value", usingBlueprints.utilsGetProperty(2, "baz"));
+    }
+
+    @Test
+    public void testMoreGetProperty() {
+        assertEquals("bar-value", usingBlueprints.moreGetProperty());
+    }
+
+    @Test
+    public void testMoreGetTopStackElementClassName() {
+        assumeTrue(StringUtils.containsIgnoreCase(SystemUtils.JAVA_VENDOR, "oracle"));
+        assertEquals(Utils.More.class.getName(), usingBlueprints.moreGetTopStackElementClassName());
+    }
+
+    @Test
     public void testUtilsReadPublicConstant_1_oe() {
         assertEquals(Utils.FOO, usingBlueprints.utilsReadPublicConstant());
     }

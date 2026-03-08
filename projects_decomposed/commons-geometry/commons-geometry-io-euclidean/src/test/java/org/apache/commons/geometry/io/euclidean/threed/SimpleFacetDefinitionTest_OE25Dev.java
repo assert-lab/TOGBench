@@ -33,6 +33,70 @@ class SimpleFacetDefinitionTest_OE25Dev {
             Vector3D.ZERO, Vector3D.of(1, 0, 0), Vector3D.of(1, 1, 0), Vector3D.of(0, 1, 0));
 
     @Test
+    void testProperties_verticesOnly() {
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
+
+        // assert
+        Assertions.assertEquals(FACET_PTS, f.getVertices());
+        Assertions.assertNotSame(FACET_PTS, f.getVertices());
+
+        final List<Vector3D> vertices = f.getVertices();
+        final Vector3D toAdd = FACET_PTS.get(0);
+        Assertions.assertThrows(UnsupportedOperationException.class,
+                () -> vertices.add(toAdd));
+
+        Assertions.assertNull(f.getNormal());
+    }
+
+    @Test
+    void testProperties_verticesAndNormal() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
+
+        // act
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
+
+        // assert
+        Assertions.assertEquals(FACET_PTS, f.getVertices());
+        Assertions.assertNotSame(FACET_PTS, f.getVertices());
+
+        final List<Vector3D> vertices = f.getVertices();
+        final Vector3D toAdd = FACET_PTS.get(0);
+        Assertions.assertThrows(UnsupportedOperationException.class,
+                () -> vertices.add(toAdd));
+
+        Assertions.assertSame(normal, f.getNormal());
+    }
+
+    @Test
+    void testCtor_invalidArgs() {
+        // arrange
+        final Vector3D normal = Vector3D.ZERO;
+        final List<Vector3D> invalid = Arrays.asList(Vector3D.ZERO, Vector3D.Unit.PLUS_X);
+
+        final String verticesNull = "Facet vertex list cannot be null";
+        final String vertexCountMsg = "Facet vertex list must contain at least 3 points; found 2";
+
+        // act/assert
+        GeometryTestUtils.assertThrowsWithMessage(
+                () -> new SimpleFacetDefinition(null),
+                NullPointerException.class, verticesNull);
+
+        GeometryTestUtils.assertThrowsWithMessage(
+                () -> new SimpleFacetDefinition(null, normal),
+                NullPointerException.class, verticesNull);
+
+        GeometryTestUtils.assertThrowsWithMessage(
+                () -> new SimpleFacetDefinition(invalid),
+                IllegalArgumentException.class, vertexCountMsg);
+
+        GeometryTestUtils.assertThrowsWithMessage(
+                () -> new SimpleFacetDefinition(invalid, normal),
+                IllegalArgumentException.class, vertexCountMsg);
+    }
+
+    @Test
     void testToString() {
         // arrange
         final SimpleFacetDefinition f = new SimpleFacetDefinition(FACET_PTS, Vector3D.Unit.PLUS_Z);

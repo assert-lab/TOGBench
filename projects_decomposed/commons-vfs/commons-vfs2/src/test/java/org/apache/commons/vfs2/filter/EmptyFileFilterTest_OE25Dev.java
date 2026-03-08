@@ -117,6 +117,48 @@ public class EmptyFileFilterTest_OE25Dev extends BaseFilterTest {
     }
 
     @Test
+    public void testAcceptEmpty() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.EMPTY;
+
+        Assert.assertFalse(testee.accept(notEmptyFileInfo));
+        Assert.assertTrue(testee.accept(emptyFileInfo));
+        Assert.assertFalse(testee.accept(notEmptyDirInfo));
+        Assert.assertTrue(testee.accept(emptyDirInfo));
+        Assert.assertTrue(testee.accept(notExistingFileInfo));
+
+    }
+
+    @Test
+    public void testAcceptNotEmpty() throws FileSystemException {
+
+        final FileFilter testee = EmptyFileFilter.NOT_EMPTY;
+
+        Assert.assertTrue(testee.accept(notEmptyFileInfo));
+        Assert.assertFalse(testee.accept(emptyFileInfo));
+        Assert.assertTrue(testee.accept(notEmptyDirInfo));
+        Assert.assertFalse(testee.accept(emptyDirInfo));
+        Assert.assertFalse(testee.accept(notExistingFileInfo));
+
+    }
+
+    @Test
+    public void testZipFile() throws FileSystemException {
+
+        // Same test with ZIP file
+        FileObject[] files;
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.EMPTY));
+        assertContains(files, emptyFile.getName());
+        Assert.assertEquals(1, files.length);
+
+        files = zipFileObj.findFiles(new FileFilterSelector(EmptyFileFilter.NOT_EMPTY));
+        assertContains(files, notEmptyFile.getName(), notEmptyDir.getName());
+        Assert.assertEquals(2, files.length);
+
+    }
+
+    @Test
     public void testAcceptEmpty_1_oe() throws FileSystemException {
 
         final FileFilter testee = EmptyFileFilter.EMPTY;

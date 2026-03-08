@@ -70,14 +70,42 @@ public class TestCombinedReloadingController_OE25Dev {
     /**
      * Tests a check for a reloading operation which results in false.
      */
+    @Test
+    public void testCheckForReloadingFalse() {
+        final CombinedReloadingController ctrl = setUpController();
+        for (final ReloadingController rc : subControllers) {
+            EasyMock.expect(rc.checkForReloading(null)).andReturn(Boolean.FALSE);
+        }
+        replaySubControllers();
+        assertFalse("Wrong result", ctrl.checkForReloading("someParam"));
+        verifySubSontrollers();
+    }
 
     /**
      * Tests a check for a reloading operation which results in true.
      */
+    @Test
+    public void testCheckForReloadingTrue() {
+        final CombinedReloadingController ctrl = setUpController();
+        EasyMock.expect(subControllers[0].checkForReloading(null)).andReturn(Boolean.FALSE);
+        EasyMock.expect(subControllers[1].checkForReloading(null)).andReturn(Boolean.TRUE);
+        EasyMock.expect(subControllers[2].checkForReloading(null)).andReturn(Boolean.FALSE);
+        replaySubControllers();
+        assertTrue("Wrong result", ctrl.checkForReloading("someData"));
+        verifySubSontrollers();
+    }
 
     /**
      * Tests whether the sub controllers can be accessed.
      */
+    @Test
+    public void testGetSubControllers() {
+        final CombinedReloadingController ctrl = setUpController();
+        replaySubControllers();
+        final Collection<ReloadingController> subs = ctrl.getSubControllers();
+        assertEquals("Wrong number of sub controllers", subControllers.length, subs.size());
+        assertTrue("Wrong sub controllers", subs.containsAll(Arrays.asList(subControllers)));
+    }
 
     /**
      * Tests that the list of sub controllers cannot be manipulated.
@@ -179,7 +207,6 @@ public class TestCombinedReloadingController_OE25Dev {
         final CombinedReloadingController ctrl = setUpController();
         replaySubControllers();
         final Collection<ReloadingController> subs = ctrl.getSubControllers();
-        // removed other assertion
         assertTrue("Wrong sub controllers", subs.containsAll(Arrays.asList(subControllers)));
     }
 

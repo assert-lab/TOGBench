@@ -79,22 +79,118 @@ public class TestExprLookup_OE25Dev {
     /**
      * Tests whether variables can be queried.
      */
+    @Test
+    public void testGetVariables() {
+        final ExprLookup.Variables vars = new ExprLookup.Variables();
+        vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
+        final ExprLookup lookup = new ExprLookup(vars);
+        assertEquals("Wrong variables", vars, lookup.getVariables());
+    }
 
     /**
      * Tests that getVariables() returns a copy of the original variables.
      */
+    @Test
+    public void testGetVariablesDefensiveCopy() {
+        final ExprLookup.Variables vars = new ExprLookup.Variables();
+        vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
+        final ExprLookup lookup = new ExprLookup(vars);
+        final ExprLookup.Variables vars2 = lookup.getVariables();
+        vars2.add(new ExprLookup.Variable("System", "Class:java.lang.System"));
+        assertEquals("Modified variables", vars, lookup.getVariables());
+    }
+
+    @Test
+    public void testLookup() throws Exception {
+        final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
+        final Log log = LogFactory.getLog("TestLogger");
+        //final Logger logger = ((Log4JLogger) log).getLogger();
+        //logger.addAppender(app);
+        //logger.setLevel(Level.DEBUG);
+        //logger.setAdditivity(false);
+        final ExprLookup.Variables vars = new ExprLookup.Variables();
+        vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
+        vars.add(new ExprLookup.Variable("Util", new Utility("Hello")));
+        vars.add(new ExprLookup.Variable("System", "Class:java.lang.System"));
+        final XMLConfiguration config = loadConfig();
+        final ConfigurationLogger testLogger = new ConfigurationLogger("TestLogger");
+        config.setLogger(testLogger);
+        final ExprLookup lookup = new ExprLookup(vars);
+        lookup.setInterpolator(config.getInterpolator());
+        lookup.setLogger(testLogger);
+        String str = lookup.lookup(PATTERN1);
+        assertTrue(str.startsWith("Goodbye"));
+        str = lookup.lookup(PATTERN2);
+        assertTrue("Incorrect value: " + str, str.equals("value Some text"));
+        //logger.removeAppender(app);
+    }
+
+    @Test
+    public void testLookupLog4j1() throws Exception {
+        final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
+        final Log log = LogFactory.getLog("TestLogger");
+        if (log instanceof Log4JLogger) {
+            final Logger logger = ((Log4JLogger) log).getLogger();
+            logger.addAppender(app);
+            logger.setLevel(Level.DEBUG);
+            logger.setAdditivity(false);
+            final ExprLookup.Variables vars = new ExprLookup.Variables();
+            vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
+            vars.add(new ExprLookup.Variable("Util", new Utility("Hello")));
+            vars.add(new ExprLookup.Variable("System", "Class:java.lang.System"));
+            final XMLConfiguration config = loadConfig();
+            final ConfigurationLogger testLogger = new ConfigurationLogger("TestLogger");
+            config.setLogger(testLogger);
+            final ExprLookup lookup = new ExprLookup(vars);
+            lookup.setInterpolator(config.getInterpolator());
+            lookup.setLogger(testLogger);
+            String str = lookup.lookup(PATTERN1);
+            assertTrue(str.startsWith("Goodbye"));
+            str = lookup.lookup(PATTERN2);
+            assertTrue("Incorrect value: " + str, str.equals("value Some text"));
+            logger.removeAppender(app);
+        }
+    }
 
     /**
      * Tests a lookup() operation if no ConfigurationInterpolator object has been set.
      */
+    @Test
+    public void testLookupNoConfigurationInterpolator() {
+        final ExprLookup.Variables vars = new ExprLookup.Variables();
+        vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
+        final ExprLookup lookup = new ExprLookup(vars);
+        final String value = "test";
+        assertEquals("Wrong result", value, lookup.lookup(value));
+    }
 
     /**
      * Tests an expression that does not yield a string.
      */
+    @Test
+    public void testLookupNonStringExpression() throws ConfigurationException {
+        final ExprLookup.Variables vars = new ExprLookup.Variables();
+        vars.add(new ExprLookup.Variable("System", "Class:java.lang.System"));
+        final ExprLookup lookup = new ExprLookup(vars);
+        final XMLConfiguration config = loadConfig();
+        lookup.setInterpolator(config.getInterpolator());
+        final String pattern = "System.currentTimeMillis()";
+        final String result = lookup.lookup(pattern);
+        assertNotEquals("Not replaced", pattern, result);
+    }
 
     /**
      * Tests an expression that yields a null value.
      */
+    @Test
+    public void testLookupNullExpression() throws ConfigurationException {
+        final ExprLookup.Variables vars = new ExprLookup.Variables();
+        vars.add(new ExprLookup.Variable("System", "Class:java.lang.System"));
+        final ExprLookup lookup = new ExprLookup(vars);
+        final XMLConfiguration config = loadConfig();
+        lookup.setInterpolator(config.getInterpolator());
+        assertNull("Wrong result", lookup.lookup("System.getProperty('undefined.property')"));
+    }
 
     @Test
     public void testGetVariables_1_oe() {
@@ -118,10 +214,6 @@ public class TestExprLookup_OE25Dev {
     public void testLookup_1_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog("TestLogger");
-        //final Logger logger = ((Log4JLogger) log).getLogger();
-        //logger.addAppender(app);
-        //logger.setLevel(Level.DEBUG);
-        //logger.setAdditivity(false);
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
         vars.add(new ExprLookup.Variable("Util", new Utility("Hello")));
@@ -140,10 +232,6 @@ public class TestExprLookup_OE25Dev {
     public void testLookup_2_oe() throws Exception {
         final ConsoleAppender app = new ConsoleAppender(new SimpleLayout());
         final Log log = LogFactory.getLog("TestLogger");
-        //final Logger logger = ((Log4JLogger) log).getLogger();
-        //logger.addAppender(app);
-        //logger.setLevel(Level.DEBUG);
-        //logger.setAdditivity(false);
         final ExprLookup.Variables vars = new ExprLookup.Variables();
         vars.add(new ExprLookup.Variable("String", org.apache.commons.lang3.StringUtils.class));
         vars.add(new ExprLookup.Variable("Util", new Utility("Hello")));
@@ -155,7 +243,6 @@ public class TestExprLookup_OE25Dev {
         lookup.setInterpolator(config.getInterpolator());
         lookup.setLogger(testLogger);
         String str = lookup.lookup(PATTERN1);
-        // removed other assertion
         str = lookup.lookup(PATTERN2);
         assertTrue("Incorrect value: " + str, str.equals("value Some text"));
     }
@@ -204,7 +291,6 @@ public class TestExprLookup_OE25Dev {
             lookup.setInterpolator(config.getInterpolator());
             lookup.setLogger(testLogger);
             String str = lookup.lookup(PATTERN1);
-            // removed other assertion
             str = lookup.lookup(PATTERN2);
             assertTrue("Incorrect value: " + str, str.equals("value Some text"));
     }

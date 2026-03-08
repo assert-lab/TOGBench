@@ -31,6 +31,99 @@ import org.junit.Test;
 public class NameFileFilterTest_OE25Dev extends BaseFilterTest {
 
     @Test
+    public void testAcceptList() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1.txt");
+        list.add("test2.txt");
+        final NameFileFilter filter = new NameFileFilter(list);
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptListIOCaseInsensitive() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1.txt");
+        list.add("test2.txt");
+        final NameFileFilter filter = new NameFileFilter(IOCase.INSENSITIVE, list);
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("TEST1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptListIOCaseSensitive() throws FileSystemException {
+
+        // PREPARE
+        final List<String> list = new ArrayList<>();
+        list.add("test1.txt");
+        list.add("test2.txt");
+        final NameFileFilter filter = new NameFileFilter(IOCase.SENSITIVE, list);
+
+        // TEST
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("TEST1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptString() throws FileSystemException {
+
+        // PREPARE
+        final NameFileFilter filter = new NameFileFilter("test1.txt");
+
+        // TEST
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptStringIOCaseInsensitive() throws FileSystemException {
+
+        // PREPARE
+        final NameFileFilter filter = new NameFileFilter(IOCase.INSENSITIVE, "test2.txt");
+
+        // TEST
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
+    public void testAcceptStringIOCaseSensitive() throws FileSystemException {
+
+        // PREPARE
+        final NameFileFilter filter = new NameFileFilter(IOCase.SENSITIVE, "test2.txt");
+
+        // TEST
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test1.txt"))));
+        Assert.assertTrue(filter.accept(createFileSelectInfo(new File("test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("Test2.txt"))));
+        Assert.assertFalse(filter.accept(createFileSelectInfo(new File("test.xxx"))));
+
+    }
+
+    @Test
     public void testAcceptList_1_oe() throws FileSystemException {
 
         // PREPARE

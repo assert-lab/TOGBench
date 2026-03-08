@@ -60,6 +60,25 @@ public class CacheWriterAdapterTest_OE25Dev
     private Cache<String, String> cache;
 
     @Test
+    public void checkWriteAllAndDeleteAll()
+    {
+        assertTrue(copy.isEmpty());
+        assertFalse(cache.iterator().hasNext());
+        cache.put("foo", "bar");
+        assertEquals(1, copy.size());
+        cache.remove("foo");
+        assertTrue(copy.isEmpty());
+
+        cache.putAll(new HashMap<String, String>() {{
+            put("a", "b");
+            put("b", "c");
+        }});
+        assertEquals(2, copy.size());
+        cache.removeAll(new HashSet<>(asList("a", "b")));
+        assertTrue(copy.isEmpty());
+    }
+
+    @Test
     public void checkWriteAllAndDeleteAll_1_oe()
     {
         assertTrue(copy.isEmpty());

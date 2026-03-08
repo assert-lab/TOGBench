@@ -26,6 +26,21 @@ import org.junit.Assert;
 
 public class ClassPathTestCase_OE25Dev extends AbstractTestCase {
 
+    public void testGetClassFile() throws IOException {
+        Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getClassFile("java.lang.String"));
+    }
+
+    public void testGetResource() {
+        Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getResource("java/lang/String.class"));
+    }
+
+    public void testGetResourceAsStream() throws IOException {
+        try (final InputStream inputStream = ClassPath.SYSTEM_CLASS_PATH
+                .getResourceAsStream("java/lang/String.class")) {
+            Assert.assertNotNull(inputStream);
+        }
+    }
+
     public void testGetClassFile_1_oe() throws IOException {
         Assert.assertNotNull(ClassPath.SYSTEM_CLASS_PATH.getClassFile("java.lang.String"));
     }

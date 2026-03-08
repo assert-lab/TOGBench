@@ -21,6 +21,24 @@ package org.apache.bcel.verifier;
 
 public class VerifierInvokeTestCase_OE25Dev extends AbstractVerifierTestCase {
 
+    public void testLegalInvokeVirtual() {
+        assertVerifyOK("TestLegalInvokeVirtual01", "Verification of invokevirtual on method defined in superclass must pass.");
+        assertVerifyOK("TestLegalInvokeVirtual02", "Verification of invokevirtual on method defined in superinterface must pass.");
+    }
+
+    public void testLegalInvokeStatic() {
+        assertVerifyOK("TestLegalInvokeStatic01", "Verification of invokestatic on method defined in superclass must pass.");
+    }
+
+    public void testLegalInvokeInterface() {
+        assertVerifyOK("TestLegalInvokeInterface01", "Verification of invokeinterface on method defined in superinterface must pass.");
+    }
+
+    public void testLegalInvokeSpecial() {
+        assertVerifyOK("TestLegalInvokeSpecial01", "Verification of invokespecial on method defined in superclass must pass.");
+        assertVerifyOK("TestLegalInvokeSpecial02", "Verification of invokespecial on method defined in superclass must pass.");
+    }
+
     public void testLegalInvokeVirtual_1_oe_1_oe() {
                 final String classname0 = "TestLegalInvokeVirtual01";
         final String message0 = "Verification of invokevirtual on method defined in superclass must pass.";

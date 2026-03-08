@@ -45,6 +45,15 @@ public class IdleStateHandlerTest_OE25Dev extends AbstractBasicTest {
     logger.info("Local HTTP server started successfully");
   }
 
+  @Test
+  public void idleStateTest() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient(config().setPooledConnectionIdleTimeout(10 * 1000))) {
+      c.prepareGet(getTargetUrl()).execute().get();
+    } catch (ExecutionException e) {
+      fail("Should allow to finish processing request.", e);
+    }
+  }
+
   private class IdleStateHandler extends AbstractHandler {
 
     public void handle(String s, Request r, HttpServletRequest httpRequest, HttpServletResponse httpResponse) throws IOException, ServletException {

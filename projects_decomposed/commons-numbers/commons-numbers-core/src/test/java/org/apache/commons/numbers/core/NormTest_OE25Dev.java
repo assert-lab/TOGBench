@@ -50,6 +50,82 @@ class NormTest_OE25Dev {
     private static final BigDecimal SCALE2 = new BigDecimal(SCALE * SCALE);
 
     @Test
+    void testManhattan_2d() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.L1.of(0d, -0d));
+        Assertions.assertEquals(3d, Norm.L1.of(-1d, 2d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L1.of(Double.MAX_VALUE, Double.MAX_VALUE));
+
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.NaN, 1d));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(1d, Double.NaN));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.POSITIVE_INFINITY, Double.NaN));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(0d,Double.POSITIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testManhattan_3d() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.L1.of(0d, -0d, 0d));
+        Assertions.assertEquals(6d, Norm.L1.of(-1d, 2d, -3d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L1.of(Double.MAX_VALUE, Double.MAX_VALUE, 0d));
+
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(Double.NaN, -2d, 1d));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, Double.NaN, 1d));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, 1d, Double.NaN));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(-2d, Double.POSITIVE_INFINITY, Double.NaN));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,2d,-4d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,-4d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L1.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testManhattan_array() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Norm.L1.of(new double[0]));
+
+        Assertions.assertEquals(0d, Norm.L1.of(new double[] {0d, -0d}));
+        Assertions.assertEquals(6d, Norm.L1.of(new double[] {-1d, 2d, -3d}));
+        Assertions.assertEquals(10d, Norm.L1.of(new double[] {-1d, 2d, -3d, 4d}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L1.of(new double[] {Double.MAX_VALUE, Double.MAX_VALUE}));
+
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(new double[] {-2d, Double.NaN, 1d}));
+        Assertions.assertEquals(Double.NaN, Norm.L1.of(new double[] {Double.POSITIVE_INFINITY, Double.NaN, 1d}));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L1.of(new double[] {Double.POSITIVE_INFINITY, 0d}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L1.of(new double[] {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}));
+    }
+
+    @Test
+    void testEuclidean_2d_simple() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.L2.of(0d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(1d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(0d, 1d));
+        Assertions.assertEquals(5d, Norm.L2.of(-3d, 4d));
+        Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(0d, Double.MIN_VALUE));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(Double.MAX_VALUE, 0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L2.of(Double.MAX_VALUE, Double.MAX_VALUE));
+
+        Assertions.assertEquals(Math.sqrt(2), Norm.L2.of(1d, -1d));
+
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, -2d));
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, Double.POSITIVE_INFINITY));
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, Double.NaN));
+        Assertions.assertEquals(Double.NaN,Norm.L2.of(Double.NaN,Double.NEGATIVE_INFINITY));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(1d,Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.POSITIVE_INFINITY,-1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
     void testEuclidean_2d_scaled() {
         // arrange
         final double[] ones = new double[] {1, 1};
@@ -73,12 +149,54 @@ class NormTest_OE25Dev {
     }
 
     @Test
+    void testEuclidean_2d_dominantValue() {
+        // act/assert
+        Assertions.assertEquals(Math.PI, Norm.L2.of(-Math.PI, 0x1.0p-55));
+        Assertions.assertEquals(Math.PI, Norm.L2.of(0x1.0p-55, -Math.PI));
+    }
+
+    @Test
     void testEuclidean_2d_random() {
         // arrange
         final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 1L);
 
         // act/assert
         checkEuclideanRandom(2, rng);
+    }
+
+    @Test
+    void testEuclidean_2d_vsArray() {
+        // arrange
+        final double[][] inputs = {
+            {-4.074598908124454E-9, 9.897869969944898E-28},
+            {1.3472131556526359E-27, -9.064577177323565E9},
+            {-3.9219339341360245E149, -7.132522817112096E148},
+            {-1.4888098520466735E153, -2.9099184907796666E150},
+            {-8.659395144898396E-152, -1.123275532302136E-150},
+            {-3.660198254902351E-152, -6.656524053354807E-153}
+        };
+
+        // act/assert
+        for (final double[] input : inputs) {
+            Assertions.assertEquals(Norm.L2.of(input),Norm.L2.of(input[0],input[1]),()-> "Expected inline method result to equal array result for input " + Arrays.toString(input));
+        }
+    }
+
+    @Test
+    void testEuclidean_2d_vsHypot() {
+        // arrange
+        final int samples = 1000;
+        final UniformRandomProvider rng = RandomSource.create(RandomSource.XO_RO_SHI_RO_1024_PP, 3L);
+
+        // act/assert
+        assertEuclidean2dVersusHypot(-10, +10, samples, rng);
+        assertEuclidean2dVersusHypot(0, +20, samples, rng);
+        assertEuclidean2dVersusHypot(-20, 0, samples, rng);
+        assertEuclidean2dVersusHypot(-20, +20, samples, rng);
+        assertEuclidean2dVersusHypot(-100, +100, samples, rng);
+        assertEuclidean2dVersusHypot(LARGE_THRESH_EXP - 10, LARGE_THRESH_EXP + 10, samples, rng);
+        assertEuclidean2dVersusHypot(SMALL_THRESH_EXP - 10, SMALL_THRESH_EXP + 10, samples, rng);
+        assertEuclidean2dVersusHypot(-600, +600, samples, rng);
     }
 
     /** Assert that the Norms euclidean 2D computation produces similar error behavior to Math.hypot().
@@ -114,6 +232,29 @@ class NormTest_OE25Dev {
     }
 
     @Test
+    void testEuclidean_3d_simple() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.L2.of(0d, 0d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(1d, 0d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(0d, 1d, 0d));
+        Assertions.assertEquals(1d, Norm.L2.of(0d, 0d, 1d));
+        Assertions.assertEquals(5 * Math.sqrt(2), Norm.L2.of(-3d, -4d, 5d));
+        Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(0d, 0d, Double.MIN_VALUE));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(Double.MAX_VALUE, 0d, 0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.MAX_VALUE,Double.MAX_VALUE,Double.MAX_VALUE));
+
+        Assertions.assertEquals(Math.sqrt(3), Norm.L2.of(1d, -1d, 1d));
+
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(Double.NaN, -2d, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, Double.NaN, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(-2d, 0d, Double.NaN));
+        Assertions.assertEquals(Double.NaN,Norm.L2.of(Double.POSITIVE_INFINITY,Double.NaN,1d));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.POSITIVE_INFINITY,Double.NEGATIVE_INFINITY,1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.L2.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
     void testEuclidean_3d_scaled() {
         // arrange
         final double[] ones = new double[] {1, 1, 1};
@@ -145,6 +286,60 @@ class NormTest_OE25Dev {
     }
 
     @Test
+    void testEuclidean_3d_vsArray() {
+        // arrange
+        final double[][] inputs = {
+            {-4.074598908124454E-9, 9.897869969944898E-28, 7.849935157082846E-14},
+            {1.3472131556526359E-27, -9.064577177323565E9, 323771.526282239},
+            {-3.9219339341360245E149, -7.132522817112096E148, -3.427334456813165E147},
+            {-1.4888098520466735E153, -2.9099184907796666E150, 1.0144962310234785E152},
+            {-8.659395144898396E-152, -1.123275532302136E-150, -2.151505326692001E-152},
+            {-3.660198254902351E-152, -6.656524053354807E-153, -3.198606556986218E-154}
+        };
+
+        // act/assert
+        for (final double[] input : inputs) {
+            Assertions.assertEquals(Norm.L2.of(input),Norm.L2.of(input[0],input[1],input[2]),()-> "Expected inline method result to equal array result for input " + Arrays.toString(input));
+        }
+    }
+
+    @Test
+    void testEuclidean_array_simple() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Norm.L2.of(new double[0]));
+
+        Assertions.assertEquals(5d, Norm.L2.of(new double[] {-3d, 4d}));
+
+        Assertions.assertEquals(Math.sqrt(2), Norm.L2.of(new double[] {1d, -1d}));
+        Assertions.assertEquals(Math.sqrt(3), Norm.L2.of(new double[] {1d, -1d, 1d}));
+        Assertions.assertEquals(2, Norm.L2.of(new double[] {1d, -1d, 1d, -1d}));
+
+        final double[] longVec = new double[] {-0.9, 8.7, -6.5, -4.3, -2.1, 0, 1.2, 3.4, -5.6, 7.8, 9.0};
+        Assertions.assertEquals(directEuclideanNorm(longVec), Norm.L2.of(longVec));
+
+        Assertions.assertEquals(Double.MIN_VALUE, Norm.L2.of(new double[] {0d, Double.MIN_VALUE}));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.L2.of(new double[] {Double.MAX_VALUE, 0d}));
+
+        final double[] maxVec = new double[1000];
+        Arrays.fill(maxVec, Double.MAX_VALUE);
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.L2.of(maxVec));
+
+        final double[] largeThreshVec = new double[1000];
+        Arrays.fill(largeThreshVec, 0x1.0p496);
+        Assertions.assertEquals(Math.sqrt(largeThreshVec.length) * largeThreshVec[0], Norm.L2.of(largeThreshVec));
+
+        Assertions.assertEquals(Double.NaN, Norm.L2.of(new double[] {-2d, Double.NaN, 1d}));
+        Assertions.assertEquals(Double.NaN,
+                Norm.L2.of(new double[] {Double.POSITIVE_INFINITY, Double.NaN}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L2.of(new double[] {Double.POSITIVE_INFINITY, 1, 0}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L2.of(new double[] {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.L2.of(new double[] {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}));
+    }
+
+    @Test
     void testEuclidean_array_scaled() {
         // arrange
         final double[] ones = new double[] {1, 1, 1, 1};
@@ -173,6 +368,62 @@ class NormTest_OE25Dev {
         checkEuclideanRandom(4, rng);
         checkEuclideanRandom(10, rng);
         checkEuclideanRandom(100, rng);
+    }
+
+    @Test
+    void testMaximum_2d() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.LINF.of(0d, -0d));
+        Assertions.assertEquals(2d, Norm.LINF.of(1d, -2d));
+        Assertions.assertEquals(3d, Norm.LINF.of(3d, 1d));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.LINF.of(Double.MAX_VALUE, Double.MAX_VALUE));
+
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.NaN, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(0d, Double.NaN));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.POSITIVE_INFINITY, Double.NaN));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.NEGATIVE_INFINITY, 0d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.LINF.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testMaximum_3d() {
+        // act/assert
+        Assertions.assertEquals(0d, Norm.LINF.of(0d, -0d, 0d));
+        Assertions.assertEquals(3d, Norm.LINF.of(1d, -2d, 3d));
+        Assertions.assertEquals(4d, Norm.LINF.of(-4d, -2d, 3d));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.LINF.of(Double.MAX_VALUE, Double.MAX_VALUE, Double.MAX_VALUE));
+
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.NaN, 3d, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(3d, Double.NaN, 0d));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(3d, 0d, Double.NaN));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d, Double.NaN));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(Double.POSITIVE_INFINITY, 0d, 1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, Double.POSITIVE_INFINITY, 1d));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY, Norm.LINF.of(0d, 1d, Double.NEGATIVE_INFINITY));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,Norm.LINF.of(Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY,Double.NEGATIVE_INFINITY));
+    }
+
+    @Test
+    void testMaximum_array() {
+        // act/assert
+        Assertions.assertThrows(IllegalArgumentException.class, () -> Norm.LINF.of(new double[0]));
+
+        Assertions.assertEquals(0d, Norm.LINF.of(new double[] {0d, -0d}));
+        Assertions.assertEquals(3d, Norm.LINF.of(new double[] {-1d, 2d, -3d}));
+        Assertions.assertEquals(4d, Norm.LINF.of(new double[] {-1d, 2d, -3d, 4d}));
+        Assertions.assertEquals(Double.MAX_VALUE, Norm.LINF.of(new double[] {Double.MAX_VALUE, Double.MAX_VALUE}));
+
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(new double[] {-2d, Double.NaN, 1d}));
+        Assertions.assertEquals(Double.NaN, Norm.LINF.of(new double[] {Double.POSITIVE_INFINITY, Double.NaN}));
+
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.LINF.of(new double[] {0d, Double.POSITIVE_INFINITY}));
+        Assertions.assertEquals(Double.POSITIVE_INFINITY,
+                Norm.LINF.of(new double[] {Double.NEGATIVE_INFINITY, Double.NEGATIVE_INFINITY}));
     }
 
     /** Check a number of random vectors of length {@code len} with various exponent

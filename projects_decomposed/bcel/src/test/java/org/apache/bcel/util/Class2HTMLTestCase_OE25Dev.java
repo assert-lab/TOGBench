@@ -28,6 +28,20 @@ import junit.framework.TestCase;
 
 public class Class2HTMLTestCase_OE25Dev extends TestCase {
 
+    public void testConvertJavaUtil() throws Exception {
+        final File outputDir = new File("target/test-output/html");
+        if (!outputDir.mkdirs()) { // either was not created or already existed
+            Assert.assertTrue(outputDir.isDirectory()); // fail if missing
+        }
+
+        try (FileInputStream file = new FileInputStream("target/test-classes/Java8Example.class")) {
+
+            final ClassParser parser = new ClassParser(file, "Java8Example.class");
+
+            new Class2HTML(parser.parse(), outputDir.getAbsolutePath() + "/");
+        }
+    }
+
     /**
      * Tests that we do not break binary compatibility with BCEL-330.
      */

@@ -251,9 +251,41 @@ public class TestXMLConfiguration_OE25Dev {
         removeTestFile();
     }
 
+    @Test
+    public void testAddList() {
+        conf.addProperty("test.array", "value1");
+        conf.addProperty("test.array", "value2");
+
+        final List<Object> list = conf.getList("test.array");
+        assertNotNull("null list", list);
+        assertTrue("'value1' element missing", list.contains("value1"));
+        assertTrue("'value2' element missing", list.contains("value2"));
+        assertEquals("list size", 2, list.size());
+    }
+
     /**
      * Tests saving a configuration after a node was added. Test for CONFIGURATION-294.
      */
+    @Test
+    public void testAddNodesAndSave() throws ConfigurationException {
+        final ImmutableNode.Builder bldrNode = new ImmutableNode.Builder(1);
+        bldrNode.addChild(NodeStructureHelper.createNode("child", null));
+        bldrNode.addAttribute("attr", "");
+        final ImmutableNode node2 = NodeStructureHelper.createNode("test2", null);
+        conf.addNodes("add.nodes", Arrays.asList(bldrNode.name("test").create(), node2));
+        saveTestConfig();
+        conf.setProperty("add.nodes.test", "true");
+        conf.setProperty("add.nodes.test.child", "yes");
+        conf.setProperty("add.nodes.test[@attr]", "existing");
+        conf.setProperty("add.nodes.test2", "anotherValue");
+        saveTestConfig();
+        final XMLConfiguration c2 = new XMLConfiguration();
+        load(c2, testSaveConf.getAbsolutePath());
+        assertEquals("Value was not saved", "true", c2.getString("add.nodes.test"));
+        assertEquals("Child value was not saved", "yes", c2.getString("add.nodes.test.child"));
+        assertEquals("Attr value was not saved", "existing", c2.getString("add.nodes.test[@attr]"));
+        assertEquals("Node2 not saved", "anotherValue", c2.getString("add.nodes.test2"));
+    }
 
     /**
      * Tests adding nodes from another configuration.
@@ -271,64 +303,367 @@ public class TestXMLConfiguration_OE25Dev {
      * Tests whether it is possible to add nodes to a XMLConfiguration through a SubnodeConfiguration and whether these
      * nodes have the correct type. This test is related to CONFIGURATION-472.
      */
+    @Test
+    public void testAddNodesToSubnodeConfiguration() throws Exception {
+        final HierarchicalConfiguration<ImmutableNode> sub = conf.configurationAt("element2", true);
+        sub.addProperty("newKey", "newvalue");
+        assertEquals("Property not added", "newvalue", conf.getString("element2.newKey"));
+    }
+
+    @Test
+    public void testAddObjectAttribute() {
+        conf.addProperty("test.boolean[@value]", Boolean.TRUE);
+        assertTrue("test.boolean[@value]", conf.getBoolean("test.boolean[@value]"));
+    }
+
+    @Test
+    public void testAddObjectProperty() {
+        // add a non string property
+        conf.addProperty("test.boolean", Boolean.TRUE);
+        assertTrue("'test.boolean'", conf.getBoolean("test.boolean"));
+    }
+
+    @Test
+    public void testAddProperty() {
+        // add a property to a non initialized xml configuration
+        final XMLConfiguration config = new XMLConfiguration();
+        config.addProperty("test.string", "hello");
+
+        assertEquals("'test.string'", "hello", config.getString("test.string"));
+    }
 
     /**
      * Tests whether list properties are added correctly if delimiter parsing is disabled. This test is related to
      * CONFIGURATION-495.
      */
+    @Test
+    public void testAddPropertyListWithDelimiterParsingDisabled() throws ConfigurationException {
+        conf.clear();
+        final String prop = "delimiterListProp";
+        conf.setListDelimiterHandler(DisabledListDelimiterHandler.INSTANCE);
+        final List<String> list = Arrays.asList("val", "val2", "val3");
+        conf.addProperty(prop, list);
+        saveTestConfig();
+        final XMLConfiguration conf2 = new XMLConfiguration();
+        load(conf2, testSaveConf.getAbsolutePath());
+        assertEquals("Wrong list property", list, conf2.getProperty(prop));
+    }
 
     /**
      * Tests if a second file can be appended to a first.
      */
+    @Test
+    public void testAppend() throws Exception {
+        load(conf, testProperties2);
+        assertEquals("value", conf.getString("element"));
+        assertEquals("tasks", conf.getString("table.name"));
+
+        saveTestConfig();
+        conf = createFromFile(testSaveConf.getAbsolutePath());
+        assertEquals("value", conf.getString("element"));
+        assertEquals("tasks", conf.getString("table.name"));
+        assertEquals("application", conf.getString("table[@tableType]"));
+    }
 
     /**
      * Tries to create an attribute with multiple values. Only the first value is taken into account.
      */
+    @Test
+    public void testAttributeKeyWithMultipleValues() throws ConfigurationException {
+        conf.addProperty("errorTest[@multiAttr]", Arrays.asList("v1", "v2"));
+        saveTestConfig();
+        final XMLConfiguration checkConfig = new XMLConfiguration();
+        load(checkConfig, testSaveConf.getAbsolutePath());
+        assertEquals("Wrong attribute value", "v1", checkConfig.getString("errorTest[@multiAttr]"));
+    }
 
     /**
      * Tests whether the addNodes() method triggers an auto save.
      */
+    @Test
+    public void testAutoSaveAddNodes() throws ConfigurationException {
+        final FileBasedConfigurationBuilder<XMLConfiguration> builder = new FileBasedConfigurationBuilder<>(XMLConfiguration.class);
+        builder.configure(new FileBasedBuilderParametersImpl().setFileName(testProperties));
+        conf = builder.getConfiguration();
+        builder.getFileHandler().setFile(testSaveConf);
+        builder.setAutoSave(true);
+        final ImmutableNode node = NodeStructureHelper.createNode("addNodesTest", Boolean.TRUE);
+        final Collection<ImmutableNode> nodes = new ArrayList<>(1);
+        nodes.add(node);
+        conf.addNodes("test.autosave", nodes);
+        final XMLConfiguration c2 = new XMLConfiguration();
+        load(c2, testSaveConf.getAbsolutePath());
+        assertTrue("Added nodes are not saved", c2.getBoolean("test.autosave.addNodesTest"));
+    }
 
     /**
      * Tests whether the auto save mechanism is triggered by changes at a subnode configuration.
      */
+    @Test
+    public void testAutoSaveWithSubnodeConfig() throws ConfigurationException {
+        final FileBasedConfigurationBuilder<XMLConfiguration> builder = new FileBasedConfigurationBuilder<>(XMLConfiguration.class);
+        builder.configure(new FileBasedBuilderParametersImpl().setFileName(testProperties));
+        conf = builder.getConfiguration();
+        builder.getFileHandler().setFile(testSaveConf);
+        builder.setAutoSave(true);
+        final String newValue = "I am autosaved";
+        final Configuration sub = conf.configurationAt("element2.subelement", true);
+        sub.setProperty("subsubelement", newValue);
+        assertEquals("Change not visible to parent", newValue, conf.getString("element2.subelement.subsubelement"));
+        final XMLConfiguration conf2 = new XMLConfiguration();
+        load(conf2, testSaveConf.getAbsolutePath());
+        assertEquals("Change was not saved", newValue, conf2.getString("element2.subelement.subsubelement"));
+    }
 
     /**
      * Tests whether a subnode configuration created from another subnode configuration of a XMLConfiguration can trigger
      * the auto save mechanism.
      */
+    @Test
+    public void testAutoSaveWithSubSubnodeConfig() throws ConfigurationException {
+        final FileBasedConfigurationBuilder<XMLConfiguration> builder = new FileBasedConfigurationBuilder<>(XMLConfiguration.class);
+        builder.configure(new FileBasedBuilderParametersImpl().setFileName(testProperties));
+        conf = builder.getConfiguration();
+        builder.getFileHandler().setFile(testSaveConf);
+        builder.setAutoSave(true);
+        final String newValue = "I am autosaved";
+        final HierarchicalConfiguration<?> sub1 = conf.configurationAt("element2", true);
+        final HierarchicalConfiguration<?> sub2 = sub1.configurationAt("subelement", true);
+        sub2.setProperty("subsubelement", newValue);
+        assertEquals("Change not visible to parent", newValue, conf.getString("element2.subelement.subsubelement"));
+        final XMLConfiguration conf2 = new XMLConfiguration();
+        load(conf2, testSaveConf.getAbsolutePath());
+        assertEquals("Change was not saved", newValue, conf2.getString("element2.subelement.subsubelement"));
+    }
+
+    @Test
+    public void testClearAttributeMultipleDisjoined() throws Exception {
+        String key = "clear.list.item[@id]";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+        key = "clear.list.item";
+        assertNotNull(key, conf.getProperty(key));
+        assertNotNull(key, conf.getProperty(key));
+    }
+
+    @Test
+    public void testClearAttributeNonExisting() {
+        final String key = "clear[@id]";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+    }
+
+    @Test
+    public void testClearAttributeSingle() {
+        String key = "clear.element2[@id]";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+        key = "clear.element2";
+        assertNotNull(key, conf.getProperty(key));
+        assertNotNull(key, conf.getProperty(key));
+    }
+
+    @Test
+    public void testClearPropertyCData() {
+        final String key = "clear.cdata";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+    }
+
+    @Test
+    public void testClearPropertyMultipleDisjoined() throws Exception {
+        final String key = "list.item";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+    }
+
+    @Test
+    public void testClearPropertyMultipleSiblings() {
+        String key = "clear.list.item";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+        key = "clear.list.item[@id]";
+        assertNotNull(key, conf.getProperty(key));
+        assertNotNull(key, conf.getProperty(key));
+    }
+
+    @Test
+    public void testClearPropertyNonText() {
+        final String key = "clear.comment";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+    }
+
+    @Test
+    public void testClearPropertyNotExisting() {
+        final String key = "clearly";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+    }
+
+    @Test
+    public void testClearPropertySingleElement() {
+        final String key = "clear.element";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+    }
+
+    @Test
+    public void testClearPropertySingleElementWithAttribute() {
+        String key = "clear.element2";
+        conf.clearProperty(key);
+        assertNull(key, conf.getProperty(key));
+        assertNull(key, conf.getProperty(key));
+        key = "clear.element2[@id]";
+        assertNotNull(key, conf.getProperty(key));
+        assertNotNull(key, conf.getProperty(key));
+    }
 
     /**
      * Tests removing the text of the root element.
      */
+    @Test
+    public void testClearTextRootElement() throws ConfigurationException {
+        final String xml = "<e a=\"v\">text</e>";
+        conf.clear();
+        final StringReader in = new StringReader(xml);
+        final FileHandler handler = new FileHandler(conf);
+        handler.load(in);
+        assertEquals("Wrong text of root", "text", conf.getString(""));
+
+        conf.clearProperty("");
+        saveTestConfig();
+        checkSavedConfig();
+    }
 
     /**
      * Tests the clone() method.
      */
+    @Test
+    public void testClone() {
+        final Configuration c = (Configuration) conf.clone();
+        assertTrue(c instanceof XMLConfiguration);
+        final XMLConfiguration copy = (XMLConfiguration) c;
+        assertNotNull(conf.getDocument());
+        assertNull(copy.getDocument());
+
+        copy.setProperty("element3", "clonedValue");
+        assertEquals("value", conf.getString("element3"));
+        conf.setProperty("element3[@name]", "originalFoo");
+        assertEquals("foo", copy.getString("element3[@name]"));
+    }
 
     /**
      * Tests saving a configuration after cloning to ensure that the clone and the original are completely detached.
      */
+    @Test
+    public void testCloneWithSave() throws ConfigurationException {
+        final XMLConfiguration c = (XMLConfiguration) conf.clone();
+        c.addProperty("test.newProperty", Boolean.TRUE);
+        conf.addProperty("test.orgProperty", Boolean.TRUE);
+        new FileHandler(c).save(testSaveConf);
+        final XMLConfiguration c2 = new XMLConfiguration();
+        load(c2, testSaveConf.getAbsolutePath());
+        assertTrue("New property after clone() was not saved", c2.getBoolean("test.newProperty"));
+        assertFalse("Property of original config was saved", c2.containsKey("test.orgProperty"));
+    }
 
     /**
      * Tests access to tag names with delimiter characters.
      */
+    @Test
+    public void testComplexNames() {
+        assertEquals("Name with dot", conf.getString("complexNames.my..elem"));
+        assertEquals("Another dot", conf.getString("complexNames.my..elem.sub..elem"));
+    }
+
+    @Test
+    public void testConcurrentGetAndReload() throws ConfigurationException, InterruptedException {
+        final FileBasedConfigurationBuilder<XMLConfiguration> builder = new FileBasedConfigurationBuilder<>(XMLConfiguration.class);
+        builder.configure(new FileBasedBuilderParametersImpl().setFileName(testProperties));
+        XMLConfiguration config = builder.getConfiguration();
+        assertNotNull("Property not found", config.getProperty("test.short"));
+
+        final Thread testThreads[] = new Thread[THREAD_COUNT];
+        for (int i = 0; i < testThreads.length; ++i) {
+            testThreads[i] = new ReloadThread(builder);
+            testThreads[i].start();
+        }
+
+        for (int i = 0; i < LOOP_COUNT; i++) {
+            config = builder.getConfiguration();
+            assertNotNull("Property not found", config.getProperty("test.short"));
+        }
+
+        for (final Thread testThread : testThreads) {
+            testThread.join();
+        }
+    }
 
     /**
      * Tests the copy constructor for null input.
      */
+    @Test
+    public void testCopyNull() {
+        conf = new XMLConfiguration(null);
+        assertTrue("Not empty", conf.isEmpty());
+        assertEquals("Wrong root element name", "configuration", conf.getRootElementName());
+    }
 
     /**
      * Tests whether the name of the root element is copied when a configuration is created using the copy constructor.
      */
+    @Test
+    public void testCopyRootName() throws ConfigurationException {
+        final String rootName = "rootElement";
+        final String xml = "<" + rootName + "><test>true</test></" + rootName + ">";
+        conf.clear();
+        new FileHandler(conf).load(new StringReader(xml));
+        XMLConfiguration copy = new XMLConfiguration(conf);
+        assertEquals("Wrong name of root element", rootName, copy.getRootElementName());
+        new FileHandler(copy).save(testSaveConf);
+        copy = new XMLConfiguration();
+        load(copy, testSaveConf.getAbsolutePath());
+        assertEquals("Wrong name of root element after save", rootName, copy.getRootElementName());
+    }
 
     /**
      * Tests whether the name of the root element is copied for a configuration for which not yet a document exists.
      */
+    @Test
+    public void testCopyRootNameNoDocument() throws ConfigurationException {
+        final String rootName = "rootElement";
+        conf = new XMLConfiguration();
+        conf.setRootElementName(rootName);
+        conf.setProperty("test", Boolean.TRUE);
+        final XMLConfiguration copy = new XMLConfiguration(conf);
+        assertEquals("Wrong name of root element", rootName, copy.getRootElementName());
+        new FileHandler(copy).save(testSaveConf);
+        load(copy, testSaveConf.getAbsolutePath());
+        assertEquals("Wrong name of root element after save", rootName, copy.getRootElementName());
+    }
 
     /**
      * Tests setting a custom document builder.
      */
+    @Test
+    public void testCustomDocBuilder() throws Exception {
+        // Load an invalid XML file with the default (non validating)
+        // doc builder. This should work...
+        conf = new XMLConfiguration();
+        load(conf, ConfigurationAssert.getTestFile("testValidateInvalid.xml").getAbsolutePath());
+        assertEquals("customers", conf.getString("table.name"));
+        assertFalse(conf.containsKey("table.fields.field(1).type"));
+    }
 
     /**
      * Tests whether a validating document builder detects a validation error.
@@ -344,57 +679,291 @@ public class TestXMLConfiguration_OE25Dev {
     /**
      * Tests whether a valid document can be loaded with a validating document builder.
      */
+    @Test
+    public void testCustomDocBuilderValidationSuccess() throws Exception {
+        final DocumentBuilder builder = createValidatingDocBuilder();
+        conf = new XMLConfiguration();
+        conf.setDocumentBuilder(builder);
+        load(conf, ConfigurationAssert.getTestFile("testValidateValid.xml").getAbsolutePath());
+        assertTrue(conf.containsKey("table.fields.field(1).type"));
+    }
 
     /**
      * Tests string properties with list delimiters when delimiter parsing is disabled
      */
+    @Test
+    public void testDelimiterParsingDisabled() throws ConfigurationException {
+        final XMLConfiguration conf2 = new XMLConfiguration();
+        load(conf2, testProperties);
+
+        assertEquals("a,b,c", conf2.getString("split.list3[@values]"));
+        assertEquals(0, conf2.getMaxIndex("split.list3[@values]"));
+        assertEquals("a\\,b\\,c", conf2.getString("split.list4[@values]"));
+        assertEquals("a,b,c", conf2.getString("split.list1"));
+        assertEquals(0, conf2.getMaxIndex("split.list1"));
+        assertEquals("a\\,b\\,c", conf2.getString("split.list2"));
+    }
 
     /**
      * Tests whether string properties with list delimiters can be accessed if delimiter parsing is disabled and the XPath
      * expression engine is used.
      */
+    @Test
+    public void testDelimiterParsingDisabledXPath() throws ConfigurationException {
+        final XMLConfiguration conf2 = new XMLConfiguration();
+        conf2.setExpressionEngine(new XPathExpressionEngine());
+        load(conf2, testProperties);
+
+        assertEquals("a,b,c", conf2.getString("split/list3/@values"));
+        assertEquals(0, conf2.getMaxIndex("split/list3/@values"));
+        assertEquals("a\\,b\\,c", conf2.getString("split/list4/@values"));
+        assertEquals("a,b,c", conf2.getString("split/list1"));
+        assertEquals(0, conf2.getMaxIndex("split/list1"));
+        assertEquals("a\\,b\\,c", conf2.getString("split/list2"));
+    }
 
     /**
      * Tests whether a DTD can be accessed.
      */
+    @Test
+    public void testDtd() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        load(conf, "testDtd.xml");
+        assertEquals("value1", conf.getString("entry(0)"));
+        assertEquals("test2", conf.getString("entry(1)[@key]"));
+    }
 
     /**
      * Tests whether an attribute can be set to an empty string. This test is related to CONFIGURATION-446.
      */
+    @Test
+    public void testEmptyAttribute() throws ConfigurationException {
+        final String key = "element3[@value]";
+        conf.setProperty(key, "");
+        assertTrue("Key not found", conf.containsKey(key));
+        assertEquals("Wrong value", "", conf.getString(key));
+        saveTestConfig();
+        conf = new XMLConfiguration();
+        load(conf, testSaveConf.getAbsolutePath());
+        assertTrue("Key not found after save", conf.containsKey(key));
+        assertEquals("Wrong value after save", "", conf.getString(key));
+    }
 
     /**
      * Tests handling of empty elements.
      */
+    @Test
+    public void testEmptyElements() throws ConfigurationException {
+        assertTrue(conf.containsKey("empty"));
+        assertEquals("", conf.getString("empty"));
+        conf.addProperty("empty2", "");
+        conf.setProperty("empty", "no more empty");
+        saveTestConfig();
+
+        conf = new XMLConfiguration();
+        load(conf, testSaveConf.getAbsolutePath());
+        assertEquals("no more empty", conf.getString("empty"));
+        assertEquals("", conf.getProperty("empty2"));
+    }
 
     /**
      * Tests the isEmpty() method for an empty configuration that was reloaded.
      */
+    @Test
+    public void testEmptyReload() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        assertTrue("Newly created configuration not empty", conf.isEmpty());
+        saveTestConfig();
+        load(conf, testSaveConf.getAbsolutePath());
+        assertTrue("Reloaded configuration not empty", conf.isEmpty());
+    }
+
+    @Test
+    public void testGetAttribute() {
+        assertEquals("element3[@name]", "foo", conf.getProperty("element3[@name]"));
+    }
+
+    @Test
+    public void testGetCommentedProperty() {
+        assertEquals("", conf.getProperty("test.comment"));
+    }
+
+    @Test
+    public void testGetComplexProperty() {
+        assertEquals("I'm complex!", conf.getProperty("element2.subelement.subsubelement"));
+    }
+
+    @Test
+    public void testgetProperty() {
+        // test non-leaf element
+        Object property = conf.getProperty("clear");
+        assertNull(property);
+
+        // test non-existent element
+        property = conf.getProperty("e");
+        assertNull(property);
+
+        // test non-existent element
+        property = conf.getProperty("element3[@n]");
+        assertNull(property);
+
+        // test single element
+        property = conf.getProperty("element");
+        assertNotNull(property);
+        assertTrue(property instanceof String);
+        assertEquals("value", property);
+
+        // test single attribute
+        property = conf.getProperty("element3[@name]");
+        assertNotNull(property);
+        assertTrue(property instanceof String);
+        assertEquals("foo", property);
+
+        // test non-text/cdata element
+        property = conf.getProperty("test.comment");
+        assertEquals("", property);
+
+        // test cdata element
+        property = conf.getProperty("test.cdata");
+        assertNotNull(property);
+        assertTrue(property instanceof String);
+        assertEquals("<cdata value>", property);
+
+        // test multiple sibling elements
+        property = conf.getProperty("list.sublist.item");
+        assertNotNull(property);
+        assertTrue(property instanceof List);
+        List<?> list = (List<?>) property;
+        assertEquals(2, list.size());
+        assertEquals("five", list.get(0));
+        assertEquals("six", list.get(1));
+
+        // test multiple, disjoined elements
+        property = conf.getProperty("list.item");
+        assertNotNull(property);
+        assertTrue(property instanceof List);
+        list = (List<?>) property;
+        assertEquals(4, list.size());
+        assertEquals("one", list.get(0));
+        assertEquals("two", list.get(1));
+        assertEquals("three", list.get(2));
+        assertEquals("four", list.get(3));
+
+        // test multiple, disjoined attributes
+        property = conf.getProperty("list.item[@name]");
+        assertNotNull(property);
+        assertTrue(property instanceof List);
+        list = (List<?>) property;
+        assertEquals(2, list.size());
+        assertEquals("one", list.get(0));
+        assertEquals("three", list.get(1));
+    }
+
+    @Test
+    public void testGetProperty() {
+        assertEquals("value", conf.getProperty("element"));
+    }
+
+    @Test
+    public void testGetPropertyWithXMLEntity() {
+        assertEquals("1<2", conf.getProperty("test.entity"));
+    }
 
     /**
      * Tests the copy constructor.
      */
+    @Test
+    public void testInitCopy() throws ConfigurationException {
+        final XMLConfiguration copy = new XMLConfiguration(conf);
+        copy.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
+        assertEquals("value", copy.getProperty("element"));
+        assertNull("Document was copied, too", copy.getDocument());
+
+        new FileHandler(copy).save(testSaveConf);
+        checkSavedConfig();
+    }
 
     /**
      * Tests list nodes with multiple values and attributes.
      */
+    @Test
+    public void testListWithAttributes() {
+        assertEquals("Wrong number of <a> elements", 6, conf.getList("attrList.a").size());
+        assertEquals("Wrong value of first element", "ABC", conf.getString("attrList.a(0)"));
+        assertEquals("Wrong value of first name attribute", "x", conf.getString("attrList.a(0)[@name]"));
+        assertEquals("Wrong number of name attributes", 6, conf.getList("attrList.a[@name]").size());
+    }
 
     /**
      * Tests a list node with attributes that has multiple values separated by the list delimiter. In this scenario the
      * attribute should be added to all list nodes.
      */
+    @Test
+    public void testListWithAttributesMultiValue() {
+        assertEquals("Wrong value of 2nd element", "1", conf.getString("attrList.a(1)"));
+        assertEquals("Wrong value of 2nd name attribute", "y", conf.getString("attrList.a(1)[@name]"));
+        for (int i = 1; i <= 3; i++) {
+            assertEquals("Wrong value of element " + (i + 1), i, conf.getInt("attrList.a(" + i + ")"));
+            assertEquals("Wrong name attribute for element " + i, "y", conf.getString("attrList.a(" + i + ")[@name]"));
+        }
+    }
 
     /**
      * Tests a list node with multiple values and multiple attributes. All attribute values should be assigned to all list
      * nodes.
      */
+    @Test
+    public void testListWithMultipleAttributesMultiValue() {
+        for (int i = 1; i <= 2; i++) {
+            final String idxStr = String.format("(%d)", Integer.valueOf(i + 3));
+            final String nodeKey = "attrList.a" + idxStr;
+            assertEquals("Wrong value of multi-valued node", "value" + i, conf.getString(nodeKey));
+            assertEquals("Wrong name attribute at " + i, "u", conf.getString(nodeKey + "[@name]"));
+            assertEquals("Wrong test attribute at " + i, "yes", conf.getString(nodeKey + "[@test]"));
+        }
+    }
 
     /**
      * Tests constructing an XMLConfiguration from a non existing file and later saving to this file.
      */
+    @Test
+    public void testLoadAndSaveFromFile() throws Exception {
+        // If the file does not exist, an empty config is created
+        assertFalse("File exists", testSaveConf.exists());
+        final FileBasedConfigurationBuilder<XMLConfiguration> builder = new FileBasedConfigurationBuilder<>(XMLConfiguration.class, null, true);
+        builder.configure(new FileBasedBuilderParametersImpl().setFile(testSaveConf));
+        conf = builder.getConfiguration();
+        assertTrue(conf.isEmpty());
+        conf.addProperty("test", "yes");
+        builder.save();
+
+        final XMLConfiguration checkConfig = createFromFile(testSaveConf.getAbsolutePath());
+        assertEquals("yes", checkConfig.getString("test"));
+    }
+
+    @Test
+    public void testLoadChildNamespace() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        new FileHandler(conf).load(ConfigurationAssert.getTestFile("testChildNamespace.xml"));
+        assertEquals("http://example.com/", conf.getString("foo:bar.[@xmlns:foo]"));
+    }
 
     /**
      * Tests loading from a stream.
      */
+    @Test
+    public void testLoadFromStream() throws Exception {
+        final String xml = "<?xml version=\"1.0\"?><config><test>1</test></config>";
+        conf = new XMLConfiguration();
+        FileHandler handler = new FileHandler(conf);
+        handler.load(new ByteArrayInputStream(xml.getBytes()));
+        assertEquals(1, conf.getInt("test"));
+
+        conf = new XMLConfiguration();
+        handler = new FileHandler(conf);
+        handler.load(new ByteArrayInputStream(xml.getBytes()), "UTF8");
+        assertEquals(1, conf.getInt("test"));
+    }
 
     /**
      * Tests loading a non well formed XML from a string.
@@ -412,40 +981,108 @@ public class TestXMLConfiguration_OE25Dev {
      * encoding "UTF-16". If this encoding is not detected correctly, an exception will be thrown that "Content is not
      * allowed in prolog". This test case is related to issue 34204.
      */
+    @Test
+    public void testLoadWithEncoding() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        new FileHandler(conf).load(ConfigurationAssert.getTestFile("testEncoding.xml"));
+        assertEquals("test3_yoge", conf.getString("yoge"));
+    }
+
+    @Test
+    public void testLoadWithRootNamespace() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        new FileHandler(conf).load(ConfigurationAssert.getTestFile("testRootNamespace.xml"));
+        assertEquals("http://example.com/", conf.getString("[@xmlns:foo]"));
+    }
 
     /**
      * Tests that attribute values are not split.
      */
+    @Test
+    public void testNoDelimiterParsingInAttrValues() throws ConfigurationException {
+        conf.clear();
+        load(conf, testProperties);
+        final List<Object> expr = conf.getList("expressions[@value]");
+        assertEquals("Wrong list size", 1, expr.size());
+        assertEquals("Wrong element 1", "a || (b && c) | !d", expr.get(0));
+    }
 
     /**
      * Tests whether an attribute value can be overridden.
      */
+    @Test
+    public void testOverrideAttribute() {
+        conf.addProperty("element3[@name]", "bar");
+
+        final List<Object> list = conf.getList("element3[@name]");
+        assertNotNull("null list", list);
+        assertTrue("'bar' element missing", list.contains("bar"));
+        assertEquals("list size", 1, list.size());
+    }
 
     /**
      * Tests whether spaces are preserved when the xml:space attribute is set.
      */
+    @Test
+    public void testPreserveSpace() {
+        assertEquals("Wrong value of blank", " ", conf.getString("space.blank"));
+        assertEquals("Wrong value of stars", " * * ", conf.getString("space.stars"));
+    }
 
     /**
      * Tests an xml:space attribute with an invalid value. This will be interpreted as default.
      */
+    @Test
+    public void testPreserveSpaceInvalid() {
+        assertEquals("Invalid not trimmed", "Some other text", conf.getString("space.testInvalid"));
+    }
 
     /**
      * Tests whether the xml:space attribute works directly on the current element. This test is related to
      * CONFIGURATION-555.
      */
+    @Test
+    public void testPreserveSpaceOnElement() {
+        assertEquals("Wrong value spaceElement", " preserved ", conf.getString("spaceElement"));
+        assertEquals("Wrong value of spaceBlankElement", "   ", conf.getString("spaceBlankElement"));
+    }
 
     /**
      * Tests whether the xml:space attribute can be overridden in nested elements.
      */
+    @Test
+    public void testPreserveSpaceOverride() {
+        assertEquals("Not trimmed", "Some text", conf.getString("space.description"));
+    }
 
     /**
      * Tests whether the public ID is accessed in a synchronized manner.
      */
+    @Test
+    public void testPublicIdSynchronized() {
+        final SynchronizerTestImpl sync = new SynchronizerTestImpl();
+        conf.setSynchronizer(sync);
+        conf.setPublicID(PUBLIC_ID);
+        assertEquals("PublicID not set", PUBLIC_ID, conf.getPublicID());
+        sync.verify(Methods.BEGIN_WRITE, Methods.END_WRITE, Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests a direct invocation of the read() method. This is not allowed because certain initializations have not been
      * done. This test is related to CONFIGURATION-641.
      */
+    @Test
+    public void testReadCalledDirectly() throws IOException {
+        conf = new XMLConfiguration();
+        final String content = "<configuration><test>1</test></configuration>";
+        final ByteArrayInputStream bis = new ByteArrayInputStream(content.getBytes());
+        try {
+            conf.read(bis);
+            fail("No exception thrown!");
+        } catch (final ConfigurationException e) {
+            assertThat(e.getMessage(), containsString("FileHandler"));
+        }
+    }
 
     @Test
     public void testSave() throws Exception {
@@ -471,10 +1108,27 @@ public class TestXMLConfiguration_OE25Dev {
      * Tests saving a configuration that was created from a hierarchical configuration. This test exposes bug
      * CONFIGURATION-301.
      */
+    @Test
+    public void testSaveAfterCreateWithCopyConstructor() throws ConfigurationException {
+        final HierarchicalConfiguration<ImmutableNode> hc = conf.configurationAt("element2");
+        conf = new XMLConfiguration(hc);
+        saveTestConfig();
+        final XMLConfiguration checkConfig = checkSavedConfig();
+        assertEquals("Wrong name of root element", "element2", checkConfig.getRootElementName());
+    }
 
     /**
      * Tests saving attributes (related to issue 34442).
      */
+    @Test
+    public void testSaveAttributes() throws Exception {
+        conf.clear();
+        load(conf, testProperties);
+        saveTestConfig();
+        conf = new XMLConfiguration();
+        load(conf, testSaveConf.getAbsolutePath());
+        assertEquals("foo", conf.getString("element3[@name]"));
+    }
 
     /**
      * Tests saving and loading a configuration when delimiter parsing is disabled.
@@ -524,23 +1178,110 @@ public class TestXMLConfiguration_OE25Dev {
     /**
      * Tests whether a windows path can be saved correctly. This test is related to CONFIGURATION-428.
      */
+    @Test
+    public void testSaveWindowsPath() throws ConfigurationException {
+        conf.clear();
+        conf.setListDelimiterHandler(new DisabledListDelimiterHandler());
+        conf.addProperty("path", "C:\\Temp");
+        final StringWriter writer = new StringWriter();
+        new FileHandler(conf).save(writer);
+        final String content = writer.toString();
+        assertThat("Path not found: ", content, containsString("<path>C:\\Temp</path>"));
+        saveTestConfig();
+        final XMLConfiguration conf2 = new XMLConfiguration();
+        load(conf2, testSaveConf.getAbsolutePath());
+        assertEquals("Wrong windows path", "C:\\Temp", conf2.getString("path"));
+    }
 
     /**
      * Tests string properties with list delimiters when delimiter parsing is disabled
      */
+    @Test
+    public void testSaveWithDelimiterParsingDisabled() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        conf.setExpressionEngine(new XPathExpressionEngine());
+        load(conf, testProperties);
+
+        assertEquals("a,b,c", conf.getString("split/list3/@values"));
+        assertEquals(0, conf.getMaxIndex("split/list3/@values"));
+        assertEquals("a\\,b\\,c", conf.getString("split/list4/@values"));
+        assertEquals("a,b,c", conf.getString("split/list1"));
+        assertEquals(0, conf.getMaxIndex("split/list1"));
+        assertEquals("a\\,b\\,c", conf.getString("split/list2"));
+        // save the configuration
+        saveTestConfig();
+
+        XMLConfiguration config = new XMLConfiguration();
+        // config.setExpressionEngine(new XPathExpressionEngine());
+        load(config, testFile2);
+        config.setProperty("Employee[@attr1]", "3,2,1");
+        assertEquals("3,2,1", config.getString("Employee[@attr1]"));
+        new FileHandler(config).save(testSaveFile);
+        config = new XMLConfiguration();
+        // config.setExpressionEngine(new XPathExpressionEngine());
+        load(config, testSaveFile.getAbsolutePath());
+        config.setProperty("Employee[@attr1]", "1,2,3");
+        assertEquals("1,2,3", config.getString("Employee[@attr1]"));
+        config.setProperty("Employee[@attr2]", "one, two, three");
+        assertEquals("one, two, three", config.getString("Employee[@attr2]"));
+        config.setProperty("Employee.text", "a,b,d");
+        assertEquals("a,b,d", config.getString("Employee.text"));
+        config.setProperty("Employee.Salary", "100,000");
+        assertEquals("100,000", config.getString("Employee.Salary"));
+        new FileHandler(config).save(testSaveFile);
+        final XMLConfiguration checkConfig = new XMLConfiguration();
+        checkConfig.setExpressionEngine(new XPathExpressionEngine());
+        load(checkConfig, testSaveFile.getAbsolutePath());
+        assertEquals("1,2,3", checkConfig.getString("Employee/@attr1"));
+        assertEquals("one, two, three", checkConfig.getString("Employee/@attr2"));
+        assertEquals("a,b,d", checkConfig.getString("Employee/text"));
+        assertEquals("100,000", checkConfig.getString("Employee/Salary"));
+    }
 
     /**
      * Tests whether the DOCTYPE survives a save operation.
      */
+    @Test
+    public void testSaveWithDoctype() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        load(conf, "testDtdPublic.xml");
+
+        assertEquals("Wrong public ID", PUBLIC_ID, conf.getPublicID());
+        assertEquals("Wrong system ID", SYSTEM_ID, conf.getSystemID());
+        final StringWriter out = new StringWriter();
+        new FileHandler(conf).save(out);
+        assertThat("Did not find DOCTYPE", out.toString(), containsString(DOCTYPE));
+    }
 
     /**
      * Tests setting public and system IDs for the DOCTYPE and then saving the configuration. This should generate a DOCTYPE
      * declaration.
      */
+    @Test
+    public void testSaveWithDoctypeIDs() throws ConfigurationException {
+        assertNull("A public ID was found", conf.getPublicID());
+        assertNull("A system ID was found", conf.getSystemID());
+        conf.setPublicID(PUBLIC_ID);
+        conf.setSystemID(SYSTEM_ID);
+        final StringWriter out = new StringWriter();
+        new FileHandler(conf).save(out);
+        assertThat("Did not find DOCTYPE", out.toString(), containsString(DOCTYPE + "testconfig" + DOCTYPE_DECL));
+    }
 
     /**
      * Tests whether the encoding is written to the generated XML file.
      */
+    @Test
+    public void testSaveWithEncoding() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        conf.setProperty("test", "a value");
+        final FileHandler handler = new FileHandler(conf);
+        handler.setEncoding(ENCODING);
+
+        final StringWriter out = new StringWriter();
+        handler.save(out);
+        assertThat("Encoding was not written to file", out.toString(), containsString("encoding=\"" + ENCODING + "\""));
+    }
 
     /**
      * Tests saving a configuration if an invalid transformer factory is specified. In this case an error is thrown by the
@@ -563,23 +1304,148 @@ public class TestXMLConfiguration_OE25Dev {
      * Tests whether a default encoding is used if no specific encoding is set. According to the XSLT specification
      * (http://www.w3.org/TR/xslt#output) this should be either UTF-8 or UTF-16.
      */
+    @Test
+    public void testSaveWithNullEncoding() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        conf.setProperty("testNoEncoding", "yes");
+        final FileHandler handler = new FileHandler(conf);
+
+        final StringWriter out = new StringWriter();
+        handler.save(out);
+        assertThat("Encoding was written to file", out.toString(), containsString("encoding=\"UTF-"));
+    }
+
+    @Test
+    public void testSaveWithRootAttributes() throws ConfigurationException {
+        conf.setProperty("[@xmlns:ex]", "http://example.com/");
+        assertEquals("Root attribute not set", "http://example.com/", conf.getString("[@xmlns:ex]"));
+        final FileHandler handler = new FileHandler(conf);
+
+        final StringWriter out = new StringWriter();
+        handler.save(out);
+        assertThat("Encoding was not written to file", out.toString(), containsString("testconfig xmlns:ex=\"http://example.com/\""));
+    }
+
+    @Test
+    public void testSaveWithRootAttributes_ByHand() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        conf.addProperty("[@xmlns:foo]", "http://example.com/");
+        assertEquals("Root attribute not set", "http://example.com/", conf.getString("[@xmlns:foo]"));
+        final FileHandler handler = new FileHandler(conf);
+
+        final StringWriter out = new StringWriter();
+        handler.save(out);
+        assertThat("Encoding was not written to file", out.toString(), containsString("configuration xmlns:foo=\"http://example.com/\""));
+    }
 
     /**
      * Tests modifying an XML document and saving it with schema validation enabled.
      */
+    @Test
+    public void testSaveWithValidation() throws Exception {
+        final CatalogResolver resolver = new CatalogResolver();
+        resolver.setCatalogFiles(CATALOG_FILES);
+        conf = new XMLConfiguration();
+        conf.setEntityResolver(resolver);
+        conf.setSchemaValidation(true);
+        load(conf, testFile2);
+        conf.setProperty("Employee.SSN", "123456789");
+        final SynchronizerTestImpl sync = new SynchronizerTestImpl();
+        conf.setSynchronizer(sync);
+        conf.validate();
+        sync.verify(Methods.BEGIN_WRITE, Methods.END_WRITE);
+        saveTestConfig();
+        conf = new XMLConfiguration();
+        load(conf, testSaveConf.getAbsolutePath());
+        assertEquals("123456789", conf.getString("Employee.SSN"));
+    }
 
     /**
      * Tests modifying an XML document and validating it against the schema.
      */
+    @Test
+    public void testSaveWithValidationFailure() throws Exception {
+        final CatalogResolver resolver = new CatalogResolver();
+        resolver.setCatalogFiles(CATALOG_FILES);
+        conf = new XMLConfiguration();
+        conf.setEntityResolver(resolver);
+        conf.setSchemaValidation(true);
+        load(conf, testFile2);
+        conf.setProperty("Employee.Email", "JohnDoe@test.org");
+        try {
+            conf.validate();
+            fail("No validation failure on save");
+        } catch (final Exception e) {
+            final Throwable cause = e.getCause();
+            assertNotNull("No cause for exception on save", cause);
+            assertTrue("Incorrect exception on save", cause instanceof SAXParseException);
+        }
+    }
+
+    @Test
+    public void testSetAttribute() {
+        // replace an existing attribute
+        conf.setProperty("element3[@name]", "bar");
+        assertEquals("element3[@name]", "bar", conf.getProperty("element3[@name]"));
+
+        // set a new attribute
+        conf.setProperty("foo[@bar]", "value");
+        assertEquals("foo[@bar]", "value", conf.getProperty("foo[@bar]"));
+
+        conf.setProperty("name1", "value1");
+        assertEquals("value1", conf.getProperty("name1"));
+    }
+
+    @Test
+    public void testSetProperty() throws Exception {
+        conf.setProperty("element.string", "hello");
+
+        assertEquals("'element.string'", "hello", conf.getString("element.string"));
+        assertEquals("XML value of element.string", "hello", conf.getProperty("element.string"));
+    }
 
     /**
      * Tests whether list properties are set correctly if delimiter parsing is disabled. This test is related to
      * CONFIGURATION-495.
      */
+    @Test
+    public void testSetPropertyListWithDelimiterParsingDisabled() throws ConfigurationException {
+        final String prop = "delimiterListProp";
+        final List<String> list = Arrays.asList("val", "val2", "val3");
+        conf.setProperty(prop, list);
+        saveTestConfig();
+        final XMLConfiguration conf2 = new XMLConfiguration();
+        load(conf2, testSaveConf.getAbsolutePath());
+        assertEquals("Wrong list property", list, conf2.getProperty(prop));
+    }
 
     /**
      * Tests setting an attribute on the root element.
      */
+    @Test
+    public void testSetRootAttribute() throws ConfigurationException {
+        conf.setProperty("[@test]", "true");
+        assertEquals("Root attribute not set", "true", conf.getString("[@test]"));
+        saveTestConfig();
+        XMLConfiguration checkConf = checkSavedConfig();
+        assertTrue("Attribute not found after save", checkConf.containsKey("[@test]"));
+        checkConf.setProperty("[@test]", "newValue");
+        conf = checkConf;
+        saveTestConfig();
+        checkConf = checkSavedConfig();
+        assertEquals("Attribute not modified after save", "newValue", checkConf.getString("[@test]"));
+    }
+
+    @Test
+    public void testSetRootNamespace() throws ConfigurationException {
+        conf.addProperty("[@xmlns:foo]", "http://example.com/");
+        conf.addProperty("foo:bar", "foobar");
+        assertEquals("Root attribute not set", "http://example.com/", conf.getString("[@xmlns:foo]"));
+        saveTestConfig();
+        final XMLConfiguration checkConf = checkSavedConfig();
+        assertTrue("Attribute not found after save", checkConf.containsKey("[@xmlns:foo]"));
+        checkConf.setProperty("[@xmlns:foo]", "http://example.net/");
+    }
 
     /**
      * Tests setting text of the root element.
@@ -594,18 +1460,57 @@ public class TestXMLConfiguration_OE25Dev {
     /**
      * Tests string properties with list delimiters and escaped delimiters.
      */
+    @Test
+    public void testSplitLists() {
+        assertEquals("a,b,c", conf.getString("split.list3[@values]"));
+        assertEquals(0, conf.getMaxIndex("split.list3[@values]"));
+        assertEquals("a\\,b\\,c", conf.getString("split.list4[@values]"));
+        assertEquals("a", conf.getString("split.list1"));
+        assertEquals(2, conf.getMaxIndex("split.list1"));
+        assertEquals("a,b,c", conf.getString("split.list2"));
+    }
 
     /**
      * Tests the subset() method. There was a bug that calling subset() had undesired side effects.
      */
+    @Test
+    public void testSubset() throws ConfigurationException {
+        conf = new XMLConfiguration();
+        load(conf, "testHierarchicalXMLConfiguration.xml");
+        conf.subset("tables.table(0)");
+        saveTestConfig();
+
+        conf = new XMLConfiguration();
+        load(conf, "testHierarchicalXMLConfiguration.xml");
+        assertEquals("users", conf.getString("tables.table(0).name"));
+    }
 
     /**
      * Tests whether the system ID is accessed in a synchronized manner.
      */
+    @Test
+    public void testSystemIdSynchronized() {
+        final SynchronizerTestImpl sync = new SynchronizerTestImpl();
+        conf.setSynchronizer(sync);
+        conf.setSystemID(SYSTEM_ID);
+        assertEquals("SystemID not set", SYSTEM_ID, conf.getSystemID());
+        sync.verify(Methods.BEGIN_WRITE, Methods.END_WRITE, Methods.BEGIN_READ, Methods.END_READ);
+    }
 
     /**
      * Tests DTD validation using the setValidating() method.
      */
+    @Test
+    public void testValidating() throws ConfigurationException {
+        final File nonValidFile = ConfigurationAssert.getTestFile("testValidateInvalid.xml");
+        conf = new XMLConfiguration();
+        assertFalse(conf.isValidating());
+
+        // Load a non valid XML document. Should work for isValidating() == false
+        load(conf, nonValidFile.getAbsolutePath());
+        assertEquals("customers", conf.getString("table.name"));
+        assertFalse(conf.containsKey("table.fields.field(1).type"));
+    }
 
     /**
      * Tests whether an invalid file is detected when validating is enabled.
@@ -617,9 +1522,56 @@ public class TestXMLConfiguration_OE25Dev {
         load(conf, "testValidateInvalid.xml");
     }
 
+    @Test
+    public void testWrite() throws Exception {
+        final XMLConfiguration xmlConfig = new XMLConfiguration();
+        xmlConfig.setRootElementName("IAmRoot");
+        final StringWriter sw = new StringWriter();
+        xmlConfig.write(sw);
+        // Check that we can parse the XML.
+        Assert.assertNotNull(parseXml(sw.toString()));
+    }
+
+    @Test
+    public void testWriteIndentSize() throws Exception {
+        final XMLConfiguration xmlConfig = new XMLConfiguration();
+        xmlConfig.setRootElementName("IAmRoot");
+        final StringWriter sw = new StringWriter();
+        xmlConfig.setProperty("Child", "Alexander");
+        xmlConfig.write(sw);
+        // Check that we can parse the XML.
+        final String xml = sw.toString();
+        Assert.assertNotNull(parseXml(xml));
+        final String indent = StringUtils.repeat(' ', XMLConfiguration.DEFAULT_INDENT_SIZE);
+        Assert.assertTrue(xml.contains(System.lineSeparator() + indent + "<Child>"));
+    }
+
+    @Test
+    public void testWriteWithTransformer() throws Exception {
+        final XMLConfiguration xmlConfig = new XMLConfiguration();
+        xmlConfig.setRootElementName("IAmRoot");
+        xmlConfig.setProperty("Child", "Alexander");
+        final StringWriter sw = new StringWriter();
+        final Transformer transformer = xmlConfig.createTransformer();
+        final int indentSize = 8;
+        transformer.setOutputProperty(XMLConfiguration.INDENT_AMOUNT_PROPERTY, Integer.toString(indentSize));
+        xmlConfig.write(sw, transformer);
+        final String xml = sw.toString();
+        Assert.assertNotNull(parseXml(xml));
+        final String indent = StringUtils.repeat(' ', indentSize);
+        Assert.assertTrue(xml.contains(System.lineSeparator() + indent + "<Child>"));
+    }
+
     /**
      * Tests accessing properties when the XPATH expression engine is set.
      */
+    @Test
+    public void testXPathExpressionEngine() {
+        conf.setExpressionEngine(new XPathExpressionEngine());
+        assertEquals("Wrong attribute value", "foo\"bar", conf.getString("test[1]/entity/@name"));
+        conf.clear();
+        assertNull(conf.getString("test[1]/entity/@name"));
+    }
 
     @Test
     public void testAddList_1_oe() {
@@ -636,7 +1588,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.addProperty("test.array", "value2");
 
         final List<Object> list = conf.getList("test.array");
-        // removed other assertion
         assertTrue("'value1' element missing", list.contains("value1"));
     }
 
@@ -646,8 +1597,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.addProperty("test.array", "value2");
 
         final List<Object> list = conf.getList("test.array");
-        // removed other assertion
-        // removed other assertion
         assertTrue("'value2' element missing", list.contains("value2"));
     }
 
@@ -657,9 +1606,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.addProperty("test.array", "value2");
 
         final List<Object> list = conf.getList("test.array");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("list size", 2, list.size());
     }
 
@@ -696,7 +1642,6 @@ public class TestXMLConfiguration_OE25Dev {
         saveTestConfig();
         final XMLConfiguration c2 = new XMLConfiguration();
         load(c2, testSaveConf.getAbsolutePath());
-        // removed other assertion
         assertEquals("Child value was not saved", "yes", c2.getString("add.nodes.test.child"));
     }
 
@@ -715,8 +1660,6 @@ public class TestXMLConfiguration_OE25Dev {
         saveTestConfig();
         final XMLConfiguration c2 = new XMLConfiguration();
         load(c2, testSaveConf.getAbsolutePath());
-        // removed other assertion
-        // removed other assertion
         assertEquals("Attr value was not saved", "existing", c2.getString("add.nodes.test[@attr]"));
     }
 
@@ -735,9 +1678,6 @@ public class TestXMLConfiguration_OE25Dev {
         saveTestConfig();
         final XMLConfiguration c2 = new XMLConfiguration();
         load(c2, testSaveConf.getAbsolutePath());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("Node2 not saved", "anotherValue", c2.getString("add.nodes.test2"));
     }
 
@@ -756,14 +1696,12 @@ public class TestXMLConfiguration_OE25Dev {
 
     @Test
     public void testAddObjectProperty_1_oe() {
-        // add a non string property
         conf.addProperty("test.boolean", Boolean.TRUE);
         assertTrue("'test.boolean'", conf.getBoolean("test.boolean"));
     }
 
     @Test
     public void testAddProperty_1_oe() {
-        // add a property to a non initialized xml configuration
         final XMLConfiguration config = new XMLConfiguration();
         config.addProperty("test.string", "hello");
 
@@ -792,15 +1730,12 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testAppend_2_oe() throws Exception {
         load(conf, testProperties2);
-        // removed other assertion
         assertEquals("tasks", conf.getString("table.name"));
     }
 
     @Test
     public void testAppend_3_oe() throws Exception {
         load(conf, testProperties2);
-        // removed other assertion
-        // removed other assertion
 
         saveTestConfig();
         conf = createFromFile(testSaveConf.getAbsolutePath());
@@ -810,25 +1745,18 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testAppend_4_oe() throws Exception {
         load(conf, testProperties2);
-        // removed other assertion
-        // removed other assertion
 
         saveTestConfig();
         conf = createFromFile(testSaveConf.getAbsolutePath());
-        // removed other assertion
         assertEquals("tasks", conf.getString("table.name"));
     }
 
     @Test
     public void testAppend_5_oe() throws Exception {
         load(conf, testProperties2);
-        // removed other assertion
-        // removed other assertion
 
         saveTestConfig();
         conf = createFromFile(testSaveConf.getAbsolutePath());
-        // removed other assertion
-        // removed other assertion
         assertEquals("application", conf.getString("table[@tableType]"));
     }
 
@@ -880,7 +1808,6 @@ public class TestXMLConfiguration_OE25Dev {
         final String newValue = "I am autosaved";
         final Configuration sub = conf.configurationAt("element2.subelement", true);
         sub.setProperty("subsubelement", newValue);
-        // removed other assertion
         final XMLConfiguration conf2 = new XMLConfiguration();
         load(conf2, testSaveConf.getAbsolutePath());
         assertEquals("Change was not saved", newValue, conf2.getString("element2.subelement.subsubelement"));
@@ -911,7 +1838,6 @@ public class TestXMLConfiguration_OE25Dev {
         final HierarchicalConfiguration<?> sub1 = conf.configurationAt("element2", true);
         final HierarchicalConfiguration<?> sub2 = sub1.configurationAt("subelement", true);
         sub2.setProperty("subsubelement", newValue);
-        // removed other assertion
         final XMLConfiguration conf2 = new XMLConfiguration();
         load(conf2, testSaveConf.getAbsolutePath());
         assertEquals("Change was not saved", newValue, conf2.getString("element2.subelement.subsubelement"));
@@ -928,7 +1854,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearAttributeMultipleDisjoined_2_oe() throws Exception {
         String key = "clear.list.item[@id]";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -936,8 +1861,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearAttributeMultipleDisjoined_3_oe() throws Exception {
         String key = "clear.list.item[@id]";
         conf.clearProperty(key);
-        // removed other assertion
-        // removed other assertion
         key = "clear.list.item";
         assertNotNull(key, conf.getProperty(key));
     }
@@ -946,10 +1869,7 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearAttributeMultipleDisjoined_4_oe() throws Exception {
         String key = "clear.list.item[@id]";
         conf.clearProperty(key);
-        // removed other assertion
-        // removed other assertion
         key = "clear.list.item";
-        // removed other assertion
         assertNotNull(key, conf.getProperty(key));
     }
 
@@ -964,7 +1884,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearAttributeNonExisting_2_oe() {
         final String key = "clear[@id]";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -979,7 +1898,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearAttributeSingle_2_oe() {
         String key = "clear.element2[@id]";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -987,8 +1905,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearAttributeSingle_3_oe() {
         String key = "clear.element2[@id]";
         conf.clearProperty(key);
-        // removed other assertion
-        // removed other assertion
         key = "clear.element2";
         assertNotNull(key, conf.getProperty(key));
     }
@@ -997,10 +1913,7 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearAttributeSingle_4_oe() {
         String key = "clear.element2[@id]";
         conf.clearProperty(key);
-        // removed other assertion
-        // removed other assertion
         key = "clear.element2";
-        // removed other assertion
         assertNotNull(key, conf.getProperty(key));
     }
 
@@ -1015,7 +1928,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertyCData_2_oe() {
         final String key = "clear.cdata";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -1030,7 +1942,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertyMultipleDisjoined_2_oe() throws Exception {
         final String key = "list.item";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -1045,7 +1956,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertyMultipleSiblings_2_oe() {
         String key = "clear.list.item";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -1053,8 +1963,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertyMultipleSiblings_3_oe() {
         String key = "clear.list.item";
         conf.clearProperty(key);
-        // removed other assertion
-        // removed other assertion
         key = "clear.list.item[@id]";
         assertNotNull(key, conf.getProperty(key));
     }
@@ -1063,10 +1971,7 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertyMultipleSiblings_4_oe() {
         String key = "clear.list.item";
         conf.clearProperty(key);
-        // removed other assertion
-        // removed other assertion
         key = "clear.list.item[@id]";
-        // removed other assertion
         assertNotNull(key, conf.getProperty(key));
     }
 
@@ -1081,7 +1986,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertyNonText_2_oe() {
         final String key = "clear.comment";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -1096,7 +2000,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertyNotExisting_2_oe() {
         final String key = "clearly";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -1111,7 +2014,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertySingleElement_2_oe() {
         final String key = "clear.element";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -1126,7 +2028,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertySingleElementWithAttribute_2_oe() {
         String key = "clear.element2";
         conf.clearProperty(key);
-        // removed other assertion
         assertNull(key, conf.getProperty(key));
     }
 
@@ -1134,8 +2035,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertySingleElementWithAttribute_3_oe() {
         String key = "clear.element2";
         conf.clearProperty(key);
-        // removed other assertion
-        // removed other assertion
         key = "clear.element2[@id]";
         assertNotNull(key, conf.getProperty(key));
     }
@@ -1144,10 +2043,7 @@ public class TestXMLConfiguration_OE25Dev {
     public void testClearPropertySingleElementWithAttribute_4_oe() {
         String key = "clear.element2";
         conf.clearProperty(key);
-        // removed other assertion
-        // removed other assertion
         key = "clear.element2[@id]";
-        // removed other assertion
         assertNotNull(key, conf.getProperty(key));
     }
 
@@ -1170,7 +2066,6 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testClone_2_oe() {
         final Configuration c = (Configuration) conf.clone();
-        // removed other assertion
         final XMLConfiguration copy = (XMLConfiguration) c;
         assertNotNull(conf.getDocument());
     }
@@ -1178,19 +2073,14 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testClone_3_oe() {
         final Configuration c = (Configuration) conf.clone();
-        // removed other assertion
         final XMLConfiguration copy = (XMLConfiguration) c;
-        // removed other assertion
         assertNull(copy.getDocument());
     }
 
     @Test
     public void testClone_4_oe() {
         final Configuration c = (Configuration) conf.clone();
-        // removed other assertion
         final XMLConfiguration copy = (XMLConfiguration) c;
-        // removed other assertion
-        // removed other assertion
 
         copy.setProperty("element3", "clonedValue");
         assertEquals("value", conf.getString("element3"));
@@ -1199,13 +2089,9 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testClone_5_oe() {
         final Configuration c = (Configuration) conf.clone();
-        // removed other assertion
         final XMLConfiguration copy = (XMLConfiguration) c;
-        // removed other assertion
-        // removed other assertion
 
         copy.setProperty("element3", "clonedValue");
-        // removed other assertion
         conf.setProperty("element3[@name]", "originalFoo");
         assertEquals("foo", copy.getString("element3[@name]"));
     }
@@ -1229,19 +2115,19 @@ public class TestXMLConfiguration_OE25Dev {
         new FileHandler(c).save(testSaveConf);
         final XMLConfiguration c2 = new XMLConfiguration();
         load(c2, testSaveConf.getAbsolutePath());
-        // removed other assertion
         assertFalse("Property of original config was saved", c2.containsKey("test.orgProperty"));
     }
 
     @Test
     public void testComplexNames_1_oe() {
-        assertEquals("Name with dot", conf.getString("complexNames.my..elem"));
+        Object a = conf.getString("complexNames.my..elem");
+        assertEquals("Name with dot", a);
     }
 
     @Test
     public void testComplexNames_2_oe() {
-        // removed other assertion
-        assertEquals("Another dot", conf.getString("complexNames.my..elem.sub..elem"));
+        Object a = conf.getString("complexNames.my..elem.sub..elem");
+        assertEquals("Another dot", a);
     }
 
     @Test
@@ -1257,7 +2143,6 @@ public class TestXMLConfiguration_OE25Dev {
         final FileBasedConfigurationBuilder<XMLConfiguration> builder = new FileBasedConfigurationBuilder<>(XMLConfiguration.class);
         builder.configure(new FileBasedBuilderParametersImpl().setFileName(testProperties));
         XMLConfiguration config = builder.getConfiguration();
-        // removed other assertion
 
         final Thread testThreads[] = new Thread[THREAD_COUNT];
         for (int i = 0; i < testThreads.length; ++i) {
@@ -1280,7 +2165,6 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testCopyNull_2_oe() {
         conf = new XMLConfiguration(null);
-        // removed other assertion
         assertEquals("Wrong root element name", "configuration", conf.getRootElementName());
     }
 
@@ -1301,7 +2185,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.clear();
         new FileHandler(conf).load(new StringReader(xml));
         XMLConfiguration copy = new XMLConfiguration(conf);
-        // removed other assertion
         new FileHandler(copy).save(testSaveConf);
         copy = new XMLConfiguration();
         load(copy, testSaveConf.getAbsolutePath());
@@ -1325,7 +2208,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setRootElementName(rootName);
         conf.setProperty("test", Boolean.TRUE);
         final XMLConfiguration copy = new XMLConfiguration(conf);
-        // removed other assertion
         new FileHandler(copy).save(testSaveConf);
         load(copy, testSaveConf.getAbsolutePath());
         assertEquals("Wrong name of root element after save", rootName, copy.getRootElementName());
@@ -1333,8 +2215,6 @@ public class TestXMLConfiguration_OE25Dev {
 
     @Test
     public void testCustomDocBuilder_1_oe() throws Exception {
-        // Load an invalid XML file with the default (non validating)
-        // doc builder. This should work...
         conf = new XMLConfiguration();
         load(conf, ConfigurationAssert.getTestFile("testValidateInvalid.xml").getAbsolutePath());
         assertEquals("customers", conf.getString("table.name"));
@@ -1342,11 +2222,8 @@ public class TestXMLConfiguration_OE25Dev {
 
     @Test
     public void testCustomDocBuilder_2_oe() throws Exception {
-        // Load an invalid XML file with the default (non validating)
-        // doc builder. This should work...
         conf = new XMLConfiguration();
         load(conf, ConfigurationAssert.getTestFile("testValidateInvalid.xml").getAbsolutePath());
-        // removed other assertion
         assertFalse(conf.containsKey("table.fields.field(1).type"));
     }
 
@@ -1372,7 +2249,6 @@ public class TestXMLConfiguration_OE25Dev {
         final XMLConfiguration conf2 = new XMLConfiguration();
         load(conf2, testProperties);
 
-        // removed other assertion
         assertEquals(0, conf2.getMaxIndex("split.list3[@values]"));
     }
 
@@ -1381,8 +2257,6 @@ public class TestXMLConfiguration_OE25Dev {
         final XMLConfiguration conf2 = new XMLConfiguration();
         load(conf2, testProperties);
 
-        // removed other assertion
-        // removed other assertion
         assertEquals("a\\,b\\,c", conf2.getString("split.list4[@values]"));
     }
 
@@ -1391,9 +2265,6 @@ public class TestXMLConfiguration_OE25Dev {
         final XMLConfiguration conf2 = new XMLConfiguration();
         load(conf2, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("a,b,c", conf2.getString("split.list1"));
     }
 
@@ -1402,10 +2273,6 @@ public class TestXMLConfiguration_OE25Dev {
         final XMLConfiguration conf2 = new XMLConfiguration();
         load(conf2, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(0, conf2.getMaxIndex("split.list1"));
     }
 
@@ -1414,11 +2281,6 @@ public class TestXMLConfiguration_OE25Dev {
         final XMLConfiguration conf2 = new XMLConfiguration();
         load(conf2, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("a\\,b\\,c", conf2.getString("split.list2"));
     }
 
@@ -1437,7 +2299,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf2.setExpressionEngine(new XPathExpressionEngine());
         load(conf2, testProperties);
 
-        // removed other assertion
         assertEquals(0, conf2.getMaxIndex("split/list3/@values"));
     }
 
@@ -1447,8 +2308,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf2.setExpressionEngine(new XPathExpressionEngine());
         load(conf2, testProperties);
 
-        // removed other assertion
-        // removed other assertion
         assertEquals("a\\,b\\,c", conf2.getString("split/list4/@values"));
     }
 
@@ -1458,9 +2317,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf2.setExpressionEngine(new XPathExpressionEngine());
         load(conf2, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("a,b,c", conf2.getString("split/list1"));
     }
 
@@ -1470,10 +2326,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf2.setExpressionEngine(new XPathExpressionEngine());
         load(conf2, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(0, conf2.getMaxIndex("split/list1"));
     }
 
@@ -1483,11 +2335,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf2.setExpressionEngine(new XPathExpressionEngine());
         load(conf2, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("a\\,b\\,c", conf2.getString("split/list2"));
     }
 
@@ -1502,7 +2349,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testDtd_2_oe() throws ConfigurationException {
         conf = new XMLConfiguration();
         load(conf, "testDtd.xml");
-        // removed other assertion
         assertEquals("test2", conf.getString("entry(1)[@key]"));
     }
 
@@ -1517,7 +2363,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testEmptyAttribute_2_oe() throws ConfigurationException {
         final String key = "element3[@value]";
         conf.setProperty(key, "");
-        // removed other assertion
         assertEquals("Wrong value", "", conf.getString(key));
     }
 
@@ -1525,8 +2370,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testEmptyAttribute_3_oe() throws ConfigurationException {
         final String key = "element3[@value]";
         conf.setProperty(key, "");
-        // removed other assertion
-        // removed other assertion
         saveTestConfig();
         conf = new XMLConfiguration();
         load(conf, testSaveConf.getAbsolutePath());
@@ -1537,30 +2380,26 @@ public class TestXMLConfiguration_OE25Dev {
     public void testEmptyAttribute_4_oe() throws ConfigurationException {
         final String key = "element3[@value]";
         conf.setProperty(key, "");
-        // removed other assertion
-        // removed other assertion
         saveTestConfig();
         conf = new XMLConfiguration();
         load(conf, testSaveConf.getAbsolutePath());
-        // removed other assertion
         assertEquals("Wrong value after save", "", conf.getString(key));
     }
 
     @Test
     public void testEmptyElements_1_oe() throws ConfigurationException {
-        assertTrue(conf.containsKey("empty"));
+        boolean a = conf.containsKey("empty");
+        assertTrue(a);
     }
 
     @Test
     public void testEmptyElements_2_oe() throws ConfigurationException {
-        // removed other assertion
-        assertEquals("", conf.getString("empty"));
+        Object a = conf.getString("empty");
+        assertEquals("", a);
     }
 
     @Test
     public void testEmptyElements_3_oe() throws ConfigurationException {
-        // removed other assertion
-        // removed other assertion
         conf.addProperty("empty2", "");
         conf.setProperty("empty", "no more empty");
         saveTestConfig();
@@ -1572,15 +2411,12 @@ public class TestXMLConfiguration_OE25Dev {
 
     @Test
     public void testEmptyElements_4_oe() throws ConfigurationException {
-        // removed other assertion
-        // removed other assertion
         conf.addProperty("empty2", "");
         conf.setProperty("empty", "no more empty");
         saveTestConfig();
 
         conf = new XMLConfiguration();
         load(conf, testSaveConf.getAbsolutePath());
-        // removed other assertion
         assertEquals("", conf.getProperty("empty2"));
     }
 
@@ -1593,7 +2429,6 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testEmptyReload_2_oe() throws ConfigurationException {
         conf = new XMLConfiguration();
-        // removed other assertion
         saveTestConfig();
         load(conf, testSaveConf.getAbsolutePath());
         assertTrue("Reloaded configuration not empty", conf.isEmpty());
@@ -1601,1249 +2436,606 @@ public class TestXMLConfiguration_OE25Dev {
 
     @Test
     public void testGetAttribute_1_oe() {
-        assertEquals("element3[@name]", "foo", conf.getProperty("element3[@name]"));
+        String a = "foo";
+        assertEquals("element3[@name]", a, conf.getProperty("element3[@name]"));
     }
 
     @Test
     public void testGetCommentedProperty_1_oe() {
-        assertEquals("", conf.getProperty("test.comment"));
+        Object a = conf.getProperty("test.comment");
+        assertEquals("", a);
     }
 
     @Test
     public void testGetComplexProperty_1_oe() {
-        assertEquals("I'm complex!", conf.getProperty("element2.subelement.subsubelement"));
+        Object a = conf.getProperty("element2.subelement.subsubelement");
+        assertEquals("I'm complex!", a);
     }
 
     @Test
     public void testgetProperty_1_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
         assertNull(property);
     }
 
     @Test
     public void testgetProperty_2_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
         assertNull(property);
     }
 
     @Test
     public void testgetProperty_3_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
         assertNull(property);
     }
 
     @Test
     public void testgetProperty_4_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
         assertNotNull(property);
     }
 
     @Test
     public void testgetProperty_5_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
         assertTrue(property instanceof String);
     }
 
     @Test
     public void testgetProperty_6_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
         assertEquals("value", property);
     }
 
     @Test
     public void testgetProperty_7_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
         assertNotNull(property);
     }
 
     @Test
     public void testgetProperty_8_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
         assertTrue(property instanceof String);
     }
 
     @Test
     public void testgetProperty_9_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
         assertEquals("foo", property);
     }
 
     @Test
     public void testgetProperty_10_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
         assertEquals("", property);
     }
 
     @Test
     public void testgetProperty_11_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
         assertNotNull(property);
     }
 
     @Test
     public void testgetProperty_12_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
         assertTrue(property instanceof String);
     }
 
     @Test
     public void testgetProperty_13_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
         assertEquals("<cdata value>", property);
     }
 
     @Test
     public void testgetProperty_14_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
         assertNotNull(property);
     }
 
     @Test
     public void testgetProperty_15_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
         assertTrue(property instanceof List);
     }
 
     @Test
     public void testgetProperty_16_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
         assertEquals(2, list.size());
     }
 
     @Test
     public void testgetProperty_17_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
         assertEquals("five", list.get(0));
     }
 
     @Test
     public void testgetProperty_18_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
         assertEquals("six", list.get(1));
     }
 
     @Test
     public void testgetProperty_19_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
         assertNotNull(property);
     }
 
     @Test
     public void testgetProperty_20_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
         assertTrue(property instanceof List);
     }
 
     @Test
     public void testgetProperty_21_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
         assertEquals(4, list.size());
     }
 
     @Test
     public void testgetProperty_22_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
         assertEquals("one", list.get(0));
     }
 
     @Test
     public void testgetProperty_23_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
         assertEquals("two", list.get(1));
     }
 
     @Test
     public void testgetProperty_24_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("three", list.get(2));
     }
 
     @Test
     public void testgetProperty_25_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("four", list.get(3));
     }
 
     @Test
     public void testgetProperty_26_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined attributes
         property = conf.getProperty("list.item[@name]");
         assertNotNull(property);
     }
 
     @Test
     public void testgetProperty_27_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined attributes
         property = conf.getProperty("list.item[@name]");
-        // removed other assertion
         assertTrue(property instanceof List);
     }
 
     @Test
     public void testgetProperty_28_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined attributes
         property = conf.getProperty("list.item[@name]");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
         assertEquals(2, list.size());
     }
 
     @Test
     public void testgetProperty_29_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined attributes
         property = conf.getProperty("list.item[@name]");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
         assertEquals("one", list.get(0));
     }
 
     @Test
     public void testgetProperty_30_oe() {
-        // test non-leaf element
         Object property = conf.getProperty("clear");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("e");
-        // removed other assertion
 
-        // test non-existent element
         property = conf.getProperty("element3[@n]");
-        // removed other assertion
 
-        // test single element
         property = conf.getProperty("element");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test single attribute
         property = conf.getProperty("element3[@name]");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test non-text/cdata element
         property = conf.getProperty("test.comment");
-        // removed other assertion
 
-        // test cdata element
         property = conf.getProperty("test.cdata");
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple sibling elements
         property = conf.getProperty("list.sublist.item");
-        // removed other assertion
-        // removed other assertion
         List<?> list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined elements
         property = conf.getProperty("list.item");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
 
-        // test multiple, disjoined attributes
         property = conf.getProperty("list.item[@name]");
-        // removed other assertion
-        // removed other assertion
         list = (List<?>) property;
-        // removed other assertion
-        // removed other assertion
         assertEquals("three", list.get(1));
     }
 
     @Test
     public void testGetProperty_1_oe() {
-        assertEquals("value", conf.getProperty("element"));
+        Object a = conf.getProperty("element");
+        assertEquals("value", a);
     }
 
     @Test
     public void testGetPropertyWithXMLEntity_1_oe() {
-        assertEquals("1<2", conf.getProperty("test.entity"));
+        Object a = conf.getProperty("test.entity");
+        assertEquals("1<2", a);
     }
 
     @Test
@@ -2857,51 +3049,47 @@ public class TestXMLConfiguration_OE25Dev {
     public void testInitCopy_2_oe() throws ConfigurationException {
         final XMLConfiguration copy = new XMLConfiguration(conf);
         copy.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
-        // removed other assertion
         assertNull("Document was copied, too", copy.getDocument());
     }
 
     @Test
     public void testListWithAttributes_1_oe() {
-        assertEquals("Wrong number of <a> elements", 6, conf.getList("attrList.a").size());
+        int a = 6;
+        assertEquals("Wrong number of <a> elements", a, conf.getList("attrList.a").size());
     }
 
     @Test
     public void testListWithAttributes_2_oe() {
-        // removed other assertion
-        assertEquals("Wrong value of first element", "ABC", conf.getString("attrList.a(0)"));
+        String a = "ABC";
+        assertEquals("Wrong value of first element", a, conf.getString("attrList.a(0)"));
     }
 
     @Test
     public void testListWithAttributes_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong value of first name attribute", "x", conf.getString("attrList.a(0)[@name]"));
+        String a = "x";
+        assertEquals("Wrong value of first name attribute", a, conf.getString("attrList.a(0)[@name]"));
     }
 
     @Test
     public void testListWithAttributes_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("Wrong number of name attributes", 6, conf.getList("attrList.a[@name]").size());
+        int a = 6;
+        assertEquals("Wrong number of name attributes", a, conf.getList("attrList.a[@name]").size());
     }
 
     @Test
     public void testListWithAttributesMultiValue_1_oe() {
-        assertEquals("Wrong value of 2nd element", "1", conf.getString("attrList.a(1)"));
+        String a = "1";
+        assertEquals("Wrong value of 2nd element", a, conf.getString("attrList.a(1)"));
     }
 
     @Test
     public void testListWithAttributesMultiValue_2_oe() {
-        // removed other assertion
-        assertEquals("Wrong value of 2nd name attribute", "y", conf.getString("attrList.a(1)[@name]"));
+        String a = "y";
+        assertEquals("Wrong value of 2nd name attribute", a, conf.getString("attrList.a(1)[@name]"));
     }
 
     @Test
     public void testListWithAttributesMultiValue_3_oe() {
-        // removed other assertion
-        // removed other assertion
         for (int i = 1; i <= 3; i++) {
             assertEquals("Wrong value of element " + (i + 1), i, conf.getInt("attrList.a(" + i + ")"));
     }
@@ -2909,10 +3097,7 @@ public class TestXMLConfiguration_OE25Dev {
 
     @Test
     public void testListWithAttributesMultiValue_4_oe() {
-        // removed other assertion
-        // removed other assertion
         for (int i = 1; i <= 3; i++) {
-            // removed other assertion
             assertEquals("Wrong name attribute for element " + i, "y", conf.getString("attrList.a(" + i + ")[@name]"));
     }
     }
@@ -2931,7 +3116,6 @@ public class TestXMLConfiguration_OE25Dev {
         for (int i = 1; i <= 2; i++) {
             final String idxStr = String.format("(%d)", Integer.valueOf(i + 3));
             final String nodeKey = "attrList.a" + idxStr;
-            // removed other assertion
             assertEquals("Wrong name attribute at " + i, "u", conf.getString(nodeKey + "[@name]"));
     }
     }
@@ -2941,22 +3125,18 @@ public class TestXMLConfiguration_OE25Dev {
         for (int i = 1; i <= 2; i++) {
             final String idxStr = String.format("(%d)", Integer.valueOf(i + 3));
             final String nodeKey = "attrList.a" + idxStr;
-            // removed other assertion
-            // removed other assertion
             assertEquals("Wrong test attribute at " + i, "yes", conf.getString(nodeKey + "[@test]"));
     }
     }
 
     @Test
     public void testLoadAndSaveFromFile_1_oe() throws Exception {
-        // If the file does not exist, an empty config is created
-        assertFalse("File exists", testSaveConf.exists());
+        boolean a = testSaveConf.exists();
+        assertFalse("File exists", a);
     }
 
     @Test
     public void testLoadAndSaveFromFile_2_oe() throws Exception {
-        // If the file does not exist, an empty config is created
-        // removed other assertion
         final FileBasedConfigurationBuilder<XMLConfiguration> builder = new FileBasedConfigurationBuilder<>(XMLConfiguration.class, null, true);
         builder.configure(new FileBasedBuilderParametersImpl().setFile(testSaveConf));
         conf = builder.getConfiguration();
@@ -2965,12 +3145,9 @@ public class TestXMLConfiguration_OE25Dev {
 
     @Test
     public void testLoadAndSaveFromFile_3_oe() throws Exception {
-        // If the file does not exist, an empty config is created
-        // removed other assertion
         final FileBasedConfigurationBuilder<XMLConfiguration> builder = new FileBasedConfigurationBuilder<>(XMLConfiguration.class, null, true);
         builder.configure(new FileBasedBuilderParametersImpl().setFile(testSaveConf));
         conf = builder.getConfiguration();
-        // removed other assertion
         conf.addProperty("test", "yes");
         builder.save();
 
@@ -3000,7 +3177,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf = new XMLConfiguration();
         FileHandler handler = new FileHandler(conf);
         handler.load(new ByteArrayInputStream(xml.getBytes()));
-        // removed other assertion
 
         conf = new XMLConfiguration();
         handler = new FileHandler(conf);
@@ -3035,7 +3211,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.clear();
         load(conf, testProperties);
         final List<Object> expr = conf.getList("expressions[@value]");
-        // removed other assertion
         assertEquals("Wrong element 1", "a || (b && c) | !d", expr.get(0));
     }
 
@@ -3052,7 +3227,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.addProperty("element3[@name]", "bar");
 
         final List<Object> list = conf.getList("element3[@name]");
-        // removed other assertion
         assertTrue("'bar' element missing", list.contains("bar"));
     }
 
@@ -3061,41 +3235,43 @@ public class TestXMLConfiguration_OE25Dev {
         conf.addProperty("element3[@name]", "bar");
 
         final List<Object> list = conf.getList("element3[@name]");
-        // removed other assertion
-        // removed other assertion
         assertEquals("list size", 1, list.size());
     }
 
     @Test
     public void testPreserveSpace_1_oe() {
-        assertEquals("Wrong value of blank", " ", conf.getString("space.blank"));
+        String a = " ";
+        assertEquals("Wrong value of blank", a, conf.getString("space.blank"));
     }
 
     @Test
     public void testPreserveSpace_2_oe() {
-        // removed other assertion
-        assertEquals("Wrong value of stars", " * * ", conf.getString("space.stars"));
+        String a = " * * ";
+        assertEquals("Wrong value of stars", a, conf.getString("space.stars"));
     }
 
     @Test
     public void testPreserveSpaceInvalid_1_oe() {
-        assertEquals("Invalid not trimmed", "Some other text", conf.getString("space.testInvalid"));
+        String a = "Some other text";
+        assertEquals("Invalid not trimmed", a, conf.getString("space.testInvalid"));
     }
 
     @Test
     public void testPreserveSpaceOnElement_1_oe() {
-        assertEquals("Wrong value spaceElement", " preserved ", conf.getString("spaceElement"));
+        String a = " preserved ";
+        assertEquals("Wrong value spaceElement", a, conf.getString("spaceElement"));
     }
 
     @Test
     public void testPreserveSpaceOnElement_2_oe() {
-        // removed other assertion
-        assertEquals("Wrong value of spaceBlankElement", "   ", conf.getString("spaceBlankElement"));
+        String a = "   ";
+        assertEquals("Wrong value of spaceBlankElement", a, conf.getString("spaceBlankElement"));
     }
 
     @Test
     public void testPreserveSpaceOverride_1_oe() {
-        assertEquals("Not trimmed", "Some text", conf.getString("space.description"));
+        String a = "Some text";
+        assertEquals("Not trimmed", a, conf.getString("space.description"));
     }
 
     @Test
@@ -3113,7 +3289,7 @@ public class TestXMLConfiguration_OE25Dev {
         final ByteArrayInputStream bis = new ByteArrayInputStream(content.getBytes());
         try {
             conf.read(bis);
-            // removed other assertion
+            fail("No exception thrown!");
         } catch (final ConfigurationException e) {
             assertThat(e.getMessage(), containsString("FileHandler"));
     }
@@ -3157,7 +3333,6 @@ public class TestXMLConfiguration_OE25Dev {
         final StringWriter writer = new StringWriter();
         new FileHandler(conf).save(writer);
         final String content = writer.toString();
-        // removed other assertion
         saveTestConfig();
         final XMLConfiguration conf2 = new XMLConfiguration();
         load(conf2, testSaveConf.getAbsolutePath());
@@ -3179,7 +3354,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
         assertEquals(0, conf.getMaxIndex("split/list3/@values"));
     }
 
@@ -3189,8 +3363,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
         assertEquals("a\\,b\\,c", conf.getString("split/list4/@values"));
     }
 
@@ -3200,9 +3372,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("a,b,c", conf.getString("split/list1"));
     }
 
@@ -3212,10 +3381,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals(0, conf.getMaxIndex("split/list1"));
     }
 
@@ -3225,11 +3390,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("a\\,b\\,c", conf.getString("split/list2"));
     }
 
@@ -3239,17 +3399,9 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // save the configuration
         saveTestConfig();
 
         XMLConfiguration config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testFile2);
         config.setProperty("Employee[@attr1]", "3,2,1");
         assertEquals("3,2,1", config.getString("Employee[@attr1]"));
@@ -3261,23 +3413,13 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // save the configuration
         saveTestConfig();
 
         XMLConfiguration config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testFile2);
         config.setProperty("Employee[@attr1]", "3,2,1");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testSaveFile.getAbsolutePath());
         config.setProperty("Employee[@attr1]", "1,2,3");
         assertEquals("1,2,3", config.getString("Employee[@attr1]"));
@@ -3289,26 +3431,15 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // save the configuration
         saveTestConfig();
 
         XMLConfiguration config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testFile2);
         config.setProperty("Employee[@attr1]", "3,2,1");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testSaveFile.getAbsolutePath());
         config.setProperty("Employee[@attr1]", "1,2,3");
-        // removed other assertion
         config.setProperty("Employee[@attr2]", "one, two, three");
         assertEquals("one, two, three", config.getString("Employee[@attr2]"));
     }
@@ -3319,28 +3450,16 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // save the configuration
         saveTestConfig();
 
         XMLConfiguration config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testFile2);
         config.setProperty("Employee[@attr1]", "3,2,1");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testSaveFile.getAbsolutePath());
         config.setProperty("Employee[@attr1]", "1,2,3");
-        // removed other assertion
         config.setProperty("Employee[@attr2]", "one, two, three");
-        // removed other assertion
         config.setProperty("Employee.text", "a,b,d");
         assertEquals("a,b,d", config.getString("Employee.text"));
     }
@@ -3351,30 +3470,17 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // save the configuration
         saveTestConfig();
 
         XMLConfiguration config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testFile2);
         config.setProperty("Employee[@attr1]", "3,2,1");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testSaveFile.getAbsolutePath());
         config.setProperty("Employee[@attr1]", "1,2,3");
-        // removed other assertion
         config.setProperty("Employee[@attr2]", "one, two, three");
-        // removed other assertion
         config.setProperty("Employee.text", "a,b,d");
-        // removed other assertion
         config.setProperty("Employee.Salary", "100,000");
         assertEquals("100,000", config.getString("Employee.Salary"));
     }
@@ -3385,32 +3491,18 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // save the configuration
         saveTestConfig();
 
         XMLConfiguration config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testFile2);
         config.setProperty("Employee[@attr1]", "3,2,1");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testSaveFile.getAbsolutePath());
         config.setProperty("Employee[@attr1]", "1,2,3");
-        // removed other assertion
         config.setProperty("Employee[@attr2]", "one, two, three");
-        // removed other assertion
         config.setProperty("Employee.text", "a,b,d");
-        // removed other assertion
         config.setProperty("Employee.Salary", "100,000");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         final XMLConfiguration checkConfig = new XMLConfiguration();
         checkConfig.setExpressionEngine(new XPathExpressionEngine());
@@ -3424,37 +3516,22 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // save the configuration
         saveTestConfig();
 
         XMLConfiguration config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testFile2);
         config.setProperty("Employee[@attr1]", "3,2,1");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testSaveFile.getAbsolutePath());
         config.setProperty("Employee[@attr1]", "1,2,3");
-        // removed other assertion
         config.setProperty("Employee[@attr2]", "one, two, three");
-        // removed other assertion
         config.setProperty("Employee.text", "a,b,d");
-        // removed other assertion
         config.setProperty("Employee.Salary", "100,000");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         final XMLConfiguration checkConfig = new XMLConfiguration();
         checkConfig.setExpressionEngine(new XPathExpressionEngine());
         load(checkConfig, testSaveFile.getAbsolutePath());
-        // removed other assertion
         assertEquals("one, two, three", checkConfig.getString("Employee/@attr2"));
     }
 
@@ -3464,38 +3541,22 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // save the configuration
         saveTestConfig();
 
         XMLConfiguration config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testFile2);
         config.setProperty("Employee[@attr1]", "3,2,1");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testSaveFile.getAbsolutePath());
         config.setProperty("Employee[@attr1]", "1,2,3");
-        // removed other assertion
         config.setProperty("Employee[@attr2]", "one, two, three");
-        // removed other assertion
         config.setProperty("Employee.text", "a,b,d");
-        // removed other assertion
         config.setProperty("Employee.Salary", "100,000");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         final XMLConfiguration checkConfig = new XMLConfiguration();
         checkConfig.setExpressionEngine(new XPathExpressionEngine());
         load(checkConfig, testSaveFile.getAbsolutePath());
-        // removed other assertion
-        // removed other assertion
         assertEquals("a,b,d", checkConfig.getString("Employee/text"));
     }
 
@@ -3505,39 +3566,22 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setExpressionEngine(new XPathExpressionEngine());
         load(conf, testProperties);
 
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // save the configuration
         saveTestConfig();
 
         XMLConfiguration config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testFile2);
         config.setProperty("Employee[@attr1]", "3,2,1");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         config = new XMLConfiguration();
-        // config.setExpressionEngine(new XPathExpressionEngine());
         load(config, testSaveFile.getAbsolutePath());
         config.setProperty("Employee[@attr1]", "1,2,3");
-        // removed other assertion
         config.setProperty("Employee[@attr2]", "one, two, three");
-        // removed other assertion
         config.setProperty("Employee.text", "a,b,d");
-        // removed other assertion
         config.setProperty("Employee.Salary", "100,000");
-        // removed other assertion
         new FileHandler(config).save(testSaveFile);
         final XMLConfiguration checkConfig = new XMLConfiguration();
         checkConfig.setExpressionEngine(new XPathExpressionEngine());
         load(checkConfig, testSaveFile.getAbsolutePath());
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
         assertEquals("100,000", checkConfig.getString("Employee/Salary"));
     }
 
@@ -3554,7 +3598,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf = new XMLConfiguration();
         load(conf, "testDtdPublic.xml");
 
-        // removed other assertion
         assertEquals("Wrong system ID", SYSTEM_ID, conf.getSystemID());
     }
 
@@ -3563,8 +3606,6 @@ public class TestXMLConfiguration_OE25Dev {
         conf = new XMLConfiguration();
         load(conf, "testDtdPublic.xml");
 
-        // removed other assertion
-        // removed other assertion
         final StringWriter out = new StringWriter();
         new FileHandler(conf).save(out);
         assertThat("Did not find DOCTYPE", out.toString(), containsString(DOCTYPE));
@@ -3572,19 +3613,18 @@ public class TestXMLConfiguration_OE25Dev {
 
     @Test
     public void testSaveWithDoctypeIDs_1_oe() throws ConfigurationException {
-        assertNull("A public ID was found", conf.getPublicID());
+        Object a = conf.getPublicID();
+        assertNull("A public ID was found", a);
     }
 
     @Test
     public void testSaveWithDoctypeIDs_2_oe() throws ConfigurationException {
-        // removed other assertion
-        assertNull("A system ID was found", conf.getSystemID());
+        Object a = conf.getSystemID();
+        assertNull("A system ID was found", a);
     }
 
     @Test
     public void testSaveWithDoctypeIDs_3_oe() throws ConfigurationException {
-        // removed other assertion
-        // removed other assertion
         conf.setPublicID(PUBLIC_ID);
         conf.setSystemID(SYSTEM_ID);
         final StringWriter out = new StringWriter();
@@ -3624,7 +3664,6 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testSaveWithRootAttributes_2_oe() throws ConfigurationException {
         conf.setProperty("[@xmlns:ex]", "http://example.com/");
-        // removed other assertion
         final FileHandler handler = new FileHandler(conf);
 
         final StringWriter out = new StringWriter();
@@ -3643,7 +3682,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testSaveWithRootAttributes_ByHand_2_oe() throws ConfigurationException {
         conf = new XMLConfiguration();
         conf.addProperty("[@xmlns:foo]", "http://example.com/");
-        // removed other assertion
         final FileHandler handler = new FileHandler(conf);
 
         final StringWriter out = new StringWriter();
@@ -3681,7 +3719,7 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setProperty("Employee.Email", "JohnDoe@test.org");
         try {
             conf.validate();
-            // removed other assertion
+            fail("No validation failure on save");
         } catch (final Exception e) {
             final Throwable cause = e.getCause();
             assertNotNull("No cause for exception on save", cause);
@@ -3699,41 +3737,32 @@ public class TestXMLConfiguration_OE25Dev {
         conf.setProperty("Employee.Email", "JohnDoe@test.org");
         try {
             conf.validate();
-            // removed other assertion
+            fail("No validation failure on save");
         } catch (final Exception e) {
             final Throwable cause = e.getCause();
-            // removed other assertion
             assertTrue("Incorrect exception on save", cause instanceof SAXParseException);
     }
     }
 
     @Test
     public void testSetAttribute_1_oe() {
-        // replace an existing attribute
         conf.setProperty("element3[@name]", "bar");
         assertEquals("element3[@name]", "bar", conf.getProperty("element3[@name]"));
     }
 
     @Test
     public void testSetAttribute_2_oe() {
-        // replace an existing attribute
         conf.setProperty("element3[@name]", "bar");
-        // removed other assertion
 
-        // set a new attribute
         conf.setProperty("foo[@bar]", "value");
         assertEquals("foo[@bar]", "value", conf.getProperty("foo[@bar]"));
     }
 
     @Test
     public void testSetAttribute_3_oe() {
-        // replace an existing attribute
         conf.setProperty("element3[@name]", "bar");
-        // removed other assertion
 
-        // set a new attribute
         conf.setProperty("foo[@bar]", "value");
-        // removed other assertion
 
         conf.setProperty("name1", "value1");
         assertEquals("value1", conf.getProperty("name1"));
@@ -3750,7 +3779,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testSetProperty_2_oe() throws Exception {
         conf.setProperty("element.string", "hello");
 
-        // removed other assertion
         assertEquals("XML value of element.string", "hello", conf.getProperty("element.string"));
     }
 
@@ -3774,7 +3802,6 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testSetRootAttribute_2_oe() throws ConfigurationException {
         conf.setProperty("[@test]", "true");
-        // removed other assertion
         saveTestConfig();
         XMLConfiguration checkConf = checkSavedConfig();
         assertTrue("Attribute not found after save", checkConf.containsKey("[@test]"));
@@ -3783,10 +3810,8 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testSetRootAttribute_3_oe() throws ConfigurationException {
         conf.setProperty("[@test]", "true");
-        // removed other assertion
         saveTestConfig();
         XMLConfiguration checkConf = checkSavedConfig();
-        // removed other assertion
         checkConf.setProperty("[@test]", "newValue");
         conf = checkConf;
         saveTestConfig();
@@ -3805,7 +3830,6 @@ public class TestXMLConfiguration_OE25Dev {
     public void testSetRootNamespace_2_oe() throws ConfigurationException {
         conf.addProperty("[@xmlns:foo]", "http://example.com/");
         conf.addProperty("foo:bar", "foobar");
-        // removed other assertion
         saveTestConfig();
         final XMLConfiguration checkConf = checkSavedConfig();
         assertTrue("Attribute not found after save", checkConf.containsKey("[@xmlns:foo]"));
@@ -3813,47 +3837,38 @@ public class TestXMLConfiguration_OE25Dev {
 
     @Test
     public void testSplitLists_1_oe() {
-        assertEquals("a,b,c", conf.getString("split.list3[@values]"));
+        Object a = conf.getString("split.list3[@values]");
+        assertEquals("a,b,c", a);
     }
 
     @Test
     public void testSplitLists_2_oe() {
-        // removed other assertion
-        assertEquals(0, conf.getMaxIndex("split.list3[@values]"));
+        int a = 0;
+        assertEquals(a, conf.getMaxIndex("split.list3[@values]"));
     }
 
     @Test
     public void testSplitLists_3_oe() {
-        // removed other assertion
-        // removed other assertion
-        assertEquals("a\\,b\\,c", conf.getString("split.list4[@values]"));
+        Object a = conf.getString("split.list4[@values]");
+        assertEquals("a\\,b\\,c", a);
     }
 
     @Test
     public void testSplitLists_4_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("a", conf.getString("split.list1"));
+        Object a = conf.getString("split.list1");
+        assertEquals("a", a);
     }
 
     @Test
     public void testSplitLists_5_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals(2, conf.getMaxIndex("split.list1"));
+        int a = 2;
+        assertEquals(a, conf.getMaxIndex("split.list1"));
     }
 
     @Test
     public void testSplitLists_6_oe() {
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        // removed other assertion
-        assertEquals("a,b,c", conf.getString("split.list2"));
+        Object a = conf.getString("split.list2");
+        assertEquals("a,b,c", a);
     }
 
     @Test
@@ -3887,9 +3902,7 @@ public class TestXMLConfiguration_OE25Dev {
     public void testValidating_2_oe() throws ConfigurationException {
         final File nonValidFile = ConfigurationAssert.getTestFile("testValidateInvalid.xml");
         conf = new XMLConfiguration();
-        // removed other assertion
 
-        // Load a non valid XML document. Should work for isValidating() == false
         load(conf, nonValidFile.getAbsolutePath());
         assertEquals("customers", conf.getString("table.name"));
     }
@@ -3898,11 +3911,8 @@ public class TestXMLConfiguration_OE25Dev {
     public void testValidating_3_oe() throws ConfigurationException {
         final File nonValidFile = ConfigurationAssert.getTestFile("testValidateInvalid.xml");
         conf = new XMLConfiguration();
-        // removed other assertion
 
-        // Load a non valid XML document. Should work for isValidating() == false
         load(conf, nonValidFile.getAbsolutePath());
-        // removed other assertion
         assertFalse(conf.containsKey("table.fields.field(1).type"));
     }
 
@@ -3912,7 +3922,6 @@ public class TestXMLConfiguration_OE25Dev {
         xmlConfig.setRootElementName("IAmRoot");
         final StringWriter sw = new StringWriter();
         xmlConfig.write(sw);
-        // Check that we can parse the XML.
         Assert.assertNotNull(parseXml(sw.toString()));
     }
 
@@ -3923,7 +3932,6 @@ public class TestXMLConfiguration_OE25Dev {
         final StringWriter sw = new StringWriter();
         xmlConfig.setProperty("Child", "Alexander");
         xmlConfig.write(sw);
-        // Check that we can parse the XML.
         final String xml = sw.toString();
         Assert.assertNotNull(parseXml(xml));
     }
@@ -3935,9 +3943,7 @@ public class TestXMLConfiguration_OE25Dev {
         final StringWriter sw = new StringWriter();
         xmlConfig.setProperty("Child", "Alexander");
         xmlConfig.write(sw);
-        // Check that we can parse the XML.
         final String xml = sw.toString();
-        // removed other assertion
         final String indent = StringUtils.repeat(' ', XMLConfiguration.DEFAULT_INDENT_SIZE);
         Assert.assertTrue(xml.contains(System.lineSeparator() + indent + "<Child>"));
     }
@@ -3967,7 +3973,6 @@ public class TestXMLConfiguration_OE25Dev {
         transformer.setOutputProperty(XMLConfiguration.INDENT_AMOUNT_PROPERTY, Integer.toString(indentSize));
         xmlConfig.write(sw, transformer);
         final String xml = sw.toString();
-        // removed other assertion
         final String indent = StringUtils.repeat(' ', indentSize);
         Assert.assertTrue(xml.contains(System.lineSeparator() + indent + "<Child>"));
     }
@@ -3981,7 +3986,6 @@ public class TestXMLConfiguration_OE25Dev {
     @Test
     public void testXPathExpressionEngine_2_oe() {
         conf.setExpressionEngine(new XPathExpressionEngine());
-        // removed other assertion
         conf.clear();
         assertNull(conf.getString("test[1]/entity/@name"));
     }

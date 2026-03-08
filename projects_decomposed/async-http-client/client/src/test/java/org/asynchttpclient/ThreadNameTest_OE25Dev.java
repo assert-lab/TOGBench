@@ -45,6 +45,27 @@ public class ThreadNameTest_OE25Dev extends AbstractBasicTest {
   }
 
   @Test
+  public void testThreadName() throws Exception {
+    String threadPoolName = "ahc-" + (new Random().nextLong() & 0x7fffffffffffffffL);
+    try (AsyncHttpClient client = asyncHttpClient(config().setThreadPoolName(threadPoolName))) {
+      Future<Response> f = client.prepareGet("http://localhost:" + port1 + "/").execute();
+      f.get(3, TimeUnit.SECONDS);
+
+      // We cannot assert that all threads are created with specified name,
+      // so we checking that at least one thread is.
+      boolean found = false;
+      for (Thread thread : getThreads()) {
+        if (thread.getName().startsWith(threadPoolName)) {
+          found = true;
+          break;
+        }
+      }
+
+      Assert.assertTrue(found, "must found threads starting with random string " + threadPoolName);
+    }
+  }
+
+  @Test
   public void testThreadName_1_oe() throws Exception {
     String threadPoolName = "ahc-" + (new Random().nextLong() & 0x7fffffffffffffffL);
     try (AsyncHttpClient client = asyncHttpClient(config().setThreadPoolName(threadPoolName))) {

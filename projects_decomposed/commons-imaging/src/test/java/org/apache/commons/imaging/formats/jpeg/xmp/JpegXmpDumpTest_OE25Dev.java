@@ -37,6 +37,17 @@ public class JpegXmpDumpTest_OE25Dev extends JpegXmpBaseTest {
 
     @ParameterizedTest
     @MethodSource("data")
+    public void test(final File imageFile) throws Exception {
+        final ByteSource byteSource = new ByteSourceFile(imageFile);
+        final JpegImagingParameters params = new JpegImagingParameters();
+        final String xmpXml = new JpegImageParser().getXmpXml(byteSource, params);
+
+        // TODO assert more
+        assertNotNull(xmpXml);
+    }
+
+    @ParameterizedTest
+    @MethodSource("data")
     public void test_1_oe(final File imageFile) throws Exception {
         final ByteSource byteSource = new ByteSourceFile(imageFile);
         final JpegImagingParameters params = new JpegImagingParameters();

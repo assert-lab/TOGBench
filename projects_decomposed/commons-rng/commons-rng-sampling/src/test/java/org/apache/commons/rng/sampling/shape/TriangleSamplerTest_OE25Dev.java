@@ -64,18 +64,94 @@ class TriangleSamplerTest_OE25Dev {
      * Test the sampling assumptions used to transform coordinates outside the triangle
      * back inside the triangle.
      */
+    @Test
+    void testSamplingAssumptions() {
+        // The separation between the 2^53 dyadic rationals in the interval [0, 1)
+        final double delta = 0x1.0p-53;
+        double s = 0.5;
+        double t = 0.5 + delta;
+        // This value cannot be exactly represented and is rounded
+        final double spt = s + t;
+        // Test that (1 - (1-s) - (1-t)) is not equal to (s + t - 1).
+        // This is due to the rounding to store s + t as a double.
+        final double expected = 1 - (1 - s) - (1 - t);
+        Assertions.assertNotEquals(expected, spt - 1);
+        Assertions.assertNotEquals(expected, s + t - 1);
+        // For any uniform deviate u in [0, 1], u - 1 is exact, thus s - 1 is exact
+        // and s - 1 + t is exact.
+        Assertions.assertEquals(expected, s - 1 + t);
+
+        // Test that a(1 - s - t) + sb + tc does not overflow is s+t = 1
+        final double max = Double.MAX_VALUE;
+        s -= delta;
+        final UniformRandomProvider rng = RandomSource.XO_RO_SHI_RO_128_PP.create();
+        for (int n = 0; n < 100; n++) {
+            Assertions.assertNotEquals(Double.POSITIVE_INFINITY, (1 - s - t) * max + s * max + t * max);
+            s = rng.nextDouble();
+            t = 1.0 - s;
+        }
+    }
 
     /**
      * Test an unsupported dimension.
      */
+    @Test
+    void testInvalidDimensionThrows() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        Assertions.assertThrows(IllegalArgumentException.class,
+            () -> TriangleSampler.of(rng, new double[1], new double[1], new double[1]));
+    }
 
     /**
      * Test a dimension mismatch between vertices.
      */
+    @Test
+    void testDimensionMismatchThrows() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        final double[] c2 = new double[2];
+        final double[] c3 = new double[3];
+        for (double[][] c : new double[][][] {
+            {c2, c2, c3},
+            {c2, c3, c2},
+            {c3, c2, c2},
+            {c2, c3, c3},
+            {c3, c3, c2},
+            {c3, c2, c3},
+        }) {
+            Assertions.assertThrows(IllegalArgumentException.class,
+                () -> TriangleSampler.of(rng, c[0], c[1], c[2]),
+                () -> String.format("Did not detect dimension mismatch: %d,%d,%d",
+                    c[0].length, c[1].length, c[2].length));
+        }
+    }
 
     /**
      * Test non-finite vertices.
      */
+    @Test
+    void testNonFiniteVertexCoordinates() {
+        final UniformRandomProvider rng = RandomSource.SPLIT_MIX_64.create(0L);
+        // A valid triangle
+        final double[][] c = new double[][] {
+            {0, 0, 1}, {2, 1, 0}, {-1, 2, 3}
+        };
+        Assertions.assertNotNull(TriangleSampler.of(rng, c[0],  c[1],  c[2]));
+        final double[] bad = {Double.POSITIVE_INFINITY, Double.NEGATIVE_INFINITY, Double.NaN};
+        for (int i = 0; i < c.length; i++) {
+            final int ii = i;
+            for (int j = 0; j < c[0].length; j++) {
+                final int jj = j;
+                for (final double d : bad) {
+                    final double value = c[i][j];
+                    c[i][j] = d;
+                    Assertions.assertThrows(IllegalArgumentException.class,
+                        () -> TriangleSampler.of(rng, c[0], c[1], c[2]),
+                        () -> String.format("Did not detect non-finite coordinate: %d,%d = %s", ii, jj, d));
+                    c[i][j] = value;
+                }
+            }
+        }
+    }
 
     /**
      * Test a triangle with coordinates that are separated by more than
@@ -453,10 +529,29 @@ class TriangleSamplerTest_OE25Dev {
     /**
      * Test 3D rotations forward and reverse.
      */
+    @Test
+    void testRotations3D() {
+        final double[] x = {1, 0.5, 0};
+        final double[] y = multiply(F3, x);
+        Assertions.assertArrayEquals(new double[] {0.465475314831549, 1.004183876910958, -0.157947689551155}, y, 1e-10);
+        Assertions.assertEquals(length(x), length(y), 1e-10);
+        final double[] x2 = multiply(R3, y);
+        Assertions.assertArrayEquals(x, x2, 1e-10);
+    }
 
     /**
      * Test 4D rotations forward and reverse.
      */
+    @Test
+    void testRotations4D() {
+        final double[] x = {1, 0.5, 0, 0};
+        final double[] y = multiply(F4, x);
+        Assertions.assertArrayEquals(
+                new double[] {0.676776695296637, 0.780330085889911, 0.323223304703363, -0.280330085889911}, y, 1e-10);
+        Assertions.assertEquals(length(x), length(y), 1e-10);
+        final double[] x2 = multiply(R4, y);
+        Assertions.assertArrayEquals(x, x2, 1e-10);
+    }
 
     /**
      * Matrix multiplication. It is assumed the matrix is square and matches (or exceeds)
@@ -494,6 +589,32 @@ class TriangleSamplerTest_OE25Dev {
     /**
      * Test the triangle contains predicate.
      */
+    @Test
+    void testTriangleContains() {
+        final Triangle triangle = new Triangle(1, 2, 3, 1, 0.5, 6);
+        // Vertices
+        Assertions.assertTrue(triangle.contains(1, 2));
+        Assertions.assertTrue(triangle.contains(3, 1));
+        Assertions.assertTrue(triangle.contains(0.5, 6));
+        // Edge
+        Assertions.assertTrue(triangle.contains(0.75, 4));
+        // Inside
+        Assertions.assertTrue(triangle.contains(1.5, 3));
+        // Outside
+        Assertions.assertFalse(triangle.contains(0, 20));
+        Assertions.assertFalse(triangle.contains(-20, 0));
+        Assertions.assertFalse(triangle.contains(6, 6));
+        // Just outside
+        Assertions.assertFalse(triangle.contains(0.75, 4 - 1e-10));
+
+        // Note:
+        // Touching triangles can both have the point triangle.
+        // This predicate is not suitable for assigning points uniquely to
+        // non-overlapping triangles that share an edge.
+        final Triangle triangle2 = new Triangle(1, 2, 3, 1, 0, -2);
+        Assertions.assertTrue(triangle.contains(2, 1.5));
+        Assertions.assertTrue(triangle2.contains(2, 1.5));
+    }
 
     /**
      * Define a transform on coordinates.
