@@ -10,9 +10,6 @@ A benchmark pipeline for rebuilding, injecting, and evaluating test oracle asser
 .
 ├── dataset_mixed/                  # Per-project dataset for mixed tests
 │   └── <project>/
-│       ├── inputs_no_assert.csv
-│       ├── inputs_llm.csv
-│       └── togll.csv
 ├── dataset_single/                 # Per-project dataset for single tests
 │   └── <project>/
 ├── dataset_custom/                 # Per-project dataset for custom tests
