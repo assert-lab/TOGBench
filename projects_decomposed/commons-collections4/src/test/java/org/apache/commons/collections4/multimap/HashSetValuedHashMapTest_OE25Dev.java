@@ -52,6 +52,78 @@ public static Test suite() {
     }
 
     // -----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testSetValuedMapAdd() {
+        final SetValuedMap<K, V> setMap = makeObject();
+        assertTrue(setMap.get((K) "whatever") instanceof Set);
+
+        final Set<V> set = setMap.get((K) "A");
+        assertTrue(set.add((V) "a1"));
+        assertTrue(set.add((V) "a2"));
+        assertFalse(set.add((V) "a1"));
+        assertEquals(2, setMap.size());
+        assertTrue(setMap.containsKey("A"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testSetValuedMapRemove() {
+        final SetValuedMap<K, V> setMap = makeObject();
+        assertTrue(setMap.get((K) "whatever") instanceof Set);
+
+        final Set<V> set = setMap.get((K) "A");
+        assertTrue(set.add((V) "a1"));
+        assertTrue(set.add((V) "a2"));
+        assertFalse(set.add((V) "a1"));
+        assertEquals(2, setMap.size());
+        assertTrue(setMap.containsKey("A"));
+
+        assertTrue(set.remove("a1"));
+        assertTrue(set.remove("a2"));
+        assertFalse(set.remove("a1"));
+
+        assertEquals(0, setMap.size());
+        assertFalse(setMap.containsKey("A"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testSetValuedMapRemoveViaIterator() {
+        final SetValuedMap<K, V> setMap = makeObject();
+        assertTrue(setMap.get((K) "whatever") instanceof Set);
+
+        final Set<V> set = setMap.get((K) "A");
+        set.add((V) "a1");
+        set.add((V) "a2");
+        set.add((V) "a1");
+
+        final Iterator<V> it = set.iterator();
+        while (it.hasNext()) {
+            it.next();
+            it.remove();
+        }
+        assertEquals(0, setMap.size());
+        assertFalse(setMap.containsKey("A"));
+    }
+
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public void testSetValuedMapEqualsHashCodeContract() {
+        final SetValuedMap map1 = makeObject();
+        final SetValuedMap map2 = makeObject();
+
+        map1.put("a", "a1");
+        map1.put("a", "a2");
+        map2.put("a", "a2");
+        map2.put("a", "a1");
+        assertEquals(map1, map2);
+        assertEquals(map1.hashCode(), map2.hashCode());
+
+        map2.put("a", "a2");
+        assertEquals(map1, map2);
+        assertEquals(map1.hashCode(), map2.hashCode());
+
+        map2.put("a", "a3");
+        assertNotSame(map1, map2);
+        assertNotSame(map1.hashCode(), map2.hashCode());
+    }
 
 //    public void testCreate() throws Exception {
 //        writeExternalFormToDisk((java.io.Serializable) makeObject(),
@@ -62,40 +134,40 @@ public static Test suite() {
 
     public void testSetValuedMapAdd_1_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
-        assertTrue(setMap.get((K) "whatever") instanceof Set);
+        assertEquals(false, setMap.isEmpty());
     }
 
     public void testSetValuedMapAdd_2_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
 
         final Set<V> set = setMap.get((K) "A");
-        assertTrue(set.add((V) "a1"));
+        assertEquals(false, setMap.isEmpty());
     }
 
     public void testSetValuedMapAdd_3_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
 
         final Set<V> set = setMap.get((K) "A");
-        assertTrue(set.add((V) "a2"));
+        assertEquals(false, setMap.isEmpty());
     }
 
     public void testSetValuedMapRemove_1_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
-        assertTrue(setMap.get((K) "whatever") instanceof Set);
+        assertEquals(false, setMap.isEmpty());
     }
 
     public void testSetValuedMapRemove_2_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
 
         final Set<V> set = setMap.get((K) "A");
-        assertTrue(set.add((V) "a1"));
+        assertEquals(false, setMap.isEmpty());
     }
 
     public void testSetValuedMapRemove_3_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
 
         final Set<V> set = setMap.get((K) "A");
-        assertTrue(set.add((V) "a2"));
+        assertEquals(false, setMap.isEmpty());
     }
 
     public void testSetValuedMapRemove_9_oe() {
@@ -103,7 +175,7 @@ public static Test suite() {
 
         final Set<V> set = setMap.get((K) "A");
 
-        assertFalse(set.remove("a1"));
+        assertEquals(false, setMap.isEmpty());
     }
 
     public void testSetValuedMapRemove_10_oe() {
@@ -115,18 +187,9 @@ public static Test suite() {
         assertEquals(0, setMap.size());
     }
 
-    public void testSetValuedMapRemove_11_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-
-        final Set<V> set = setMap.get((K) "A");
-
-
-        assertFalse(setMap.containsKey("A"));
-    }
-
     public void testSetValuedMapRemoveViaIterator_1_oe() {
         final SetValuedMap<K, V> setMap = makeObject();
-        assertTrue(setMap.get((K) "whatever") instanceof Set);
+        assertEquals(false, setMap.isEmpty());
     }
 
     public void testSetValuedMapRemoveViaIterator_2_oe() {
@@ -145,22 +208,6 @@ public static Test suite() {
         assertEquals(0, setMap.size());
     }
 
-    public void testSetValuedMapRemoveViaIterator_3_oe() {
-        final SetValuedMap<K, V> setMap = makeObject();
-
-        final Set<V> set = setMap.get((K) "A");
-        set.add((V) "a1");
-        set.add((V) "a2");
-        set.add((V) "a1");
-
-        final Iterator<V> it = set.iterator();
-        while (it.hasNext()) {
-            it.next();
-            it.remove();
-        }
-        assertFalse(setMap.containsKey("A"));
-    }
-
     public void testSetValuedMapEqualsHashCodeContract_1_oe() {
         final SetValuedMap map1 = makeObject();
         final SetValuedMap map2 = makeObject();
@@ -169,31 +216,7 @@ public static Test suite() {
         map1.put("a", "a2");
         map2.put("a", "a2");
         map2.put("a", "a1");
-        assertEquals(map1, map2);
-    }
-
-    public void testSetValuedMapEqualsHashCodeContract_2_oe() {
-        final SetValuedMap map1 = makeObject();
-        final SetValuedMap map2 = makeObject();
-
-        map1.put("a", "a1");
-        map1.put("a", "a2");
-        map2.put("a", "a2");
-        map2.put("a", "a1");
-        assertEquals(map1.hashCode(), map2.hashCode());
-    }
-
-    public void testSetValuedMapEqualsHashCodeContract_3_oe() {
-        final SetValuedMap map1 = makeObject();
-        final SetValuedMap map2 = makeObject();
-
-        map1.put("a", "a1");
-        map1.put("a", "a2");
-        map2.put("a", "a2");
-        map2.put("a", "a1");
-
-        map2.put("a", "a2");
-        assertEquals(map1, map2);
+        assertEquals(true, map1.equals(map2));
     }
 
     public void testSetValuedMapEqualsHashCodeContract_4_oe() {
@@ -206,37 +229,7 @@ public static Test suite() {
         map2.put("a", "a1");
 
         map2.put("a", "a2");
-        assertEquals(map1.hashCode(), map2.hashCode());
-    }
-
-    public void testSetValuedMapEqualsHashCodeContract_5_oe() {
-        final SetValuedMap map1 = makeObject();
-        final SetValuedMap map2 = makeObject();
-
-        map1.put("a", "a1");
-        map1.put("a", "a2");
-        map2.put("a", "a2");
-        map2.put("a", "a1");
-
-        map2.put("a", "a2");
-
-        map2.put("a", "a3");
-        assertNotSame(map1, map2);
-    }
-
-    public void testSetValuedMapEqualsHashCodeContract_6_oe() {
-        final SetValuedMap map1 = makeObject();
-        final SetValuedMap map2 = makeObject();
-
-        map1.put("a", "a1");
-        map1.put("a", "a2");
-        map2.put("a", "a2");
-        map2.put("a", "a1");
-
-        map2.put("a", "a2");
-
-        map2.put("a", "a3");
-        assertNotSame(map1.hashCode(), map2.hashCode());
+        assertEquals(true, map1.equals(map2));
     }
 
 }

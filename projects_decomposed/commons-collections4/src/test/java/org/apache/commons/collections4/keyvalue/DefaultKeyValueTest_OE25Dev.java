@@ -53,27 +53,144 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
     }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testAccessorsAndMutators() {
+        final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
+
+        kv.setKey((K) key);
+        assertTrue(kv.getKey() == key);
+
+        kv.setValue((V) value);
+        assertTrue(kv.getValue() == value);
+
+        // check that null doesn't do anything funny
+        kv.setKey(null);
+        assertTrue(kv.getKey() == null);
+
+        kv.setValue(null);
+        assertTrue(kv.getValue() == null);
+
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testSelfReferenceHandling() {
+        // test that #setKey and #setValue do not permit
+        //  the KVP to contain itself (and thus cause infinite recursion
+        //  in #hashCode and #toString)
+
+        final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
+
+        try {
+            kv.setKey((K) kv);
+            fail("Should throw an IllegalArgumentException");
+        } catch (final IllegalArgumentException iae) {
+            // expected to happen...
+
+            // check that the KVP's state has not changed
+            assertTrue(kv.getKey() == null && kv.getValue() == null);
+        }
+
+        try {
+            kv.setValue((V) kv);
+            fail("Should throw an IllegalArgumentException");
+        } catch (final IllegalArgumentException iae) {
+            // expected to happen...
+
+            // check that the KVP's state has not changed
+            assertTrue(kv.getKey() == null && kv.getValue() == null);
+        }
+    }
 
     /**
      * Subclasses should override this method to test their own constructors.
      */
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testConstructors() {
+        // 1. test default constructor
+        DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
+        assertTrue(kv.getKey() == null && kv.getValue() == null);
+
+        // 2. test key-value constructor
+        kv = new DefaultKeyValue<>((K) key, (V) value);
+        assertTrue(kv.getKey() == key && kv.getValue() == value);
+
+        // 3. test copy constructor
+        final DefaultKeyValue<K, V> kv2 = new DefaultKeyValue<>(kv);
+        assertTrue(kv2.getKey() == key && kv2.getValue() == value);
+
+        // test that the KVPs are independent
+        kv.setKey(null);
+        kv.setValue(null);
+
+        assertTrue(kv2.getKey() == key && kv2.getValue() == value);
+
+        // 4. test Map.Entry constructor
+        final Map<K, V> map = new HashMap<>();
+        map.put((K) key, (V) value);
+        final Map.Entry<K, V> entry = map.entrySet().iterator().next();
+
+        kv = new DefaultKeyValue<>(entry);
+        assertTrue(kv.getKey() == key && kv.getValue() == value);
+
+        // test that the KVP is independent of the Map.Entry
+        entry.setValue(null);
+        assertTrue(kv.getValue() == value);
+
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testEqualsAndHashCode() {
+        // 1. test with object data
+        DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
+        DefaultKeyValue<K, V> kv2 = makeDefaultKeyValue((K) key, (V) value);
+
+        assertTrue(kv.equals(kv));
+        assertTrue(kv.equals(kv2));
+        assertTrue(kv.hashCode() == kv2.hashCode());
+
+        // 2. test with nulls
+        kv = makeDefaultKeyValue(null, null);
+        kv2 = makeDefaultKeyValue(null, null);
+
+        assertTrue(kv.equals(kv));
+        assertTrue(kv.equals(kv2));
+        assertTrue(kv.hashCode() == kv2.hashCode());
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testToString() {
+        DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
+        assertTrue(kv.toString().equals(kv.getKey() + "=" + kv.getValue()));
+
+        // test with nulls
+        kv = makeDefaultKeyValue(null, null);
+        assertTrue(kv.toString().equals(kv.getKey() + "=" + kv.getValue()));
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testToMapEntry() {
+        final DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
+
+        final Map<K, V> map = new HashMap<>();
+        map.put(kv.getKey(), kv.getValue());
+        final Map.Entry<K, V> entry = map.entrySet().iterator().next();
+
+        assertTrue(entry.equals(kv.toMapEntry()));
+        assertTrue(entry.hashCode() == kv.hashCode());
+    }
 
     @Test
     public void testAccessorsAndMutators_1_oe() {
         final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
 
         kv.setKey((K) key);
-        assertTrue(kv.getKey() == key);
-    }
-
-    @Test
-    public void testAccessorsAndMutators_2_oe() {
-        final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
-
-        kv.setKey((K) key);
-
-        kv.setValue((V) value);
-        assertTrue(kv.getValue() == value);
+        assertNull(kv.getKey());
     }
 
     @Test
@@ -85,59 +202,13 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         kv.setValue((V) value);
 
         kv.setKey(null);
-        assertTrue(kv.getKey() == null);
-    }
-
-    @Test
-    public void testAccessorsAndMutators_4_oe() {
-        final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
-
-        kv.setKey((K) key);
-
-        kv.setValue((V) value);
-
-        kv.setKey(null);
-
-        kv.setValue(null);
-        assertTrue(kv.getValue() == null);
-    }
-
-    @Test
-    public void testSelfReferenceHandling_2_oe() {
-
-        final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
-
-        try {
-            kv.setKey((K) kv);
-        } catch (final IllegalArgumentException iae) {
-
-            assertTrue(kv.getKey() == null && kv.getValue() == null);
-    }
-    }
-
-    @Test
-    public void testSelfReferenceHandling_4_oe() {
-
-        final DefaultKeyValue<K, V> kv = makeDefaultKeyValue();
-
-        try {
-            kv.setKey((K) kv);
-        } catch (final IllegalArgumentException iae) {
-
-        }
-
-        try {
-            kv.setValue((V) kv);
-        } catch (final IllegalArgumentException iae) {
-
-            assertTrue(kv.getKey() == null && kv.getValue() == null);
-    }
+        assertNull(kv.getKey());
     }
 
     @Test
     public void testConstructors_1_oe() {
         DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
-        assertTrue(kv.getKey() == null && kv.getValue() == null);
+        assertNull(kv.getKey());
     }
 
     @Test
@@ -145,7 +216,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
 
         kv = new DefaultKeyValue<>((K) key, (V) value);
-        assertTrue(kv.getKey() == key && kv.getValue() == value);
+        assertNull(kv.getKey());
     }
 
     @Test
@@ -155,7 +226,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         kv = new DefaultKeyValue<>((K) key, (V) value);
 
         final DefaultKeyValue<K, V> kv2 = new DefaultKeyValue<>(kv);
-        assertTrue(kv2.getKey() == key && kv2.getValue() == value);
+        assertNotNull(kv2.getKey());
     }
 
     @Test
@@ -169,49 +240,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         kv.setKey(null);
         kv.setValue(null);
 
-        assertTrue(kv2.getKey() == key && kv2.getValue() == value);
-    }
-
-    @Test
-    public void testConstructors_5_oe() {
-        DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
-
-        kv = new DefaultKeyValue<>((K) key, (V) value);
-
-        final DefaultKeyValue<K, V> kv2 = new DefaultKeyValue<>(kv);
-
-        kv.setKey(null);
-        kv.setValue(null);
-
-
-        final Map<K, V> map = new HashMap<>();
-        map.put((K) key, (V) value);
-        final Map.Entry<K, V> entry = map.entrySet().iterator().next();
-
-        kv = new DefaultKeyValue<>(entry);
-        assertTrue(kv.getKey() == key && kv.getValue() == value);
-    }
-
-    @Test
-    public void testConstructors_6_oe() {
-        DefaultKeyValue<K, V> kv = new DefaultKeyValue<>();
-
-        kv = new DefaultKeyValue<>((K) key, (V) value);
-
-        final DefaultKeyValue<K, V> kv2 = new DefaultKeyValue<>(kv);
-
-        kv.setKey(null);
-        kv.setValue(null);
-
-
-        final Map<K, V> map = new HashMap<>();
-        map.put((K) key, (V) value);
-        final Map.Entry<K, V> entry = map.entrySet().iterator().next();
-
-        kv = new DefaultKeyValue<>(entry);
-
-        entry.setValue(null);
-        assertTrue(kv.getValue() == value);
+        assertNull(kv2.getKey());
     }
 
     @Test
@@ -219,7 +248,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
         DefaultKeyValue<K, V> kv2 = makeDefaultKeyValue((K) key, (V) value);
 
-        assertTrue(kv.equals(kv));
+        assertEquals(false, kv2.equals(kv));
     }
 
     @Test
@@ -227,7 +256,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
         DefaultKeyValue<K, V> kv2 = makeDefaultKeyValue((K) key, (V) value);
 
-        assertTrue(kv.equals(kv2));
+        assertEquals(false, kv2.equals(kv));
     }
 
     @Test
@@ -235,7 +264,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
         DefaultKeyValue<K, V> kv2 = makeDefaultKeyValue((K) key, (V) value);
 
-        assertTrue(kv.hashCode() == kv2.hashCode());
+        assertEquals(false, kv2.equals(kv));
     }
 
     @Test
@@ -247,7 +276,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         kv = makeDefaultKeyValue(null, null);
         kv2 = makeDefaultKeyValue(null, null);
 
-        assertTrue(kv.equals(kv));
+        assertEquals(0, kv2.hashCode());
     }
 
     @Test
@@ -259,7 +288,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         kv = makeDefaultKeyValue(null, null);
         kv2 = makeDefaultKeyValue(null, null);
 
-        assertTrue(kv.equals(kv2));
+        assertEquals(0, kv2.hashCode());
     }
 
     @Test
@@ -271,13 +300,13 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         kv = makeDefaultKeyValue(null, null);
         kv2 = makeDefaultKeyValue(null, null);
 
-        assertTrue(kv.hashCode() == kv2.hashCode());
+        assertEquals(0, kv.hashCode());  assertEquals(0, kv2.hashCode());
     }
 
     @Test
     public void testToString_1_oe() {
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
-        assertTrue(kv.toString().equals(kv.getKey() + "=" + kv.getValue()));
+        assertEquals(0, kv.hashCode());
     }
 
     @Test
@@ -285,7 +314,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         DefaultKeyValue<K, V> kv = makeDefaultKeyValue((K) key, (V) value);
 
         kv = makeDefaultKeyValue(null, null);
-        assertTrue(kv.toString().equals(kv.getKey() + "=" + kv.getValue()));
+        assertEquals(0, kv.hashCode());
     }
 
     @Test
@@ -296,7 +325,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         map.put(kv.getKey(), kv.getValue());
         final Map.Entry<K, V> entry = map.entrySet().iterator().next();
 
-        assertTrue(entry.equals(kv.toMapEntry()));
+        assertEquals(0, map.size());
     }
 
     @Test
@@ -307,7 +336,7 @@ public class DefaultKeyValueTest_OE25Dev<K, V> {
         map.put(kv.getKey(), kv.getValue());
         final Map.Entry<K, V> entry = map.entrySet().iterator().next();
 
-        assertTrue(entry.hashCode() == kv.hashCode());
+        assertEquals(1, map.size());
     }
 
 }

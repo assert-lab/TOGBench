@@ -42,6 +42,63 @@ public static Test suite() {
     }
 
     //-----------------------------------------------------------------------
+    public void testNewStack() {
+        final ArrayStack<E> stack = makeObject();
+        assertTrue("New stack is empty", stack.empty());
+        assertEquals("New stack has size zero", 0, stack.size());
+
+        try {
+            stack.peek();
+            fail("peek() should have thrown EmptyStackException");
+        } catch (final EmptyStackException e) {
+            // Expected result
+        }
+
+        try {
+            stack.pop();
+            fail("pop() should have thrown EmptyStackException");
+        } catch (final EmptyStackException e) {
+            // Expected result
+        }
+
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testPushPeekPop() {
+        final ArrayStack<E> stack = makeObject();
+
+        stack.push((E) "First Item");
+        assertTrue("Stack is not empty", !stack.empty());
+        assertEquals("Stack size is one", 1, stack.size());
+        assertEquals("Top item is 'First Item'","First Item",(String)stack.peek());
+        assertEquals("Stack size is one", 1, stack.size());
+
+        stack.push((E) "Second Item");
+        assertEquals("Stack size is two", 2, stack.size());
+        assertEquals("Top item is 'Second Item'","Second Item",(String)stack.peek());
+        assertEquals("Stack size is two", 2, stack.size());
+
+        assertEquals("Popped item is 'Second Item'","Second Item",(String)stack.pop());
+        assertEquals("Top item is 'First Item'","First Item",(String)stack.peek());
+        assertEquals("Stack size is one", 1, stack.size());
+
+        assertEquals("Popped item is 'First Item'","First Item",(String)stack.pop());
+        assertEquals("Stack size is zero", 0, stack.size());
+
+    }
+
+    @Override
+    @SuppressWarnings("unchecked")
+    public void testSearch() {
+        final ArrayStack<E> stack = makeObject();
+
+        stack.push((E) "First Item");
+        stack.push((E) "Second Item");
+        assertEquals("Top item is 'Second Item'",1,stack.search("Second Item"));
+        assertEquals("Next Item is 'First Item'",2,stack.search("First Item"));
+        assertEquals("Cannot find 'Missing Item'",-1,stack.search("Missing Item"));
+
+    }
 
     @Override
     public String getCompatibilityVersion() {
@@ -57,40 +114,40 @@ public static Test suite() {
 
     public void testNewStack_1_oe() {
         final ArrayStack<E> stack = makeObject();
-        assertTrue("New stack is empty", stack.empty());
+        assertEquals(true, stack.empty());
     }
 
     public void testNewStack_2_oe() {
         final ArrayStack<E> stack = makeObject();
-        assertEquals("New stack has size zero", 0, stack.size());
+        assertEquals(0, stack.size());
     }
 
     public void testPushPeekPop_1_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
-        assertTrue("Stack is not empty", !stack.empty());
+        assertEquals(false, stack.empty());
     }
 
     public void testPushPeekPop_2_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
-        assertEquals("Stack size is one", 1, stack.size());
+        assertEquals(1, stack.size());
     }
 
     public void testPushPeekPop_3_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
-        assertEquals("Top item is 'First Item'","First Item",(String)stack.peek());
+        assertEquals("First Item", stack.peek());
     }
 
     public void testPushPeekPop_4_oe() {
         final ArrayStack<E> stack = makeObject();
 
         stack.push((E) "First Item");
-        assertEquals("Stack size is one", 1, stack.size());
+        assertEquals(1, stack.size());
     }
 
     public void testPushPeekPop_5_oe() {
@@ -99,7 +156,7 @@ public static Test suite() {
         stack.push((E) "First Item");
 
         stack.push((E) "Second Item");
-        assertEquals("Stack size is two", 2, stack.size());
+        assertEquals(2, stack.size());
     }
 
     public void testPushPeekPop_6_oe() {
@@ -108,7 +165,7 @@ public static Test suite() {
         stack.push((E) "First Item");
 
         stack.push((E) "Second Item");
-        assertEquals("Top item is 'Second Item'","Second Item",(String)stack.peek());
+        assertEquals("Second Item", stack.peek());
     }
 
     public void testPushPeekPop_7_oe() {
@@ -117,7 +174,7 @@ public static Test suite() {
         stack.push((E) "First Item");
 
         stack.push((E) "Second Item");
-        assertEquals("Stack size is two", 2, stack.size());
+        assertEquals(2, stack.size());
     }
 
     public void testPushPeekPop_8_oe() {
@@ -127,23 +184,7 @@ public static Test suite() {
 
         stack.push((E) "Second Item");
 
-        assertEquals("Popped item is 'Second Item'","Second Item",(String)stack.pop());
-    }
-
-    public void testSearch_1_oe() {
-        final ArrayStack<E> stack = makeObject();
-
-        stack.push((E) "First Item");
-        stack.push((E) "Second Item");
-        assertEquals("Top item is 'Second Item'",1,stack.search("Second Item"));
-    }
-
-    public void testSearch_2_oe() {
-        final ArrayStack<E> stack = makeObject();
-
-        stack.push((E) "First Item");
-        stack.push((E) "Second Item");
-        assertEquals("Next Item is 'First Item'",2,stack.search("First Item"));
+        assertEquals("Second Item", stack.pop());
     }
 
     public void testSearch_3_oe() {
@@ -151,7 +192,7 @@ public static Test suite() {
 
         stack.push((E) "First Item");
         stack.push((E) "Second Item");
-        assertEquals("Cannot find 'Missing Item'",-1,stack.search("Missing Item"));
+        assertEquals(2, stack.search((E) "Second Item"));
     }
 
 }

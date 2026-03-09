@@ -60,6 +60,18 @@ public class TransformingComparatorTest_OE25Dev extends AbstractComparatorTest<I
         return list;
     }
 
+    public void testEquals() {
+        final Transformer<String, String> t1 = TransformerUtils.nopTransformer();
+        final TransformingComparator<String, String> comp1 = new TransformingComparator<>(t1);
+        final TransformingComparator<String, String> comp2 = new TransformingComparator<>(t1, comp1);
+
+        // Checks the contract: equals-hashcode on comp1 and comp2
+        assertTrue("Contract failed: equals-hashcode",comp1.equals(comp2)? comp1.hashCode()== comp2.hashCode(): true);
+
+        // Checks the contract: equals-hashcode on comp1 and comp2
+        assertTrue("Contract failed: equals-hashcode",comp2.equals(comp1)? comp2.hashCode()== comp1.hashCode(): true);
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4";
@@ -73,21 +85,5 @@ public class TransformingComparatorTest_OE25Dev extends AbstractComparatorTest<I
     // The tests
     //
 
-    public void testEquals_1_oe() {
-        final Transformer<String, String> t1 = TransformerUtils.nopTransformer();
-        final TransformingComparator<String, String> comp1 = new TransformingComparator<>(t1);
-        final TransformingComparator<String, String> comp2 = new TransformingComparator<>(t1, comp1);
-
-        assertTrue("Contract failed: equals-hashcode",comp1.equals(comp2)? comp1.hashCode()== comp2.hashCode(): true);
-    }
-
-    public void testEquals_2_oe() {
-        final Transformer<String, String> t1 = TransformerUtils.nopTransformer();
-        final TransformingComparator<String, String> comp1 = new TransformingComparator<>(t1);
-        final TransformingComparator<String, String> comp2 = new TransformingComparator<>(t1, comp1);
-
-
-        assertTrue("Contract failed: equals-hashcode",comp2.equals(comp1)? comp2.hashCode()== comp1.hashCode(): true);
-    }
 
 }

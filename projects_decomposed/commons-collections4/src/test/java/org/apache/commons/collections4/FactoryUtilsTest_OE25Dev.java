@@ -42,14 +42,115 @@ public class FactoryUtilsTest_OE25Dev {
     // exceptionFactory
     //------------------------------------------------------------------
 
+    @Test
+    public void testExceptionFactory() {
+        assertNotNull(FactoryUtils.exceptionFactory());
+        assertSame(FactoryUtils.exceptionFactory(), FactoryUtils.exceptionFactory());
+        try {
+            FactoryUtils.exceptionFactory().create();
+        } catch (final FunctorException ex) {
+            try {
+                FactoryUtils.exceptionFactory().create();
+            } catch (final FunctorException ex2) {
+                return;
+            }
+        }
+        fail();
+    }
+
     // nullFactory
     //------------------------------------------------------------------
+
+    @Test
+    public void testNullFactory() {
+        final Factory<Object> factory = FactoryUtils.nullFactory();
+        assertNotNull(factory);
+        final Object created = factory.create();
+        assertNull(created);
+    }
 
     // constantFactory
     //------------------------------------------------------------------
 
+    @Test
+    public void testConstantFactoryNull() {
+        final Factory<Object> factory = FactoryUtils.constantFactory(null);
+        assertNotNull(factory);
+        final Object created = factory.create();
+        assertNull(created);
+    }
+
+    @Test
+    public void testConstantFactoryConstant() {
+        final Integer constant = Integer.valueOf(9);
+        final Factory<Integer> factory = FactoryUtils.constantFactory(constant);
+        assertNotNull(factory);
+        final Integer created = factory.create();
+        assertSame(constant, created);
+    }
+
     // prototypeFactory
     //------------------------------------------------------------------
+
+    @Test
+    public void testPrototypeFactoryNull() {
+        assertSame(ConstantFactory.NULL_INSTANCE, FactoryUtils.prototypeFactory(null));
+    }
+
+    @Test
+    public void testPrototypeFactoryPublicCloneMethod() throws Exception {
+        final Date proto = new Date();
+        final Factory<Date> factory = FactoryUtils.prototypeFactory(proto);
+        assertNotNull(factory);
+        final Date created = factory.create();
+        assertTrue(proto != created);
+        assertEquals(proto, created);
+    }
+
+    @Test
+    public void testPrototypeFactoryPublicCopyConstructor() throws Exception {
+        final Mock1 proto = new Mock1(6);
+        final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
+        assertNotNull(factory);
+        final Object created = factory.create();
+        assertTrue(proto != created);
+        assertEquals(proto, created);
+    }
+
+    @Test
+    public void testPrototypeFactoryPublicSerialization() throws Exception {
+        final Integer proto = Integer.valueOf(9);
+        final Factory<Integer> factory = FactoryUtils.prototypeFactory(proto);
+        assertNotNull(factory);
+        final Integer created = factory.create();
+        assertTrue(proto != created);
+        assertEquals(proto, created);
+    }
+
+    @Test
+    public void testPrototypeFactoryPublicSerializationError() {
+        final Mock2 proto = new Mock2(new Object());
+        final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
+        assertNotNull(factory);
+        try {
+            factory.create();
+        } catch (final FunctorException ex) {
+            assertTrue(ex.getCause() instanceof IOException);
+            return;
+        }
+        fail();
+    }
+
+    @Test
+    public void testPrototypeFactoryPublicBad() {
+        final Object proto = new Object();
+        try {
+            FactoryUtils.prototypeFactory(proto);
+        } catch (final IllegalArgumentException ex) {
+            return;
+        }
+        fail();
+    }
 
     public static class Mock1 {
         private final int iVal;
@@ -117,6 +218,16 @@ public class FactoryUtilsTest_OE25Dev {
         FactoryUtils.instantiateFactory(null);
     }
 
+    @Test
+    public void instantiateFactorySimple() {
+        final Factory<Mock3> factory = FactoryUtils.instantiateFactory(Mock3.class);
+        assertNotNull(factory);
+        Mock3 created = factory.create();
+        assertEquals(0, created.getValue());
+        created = factory.create();
+        assertEquals(1, created.getValue());
+    }
+
     @Test(expected=IllegalArgumentException.class)
     public void instantiateFactoryMismatch() {
         FactoryUtils.instantiateFactory(Date.class, null, new Object[] {null});
@@ -127,6 +238,19 @@ public class FactoryUtilsTest_OE25Dev {
         FactoryUtils.instantiateFactory(Date.class, new Class[] {Long.class}, new Object[] {null});
     }
 
+    @Test
+    public void instantiateFactoryComplex() {
+        TimeZone.setDefault(TimeZone.getTimeZone("GMT"));
+        // 2nd Jan 1970
+        final Factory<Date> factory = FactoryUtils.instantiateFactory(Date.class,
+            new Class[] {Integer.TYPE, Integer.TYPE, Integer.TYPE},
+            new Object[] {Integer.valueOf(70), Integer.valueOf(0), Integer.valueOf(2)});
+        assertNotNull(factory);
+        final Date created = factory.create();
+        // long time of 1 day (== 2nd Jan 1970)
+        assertEquals(new Date(1000 * 60 * 60 * 24), created);
+    }
+
     // misc tests
     //------------------------------------------------------------------
 
@@ -134,31 +258,24 @@ public class FactoryUtilsTest_OE25Dev {
      * Test that all Factory singletones hold singleton pattern in
      * serialization/deserialization process.
      */
+    @Test
+    public void testSingletonPatternInSerialization() {
+        final Object[] singletones = new Object[] {
+                ExceptionFactory.INSTANCE,
+        };
+
+        for (final Object original : singletones) {
+            TestUtils.assertSameAfterSerialization(
+                    "Singletone patern broken for " + original.getClass(),
+                    original
+            );
+        }
+    }
 
     @Test
     public void testExceptionFactory_1_oe() {
         Object a = FactoryUtils.exceptionFactory();
         assertNotNull(a);
-    }
-
-    @Test
-    public void testExceptionFactory_2_oe() {
-        Object a = FactoryUtils.exceptionFactory();
-        assertSame(FactoryUtils.exceptionFactory(), a);
-    }
-
-    @Test
-    public void testExceptionFactory_3_oe() {
-        try {
-            FactoryUtils.exceptionFactory().create();
-        } catch (final FunctorException ex) {
-            try {
-                FactoryUtils.exceptionFactory().create();
-            } catch (final FunctorException ex2) {
-                return;
-            }
-        }
-        fail();
     }
 
     @Test
@@ -172,12 +289,6 @@ public class FactoryUtilsTest_OE25Dev {
         final Factory<Object> factory = FactoryUtils.nullFactory();
         final Object created = factory.create();
         assertNull(created);
-    }
-
-    @Test
-    public void testConstantFactoryNull_1_oe() {
-        final Factory<Object> factory = FactoryUtils.constantFactory(null);
-        assertNotNull(factory);
     }
 
     @Test
@@ -199,20 +310,7 @@ public class FactoryUtilsTest_OE25Dev {
         final Integer constant = Integer.valueOf(9);
         final Factory<Integer> factory = FactoryUtils.constantFactory(constant);
         final Integer created = factory.create();
-        assertSame(constant, created);
-    }
-
-    @Test
-    public void testPrototypeFactoryNull_1_oe() {
-        Object a = FactoryUtils.prototypeFactory(null);
-        assertSame(ConstantFactory.NULL_INSTANCE, a);
-    }
-
-    @Test
-    public void testPrototypeFactoryPublicCloneMethod_1_oe() throws Exception {
-        final Date proto = new Date();
-        final Factory<Date> factory = FactoryUtils.prototypeFactory(proto);
-        assertNotNull(factory);
+        assertEquals(9, (int)created);
     }
 
     @Test
@@ -220,7 +318,7 @@ public class FactoryUtilsTest_OE25Dev {
         final Date proto = new Date();
         final Factory<Date> factory = FactoryUtils.prototypeFactory(proto);
         final Date created = factory.create();
-        assertTrue(proto != created);
+        assertNotNull(created);
     }
 
     @Test
@@ -228,14 +326,7 @@ public class FactoryUtilsTest_OE25Dev {
         final Date proto = new Date();
         final Factory<Date> factory = FactoryUtils.prototypeFactory(proto);
         final Date created = factory.create();
-        assertEquals(proto, created);
-    }
-
-    @Test
-    public void testPrototypeFactoryPublicCopyConstructor_1_oe() throws Exception {
-        final Mock1 proto = new Mock1(6);
-        final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
-        assertNotNull(factory);
+        assertNotNull(created);
     }
 
     @Test
@@ -243,7 +334,7 @@ public class FactoryUtilsTest_OE25Dev {
         final Mock1 proto = new Mock1(6);
         final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
         final Object created = factory.create();
-        assertTrue(proto != created);
+        assertNotNull(created);
     }
 
     @Test
@@ -251,14 +342,7 @@ public class FactoryUtilsTest_OE25Dev {
         final Mock1 proto = new Mock1(6);
         final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
         final Object created = factory.create();
-        assertEquals(proto, created);
-    }
-
-    @Test
-    public void testPrototypeFactoryPublicSerialization_1_oe() throws Exception {
-        final Integer proto = Integer.valueOf(9);
-        final Factory<Integer> factory = FactoryUtils.prototypeFactory(proto);
-        assertNotNull(factory);
+        assertNotNull(created);
     }
 
     @Test
@@ -266,7 +350,7 @@ public class FactoryUtilsTest_OE25Dev {
         final Integer proto = Integer.valueOf(9);
         final Factory<Integer> factory = FactoryUtils.prototypeFactory(proto);
         final Integer created = factory.create();
-        assertTrue(proto != created);
+        assertEquals(0, created.byteValue());
     }
 
     @Test
@@ -274,61 +358,13 @@ public class FactoryUtilsTest_OE25Dev {
         final Integer proto = Integer.valueOf(9);
         final Factory<Integer> factory = FactoryUtils.prototypeFactory(proto);
         final Integer created = factory.create();
-        assertEquals(proto, created);
-    }
-
-    @Test
-    public void testPrototypeFactoryPublicSerializationError_1_oe() {
-        final Mock2 proto = new Mock2(new Object());
-        final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
-        assertNotNull(factory);
-    }
-
-    @Test
-    public void testPrototypeFactoryPublicSerializationError_2_oe() {
-        final Mock2 proto = new Mock2(new Object());
-        final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
-        try {
-            factory.create();
-        } catch (final FunctorException ex) {
-            assertTrue(ex.getCause() instanceof IOException);
-    }
-    }
-
-    @Test
-    public void testPrototypeFactoryPublicSerializationError_3_oe() {
-        final Mock2 proto = new Mock2(new Object());
-        final Factory<Object> factory = FactoryUtils.<Object>prototypeFactory(proto);
-        try {
-            factory.create();
-        } catch (final FunctorException ex) {
-            return;
-        }
-        fail();
-    }
-
-    @Test
-    public void testPrototypeFactoryPublicBad_1_oe() {
-        final Object proto = new Object();
-        try {
-            FactoryUtils.prototypeFactory(proto);
-        } catch (final IllegalArgumentException ex) {
-            return;
-        }
-        fail();
+        assertEquals(0, created.byteValue());
     }
 
     @Test
     public void instantiateFactorySimple_1_oe() {
         final Factory<Mock3> factory = FactoryUtils.instantiateFactory(Mock3.class);
         assertNotNull(factory);
-    }
-
-    @Test
-    public void instantiateFactorySimple_2_oe() {
-        final Factory<Mock3> factory = FactoryUtils.instantiateFactory(Mock3.class);
-        Mock3 created = factory.create();
-        assertEquals(0, created.getValue());
     }
 
     @Test
@@ -347,7 +383,7 @@ public class FactoryUtilsTest_OE25Dev {
             new Class[] {Integer.TYPE, Integer.TYPE, Integer.TYPE},
             new Object[] {Integer.valueOf(70), Integer.valueOf(0), Integer.valueOf(2)});
         final Date created = factory.create();
-        assertEquals(new Date(1000 * 60 * 60 * 24), created);
+        assertNotNull(created);
     }
 
 @Test
@@ -357,7 +393,7 @@ public class FactoryUtilsTest_OE25Dev {
         };
 
         for (final Object original : singletones) {
-            TestUtils.assertSameAfterSerialization( "Singletone patern broken for " + original.getClass(), original );
+            assertEquals(1, singletones.length);
     }
     }
 

@@ -64,111 +64,74 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         return map;
     }
 
-    @Override
-    public String getCompatibilityVersion() {
-        return "4";
-    }
-
-//    public void testCreate() throws Exception {
-//        resetEmpty();
-//        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/CompositeMap.emptyCollection.version4.obj");
-//        resetFull();
-//        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/CompositeMap.fullCollection.version4.obj");
-//    }
-
-    public void testGet_1_oe() {
+    public void testGet() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         assertEquals("one", map.get("1"));
-    }
-
-    public void testGet_2_oe() {
-        final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         assertEquals("four", map.get("4"));
     }
 
-    public void testAddComposited_1_oe() {
+    @SuppressWarnings("unchecked")
+    public void testAddComposited() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
         map.addComposited(null);
         map.addComposited(three);
         assertTrue(map.containsKey("5"));
+        try {
+            map.addComposited(three);
+            fail("Expecting IllegalArgumentException.");
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
     }
 
-    public void testRemoveComposited_1_oe() {
+    @SuppressWarnings("unchecked")
+    public void testRemoveComposited() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
         map.addComposited(null);
         map.addComposited(three);
         assertTrue(map.containsKey("5"));
-    }
-
-    public void testRemoveComposited_2_oe() {
-        final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
-        final HashMap<K, V> three = new HashMap<>();
-        three.put((K) "5", (V) "five");
-        map.addComposited(null);
-        map.addComposited(three);
 
         map.removeComposited(three);
         assertFalse(map.containsKey("5"));
-    }
-
-    public void testRemoveComposited_3_oe() {
-        final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
-        final HashMap<K, V> three = new HashMap<>();
-        three.put((K) "5", (V) "five");
-        map.addComposited(null);
-        map.addComposited(three);
-
-        map.removeComposited(three);
 
         map.removeComposited(buildOne());
         assertFalse(map.containsKey("2"));
+
     }
 
-    public void testRemoveFromUnderlying_1_oe() {
+    @SuppressWarnings("unchecked")
+    public void testRemoveFromUnderlying() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
         map.addComposited(null);
         map.addComposited(three);
         assertTrue(map.containsKey("5"));
-    }
 
-    public void testRemoveFromUnderlying_2_oe() {
-        final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
-        final HashMap<K, V> three = new HashMap<>();
-        three.put((K) "5", (V) "five");
-        map.addComposited(null);
-        map.addComposited(three);
-
+        //Now remove "5"
         three.remove("5");
         assertFalse(map.containsKey("5"));
     }
 
-    public void testRemoveFromComposited_1_oe() {
+    @SuppressWarnings("unchecked")
+    public void testRemoveFromComposited() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
         final HashMap<K, V> three = new HashMap<>();
         three.put((K) "5", (V) "five");
         map.addComposited(null);
         map.addComposited(three);
         assertTrue(map.containsKey("5"));
-    }
 
-    public void testRemoveFromComposited_2_oe() {
-        final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo());
-        final HashMap<K, V> three = new HashMap<>();
-        three.put((K) "5", (V) "five");
-        map.addComposited(null);
-        map.addComposited(three);
-
+        //Now remove "5"
         map.remove("5");
         assertFalse(three.containsKey("5"));
     }
 
-    public void testResolveCollision_1_oe() {
+    public void testResolveCollision() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo(),
             new CompositeMap.MapMutator<K, V>() {
             private static final long serialVersionUID = 1L;
@@ -197,7 +160,8 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertTrue(pass);
     }
 
-    public void testPut_1_oe() {
+    @SuppressWarnings("unchecked")
+    public void testPut() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo(),
             new CompositeMap.MapMutator<K, V>() {
             private static final long serialVersionUID = 1L;
@@ -226,7 +190,7 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         assertTrue(pass);
     }
 
-    public void testPutAll_1_oe() {
+    public void testPutAll() {
         final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo(),
             new CompositeMap.MapMutator<K, V>() {
             private static final long serialVersionUID = 1L;
@@ -252,6 +216,47 @@ public class CompositeMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 
         map.putAll(null);
         assertTrue(pass);
+    }
+
+    @Override
+    public String getCompatibilityVersion() {
+        return "4";
+    }
+
+//    public void testCreate() throws Exception {
+//        resetEmpty();
+//        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/CompositeMap.emptyCollection.version4.obj");
+//        resetFull();
+//        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/CompositeMap.fullCollection.version4.obj");
+//    }
+
+    public void testResolveCollision_1_oe() {
+        final CompositeMap<K, V> map = new CompositeMap<>(buildOne(), buildTwo(),
+            new CompositeMap.MapMutator<K, V>() {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public void resolveCollision(final CompositeMap<K, V> composite,
+            final Map<K, V> existing,
+            final Map<K, V> added,
+            final Collection<K> intersect) {
+                pass = true;
+            }
+
+            @Override
+            public V put(final CompositeMap<K, V> map, final Map<K, V>[] composited, final K key,
+                final V value) {
+                throw new UnsupportedOperationException();
+            }
+
+            @Override
+            public void putAll(final CompositeMap<K, V> map, final Map<K, V>[] composited, final Map<? extends K, ? extends V> t) {
+                throw new UnsupportedOperationException();
+            }
+        });
+
+        map.addComposited(buildOne());
+        assertEquals(true, map.isEmpty());
     }
 
 }

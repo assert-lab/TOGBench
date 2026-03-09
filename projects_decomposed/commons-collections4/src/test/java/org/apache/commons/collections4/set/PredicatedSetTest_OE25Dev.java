@@ -67,6 +67,44 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         return decorateSet(new HashSet<E>(), testPredicate);
     }
 
+    public void testGetSet() {
+        final PredicatedSet<E> set = makeTestSet();
+        assertTrue("returned set should not be null", set.decorated() != null);
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testIllegalAdd() {
+        final Set<E> set = makeTestSet();
+        final Integer i = Integer.valueOf(3);
+        try {
+            set.add((E) i);
+            fail("Integer should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("Collection shouldn't contain illegal element",!set.contains(i));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testIllegalAddAll() {
+        final Set<E> set = makeTestSet();
+        final Set<E> elements = new HashSet<>();
+        elements.add((E) "one");
+        elements.add((E) "two");
+        elements.add((E) Integer.valueOf(3));
+        elements.add((E) "four");
+        try {
+            set.addAll(elements);
+            fail("Integer should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("Set shouldn't contain illegal element",!set.contains("one"));
+        assertTrue("Set shouldn't contain illegal element",!set.contains("two"));
+        assertTrue("Set shouldn't contain illegal element",!set.contains(Integer.valueOf(3)));
+        assertTrue("Set shouldn't contain illegal element",!set.contains("four"));
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4";
@@ -81,7 +119,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
 
     public void testGetSet_1_oe() {
         final PredicatedSet<E> set = makeTestSet();
-        assertTrue("returned set should not be null", set.decorated() != null);
+        assertEquals(false, set.isEmpty());
     }
 
     public void testIllegalAdd_2_oe() {
@@ -91,7 +129,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
             set.add((E) i);
         } catch (final IllegalArgumentException e) {
         }
-        assertTrue("Collection shouldn't contain illegal element",!set.contains(i));
+        assertEquals(true, set.contains(i));
     }
 
     public void testIllegalAddAll_2_oe() {
@@ -105,7 +143,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
             set.addAll(elements);
         } catch (final IllegalArgumentException e) {
         }
-        assertTrue("Set shouldn't contain illegal element",!set.contains("one"));
+        assertEquals(false, set.containsAll(elements));
     }
 
     public void testIllegalAddAll_3_oe() {
@@ -119,7 +157,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
             set.addAll(elements);
         } catch (final IllegalArgumentException e) {
         }
-        assertTrue("Set shouldn't contain illegal element",!set.contains("two"));
+        assertEquals(false, set.containsAll(elements));
     }
 
     public void testIllegalAddAll_4_oe() {
@@ -133,7 +171,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
             set.addAll(elements);
         } catch (final IllegalArgumentException e) {
         }
-        assertTrue("Set shouldn't contain illegal element",!set.contains(Integer.valueOf(3)));
+        assertEquals(false, set.containsAll(elements));
     }
 
     public void testIllegalAddAll_5_oe() {
@@ -147,7 +185,7 @@ public class PredicatedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
             set.addAll(elements);
         } catch (final IllegalArgumentException e) {
         }
-        assertTrue("Set shouldn't contain illegal element",!set.contains("four"));
+        assertEquals(false, set.containsAll(elements));
     }
 
 }

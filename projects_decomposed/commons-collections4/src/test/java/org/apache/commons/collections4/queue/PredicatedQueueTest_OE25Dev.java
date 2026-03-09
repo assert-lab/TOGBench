@@ -84,6 +84,26 @@ public class PredicatedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         return decorateCollection(new LinkedList<E>(), testPredicate);
     }
 
+    @SuppressWarnings("unchecked")
+    public void testGet() {
+        final Queue<E> queue = makeTestQueue();
+
+        assertNull(queue.peek());
+
+        queue.add((E) "one");
+        queue.add((E) "two");
+        queue.add((E) "three");
+        assertEquals("Queue get", "one", queue.peek());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testRemove() {
+        final Queue<E> queue = makeTestQueue();
+        queue.add((E) "one");
+        assertEquals("Queue get", "one", queue.poll());
+        assertNull(queue.peek());
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4";
@@ -109,13 +129,13 @@ public class PredicatedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         queue.add((E) "one");
         queue.add((E) "two");
         queue.add((E) "three");
-        assertEquals("Queue get", "one", queue.peek());
+        assertEquals("one", queue.peek());
     }
 
     public void testRemove_1_oe() {
         final Queue<E> queue = makeTestQueue();
         queue.add((E) "one");
-        assertEquals("Queue get", "one", queue.poll());
+        assertNull(queue.poll());
     }
 
 }

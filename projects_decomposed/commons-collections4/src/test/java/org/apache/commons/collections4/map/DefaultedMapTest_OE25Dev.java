@@ -46,6 +46,89 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
     }
 
     //-----------------------------------------------------------------------
+    @Override
+    @SuppressWarnings("unchecked")
+    public void testMapGet() {
+        final Map<K, V> map = new DefaultedMap<>((V) "NULL");
+
+        assertEquals(0, map.size());
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+
+        map.put((K) "Key", (V) "Value");
+        assertEquals(1, map.size());
+        assertEquals(true, map.containsKey("Key"));
+        assertEquals("Value", map.get("Key"));
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testMapGet2() {
+        final HashMap<K, V> base = new HashMap<>();
+        final Map<K, V> map = DefaultedMap.defaultedMap(base, (V) "NULL");
+
+        assertEquals(0, map.size());
+        assertEquals(0, base.size());
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+
+        map.put((K) "Key", (V) "Value");
+        assertEquals(1, map.size());
+        assertEquals(1, base.size());
+        assertEquals(true, map.containsKey("Key"));
+        assertEquals("Value", map.get("Key"));
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testMapGet3() {
+        final HashMap<K, V> base = new HashMap<>();
+        final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
+
+        assertEquals(0, map.size());
+        assertEquals(0, base.size());
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+
+        map.put((K) "Key", (V) "Value");
+        assertEquals(1, map.size());
+        assertEquals(1, base.size());
+        assertEquals(true, map.containsKey("Key"));
+        assertEquals("Value", map.get("Key"));
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testMapGet4() {
+        final HashMap<K, V> base = new HashMap<>();
+        final Map<K, V> map = DefaultedMap.defaultedMap(base, new Transformer<K, V>() {
+            @Override
+            public V transform(final K input) {
+                if (input instanceof String) {
+                    return (V) "NULL";
+                }
+                return (V) "NULL_OBJECT";
+            }
+        });
+
+        assertEquals(0, map.size());
+        assertEquals(0, base.size());
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+        assertEquals("NULL_OBJECT", map.get(Integer.valueOf(0)));
+
+        map.put((K) "Key", (V) "Value");
+        assertEquals(1, map.size());
+        assertEquals(1, base.size());
+        assertEquals(true, map.containsKey("Key"));
+        assertEquals("Value", map.get("Key"));
+        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals("NULL", map.get("NotInMap"));
+        assertEquals("NULL_OBJECT", map.get(Integer.valueOf(0)));
+    }
 
     @Override
     public String getCompatibilityVersion() {
@@ -63,22 +146,10 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 //            "src/test/resources/data/test/DefaultedMap.fullCollection.version4.obj");
 //    }
 
-    public void testMapGet_1_oe() {
-        final Map<K, V> map = new DefaultedMap<>((V) "NULL");
-
-        assertEquals(0, map.size());
-    }
-
     public void testMapGet_2_oe() {
         final Map<K, V> map = new DefaultedMap<>((V) "NULL");
 
-        assertEquals(false, map.containsKey("NotInMap"));
-    }
-
-    public void testMapGet_3_oe() {
-        final Map<K, V> map = new DefaultedMap<>((V) "NULL");
-
-        assertEquals("NULL", map.get("NotInMap"));
+        assertEquals(true, map.containsKey(null));
     }
 
     public void testMapGet_4_oe() {
@@ -87,38 +158,6 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 
         map.put((K) "Key", (V) "Value");
         assertEquals(1, map.size());
-    }
-
-    public void testMapGet_5_oe() {
-        final Map<K, V> map = new DefaultedMap<>((V) "NULL");
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals(true, map.containsKey("Key"));
-    }
-
-    public void testMapGet_6_oe() {
-        final Map<K, V> map = new DefaultedMap<>((V) "NULL");
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals("Value", map.get("Key"));
-    }
-
-    public void testMapGet_7_oe() {
-        final Map<K, V> map = new DefaultedMap<>((V) "NULL");
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals(false, map.containsKey("NotInMap"));
-    }
-
-    public void testMapGet_8_oe() {
-        final Map<K, V> map = new DefaultedMap<>((V) "NULL");
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals("NULL", map.get("NotInMap"));
     }
 
     public void testMapGet2_1_oe() {
@@ -132,21 +171,21 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         final HashMap<K, V> base = new HashMap<>();
         final Map<K, V> map = DefaultedMap.defaultedMap(base, (V) "NULL");
 
-        assertEquals(0, base.size());
+        assertEquals(0, map.size());
     }
 
     public void testMapGet2_3_oe() {
         final HashMap<K, V> base = new HashMap<>();
         final Map<K, V> map = DefaultedMap.defaultedMap(base, (V) "NULL");
 
-        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals(false, map.containsKey(1));
     }
 
     public void testMapGet2_4_oe() {
         final HashMap<K, V> base = new HashMap<>();
         final Map<K, V> map = DefaultedMap.defaultedMap(base, (V) "NULL");
 
-        assertEquals("NULL", map.get("NotInMap"));
+        assertNotNull(map.get(key));
     }
 
     public void testMapGet2_5_oe() {
@@ -164,71 +203,21 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 
 
         map.put((K) "Key", (V) "Value");
-        assertEquals(1, base.size());
-    }
-
-    public void testMapGet2_7_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, (V) "NULL");
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals(true, map.containsKey("Key"));
-    }
-
-    public void testMapGet2_8_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, (V) "NULL");
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals("Value", map.get("Key"));
-    }
-
-    public void testMapGet2_9_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, (V) "NULL");
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals(false, map.containsKey("NotInMap"));
-    }
-
-    public void testMapGet2_10_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, (V) "NULL");
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals("NULL", map.get("NotInMap"));
-    }
-
-    public void testMapGet3_1_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
-
-        assertEquals(0, map.size());
-    }
-
-    public void testMapGet3_2_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
-
-        assertEquals(0, base.size());
+        assertEquals(1, map.size());
     }
 
     public void testMapGet3_3_oe() {
         final HashMap<K, V> base = new HashMap<>();
         final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
 
-        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals(false, map.containsKey(1));
     }
 
     public void testMapGet3_4_oe() {
         final HashMap<K, V> base = new HashMap<>();
         final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
 
-        assertEquals("NULL", map.get("NotInMap"));
+        assertNotNull(map.get(key));
     }
 
     public void testMapGet3_5_oe() {
@@ -246,43 +235,7 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 
 
         map.put((K) "Key", (V) "Value");
-        assertEquals(1, base.size());
-    }
-
-    public void testMapGet3_7_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals(true, map.containsKey("Key"));
-    }
-
-    public void testMapGet3_8_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals("Value", map.get("Key"));
-    }
-
-    public void testMapGet3_9_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals(false, map.containsKey("NotInMap"));
-    }
-
-    public void testMapGet3_10_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, ConstantFactory.constantFactory((V) "NULL"));
-
-
-        map.put((K) "Key", (V) "Value");
-        assertEquals("NULL", map.get("NotInMap"));
+        assertEquals(1, map.size());
     }
 
     public void testMapGet4_1_oe() {
@@ -312,7 +265,7 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
             }
         });
 
-        assertEquals(0, base.size());
+        assertEquals(0, map.size());
     }
 
     public void testMapGet4_3_oe() {
@@ -327,22 +280,7 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
             }
         });
 
-        assertEquals(false, map.containsKey("NotInMap"));
-    }
-
-    public void testMapGet4_4_oe() {
-        final HashMap<K, V> base = new HashMap<>();
-        final Map<K, V> map = DefaultedMap.defaultedMap(base, new Transformer<K, V>() {
-            @Override
-            public V transform(final K input) {
-                if (input instanceof String) {
-                    return (V) "NULL";
-                }
-                return (V) "NULL_OBJECT";
-            }
-        });
-
-        assertEquals("NULL", map.get("NotInMap"));
+        assertEquals(false, map.containsKey(1));
     }
 
     public void testMapGet4_5_oe() {
@@ -357,7 +295,7 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
             }
         });
 
-        assertEquals("NULL_OBJECT", map.get(Integer.valueOf(0)));
+        assertNotNull(map.get(key));
     }
 
     public void testMapGet4_6_oe() {
@@ -391,7 +329,7 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 
 
         map.put((K) "Key", (V) "Value");
-        assertEquals(1, base.size());
+        assertEquals(1, map.size());
     }
 
     public void testMapGet4_8_oe() {
@@ -442,7 +380,7 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 
 
         map.put((K) "Key", (V) "Value");
-        assertEquals(false, map.containsKey("NotInMap"));
+        assertEquals(true, map.containsKey("Key"));
     }
 
     public void testMapGet4_11_oe() {
@@ -459,7 +397,7 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 
 
         map.put((K) "Key", (V) "Value");
-        assertEquals("NULL", map.get("NotInMap"));
+        assertEquals("Value", map.get("Key"));
     }
 
     public void testMapGet4_12_oe() {
@@ -476,7 +414,7 @@ public class DefaultedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 
 
         map.put((K) "Key", (V) "Value");
-        assertEquals("NULL_OBJECT", map.get(Integer.valueOf(0)));
+        assertEquals("Value", map.get("Key"));
     }
 
 }

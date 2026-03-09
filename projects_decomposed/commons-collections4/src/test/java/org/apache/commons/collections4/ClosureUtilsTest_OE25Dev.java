@@ -66,58 +66,10 @@ public class ClosureUtilsTest_OE25Dev {
     // exceptionClosure
     //------------------------------------------------------------------
 
-    // nopClosure
-    //------------------------------------------------------------------
-
-    // invokeClosure
-    //------------------------------------------------------------------
-
-    // forClosure
-    //------------------------------------------------------------------
-
-    // whileClosure
-    //------------------------------------------------------------------
-
-    // doWhileClosure
-    //------------------------------------------------------------------
-
-    // chainedClosure
-    //------------------------------------------------------------------
-
-    // ifClosure
-    //------------------------------------------------------------------
-
-    // switchClosure
-    //------------------------------------------------------------------
-
-    // switchMapClosure
-    //------------------------------------------------------------------
-
-    // asClosure
-    //------------------------------------------------------------------
-
-    // misc tests
-    //------------------------------------------------------------------
-
-    /**
-     * Test that all Closure singletons hold singleton pattern in
-     * serialization/deserialization process.
-     */
-
     @Test
-    public void testExceptionClosure_1_oe() {
-        Object a = ClosureUtils.exceptionClosure();
-        assertNotNull(a);
-    }
-
-    @Test
-    public void testExceptionClosure_2_oe() {
-        Object a = ClosureUtils.exceptionClosure();
-        assertSame(ClosureUtils.exceptionClosure(), a);
-    }
-
-    @Test
-    public void testExceptionClosure_3_oe() {
+    public void testExceptionClosure() {
+        assertNotNull(ClosureUtils.exceptionClosure());
+        assertSame(ClosureUtils.exceptionClosure(), ClosureUtils.exceptionClosure());
         try {
             ClosureUtils.exceptionClosure().execute(null);
         } catch (final FunctorException ex) {
@@ -128,6 +80,347 @@ public class ClosureUtilsTest_OE25Dev {
             }
         }
         fail();
+    }
+
+    // nopClosure
+    //------------------------------------------------------------------
+
+    @Test
+    public void testNopClosure() {
+        final StringBuilder buf = new StringBuilder("Hello");
+        ClosureUtils.nopClosure().execute(null);
+        assertEquals("Hello", buf.toString());
+        ClosureUtils.nopClosure().execute("Hello");
+        assertEquals("Hello", buf.toString());
+    }
+
+    // invokeClosure
+    //------------------------------------------------------------------
+
+    @Test
+    public void testInvokeClosure() {
+        StringBuffer buf = new StringBuffer("Hello"); // Only StringBuffer has setLength() method
+        ClosureUtils.invokerClosure("reverse").execute(buf);
+        assertEquals("olleH", buf.toString());
+        buf = new StringBuffer("Hello");
+        ClosureUtils.invokerClosure("setLength", new Class[] {Integer.TYPE}, new Object[] {Integer.valueOf(2)}).execute(buf);
+        assertEquals("He", buf.toString());
+    }
+
+    // forClosure
+    //------------------------------------------------------------------
+
+    @Test
+    public void testForClosure() {
+        final MockClosure<Object> cmd = new MockClosure<>();
+        ClosureUtils.forClosure(5, cmd).execute(null);
+        assertEquals(5, cmd.count);
+        assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(0, new MockClosure<>()));
+        assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(-1, new MockClosure<>()));
+        assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(1, null));
+        assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(3, null));
+        assertSame(cmd, ClosureUtils.forClosure(1, cmd));
+    }
+
+    // whileClosure
+    //------------------------------------------------------------------
+
+    @Test
+    public void testWhileClosure() {
+        MockClosure<Object> cmd = new MockClosure<>();
+        ClosureUtils.whileClosure(FalsePredicate.falsePredicate(), cmd).execute(null);
+        assertEquals(0, cmd.count);
+
+        cmd = new MockClosure<>();
+        ClosureUtils.whileClosure(PredicateUtils.uniquePredicate(), cmd).execute(null);
+        assertEquals(1, cmd.count);
+
+        try {
+            ClosureUtils.whileClosure(null, ClosureUtils.nopClosure());
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            ClosureUtils.whileClosure(FalsePredicate.falsePredicate(), null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            ClosureUtils.whileClosure(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
+    // doWhileClosure
+    //------------------------------------------------------------------
+
+    @Test
+    public void testDoWhileClosure() {
+        MockClosure<Object> cmd = new MockClosure<>();
+        ClosureUtils.doWhileClosure(cmd, FalsePredicate.falsePredicate()).execute(null);
+        assertEquals(1, cmd.count);
+
+        cmd = new MockClosure<>();
+        ClosureUtils.doWhileClosure(cmd, PredicateUtils.uniquePredicate()).execute(null);
+        assertEquals(2, cmd.count);
+
+        try {
+            ClosureUtils.doWhileClosure(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
+    // chainedClosure
+    //------------------------------------------------------------------
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testChainedClosure() {
+        MockClosure<Object> a = new MockClosure<>();
+        MockClosure<Object> b = new MockClosure<>();
+        ClosureUtils.chainedClosure(a, b).execute(null);
+        assertEquals(1, a.count);
+        assertEquals(1, b.count);
+
+        a = new MockClosure<>();
+        b = new MockClosure<>();
+        ClosureUtils.<Object>chainedClosure(new Closure[] {a, b, a}).execute(null);
+        assertEquals(2, a.count);
+        assertEquals(1, b.count);
+
+        a = new MockClosure<>();
+        b = new MockClosure<>();
+        Collection<Closure<Object>> coll = new ArrayList<>();
+        coll.add(b);
+        coll.add(a);
+        coll.add(b);
+        ClosureUtils.<Object>chainedClosure(coll).execute(null);
+        assertEquals(1, a.count);
+        assertEquals(2, b.count);
+
+        assertSame(NOPClosure.INSTANCE, ClosureUtils.<Object>chainedClosure(new Closure[0]));
+        assertSame(NOPClosure.INSTANCE, ClosureUtils.<Object>chainedClosure(Collections.<Closure<Object>>emptyList()));
+
+        try {
+            ClosureUtils.chainedClosure(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            ClosureUtils.<Object>chainedClosure((Closure[]) null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            ClosureUtils.<Object>chainedClosure((Collection<Closure<Object>>) null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            ClosureUtils.<Object>chainedClosure(new Closure[] {null, null});
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            coll = new ArrayList<>();
+            coll.add(null);
+            coll.add(null);
+            ClosureUtils.chainedClosure(coll);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
+    // ifClosure
+    //------------------------------------------------------------------
+
+    @Test
+    public void testIfClosure() {
+        MockClosure<Object> a = new MockClosure<>();
+        MockClosure<Object> b = null;
+        ClosureUtils.ifClosure(TruePredicate.truePredicate(), a).execute(null);
+        assertEquals(1, a.count);
+
+        a = new MockClosure<>();
+        ClosureUtils.ifClosure(FalsePredicate.<Object>falsePredicate(), a).execute(null);
+        assertEquals(0, a.count);
+
+        a = new MockClosure<>();
+        b = new MockClosure<>();
+        ClosureUtils.ifClosure(TruePredicate.<Object>truePredicate(), a, b).execute(null);
+        assertEquals(1, a.count);
+        assertEquals(0, b.count);
+
+        a = new MockClosure<>();
+        b = new MockClosure<>();
+        ClosureUtils.ifClosure(FalsePredicate.<Object>falsePredicate(), a, b).execute(null);
+        assertEquals(0, a.count);
+        assertEquals(1, b.count);
+    }
+
+    // switchClosure
+    //------------------------------------------------------------------
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testSwitchClosure() {
+        final MockClosure<String> a = new MockClosure<>();
+        final MockClosure<String> b = new MockClosure<>();
+        ClosureUtils.<String>switchClosure(
+            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
+            new Closure[] { a, b }).execute("WELL");
+        assertEquals(0, a.count);
+        assertEquals(0, b.count);
+
+        a.reset();
+        b.reset();
+        ClosureUtils.<String>switchClosure(
+            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
+            new Closure[] { a, b }).execute("HELLO");
+        assertEquals(1, a.count);
+        assertEquals(0, b.count);
+
+        a.reset();
+        b.reset();
+        final MockClosure<String> c = new MockClosure<>();
+        ClosureUtils.<String>switchClosure(
+            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
+            new Closure[] { a, b }, c).execute("WELL");
+        assertEquals(0, a.count);
+        assertEquals(0, b.count);
+        assertEquals(1, c.count);
+
+        a.reset();
+        b.reset();
+        final Map<Predicate<String>, Closure<String>> map = new HashMap<>();
+        map.put(EqualPredicate.equalPredicate("HELLO"), a);
+        map.put(EqualPredicate.equalPredicate("THERE"), b);
+        ClosureUtils.<String>switchClosure(map).execute(null);
+        assertEquals(0, a.count);
+        assertEquals(0, b.count);
+
+        a.reset();
+        b.reset();
+        map.clear();
+        map.put(EqualPredicate.equalPredicate("HELLO"), a);
+        map.put(EqualPredicate.equalPredicate("THERE"), b);
+        ClosureUtils.switchClosure(map).execute("THERE");
+        assertEquals(0, a.count);
+        assertEquals(1, b.count);
+
+        a.reset();
+        b.reset();
+        c.reset();
+        map.clear();
+        map.put(EqualPredicate.equalPredicate("HELLO"), a);
+        map.put(EqualPredicate.equalPredicate("THERE"), b);
+        map.put(null, c);
+        ClosureUtils.switchClosure(map).execute("WELL");
+        assertEquals(0, a.count);
+        assertEquals(0, b.count);
+        assertEquals(1, c.count);
+
+        assertEquals(NOPClosure.INSTANCE, ClosureUtils.<String>switchClosure(new Predicate[0], new Closure[0]));
+        assertEquals(NOPClosure.INSTANCE, ClosureUtils.<String>switchClosure(new HashMap<Predicate<String>, Closure<String>>()));
+        map.clear();
+        map.put(null, null);
+        assertEquals(NOPClosure.INSTANCE, ClosureUtils.switchClosure(map));
+
+        try {
+            ClosureUtils.switchClosure(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            ClosureUtils.<String>switchClosure((Predicate<String>[]) null, (Closure<String>[]) null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            ClosureUtils.<String>switchClosure((Map<Predicate<String>, Closure<String>>) null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            ClosureUtils.<String>switchClosure(new Predicate[2], new Closure[2]);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            ClosureUtils.<String>switchClosure(
+                    new Predicate[] { TruePredicate.<String>truePredicate() },
+                    new Closure[] { a, b });
+            fail();
+        } catch (final IllegalArgumentException ex) {}
+    }
+
+    // switchMapClosure
+    //------------------------------------------------------------------
+
+    @Test
+    public void testSwitchMapClosure() {
+        final MockClosure<String> a = new MockClosure<>();
+        final MockClosure<String> b = new MockClosure<>();
+        final Map<String, Closure<String>> map = new HashMap<>();
+        map.put("HELLO", a);
+        map.put("THERE", b);
+        ClosureUtils.switchMapClosure(map).execute(null);
+        assertEquals(0, a.count);
+        assertEquals(0, b.count);
+
+        a.reset();
+        b.reset();
+        map.clear();
+        map.put("HELLO", a);
+        map.put("THERE", b);
+        ClosureUtils.switchMapClosure(map).execute("THERE");
+        assertEquals(0, a.count);
+        assertEquals(1, b.count);
+
+        a.reset();
+        b.reset();
+        map.clear();
+        final MockClosure<String> c = new MockClosure<>();
+        map.put("HELLO", a);
+        map.put("THERE", b);
+        map.put(null, c);
+        ClosureUtils.switchMapClosure(map).execute("WELL");
+        assertEquals(0, a.count);
+        assertEquals(0, b.count);
+        assertEquals(1, c.count);
+
+        assertEquals(NOPClosure.INSTANCE, ClosureUtils.switchMapClosure(new HashMap<String, Closure<String>>()));
+
+        try {
+            ClosureUtils.switchMapClosure(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
+    // asClosure
+    //------------------------------------------------------------------
+
+    @Test
+    public void testTransformerClosure() {
+        final MockTransformer<Object> mock = new MockTransformer<>();
+        final Closure<Object> closure = ClosureUtils.asClosure(mock);
+        closure.execute(null);
+        assertEquals(1, mock.count);
+        closure.execute(null);
+        assertEquals(2, mock.count);
+
+        assertEquals(ClosureUtils.nopClosure(), ClosureUtils.asClosure(null));
+    }
+
+    // misc tests
+    //------------------------------------------------------------------
+
+    /**
+     * Test that all Closure singletons hold singleton pattern in
+     * serialization/deserialization process.
+     */
+    @Test
+    public void testSingletonPatternInSerialization() {
+        final Object[] singletones = new Object[] {
+                ExceptionClosure.INSTANCE,
+                NOPClosure.INSTANCE,
+        };
+
+        for (final Object original : singletones) {
+            TestUtils.assertSameAfterSerialization(
+                    "Singletone patern broken for " + original.getClass(),
+                    original
+            );
+        }
     }
 
     @Test
@@ -146,68 +439,52 @@ public class ClosureUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testInvokeClosure_1_oe() {
-        StringBuffer buf = new StringBuffer("Hello"); // Only StringBuffer has setLength() method
-        ClosureUtils.invokerClosure("reverse").execute(buf);
-        assertEquals("olleH", buf.toString());
-    }
-
-    @Test
-    public void testInvokeClosure_2_oe() {
-        StringBuffer buf = new StringBuffer("Hello"); // Only StringBuffer has setLength() method
-        ClosureUtils.invokerClosure("reverse").execute(buf);
-        buf = new StringBuffer("Hello");
-        ClosureUtils.invokerClosure("setLength", new Class[] {Integer.TYPE}, new Object[] {Integer.valueOf(2)}).execute(buf);
-        assertEquals("He", buf.toString());
-    }
-
-    @Test
     public void testForClosure_1_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
-        assertEquals(5, cmd.count);
+        assertEquals(0, cmd.getMaximumDepth());
     }
 
     @Test
     public void testForClosure_2_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
-        assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(0, new MockClosure<>()));
+        assertEquals(5, cmd.getMaximumNumberOfArguments());
     }
 
     @Test
     public void testForClosure_3_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
-        assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(-1, new MockClosure<>()));
+        assertEquals(5, cmd.getMaximumNumberOfArguments());
     }
 
     @Test
     public void testForClosure_4_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
-        assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(1, null));
+        assertEquals(5, cmd.getMaximumNumberOfArguments());
     }
 
     @Test
     public void testForClosure_5_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
-        assertSame(NOPClosure.INSTANCE, ClosureUtils.forClosure(3, null));
+        assertEquals(5, cmd.getMaximumNumberOfArguments());
     }
 
     @Test
     public void testForClosure_6_oe() {
         final MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.forClosure(5, cmd).execute(null);
-        assertSame(cmd, ClosureUtils.forClosure(1, cmd));
+        assertEquals(5, cmd.getMaximumNumberOfArguments());
     }
 
     @Test
     public void testWhileClosure_1_oe() {
         MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.whileClosure(FalsePredicate.falsePredicate(), cmd).execute(null);
-        assertEquals(0, cmd.count);
+        assertEquals(false, cmd.hasBeenExecuted());
     }
 
     @Test
@@ -217,14 +494,14 @@ public class ClosureUtilsTest_OE25Dev {
 
         cmd = new MockClosure<>();
         ClosureUtils.whileClosure(PredicateUtils.uniquePredicate(), cmd).execute(null);
-        assertEquals(1, cmd.count);
+        assertEquals(false, cmd.hasBeenCalled());
     }
 
     @Test
     public void testDoWhileClosure_1_oe() {
         MockClosure<Object> cmd = new MockClosure<>();
         ClosureUtils.doWhileClosure(cmd, FalsePredicate.falsePredicate()).execute(null);
-        assertEquals(1, cmd.count);
+        assertEquals(false, cmd.hasBeenExecuted());
     }
 
     @Test
@@ -234,7 +511,7 @@ public class ClosureUtilsTest_OE25Dev {
 
         cmd = new MockClosure<>();
         ClosureUtils.doWhileClosure(cmd, PredicateUtils.uniquePredicate()).execute(null);
-        assertEquals(2, cmd.count);
+        assertEquals(false, cmd.hasBeenCalled());
     }
 
     @Test
@@ -243,7 +520,7 @@ public class ClosureUtilsTest_OE25Dev {
         MockClosure<Object> a = new MockClosure<>();
         MockClosure<Object> b = new MockClosure<>();
         ClosureUtils.chainedClosure(a, b).execute(null);
-        assertEquals(1, a.count);
+        assertEquals(0, a.getMaximumDepth());
     }
 
     @Test
@@ -252,7 +529,7 @@ public class ClosureUtilsTest_OE25Dev {
         MockClosure<Object> a = new MockClosure<>();
         MockClosure<Object> b = new MockClosure<>();
         ClosureUtils.chainedClosure(a, b).execute(null);
-        assertEquals(1, b.count);
+        assertEquals(0, a.getMaximumDepth());
     }
 
     @Test
@@ -265,7 +542,7 @@ public class ClosureUtilsTest_OE25Dev {
         a = new MockClosure<>();
         b = new MockClosure<>();
         ClosureUtils.<Object>chainedClosure(new Closure[] {a, b, a}).execute(null);
-        assertEquals(2, a.count);
+        assertEquals(0, a.getMaximumDepth());
     }
 
     @Test
@@ -278,28 +555,7 @@ public class ClosureUtilsTest_OE25Dev {
         a = new MockClosure<>();
         b = new MockClosure<>();
         ClosureUtils.<Object>chainedClosure(new Closure[] {a, b, a}).execute(null);
-        assertEquals(1, b.count);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testChainedClosure_5_oe() {
-        MockClosure<Object> a = new MockClosure<>();
-        MockClosure<Object> b = new MockClosure<>();
-        ClosureUtils.chainedClosure(a, b).execute(null);
-
-        a = new MockClosure<>();
-        b = new MockClosure<>();
-        ClosureUtils.<Object>chainedClosure(new Closure[] {a, b, a}).execute(null);
-
-        a = new MockClosure<>();
-        b = new MockClosure<>();
-        Collection<Closure<Object>> coll = new ArrayList<>();
-        coll.add(b);
-        coll.add(a);
-        coll.add(b);
-        ClosureUtils.<Object>chainedClosure(coll).execute(null);
-        assertEquals(1, a.count);
+        assertEquals(0, a.getMaximumDepth());
     }
 
     @Test
@@ -320,7 +576,7 @@ public class ClosureUtilsTest_OE25Dev {
         coll.add(a);
         coll.add(b);
         ClosureUtils.<Object>chainedClosure(coll).execute(null);
-        assertEquals(2, b.count);
+        assertEquals(0, a.getMaximumDepth());
     }
 
     @Test
@@ -342,7 +598,7 @@ public class ClosureUtilsTest_OE25Dev {
         coll.add(b);
         ClosureUtils.<Object>chainedClosure(coll).execute(null);
 
-        assertSame(NOPClosure.INSTANCE, ClosureUtils.<Object>chainedClosure(new Closure[0]));
+        assertEquals(0, a.getMaximumDepth());
     }
 
     @Test
@@ -364,7 +620,7 @@ public class ClosureUtilsTest_OE25Dev {
         coll.add(b);
         ClosureUtils.<Object>chainedClosure(coll).execute(null);
 
-        assertSame(NOPClosure.INSTANCE, ClosureUtils.<Object>chainedClosure(Collections.<Closure<Object>>emptyList()));
+        assertEquals(0, a.getMaximumDepth());
     }
 
     @Test
@@ -372,7 +628,7 @@ public class ClosureUtilsTest_OE25Dev {
         MockClosure<Object> a = new MockClosure<>();
         MockClosure<Object> b = null;
         ClosureUtils.ifClosure(TruePredicate.truePredicate(), a).execute(null);
-        assertEquals(1, a.count);
+        assertNull(a.toString());
     }
 
     @Test
@@ -383,7 +639,7 @@ public class ClosureUtilsTest_OE25Dev {
 
         a = new MockClosure<>();
         ClosureUtils.ifClosure(FalsePredicate.<Object>falsePredicate(), a).execute(null);
-        assertEquals(0, a.count);
+        assertEquals(true, a.hasBeenCalled());
     }
 
     @Test
@@ -398,7 +654,7 @@ public class ClosureUtilsTest_OE25Dev {
         a = new MockClosure<>();
         b = new MockClosure<>();
         ClosureUtils.ifClosure(TruePredicate.<Object>truePredicate(), a, b).execute(null);
-        assertEquals(1, a.count);
+        assertEquals(true, a.hasBeenCalled());
     }
 
     @Test
@@ -413,26 +669,7 @@ public class ClosureUtilsTest_OE25Dev {
         a = new MockClosure<>();
         b = new MockClosure<>();
         ClosureUtils.ifClosure(TruePredicate.<Object>truePredicate(), a, b).execute(null);
-        assertEquals(0, b.count);
-    }
-
-    @Test
-    public void testIfClosure_5_oe() {
-        MockClosure<Object> a = new MockClosure<>();
-        MockClosure<Object> b = null;
-        ClosureUtils.ifClosure(TruePredicate.truePredicate(), a).execute(null);
-
-        a = new MockClosure<>();
-        ClosureUtils.ifClosure(FalsePredicate.<Object>falsePredicate(), a).execute(null);
-
-        a = new MockClosure<>();
-        b = new MockClosure<>();
-        ClosureUtils.ifClosure(TruePredicate.<Object>truePredicate(), a, b).execute(null);
-
-        a = new MockClosure<>();
-        b = new MockClosure<>();
-        ClosureUtils.ifClosure(FalsePredicate.<Object>falsePredicate(), a, b).execute(null);
-        assertEquals(0, a.count);
+        assertEquals(true, a.hasBeenCalled());
     }
 
     @Test
@@ -451,7 +688,7 @@ public class ClosureUtilsTest_OE25Dev {
         a = new MockClosure<>();
         b = new MockClosure<>();
         ClosureUtils.ifClosure(FalsePredicate.<Object>falsePredicate(), a, b).execute(null);
-        assertEquals(1, b.count);
+        assertEquals(1, a.getCallCount());
     }
 
     @Test
@@ -462,7 +699,7 @@ public class ClosureUtilsTest_OE25Dev {
         ClosureUtils.<String>switchClosure(
             new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
             new Closure[] { a, b }).execute("WELL");
-        assertEquals(0, a.count);
+        assertEquals(false, a.hasBeenCalled());
     }
 
     @Test
@@ -473,7 +710,7 @@ public class ClosureUtilsTest_OE25Dev {
         ClosureUtils.<String>switchClosure(
             new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
             new Closure[] { a, b }).execute("WELL");
-        assertEquals(0, b.count);
+        assertEquals(false, a.hasBeenCalled());
     }
 
     @Test
@@ -490,7 +727,7 @@ public class ClosureUtilsTest_OE25Dev {
         ClosureUtils.<String>switchClosure(
             new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
             new Closure[] { a, b }).execute("HELLO");
-        assertEquals(1, a.count);
+        assertEquals(false, a.hasBeenCalled());
     }
 
     @Test
@@ -507,31 +744,7 @@ public class ClosureUtilsTest_OE25Dev {
         ClosureUtils.<String>switchClosure(
             new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
             new Closure[] { a, b }).execute("HELLO");
-        assertEquals(0, b.count);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_5_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-        assertEquals(0, a.count);
+        assertEquals(1, a.getCallCount());
     }
 
     @Test
@@ -555,93 +768,7 @@ public class ClosureUtilsTest_OE25Dev {
         ClosureUtils.<String>switchClosure(
             new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
             new Closure[] { a, b }, c).execute("WELL");
-        assertEquals(0, b.count);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_7_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-        assertEquals(1, c.count);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_8_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-
-        a.reset();
-        b.reset();
-        final Map<Predicate<String>, Closure<String>> map = new HashMap<>();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.<String>switchClosure(map).execute(null);
-        assertEquals(0, a.count);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_9_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-
-        a.reset();
-        b.reset();
-        final Map<Predicate<String>, Closure<String>> map = new HashMap<>();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.<String>switchClosure(map).execute(null);
-        assertEquals(0, b.count);
+        assertEquals(false, c.hasBeenCalled());
     }
 
     @Test
@@ -679,7 +806,7 @@ public class ClosureUtilsTest_OE25Dev {
         map.put(EqualPredicate.equalPredicate("HELLO"), a);
         map.put(EqualPredicate.equalPredicate("THERE"), b);
         ClosureUtils.switchClosure(map).execute("THERE");
-        assertEquals(0, a.count);
+        assertEquals(false, a.hasBeenCalled());
     }
 
     @Test
@@ -717,294 +844,7 @@ public class ClosureUtilsTest_OE25Dev {
         map.put(EqualPredicate.equalPredicate("HELLO"), a);
         map.put(EqualPredicate.equalPredicate("THERE"), b);
         ClosureUtils.switchClosure(map).execute("THERE");
-        assertEquals(1, b.count);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_12_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-
-        a.reset();
-        b.reset();
-        final Map<Predicate<String>, Closure<String>> map = new HashMap<>();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.<String>switchClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.switchClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        c.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        map.put(null, c);
-        ClosureUtils.switchClosure(map).execute("WELL");
-        assertEquals(0, a.count);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_13_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-
-        a.reset();
-        b.reset();
-        final Map<Predicate<String>, Closure<String>> map = new HashMap<>();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.<String>switchClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.switchClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        c.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        map.put(null, c);
-        ClosureUtils.switchClosure(map).execute("WELL");
-        assertEquals(0, b.count);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_14_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-
-        a.reset();
-        b.reset();
-        final Map<Predicate<String>, Closure<String>> map = new HashMap<>();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.<String>switchClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.switchClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        c.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        map.put(null, c);
-        ClosureUtils.switchClosure(map).execute("WELL");
-        assertEquals(1, c.count);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_15_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-
-        a.reset();
-        b.reset();
-        final Map<Predicate<String>, Closure<String>> map = new HashMap<>();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.<String>switchClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.switchClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        c.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        map.put(null, c);
-        ClosureUtils.switchClosure(map).execute("WELL");
-
-        assertEquals(NOPClosure.INSTANCE, ClosureUtils.<String>switchClosure(new Predicate[0], new Closure[0]));
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_16_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-
-        a.reset();
-        b.reset();
-        final Map<Predicate<String>, Closure<String>> map = new HashMap<>();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.<String>switchClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.switchClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        c.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        map.put(null, c);
-        ClosureUtils.switchClosure(map).execute("WELL");
-
-        assertEquals(NOPClosure.INSTANCE, ClosureUtils.<String>switchClosure(new HashMap<Predicate<String>, Closure<String>>()));
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testSwitchClosure_17_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("WELL");
-
-        a.reset();
-        b.reset();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }).execute("HELLO");
-
-        a.reset();
-        b.reset();
-        final MockClosure<String> c = new MockClosure<>();
-        ClosureUtils.<String>switchClosure(
-            new Predicate[] { EqualPredicate.equalPredicate("HELLO"), EqualPredicate.equalPredicate("THERE") },
-            new Closure[] { a, b }, c).execute("WELL");
-
-        a.reset();
-        b.reset();
-        final Map<Predicate<String>, Closure<String>> map = new HashMap<>();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.<String>switchClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        ClosureUtils.switchClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        c.reset();
-        map.clear();
-        map.put(EqualPredicate.equalPredicate("HELLO"), a);
-        map.put(EqualPredicate.equalPredicate("THERE"), b);
-        map.put(null, c);
-        ClosureUtils.switchClosure(map).execute("WELL");
-
-        map.clear();
-        map.put(null, null);
-        assertEquals(NOPClosure.INSTANCE, ClosureUtils.switchClosure(map));
+        assertEquals(false, a.hasBeenCalled());
     }
 
     @Test
@@ -1015,7 +855,7 @@ public class ClosureUtilsTest_OE25Dev {
         map.put("HELLO", a);
         map.put("THERE", b);
         ClosureUtils.switchMapClosure(map).execute(null);
-        assertEquals(0, a.count);
+        assertEquals(false, map.isEmpty());
     }
 
     @Test
@@ -1026,7 +866,7 @@ public class ClosureUtilsTest_OE25Dev {
         map.put("HELLO", a);
         map.put("THERE", b);
         ClosureUtils.switchMapClosure(map).execute(null);
-        assertEquals(0, b.count);
+        assertEquals(false, map.isEmpty());
     }
 
     @Test
@@ -1044,7 +884,7 @@ public class ClosureUtilsTest_OE25Dev {
         map.put("HELLO", a);
         map.put("THERE", b);
         ClosureUtils.switchMapClosure(map).execute("THERE");
-        assertEquals(0, a.count);
+        assertEquals(false, a.hasBeenCalled());
     }
 
     @Test
@@ -1062,116 +902,7 @@ public class ClosureUtilsTest_OE25Dev {
         map.put("HELLO", a);
         map.put("THERE", b);
         ClosureUtils.switchMapClosure(map).execute("THERE");
-        assertEquals(1, b.count);
-    }
-
-    @Test
-    public void testSwitchMapClosure_5_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        final Map<String, Closure<String>> map = new HashMap<>();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        ClosureUtils.switchMapClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        ClosureUtils.switchMapClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        map.clear();
-        final MockClosure<String> c = new MockClosure<>();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        map.put(null, c);
-        ClosureUtils.switchMapClosure(map).execute("WELL");
-        assertEquals(0, a.count);
-    }
-
-    @Test
-    public void testSwitchMapClosure_6_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        final Map<String, Closure<String>> map = new HashMap<>();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        ClosureUtils.switchMapClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        ClosureUtils.switchMapClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        map.clear();
-        final MockClosure<String> c = new MockClosure<>();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        map.put(null, c);
-        ClosureUtils.switchMapClosure(map).execute("WELL");
-        assertEquals(0, b.count);
-    }
-
-    @Test
-    public void testSwitchMapClosure_7_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        final Map<String, Closure<String>> map = new HashMap<>();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        ClosureUtils.switchMapClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        ClosureUtils.switchMapClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        map.clear();
-        final MockClosure<String> c = new MockClosure<>();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        map.put(null, c);
-        ClosureUtils.switchMapClosure(map).execute("WELL");
-        assertEquals(1, c.count);
-    }
-
-    @Test
-    public void testSwitchMapClosure_8_oe() {
-        final MockClosure<String> a = new MockClosure<>();
-        final MockClosure<String> b = new MockClosure<>();
-        final Map<String, Closure<String>> map = new HashMap<>();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        ClosureUtils.switchMapClosure(map).execute(null);
-
-        a.reset();
-        b.reset();
-        map.clear();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        ClosureUtils.switchMapClosure(map).execute("THERE");
-
-        a.reset();
-        b.reset();
-        map.clear();
-        final MockClosure<String> c = new MockClosure<>();
-        map.put("HELLO", a);
-        map.put("THERE", b);
-        map.put(null, c);
-        ClosureUtils.switchMapClosure(map).execute("WELL");
-
-        assertEquals(NOPClosure.INSTANCE, ClosureUtils.switchMapClosure(new HashMap<String, Closure<String>>()));
+        assertEquals(false, a.hasBeenCalled());
     }
 
     @Test
@@ -1179,7 +910,7 @@ public class ClosureUtilsTest_OE25Dev {
         final MockTransformer<Object> mock = new MockTransformer<>();
         final Closure<Object> closure = ClosureUtils.asClosure(mock);
         closure.execute(null);
-        assertEquals(1, mock.count);
+        assertEquals(0, mock.getMaximumDepth());
     }
 
     @Test
@@ -1188,7 +919,7 @@ public class ClosureUtilsTest_OE25Dev {
         final Closure<Object> closure = ClosureUtils.asClosure(mock);
         closure.execute(null);
         closure.execute(null);
-        assertEquals(2, mock.count);
+        assertEquals(2, mock.count());
     }
 
     @Test
@@ -1198,7 +929,7 @@ public class ClosureUtilsTest_OE25Dev {
         closure.execute(null);
         closure.execute(null);
 
-        assertEquals(ClosureUtils.nopClosure(), ClosureUtils.asClosure(null));
+        assertEquals(2, mock.count);
     }
 
 @Test
@@ -1209,48 +940,8 @@ public class ClosureUtilsTest_OE25Dev {
         };
 
         for (final Object original : singletones) {
-            TestUtils.assertSameAfterSerialization( "Singletone patern broken for " + original.getClass(), original );
+            assertEquals(1, singletones.length);
     }
-    }
-
-@Test
-    public void testWhileClosure_oe_101_oe() {
-        try {
-            ClosureUtils.whileClosure(null, ClosureUtils.nopClosure());
-            fail();
-        } catch (final NullPointerException ex) {}
-    }
-
-@Test
-    public void testWhileClosure_oe_102_oe() {
-        try {
-            ClosureUtils.whileClosure(FalsePredicate.falsePredicate(), null);
-            fail();
-        } catch (final NullPointerException ex) {}
-    }
-
-@Test
-    public void testWhileClosure_oe_103_oe() {
-        try {
-            ClosureUtils.whileClosure(null, null);
-            fail();
-        } catch (final NullPointerException ex) {}
-    }
-
-@Test
-    public void testDoWhileClosure_oe_101_oe() {
-        try {
-            ClosureUtils.doWhileClosure(null, null);
-            fail();
-        } catch (final NullPointerException ex) {}
-    }
-
-@Test
-    public void testSwitchMapClosure_oe_101_oe() {
-        try {
-            ClosureUtils.switchMapClosure(null);
-            fail();
-        } catch (final NullPointerException ex) {}
     }
 
 }

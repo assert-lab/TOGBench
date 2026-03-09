@@ -85,10 +85,81 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
 //    }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testBasics() {
+        final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
+        assertEquals(0, map.size());
+
+        map.put((K) I1A, (V) I2A);
+        assertEquals(1, map.size());
+        assertSame(I2A, map.get(I1A));
+        assertSame(null, map.get(I1B));
+        assertEquals(true, map.containsKey(I1A));
+        assertEquals(false, map.containsKey(I1B));
+        assertEquals(true, map.containsValue(I2A));
+        assertEquals(false, map.containsValue(I2B));
+
+        map.put((K) I1A, (V) I2B);
+        assertEquals(1, map.size());
+        assertSame(I2B, map.get(I1A));
+        assertSame(null, map.get(I1B));
+        assertEquals(true, map.containsKey(I1A));
+        assertEquals(false, map.containsKey(I1B));
+        assertEquals(false, map.containsValue(I2A));
+        assertEquals(true, map.containsValue(I2B));
+
+        map.put((K) I1B, (V) I2B);
+        assertEquals(2, map.size());
+        assertSame(I2B, map.get(I1A));
+        assertSame(I2B, map.get(I1B));
+        assertEquals(true, map.containsKey(I1A));
+        assertEquals(true, map.containsKey(I1B));
+        assertEquals(false, map.containsValue(I2A));
+        assertEquals(true, map.containsValue(I2B));
+    }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testHashEntry() {
+        final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
+
+        map.put((K) I1A, (V) I2A);
+        map.put((K) I1B, (V) I2A);
+
+        final Map.Entry<K, V> entry1 = map.entrySet().iterator().next();
+        final Iterator<Map.Entry<K, V>> it = map.entrySet().iterator();
+        final Map.Entry<K, V> entry2 = it.next();
+        final Map.Entry<K, V> entry3 = it.next();
+
+        assertEquals(true, entry1.equals(entry2));
+        assertEquals(true, entry2.equals(entry1));
+        assertEquals(false, entry1.equals(entry3));
+    }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testNullHandling() {
+        resetFull();
+        assertEquals(null, getMap().get(null));
+        assertEquals(false, getMap().containsKey(null));
+        assertEquals(false, getMap().containsValue(null));
+        assertEquals(null, getMap().remove(null));
+        assertEquals(false, getMap().entrySet().contains(null));
+        assertEquals(false, getMap().keySet().contains(null));
+        assertEquals(false, getMap().values().contains(null));
+        try {
+            getMap().put(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            getMap().put((K) new Object(), null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            getMap().put(null, (V) new Object());
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
 
     //-----------------------------------------------------------------------
 /*
@@ -274,28 +345,28 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
 
         map.put((K) I1A, (V) I2A);
-        assertSame(I2A, map.get(I1A));
+        assertEquals(I2A, map.get(I1A));
     }
 
     public void testBasics_4_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
 
         map.put((K) I1A, (V) I2A);
-        assertSame(null, map.get(I1B));
+        assertEquals(I2A, map.get(I1A));
     }
 
     public void testBasics_5_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
 
         map.put((K) I1A, (V) I2A);
-        assertEquals(true, map.containsKey(I1A));
+        assertEquals(true, map.containsKey((Object) I1A));
     }
 
     public void testBasics_6_oe() {
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
 
         map.put((K) I1A, (V) I2A);
-        assertEquals(false, map.containsKey(I1B));
+        assertEquals(true, map.containsKey((Object) I1A));
     }
 
     public void testBasics_7_oe() {
@@ -309,7 +380,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
 
         map.put((K) I1A, (V) I2A);
-        assertEquals(false, map.containsValue(I2B));
+        assertEquals(true, map.containsValue(I2A));
     }
 
     public void testBasics_9_oe() {
@@ -336,7 +407,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         map.put((K) I1A, (V) I2A);
 
         map.put((K) I1A, (V) I2B);
-        assertSame(null, map.get(I1B));
+        assertSame(I2B, map.get(I1A));
     }
 
     public void testBasics_12_oe() {
@@ -354,7 +425,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         map.put((K) I1A, (V) I2A);
 
         map.put((K) I1A, (V) I2B);
-        assertEquals(false, map.containsKey(I1B));
+        assertEquals(true, map.containsKey((K) I1A));
     }
 
     public void testBasics_14_oe() {
@@ -363,7 +434,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         map.put((K) I1A, (V) I2A);
 
         map.put((K) I1A, (V) I2B);
-        assertEquals(false, map.containsValue(I2A));
+        assertEquals(true, map.containsValue(I2B));
     }
 
     public void testBasics_15_oe() {
@@ -383,7 +454,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         map.put((K) I1A, (V) I2B);
 
         map.put((K) I1B, (V) I2B);
-        assertEquals(2, map.size());
+        assertEquals(1, map.size());
     }
 
     public void testBasics_17_oe() {
@@ -405,7 +476,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         map.put((K) I1A, (V) I2B);
 
         map.put((K) I1B, (V) I2B);
-        assertSame(I2B, map.get(I1B));
+        assertSame(I2B, map.get(I1A));
     }
 
     public void testBasics_19_oe() {
@@ -427,7 +498,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         map.put((K) I1A, (V) I2B);
 
         map.put((K) I1B, (V) I2B);
-        assertEquals(true, map.containsKey(I1B));
+        assertEquals(true, map.containsKey(I1A));
     }
 
     public void testBasics_21_oe() {
@@ -438,7 +509,7 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         map.put((K) I1A, (V) I2B);
 
         map.put((K) I1B, (V) I2B);
-        assertEquals(false, map.containsValue(I2A));
+        assertEquals(true, map.containsValue(I2B));
     }
 
     public void testBasics_22_oe() {
@@ -452,81 +523,39 @@ public class ReferenceIdentityMapTest_OE25Dev<K, V> extends AbstractIterableMapT
         assertEquals(true, map.containsValue(I2B));
     }
 
-    public void testHashEntry_1_oe() {
-        final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
-
-        map.put((K) I1A, (V) I2A);
-        map.put((K) I1B, (V) I2A);
-
-        final Map.Entry<K, V> entry1 = map.entrySet().iterator().next();
-        final Iterator<Map.Entry<K, V>> it = map.entrySet().iterator();
-        final Map.Entry<K, V> entry2 = it.next();
-        final Map.Entry<K, V> entry3 = it.next();
-
-        assertEquals(true, entry1.equals(entry2));
-    }
-
-    public void testHashEntry_2_oe() {
-        final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
-
-        map.put((K) I1A, (V) I2A);
-        map.put((K) I1B, (V) I2A);
-
-        final Map.Entry<K, V> entry1 = map.entrySet().iterator().next();
-        final Iterator<Map.Entry<K, V>> it = map.entrySet().iterator();
-        final Map.Entry<K, V> entry2 = it.next();
-        final Map.Entry<K, V> entry3 = it.next();
-
-        assertEquals(true, entry2.equals(entry1));
-    }
-
-    public void testHashEntry_3_oe() {
-        final IterableMap<K, V> map = new ReferenceIdentityMap<>(ReferenceStrength.HARD, ReferenceStrength.HARD);
-
-        map.put((K) I1A, (V) I2A);
-        map.put((K) I1B, (V) I2A);
-
-        final Map.Entry<K, V> entry1 = map.entrySet().iterator().next();
-        final Iterator<Map.Entry<K, V>> it = map.entrySet().iterator();
-        final Map.Entry<K, V> entry2 = it.next();
-        final Map.Entry<K, V> entry3 = it.next();
-
-        assertEquals(false, entry1.equals(entry3));
-    }
-
     public void testNullHandling_1_oe() {
         resetFull();
-        assertEquals(null, getMap().get(null));
+        assertNull(MapUtils.getMap(null, "key"));
     }
 
     public void testNullHandling_2_oe() {
         resetFull();
-        assertEquals(false, getMap().containsKey(null));
+        assertNull(MapUtils.getMap(null, "key"));
     }
 
     public void testNullHandling_3_oe() {
         resetFull();
-        assertEquals(false, getMap().containsValue(null));
+        assertNull(MapUtils.getMap(null, "key"));
     }
 
     public void testNullHandling_4_oe() {
         resetFull();
-        assertEquals(null, getMap().remove(null));
+        assertNull(MapUtils.getMap(null, "key"));
     }
 
     public void testNullHandling_5_oe() {
         resetFull();
-        assertEquals(false, getMap().entrySet().contains(null));
+        assertNull(MapUtils.getMap(null, "key"));
     }
 
     public void testNullHandling_6_oe() {
         resetFull();
-        assertEquals(false, getMap().keySet().contains(null));
+        assertNull(MapUtils.getMap(null, "key"));
     }
 
     public void testNullHandling_7_oe() {
         resetFull();
-        assertEquals(false, getMap().values().contains(null));
+        assertNull(MapUtils.getMap(null, "key"));
     }
 
 }

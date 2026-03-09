@@ -23,6 +23,17 @@ import org.apache.commons.collections4.Predicate;
 import org.junit.Test;
 
 public class NullPredicateTest_OE25Dev extends AbstractPredicateTest {
+    @Test
+    public void testNullPredicate() {
+        assertSame(NullPredicate.nullPredicate(), NullPredicate.nullPredicate());
+        assertTrue(nullPredicate(), null);
+    }
+
+    @Test
+    public void ensurePredicateCanBeTypedWithoutWarning() throws Exception {
+        final Predicate<String> predicate = NullPredicate.nullPredicate();
+        assertFalse(predicate, cString);
+    }
 
     @Override
     protected Predicate<?> generatePredicate() {
@@ -32,18 +43,13 @@ public class NullPredicateTest_OE25Dev extends AbstractPredicateTest {
     @Test
     public void testNullPredicate_1_oe() {
         Object a = NullPredicate.nullPredicate();
-        assertSame(NullPredicate.nullPredicate(), a);
-    }
-
-    @Test
-    public void testNullPredicate_2_oe() {
-        assertTrue(nullPredicate(), null);
+        assertNull(a);
     }
 
     @Test
     public void ensurePredicateCanBeTypedWithoutWarning_1_oe() throws Exception {
         final Predicate<String> predicate = NullPredicate.nullPredicate();
-        assertFalse(predicate, cString);
+        assertNull(predicate.toString());
     }
 
 }

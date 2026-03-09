@@ -70,6 +70,21 @@ public class UnmodifiableTrieTest_OE25Dev<V> extends AbstractSortedMapTest<Strin
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullMap() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final Trie<String, V> trie = makeFullMap();
+        assertSame(trie, UnmodifiableTrie.unmodifiableTrie(trie));
+
+        try {
+            UnmodifiableTrie.unmodifiableTrie(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     //-----------------------------------------------------------------------
 
     /**
@@ -98,24 +113,17 @@ public class UnmodifiableTrieTest_OE25Dev<V> extends AbstractSortedMapTest<Strin
 
     public void testUnmodifiable_1_oe() {
         boolean a = makeObject() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testUnmodifiable_2_oe() {
         boolean a = makeFullMap() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testDecorateFactory_1_oe() {
         final Trie<String, V> trie = makeFullMap();
-        assertSame(trie, UnmodifiableTrie.unmodifiableTrie(trie));
-    }
-
-public void testDecorateFactory_oe_101_oe() {
-        try {
-            UnmodifiableTrie.unmodifiableTrie(null);
-            fail();
-        } catch (final NullPointerException ex) {}
+        assertNotNull(trie);
     }
 
 }

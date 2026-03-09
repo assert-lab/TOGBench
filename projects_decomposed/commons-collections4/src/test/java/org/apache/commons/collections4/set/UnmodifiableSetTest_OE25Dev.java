@@ -66,6 +66,21 @@ public class UnmodifiableSetTest_OE25Dev<E> extends AbstractSetTest<E> {
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullCollection() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final Set<E> set = makeFullCollection();
+        assertSame(set, UnmodifiableSet.unmodifiableSet(set));
+
+        try {
+            UnmodifiableSet.unmodifiableSet(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     //-----------------------------------------------------------------------
 
     @Override
@@ -82,24 +97,17 @@ public class UnmodifiableSetTest_OE25Dev<E> extends AbstractSetTest<E> {
 
     public void testUnmodifiable_1_oe() {
         boolean a = makeObject() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testUnmodifiable_2_oe() {
         boolean a = makeFullCollection() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testDecorateFactory_1_oe() {
         final Set<E> set = makeFullCollection();
-        assertSame(set, UnmodifiableSet.unmodifiableSet(set));
-    }
-
-public void testDecorateFactory_oe_101_oe() {
-        try {
-            UnmodifiableSet.unmodifiableSet(null);
-            fail();
-        } catch (final NullPointerException ex) {}
+        assertEquals(true, set.isEmpty());
     }
 
 }

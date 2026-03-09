@@ -50,15 +50,13 @@ public class ObjectArrayListIteratorTest_OE25Dev<E> extends ObjectArrayIteratorT
      * Test the basic ListIterator functionality - going backwards using
      * <code>previous()</code>.
      */
-
-    /**
-     * Tests the {@link java.util.ListIterator#set} operation.
-     */
-
-    public void testListIterator_1_oe() {
+    public void testListIterator() {
         final ListIterator<E> iter = makeObject();
 
+        // TestArrayIterator#testIterator() has already tested the iterator forward,
+        //  now we need to test it in reverse
 
+        // fast-forward the iterator to the end...
         while (iter.hasNext()) {
             iter.next();
         }
@@ -68,7 +66,50 @@ public class ObjectArrayListIteratorTest_OE25Dev<E> extends ObjectArrayIteratorT
             final Object iterValue = iter.previous();
 
             assertEquals("Iteration value is correct", testValue, iterValue);
+        }
+
+        assertTrue("Iterator should now be empty", !iter.hasPrevious());
+
+        try {
+            iter.previous();
+        } catch (final Exception e) {
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+
     }
+
+    /**
+     * Tests the {@link java.util.ListIterator#set} operation.
+     */
+    @SuppressWarnings("unchecked")
+    public void testListIteratorSet() {
+        final String[] testData = new String[] { "a", "b", "c" };
+
+        final String[] result = new String[] { "0", "1", "2" };
+
+        ListIterator<E> iter = makeArrayListIterator((E[]) testData);
+        int x = 0;
+
+        while (iter.hasNext()) {
+            iter.next();
+            iter.set((E) Integer.toString(x));
+            x++;
+        }
+
+        assertTrue("The two arrays should have the same value, i.e. {0,1,2}", Arrays.equals(testData, result));
+
+        // a call to set() before a call to next() or previous() should throw an IllegalStateException
+        iter = makeArrayListIterator((E[]) testArray);
+
+        try {
+            iter.set((E) "should fail");
+            fail("ListIterator#set should fail if next() or previous() have not yet been called.");
+        } catch (final IllegalStateException e) {
+            // expected
+        } catch (final Throwable t) { // should never happen
+            fail(t.toString());
+        }
+
     }
 
     public void testListIterator_2_oe() {
@@ -85,71 +126,7 @@ public class ObjectArrayListIteratorTest_OE25Dev<E> extends ObjectArrayIteratorT
 
         }
 
-        assertTrue("Iterator should now be empty", !iter.hasPrevious());
-    }
-
-    public void testListIterator_3_oe() {
-        final ListIterator<E> iter = makeObject();
-
-
-        while (iter.hasNext()) {
-            iter.next();
-        }
-
-        for (int x = testArray.length - 1; x >= 0; x--) {
-            final Object testValue = testArray[x];
-            final Object iterValue = iter.previous();
-
-        }
-
-
-        try {
-            iter.previous();
-        } catch (final Exception e) {
-            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
-    }
-    }
-
-    public void testListIteratorSet_1_oe() {
-        final String[] testData = new String[] { "a", "b", "c" };
-
-        final String[] result = new String[] { "0", "1", "2" };
-
-        ListIterator<E> iter = makeArrayListIterator((E[]) testData);
-        int x = 0;
-
-        while (iter.hasNext()) {
-            iter.next();
-            iter.set((E) Integer.toString(x));
-            x++;
-        }
-
-        assertTrue("The two arrays should have the same value, i.e. {0,1,2}", Arrays.equals(testData, result));
-    }
-
-    public void testListIteratorSet_3_oe() {
-        final String[] testData = new String[] { "a", "b", "c" };
-
-        final String[] result = new String[] { "0", "1", "2" };
-
-        ListIterator<E> iter = makeArrayListIterator((E[]) testData);
-        int x = 0;
-
-        while (iter.hasNext()) {
-            iter.next();
-            iter.set((E) Integer.toString(x));
-            x++;
-        }
-
-
-        iter = makeArrayListIterator((E[]) testArray);
-
-        try {
-            iter.set((E) "should fail");
-        } catch (final IllegalStateException e) {
-        } catch (final Throwable t) { // should never happen
-            fail(t.toString());
-    }
+        assertEquals(true, iter.hasPrevious());
     }
 
 }

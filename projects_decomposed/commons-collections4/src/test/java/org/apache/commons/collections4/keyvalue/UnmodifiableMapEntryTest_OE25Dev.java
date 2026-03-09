@@ -81,6 +81,20 @@ public class UnmodifiableMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest
     }
 
     @Override
+    @SuppressWarnings("unchecked")
+    public void testAccessorsAndMutators() {
+        Map.Entry<K, V> entry = makeMapEntry((K) key, (V) value);
+
+        assertSame(key, entry.getKey());
+        assertSame(value, entry.getValue());
+
+        // check that null doesn't do anything funny
+        entry = makeMapEntry(null, null);
+        assertSame(null, entry.getKey());
+        assertSame(null, entry.getValue());
+    }
+
+    @Override
     @Test
     public void testSelfReferenceHandling() {
         // block
@@ -95,24 +109,12 @@ public class UnmodifiableMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest
         } catch (final UnsupportedOperationException ex) {}
     }
 
-    public void testAccessorsAndMutators_1_oe() {
-        Map.Entry<K, V> entry = makeMapEntry((K) key, (V) value);
-
-        assertSame(key, entry.getKey());
-    }
-
-    public void testAccessorsAndMutators_2_oe() {
-        Map.Entry<K, V> entry = makeMapEntry((K) key, (V) value);
-
-        assertSame(value, entry.getValue());
-    }
-
     public void testAccessorsAndMutators_3_oe() {
         Map.Entry<K, V> entry = makeMapEntry((K) key, (V) value);
 
 
         entry = makeMapEntry(null, null);
-        assertSame(null, entry.getKey());
+        assertNull(entry.getKey());
     }
 
     public void testAccessorsAndMutators_4_oe() {
@@ -120,7 +122,7 @@ public class UnmodifiableMapEntryTest_OE25Dev<K, V> extends AbstractMapEntryTest
 
 
         entry = makeMapEntry(null, null);
-        assertSame(null, entry.getValue());
+        assertNull(entry.getValue());
     }
 
 }

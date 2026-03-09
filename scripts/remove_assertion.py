@@ -3,7 +3,7 @@ import re
 from pathlib import Path
 import pandas as pd
 
-outputs_toga = Path("/home/tasfia/Desktop/oe25_for_toga/toga_output_OE25Dev/commons-configuration2/oracle_preds.csv").expanduser()
+outputs_csv = Path("/home/tasfia/Desktop/OE25-DEV/projects_decomposed/joda-time/dataset/doc2oracll.csv").expanduser()
 
 FAIL_RE = re.compile(r"\bfail\s*\(", re.MULTILINE)
 ASSERT_LINE_START_RE = re.compile(r"\b(?:Assert\.)?assert\w*\s*\(")
@@ -49,7 +49,7 @@ def replace_last_assertion_block(prefix: str) -> tuple[str, bool]:
 
 def process_dataset_dir(dataset_dir: Path) -> dict:
     inputs_path = dataset_dir / "inputs.csv"
-    outputs_path = outputs_toga
+    outputs_path = outputs_csv
 
     inputs = pd.read_csv(inputs_path)
 
@@ -59,27 +59,24 @@ def process_dataset_dir(dataset_dir: Path) -> dict:
     if not outputs_path.exists():
         raise FileNotFoundError(outputs_path)
 
-    # outputs = pd.read_csv(outputs_path)
-
-    # if "id" not in outputs.columns:
-    #     raise ValueError(f"outputs.csv missing id column: {outputs_path}")
-
-    # ids = set(outputs["id"].astype(str))
-
     outputs = pd.read_csv(outputs_path)
 
-    if "bug_num" not in outputs.columns or "assert_pred" not in outputs.columns:
-        raise ValueError(f"oracle_preds.csv must contain bug_num and assert_pred")
+    if "id" not in outputs.columns:
+        raise ValueError(f"outputs.csv missing id column: {outputs_path}")
 
-    outputs = outputs[outputs["assert_pred"].notna()]
-    ids = set(outputs["bug_num"].astype(str))
+    ids = set(outputs["id"].astype(str))
 
-    ids = set(outputs["bug_num"].astype(str))
 
-    inputs["id"] = inputs["id"].astype(str)
+    # if "bug_num" not in outputs.columns or "assert_pred" not in outputs.columns:
+    #     raise ValueError(f"oracle_preds.csv must contain bug_num and assert_pred")
+
+    # outputs = outputs[outputs["assert_pred"].notna()]
+    # ids = set(outputs["bug_num"].astype(str))
+
+    # inputs["id"] = inputs["id"].astype(str)
 
     inputs["id"] = inputs["id"].astype(str).str.strip()
-    outputs["bug_num"] = outputs["bug_num"].astype(str).str.strip()
+    outputs["id"] = outputs["id"].astype(str).str.strip()
 
     inputs_assert = inputs[inputs["id"].isin(ids)].copy()
 

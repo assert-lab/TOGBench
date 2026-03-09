@@ -90,14 +90,107 @@ public abstract class AbstractListIteratorTest_OE25Dev<E> extends AbstractIterat
     /**
      * Test that the empty list iterator contract is correct.
      */
+    public void testEmptyListIteratorIsIndeedEmpty() {
+        if (!supportsEmptyIterator()) {
+            return;
+        }
+
+        final ListIterator<E> it = makeEmptyIterator();
+
+        assertEquals(false, it.hasNext());
+        assertEquals(0, it.nextIndex());
+        assertEquals(false, it.hasPrevious());
+        assertEquals(-1, it.previousIndex());
+
+        // next() should throw a NoSuchElementException
+        try {
+            it.next();
+            fail("NoSuchElementException must be thrown from empty ListIterator");
+        } catch (final NoSuchElementException e) {
+        }
+
+        // previous() should throw a NoSuchElementException
+        try {
+            it.previous();
+            fail("NoSuchElementException must be thrown from empty ListIterator");
+        } catch (final NoSuchElementException e) {
+        }
+    }
 
     /**
      * Test navigation through the iterator.
      */
+    public void testWalkForwardAndBack() {
+        final ArrayList<E> list = new ArrayList<>();
+        final ListIterator<E> it = makeObject();
+        while (it.hasNext()) {
+            list.add(it.next());
+        }
+
+        // check state at end
+        assertEquals(false, it.hasNext());
+        assertEquals(true, it.hasPrevious());
+        try {
+            it.next();
+            fail("NoSuchElementException must be thrown from next at end of ListIterator");
+        } catch (final NoSuchElementException e) {
+        }
+
+        // loop back through comparing
+        for (int i = list.size() - 1; i >= 0; i--) {
+            assertEquals(i + 1, it.nextIndex());
+            assertEquals(i, it.previousIndex());
+
+            final Object obj = list.get(i);
+            assertEquals(obj, it.previous());
+        }
+
+        // check state at start
+        assertEquals(true, it.hasNext());
+        assertEquals(false, it.hasPrevious());
+        try {
+            it.previous();
+            fail("NoSuchElementException must be thrown from previous at start of ListIterator");
+        } catch (final NoSuchElementException e) {
+        }
+    }
 
     /**
      * Test add behaviour.
      */
+    public void testAdd() {
+        ListIterator<E> it = makeObject();
+
+        final E addValue = addSetValue();
+        if (!supportsAdd()) {
+            // check for UnsupportedOperationException if not supported
+            try {
+                it.add(addValue);
+                fail("UnsupportedOperationException must be thrown from add of " + it.getClass().getSimpleName());
+            } catch (final UnsupportedOperationException ex) {}
+            return;
+        }
+
+        // add at start should be OK, added should be previous
+        it = makeObject();
+        it.add(addValue);
+        assertEquals(addValue, it.previous());
+
+        // add at start should be OK, added should not be next
+        it = makeObject();
+        it.add(addValue);
+        assertTrue(addValue != it.next());
+
+        // add in middle and at end should be OK
+        it = makeObject();
+        while (it.hasNext()) {
+            it.next();
+            it.add(addValue);
+            // check add OK
+            assertEquals(addValue, it.previous());
+            it.next();
+        }
+    }
 
     /**
      * Test set behaviour.
@@ -231,60 +324,7 @@ public abstract class AbstractListIteratorTest_OE25Dev<E> extends AbstractIterat
             list.add(it.next());
         }
 
-        assertEquals(true, it.hasPrevious());
-    }
-
-    public void testWalkForwardAndBack_4_oe() {
-        final ArrayList<E> list = new ArrayList<>();
-        final ListIterator<E> it = makeObject();
-        while (it.hasNext()) {
-            list.add(it.next());
-        }
-
-        try {
-            it.next();
-        } catch (final NoSuchElementException e) {
-        }
-
-        for (int i = list.size() - 1; i >= 0; i--) {
-            assertEquals(i + 1, it.nextIndex());
-    }
-    }
-
-    public void testWalkForwardAndBack_5_oe() {
-        final ArrayList<E> list = new ArrayList<>();
-        final ListIterator<E> it = makeObject();
-        while (it.hasNext()) {
-            list.add(it.next());
-        }
-
-        try {
-            it.next();
-        } catch (final NoSuchElementException e) {
-        }
-
-        for (int i = list.size() - 1; i >= 0; i--) {
-            assertEquals(i, it.previousIndex());
-    }
-    }
-
-    public void testWalkForwardAndBack_6_oe() {
-        final ArrayList<E> list = new ArrayList<>();
-        final ListIterator<E> it = makeObject();
-        while (it.hasNext()) {
-            list.add(it.next());
-        }
-
-        try {
-            it.next();
-        } catch (final NoSuchElementException e) {
-        }
-
-        for (int i = list.size() - 1; i >= 0; i--) {
-
-            final Object obj = list.get(i);
-            assertEquals(obj, it.previous());
-    }
+        assertEquals(false, it.hasPrevious());
     }
 
     public void testWalkForwardAndBack_7_oe() {
@@ -304,7 +344,7 @@ public abstract class AbstractListIteratorTest_OE25Dev<E> extends AbstractIterat
             final Object obj = list.get(i);
         }
 
-        assertEquals(true, it.hasNext());
+        assertEquals(false, it.hasNext());
     }
 
     public void testWalkForwardAndBack_8_oe() {
@@ -324,7 +364,7 @@ public abstract class AbstractListIteratorTest_OE25Dev<E> extends AbstractIterat
             final Object obj = list.get(i);
         }
 
-        assertEquals(false, it.hasPrevious());
+        assertEquals(true, it.hasPrevious());
     }
 
     public void testAdd_2_oe() {
@@ -340,7 +380,7 @@ public abstract class AbstractListIteratorTest_OE25Dev<E> extends AbstractIterat
 
         it = makeObject();
         it.add(addValue);
-        assertEquals(addValue, it.previous());
+        assertEquals(false, it.hasNext());
     }
 
     public void testAdd_3_oe() {
@@ -359,32 +399,7 @@ public abstract class AbstractListIteratorTest_OE25Dev<E> extends AbstractIterat
 
         it = makeObject();
         it.add(addValue);
-        assertTrue(addValue != it.next());
-    }
-
-    public void testAdd_4_oe() {
-        ListIterator<E> it = makeObject();
-
-        final E addValue = addSetValue();
-        if (!supportsAdd()) {
-            try {
-                it.add(addValue);
-            } catch (final UnsupportedOperationException ex) {}
-            return;
-        }
-
-        it = makeObject();
-        it.add(addValue);
-
-        it = makeObject();
-        it.add(addValue);
-
-        it = makeObject();
-        while (it.hasNext()) {
-            it.next();
-            it.add(addValue);
-            assertEquals(addValue, it.previous());
-    }
+        assertEquals(false, it.hasPrevious());
     }
 
 }

@@ -81,6 +81,29 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 //    }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testNullHandling() {
+        resetFull();
+        assertEquals(null, map.get(null));
+        assertEquals(false, map.containsKey(null));
+        assertEquals(false, map.containsValue(null));
+        assertEquals(null, map.remove(null));
+        assertEquals(false, map.entrySet().contains(null));
+        assertEquals(false, map.keySet().contains(null));
+        assertEquals(false, map.values().contains(null));
+        try {
+            map.put(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            map.put((K) new Object(), null);
+            fail();
+        } catch (final NullPointerException ex) {}
+        try {
+            map.put(null, (V) new Object());
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
 
     //-----------------------------------------------------------------------
 /*
@@ -237,11 +260,65 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
         }
     }
 
+    public void testCustomPurge() {
+        List<Integer> expiredValues = new ArrayList<>();
+        @SuppressWarnings("unchecked")
+        final Consumer<Integer> consumer = (Consumer<Integer> & Serializable) v -> expiredValues.add(v);
+        final Map<Integer, Integer> map = new ReferenceMap<Integer, Integer>(ReferenceStrength.WEAK, ReferenceStrength.HARD, false) {
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            protected ReferenceEntry<Integer, Integer> createEntry(HashEntry<Integer, Integer> next, int hashCode, Integer key, Integer value) {
+                return new AccessibleEntry<>(this, next, hashCode, key, value, consumer);
+            }
+        };
+        for (int i = 100000; i < 100010; i++) {
+            map.put(Integer.valueOf(i), Integer.valueOf(i));
+        }
+        int iterations = 0;
+        int bytz = 2;
+        while (true) {
+            System.gc();
+            if (iterations++ > 50 || bytz < 0) {
+                fail("Max iterations reached before resource released.");
+            }
+            map.isEmpty();
+            if (!expiredValues.isEmpty()) {
+                break;
+            }
+            // create garbage:
+            @SuppressWarnings("unused")
+            final byte[] b = new byte[bytz];
+            bytz = bytz * 2;
+        }
+        assertFalse("Value should be stored", expiredValues.isEmpty());
+    }
+
     /**
      * Test whether after serialization the "data" HashEntry array is the same size as the original.<p>
      *
      * See <a href="https://issues.apache.org/jira/browse/COLLECTIONS-599">COLLECTIONS-599: HashEntry array object naming data initialized with double the size during deserialization</a>
      */
+    public void testDataSizeAfterSerialization() throws IOException, ClassNotFoundException {
+
+        final ReferenceMap<String,String> serialiseMap = new ReferenceMap<>(ReferenceStrength.WEAK, ReferenceStrength.WEAK, true);
+        serialiseMap.put("KEY", "VALUE");
+
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        try (ObjectOutputStream out = new ObjectOutputStream(baos)) {
+            out.writeObject(serialiseMap);
+        }
+
+        final ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+        try (ObjectInputStream in = new ObjectInputStream(bais)) {
+            @SuppressWarnings("unchecked")
+            final
+            ReferenceMap<String,String> deserialisedMap = (ReferenceMap<String,String>) in.readObject();
+            assertEquals(1, deserialisedMap.size());
+            assertEquals(serialiseMap.data.length, deserialisedMap.data.length);
+        }
+
+    }
 
     @SuppressWarnings("unused")
     private static void gc() {
@@ -274,37 +351,17 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
 
     public void testNullHandling_1_oe() {
         resetFull();
-        assertEquals(null, map.get(null));
+        assertNull(map.get(1));
     }
 
     public void testNullHandling_2_oe() {
         resetFull();
-        assertEquals(false, map.containsKey(null));
-    }
-
-    public void testNullHandling_3_oe() {
-        resetFull();
-        assertEquals(false, map.containsValue(null));
-    }
-
-    public void testNullHandling_4_oe() {
-        resetFull();
-        assertEquals(null, map.remove(null));
+        assertEquals(false, map00740.containsKey(1));
     }
 
     public void testNullHandling_5_oe() {
         resetFull();
-        assertEquals(false, map.entrySet().contains(null));
-    }
-
-    public void testNullHandling_6_oe() {
-        resetFull();
-        assertEquals(false, map.keySet().contains(null));
-    }
-
-    public void testNullHandling_7_oe() {
-        resetFull();
-        assertEquals(false, map.values().contains(null));
+        assertEquals(false, entrySet().isEmpty());
     }
 
     public void testCustomPurge_2_oe() {
@@ -336,7 +393,7 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
             final byte[] b = new byte[bytz];
             bytz = bytz * 2;
         }
-        assertFalse("Value should be stored", expiredValues.isEmpty());
+        assertEquals(false, map.isEmpty());
     }
 
     public void testDataSizeAfterSerialization_1_oe() throws IOException, ClassNotFoundException {
@@ -354,26 +411,7 @@ public class ReferenceMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V
             @SuppressWarnings("unchecked")
             final
             ReferenceMap<String,String> deserialisedMap = (ReferenceMap<String,String>) in.readObject();
-            assertEquals(1, deserialisedMap.size());
-    }
-    }
-
-    public void testDataSizeAfterSerialization_2_oe() throws IOException, ClassNotFoundException {
-
-        final ReferenceMap<String,String> serialiseMap = new ReferenceMap<>(ReferenceStrength.WEAK, ReferenceStrength.WEAK, true);
-        serialiseMap.put("KEY", "VALUE");
-
-        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        try (ObjectOutputStream out = new ObjectOutputStream(baos)) {
-            out.writeObject(serialiseMap);
-        }
-
-        final ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
-        try (ObjectInputStream in = new ObjectInputStream(bais)) {
-            @SuppressWarnings("unchecked")
-            final
-            ReferenceMap<String,String> deserialisedMap = (ReferenceMap<String,String>) in.readObject();
-            assertEquals(serialiseMap.data.length, deserialisedMap.data.length);
+            assertEquals(1, serialiseMap.size());
     }
     }
 

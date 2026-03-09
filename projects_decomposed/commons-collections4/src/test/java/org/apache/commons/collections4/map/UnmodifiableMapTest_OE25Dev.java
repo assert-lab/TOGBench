@@ -65,6 +65,21 @@ public class UnmodifiableMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullMap() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final Map<K, V> map = makeFullMap();
+        assertSame(map, UnmodifiableMap.unmodifiableMap(map));
+
+        try {
+            UnmodifiableMap.unmodifiableMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     //-----------------------------------------------------------------------
 
     @Override
@@ -85,24 +100,17 @@ public class UnmodifiableMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K
 
     public void testUnmodifiable_1_oe() {
         boolean a = makeObject() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testUnmodifiable_2_oe() {
         boolean a = makeFullMap() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testDecorateFactory_1_oe() {
         final Map<K, V> map = makeFullMap();
-        assertSame(map, UnmodifiableMap.unmodifiableMap(map));
-    }
-
-public void testDecorateFactory_oe_101_oe() {
-        try {
-            UnmodifiableMap.unmodifiableMap(null);
-            fail();
-        } catch (final NullPointerException ex) {}
+        assertEquals(true, map.isEmpty());
     }
 
 }

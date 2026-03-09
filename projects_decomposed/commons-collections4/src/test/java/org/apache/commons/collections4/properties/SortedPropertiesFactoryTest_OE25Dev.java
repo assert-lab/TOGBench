@@ -26,10 +26,16 @@ public class SortedPropertiesFactoryTest_OE25Dev extends AbstractPropertiesFacto
         super(SortedPropertiesFactory.INSTANCE);
     }
 
+    @Override
+    @Test
+    public void testInstance() {
+        Assert.assertNotNull(SortedPropertiesFactory.INSTANCE);
+    }
+
     @Test
     public void testInstance_1_oe() {
         Object a = SortedPropertiesFactory.INSTANCE;
-        Assert.assertNotNull(a);
+        assertEquals("{}", a.toString());
     }
 
 }

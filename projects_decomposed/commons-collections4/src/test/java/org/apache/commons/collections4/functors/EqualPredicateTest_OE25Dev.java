@@ -33,6 +33,25 @@ public class EqualPredicateTest_OE25Dev extends AbstractPredicateTest {
        return equalPredicate(null);
     }
 
+    @Test
+    public void testNullArgumentEqualsNullPredicate() throws Exception {
+        assertSame(nullPredicate(), equalPredicate(null));
+    }
+
+    @Test
+    public void objectFactoryUsesEqualsForTest() throws Exception {
+        final Predicate<EqualsTestObject> predicate = equalPredicate(FALSE_OBJECT);
+        assertFalse(predicate, FALSE_OBJECT);
+        assertTrue(equalPredicate(TRUE_OBJECT), TRUE_OBJECT);
+    }
+
+    @SuppressWarnings("boxing")
+    @Test
+    public void testPredicateTypeCanBeSuperClassOfObject() throws Exception {
+        final Predicate<Number> predicate = equalPredicate((Number) 4);
+        assertTrue(predicate, 4);
+    }
+
     public static class EqualsTestObject {
         private final boolean b;
 
@@ -49,25 +68,25 @@ public class EqualPredicateTest_OE25Dev extends AbstractPredicateTest {
     @Test
     public void testNullArgumentEqualsNullPredicate_1_oe() throws Exception {
         Object a = equalPredicate(null);
-        assertSame(nullPredicate(), a);
+        assertNotNull(a);
     }
 
     @Test
     public void objectFactoryUsesEqualsForTest_1_oe() throws Exception {
         final Predicate<EqualsTestObject> predicate = equalPredicate(FALSE_OBJECT);
-        assertFalse(predicate, FALSE_OBJECT);
+        assertDoesNotThrow(() -> test02408());
     }
 
     @Test
     public void objectFactoryUsesEqualsForTest_2_oe() throws Exception {
         final Predicate<EqualsTestObject> predicate = equalPredicate(FALSE_OBJECT);
-        assertTrue(equalPredicate(TRUE_OBJECT), TRUE_OBJECT);
+        assertDoesNotThrow(() -> test04380());
     }
 
     @Test
     public void testPredicateTypeCanBeSuperClassOfObject_1_oe() throws Exception {
         final Predicate<Number> predicate = equalPredicate((Number) 4);
-        assertTrue(predicate, 4);
+        assertDoesNotThrow(() -> test04399());
     }
 
 }

@@ -108,18 +108,90 @@ public abstract class AbstractLinkedListTest_OE25Dev<T> extends AbstractListTest
     /**
      *  Tests {@link LinkedList#getFirst()}.
      */
+    public void testLinkedListGetFirst() {
+        resetEmpty();
+        try {
+            getCollection().getFirst();
+            fail("getFirst()should throw a NoSuchElementException for an " + "empty list.");
+        } catch (final NoSuchElementException e) {
+            // This is correct
+        }
+        verify();
+
+        resetFull();
+        final Object first = getCollection().getFirst();
+        final Object confirmedFirst = getConfirmedLinkedList().getFirst();
+        assertEquals("Result returned by getFirst()was wrong.",confirmedFirst,first);
+        verify();
+    }
 
     /**
      *  Tests {@link LinkedList#getLast()}.
      */
+    public void testLinkedListGetLast() {
+        resetEmpty();
+        try {
+            getCollection().getLast();
+            fail("getLast()should throw a NoSuchElementException for an " + "empty list.");
+        } catch (final NoSuchElementException e) {
+            // This is correct
+        }
+        verify();
+
+        resetFull();
+        final Object last = getCollection().getLast();
+        final Object confirmedLast = getConfirmedLinkedList().getLast();
+        assertEquals("Result returned by getLast()was wrong.",confirmedLast,last);
+        verify();
+    }
 
     /**
      *  Tests {@link LinkedList#removeFirst()}.
      */
+    public void testLinkedListRemoveFirst() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+
+        resetEmpty();
+        try {
+            getCollection().removeFirst();
+            fail("removeFirst()should throw a NoSuchElementException for " + "an empty list.");
+        } catch (final NoSuchElementException e) {
+            // This is correct
+        }
+        verify();
+
+        resetFull();
+        final Object first = getCollection().removeFirst();
+        final Object confirmedFirst = getConfirmedLinkedList().removeFirst();
+        assertEquals("Result returned by removeFirst()was wrong.",confirmedFirst,first);
+        verify();
+    }
 
     /**
      *  Tests {@link LinkedList#removeLast()}.
      */
+    public void testLinkedListRemoveLast() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+
+        resetEmpty();
+        try {
+            getCollection().removeLast();
+            fail("removeLast()should throw a NoSuchElementException for " + "an empty list.");
+        } catch (final NoSuchElementException e) {
+            // This is correct
+        }
+        verify();
+
+        resetFull();
+        final Object last = getCollection().removeLast();
+        final Object confirmedLast = getConfirmedLinkedList().removeLast();
+        assertEquals("Result returned by removeLast()was wrong.",confirmedLast,last);
+        verify();
+    }
 
     /**
      *  Returns an empty {@link LinkedList}.
@@ -150,21 +222,7 @@ public abstract class AbstractLinkedListTest_OE25Dev<T> extends AbstractListTest
         resetFull();
         final Object first = getCollection().getFirst();
         final Object confirmedFirst = getConfirmedLinkedList().getFirst();
-        assertEquals("Result returned by getFirst()was wrong.",confirmedFirst,first);
-    }
-
-    public void testLinkedListGetLast_2_oe() {
-        resetEmpty();
-        try {
-            getCollection().getLast();
-        } catch (final NoSuchElementException e) {
-        }
-        verify();
-
-        resetFull();
-        final Object last = getCollection().getLast();
-        final Object confirmedLast = getConfirmedLinkedList().getLast();
-        assertEquals("Result returned by getLast()was wrong.",confirmedLast,last);
+        assertEquals(false, first.equals(confirmedFirst));
     }
 
     public void testLinkedListRemoveFirst_2_oe() {
@@ -182,7 +240,7 @@ public abstract class AbstractLinkedListTest_OE25Dev<T> extends AbstractListTest
         resetFull();
         final Object first = getCollection().removeFirst();
         final Object confirmedFirst = getConfirmedLinkedList().removeFirst();
-        assertEquals("Result returned by removeFirst()was wrong.",confirmedFirst,first);
+        assertNotNull(confirmedFirst);
     }
 
     public void testLinkedListRemoveLast_2_oe() {
@@ -200,7 +258,7 @@ public abstract class AbstractLinkedListTest_OE25Dev<T> extends AbstractListTest
         resetFull();
         final Object last = getCollection().removeLast();
         final Object confirmedLast = getConfirmedLinkedList().removeLast();
-        assertEquals("Result returned by removeLast()was wrong.",confirmedLast,last);
+        assertEquals(false, last.equals(confirmedLast));
     }
 
 }

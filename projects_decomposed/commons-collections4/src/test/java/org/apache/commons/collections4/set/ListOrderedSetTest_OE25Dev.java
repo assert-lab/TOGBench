@@ -61,6 +61,165 @@ public class ListOrderedSetTest_OE25Dev<E>
         return set;
     }
 
+    @SuppressWarnings("unchecked")
+    public void testOrdering() {
+        final ListOrderedSet<E> set = setupSet();
+        Iterator<E> it = set.iterator();
+
+        for (int i = 0; i < 10; i++) {
+            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
+        }
+
+        for (int i = 0; i < 10; i += 2) {
+            assertTrue("Must be able to remove int",set.remove(Integer.toString(i)));
+        }
+
+        it = set.iterator();
+        for (int i = 1; i < 10; i += 2) {
+            assertEquals("Sequence is wrong after remove ",Integer.toString(i),it.next());
+        }
+
+        for (int i = 0; i < 10; i++) {
+            set.add((E) Integer.toString(i));
+        }
+
+        assertEquals("Size of set is wrong!", 10, set.size());
+
+        it = set.iterator();
+        for (int i = 1; i < 10; i += 2) {
+            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
+        }
+        for (int i = 0; i < 10; i += 2) {
+            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testListAddRemove() {
+        final ListOrderedSet<E> set = makeObject();
+        final List<E> view = set.asList();
+        set.add((E) ZERO);
+        set.add((E) ONE);
+        set.add((E) TWO);
+
+        assertEquals(3, set.size());
+        assertSame(ZERO, set.get(0));
+        assertSame(ONE, set.get(1));
+        assertSame(TWO, set.get(2));
+        assertEquals(3, view.size());
+        assertSame(ZERO, view.get(0));
+        assertSame(ONE, view.get(1));
+        assertSame(TWO, view.get(2));
+
+        assertEquals(0, set.indexOf(ZERO));
+        assertEquals(1, set.indexOf(ONE));
+        assertEquals(2, set.indexOf(TWO));
+
+        set.remove(1);
+        assertEquals(2, set.size());
+        assertSame(ZERO, set.get(0));
+        assertSame(TWO, set.get(1));
+        assertEquals(2, view.size());
+        assertSame(ZERO, view.get(0));
+        assertSame(TWO, view.get(1));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testListAddIndexed() {
+        final ListOrderedSet<E> set = makeObject();
+        set.add((E) ZERO);
+        set.add((E) TWO);
+
+        set.add(1, (E) ONE);
+        assertEquals(3, set.size());
+        assertSame(ZERO, set.get(0));
+        assertSame(ONE, set.get(1));
+        assertSame(TWO, set.get(2));
+
+        set.add(0, (E) ONE);
+        assertEquals(3, set.size());
+        assertSame(ZERO, set.get(0));
+        assertSame(ONE, set.get(1));
+        assertSame(TWO, set.get(2));
+
+        final List<E> list = new ArrayList<>();
+        list.add((E) ZERO);
+        list.add((E) TWO);
+
+        set.addAll(0, list);
+        assertEquals(3, set.size());
+        assertSame(ZERO, set.get(0));
+        assertSame(ONE, set.get(1));
+        assertSame(TWO, set.get(2));
+
+        list.add(0, (E) THREE); // list = [3,0,2]
+        set.remove(TWO); //  set = [0,1]
+        set.addAll(1, list);
+        assertEquals(4, set.size());
+        assertSame(ZERO, set.get(0));
+        assertSame(THREE, set.get(1));
+        assertSame(TWO, set.get(2));
+        assertSame(ONE, set.get(3));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testListAddReplacing() {
+        final ListOrderedSet<E> set = makeObject();
+        final A a = new A();
+        final B b = new B();
+        set.add((E) a);
+        assertEquals(1, set.size());
+        set.add((E) b); // will match but not replace A as equal
+        assertEquals(1, set.size());
+        assertSame(a, set.decorated().iterator().next());
+        assertSame(a, set.iterator().next());
+        assertSame(a, set.get(0));
+        assertSame(a, set.asList().get(0));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testRetainAll() {
+        final List<E> list = new ArrayList<>(10);
+        final Set<E> set = new HashSet<>(10);
+        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(set, list);
+        for (int i = 0; i < 10; ++i) {
+            orderedSet.add((E) Integer.valueOf(10 - i - 1));
+        }
+
+        final Collection<E> retained = new ArrayList<>(5);
+        for (int i = 0; i < 5; ++i) {
+            retained.add((E) Integer.valueOf(i * 2));
+        }
+
+        assertTrue(orderedSet.retainAll(retained));
+        assertEquals(5, orderedSet.size());
+        // insertion order preserved?
+        assertEquals(Integer.valueOf(8), orderedSet.get(0));
+        assertEquals(Integer.valueOf(6), orderedSet.get(1));
+        assertEquals(Integer.valueOf(4), orderedSet.get(2));
+        assertEquals(Integer.valueOf(2), orderedSet.get(3));
+        assertEquals(Integer.valueOf(0), orderedSet.get(4));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testDuplicates() {
+        final List<E> list = new ArrayList<>(10);
+        list.add((E) Integer.valueOf(1));
+        list.add((E) Integer.valueOf(2));
+        list.add((E) Integer.valueOf(3));
+        list.add((E) Integer.valueOf(1));
+
+        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(list);
+
+        assertEquals(3, orderedSet.size());
+        assertEquals(3, IteratorUtils.toArray(orderedSet.iterator()).length);
+
+        // insertion order preserved?
+        assertEquals(Integer.valueOf(1), orderedSet.get(0));
+        assertEquals(Integer.valueOf(2), orderedSet.get(1));
+        assertEquals(Integer.valueOf(3), orderedSet.get(2));
+    }
+
     static class A {
 
         @Override
@@ -127,27 +286,6 @@ public class ListOrderedSetTest_OE25Dev<E>
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/ListOrderedSet.fullCollection.version4.obj");
 //    }
 
-    public void testOrdering_1_oe() {
-        final ListOrderedSet<E> set = setupSet();
-        Iterator<E> it = set.iterator();
-
-        for (int i = 0; i < 10; i++) {
-            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
-    }
-    }
-
-    public void testOrdering_2_oe() {
-        final ListOrderedSet<E> set = setupSet();
-        Iterator<E> it = set.iterator();
-
-        for (int i = 0; i < 10; i++) {
-        }
-
-        for (int i = 0; i < 10; i += 2) {
-            assertTrue("Must be able to remove int",set.remove(Integer.toString(i)));
-    }
-    }
-
     public void testOrdering_4_oe() {
         final ListOrderedSet<E> set = setupSet();
         Iterator<E> it = set.iterator();
@@ -166,7 +304,7 @@ public class ListOrderedSetTest_OE25Dev<E>
             set.add((E) Integer.toString(i));
         }
 
-        assertEquals("Size of set is wrong!", 10, set.size());
+        assertEquals(10, set.size());
     }
 
     public void testListAddRemove_1_oe() {
@@ -186,7 +324,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) ONE);
         set.add((E) TWO);
 
-        assertSame(ZERO, set.get(0));
+        assertEquals(ONE, set.get(1));
     }
 
     public void testListAddRemove_3_oe() {
@@ -196,7 +334,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) ONE);
         set.add((E) TWO);
 
-        assertSame(ONE, set.get(1));
+        assertEquals(ONE, set.get(1));
     }
 
     public void testListAddRemove_4_oe() {
@@ -206,7 +344,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) ONE);
         set.add((E) TWO);
 
-        assertSame(TWO, set.get(2));
+        assertEquals(ONE, set.get(1));
     }
 
     public void testListAddRemove_5_oe() {
@@ -216,7 +354,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) ONE);
         set.add((E) TWO);
 
-        assertEquals(3, view.size());
+        assertEquals(3, set.size());
     }
 
     public void testListAddRemove_6_oe() {
@@ -226,7 +364,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) ONE);
         set.add((E) TWO);
 
-        assertSame(ZERO, view.get(0));
+        assertEquals(ONE, set.get(1));
     }
 
     public void testListAddRemove_7_oe() {
@@ -236,7 +374,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) ONE);
         set.add((E) TWO);
 
-        assertSame(ONE, view.get(1));
+        assertEquals(ONE, set.get(1));
     }
 
     public void testListAddRemove_8_oe() {
@@ -246,7 +384,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) ONE);
         set.add((E) TWO);
 
-        assertSame(TWO, view.get(2));
+        assertEquals(ONE, set.get(1));
     }
 
     public void testListAddRemove_9_oe() {
@@ -268,7 +406,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) TWO);
 
 
-        assertEquals(1, set.indexOf(ONE));
+        assertEquals(0, set.indexOf(ZERO));
     }
 
     public void testListAddRemove_11_oe() {
@@ -279,7 +417,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) TWO);
 
 
-        assertEquals(2, set.indexOf(TWO));
+        assertEquals(0, set.indexOf(ZERO));
     }
 
     public void testListAddRemove_12_oe() {
@@ -292,7 +430,7 @@ public class ListOrderedSetTest_OE25Dev<E>
 
 
         set.remove(1);
-        assertEquals(2, set.size());
+        assertEquals(3, set.size());
     }
 
     public void testListAddRemove_13_oe() {
@@ -305,7 +443,7 @@ public class ListOrderedSetTest_OE25Dev<E>
 
 
         set.remove(1);
-        assertSame(ZERO, set.get(0));
+        assertEquals(ZERO, set.get(0));
     }
 
     public void testListAddRemove_14_oe() {
@@ -318,7 +456,7 @@ public class ListOrderedSetTest_OE25Dev<E>
 
 
         set.remove(1);
-        assertSame(TWO, set.get(1));
+        assertEquals(ZERO, set.get(0));
     }
 
     public void testListAddRemove_15_oe() {
@@ -331,7 +469,7 @@ public class ListOrderedSetTest_OE25Dev<E>
 
 
         set.remove(1);
-        assertEquals(2, view.size());
+        assertEquals(3, set.size());
     }
 
     public void testListAddRemove_16_oe() {
@@ -344,7 +482,7 @@ public class ListOrderedSetTest_OE25Dev<E>
 
 
         set.remove(1);
-        assertSame(ZERO, view.get(0));
+        assertEquals(TWO, set.get(2));
     }
 
     public void testListAddRemove_17_oe() {
@@ -357,7 +495,7 @@ public class ListOrderedSetTest_OE25Dev<E>
 
 
         set.remove(1);
-        assertSame(TWO, view.get(1));
+        assertEquals(TWO, set.get(2));
     }
 
     public void testListAddIndexed_1_oe() {
@@ -375,7 +513,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) TWO);
 
         set.add(1, (E) ONE);
-        assertSame(ZERO, set.get(0));
+        assertEquals(ONE, set.get(1));
     }
 
     public void testListAddIndexed_3_oe() {
@@ -384,7 +522,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) TWO);
 
         set.add(1, (E) ONE);
-        assertSame(ONE, set.get(1));
+        assertEquals(ONE, set.get(1));
     }
 
     public void testListAddIndexed_4_oe() {
@@ -393,7 +531,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add((E) TWO);
 
         set.add(1, (E) ONE);
-        assertSame(TWO, set.get(2));
+        assertEquals(ONE, set.get(1));
     }
 
     public void testListAddIndexed_5_oe() {
@@ -404,7 +542,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add(1, (E) ONE);
 
         set.add(0, (E) ONE);
-        assertEquals(3, set.size());
+        assertEquals(4, set.size());
     }
 
     public void testListAddIndexed_6_oe() {
@@ -415,7 +553,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add(1, (E) ONE);
 
         set.add(0, (E) ONE);
-        assertSame(ZERO, set.get(0));
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddIndexed_7_oe() {
@@ -426,7 +564,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add(1, (E) ONE);
 
         set.add(0, (E) ONE);
-        assertSame(ONE, set.get(1));
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddIndexed_8_oe() {
@@ -437,7 +575,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         set.add(1, (E) ONE);
 
         set.add(0, (E) ONE);
-        assertSame(TWO, set.get(2));
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddIndexed_9_oe() {
@@ -454,7 +592,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         list.add((E) TWO);
 
         set.addAll(0, list);
-        assertEquals(3, set.size());
+        assertEquals(5, set.size());
     }
 
     public void testListAddIndexed_10_oe() {
@@ -471,7 +609,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         list.add((E) TWO);
 
         set.addAll(0, list);
-        assertSame(ZERO, set.get(0));
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddIndexed_11_oe() {
@@ -488,7 +626,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         list.add((E) TWO);
 
         set.addAll(0, list);
-        assertSame(ONE, set.get(1));
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddIndexed_12_oe() {
@@ -505,28 +643,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         list.add((E) TWO);
 
         set.addAll(0, list);
-        assertSame(TWO, set.get(2));
-    }
-
-    public void testListAddIndexed_13_oe() {
-        final ListOrderedSet<E> set = makeObject();
-        set.add((E) ZERO);
-        set.add((E) TWO);
-
-        set.add(1, (E) ONE);
-
-        set.add(0, (E) ONE);
-
-        final List<E> list = new ArrayList<>();
-        list.add((E) ZERO);
-        list.add((E) TWO);
-
-        set.addAll(0, list);
-
-        list.add(0, (E) THREE); // list = [3,0,2]
-        set.remove(TWO); //  set = [0,1]
-        set.addAll(1, list);
-        assertEquals(4, set.size());
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddIndexed_14_oe() {
@@ -547,7 +664,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         list.add(0, (E) THREE); // list = [3,0,2]
         set.remove(TWO); //  set = [0,1]
         set.addAll(1, list);
-        assertSame(ZERO, set.get(0));
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddIndexed_15_oe() {
@@ -568,7 +685,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         list.add(0, (E) THREE); // list = [3,0,2]
         set.remove(TWO); //  set = [0,1]
         set.addAll(1, list);
-        assertSame(THREE, set.get(1));
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddIndexed_16_oe() {
@@ -589,7 +706,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         list.add(0, (E) THREE); // list = [3,0,2]
         set.remove(TWO); //  set = [0,1]
         set.addAll(1, list);
-        assertSame(TWO, set.get(2));
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddIndexed_17_oe() {
@@ -610,7 +727,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         list.add(0, (E) THREE); // list = [3,0,2]
         set.remove(TWO); //  set = [0,1]
         set.addAll(1, list);
-        assertSame(ONE, set.get(3));
+        assertEquals(ONE, set.get(0));
     }
 
     public void testListAddReplacing_1_oe() {
@@ -621,31 +738,13 @@ public class ListOrderedSetTest_OE25Dev<E>
         assertEquals(1, set.size());
     }
 
-    public void testListAddReplacing_2_oe() {
-        final ListOrderedSet<E> set = makeObject();
-        final A a = new A();
-        final B b = new B();
-        set.add((E) a);
-        set.add((E) b); // will match but not replace A as equal
-        assertEquals(1, set.size());
-    }
-
     public void testListAddReplacing_3_oe() {
         final ListOrderedSet<E> set = makeObject();
         final A a = new A();
         final B b = new B();
         set.add((E) a);
         set.add((E) b); // will match but not replace A as equal
-        assertSame(a, set.decorated().iterator().next());
-    }
-
-    public void testListAddReplacing_4_oe() {
-        final ListOrderedSet<E> set = makeObject();
-        final A a = new A();
-        final B b = new B();
-        set.add((E) a);
-        set.add((E) b); // will match but not replace A as equal
-        assertSame(a, set.iterator().next());
+        assertEquals(false, set.isEmpty());
     }
 
     public void testListAddReplacing_5_oe() {
@@ -654,135 +753,7 @@ public class ListOrderedSetTest_OE25Dev<E>
         final B b = new B();
         set.add((E) a);
         set.add((E) b); // will match but not replace A as equal
-        assertSame(a, set.get(0));
-    }
-
-    public void testListAddReplacing_6_oe() {
-        final ListOrderedSet<E> set = makeObject();
-        final A a = new A();
-        final B b = new B();
-        set.add((E) a);
-        set.add((E) b); // will match but not replace A as equal
-        assertSame(a, set.asList().get(0));
-    }
-
-    public void testRetainAll_1_oe() {
-        final List<E> list = new ArrayList<>(10);
-        final Set<E> set = new HashSet<>(10);
-        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(set, list);
-        for (int i = 0; i < 10; ++i) {
-            orderedSet.add((E) Integer.valueOf(10 - i - 1));
-        }
-
-        final Collection<E> retained = new ArrayList<>(5);
-        for (int i = 0; i < 5; ++i) {
-            retained.add((E) Integer.valueOf(i * 2));
-        }
-
-        assertTrue(orderedSet.retainAll(retained));
-    }
-
-    public void testDuplicates_1_oe() {
-        final List<E> list = new ArrayList<>(10);
-        list.add((E) Integer.valueOf(1));
-        list.add((E) Integer.valueOf(2));
-        list.add((E) Integer.valueOf(3));
-        list.add((E) Integer.valueOf(1));
-
-        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(list);
-
-        assertEquals(3, orderedSet.size());
-    }
-
-    public void testDuplicates_2_oe() {
-        final List<E> list = new ArrayList<>(10);
-        list.add((E) Integer.valueOf(1));
-        list.add((E) Integer.valueOf(2));
-        list.add((E) Integer.valueOf(3));
-        list.add((E) Integer.valueOf(1));
-
-        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(list);
-
-        assertEquals(3, IteratorUtils.toArray(orderedSet.iterator()).length);
-    }
-
-    public void testDuplicates_3_oe() {
-        final List<E> list = new ArrayList<>(10);
-        list.add((E) Integer.valueOf(1));
-        list.add((E) Integer.valueOf(2));
-        list.add((E) Integer.valueOf(3));
-        list.add((E) Integer.valueOf(1));
-
-        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(list);
-
-
-        assertEquals(Integer.valueOf(1), orderedSet.get(0));
-    }
-
-    public void testDuplicates_4_oe() {
-        final List<E> list = new ArrayList<>(10);
-        list.add((E) Integer.valueOf(1));
-        list.add((E) Integer.valueOf(2));
-        list.add((E) Integer.valueOf(3));
-        list.add((E) Integer.valueOf(1));
-
-        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(list);
-
-
-        assertEquals(Integer.valueOf(2), orderedSet.get(1));
-    }
-
-    public void testDuplicates_5_oe() {
-        final List<E> list = new ArrayList<>(10);
-        list.add((E) Integer.valueOf(1));
-        list.add((E) Integer.valueOf(2));
-        list.add((E) Integer.valueOf(3));
-        list.add((E) Integer.valueOf(1));
-
-        final ListOrderedSet<E> orderedSet = ListOrderedSet.listOrderedSet(list);
-
-
-        assertEquals(Integer.valueOf(3), orderedSet.get(2));
-    }
-
-public void testDecorator_oe_101_oe() {
-        try {
-            ListOrderedSet.listOrderedSet((List<E>) null);
-            fail();
-        } catch (final NullPointerException ex) {
-        }
-    }
-
-public void testDecorator_oe_102_oe() {
-        try {
-            ListOrderedSet.listOrderedSet((Set<E>) null);
-            fail();
-        } catch (final NullPointerException ex) {
-        }
-    }
-
-public void testDecorator_oe_103_oe() {
-        try {
-            ListOrderedSet.listOrderedSet(null, null);
-            fail();
-        } catch (final NullPointerException ex) {
-        }
-    }
-
-public void testDecorator_oe_104_oe() {
-        try {
-            ListOrderedSet.listOrderedSet(new HashSet<E>(), null);
-            fail();
-        } catch (final NullPointerException ex) {
-        }
-    }
-
-public void testDecorator_oe_105_oe() {
-        try {
-            ListOrderedSet.listOrderedSet(null, new ArrayList<E>());
-            fail();
-        } catch (final NullPointerException ex) {
-        }
+        assertEquals(b, set.get(1));
     }
 
 }

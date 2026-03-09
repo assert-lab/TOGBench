@@ -95,6 +95,30 @@ public class SingletonMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V>
     }
 
     //-----------------------------------------------------------------------
+    public void testClone() {
+        final SingletonMap<K, V> map = makeFullMap();
+        assertEquals(1, map.size());
+        final SingletonMap<K, V> cloned = map.clone();
+        assertEquals(1, cloned.size());
+        assertEquals(true, cloned.containsKey(ONE));
+        assertEquals(true, cloned.containsValue(TWO));
+    }
+
+    public void testKeyValue() {
+        final SingletonMap<K, V> map = makeFullMap();
+        assertEquals(1, map.size());
+        assertEquals(ONE, map.getKey());
+        assertEquals(TWO, map.getValue());
+        assertTrue(map instanceof KeyValue);
+    }
+
+    public void testBoundedMap() {
+        final SingletonMap<K, V> map = makeFullMap();
+        assertEquals(1, map.size());
+        assertEquals(true, map.isFull());
+        assertEquals(1, map.maxSize());
+        assertTrue(map instanceof BoundedMap);
+    }
 
     //-----------------------------------------------------------------------
 //    public BulkTest bulkTestMapIterator() {
@@ -168,19 +192,19 @@ public class SingletonMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V>
     public void testClone_2_oe() {
         final SingletonMap<K, V> map = makeFullMap();
         final SingletonMap<K, V> cloned = map.clone();
-        assertEquals(1, cloned.size());
+        assertEquals(1, map.size());
     }
 
     public void testClone_3_oe() {
         final SingletonMap<K, V> map = makeFullMap();
         final SingletonMap<K, V> cloned = map.clone();
-        assertEquals(true, cloned.containsKey(ONE));
+        assertEquals(true, map.containsKey(map.getKey()));
     }
 
     public void testClone_4_oe() {
         final SingletonMap<K, V> map = makeFullMap();
         final SingletonMap<K, V> cloned = map.clone();
-        assertEquals(true, cloned.containsValue(TWO));
+        assertEquals(true, map.containsValue());
     }
 
     public void testKeyValue_1_oe() {
@@ -190,17 +214,12 @@ public class SingletonMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V>
 
     public void testKeyValue_2_oe() {
         final SingletonMap<K, V> map = makeFullMap();
-        assertEquals(ONE, map.getKey());
-    }
-
-    public void testKeyValue_3_oe() {
-        final SingletonMap<K, V> map = makeFullMap();
-        assertEquals(TWO, map.getValue());
+        assertNull(map.getKey());
     }
 
     public void testKeyValue_4_oe() {
         final SingletonMap<K, V> map = makeFullMap();
-        assertTrue(map instanceof KeyValue);
+        assertEquals(false, map.isEmpty());
     }
 
     public void testBoundedMap_1_oe() {
@@ -220,7 +239,7 @@ public class SingletonMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V>
 
     public void testBoundedMap_4_oe() {
         final SingletonMap<K, V> map = makeFullMap();
-        assertTrue(map instanceof BoundedMap);
+        assertEquals(false, map.isEmpty());
     }
 
 }

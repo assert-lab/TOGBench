@@ -70,6 +70,36 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
     //--------------------------------------------------------------------------
 
     @SuppressWarnings("unchecked")
+    public void testlegalAddRemove() {
+        final Bag<T> bag = makeTestBag();
+        assertEquals(0, bag.size());
+        final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
+        for (int i = 0; i < els.length; i++) {
+            bag.add(els[i]);
+            assertEquals(i + 1, bag.size());
+            assertEquals(true, bag.contains(els[i]));
+        }
+        Set<T> set = ((PredicatedBag<T>) bag).uniqueSet();
+        assertTrue("Unique set contains the first element",set.contains(els[0]));
+        assertEquals(true, bag.remove(els[0]));
+        set = ((PredicatedBag<T>) bag).uniqueSet();
+        assertTrue("Unique set now does not contain the first element",!set.contains(els[0]));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testIllegalAdd() {
+        final Bag<T> bag = makeTestBag();
+        final Integer i = Integer.valueOf(3);
+        try {
+            bag.add((T) i);
+            fail("Integer should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("Collection shouldn't contain illegal element",!bag.contains(i));
+    }
+
+    @SuppressWarnings("unchecked")
     public void testIllegalDecorate() {
         final HashBag<Object> elements = new HashBag<>();
         elements.add("one");
@@ -104,7 +134,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
 
     public void testlegalAddRemove_1_oe() {
         final Bag<T> bag = makeTestBag();
-        assertEquals(0, bag.size());
+        assertEquals(5, bag.size());
     }
 
     public void testlegalAddRemove_2_oe() {
@@ -112,16 +142,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
         for (int i = 0; i < els.length; i++) {
             bag.add(els[i]);
-            assertEquals(i + 1, bag.size());
-    }
-    }
-
-    public void testlegalAddRemove_3_oe() {
-        final Bag<T> bag = makeTestBag();
-        final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
-        for (int i = 0; i < els.length; i++) {
-            bag.add(els[i]);
-            assertEquals(true, bag.contains(els[i]));
+            assertEquals(7, bag.size());
     }
     }
 
@@ -132,7 +153,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
             bag.add(els[i]);
         }
         Set<T> set = ((PredicatedBag<T>) bag).uniqueSet();
-        assertTrue("Unique set contains the first element",set.contains(els[0]));
+        assertEquals(5, bag.size());
     }
 
     public void testlegalAddRemove_5_oe() {
@@ -142,7 +163,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
             bag.add(els[i]);
         }
         Set<T> set = ((PredicatedBag<T>) bag).uniqueSet();
-        assertEquals(true, bag.remove(els[0]));
+        assertEquals(true, bag.remove("1", 1));
     }
 
     public void testIllegalAdd_2_oe() {
@@ -152,7 +173,7 @@ public class PredicatedBagTest_OE25Dev<T> extends AbstractBagTest<T> {
             bag.add((T) i);
         } catch (final IllegalArgumentException e) {
         }
-        assertTrue("Collection shouldn't contain illegal element",!bag.contains(i));
+        assertEquals(false, bag.contains(i));
     }
 
 }

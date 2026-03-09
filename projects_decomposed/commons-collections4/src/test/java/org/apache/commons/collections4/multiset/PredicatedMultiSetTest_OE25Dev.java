@@ -70,6 +70,36 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
     //--------------------------------------------------------------------------
 
     @SuppressWarnings("unchecked")
+    public void testLegalAddRemove() {
+        final MultiSet<T> multiset = makeTestMultiSet();
+        assertEquals(0, multiset.size());
+        final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
+        for (int i = 0; i < els.length; i++) {
+            multiset.add(els[i]);
+            assertEquals(i + 1, multiset.size());
+            assertEquals(true, multiset.contains(els[i]));
+        }
+        Set<T> set = ((PredicatedMultiSet<T>) multiset).uniqueSet();
+        assertTrue("Unique set contains the first element",set.contains(els[0]));
+        assertEquals(true, multiset.remove(els[0]));
+        set = ((PredicatedMultiSet<T>) multiset).uniqueSet();
+        assertTrue("Unique set does not contain anymore the first element",set.contains(els[0]));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testIllegalAdd() {
+        final MultiSet<T> multiset = makeTestMultiSet();
+        final Integer i = Integer.valueOf(3);
+        try {
+            multiset.add((T) i);
+            fail("Integer should fail string predicate.");
+        } catch (final IllegalArgumentException e) {
+            // expected
+        }
+        assertTrue("Collection shouldn't contain illegal element",!multiset.contains(i));
+    }
+
+    @SuppressWarnings("unchecked")
     public void testIllegalDecorate() {
         final HashMultiSet<Object> elements = new HashMultiSet<>();
         elements.add("one");
@@ -104,7 +134,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
 
     public void testLegalAddRemove_1_oe() {
         final MultiSet<T> multiset = makeTestMultiSet();
-        assertEquals(0, multiset.size());
+        assertEquals(6, multiset.size());
     }
 
     public void testLegalAddRemove_2_oe() {
@@ -112,7 +142,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
         for (int i = 0; i < els.length; i++) {
             multiset.add(els[i]);
-            assertEquals(i + 1, multiset.size());
+            assertEquals(7, multiset.size());
     }
     }
 
@@ -121,7 +151,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
         final T[] els = (T[]) new Object[] { "1", "3", "5", "7", "2", "4", "1" };
         for (int i = 0; i < els.length; i++) {
             multiset.add(els[i]);
-            assertEquals(true, multiset.contains(els[i]));
+            assertEquals(true, multiset.containsAll(Arrays.asList(els)));
     }
     }
 
@@ -132,7 +162,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
             multiset.add(els[i]);
         }
         Set<T> set = ((PredicatedMultiSet<T>) multiset).uniqueSet();
-        assertTrue("Unique set contains the first element",set.contains(els[0]));
+        assertEquals(true, multiset.containsAll(set));
     }
 
     public void testLegalAddRemove_5_oe() {
@@ -142,7 +172,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
             multiset.add(els[i]);
         }
         Set<T> set = ((PredicatedMultiSet<T>) multiset).uniqueSet();
-        assertEquals(true, multiset.remove(els[0]));
+        assertEquals(1, multiset.remove("1", 1));
     }
 
     public void testLegalAddRemove_6_oe() {
@@ -153,7 +183,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
         }
         Set<T> set = ((PredicatedMultiSet<T>) multiset).uniqueSet();
         set = ((PredicatedMultiSet<T>) multiset).uniqueSet();
-        assertTrue("Unique set does not contain anymore the first element",set.contains(els[0]));
+        assertEquals(true, multiset.containsAll(set));
     }
 
     public void testIllegalAdd_2_oe() {
@@ -163,7 +193,7 @@ public class PredicatedMultiSetTest_OE25Dev<T> extends AbstractMultiSetTest<T> {
             multiset.add((T) i);
         } catch (final IllegalArgumentException e) {
         }
-        assertTrue("Collection shouldn't contain illegal element",!multiset.contains(i));
+        assertEquals(false, multiset.contains(i));
     }
 
 }

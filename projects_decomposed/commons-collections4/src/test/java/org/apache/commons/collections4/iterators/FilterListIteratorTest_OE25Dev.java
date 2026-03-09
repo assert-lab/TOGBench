@@ -137,6 +137,66 @@ public class FilterListIteratorTest_OE25Dev {
     }
 
     @Test
+    public void testManual() {
+        // do this one "by hand" as a sanity check
+        final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
+
+        assertEquals(Integer.valueOf(0), filtered.next());
+        assertEquals(Integer.valueOf(3), filtered.next());
+        assertEquals(Integer.valueOf(6), filtered.next());
+        assertEquals(Integer.valueOf(9), filtered.next());
+        assertEquals(Integer.valueOf(12), filtered.next());
+        assertEquals(Integer.valueOf(15), filtered.next());
+        assertEquals(Integer.valueOf(18), filtered.next());
+
+        assertEquals(Integer.valueOf(18), filtered.previous());
+        assertEquals(Integer.valueOf(15), filtered.previous());
+        assertEquals(Integer.valueOf(12), filtered.previous());
+        assertEquals(Integer.valueOf(9), filtered.previous());
+        assertEquals(Integer.valueOf(6), filtered.previous());
+        assertEquals(Integer.valueOf(3), filtered.previous());
+        assertEquals(Integer.valueOf(0), filtered.previous());
+
+        assertTrue(!filtered.hasPrevious());
+
+        assertEquals(Integer.valueOf(0), filtered.next());
+        assertEquals(Integer.valueOf(3), filtered.next());
+        assertEquals(Integer.valueOf(6), filtered.next());
+        assertEquals(Integer.valueOf(9), filtered.next());
+        assertEquals(Integer.valueOf(12), filtered.next());
+        assertEquals(Integer.valueOf(15), filtered.next());
+        assertEquals(Integer.valueOf(18), filtered.next());
+
+        assertTrue(!filtered.hasNext());
+
+        assertEquals(Integer.valueOf(18), filtered.previous());
+        assertEquals(Integer.valueOf(15), filtered.previous());
+        assertEquals(Integer.valueOf(12), filtered.previous());
+        assertEquals(Integer.valueOf(9), filtered.previous());
+        assertEquals(Integer.valueOf(6), filtered.previous());
+        assertEquals(Integer.valueOf(3), filtered.previous());
+        assertEquals(Integer.valueOf(0), filtered.previous());
+
+        assertEquals(Integer.valueOf(0), filtered.next());
+        assertEquals(Integer.valueOf(0), filtered.previous());
+        assertEquals(Integer.valueOf(0), filtered.next());
+
+        assertEquals(Integer.valueOf(3), filtered.next());
+        assertEquals(Integer.valueOf(6), filtered.next());
+        assertEquals(Integer.valueOf(6), filtered.previous());
+        assertEquals(Integer.valueOf(3), filtered.previous());
+        assertEquals(Integer.valueOf(3), filtered.next());
+        assertEquals(Integer.valueOf(6), filtered.next());
+
+        assertEquals(Integer.valueOf(9), filtered.next());
+        assertEquals(Integer.valueOf(12), filtered.next());
+        assertEquals(Integer.valueOf(15), filtered.next());
+        assertEquals(Integer.valueOf(15), filtered.previous());
+        assertEquals(Integer.valueOf(12), filtered.previous());
+        assertEquals(Integer.valueOf(9), filtered.previous());
+    }
+
+    @Test
     public void testTruePredicate() {
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), truePred);
         walkLists(list, filtered);
@@ -228,9 +288,31 @@ public class FilterListIteratorTest_OE25Dev {
         }
     }
 
+    @Test
+    public void testFailingHasNextBug() {
+        final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), fourPred);
+        final ListIterator<Integer> expected = fours.listIterator();
+        while (expected.hasNext()) {
+            expected.next();
+            filtered.next();
+        }
+        assertTrue(filtered.hasPrevious());
+        assertTrue(!filtered.hasNext());
+        assertEquals(expected.previous(), filtered.previous());
+    }
+
     /**
      * Test for {@link "https://issues.apache.org/jira/browse/COLLECTIONS-360 COLLECTIONS-360"}
      */
+    @Test
+    public void testCollections360() throws Throwable {
+        final Collection<Predicate<Object>> var7 = new GrowthList<>();
+        final Predicate<Object> var9 = PredicateUtils.anyPredicate(var7);
+        final FilterListIterator<Object> var13 = new FilterListIterator<>(var9);
+        Assert.assertFalse(var13.hasNext());
+        final FilterListIterator<Object> var14 = new FilterListIterator<>(var9);
+        Assert.assertFalse(var14.hasPrevious());
+    }
 
     // Utilities
 
@@ -359,45 +441,6 @@ public class FilterListIteratorTest_OE25Dev {
     }
 
     @Test
-    public void testManual_1_oe() {
-        final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
-
-        assertEquals(Integer.valueOf(0), filtered.next());
-    }
-
-    @Test
-    public void testManual_15_oe() {
-        final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
-
-
-
-        assertTrue(!filtered.hasPrevious());
-    }
-
-    @Test
-    public void testManual_16_oe() {
-        final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
-
-
-
-
-        assertEquals(Integer.valueOf(0), filtered.next());
-    }
-
-    @Test
-    public void testManual_31_oe() {
-        final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
-
-
-
-
-
-
-
-        assertEquals(Integer.valueOf(0), filtered.next());
-    }
-
-    @Test
     public void testManual_33_oe() {
         final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), threePred);
 
@@ -407,7 +450,7 @@ public class FilterListIteratorTest_OE25Dev {
 
 
 
-        assertEquals(Integer.valueOf(0), filtered.next());
+        assertEquals(false, filtered.hasPrevious());
     }
 
     @Test
@@ -418,7 +461,7 @@ public class FilterListIteratorTest_OE25Dev {
             expected.next();
             filtered.next();
         }
-        assertTrue(filtered.hasPrevious());
+        assertEquals(false, filtered.hasPrevious());
     }
 
     @Test
@@ -429,18 +472,7 @@ public class FilterListIteratorTest_OE25Dev {
             expected.next();
             filtered.next();
         }
-        assertTrue(!filtered.hasNext());
-    }
-
-    @Test
-    public void testFailingHasNextBug_3_oe() {
-        final FilterListIterator<Integer> filtered = new FilterListIterator<>(list.listIterator(), fourPred);
-        final ListIterator<Integer> expected = fours.listIterator();
-        while (expected.hasNext()) {
-            expected.next();
-            filtered.next();
-        }
-        assertEquals(expected.previous(), filtered.previous());
+        assertEquals(false, filtered.hasNext());
     }
 
     @Test
@@ -448,7 +480,7 @@ public class FilterListIteratorTest_OE25Dev {
         final Collection<Predicate<Object>> var7 = new GrowthList<>();
         final Predicate<Object> var9 = PredicateUtils.anyPredicate(var7);
         final FilterListIterator<Object> var13 = new FilterListIterator<>(var9);
-        Assert.assertFalse(var13.hasNext());
+        assertEquals(false, var13.hasNext());
     }
 
     @Test
@@ -457,7 +489,7 @@ public class FilterListIteratorTest_OE25Dev {
         final Predicate<Object> var9 = PredicateUtils.anyPredicate(var7);
         final FilterListIterator<Object> var13 = new FilterListIterator<>(var9);
         final FilterListIterator<Object> var14 = new FilterListIterator<>(var9);
-        Assert.assertFalse(var14.hasPrevious());
+        assertEquals(false, var14.hasPrevious());
     }
 
 }

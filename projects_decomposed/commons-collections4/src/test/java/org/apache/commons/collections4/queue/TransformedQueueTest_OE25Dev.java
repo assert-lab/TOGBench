@@ -66,6 +66,39 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
     }
 
     //-----------------------------------------------------------------------
+    public void testTransformedQueue() {
+        final Queue<Object> queue = TransformedQueue.transformingQueue(new LinkedList<>(),
+                TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(0, queue.size());
+        final Object[] elements = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
+        for (int i = 0; i < elements.length; i++) {
+            queue.add(elements[i]);
+            assertEquals(i + 1, queue.size());
+            assertEquals(true, queue.contains(Integer.valueOf((String) elements[i])));
+            assertEquals(false, queue.contains(elements[i]));
+        }
+
+        assertEquals(false, queue.remove(elements[0]));
+        assertEquals(true, queue.remove(Integer.valueOf((String) elements[0])));
+
+    }
+
+    @SuppressWarnings({ "rawtypes", "unchecked" })
+    public void testTransformedQueue_decorateTransform() {
+        final Queue originalQueue = new LinkedList();
+        final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
+        Collections.addAll(originalQueue, elements);
+        final Queue<?> queue = TransformedQueue.transformedQueue(originalQueue,
+                TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(elements.length, queue.size());
+        for (final Object el : elements) {
+            assertEquals(true, queue.contains(Integer.valueOf((String) el)));
+            assertEquals(false, queue.contains(el));
+        }
+
+        assertEquals(false, queue.remove(elements[0]));
+        assertEquals(true, queue.remove(Integer.valueOf((String) elements[0])));
+    }
 
     @Override
     public String getCompatibilityVersion() {
@@ -91,7 +124,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         final Object[] elements = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
         for (int i = 0; i < elements.length; i++) {
             queue.add(elements[i]);
-            assertEquals(i + 1, queue.size());
+            assertEquals(7, queue.size());
     }
     }
 
@@ -101,7 +134,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         final Object[] elements = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
         for (int i = 0; i < elements.length; i++) {
             queue.add(elements[i]);
-            assertEquals(true, queue.contains(Integer.valueOf((String) elements[i])));
+            assertEquals(false, queue.contains("0"));
     }
     }
 
@@ -111,7 +144,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         final Object[] elements = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
         for (int i = 0; i < elements.length; i++) {
             queue.add(elements[i]);
-            assertEquals(false, queue.contains(elements[i]));
+            assertEquals(false, queue.contains("0"));
     }
     }
 
@@ -123,7 +156,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
             queue.add(elements[i]);
         }
 
-        assertEquals(false, queue.remove(elements[0]));
+        assertEquals("1", queue.remove());
     }
 
     public void testTransformedQueue_6_oe() {
@@ -134,7 +167,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
             queue.add(elements[i]);
         }
 
-        assertEquals(true, queue.remove(Integer.valueOf((String) elements[0])));
+        assertEquals("1", queue.remove());
     }
 
     public void testTransformedQueue_decorateTransform_1_oe() {
@@ -143,53 +176,7 @@ public class TransformedQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         Collections.addAll(originalQueue, elements);
         final Queue<?> queue = TransformedQueue.transformedQueue(originalQueue,
                 TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(elements.length, queue.size());
-    }
-
-    public void testTransformedQueue_decorateTransform_2_oe() {
-        final Queue originalQueue = new LinkedList();
-        final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        Collections.addAll(originalQueue, elements);
-        final Queue<?> queue = TransformedQueue.transformedQueue(originalQueue,
-                TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (final Object el : elements) {
-            assertEquals(true, queue.contains(Integer.valueOf((String) el)));
-    }
-    }
-
-    public void testTransformedQueue_decorateTransform_3_oe() {
-        final Queue originalQueue = new LinkedList();
-        final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        Collections.addAll(originalQueue, elements);
-        final Queue<?> queue = TransformedQueue.transformedQueue(originalQueue,
-                TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (final Object el : elements) {
-            assertEquals(false, queue.contains(el));
-    }
-    }
-
-    public void testTransformedQueue_decorateTransform_4_oe() {
-        final Queue originalQueue = new LinkedList();
-        final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        Collections.addAll(originalQueue, elements);
-        final Queue<?> queue = TransformedQueue.transformedQueue(originalQueue,
-                TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (final Object el : elements) {
-        }
-
-        assertEquals(false, queue.remove(elements[0]));
-    }
-
-    public void testTransformedQueue_decorateTransform_5_oe() {
-        final Queue originalQueue = new LinkedList();
-        final Object[] elements = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        Collections.addAll(originalQueue, elements);
-        final Queue<?> queue = TransformedQueue.transformedQueue(originalQueue,
-                TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (final Object el : elements) {
-        }
-
-        assertEquals(true, queue.remove(Integer.valueOf((String) elements[0])));
+        assertEquals(7, queue.size());
     }
 
 }

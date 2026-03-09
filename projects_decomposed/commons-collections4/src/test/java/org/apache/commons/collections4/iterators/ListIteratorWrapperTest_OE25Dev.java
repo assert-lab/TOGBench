@@ -63,13 +63,165 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         return new ListIteratorWrapper<>(list1.iterator());
     }
 
-    public void testIterator_1_oe() {
+    public void testIterator() {
         final ListIterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
 
             assertEquals("Iteration value is correct", testValue, iterValue);
+        }
+
+        assertTrue("Iterator should now be empty", !iter.hasNext());
+
+        try {
+            iter.next();
+        } catch (final Exception e) {
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+
+        // now, read it backwards
+        for (int i = testArray.length - 1; i > -1; --i) {
+            final Object testValue = testArray[i];
+            final E iterValue = iter.previous();
+
+            assertEquals( "Iteration value is correct", testValue, iterValue );
+        }
+
+        try {
+            iter.previous();
+        } catch (final Exception e) {
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+
+        // now, read it forwards again
+        for (final String testValue : testArray) {
+            final Object iterValue = iter.next();
+
+            assertEquals("Iteration value is correct", testValue, iterValue);
+        }
+
     }
+
+    @Override
+    public void testRemove() {
+        final ListIterator<E> iter = makeObject();
+
+        //initial state:
+        assertEquals(-1, iter.previousIndex());
+        assertEquals(0, iter.nextIndex());
+
+        try {
+            iter.remove();
+            fail("ListIteratorWrapper#remove() should fail; must be initially positioned first");
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        assertEquals(-1, iter.previousIndex());
+        assertEquals(0, iter.nextIndex());
+
+        //establish size:
+        int sz = list1.size();
+
+        //verify initial next() call:
+        assertEquals(list1.get(0), iter.next());
+        assertEquals(0, iter.previousIndex());
+        assertEquals(1, iter.nextIndex());
+
+        //verify remove():
+        iter.remove();
+        assertEquals(--sz, list1.size());
+        //like we never started iterating:
+        assertEquals(-1, iter.previousIndex());
+        assertEquals(0, iter.nextIndex());
+
+        try {
+            iter.remove();
+            fail("ListIteratorWrapper#remove() should fail; must be repositioned first");
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        assertEquals(-1, iter.previousIndex());
+        assertEquals(0, iter.nextIndex());
+
+        //two consecutive next() calls:
+        assertEquals(list1.get(0), iter.next());
+        assertEquals(0, iter.previousIndex());
+        assertEquals(1, iter.nextIndex());
+
+        assertEquals(list1.get(1), iter.next());
+        assertEquals(1, iter.previousIndex());
+        assertEquals(2, iter.nextIndex());
+
+        //call previous():
+        assertEquals(list1.get(1), iter.previous());
+        assertEquals(0, iter.previousIndex());
+        assertEquals(1, iter.nextIndex());
+
+        //should support remove() after calling previous() once from tip because we haven't changed the underlying iterator's position:
+        iter.remove();
+        assertEquals(--sz, list1.size());
+        assertEquals(0, iter.previousIndex());
+        assertEquals(1, iter.nextIndex());
+
+        //dig into cache
+        assertEquals(list1.get(0), iter.previous());
+        assertEquals(-1, iter.previousIndex());
+        assertEquals(0, iter.nextIndex());
+
+        try {
+            iter.remove();
+            fail("ListIteratorWrapper does not support the remove() method while dug into the cache via previous()");
+        } catch (final IllegalStateException e) {
+        }
+
+        //no change from invalid op:
+        assertEquals(-1, iter.previousIndex());
+        assertEquals(0, iter.nextIndex());
+
+        //dig out of cache, first next() maintains current position:
+        assertEquals(list1.get(0), iter.next());
+        assertEquals(0, iter.previousIndex());
+        assertEquals(1, iter.nextIndex());
+        //continue traversing underlying iterator with this next() call, and we're out of the hole, so to speak:
+        assertEquals(list1.get(1), iter.next());
+        assertEquals(1, iter.previousIndex());
+        assertEquals(2, iter.nextIndex());
+
+        //verify remove() works again:
+        iter.remove();
+        assertEquals(--sz, list1.size());
+        assertEquals(0, iter.previousIndex());
+        assertEquals(1, iter.nextIndex());
+
+        assertEquals(list1.get(1), iter.next());
+        assertEquals(1, iter.previousIndex());
+        assertEquals(2, iter.nextIndex());
+
+    }
+
+    public void testReset() {
+        final ResettableListIterator<E> iter = makeObject();
+        final E first = iter.next();
+        final E second = iter.next();
+
+        iter.reset();
+
+        // after reset, there shouldn't be any previous elements
+        assertFalse("No previous elements after reset()", iter.hasPrevious());
+
+        // after reset, the results should be the same as before
+        assertEquals("First element should be the same", first, iter.next());
+        assertEquals("Second elment should be the same", second, iter.next());
+
+        // after passing the point, where we resetted, continuation should work as expected
+        for (int i = 2; i < testArray.length; i++) {
+            final Object testValue = testArray[i];
+            final E iterValue = iter.next();
+
+            assertEquals("Iteration value is correct", testValue, iterValue);
+        }
     }
 
     public void testIterator_2_oe() {
@@ -79,69 +231,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
 
         }
 
-        assertTrue("Iterator should now be empty", !iter.hasNext());
-    }
-
-    public void testIterator_3_oe() {
-        final ListIterator<E> iter = makeObject();
-        for (final String testValue : testArray) {
-            final Object iterValue = iter.next();
-
-        }
-
-
-        try {
-            iter.next();
-        } catch (final Exception e) {
-            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
-    }
-    }
-
-    public void testIterator_4_oe() {
-        final ListIterator<E> iter = makeObject();
-        for (final String testValue : testArray) {
-            final Object iterValue = iter.next();
-
-        }
-
-
-        try {
-            iter.next();
-        } catch (final Exception e) {
-        }
-
-        for (int i = testArray.length - 1; i > -1; --i) {
-            final Object testValue = testArray[i];
-            final E iterValue = iter.previous();
-
-            assertEquals( "Iteration value is correct", testValue, iterValue );
-    }
-    }
-
-    public void testIterator_5_oe() {
-        final ListIterator<E> iter = makeObject();
-        for (final String testValue : testArray) {
-            final Object iterValue = iter.next();
-
-        }
-
-
-        try {
-            iter.next();
-        } catch (final Exception e) {
-        }
-
-        for (int i = testArray.length - 1; i > -1; --i) {
-            final Object testValue = testArray[i];
-            final E iterValue = iter.previous();
-
-        }
-
-        try {
-            iter.previous();
-        } catch (final Exception e) {
-            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
-    }
+        assertEquals(true, iter.hasNext());
     }
 
     public void testIterator_6_oe() {
@@ -171,7 +261,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
 
-            assertEquals("Iteration value is correct", testValue, iterValue);
+            assertEquals(false, iter.hasPrevious());
     }
     }
 
@@ -179,12 +269,6 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         final ListIterator<E> iter = makeObject();
 
         assertEquals(-1, iter.previousIndex());
-    }
-
-    public void testRemove_2_oe() {
-        final ListIterator<E> iter = makeObject();
-
-        assertEquals(0, iter.nextIndex());
     }
 
     public void testRemove_4_oe() {
@@ -211,21 +295,6 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         assertEquals(0, iter.nextIndex());
     }
 
-    public void testRemove_6_oe() {
-        final ListIterator<E> iter = makeObject();
-
-
-        try {
-            iter.remove();
-        } catch (final IllegalStateException e) {
-        }
-
-
-        int sz = list1.size();
-
-        assertEquals(list1.get(0), iter.next());
-    }
-
     public void testReset_1_oe() {
         final ResettableListIterator<E> iter = makeObject();
         final E first = iter.next();
@@ -233,7 +302,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
 
         iter.reset();
 
-        assertFalse("No previous elements after reset()", iter.hasPrevious());
+        assertEquals(true, iter.hasPrevious());
     }
 
     public void testReset_2_oe() {
@@ -244,7 +313,7 @@ public class ListIteratorWrapperTest_OE25Dev<E> extends AbstractIteratorTest<E> 
         iter.reset();
 
 
-        assertEquals("First element should be the same", first, iter.next());
+        assertEquals(false, iter.hasPrevious());
     }
 
 }

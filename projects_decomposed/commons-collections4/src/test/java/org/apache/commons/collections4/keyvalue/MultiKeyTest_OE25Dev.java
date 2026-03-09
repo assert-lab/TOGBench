@@ -43,6 +43,52 @@ public class MultiKeyTest_OE25Dev {
     Integer FIVE = Integer.valueOf(5);
 
     //-----------------------------------------------------------------------
+    @Test
+    public void testConstructors() throws Exception {
+        MultiKey<Integer> mk;
+        mk = new MultiKey<>(ONE, TWO);
+        assertTrue(Arrays.equals(new Object[] { ONE, TWO }, mk.getKeys()));
+
+        mk = new MultiKey<>(ONE, TWO, THREE);
+        assertTrue(Arrays.equals(new Object[] { ONE, TWO, THREE }, mk.getKeys()));
+
+        mk = new MultiKey<>(ONE, TWO, THREE, FOUR);
+        assertTrue(Arrays.equals(new Object[] { ONE, TWO, THREE, FOUR }, mk.getKeys()));
+
+        mk = new MultiKey<>(ONE, TWO, THREE, FOUR, FIVE);
+        assertTrue(Arrays.equals(new Object[] { ONE, TWO, THREE, FOUR, FIVE }, mk.getKeys()));
+
+        mk = new MultiKey<>(new Integer[] { THREE, FOUR, ONE, TWO }, false);
+        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+    }
+
+    @Test
+    public void testConstructorsByArray() throws Exception {
+        MultiKey<Integer> mk;
+        Integer[] keys = new Integer[] { THREE, FOUR, ONE, TWO };
+        mk = new MultiKey<>(keys);
+        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+        keys[3] = FIVE;  // no effect
+        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+
+        keys = new Integer[] {};
+        mk = new MultiKey<>(keys);
+        assertTrue(Arrays.equals(new Object[] {}, mk.getKeys()));
+
+        keys = new Integer[] { THREE, FOUR, ONE, TWO };
+        mk = new MultiKey<>(keys, true);
+        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+        keys[3] = FIVE;  // no effect
+        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+
+        keys = new Integer[] { THREE, FOUR, ONE, TWO };
+        mk = new MultiKey<>(keys, false);
+        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+        // change key - don't do this!
+        // the hashcode of the MultiKey is now broken
+        keys[3] = FIVE;
+        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, FIVE }, mk.getKeys()));
+    }
 
     @Test
     public void testConstructorsByArrayNull() throws Exception {
@@ -59,6 +105,97 @@ public class MultiKeyTest_OE25Dev {
             new MultiKey<>(keys, false);
             fail();
         } catch (final IllegalArgumentException ex) {}
+    }
+
+    @Test
+    public void testSize() {
+        assertEquals(2, new MultiKey<>(ONE, TWO).size());
+        assertEquals(2, new MultiKey<>(null, null).size());
+        assertEquals(3, new MultiKey<>(ONE, TWO, THREE).size());
+        assertEquals(3, new MultiKey<>(null, null, null).size());
+        assertEquals(4, new MultiKey<>(ONE, TWO, THREE, FOUR).size());
+        assertEquals(4, new MultiKey<>(null, null, null, null).size());
+        assertEquals(5, new MultiKey<>(ONE, TWO, THREE, FOUR, FIVE).size());
+        assertEquals(5, new MultiKey<>(null, null, null, null, null).size());
+
+        assertEquals(0, new MultiKey<>(new Object[] {}).size());
+        assertEquals(1, new MultiKey<>(new Integer[] { ONE }).size());
+        assertEquals(2, new MultiKey<>(new Integer[] { ONE, TWO }).size());
+        assertEquals(7, new MultiKey<>(new Integer[] { ONE, TWO, ONE, TWO, ONE, TWO, ONE }).size());
+    }
+
+    @Test
+    public void testGetIndexed() {
+        final MultiKey<Integer> mk = new MultiKey<>(ONE, TWO);
+        assertSame(ONE, mk.getKey(0));
+        assertSame(TWO, mk.getKey(1));
+        try {
+            mk.getKey(-1);
+            fail();
+        } catch (final IndexOutOfBoundsException ex) {}
+        try {
+            mk.getKey(2);
+            fail();
+        } catch (final IndexOutOfBoundsException ex) {}
+    }
+
+    @Test
+    public void testGetKeysSimpleConstructor() {
+        final MultiKey<Integer> mk = new MultiKey<>(ONE, TWO);
+        final Object[] array = mk.getKeys();
+        assertSame(ONE, array[0]);
+        assertSame(TWO, array[1]);
+        assertEquals(2, array.length);
+    }
+
+    @Test
+    public void testGetKeysArrayConstructorCloned() {
+        final Integer[] keys = new Integer[] { ONE, TWO };
+        final MultiKey<Integer> mk = new MultiKey<>(keys, true);
+        final Object[] array = mk.getKeys();
+        assertTrue(array != keys);
+        assertTrue(Arrays.equals(array, keys));
+        assertSame(ONE, array[0]);
+        assertSame(TWO, array[1]);
+        assertEquals(2, array.length);
+    }
+
+    @Test
+    public void testGetKeysArrayConstructorNonCloned() {
+        final Integer[] keys = new Integer[] { ONE, TWO };
+        final MultiKey<Integer> mk = new MultiKey<>(keys, false);
+        final Object[] array = mk.getKeys();
+        assertTrue(array != keys);// still not equal assertTrue(Arrays.equals(array,keys));
+        assertSame(ONE, array[0]);
+        assertSame(TWO, array[1]);
+        assertEquals(2, array.length);
+    }
+
+    @Test
+    public void testHashCode() {
+        final MultiKey<Integer> mk1 = new MultiKey<>(ONE, TWO);
+        final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
+        final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
+
+        assertTrue(mk1.hashCode() == mk1.hashCode());
+        assertTrue(mk1.hashCode() == mk2.hashCode());
+        assertTrue(mk1.hashCode() != mk3.hashCode());
+
+        final int total = (0 ^ ONE.hashCode()) ^ TWO.hashCode();
+        assertEquals(total, mk1.hashCode());
+    }
+
+    @Test
+    public void testEquals() {
+        final MultiKey<Integer> mk1 = new MultiKey<>(ONE, TWO);
+        final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
+        final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
+
+        assertEquals(mk1, mk1);
+        assertEquals(mk1, mk2);
+        assertFalse(mk1.equals(mk3));
+        assertFalse(mk1.equals(""));
+        assertFalse(mk1.equals(null));
     }
 
     static class SystemHashCodeSimulatingKey implements Serializable {
@@ -91,6 +228,33 @@ public class MultiKeyTest_OE25Dev {
         }
     }
 
+    @Test
+    public void testEqualsAfterSerialization() throws IOException, ClassNotFoundException
+    {
+        SystemHashCodeSimulatingKey sysKey = new SystemHashCodeSimulatingKey("test");
+        final MultiKey<?> mk = new MultiKey<Object>(ONE, sysKey);
+        final Map<MultiKey<?>, Integer> map = new HashMap<>();
+        map.put(mk, TWO);
+
+        // serialize
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        final ObjectOutputStream out = new ObjectOutputStream(baos);
+        out.writeObject(sysKey);
+        out.writeObject(map);
+        out.close();
+
+        // deserialize
+        final ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+        final ObjectInputStream in = new ObjectInputStream(bais);
+        sysKey = (SystemHashCodeSimulatingKey)in.readObject(); // simulate deserialization in another process
+        final Map<?, ?> map2 = (Map<?, ?>) in.readObject();
+        in.close();
+
+        assertEquals(2,sysKey.hashCode());// different hashCode now 
+        final MultiKey<?> mk2 = new MultiKey<Object>(ONE,sysKey);
+        assertEquals(TWO, map2.get(mk2));
+    }
+
     static class DerivedMultiKey<T> extends MultiKey<T> {
 
         private static final long serialVersionUID = 1928896152249821416L;
@@ -110,10 +274,30 @@ public class MultiKeyTest_OE25Dev {
     }
 
     @Test
+    public void testEqualsAfterSerializationOfDerivedClass() throws IOException, ClassNotFoundException
+    {
+        final DerivedMultiKey<?> mk = new DerivedMultiKey<>("A", "B");
+
+        // serialize
+        final ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        final ObjectOutputStream out = new ObjectOutputStream(baos);
+        out.writeObject(mk);
+        out.close();
+
+        // deserialize
+        final ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
+        final ObjectInputStream in = new ObjectInputStream(bais);
+        final DerivedMultiKey<?> mk2 = (DerivedMultiKey<?>)in.readObject();
+        in.close();
+
+        assertEquals(mk.hashCode(), mk2.hashCode());
+    }
+
+    @Test
     public void testConstructors_1_oe() throws Exception {
         MultiKey<Integer> mk;
         mk = new MultiKey<>(ONE, TWO);
-        assertTrue(Arrays.equals(new Object[] { ONE, TWO }, mk.getKeys()));
+        assertEquals("[1, 2]", mk.toString());
     }
 
     @Test
@@ -122,7 +306,7 @@ public class MultiKeyTest_OE25Dev {
         mk = new MultiKey<>(ONE, TWO);
 
         mk = new MultiKey<>(ONE, TWO, THREE);
-        assertTrue(Arrays.equals(new Object[] { ONE, TWO, THREE }, mk.getKeys()));
+        assertEquals("[1, 2, 3]", mk.toString());
     }
 
     @Test
@@ -133,7 +317,7 @@ public class MultiKeyTest_OE25Dev {
         mk = new MultiKey<>(ONE, TWO, THREE);
 
         mk = new MultiKey<>(ONE, TWO, THREE, FOUR);
-        assertTrue(Arrays.equals(new Object[] { ONE, TWO, THREE, FOUR }, mk.getKeys()));
+        assertEquals("[1, 2, 3, 4]", mk.toString());
     }
 
     @Test
@@ -146,7 +330,7 @@ public class MultiKeyTest_OE25Dev {
         mk = new MultiKey<>(ONE, TWO, THREE, FOUR);
 
         mk = new MultiKey<>(ONE, TWO, THREE, FOUR, FIVE);
-        assertTrue(Arrays.equals(new Object[] { ONE, TWO, THREE, FOUR, FIVE }, mk.getKeys()));
+        assertEquals("[1, 2, 3, 4, 5]", mk.toString());
     }
 
     @Test
@@ -161,7 +345,7 @@ public class MultiKeyTest_OE25Dev {
         mk = new MultiKey<>(ONE, TWO, THREE, FOUR, FIVE);
 
         mk = new MultiKey<>(new Integer[] { THREE, FOUR, ONE, TWO }, false);
-        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+        assertEquals("[3, 4, 1, 2]", mk.toString());
     }
 
     @Test
@@ -169,7 +353,7 @@ public class MultiKeyTest_OE25Dev {
         MultiKey<Integer> mk;
         Integer[] keys = new Integer[] { THREE, FOUR, ONE, TWO };
         mk = new MultiKey<>(keys);
-        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+        assertEquals("[1, 2, 3, 4]", mk.toString());
     }
 
     @Test
@@ -178,7 +362,7 @@ public class MultiKeyTest_OE25Dev {
         Integer[] keys = new Integer[] { THREE, FOUR, ONE, TWO };
         mk = new MultiKey<>(keys);
         keys[3] = FIVE;  // no effect
-        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+        assertEquals(false, mk.equals(null));
     }
 
     @Test
@@ -190,7 +374,7 @@ public class MultiKeyTest_OE25Dev {
 
         keys = new Integer[] {};
         mk = new MultiKey<>(keys);
-        assertTrue(Arrays.equals(new Object[] {}, mk.getKeys()));
+        assertNotNull(mk.getKeys());
     }
 
     @Test
@@ -205,7 +389,7 @@ public class MultiKeyTest_OE25Dev {
 
         keys = new Integer[] { THREE, FOUR, ONE, TWO };
         mk = new MultiKey<>(keys, true);
-        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+        assertEquals("[1, 2, 3, 4]", mk.toString());
     }
 
     @Test
@@ -221,7 +405,7 @@ public class MultiKeyTest_OE25Dev {
         keys = new Integer[] { THREE, FOUR, ONE, TWO };
         mk = new MultiKey<>(keys, true);
         keys[3] = FIVE;  // no effect
-        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+        assertEquals("[1, 2, 3, 4]", mk.toString());
     }
 
     @Test
@@ -240,7 +424,7 @@ public class MultiKeyTest_OE25Dev {
 
         keys = new Integer[] { THREE, FOUR, ONE, TWO };
         mk = new MultiKey<>(keys, false);
-        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, TWO }, mk.getKeys()));
+        assertEquals(true, mk.equals(mk));
     }
 
     @Test
@@ -260,188 +444,109 @@ public class MultiKeyTest_OE25Dev {
         keys = new Integer[] { THREE, FOUR, ONE, TWO };
         mk = new MultiKey<>(keys, false);
         keys[3] = FIVE;
-        assertTrue(Arrays.equals(new Object[] { THREE, FOUR, ONE, FIVE }, mk.getKeys()));
+        assertEquals(false, mk.equals(null));
     }
 
     @Test
     public void testSize_1_oe() {
         Object a = new MultiKey<>(ONE, TWO).size();
-        assertEquals(2, a);
+        assertEquals(2, a.intValue());
     }
 
     @Test
     public void testSize_2_oe() {
         Object a = new MultiKey<>(null, null).size();
-        assertEquals(2, a);
+        assertNull(a);
     }
 
     @Test
     public void testSize_3_oe() {
         Object a = new MultiKey<>(ONE, TWO, THREE).size();
-        assertEquals(3, a);
+        assertEquals(3, a.intValue());
     }
 
     @Test
     public void testSize_4_oe() {
         Object a = new MultiKey<>(null, null, null).size();
-        assertEquals(3, a);
+        assertEquals(3, a.hashCode());
     }
 
     @Test
     public void testSize_5_oe() {
         Object a = new MultiKey<>(ONE, TWO, THREE, FOUR).size();
-        assertEquals(4, a);
+        assertEquals(4, a.intValue());
     }
 
     @Test
     public void testSize_6_oe() {
         Object a = new MultiKey<>(null, null, null, null).size();
-        assertEquals(4, a);
+        assertEquals(4, a.hashCode());
     }
 
     @Test
     public void testSize_7_oe() {
         Object a = new MultiKey<>(ONE, TWO, THREE, FOUR, FIVE).size();
-        assertEquals(5, a);
+        assertEquals(5, a.hashCode());
     }
 
     @Test
     public void testSize_8_oe() {
         Object a = new MultiKey<>(null, null, null, null, null).size();
-        assertEquals(5, a);
+        assertEquals(5, a.hashCode());
     }
 
     @Test
     public void testSize_9_oe() {
 
         Object a = new MultiKey<>(new Object[] {}).size();
-        assertEquals(0, a);
+        assertEquals(0, a.intValue());
     }
 
     @Test
     public void testSize_10_oe() {
 
         Object a = new MultiKey<>(new Integer[] { ONE }).size();
-        assertEquals(1, a);
+        assertEquals(1, a.hashCode());
     }
 
     @Test
     public void testSize_11_oe() {
 
         Object a = new MultiKey<>(new Integer[] { ONE, TWO }).size();
-        assertEquals(2, a);
+        assertEquals(2, a.hashCode());
     }
 
     @Test
     public void testSize_12_oe() {
 
         Object a = new MultiKey<>(new Integer[] { ONE, TWO, ONE, TWO, ONE, TWO, ONE }).size();
-        assertEquals(7, a);
+        assertEquals(8, a.hashCode());
     }
 
     @Test
     public void testGetIndexed_1_oe() {
         final MultiKey<Integer> mk = new MultiKey<>(ONE, TWO);
-        assertSame(ONE, mk.getKey(0));
+        assertEquals(TWO, mk.getKey(1));
     }
 
     @Test
     public void testGetIndexed_2_oe() {
         final MultiKey<Integer> mk = new MultiKey<>(ONE, TWO);
-        assertSame(TWO, mk.getKey(1));
-    }
-
-    @Test
-    public void testGetKeysSimpleConstructor_1_oe() {
-        final MultiKey<Integer> mk = new MultiKey<>(ONE, TWO);
-        final Object[] array = mk.getKeys();
-        assertSame(ONE, array[0]);
+        assertEquals(Integer.valueOf(2), mk.getKey(1));
     }
 
     @Test
     public void testGetKeysSimpleConstructor_2_oe() {
         final MultiKey<Integer> mk = new MultiKey<>(ONE, TWO);
         final Object[] array = mk.getKeys();
-        assertSame(TWO, array[1]);
+        assertNotNull(array);
     }
 
     @Test
     public void testGetKeysSimpleConstructor_3_oe() {
         final MultiKey<Integer> mk = new MultiKey<>(ONE, TWO);
         final Object[] array = mk.getKeys();
-        assertEquals(2, array.length);
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorCloned_1_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, true);
-        final Object[] array = mk.getKeys();
-        assertTrue(array != keys);
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorCloned_2_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, true);
-        final Object[] array = mk.getKeys();
-        assertTrue(Arrays.equals(array, keys));
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorCloned_3_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, true);
-        final Object[] array = mk.getKeys();
-        assertSame(ONE, array[0]);
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorCloned_4_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, true);
-        final Object[] array = mk.getKeys();
-        assertSame(TWO, array[1]);
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorCloned_5_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, true);
-        final Object[] array = mk.getKeys();
-        assertEquals(2, array.length);
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorNonCloned_1_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, false);
-        final Object[] array = mk.getKeys();
-        assertTrue(array != keys);// still not equal assertTrue(Arrays.equals(array,keys));
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorNonCloned_2_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, false);
-        final Object[] array = mk.getKeys();
-        assertSame(ONE, array[0]);
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorNonCloned_3_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, false);
-        final Object[] array = mk.getKeys();
-        assertSame(TWO, array[1]);
-    }
-
-    @Test
-    public void testGetKeysArrayConstructorNonCloned_4_oe() {
-        final Integer[] keys = new Integer[] { ONE, TWO };
-        final MultiKey<Integer> mk = new MultiKey<>(keys, false);
-        final Object[] array = mk.getKeys();
-        assertEquals(2, array.length);
+        assertNotNull(array);
     }
 
     @Test
@@ -450,7 +555,7 @@ public class MultiKeyTest_OE25Dev {
         final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
         final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
 
-        assertTrue(mk1.hashCode() == mk1.hashCode());
+        assertEquals(false, mk1.equals(mk2));
     }
 
     @Test
@@ -459,7 +564,7 @@ public class MultiKeyTest_OE25Dev {
         final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
         final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
 
-        assertTrue(mk1.hashCode() == mk2.hashCode());
+        assertEquals(false, mk1.equals(mk2));
     }
 
     @Test
@@ -468,7 +573,7 @@ public class MultiKeyTest_OE25Dev {
         final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
         final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
 
-        assertTrue(mk1.hashCode() != mk3.hashCode());
+        assertEquals(false, mk1.equals(mk2));
     }
 
     @Test
@@ -479,7 +584,7 @@ public class MultiKeyTest_OE25Dev {
 
 
         final int total = (0 ^ ONE.hashCode()) ^ TWO.hashCode();
-        assertEquals(total, mk1.hashCode());
+        assertEquals("[1, 2]", mk2.toString());
     }
 
     @Test
@@ -488,7 +593,7 @@ public class MultiKeyTest_OE25Dev {
         final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
         final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
 
-        assertEquals(mk1, mk1);
+        assertEquals(false, mk1.equals(mk2));
     }
 
     @Test
@@ -497,7 +602,7 @@ public class MultiKeyTest_OE25Dev {
         final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
         final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
 
-        assertEquals(mk1, mk2);
+        assertEquals(false, mk1.equals(mk2));
     }
 
     @Test
@@ -506,7 +611,7 @@ public class MultiKeyTest_OE25Dev {
         final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
         final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
 
-        assertFalse(mk1.equals(mk3));
+        assertEquals(false, mk1.equals(mk2));
     }
 
     @Test
@@ -515,7 +620,7 @@ public class MultiKeyTest_OE25Dev {
         final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
         final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
 
-        assertFalse(mk1.equals(""));
+        assertEquals(false, mk1.equals(mk2));
     }
 
     @Test
@@ -524,7 +629,7 @@ public class MultiKeyTest_OE25Dev {
         final MultiKey<Integer> mk2 = new MultiKey<>(ONE, TWO);
         final MultiKey<Object> mk3 = new MultiKey<>(ONE, "TWO");
 
-        assertFalse(mk1.equals(null));
+        assertEquals(false, mk1.equals(mk2));
     }
 
     @Test
@@ -547,7 +652,7 @@ public class MultiKeyTest_OE25Dev {
         final Map<?, ?> map2 = (Map<?, ?>) in.readObject();
         in.close();
 
-        assertEquals(2,sysKey.hashCode());// different hashCode now;
+        assertEquals(1, map2.size());
     }
 
     @Test
@@ -571,7 +676,7 @@ public class MultiKeyTest_OE25Dev {
         in.close();
 
         final MultiKey<?> mk2 = new MultiKey<Object>(ONE,sysKey);
-        assertEquals(TWO, map2.get(mk2));
+        assertNull(map2.get(mk2));
     }
 
     @Test
@@ -589,7 +694,7 @@ public class MultiKeyTest_OE25Dev {
         final DerivedMultiKey<?> mk2 = (DerivedMultiKey<?>)in.readObject();
         in.close();
 
-        assertEquals(mk.hashCode(), mk2.hashCode());
+        assertEquals("[A, B]", mk2.toString());
     }
 
 }

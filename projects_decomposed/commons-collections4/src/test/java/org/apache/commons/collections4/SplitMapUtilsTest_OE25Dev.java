@@ -60,6 +60,167 @@ public class SplitMapUtilsTest_OE25Dev {
 
     // -----------------------------------------------------------------------
 
+    @Test
+    public void testReadableMap() {
+        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
+
+        // basic
+        for (int i = 0; i < 10; i++) {
+            assertFalse(map.containsValue(String.valueOf(i)));
+            assertEquals(i, map.get(String.valueOf(i)).intValue());
+        }
+
+        // mapIterator
+        final MapIterator<String, Integer> it = map.mapIterator();
+        while (it.hasNext()) {
+            final String k = it.next();
+            assertEquals(k, it.getKey());
+            assertEquals(Integer.valueOf(k), it.getValue());
+        }
+
+        // unmodifiable
+        assertTrue(map instanceof Unmodifiable);
+
+        // check individual operations
+        int sz = map.size();
+
+        attemptPutOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.clear();
+            }
+        });
+
+        assertEquals(sz, map.size());
+
+        attemptPutOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.put("foo", 100);
+            }
+        });
+
+        final HashMap<String, Integer> m = new HashMap<>();
+        m.put("foo", 100);
+        m.put("bar", 200);
+        m.put("baz", 300);
+        attemptPutOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.putAll(m);
+            }
+        });
+
+        // equals, hashcode
+        final IterableMap<String, Integer> other = SplitMapUtils.readableMap(transformedMap);
+        assertEquals(other, map);
+        assertEquals(other.hashCode(), map.hashCode());
+
+        // remove
+        for (int i = 0; i < 10; i++) {
+            assertEquals(i, map.remove(String.valueOf(i)).intValue());
+            assertEquals(--sz, map.size());
+        }
+        assertTrue(map.isEmpty());
+        assertSame(map, SplitMapUtils.readableMap(map));
+    }
+
+    @Test
+    public void testAlreadyReadableMap() {
+        final HashedMap<String, Integer> hashedMap = new HashedMap<>();
+        assertSame(hashedMap, SplitMapUtils.readableMap(hashedMap));
+    }
+
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testWritableMap() {
+        final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
+        attemptGetOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.get(null);
+            }
+        });
+        attemptGetOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.entrySet();
+            }
+        });
+        attemptGetOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.keySet();
+            }
+        });
+        attemptGetOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.values();
+            }
+        });
+        attemptGetOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.size();
+            }
+        });
+        attemptGetOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.isEmpty();
+            }
+        });
+        attemptGetOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.containsKey(null);
+            }
+        });
+        attemptGetOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.containsValue(null);
+            }
+        });
+        attemptGetOperation(new Runnable() {
+            @Override
+            public void run() {
+                map.remove(null);
+            }
+        });
+
+        // equals, hashcode
+        final Map<String, String> other = SplitMapUtils.writableMap(transformedMap);
+        assertEquals(other, map);
+        assertEquals(other.hashCode(), map.hashCode());
+
+        // put
+        int sz = backingMap.size();
+        assertFalse(backingMap.containsKey("foo"));
+        map.put("new", "66");
+        assertEquals(++sz, backingMap.size());
+
+        // putall
+        final Map<String, String> more = new HashMap<>();
+        more.put("foo", "77");
+        more.put("bar", "88");
+        more.put("baz", "99");
+        map.putAll(more);
+        assertEquals(sz + more.size(), backingMap.size());
+
+        // clear
+        map.clear();
+        assertTrue(backingMap.isEmpty());
+        assertSame(map, SplitMapUtils.writableMap((Put<String, String>) map));
+    }
+
+    @Test
+    public void testAlreadyWritableMap() {
+        final HashedMap<String, String> hashedMap = new HashedMap<>();
+        assertSame(hashedMap, SplitMapUtils.writableMap(hashedMap));
+    }
+
     private void attemptGetOperation(final Runnable r) {
         attemptMapOperation("Put exposed as writable Map must not allow Get operations", r);
     }
@@ -77,52 +238,6 @@ public class SplitMapUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testReadableMap_1_oe() {
-        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-            assertFalse(map.containsValue(String.valueOf(i)));
-    }
-    }
-
-    @Test
-    public void testReadableMap_2_oe() {
-        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-            assertEquals(i, map.get(String.valueOf(i)).intValue());
-    }
-    }
-
-    @Test
-    public void testReadableMap_3_oe() {
-        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-        }
-
-        final MapIterator<String, Integer> it = map.mapIterator();
-        while (it.hasNext()) {
-            final String k = it.next();
-            assertEquals(k, it.getKey());
-    }
-    }
-
-    @Test
-    public void testReadableMap_4_oe() {
-        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-        }
-
-        final MapIterator<String, Integer> it = map.mapIterator();
-        while (it.hasNext()) {
-            final String k = it.next();
-            assertEquals(Integer.valueOf(k), it.getValue());
-    }
-    }
-
-    @Test
     public void testReadableMap_5_oe() {
         final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
 
@@ -134,635 +249,13 @@ public class SplitMapUtilsTest_OE25Dev {
             final String k = it.next();
         }
 
-        assertTrue(map instanceof Unmodifiable);
-    }
-
-    @Test
-    public void testReadableMap_6_oe() {
-        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-        }
-
-        final MapIterator<String, Integer> it = map.mapIterator();
-        while (it.hasNext()) {
-            final String k = it.next();
-        }
-
-
-        int sz = map.size();
-
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.clear();
-            }
-        });
-
-        assertEquals(sz, map.size());
-    }
-
-    @Test
-    public void testReadableMap_7_oe() {
-        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-        }
-
-        final MapIterator<String, Integer> it = map.mapIterator();
-        while (it.hasNext()) {
-            final String k = it.next();
-        }
-
-
-        int sz = map.size();
-
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.clear();
-            }
-        });
-
-
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.put("foo", 100);
-            }
-        });
-
-        final HashMap<String, Integer> m = new HashMap<>();
-        m.put("foo", 100);
-        m.put("bar", 200);
-        m.put("baz", 300);
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.putAll(m);
-            }
-        });
-
-        final IterableMap<String, Integer> other = SplitMapUtils.readableMap(transformedMap);
-        assertEquals(other, map);
-    }
-
-    @Test
-    public void testReadableMap_8_oe() {
-        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-        }
-
-        final MapIterator<String, Integer> it = map.mapIterator();
-        while (it.hasNext()) {
-            final String k = it.next();
-        }
-
-
-        int sz = map.size();
-
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.clear();
-            }
-        });
-
-
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.put("foo", 100);
-            }
-        });
-
-        final HashMap<String, Integer> m = new HashMap<>();
-        m.put("foo", 100);
-        m.put("bar", 200);
-        m.put("baz", 300);
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.putAll(m);
-            }
-        });
-
-        final IterableMap<String, Integer> other = SplitMapUtils.readableMap(transformedMap);
-        assertEquals(other.hashCode(), map.hashCode());
-    }
-
-    @Test
-    public void testReadableMap_9_oe() {
-        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-        }
-
-        final MapIterator<String, Integer> it = map.mapIterator();
-        while (it.hasNext()) {
-            final String k = it.next();
-        }
-
-
-        int sz = map.size();
-
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.clear();
-            }
-        });
-
-
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.put("foo", 100);
-            }
-        });
-
-        final HashMap<String, Integer> m = new HashMap<>();
-        m.put("foo", 100);
-        m.put("bar", 200);
-        m.put("baz", 300);
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.putAll(m);
-            }
-        });
-
-        final IterableMap<String, Integer> other = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-            assertEquals(i, map.remove(String.valueOf(i)).intValue());
-    }
-    }
-
-    @Test
-    public void testReadableMap_12_oe() {
-        final IterableMap<String, Integer> map = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-        }
-
-        final MapIterator<String, Integer> it = map.mapIterator();
-        while (it.hasNext()) {
-            final String k = it.next();
-        }
-
-
-        int sz = map.size();
-
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.clear();
-            }
-        });
-
-
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.put("foo", 100);
-            }
-        });
-
-        final HashMap<String, Integer> m = new HashMap<>();
-        m.put("foo", 100);
-        m.put("bar", 200);
-        m.put("baz", 300);
-        attemptPutOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.putAll(m);
-            }
-        });
-
-        final IterableMap<String, Integer> other = SplitMapUtils.readableMap(transformedMap);
-
-        for (int i = 0; i < 10; i++) {
-        }
-        assertSame(map, SplitMapUtils.readableMap(map));
+        assertEquals(false, it.hasNext());
     }
 
     @Test
     public void testAlreadyReadableMap_1_oe() {
         final HashedMap<String, Integer> hashedMap = new HashedMap<>();
-        assertSame(hashedMap, SplitMapUtils.readableMap(hashedMap));
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testWritableMap_1_oe() {
-        final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.get(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.entrySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.keySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.values();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.size();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.isEmpty();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsKey(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsValue(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.remove(null);
-            }
-        });
-
-        final Map<String, String> other = SplitMapUtils.writableMap(transformedMap);
-        assertEquals(other, map);
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testWritableMap_2_oe() {
-        final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.get(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.entrySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.keySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.values();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.size();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.isEmpty();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsKey(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsValue(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.remove(null);
-            }
-        });
-
-        final Map<String, String> other = SplitMapUtils.writableMap(transformedMap);
-        assertEquals(other.hashCode(), map.hashCode());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testWritableMap_3_oe() {
-        final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.get(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.entrySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.keySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.values();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.size();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.isEmpty();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsKey(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsValue(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.remove(null);
-            }
-        });
-
-        final Map<String, String> other = SplitMapUtils.writableMap(transformedMap);
-
-        int sz = backingMap.size();
-        assertFalse(backingMap.containsKey("foo"));
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testWritableMap_4_oe() {
-        final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.get(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.entrySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.keySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.values();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.size();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.isEmpty();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsKey(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsValue(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.remove(null);
-            }
-        });
-
-        final Map<String, String> other = SplitMapUtils.writableMap(transformedMap);
-
-        int sz = backingMap.size();
-        map.put("new", "66");
-        assertEquals(++sz, backingMap.size());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testWritableMap_6_oe() {
-        final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.get(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.entrySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.keySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.values();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.size();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.isEmpty();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsKey(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsValue(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.remove(null);
-            }
-        });
-
-        final Map<String, String> other = SplitMapUtils.writableMap(transformedMap);
-
-        int sz = backingMap.size();
-        map.put("new", "66");
-
-        final Map<String, String> more = new HashMap<>();
-        more.put("foo", "77");
-        more.put("bar", "88");
-        more.put("baz", "99");
-        map.putAll(more);
-
-        map.clear();
-        assertTrue(backingMap.isEmpty());
-    }
-
-    @Test
-    @SuppressWarnings("unchecked")
-    public void testWritableMap_7_oe() {
-        final Map<String, String> map = SplitMapUtils.writableMap(transformedMap);
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.get(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.entrySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.keySet();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.values();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.size();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.isEmpty();
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsKey(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.containsValue(null);
-            }
-        });
-        attemptGetOperation(new Runnable() {
-            @Override
-            public void run() {
-                map.remove(null);
-            }
-        });
-
-        final Map<String, String> other = SplitMapUtils.writableMap(transformedMap);
-
-        int sz = backingMap.size();
-        map.put("new", "66");
-
-        final Map<String, String> more = new HashMap<>();
-        more.put("foo", "77");
-        more.put("bar", "88");
-        more.put("baz", "99");
-        map.putAll(more);
-
-        map.clear();
-        assertSame(map, SplitMapUtils.writableMap((Put<String, String>) map));
-    }
-
-    @Test
-    public void testAlreadyWritableMap_1_oe() {
-        final HashedMap<String, String> hashedMap = new HashedMap<>();
-        assertSame(hashedMap, SplitMapUtils.writableMap(hashedMap));
+        assertNotNull(readableMap(null));
     }
 
 }

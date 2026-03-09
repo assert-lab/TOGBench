@@ -60,6 +60,33 @@ public class TransformedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E
     }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testTransformedSet() {
+        final SortedSet<E> set = TransformedSortedSet.transformingSortedSet(new TreeSet<E>(),
+                (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(0, set.size());
+        final E[] els = (E[]) new Object[] { "1", "3", "5", "7", "2", "4", "6" };
+        for (int i = 0; i < els.length; i++) {
+            set.add(els[i]);
+            assertEquals(i + 1, set.size());
+            assertEquals(true, set.contains(Integer.valueOf((String) els[i])));
+        }
+
+        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+    }
+
+    public void testTransformedSet_decorateTransform() {
+        final Set<Object> originalSet = new TreeSet<>();
+        final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
+        Collections.addAll(originalSet, els);
+        final Set<?> set = TransformedSet.transformedSet(originalSet, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(els.length, set.size());
+        for (final Object el : els) {
+            assertEquals(true, set.contains(Integer.valueOf((String) el)));
+        }
+
+        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+    }
 
     @Override
     public String getCompatibilityVersion() {
@@ -76,7 +103,7 @@ public class TransformedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E
     public void testTransformedSet_1_oe() {
         final SortedSet<E> set = TransformedSortedSet.transformingSortedSet(new TreeSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(0, set.size());
+        assertEquals(0, TransformedSortedSet.size(set));
     }
 
     public void testTransformedSet_2_oe() {
@@ -85,7 +112,7 @@ public class TransformedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E
         final E[] els = (E[]) new Object[] { "1", "3", "5", "7", "2", "4", "6" };
         for (int i = 0; i < els.length; i++) {
             set.add(els[i]);
-            assertEquals(i + 1, set.size());
+            assertEquals(7, set.size());
     }
     }
 
@@ -95,7 +122,7 @@ public class TransformedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E
         final E[] els = (E[]) new Object[] { "1", "3", "5", "7", "2", "4", "6" };
         for (int i = 0; i < els.length; i++) {
             set.add(els[i]);
-            assertEquals(true, set.contains(Integer.valueOf((String) els[i])));
+            assertEquals(true, set.contains("1"));
     }
     }
 
@@ -107,7 +134,7 @@ public class TransformedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E
             set.add(els[i]);
         }
 
-        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+        assertEquals(false, set.isEmpty());
     }
 
     public void testTransformedSet_decorateTransform_1_oe() {
@@ -115,7 +142,7 @@ public class TransformedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);
         final Set<?> set = TransformedSet.transformedSet(originalSet, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(els.length, set.size());
+        assertEquals(7, set.size());
     }
 
     public void testTransformedSet_decorateTransform_2_oe() {
@@ -124,7 +151,7 @@ public class TransformedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E
         Collections.addAll(originalSet, els);
         final Set<?> set = TransformedSet.transformedSet(originalSet, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         for (final Object el : els) {
-            assertEquals(true, set.contains(Integer.valueOf((String) el)));
+            assertEquals(true, set.contains("1"));
     }
     }
 
@@ -136,7 +163,7 @@ public class TransformedSortedSetTest_OE25Dev<E> extends AbstractSortedSetTest<E
         for (final Object el : els) {
         }
 
-        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+        assertEquals(false, set.isEmpty());
     }
 
 }

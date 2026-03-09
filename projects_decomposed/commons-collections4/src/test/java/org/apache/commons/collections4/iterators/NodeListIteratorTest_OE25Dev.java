@@ -135,13 +135,5 @@ public class NodeListIteratorTest_OE25Dev extends AbstractIteratorTest<Node> {
         testFullIterator();
     }
 
-public void testNullConstructor_oe_101_oe(){
-        try{
-            new NodeListIterator((Node) null);
-            fail("NullPointerException expected!");
-        }catch(final NullPointerException e){
-            // expected.
-        }
-    }
 
 }

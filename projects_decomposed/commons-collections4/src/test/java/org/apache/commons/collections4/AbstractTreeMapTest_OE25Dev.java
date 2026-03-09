@@ -41,28 +41,36 @@ public abstract class AbstractTreeMapTest_OE25Dev<K, V> extends AbstractMapTest<
     @Override
     public abstract TreeMap<K, V> makeObject();
 
-    public void testNewMap_1_oe() {
+    public void testNewMap() {
         final TreeMap<K, V> map = makeObject();
         assertTrue("New map is empty", map.isEmpty());
-    }
-
-    public void testNewMap_2_oe() {
-        final TreeMap<K, V> map = makeObject();
         assertEquals("New map has size zero", 0, map.size());
     }
 
-    public void testSearch_1_oe() {
+    @SuppressWarnings("unchecked")
+    public void testSearch() {
         final TreeMap<K, V> map = makeObject();
         map.put((K) "first", (V) "First Item");
         map.put((K) "second", (V) "Second Item");
         assertEquals("Top item is 'Second Item'","First Item",map.get("first"));
+        assertEquals("Next Item is 'First Item'","Second Item",map.get("second"));
+    }
+
+    public void testNewMap_1_oe() {
+        final TreeMap<K, V> map = makeObject();
+        assertEquals(true, map.isEmpty());
+    }
+
+    public void testNewMap_2_oe() {
+        final TreeMap<K, V> map = makeObject();
+        assertEquals(0, TreeMap.size(map));
     }
 
     public void testSearch_2_oe() {
         final TreeMap<K, V> map = makeObject();
         map.put((K) "first", (V) "First Item");
         map.put((K) "second", (V) "Second Item");
-        assertEquals("Next Item is 'First Item'","Second Item",map.get("second"));
+        assertEquals("Second Item", map.get(1));
     }
 
 }

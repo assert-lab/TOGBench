@@ -43,10 +43,40 @@ public abstract class AbstractPropertiesFactoryTest_OE25Dev<T extends Properties
     }
 
     @Test
+    public void testInstance() {
+        Assert.assertNotNull(PropertiesFactory.INSTANCE);
+    }
+
+    @Test
+    public void testLoadClassLoaderMissingResource() throws Exception {
+        Assert.assertNull(factory.load(ClassLoader.getSystemClassLoader(), "missing/test.properties"));
+    }
+
+    @Test
+    public void testLoadClassLoaderResource() throws Exception {
+        assertContents(factory.load(ClassLoader.getSystemClassLoader(), "properties/test.properties"));
+    }
+
+    @Test
+    public void testLoadFile() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING).toFile()));
+    }
+
+    @Test
+    public void testLoadFileName() throws Exception {
+        assertContents(factory.load(PATH_STRING));
+    }
+
+    @Test
     public void testLoadInputStream() throws Exception {
         try (final FileInputStream inputStream = new FileInputStream(PATH_STRING)) {
             assertContents(factory.load(inputStream));
         }
+    }
+
+    @Test
+    public void testLoadPath() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING)));
     }
 
     @Test
@@ -57,85 +87,19 @@ public abstract class AbstractPropertiesFactoryTest_OE25Dev<T extends Properties
     }
 
     @Test
-    public void testInstance_1_oe() {
-        Assert.assertNotNull(PropertiesFactory.INSTANCE);
+    public void testLoadUri() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING).toUri()));
     }
 
     @Test
-    public void testLoadClassLoaderMissingResource_1_oe() throws Exception {
-        Assert.assertNull(factory.load(ClassLoader.getSystemClassLoader(), "missing/test.properties"));
-    }
-
-    @Test
-    public void testLoadClassLoaderResource_1_oe_1_oe() throws Exception {
-                final T properties0 = factory.load(ClassLoader.getSystemClassLoader(), "properties/test.properties");
-        Assert.assertEquals("value1", properties0.getProperty("key1"));
-    }
-
-    @Test
-    public void testLoadClassLoaderResource_1_oe_2_oe() throws Exception {
-                final T properties0 = factory.load(ClassLoader.getSystemClassLoader(), "properties/test.properties");
-                Assert.assertEquals("value2", properties0.getProperty("key2"));
-    }
-
-    @Test
-    public void testLoadFile_1_oe_1_oe() throws Exception {
-                final T properties0 = factory.load(Paths.get(PATH_STRING).toFile());
-        Assert.assertEquals("value1", properties0.getProperty("key1"));
-    }
-
-    @Test
-    public void testLoadFile_1_oe_2_oe() throws Exception {
-                final T properties0 = factory.load(Paths.get(PATH_STRING).toFile());
-                Assert.assertEquals("value2", properties0.getProperty("key2"));
+    public void testLoadUrl() throws Exception {
+        assertContents(factory.load(Paths.get(PATH_STRING).toUri().toURL()));
     }
 
     @Test
     public void testLoadFileName_1_oe_1_oe() throws Exception {
                 final T properties0 = factory.load(PATH_STRING);
-        Assert.assertEquals("value1", properties0.getProperty("key1"));
-    }
-
-    @Test
-    public void testLoadFileName_1_oe_2_oe() throws Exception {
-                final T properties0 = factory.load(PATH_STRING);
-                Assert.assertEquals("value2", properties0.getProperty("key2"));
-    }
-
-    @Test
-    public void testLoadPath_1_oe_1_oe() throws Exception {
-                final T properties0 = factory.load(Paths.get(PATH_STRING));
-        Assert.assertEquals("value1", properties0.getProperty("key1"));
-    }
-
-    @Test
-    public void testLoadPath_1_oe_2_oe() throws Exception {
-                final T properties0 = factory.load(Paths.get(PATH_STRING));
-                Assert.assertEquals("value2", properties0.getProperty("key2"));
-    }
-
-    @Test
-    public void testLoadUri_1_oe_1_oe() throws Exception {
-                final T properties0 = factory.load(Paths.get(PATH_STRING).toUri());
-        Assert.assertEquals("value1", properties0.getProperty("key1"));
-    }
-
-    @Test
-    public void testLoadUri_1_oe_2_oe() throws Exception {
-                final T properties0 = factory.load(Paths.get(PATH_STRING).toUri());
-                Assert.assertEquals("value2", properties0.getProperty("key2"));
-    }
-
-    @Test
-    public void testLoadUrl_1_oe_1_oe() throws Exception {
-                final T properties0 = factory.load(Paths.get(PATH_STRING).toUri().toURL());
-        Assert.assertEquals("value1", properties0.getProperty("key1"));
-    }
-
-    @Test
-    public void testLoadUrl_1_oe_2_oe() throws Exception {
-                final T properties0 = factory.load(Paths.get(PATH_STRING).toUri().toURL());
-                Assert.assertEquals("value2", properties0.getProperty("key2"));
+        assertNotNull(properties0);
     }
 
 }

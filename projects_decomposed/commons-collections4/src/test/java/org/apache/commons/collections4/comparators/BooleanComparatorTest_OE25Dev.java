@@ -84,6 +84,21 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
         allTests(true,BooleanComparator.booleanComparator(true));
     }
 
+    @Test
+    public void testEqualsCompatibleInstance() {
+        assertEquals(new BooleanComparator(),new BooleanComparator(false));
+        assertEquals(new BooleanComparator(false),new BooleanComparator(false));
+        assertEquals(new BooleanComparator(false),BooleanComparator.getFalseFirstComparator());
+        assertSame(BooleanComparator.getFalseFirstComparator(),BooleanComparator.booleanComparator(false));
+
+        assertEquals(new BooleanComparator(true),new BooleanComparator(true));
+        assertEquals(new BooleanComparator(true),BooleanComparator.getTrueFirstComparator());
+        assertSame(BooleanComparator.getTrueFirstComparator(),BooleanComparator.booleanComparator(true));
+
+        assertTrue(!new BooleanComparator().equals(new BooleanComparator(true)));
+        assertTrue(!new BooleanComparator(true).equals(new BooleanComparator(false)));
+    }
+
     // utilities
     // ------------------------------------------------------------------------
 
@@ -153,46 +168,39 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
     @Test
     public void testEqualsCompatibleInstance_1_oe() {
         Object a = new BooleanComparator(false);
-        assertEquals(new BooleanComparator(), a);
+        assertNotNull(a);
     }
 
     @Test
     public void testEqualsCompatibleInstance_2_oe() {
         Object a = new BooleanComparator(false);
-        assertEquals(new BooleanComparator(false), a);
+        assertNotNull(a);
     }
 
     @Test
     public void testEqualsCompatibleInstance_3_oe() {
         Object a = BooleanComparator.getFalseFirstComparator();
-        assertEquals(new BooleanComparator(false), a);
+        assertNotNull(a);
     }
 
     @Test
     public void testEqualsCompatibleInstance_4_oe() {
         Object a = BooleanComparator.booleanComparator(false);
-        assertSame(BooleanComparator.getFalseFirstComparator(), a);
+        assertNotNull(BooleanComparator.getFalseFirstComparator());
     }
 
     @Test
     public void testEqualsCompatibleInstance_5_oe() {
 
         Object a = new BooleanComparator(true);
-        assertEquals(new BooleanComparator(true), a);
-    }
-
-    @Test
-    public void testEqualsCompatibleInstance_6_oe() {
-
-        Object a = BooleanComparator.getTrueFirstComparator();
-        assertEquals(new BooleanComparator(true), a);
+        assertEquals(true, a.equals(a));
     }
 
     @Test
     public void testEqualsCompatibleInstance_7_oe() {
 
         Object a = BooleanComparator.booleanComparator(true);
-        assertSame(BooleanComparator.getTrueFirstComparator(), a);
+        assertNotNull(BooleanComparator.getTrueFirstComparator());
     }
 
     @Test
@@ -200,7 +208,7 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
 
 
         boolean a = !new BooleanComparator().equals(new BooleanComparator(true));
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     @Test
@@ -208,7 +216,7 @@ public class BooleanComparatorTest_OE25Dev extends AbstractComparatorTest<Boolea
 
 
         boolean a = !new BooleanComparator(true).equals(new BooleanComparator(false));
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
 }

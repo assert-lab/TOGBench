@@ -71,6 +71,15 @@ public class UnmodifiableMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiV
     }
 
     // -----------------------------------------------------------------------
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullMap() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final MultiValuedMap<K, V> map = makeFullMap();
+        assertSame(map, UnmodifiableMultiValuedMap.unmodifiableMultiValuedMap(map));
+    }
 
     public void testDecoratorFactoryNullMap() {
         try {
@@ -261,26 +270,17 @@ public class UnmodifiableMultiValuedMapTest_OE25Dev<K, V> extends AbstractMultiV
 
     public void testUnmodifiable_1_oe() {
         boolean a = makeObject() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testUnmodifiable_2_oe() {
         boolean a = makeFullMap() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testDecorateFactory_1_oe() {
         final MultiValuedMap<K, V> map = makeFullMap();
-        assertSame(map, UnmodifiableMultiValuedMap.unmodifiableMultiValuedMap(map));
-    }
-
-public void testDecoratorFactoryNullMap_oe_101_oe() {
-        try {
-            UnmodifiableMultiValuedMap.unmodifiableMultiValuedMap(null);
-            fail("map must not be null");
-        } catch (final NullPointerException e) {
-            // expected
-        }
+        assertNotNull(unmodifiableMultiValuedMap(map));
     }
 
 }

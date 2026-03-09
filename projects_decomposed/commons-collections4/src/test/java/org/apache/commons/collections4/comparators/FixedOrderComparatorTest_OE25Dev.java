@@ -85,22 +85,119 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
     /**
      * Tests that the constructor plus add method compares items properly.
      */
+    @Test
+    public void testConstructorPlusAdd() {
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>();
+        for (final String topCitie : topCities) {
+            comparator.add(topCitie);
+        }
+        final String[] keys = topCities.clone();
+        assertComparatorYieldsOrder(keys, comparator);
+    }
 
     /**
      * Tests that the array constructor compares items properly.
      */
+    @Test
+    public void testArrayConstructor() {
+        final String[] keys = topCities.clone();
+        final String[] topCitiesForTest = topCities.clone();
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+        assertComparatorYieldsOrder(keys, comparator);
+        // test that changing input after constructor has no effect
+        topCitiesForTest[0] = "Brighton";
+        assertComparatorYieldsOrder(keys, comparator);
+    }
 
     /**
      * Tests the list constructor.
      */
+    @Test
+    public void testListConstructor() {
+        final String[] keys = topCities.clone();
+        final List<String> topCitiesForTest = new LinkedList<>(Arrays.asList(topCities));
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
+        assertComparatorYieldsOrder(keys, comparator);
+        // test that changing input after constructor has no effect
+        topCitiesForTest.set(0, "Brighton");
+        assertComparatorYieldsOrder(keys, comparator);
+    }
 
     /**
      * Tests addAsEqual method.
      */
+    @Test
+    public void testAddAsEqual() {
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
+        comparator.addAsEqual("New York", "Minneapolis");
+        assertEquals(0, comparator.compare("New York", "Minneapolis"));
+        assertEquals(-1, comparator.compare("Tokyo", "Minneapolis"));
+        assertEquals(1, comparator.compare("Shanghai", "Minneapolis"));
+    }
 
     /**
      * Tests whether or not updates are disabled after a comparison is made.
      */
+    @Test
+    public void testLock() {
+        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
+        assertEquals(false, comparator.isLocked());
+        comparator.compare("New York", "Tokyo");
+        assertEquals(true, comparator.isLocked());
+        try {
+            comparator.add("Minneapolis");
+            fail("Should have thrown an UnsupportedOperationException");
+        } catch (final UnsupportedOperationException e) {
+            // success -- ignore
+        }
+
+        try {
+            comparator.addAsEqual("New York", "Minneapolis");
+            fail("Should have thrown an UnsupportedOperationException");
+        } catch (final UnsupportedOperationException e) {
+            // success -- ignore
+        }
+    }
+
+    @Test
+    public void testUnknownObjectBehavior() {
+        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
+        try {
+            comparator.compare("New York", "Minneapolis");
+            fail("Should have thrown a IllegalArgumentException");
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        try {
+            comparator.compare("Minneapolis", "New York");
+            fail("Should have thrown a IllegalArgumentException");
+        } catch (final IllegalArgumentException e) {
+            // success-- ignore
+        }
+        assertEquals(FixedOrderComparator.UnknownObjectBehavior.EXCEPTION, comparator.getUnknownObjectBehavior());
+
+        comparator = new FixedOrderComparator<>(topCities);
+        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
+        assertEquals(FixedOrderComparator.UnknownObjectBehavior.BEFORE, comparator.getUnknownObjectBehavior());
+        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
+        keys.addFirst("Minneapolis");
+        assertComparatorYieldsOrder(keys.toArray(new String[0]), comparator);
+
+        assertEquals(-1, comparator.compare("Minneapolis", "New York"));
+        assertEquals( 1, comparator.compare("New York", "Minneapolis"));
+        assertEquals( 0, comparator.compare("Minneapolis", "St Paul"));
+
+        comparator = new FixedOrderComparator<>(topCities);
+        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.AFTER);
+        keys = new LinkedList<>(Arrays.asList(topCities));
+        keys.add("Minneapolis");
+        assertComparatorYieldsOrder(keys.toArray(new String[0]), comparator);
+
+        assertEquals( 1, comparator.compare("Minneapolis", "New York"));
+        assertEquals(-1, comparator.compare("New York", "Minneapolis"));
+        assertEquals( 0, comparator.compare("Minneapolis", "St Paul"));
+
+    }
 
     //
     // Helper methods
@@ -145,27 +242,6 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
     }
 
     @Test
-    public void testAddAsEqual_1_oe() {
-        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        comparator.addAsEqual("New York", "Minneapolis");
-        assertEquals(0, comparator.compare("New York", "Minneapolis"));
-    }
-
-    @Test
-    public void testAddAsEqual_2_oe() {
-        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        comparator.addAsEqual("New York", "Minneapolis");
-        assertEquals(-1, comparator.compare("Tokyo", "Minneapolis"));
-    }
-
-    @Test
-    public void testAddAsEqual_3_oe() {
-        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        comparator.addAsEqual("New York", "Minneapolis");
-        assertEquals(1, comparator.compare("Shanghai", "Minneapolis"));
-    }
-
-    @Test
     public void testLock_1_oe() {
         final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         assertEquals(false, comparator.isLocked());
@@ -175,7 +251,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
     public void testLock_2_oe() {
         final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
         comparator.compare("New York", "Tokyo");
-        assertEquals(true, comparator.isLocked());
+        assertEquals(false, comparator.isLocked());
     }
 
     @Test
@@ -189,7 +265,7 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
             comparator.compare("Minneapolis", "New York");
         } catch (final IllegalArgumentException e) {
         }
-        assertEquals(FixedOrderComparator.UnknownObjectBehavior.EXCEPTION, comparator.getUnknownObjectBehavior());
+        assertEquals(UnknownObjectBehavior.EXCEPTION, comparator.getUnknownObjectBehavior());
     }
 
     @Test
@@ -207,421 +283,6 @@ public class FixedOrderComparatorTest_OE25Dev extends AbstractComparatorTest<Str
         comparator = new FixedOrderComparator<>(topCities);
         comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
         assertEquals(FixedOrderComparator.UnknownObjectBehavior.BEFORE, comparator.getUnknownObjectBehavior());
-    }
-
-    @Test
-    public void testUnknownObjectBehavior_6_oe() {
-        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        try {
-            comparator.compare("New York", "Minneapolis");
-        } catch (final IllegalArgumentException e) {
-        }
-        try {
-            comparator.compare("Minneapolis", "New York");
-        } catch (final IllegalArgumentException e) {
-        }
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
-        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.addFirst("Minneapolis");
-
-        assertEquals(-1, comparator.compare("Minneapolis", "New York"));
-    }
-
-    @Test
-    public void testUnknownObjectBehavior_7_oe() {
-        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        try {
-            comparator.compare("New York", "Minneapolis");
-        } catch (final IllegalArgumentException e) {
-        }
-        try {
-            comparator.compare("Minneapolis", "New York");
-        } catch (final IllegalArgumentException e) {
-        }
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
-        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.addFirst("Minneapolis");
-
-        assertEquals( 1, comparator.compare("New York", "Minneapolis"));
-    }
-
-    @Test
-    public void testUnknownObjectBehavior_8_oe() {
-        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        try {
-            comparator.compare("New York", "Minneapolis");
-        } catch (final IllegalArgumentException e) {
-        }
-        try {
-            comparator.compare("Minneapolis", "New York");
-        } catch (final IllegalArgumentException e) {
-        }
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
-        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.addFirst("Minneapolis");
-
-        assertEquals( 0, comparator.compare("Minneapolis", "St Paul"));
-    }
-
-    @Test
-    public void testUnknownObjectBehavior_10_oe() {
-        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        try {
-            comparator.compare("New York", "Minneapolis");
-        } catch (final IllegalArgumentException e) {
-        }
-        try {
-            comparator.compare("Minneapolis", "New York");
-        } catch (final IllegalArgumentException e) {
-        }
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
-        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.addFirst("Minneapolis");
-
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.AFTER);
-        keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.add("Minneapolis");
-
-        assertEquals( 1, comparator.compare("Minneapolis", "New York"));
-    }
-
-    @Test
-    public void testUnknownObjectBehavior_11_oe() {
-        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        try {
-            comparator.compare("New York", "Minneapolis");
-        } catch (final IllegalArgumentException e) {
-        }
-        try {
-            comparator.compare("Minneapolis", "New York");
-        } catch (final IllegalArgumentException e) {
-        }
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
-        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.addFirst("Minneapolis");
-
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.AFTER);
-        keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.add("Minneapolis");
-
-        assertEquals(-1, comparator.compare("New York", "Minneapolis"));
-    }
-
-    @Test
-    public void testUnknownObjectBehavior_12_oe() {
-        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        try {
-            comparator.compare("New York", "Minneapolis");
-        } catch (final IllegalArgumentException e) {
-        }
-        try {
-            comparator.compare("Minneapolis", "New York");
-        } catch (final IllegalArgumentException e) {
-        }
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
-        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.addFirst("Minneapolis");
-
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.AFTER);
-        keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.add("Minneapolis");
-
-        assertEquals( 0, comparator.compare("Minneapolis", "St Paul"));
-    }
-
-    @Test
-    public void testConstructorPlusAdd_1_oe_1_oe() {
-        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>();
-        for (final String topCitie : topCities) {
-            comparator.add(topCitie);
-        }
-        final String[] keys = topCities.clone();
-                final String[] orderedObjects0 = keys;
-        final Comparator<String> comparator0 = comparator;
-        final String[] keys0 = orderedObjects0.clone();
-        
-        
-                boolean isInNewOrder0 = false;
-                final Random rand0 = new Random();
-                while (keys0.length > 1 && !isInNewOrder0) {
-                    for (int i0 = keys0.length-1; i0 > 0; i0--) {
-                        final String swap0 = keys0[i0];
-                        final int j0 = rand0.nextInt(i0+1);
-                        keys0[i0] = keys0[j0];
-                        keys0[j0] = swap0;
-                    }
-        
-                    for (int i0 = 0; i0 < keys0.length && !isInNewOrder0; i0++) {
-                        if( !orderedObjects0[i0].equals(keys0[i0])) {
-                            isInNewOrder0 = true;
-                        }
-                    }
-                }
-        
-        
-                Arrays.sort(keys0, comparator0);
-        
-                for (int i0 = 0; i0 < orderedObjects0.length; i0++) {
-                    assertEquals(orderedObjects0[i0], keys0[i0]);
-    }
-    }
-
-    @Test
-    public void testArrayConstructor_1_oe_1_oe() {
-        final String[] keys = topCities.clone();
-        final String[] topCitiesForTest = topCities.clone();
-        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
-                final String[] orderedObjects0 = keys;
-        final Comparator<String> comparator0 = comparator;
-        final String[] keys0 = orderedObjects0.clone();
-        
-        
-                boolean isInNewOrder0 = false;
-                final Random rand0 = new Random();
-                while (keys0.length > 1 && !isInNewOrder0) {
-                    for (int i0 = keys0.length-1; i0 > 0; i0--) {
-                        final String swap0 = keys0[i0];
-                        final int j0 = rand0.nextInt(i0+1);
-                        keys0[i0] = keys0[j0];
-                        keys0[j0] = swap0;
-                    }
-        
-                    for (int i0 = 0; i0 < keys0.length && !isInNewOrder0; i0++) {
-                        if( !orderedObjects0[i0].equals(keys0[i0])) {
-                            isInNewOrder0 = true;
-                        }
-                    }
-                }
-        
-        
-                Arrays.sort(keys0, comparator0);
-        
-                for (int i0 = 0; i0 < orderedObjects0.length; i0++) {
-                    assertEquals(orderedObjects0[i0], keys0[i0]);
-    }
-    }
-
-    @Test
-    public void testArrayConstructor_2_oe_1_oe() {
-        final String[] keys = topCities.clone();
-        final String[] topCitiesForTest = topCities.clone();
-        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
-        topCitiesForTest[0] = "Brighton";
-                final String[] orderedObjects0 = keys;
-        final Comparator<String> comparator0 = comparator;
-        final String[] keys0 = orderedObjects0.clone();
-        
-        
-                boolean isInNewOrder0 = false;
-                final Random rand0 = new Random();
-                while (keys0.length > 1 && !isInNewOrder0) {
-                    for (int i0 = keys0.length-1; i0 > 0; i0--) {
-                        final String swap0 = keys0[i0];
-                        final int j0 = rand0.nextInt(i0+1);
-                        keys0[i0] = keys0[j0];
-                        keys0[j0] = swap0;
-                    }
-        
-                    for (int i0 = 0; i0 < keys0.length && !isInNewOrder0; i0++) {
-                        if( !orderedObjects0[i0].equals(keys0[i0])) {
-                            isInNewOrder0 = true;
-                        }
-                    }
-                }
-        
-        
-                Arrays.sort(keys0, comparator0);
-        
-                for (int i0 = 0; i0 < orderedObjects0.length; i0++) {
-                    assertEquals(orderedObjects0[i0], keys0[i0]);
-    }
-    }
-
-    @Test
-    public void testListConstructor_1_oe_1_oe() {
-        final String[] keys = topCities.clone();
-        final List<String> topCitiesForTest = new LinkedList<>(Arrays.asList(topCities));
-        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
-                final String[] orderedObjects0 = keys;
-        final Comparator<String> comparator0 = comparator;
-        final String[] keys0 = orderedObjects0.clone();
-        
-        
-                boolean isInNewOrder0 = false;
-                final Random rand0 = new Random();
-                while (keys0.length > 1 && !isInNewOrder0) {
-                    for (int i0 = keys0.length-1; i0 > 0; i0--) {
-                        final String swap0 = keys0[i0];
-                        final int j0 = rand0.nextInt(i0+1);
-                        keys0[i0] = keys0[j0];
-                        keys0[j0] = swap0;
-                    }
-        
-                    for (int i0 = 0; i0 < keys0.length && !isInNewOrder0; i0++) {
-                        if( !orderedObjects0[i0].equals(keys0[i0])) {
-                            isInNewOrder0 = true;
-                        }
-                    }
-                }
-        
-        
-                Arrays.sort(keys0, comparator0);
-        
-                for (int i0 = 0; i0 < orderedObjects0.length; i0++) {
-                    assertEquals(orderedObjects0[i0], keys0[i0]);
-    }
-    }
-
-    @Test
-    public void testListConstructor_2_oe_1_oe() {
-        final String[] keys = topCities.clone();
-        final List<String> topCitiesForTest = new LinkedList<>(Arrays.asList(topCities));
-        final FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCitiesForTest);
-        topCitiesForTest.set(0, "Brighton");
-                final String[] orderedObjects0 = keys;
-        final Comparator<String> comparator0 = comparator;
-        final String[] keys0 = orderedObjects0.clone();
-        
-        
-                boolean isInNewOrder0 = false;
-                final Random rand0 = new Random();
-                while (keys0.length > 1 && !isInNewOrder0) {
-                    for (int i0 = keys0.length-1; i0 > 0; i0--) {
-                        final String swap0 = keys0[i0];
-                        final int j0 = rand0.nextInt(i0+1);
-                        keys0[i0] = keys0[j0];
-                        keys0[j0] = swap0;
-                    }
-        
-                    for (int i0 = 0; i0 < keys0.length && !isInNewOrder0; i0++) {
-                        if( !orderedObjects0[i0].equals(keys0[i0])) {
-                            isInNewOrder0 = true;
-                        }
-                    }
-                }
-        
-        
-                Arrays.sort(keys0, comparator0);
-        
-                for (int i0 = 0; i0 < orderedObjects0.length; i0++) {
-                    assertEquals(orderedObjects0[i0], keys0[i0]);
-    }
-    }
-
-    @Test
-    public void testUnknownObjectBehavior_5_oe_1_oe() {
-        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        try {
-            comparator.compare("New York", "Minneapolis");
-        } catch (final IllegalArgumentException e) {
-        }
-        try {
-            comparator.compare("Minneapolis", "New York");
-        } catch (final IllegalArgumentException e) {
-        }
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
-        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.addFirst("Minneapolis");
-                final String[] orderedObjects0 = keys.toArray(new String[0]);
-        final Comparator<String> comparator0 = comparator;
-        final String[] keys0 = orderedObjects0.clone();
-        
-        
-                boolean isInNewOrder0 = false;
-                final Random rand0 = new Random();
-                while (keys0.length > 1 && !isInNewOrder0) {
-                    for (int i0 = keys0.length-1; i0 > 0; i0--) {
-                        final String swap0 = keys0[i0];
-                        final int j0 = rand0.nextInt(i0+1);
-                        keys0[i0] = keys0[j0];
-                        keys0[j0] = swap0;
-                    }
-        
-                    for (int i0 = 0; i0 < keys0.length && !isInNewOrder0; i0++) {
-                        if( !orderedObjects0[i0].equals(keys0[i0])) {
-                            isInNewOrder0 = true;
-                        }
-                    }
-                }
-        
-        
-                Arrays.sort(keys0, comparator0);
-        
-                for (int i0 = 0; i0 < orderedObjects0.length; i0++) {
-                    assertEquals(orderedObjects0[i0], keys0[i0]);
-    }
-    }
-
-    @Test
-    public void testUnknownObjectBehavior_9_oe_1_oe() {
-        FixedOrderComparator<String> comparator = new FixedOrderComparator<>(topCities);
-        try {
-            comparator.compare("New York", "Minneapolis");
-        } catch (final IllegalArgumentException e) {
-        }
-        try {
-            comparator.compare("Minneapolis", "New York");
-        } catch (final IllegalArgumentException e) {
-        }
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.BEFORE);
-        LinkedList<String> keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.addFirst("Minneapolis");
-
-
-        comparator = new FixedOrderComparator<>(topCities);
-        comparator.setUnknownObjectBehavior(FixedOrderComparator.UnknownObjectBehavior.AFTER);
-        keys = new LinkedList<>(Arrays.asList(topCities));
-        keys.add("Minneapolis");
-                final String[] orderedObjects0 = keys.toArray(new String[0]);
-        final Comparator<String> comparator0 = comparator;
-        final String[] keys0 = orderedObjects0.clone();
-        
-        
-                boolean isInNewOrder0 = false;
-                final Random rand0 = new Random();
-                while (keys0.length > 1 && !isInNewOrder0) {
-                    for (int i0 = keys0.length-1; i0 > 0; i0--) {
-                        final String swap0 = keys0[i0];
-                        final int j0 = rand0.nextInt(i0+1);
-                        keys0[i0] = keys0[j0];
-                        keys0[j0] = swap0;
-                    }
-        
-                    for (int i0 = 0; i0 < keys0.length && !isInNewOrder0; i0++) {
-                        if( !orderedObjects0[i0].equals(keys0[i0])) {
-                            isInNewOrder0 = true;
-                        }
-                    }
-                }
-        
-        
-                Arrays.sort(keys0, comparator0);
-        
-                for (int i0 = 0; i0 < orderedObjects0.length; i0++) {
-                    assertEquals(orderedObjects0[i0], keys0[i0]);
-    }
     }
 
 }

@@ -44,6 +44,20 @@ public static Test suite() {
         return iter;
     }
 
+    @SuppressWarnings("unused")
+    public void testIterator() {
+        final Iterator<Integer> iter = createIterator();
+        final Iterable<Number> iterable = new IteratorIterable<>(iter);
+
+        // first use
+        verifyIteration(iterable);
+
+        // second use
+        for (final Number actual : iterable) {
+            fail("should not be able to iterate twice");
+        }
+    }
+
     public void testMultipleUserIterator() {
         final Iterator<Integer> iter = createIterator();
 
@@ -65,16 +79,6 @@ public static Test suite() {
         assertTrue(expected > 0);
     }
 
-    public void testIterator_1_oe() {
-        final Iterator<Integer> iter = createIterator();
-        final Iterable<Number> iterable = new IteratorIterable<>(iter);
-
-        verifyIteration(iterable);
-
-        for (final Number actual : iterable) {
-            fail("should not be able to iterate twice");
-    }
-    }
 
 }
 

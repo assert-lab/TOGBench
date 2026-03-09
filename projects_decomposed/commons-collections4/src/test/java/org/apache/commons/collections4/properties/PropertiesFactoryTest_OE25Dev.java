@@ -28,10 +28,16 @@ public class PropertiesFactoryTest_OE25Dev extends AbstractPropertiesFactoryTest
         super(PropertiesFactory.INSTANCE);
     }
 
+    @Override
+    @Test
+    public void testInstance() {
+        Assert.assertNotNull(PropertiesFactory.INSTANCE);
+    }
+
     @Test
     public void testInstance_1_oe() {
         Object a = PropertiesFactory.INSTANCE;
-        Assert.assertNotNull(a);
+        assertEquals(false, a.equals(a));
     }
 
 }

@@ -77,29 +77,38 @@ public class UnmodifiableOrderedMapIteratorTest_OE25Dev<K, V> extends AbstractOr
     }
 
     //-----------------------------------------------------------------------
+    public void testOrderedMapIterator() {
+        assertTrue(makeEmptyIterator() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        OrderedMapIterator<K, V> it = makeObject();
+        assertSame(it, UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(it));
+
+        it = getMap().mapIterator() ;
+        assertTrue(it != UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(it));
+
+        try {
+            UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
 
     public void testOrderedMapIterator_1_oe() {
         boolean a = makeEmptyIterator() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testDecorateFactory_1_oe() {
         OrderedMapIterator<K, V> it = makeObject();
-        assertSame(it, UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(it));
+        assertEquals(false, it.hasPrevious());
     }
 
     public void testDecorateFactory_2_oe() {
         OrderedMapIterator<K, V> it = makeObject();
 
         it = getMap().mapIterator() ;
-        assertTrue(it != UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(it));
-    }
-
-public void testDecorateFactory_oe_101_oe() {
-        try {
-            UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(null);
-            fail();
-        } catch (final NullPointerException ex) {}
+        assertEquals(false, it.hasPrevious());
     }
 
 }

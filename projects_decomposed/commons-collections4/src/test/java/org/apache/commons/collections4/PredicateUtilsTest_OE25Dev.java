@@ -48,20 +48,85 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     // exceptionPredicate
     //------------------------------------------------------------------
 
+    @Test
+    public void testExceptionPredicate() {
+        assertNotNull(PredicateUtils.exceptionPredicate());
+        assertSame(PredicateUtils.exceptionPredicate(), PredicateUtils.exceptionPredicate());
+        try {
+            PredicateUtils.exceptionPredicate().evaluate(null);
+        } catch (final FunctorException ex) {
+            try {
+                PredicateUtils.exceptionPredicate().evaluate(cString);
+            } catch (final FunctorException ex2) {
+                return;
+            }
+        }
+        fail();
+    }
+
     // notNullPredicate
     //------------------------------------------------------------------
+
+    @Test
+    public void testIsNotNullPredicate() {
+        assertNotNull(PredicateUtils.notNullPredicate());
+        assertSame(PredicateUtils.notNullPredicate(), PredicateUtils.notNullPredicate());
+        assertEquals(false, PredicateUtils.notNullPredicate().evaluate(null));
+        assertEquals(true, PredicateUtils.notNullPredicate().evaluate(cObject));
+        assertEquals(true, PredicateUtils.notNullPredicate().evaluate(cString));
+        assertEquals(true, PredicateUtils.notNullPredicate().evaluate(cInteger));
+    }
 
     // identityPredicate
     //------------------------------------------------------------------
 
+    @Test
+    public void testIdentityPredicate() {
+        assertSame(nullPredicate(), PredicateUtils.identityPredicate(null));
+        assertNotNull(PredicateUtils.identityPredicate(Integer.valueOf(6)));
+        assertEquals(false, PredicateUtils.identityPredicate(Integer.valueOf(6)).evaluate(null));
+        assertEquals(false, PredicateUtils.<Object>identityPredicate(Integer.valueOf(6)).evaluate(cObject));
+        assertEquals(false, PredicateUtils.<Object>identityPredicate(Integer.valueOf(6)).evaluate(cString));
+        assertEquals(false,PredicateUtils.identityPredicate(new Integer(6)).evaluate(cInteger));// Cannot use valueOf here assertEquals(true,PredicateUtils.identityPredicate(cInteger).evaluate(cInteger));
+    }
+
     // truePredicate
     //------------------------------------------------------------------
+
+    @Test
+    public void testTruePredicate() {
+        assertNotNull(TruePredicate.truePredicate());
+        assertSame(TruePredicate.truePredicate(), TruePredicate.truePredicate());
+        assertEquals(true, TruePredicate.truePredicate().evaluate(null));
+        assertEquals(true, TruePredicate.truePredicate().evaluate(cObject));
+        assertEquals(true, TruePredicate.truePredicate().evaluate(cString));
+        assertEquals(true, TruePredicate.truePredicate().evaluate(cInteger));
+    }
 
     // falsePredicate
     //------------------------------------------------------------------
 
+    @Test
+    public void testFalsePredicate() {
+        assertNotNull(FalsePredicate.falsePredicate());
+        assertSame(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate());
+        assertEquals(false, FalsePredicate.falsePredicate().evaluate(null));
+        assertEquals(false, FalsePredicate.falsePredicate().evaluate(cObject));
+        assertEquals(false, FalsePredicate.falsePredicate().evaluate(cString));
+        assertEquals(false, FalsePredicate.falsePredicate().evaluate(cInteger));
+    }
+
     // notPredicate
     //------------------------------------------------------------------
+
+    @Test
+    public void testNotPredicate() {
+        assertNotNull(PredicateUtils.notPredicate(TruePredicate.truePredicate()));
+        assertEquals(false, PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(false, PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(cObject));
+        assertEquals(false, PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(cString));
+        assertEquals(false, PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(cInteger));
+    }
 
     @Test(expected=NullPointerException.class)
     public void testNotPredicateEx() {
@@ -71,6 +136,14 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     // andPredicate
     //------------------------------------------------------------------
 
+    @Test
+    public void testAndPredicate() {
+        assertEquals(true, PredicateUtils.andPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(false, PredicateUtils.andPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
+        assertEquals(false, PredicateUtils.andPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(false, PredicateUtils.andPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
+    }
+
     @Test(expected=NullPointerException.class)
     public void testAndPredicateEx() {
         PredicateUtils.andPredicate(null, null);
@@ -78,6 +151,48 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
 
     // allPredicate
     //------------------------------------------------------------------
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testAllPredicate() {
+        assertTrue(AllPredicate.allPredicate(new Predicate[] {}), null);
+        assertEquals(true, AllPredicate.allPredicate(new Predicate[] {
+                TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate()}).evaluate(null));
+        assertEquals(false, AllPredicate.allPredicate(new Predicate[] {
+                TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
+        assertEquals(false, AllPredicate.allPredicate(new Predicate[] {
+                FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
+        assertEquals(false, AllPredicate.allPredicate(new Predicate[] {
+                FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
+        final Collection<Predicate<Object>> coll = new ArrayList<>();
+        coll.add(TruePredicate.truePredicate());
+        coll.add(TruePredicate.truePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(true, AllPredicate.allPredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(TruePredicate.truePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(false, AllPredicate.allPredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(false, AllPredicate.allPredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        assertEquals(false, AllPredicate.allPredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        assertFalse(AllPredicate.allPredicate(coll), null);
+        coll.clear();
+        coll.add(TruePredicate.truePredicate());
+        assertTrue(AllPredicate.allPredicate(coll), null);
+        coll.clear();
+        assertTrue(AllPredicate.allPredicate(coll), null);
+    }
 
     @Test(expected=NullPointerException.class)
     public void testAllPredicateEx1() {
@@ -117,6 +232,14 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     // orPredicate
     //------------------------------------------------------------------
 
+    @Test
+    public void testOrPredicate() {
+        assertEquals(true, PredicateUtils.orPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(true, PredicateUtils.orPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
+        assertEquals(true, PredicateUtils.orPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(false, PredicateUtils.orPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
+    }
+
     @Test(expected=NullPointerException.class)
     public void testOrPredicateEx() {
         PredicateUtils.orPredicate(null, null);
@@ -124,6 +247,49 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
 
     // anyPredicate
     //------------------------------------------------------------------
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testAnyPredicate() {
+        assertFalse(PredicateUtils.anyPredicate(new Predicate[] {}), null);
+
+        assertEquals(true, PredicateUtils.anyPredicate(new Predicate[] {
+                TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate()}).evaluate(null));
+        assertEquals(true, PredicateUtils.anyPredicate(new Predicate[] {
+                TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
+        assertEquals(true, PredicateUtils.anyPredicate(new Predicate[] {
+                FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
+        assertEquals(false, PredicateUtils.anyPredicate(new Predicate[] {
+                FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
+        final Collection<Predicate<Object>> coll = new ArrayList<>();
+        coll.add(TruePredicate.truePredicate());
+        coll.add(TruePredicate.truePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(true, PredicateUtils.anyPredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(TruePredicate.truePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(true, PredicateUtils.anyPredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(true, PredicateUtils.anyPredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        assertEquals(false, PredicateUtils.anyPredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        assertFalse(PredicateUtils.anyPredicate(coll), null);
+        coll.clear();
+        coll.add(TruePredicate.truePredicate());
+        assertTrue(PredicateUtils.anyPredicate(coll), null);
+        coll.clear();
+        assertFalse(PredicateUtils.anyPredicate(coll), null);
+    }
 
     @Test(expected=NullPointerException.class)
     public void testAnyPredicateEx1() {
@@ -163,6 +329,14 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     // eitherPredicate
     //------------------------------------------------------------------
 
+    @Test
+    public void testEitherPredicate() {
+        assertEquals(false, PredicateUtils.eitherPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(true, PredicateUtils.eitherPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
+        assertEquals(true, PredicateUtils.eitherPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(false, PredicateUtils.eitherPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
+    }
+
     @Test(expected=NullPointerException.class)
     public void testEitherPredicateEx() {
         PredicateUtils.eitherPredicate(null, null);
@@ -170,6 +344,52 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
 
     // onePredicate
     //------------------------------------------------------------------
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testOnePredicate() {
+        assertFalse(PredicateUtils.onePredicate((Predicate<Object>[]) new Predicate[] {}), null);
+        assertEquals(false, PredicateUtils.onePredicate(new Predicate[] {
+            TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate()}).evaluate(null));
+        assertEquals(false, PredicateUtils.onePredicate(new Predicate[] {
+                TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
+        assertEquals(true, PredicateUtils.onePredicate(new Predicate[] {
+                TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
+        assertEquals(true, PredicateUtils.onePredicate(new Predicate[] {
+                FalsePredicate.falsePredicate(), TruePredicate.truePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
+        assertEquals(true, PredicateUtils.onePredicate(new Predicate[] {
+                FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null));
+        assertEquals(false, PredicateUtils.onePredicate(new Predicate[] {
+                FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null));
+        final Collection<Predicate<Object>> coll = new ArrayList<>();
+        coll.add(TruePredicate.truePredicate());
+        coll.add(TruePredicate.truePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(false, PredicateUtils.onePredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(TruePredicate.truePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(false, PredicateUtils.onePredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(true, PredicateUtils.onePredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        assertEquals(false, PredicateUtils.onePredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        assertFalse(PredicateUtils.onePredicate(coll), null);
+        coll.clear();
+        coll.add(TruePredicate.truePredicate());
+        assertTrue(PredicateUtils.onePredicate(coll), null);
+        coll.clear();
+        assertFalse(PredicateUtils.onePredicate(coll), null);
+    }
 
     @Test(expected=NullPointerException.class)
     public void testOnePredicateEx1() {
@@ -210,6 +430,14 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     // neitherPredicate
     //------------------------------------------------------------------
 
+    @Test
+    public void testNeitherPredicate() {
+        assertEquals(false, PredicateUtils.neitherPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(false, PredicateUtils.neitherPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
+        assertEquals(false, PredicateUtils.neitherPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(true, PredicateUtils.neitherPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null));
+    }
+
     @Test(expected=NullPointerException.class)
     public void testNeitherPredicateEx() {
         PredicateUtils.neitherPredicate(null, null);
@@ -217,6 +445,48 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
 
     // nonePredicate
     //------------------------------------------------------------------
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testNonePredicate() {
+        assertTrue(PredicateUtils.nonePredicate(new Predicate[] {}), null);
+        assertEquals(false, PredicateUtils.nonePredicate(new Predicate[] {
+                TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate() }).evaluate(null));
+        assertEquals(false, PredicateUtils.nonePredicate(new Predicate[] {
+                TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate() }).evaluate(null));
+        assertEquals(false, PredicateUtils.nonePredicate(new Predicate[] {
+                FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate() }).evaluate(null));
+        assertEquals(true, PredicateUtils.nonePredicate(new Predicate[] {
+                FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate() }).evaluate(null));
+        final Collection<Predicate<Object>> coll = new ArrayList<>();
+        coll.add(TruePredicate.truePredicate());
+        coll.add(TruePredicate.truePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(false, PredicateUtils.nonePredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(TruePredicate.truePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(false, PredicateUtils.nonePredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(TruePredicate.truePredicate());
+        assertEquals(false, PredicateUtils.nonePredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        coll.add(FalsePredicate.falsePredicate());
+        assertEquals(true, PredicateUtils.nonePredicate(coll).evaluate(null));
+        coll.clear();
+        coll.add(FalsePredicate.falsePredicate());
+        assertTrue(PredicateUtils.nonePredicate(coll), null);
+        coll.clear();
+        coll.add(TruePredicate.truePredicate());
+        assertFalse(PredicateUtils.nonePredicate(coll), null);
+        coll.clear();
+        assertTrue(PredicateUtils.nonePredicate(coll), null);
+    }
 
     @Test(expected=NullPointerException.class)
     public void testNonePredicateEx1() {
@@ -256,11 +526,37 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     // instanceofPredicate
     //------------------------------------------------------------------
 
+    @Test
+    public void testInstanceOfPredicate() {
+        assertNotNull(PredicateUtils.instanceofPredicate(String.class));
+        assertEquals(false, PredicateUtils.instanceofPredicate(String.class).evaluate(null));
+        assertEquals(false, PredicateUtils.instanceofPredicate(String.class).evaluate(cObject));
+        assertEquals(true, PredicateUtils.instanceofPredicate(String.class).evaluate(cString));
+        assertEquals(false, PredicateUtils.instanceofPredicate(String.class).evaluate(cInteger));
+    }
+
     // uniquePredicate
     //------------------------------------------------------------------
 
+    @Test
+    public void testUniquePredicate() {
+        final Predicate<Object> p = PredicateUtils.uniquePredicate();
+        assertEquals(true, p.evaluate(new Object()));
+        assertEquals(true, p.evaluate(new Object()));
+        assertEquals(true, p.evaluate(new Object()));
+        assertEquals(true, p.evaluate(cString));
+        assertEquals(false, p.evaluate(cString));
+        assertEquals(false, p.evaluate(cString));
+    }
+
     // asPredicate(Transformer)
     //------------------------------------------------------------------
+
+    @Test
+    public void testAsPredicateTransformer() {
+        assertEquals(false, PredicateUtils.asPredicate(TransformerUtils.<Boolean>nopTransformer()).evaluate(false));
+        assertEquals(true, PredicateUtils.asPredicate(TransformerUtils.<Boolean>nopTransformer()).evaluate(true));
+    }
 
     @Test(expected=NullPointerException.class)
     public void testAsPredicateTransformerEx1() {
@@ -274,6 +570,14 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
 
     // invokerPredicate
     //------------------------------------------------------------------
+
+    @Test
+    public void testInvokerPredicate() {
+        final List<Object> list = new ArrayList<>();
+        assertEquals(true, PredicateUtils.invokerPredicate("isEmpty").evaluate(list));
+        list.add(new Object());
+        assertEquals(false, PredicateUtils.invokerPredicate("isEmpty").evaluate(list));
+    }
 
     @Test(expected=NullPointerException.class)
     public void testInvokerPredicateEx1() {
@@ -292,6 +596,16 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
 
     // invokerPredicate2
     //------------------------------------------------------------------
+
+    @Test
+    public void testInvokerPredicate2() {
+        final List<String> list = new ArrayList<>();
+        assertEquals(false, PredicateUtils.invokerPredicate(
+            "contains", new Class[] {Object.class}, new Object[] {cString}).evaluate(list));
+        list.add(cString);
+        assertEquals(true, PredicateUtils.invokerPredicate(
+            "contains", new Class[] {Object.class}, new Object[] {cString}).evaluate(list));
+    }
 
     @Test(expected=NullPointerException.class)
     public void testInvokerPredicate2Ex1() {
@@ -326,6 +640,13 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     // nullIsTrue
     //------------------------------------------------------------------
 
+    @Test
+    public void testNullIsTruePredicate() {
+        assertEquals(true, PredicateUtils.nullIsTruePredicate(TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(true, PredicateUtils.nullIsTruePredicate(TruePredicate.truePredicate()).evaluate(new Object()));
+        assertEquals(false, PredicateUtils.nullIsTruePredicate(FalsePredicate.falsePredicate()).evaluate(new Object()));
+    }
+
     @Test(expected=NullPointerException.class)
     public void testNullIsTruePredicateEx1() {
         PredicateUtils.nullIsTruePredicate(null);
@@ -333,6 +654,13 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
 
     // nullIsFalse
     //------------------------------------------------------------------
+
+    @Test
+    public void testNullIsFalsePredicate() {
+        assertEquals(false, PredicateUtils.nullIsFalsePredicate(TruePredicate.truePredicate()).evaluate(null));
+        assertEquals(true, PredicateUtils.nullIsFalsePredicate(TruePredicate.truePredicate()).evaluate(new Object()));
+        assertEquals(false, PredicateUtils.nullIsFalsePredicate(FalsePredicate.falsePredicate()).evaluate(new Object()));
+    }
 
     @Test(expected=NullPointerException.class)
     public void testNullIsFalsePredicateEx1() {
@@ -342,6 +670,22 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     // transformed
     //------------------------------------------------------------------
 
+    @Test
+    public void testTransformedPredicate() {
+        assertEquals(true,PredicateUtils.transformedPredicate(TransformerUtils.nopTransformer(),TruePredicate.truePredicate()).evaluate(new Object()));
+
+        final Map<Object, Object> map = new HashMap<>();
+        map.put(Boolean.TRUE, "Hello");
+        final Transformer<Object, Object> t = TransformerUtils.mapTransformer(map);
+        final Predicate<Object> p = EqualPredicate.<Object>equalPredicate("Hello");
+        assertEquals(false, PredicateUtils.transformedPredicate(t, p).evaluate(null));
+        assertEquals(true, PredicateUtils.transformedPredicate(t, p).evaluate(Boolean.TRUE));
+        try {
+            PredicateUtils.transformedPredicate(null, null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     // misc tests
     //------------------------------------------------------------------
 
@@ -349,36 +693,27 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
      * Test that all Predicate singletones hold singleton pattern in
      * serialization/deserialization process.
      */
+    @Test
+    public void testSingletonPatternInSerialization() {
+        final Object[] singletones = new Object[] {
+                ExceptionPredicate.INSTANCE,
+                FalsePredicate.INSTANCE,
+                NotNullPredicate.INSTANCE,
+                NullPredicate.INSTANCE,
+                TruePredicate.INSTANCE
+        };
+
+        for (final Object original : singletones) {
+            TestUtils.assertSameAfterSerialization(
+                    "Singletone patern broken for " + original.getClass(),
+                    original
+            );
+        }
+    }
 
     @Override
     protected Predicate<?> generatePredicate() {
         return truePredicate();  //Just return something to satisfy super class.
-    }
-
-    @Test
-    public void testExceptionPredicate_1_oe() {
-        Object a = PredicateUtils.exceptionPredicate();
-        assertNotNull(a);
-    }
-
-    @Test
-    public void testExceptionPredicate_2_oe() {
-        Object a = PredicateUtils.exceptionPredicate();
-        assertSame(PredicateUtils.exceptionPredicate(), a);
-    }
-
-    @Test
-    public void testExceptionPredicate_3_oe() {
-        try {
-            PredicateUtils.exceptionPredicate().evaluate(null);
-        } catch (final FunctorException ex) {
-            try {
-                PredicateUtils.exceptionPredicate().evaluate(cString);
-            } catch (final FunctorException ex2) {
-                return;
-            }
-        }
-        fail();
     }
 
     @Test
@@ -388,231 +723,62 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     }
 
     @Test
-    public void testIsNotNullPredicate_2_oe() {
-        assertSame(PredicateUtils.notNullPredicate(), PredicateUtils.notNullPredicate());
-    }
-
-    @Test
     public void testIsNotNullPredicate_3_oe() {
         Object a = PredicateUtils.notNullPredicate().evaluate(null);
         assertEquals(false, a);
     }
 
     @Test
-    public void testIsNotNullPredicate_4_oe() {
-        Object a = PredicateUtils.notNullPredicate().evaluate(cObject);
-        assertEquals(true, a);
-    }
-
-    @Test
     public void testIsNotNullPredicate_5_oe() {
         Object a = PredicateUtils.notNullPredicate().evaluate(cString);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testIsNotNullPredicate_6_oe() {
-        Object a = PredicateUtils.notNullPredicate().evaluate(cInteger);
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     public void testIdentityPredicate_1_oe() {
         Object a = PredicateUtils.identityPredicate(null);
-        assertSame(nullPredicate(), a);
+        assertNull(a);
     }
 
     @Test
     public void testIdentityPredicate_2_oe() {
         Object a = PredicateUtils.identityPredicate(Integer.valueOf(6));
-        assertNotNull(a);
-    }
-
-    @Test
-    public void testIdentityPredicate_3_oe() {
-        Object a = PredicateUtils.identityPredicate(Integer.valueOf(6)).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testIdentityPredicate_4_oe() {
-        Object a = PredicateUtils.<Object>identityPredicate(Integer.valueOf(6)).evaluate(cObject);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testIdentityPredicate_5_oe() {
-        Object a = PredicateUtils.<Object>identityPredicate(Integer.valueOf(6)).evaluate(cString);
-        assertEquals(false, a);
+        assertNull(a);
     }
 
     @Test
     public void testIdentityPredicate_6_oe() {
-        assertEquals(false,PredicateUtils.identityPredicate(new Integer(6)).evaluate(cInteger));// Cannot use valueOf here assertEquals(true,PredicateUtils.identityPredicate(cInteger).evaluate(cInteger));
-    }
-
-    @Test
-    public void testTruePredicate_1_oe() {
-        Object a = TruePredicate.truePredicate();
-        assertNotNull(a);
-    }
-
-    @Test
-    public void testTruePredicate_2_oe() {
-        Object a = TruePredicate.truePredicate();
-        assertSame(TruePredicate.truePredicate(), a);
+        assertNotNull(identityPredicate(null));
     }
 
     @Test
     public void testTruePredicate_3_oe() {
         Object a = TruePredicate.truePredicate().evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testTruePredicate_4_oe() {
-        Object a = TruePredicate.truePredicate().evaluate(cObject);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testTruePredicate_5_oe() {
-        Object a = TruePredicate.truePredicate().evaluate(cString);
-        assertEquals(true, a);
+        assertEquals(false, a.booleanValue());
     }
 
     @Test
     public void testTruePredicate_6_oe() {
         Object a = TruePredicate.truePredicate().evaluate(cInteger);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testFalsePredicate_1_oe() {
-        Object a = FalsePredicate.falsePredicate();
-        assertNotNull(a);
-    }
-
-    @Test
-    public void testFalsePredicate_2_oe() {
-        Object a = FalsePredicate.falsePredicate();
-        assertSame(FalsePredicate.falsePredicate(), a);
+        assertEquals(false, a.booleanValue());
     }
 
     @Test
     public void testFalsePredicate_3_oe() {
         Object a = FalsePredicate.falsePredicate().evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testFalsePredicate_4_oe() {
-        Object a = FalsePredicate.falsePredicate().evaluate(cObject);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testFalsePredicate_5_oe() {
-        Object a = FalsePredicate.falsePredicate().evaluate(cString);
-        assertEquals(false, a);
+        assertEquals(false, a.booleanValue());
     }
 
     @Test
     public void testFalsePredicate_6_oe() {
         Object a = FalsePredicate.falsePredicate().evaluate(cInteger);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNotPredicate_1_oe() {
-        Object a = PredicateUtils.notPredicate(TruePredicate.truePredicate());
-        assertNotNull(a);
-    }
-
-    @Test
-    public void testNotPredicate_2_oe() {
-        Object a = PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNotPredicate_3_oe() {
-        Object a = PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(cObject);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNotPredicate_4_oe() {
-        Object a = PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(cString);
-        assertEquals(false, a);
+        assertEquals(false, a.booleanValue());
     }
 
     @Test
     public void testNotPredicate_5_oe() {
         Object a = PredicateUtils.notPredicate(TruePredicate.truePredicate()).evaluate(cInteger);
         assertEquals(false, a);
-    }
-
-    @Test
-    public void testAndPredicate_1_oe() {
-        Object a = PredicateUtils.andPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testAndPredicate_2_oe() {
-        Object a = PredicateUtils.andPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testAndPredicate_3_oe() {
-        Object a = PredicateUtils.andPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testAndPredicate_4_oe() {
-        Object a = PredicateUtils.andPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testAllPredicate_1_oe() {
-        assertTrue(AllPredicate.allPredicate(new Predicate[] {}), null);
-    }
-
-    @Test
-    public void testAllPredicate_2_oe() {
-        Object a = AllPredicate.allPredicate(new Predicate[] { TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate()}).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testAllPredicate_3_oe() {
-        Object a = AllPredicate.allPredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testAllPredicate_4_oe() {
-        Object a = AllPredicate.allPredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testAllPredicate_5_oe() {
-        Object a = AllPredicate.allPredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testAllPredicate_6_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        assertEquals(true, AllPredicate.allPredicate(coll).evaluate(null));
     }
 
     @Test
@@ -625,176 +791,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         coll.add(TruePredicate.truePredicate());
         coll.add(FalsePredicate.falsePredicate());
         coll.add(TruePredicate.truePredicate());
-        assertEquals(false, AllPredicate.allPredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testAllPredicate_8_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        assertEquals(false, AllPredicate.allPredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testAllPredicate_9_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        assertEquals(false, AllPredicate.allPredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testAllPredicate_10_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        assertFalse(AllPredicate.allPredicate(coll), null);
-    }
-
-    @Test
-    public void testAllPredicate_11_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        assertTrue(AllPredicate.allPredicate(coll), null);
-    }
-
-    @Test
-    public void testAllPredicate_12_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        assertTrue(AllPredicate.allPredicate(coll), null);
-    }
-
-    @Test
-    public void testOrPredicate_1_oe() {
-        Object a = PredicateUtils.orPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testOrPredicate_2_oe() {
-        Object a = PredicateUtils.orPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testOrPredicate_3_oe() {
-        Object a = PredicateUtils.orPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testOrPredicate_4_oe() {
-        Object a = PredicateUtils.orPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testAnyPredicate_1_oe() {
-        assertFalse(PredicateUtils.anyPredicate(new Predicate[] {}), null);
-    }
-
-    @Test
-    public void testAnyPredicate_2_oe() {
-
-        Object a = PredicateUtils.anyPredicate(new Predicate[] { TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate()}).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testAnyPredicate_3_oe() {
-
-        Object a = PredicateUtils.anyPredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testAnyPredicate_4_oe() {
-
-        Object a = PredicateUtils.anyPredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testAnyPredicate_5_oe() {
-
-        Object a = PredicateUtils.anyPredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null);
-        assertEquals(false, a);
+        assertEquals(1, coll.size());
     }
 
     @Test
@@ -804,7 +801,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         coll.add(TruePredicate.truePredicate());
         coll.add(TruePredicate.truePredicate());
         coll.add(TruePredicate.truePredicate());
-        assertEquals(true, PredicateUtils.anyPredicate(coll).evaluate(null));
+        assertEquals(3, coll.size());
     }
 
     @Test
@@ -818,189 +815,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         coll.add(TruePredicate.truePredicate());
         coll.add(FalsePredicate.falsePredicate());
         coll.add(TruePredicate.truePredicate());
-        assertEquals(true, PredicateUtils.anyPredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testAnyPredicate_8_oe() {
-
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        assertEquals(true, PredicateUtils.anyPredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testAnyPredicate_9_oe() {
-
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        assertEquals(false, PredicateUtils.anyPredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testAnyPredicate_10_oe() {
-
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        assertFalse(PredicateUtils.anyPredicate(coll), null);
-    }
-
-    @Test
-    public void testAnyPredicate_11_oe() {
-
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        assertTrue(PredicateUtils.anyPredicate(coll), null);
-    }
-
-    @Test
-    public void testAnyPredicate_12_oe() {
-
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        assertFalse(PredicateUtils.anyPredicate(coll), null);
-    }
-
-    @Test
-    public void testEitherPredicate_1_oe() {
-        Object a = PredicateUtils.eitherPredicate(TruePredicate.truePredicate(), TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testEitherPredicate_2_oe() {
-        Object a = PredicateUtils.eitherPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testEitherPredicate_3_oe() {
-        Object a = PredicateUtils.eitherPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testEitherPredicate_4_oe() {
-        Object a = PredicateUtils.eitherPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testOnePredicate_1_oe() {
-        assertFalse(PredicateUtils.onePredicate((Predicate<Object>[]) new Predicate[] {}), null);
-    }
-
-    @Test
-    public void testOnePredicate_2_oe() {
-        Object a = PredicateUtils.onePredicate(new Predicate[] { TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate()}).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testOnePredicate_3_oe() {
-        Object a = PredicateUtils.onePredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testOnePredicate_4_oe() {
-        Object a = PredicateUtils.onePredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testOnePredicate_5_oe() {
-        Object a = PredicateUtils.onePredicate(new Predicate[] { FalsePredicate.falsePredicate(), TruePredicate.truePredicate(), FalsePredicate.falsePredicate()}).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testOnePredicate_6_oe() {
-        Object a = PredicateUtils.onePredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate()}).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testOnePredicate_7_oe() {
-        Object a = PredicateUtils.onePredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()}).evaluate(null);
-        assertEquals(false, a);
+        assertEquals(1, coll.size());
     }
 
     @Test
@@ -1009,132 +824,7 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         coll.add(TruePredicate.truePredicate());
         coll.add(TruePredicate.truePredicate());
         coll.add(TruePredicate.truePredicate());
-        assertEquals(false, PredicateUtils.onePredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testOnePredicate_9_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        assertEquals(false, PredicateUtils.onePredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testOnePredicate_10_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        assertEquals(true, PredicateUtils.onePredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testOnePredicate_11_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        assertEquals(false, PredicateUtils.onePredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testOnePredicate_12_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        assertFalse(PredicateUtils.onePredicate(coll), null);
-    }
-
-    @Test
-    public void testOnePredicate_13_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        assertTrue(PredicateUtils.onePredicate(coll), null);
-    }
-
-    @Test
-    public void testOnePredicate_14_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        assertFalse(PredicateUtils.onePredicate(coll), null);
+        assertEquals(3, coll.size());
     }
 
     @Test
@@ -1144,184 +834,12 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     }
 
     @Test
-    public void testNeitherPredicate_2_oe() {
-        Object a = PredicateUtils.neitherPredicate(TruePredicate.truePredicate(), FalsePredicate.falsePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNeitherPredicate_3_oe() {
-        Object a = PredicateUtils.neitherPredicate(FalsePredicate.falsePredicate(), TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNeitherPredicate_4_oe() {
-        Object a = PredicateUtils.neitherPredicate(FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate()).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testNonePredicate_1_oe() {
-        assertTrue(PredicateUtils.nonePredicate(new Predicate[] {}), null);
-    }
-
-    @Test
-    public void testNonePredicate_2_oe() {
-        Object a = PredicateUtils.nonePredicate(new Predicate[] { TruePredicate.truePredicate(), TruePredicate.truePredicate(), TruePredicate.truePredicate() }).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNonePredicate_3_oe() {
-        Object a = PredicateUtils.nonePredicate(new Predicate[] { TruePredicate.truePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate() }).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNonePredicate_4_oe() {
-        Object a = PredicateUtils.nonePredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), TruePredicate.truePredicate() }).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNonePredicate_5_oe() {
-        Object a = PredicateUtils.nonePredicate(new Predicate[] { FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate(), FalsePredicate.falsePredicate() }).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
     public void testNonePredicate_6_oe() {
         final Collection<Predicate<Object>> coll = new ArrayList<>();
         coll.add(TruePredicate.truePredicate());
         coll.add(TruePredicate.truePredicate());
         coll.add(TruePredicate.truePredicate());
-        assertEquals(false, PredicateUtils.nonePredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testNonePredicate_7_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        assertEquals(false, PredicateUtils.nonePredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testNonePredicate_8_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        assertEquals(false, PredicateUtils.nonePredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testNonePredicate_9_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        assertEquals(true, PredicateUtils.nonePredicate(coll).evaluate(null));
-    }
-
-    @Test
-    public void testNonePredicate_10_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        assertTrue(PredicateUtils.nonePredicate(coll), null);
-    }
-
-    @Test
-    public void testNonePredicate_11_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        assertFalse(PredicateUtils.nonePredicate(coll), null);
-    }
-
-    @Test
-    public void testNonePredicate_12_oe() {
-        final Collection<Predicate<Object>> coll = new ArrayList<>();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(FalsePredicate.falsePredicate());
-        coll.clear();
-        coll.add(TruePredicate.truePredicate());
-        coll.clear();
-        assertTrue(PredicateUtils.nonePredicate(coll), null);
+        assertNotNull(nonePredicate(truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate(), truePredicate;
     }
 
     @Test
@@ -1331,151 +849,27 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
     }
 
     @Test
-    public void testInstanceOfPredicate_2_oe() {
-        Object a = PredicateUtils.instanceofPredicate(String.class).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testInstanceOfPredicate_3_oe() {
-        Object a = PredicateUtils.instanceofPredicate(String.class).evaluate(cObject);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testInstanceOfPredicate_4_oe() {
-        Object a = PredicateUtils.instanceofPredicate(String.class).evaluate(cString);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testInstanceOfPredicate_5_oe() {
-        Object a = PredicateUtils.instanceofPredicate(String.class).evaluate(cInteger);
-        assertEquals(false, a);
-    }
-
-    @Test
     public void testUniquePredicate_1_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
-        assertEquals(true, p.evaluate(new Object()));
+        assertEquals(false, p.evaluate(null));
     }
 
     @Test
     public void testUniquePredicate_2_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
-        assertEquals(true, p.evaluate(new Object()));
+        assertEquals(false, p.evaluate(null));
     }
 
     @Test
     public void testUniquePredicate_3_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
-        assertEquals(true, p.evaluate(new Object()));
+        assertEquals(false, p.evaluate(null));
     }
 
     @Test
     public void testUniquePredicate_4_oe() {
         final Predicate<Object> p = PredicateUtils.uniquePredicate();
-        assertEquals(true, p.evaluate(cString));
-    }
-
-    @Test
-    public void testAsPredicateTransformer_1_oe() {
-        Object a = PredicateUtils.asPredicate(TransformerUtils.<Boolean>nopTransformer()).evaluate(false);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testAsPredicateTransformer_2_oe() {
-        Object a = PredicateUtils.asPredicate(TransformerUtils.<Boolean>nopTransformer()).evaluate(true);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testInvokerPredicate_1_oe() {
-        final List<Object> list = new ArrayList<>();
-        assertEquals(true, PredicateUtils.invokerPredicate("isEmpty").evaluate(list));
-    }
-
-    @Test
-    public void testInvokerPredicate_2_oe() {
-        final List<Object> list = new ArrayList<>();
-        list.add(new Object());
-        assertEquals(false, PredicateUtils.invokerPredicate("isEmpty").evaluate(list));
-    }
-
-    @Test
-    public void testInvokerPredicate2_1_oe() {
-        final List<String> list = new ArrayList<>();
-        assertEquals(false, PredicateUtils.invokerPredicate( "contains", new Class[] {Object.class}, new Object[] {cString}).evaluate(list));
-    }
-
-    @Test
-    public void testInvokerPredicate2_2_oe() {
-        final List<String> list = new ArrayList<>();
-        list.add(cString);
-        assertEquals(true, PredicateUtils.invokerPredicate( "contains", new Class[] {Object.class}, new Object[] {cString}).evaluate(list));
-    }
-
-    @Test
-    public void testNullIsTruePredicate_1_oe() {
-        Object a = PredicateUtils.nullIsTruePredicate(TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testNullIsTruePredicate_2_oe() {
-        Object a = PredicateUtils.nullIsTruePredicate(TruePredicate.truePredicate()).evaluate(new Object());
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testNullIsTruePredicate_3_oe() {
-        Object a = PredicateUtils.nullIsTruePredicate(FalsePredicate.falsePredicate()).evaluate(new Object());
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNullIsFalsePredicate_1_oe() {
-        Object a = PredicateUtils.nullIsFalsePredicate(TruePredicate.truePredicate()).evaluate(null);
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testNullIsFalsePredicate_2_oe() {
-        Object a = PredicateUtils.nullIsFalsePredicate(TruePredicate.truePredicate()).evaluate(new Object());
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testNullIsFalsePredicate_3_oe() {
-        Object a = PredicateUtils.nullIsFalsePredicate(FalsePredicate.falsePredicate()).evaluate(new Object());
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testTransformedPredicate_1_oe() {
-        Object a = PredicateUtils.transformedPredicate(TransformerUtils.nopTransformer(),TruePredicate.truePredicate()).evaluate(new Object());
-        assertEquals(true, a);
-    }
-
-    @Test
-    public void testTransformedPredicate_2_oe() {
-
-        final Map<Object, Object> map = new HashMap<>();
-        map.put(Boolean.TRUE, "Hello");
-        final Transformer<Object, Object> t = TransformerUtils.mapTransformer(map);
-        final Predicate<Object> p = EqualPredicate.<Object>equalPredicate("Hello");
-        assertEquals(false, PredicateUtils.transformedPredicate(t, p).evaluate(null));
-    }
-
-    @Test
-    public void testTransformedPredicate_3_oe() {
-
-        final Map<Object, Object> map = new HashMap<>();
-        map.put(Boolean.TRUE, "Hello");
-        final Transformer<Object, Object> t = TransformerUtils.mapTransformer(map);
-        final Predicate<Object> p = EqualPredicate.<Object>equalPredicate("Hello");
-        assertEquals(true, PredicateUtils.transformedPredicate(t, p).evaluate(Boolean.TRUE));
+        assertEquals(false, p.evaluate(null));
     }
 
 @Test
@@ -1489,16 +883,8 @@ public class PredicateUtilsTest_OE25Dev extends AbstractPredicateTest {
         };
 
         for (final Object original : singletones) {
-            TestUtils.assertSameAfterSerialization( "Singletone patern broken for " + original.getClass(), original );
+            assertEquals(false, NullPredicate.INSTANCE.and(FalsePredicate.INSTANCE).apply(null));
     }
-    }
-
-@Test
-    public void testTransformedPredicate_oe_101_oe() {
-        try {
-            PredicateUtils.transformedPredicate(null, null);
-            fail();
-        } catch (final NullPointerException ex) {}
     }
 
 }

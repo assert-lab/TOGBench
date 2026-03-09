@@ -31,31 +31,19 @@ public class TrieUtilsTest_OE25Dev {
     //----------------------------------------------------------------------
 
     @Test
-    public void testUnmodifiableTrie_1_oe() {
+    public void testUnmodifiableTrie() {
         final Trie<String, Object> trie = TrieUtils.unmodifiableTrie(new PatriciaTrie<>());
         assertTrue("Returned object should be an UnmodifiableTrie.",trie instanceof UnmodifiableTrie);
-    }
-
-    @Test
-    public void testUnmodifiableTrie_3_oe() {
-        final Trie<String, Object> trie = TrieUtils.unmodifiableTrie(new PatriciaTrie<>());
-        try {
-            TrieUtils.unmodifiableTrie(null);
-        } catch (final NullPointerException ex) {
-        }
-
-        assertSame("UnmodifiableTrie shall not be decorated", trie, TrieUtils.unmodifiableTrie(trie));
-    }
-
-@Test
-    public void testUnmodifiableTrie_oe_101_oe() {
         try {
             TrieUtils.unmodifiableTrie(null);
             fail("Expecting NullPointerException for null trie.");
         } catch (final NullPointerException ex) {
             // expected
         }
+
+        assertSame("UnmodifiableTrie shall not be decorated", trie, TrieUtils.unmodifiableTrie(trie));
     }
+
 
 }
 

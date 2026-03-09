@@ -42,54 +42,9 @@ public class QueueUtilsTest_OE25Dev {
     // ----------------------------------------------------------------------
 
     @Test
-    public void testSynchronizedQueue_1_oe() {
+    public void testSynchronizedQueue() {
         final Queue<Object> queue = QueueUtils.synchronizedQueue(new LinkedList<>());
         assertTrue("Returned object should be a SynchronizedQueue.", queue instanceof SynchronizedQueue);
-    }
-
-    @Test
-    public void testUnmodifiableQueue_1_oe() {
-        final Queue<Object> queue = QueueUtils.unmodifiableQueue(new LinkedList<>());
-        assertTrue("Returned object should be an UnmodifiableQueue.", queue instanceof UnmodifiableQueue);
-    }
-
-    @Test
-    public void testUnmodifiableQueue_3_oe() {
-        final Queue<Object> queue = QueueUtils.unmodifiableQueue(new LinkedList<>());
-        try {
-            QueueUtils.unmodifiableQueue(null);
-        } catch (final NullPointerException ex) {
-        }
-
-        assertSame("UnmodifiableQueue shall not be decorated", queue, QueueUtils.unmodifiableQueue(queue));
-    }
-
-    @Test
-    public void testPredicatedQueue_1_oe() {
-        final Queue<Object> queue = QueueUtils.predicatedQueue(new LinkedList<>(), truePredicate);
-        assertTrue("Returned object should be a PredicatedQueue.", queue instanceof PredicatedQueue);
-    }
-
-    @Test
-    public void testTransformedQueue_1_oe() {
-        final Queue<Object> queue = QueueUtils.transformingQueue(new LinkedList<>(), nopTransformer);
-        assertTrue("Returned object should be an TransformedQueue.", queue instanceof TransformedQueue);
-    }
-
-    @Test
-    public void testEmptyQueue_1_oe() {
-        final Queue<Object> queue = QueueUtils.emptyQueue();
-        assertTrue("Returned object should be an UnmodifiableQueue.", queue instanceof UnmodifiableQueue);
-    }
-
-    @Test
-    public void testEmptyQueue_2_oe() {
-        final Queue<Object> queue = QueueUtils.emptyQueue();
-        assertTrue("Returned queue is not empty.", queue.isEmpty());
-    }
-
-@Test
-    public void testSynchronizedQueue_oe_101_oe() {
         try {
             QueueUtils.synchronizedQueue(null);
             fail("Expecting NullPointerException for null queue.");
@@ -98,28 +53,30 @@ public class QueueUtilsTest_OE25Dev {
         }
     }
 
-@Test
-    public void testUnmodifiableQueue_oe_101_oe() {
+    @Test
+    public void testUnmodifiableQueue() {
+        final Queue<Object> queue = QueueUtils.unmodifiableQueue(new LinkedList<>());
+        assertTrue("Returned object should be an UnmodifiableQueue.", queue instanceof UnmodifiableQueue);
         try {
             QueueUtils.unmodifiableQueue(null);
             fail("Expecting NullPointerException for null queue.");
         } catch (final NullPointerException ex) {
             // expected
         }
+
+        assertSame("UnmodifiableQueue shall not be decorated", queue, QueueUtils.unmodifiableQueue(queue));
     }
 
-@Test
-    public void testPredicatedQueue_oe_101_oe() {
+    @Test
+    public void testPredicatedQueue() {
+        final Queue<Object> queue = QueueUtils.predicatedQueue(new LinkedList<>(), truePredicate);
+        assertTrue("Returned object should be a PredicatedQueue.", queue instanceof PredicatedQueue);
         try {
             QueueUtils.predicatedQueue(null, truePredicate);
             fail("Expecting NullPointerException for null queue.");
         } catch (final NullPointerException ex) {
             // expected
         }
-    }
-
-@Test
-    public void testPredicatedQueue_oe_102_oe() {
         try {
             QueueUtils.predicatedQueue(new LinkedList<>(), null);
             fail("Expecting NullPointerException for null predicate.");
@@ -128,24 +85,54 @@ public class QueueUtilsTest_OE25Dev {
         }
     }
 
-@Test
-    public void testTransformedQueue_oe_101_oe() {
+    @Test
+    public void testTransformedQueue() {
+        final Queue<Object> queue = QueueUtils.transformingQueue(new LinkedList<>(), nopTransformer);
+        assertTrue("Returned object should be an TransformedQueue.", queue instanceof TransformedQueue);
         try {
             QueueUtils.transformingQueue(null, nopTransformer);
             fail("Expecting NullPointerException for null queue.");
         } catch (final NullPointerException ex) {
             // expected
         }
-    }
-
-@Test
-    public void testTransformedQueue_oe_102_oe() {
         try {
             QueueUtils.transformingQueue(new LinkedList<>(), null);
             fail("Expecting NullPointerException for null transformer.");
         } catch (final NullPointerException ex) {
             // expected
         }
+    }
+
+    @Test
+    public void testEmptyQueue() {
+        final Queue<Object> queue = QueueUtils.emptyQueue();
+        assertTrue("Returned object should be an UnmodifiableQueue.", queue instanceof UnmodifiableQueue);
+        assertTrue("Returned queue is not empty.", queue.isEmpty());
+
+        try {
+            queue.add(new Object());
+            fail("Expecting UnsupportedOperationException for empty queue.");
+        } catch (final UnsupportedOperationException ex) {
+            // expected
+        }
+    }
+
+    @Test
+    public void testSynchronizedQueue_1_oe() {
+        final Queue<Object> queue = QueueUtils.synchronizedQueue(new LinkedList<>());
+        assertEquals(true, queue.isEmpty());
+    }
+
+    @Test
+    public void testTransformedQueue_1_oe() {
+        final Queue<Object> queue = QueueUtils.transformingQueue(new LinkedList<>(), nopTransformer);
+        assertEquals(true, queue.isEmpty());
+    }
+
+    @Test
+    public void testEmptyQueue_2_oe() {
+        final Queue<Object> queue = QueueUtils.emptyQueue();
+        assertEquals(true, QueueUtils.isEmpty(queue));
     }
 
 }

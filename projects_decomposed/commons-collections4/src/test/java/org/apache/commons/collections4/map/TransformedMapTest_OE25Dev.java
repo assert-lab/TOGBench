@@ -45,8 +45,95 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
     }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings({ "unchecked", "rawtypes" })
+    public void testTransformedMap() {
+        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
+
+        Map<K, V> map = TransformedMap
+                .transformingMap(
+                        new HashMap<K, V>(),
+                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
+                        null);
+        assertEquals(0, map.size());
+        for (int i = 0; i < els.length; i++) {
+            map.put((K) els[i], (V) els[i]);
+            assertEquals(i + 1, map.size());
+            assertEquals(true, map.containsKey(Integer.valueOf((String) els[i])));
+            assertEquals(false, map.containsKey(els[i]));
+            assertEquals(true, map.containsValue(els[i]));
+            assertEquals(els[i], map.get(Integer.valueOf((String) els[i])));
+        }
+
+        assertEquals(null, map.remove(els[0]));
+        assertEquals(els[0], map.remove(Integer.valueOf((String) els[0])));
+
+        map = TransformedMap.transformingMap(new HashMap(), null,
+                                             // cast needed for eclipse compiler
+                                             (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(0, map.size());
+        for (int i = 0; i < els.length; i++) {
+            map.put((K) els[i], (V) els[i]);
+            assertEquals(i + 1, map.size());
+            assertEquals(true, map.containsValue(Integer.valueOf((String) els[i])));
+            assertEquals(false, map.containsValue(els[i]));
+            assertEquals(true, map.containsKey(els[i]));
+            assertEquals(Integer.valueOf((String) els[i]), map.get(els[i]));
+        }
+
+        assertEquals(Integer.valueOf((String) els[0]), map.remove(els[0]));
+
+        final Set<Map.Entry<K, V>> entrySet = map.entrySet();
+        final Map.Entry<K, V>[] array = entrySet.toArray(new Map.Entry[0]);
+        array[0].setValue((V) "66");
+        assertEquals(Integer.valueOf(66), array[0].getValue());
+        assertEquals(Integer.valueOf(66), map.get(array[0].getKey()));
+
+        final Map.Entry<K, V> entry = entrySet.iterator().next();
+        entry.setValue((V) "88");
+        assertEquals(Integer.valueOf(88), entry.getValue());
+        assertEquals(Integer.valueOf(88), map.get(entry.getKey()));
+    }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testFactory_Decorate() {
+        final Map<K, V> base = new HashMap<>();
+        base.put((K) "A", (V) "1");
+        base.put((K) "B", (V) "2");
+        base.put((K) "C", (V) "3");
+
+        final Map<K, V> trans = TransformedMap
+                .transformingMap(
+                        base,
+                        null,
+                        (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(3, trans.size());
+        assertEquals("1", trans.get("A"));
+        assertEquals("2", trans.get("B"));
+        assertEquals("3", trans.get("C"));
+        trans.put((K) "D", (V) "4");
+        assertEquals(Integer.valueOf(4), trans.get("D"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testFactory_decorateTransform() {
+        final Map<K, V> base = new HashMap<>();
+        base.put((K) "A", (V) "1");
+        base.put((K) "B", (V) "2");
+        base.put((K) "C", (V) "3");
+
+        final Map<K, V> trans = TransformedMap
+                .transformedMap(
+                        base,
+                        null,
+                        (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(3, trans.size());
+        assertEquals(Integer.valueOf(1), trans.get("A"));
+        assertEquals(Integer.valueOf(2), trans.get("B"));
+        assertEquals(Integer.valueOf(3), trans.get("C"));
+        trans.put((K) "D", (V) "4");
+        assertEquals(Integer.valueOf(4), trans.get("D"));
+    }
 
     //-----------------------------------------------------------------------
     @Override
@@ -73,7 +160,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                         new HashMap<K, V>(),
                         (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
                         null);
-        assertEquals(0, map.size());
+        assertEquals(7, Map.size());
     }
 
     public void testTransformedMap_2_oe() {
@@ -86,49 +173,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                         null);
         for (int i = 0; i < els.length; i++) {
             map.put((K) els[i], (V) els[i]);
-            assertEquals(i + 1, map.size());
-    }
-    }
-
-    public void testTransformedMap_3_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-            assertEquals(true, map.containsKey(Integer.valueOf((String) els[i])));
-    }
-    }
-
-    public void testTransformedMap_4_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-            assertEquals(false, map.containsKey(els[i]));
-    }
-    }
-
-    public void testTransformedMap_5_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-            assertEquals(true, map.containsValue(els[i]));
+            assertEquals(7, map.size());
     }
     }
 
@@ -142,38 +187,8 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                         null);
         for (int i = 0; i < els.length; i++) {
             map.put((K) els[i], (V) els[i]);
-            assertEquals(els[i], map.get(Integer.valueOf((String) els[i])));
+            assertEquals("5", map.get(5));
     }
-    }
-
-    public void testTransformedMap_7_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-        assertEquals(null, map.remove(els[0]));
-    }
-
-    public void testTransformedMap_8_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-        assertEquals(els[0], map.remove(Integer.valueOf((String) els[0])));
     }
 
     public void testTransformedMap_9_oe() {
@@ -191,7 +206,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
 
         map = TransformedMap.transformingMap(new HashMap(), null,
                                              (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(0, map.size());
+        assertEquals(7, map.size());
     }
 
     public void testTransformedMap_10_oe() {
@@ -211,70 +226,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                                              (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         for (int i = 0; i < els.length; i++) {
             map.put((K) els[i], (V) els[i]);
-            assertEquals(i + 1, map.size());
-    }
-    }
-
-    public void testTransformedMap_11_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        map = TransformedMap.transformingMap(new HashMap(), null,
-                                             (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-            assertEquals(true, map.containsValue(Integer.valueOf((String) els[i])));
-    }
-    }
-
-    public void testTransformedMap_12_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        map = TransformedMap.transformingMap(new HashMap(), null,
-                                             (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-            assertEquals(false, map.containsValue(els[i]));
-    }
-    }
-
-    public void testTransformedMap_13_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        map = TransformedMap.transformingMap(new HashMap(), null,
-                                             (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-            assertEquals(true, map.containsKey(els[i]));
+            assertEquals(7, map.size());
     }
     }
 
@@ -295,140 +247,8 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                                              (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         for (int i = 0; i < els.length; i++) {
             map.put((K) els[i], (V) els[i]);
-            assertEquals(Integer.valueOf((String) els[i]), map.get(els[i]));
+            assertEquals("{1=1, 3=3, 5=5, 7=7, 2=2, 4=4, 6=6}", map.toString());
     }
-    }
-
-    public void testTransformedMap_15_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        map = TransformedMap.transformingMap(new HashMap(), null,
-                                             (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-        assertEquals(Integer.valueOf((String) els[0]), map.remove(els[0]));
-    }
-
-    public void testTransformedMap_16_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        map = TransformedMap.transformingMap(new HashMap(), null,
-                                             (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        final Set<Map.Entry<K, V>> entrySet = map.entrySet();
-        final Map.Entry<K, V>[] array = entrySet.toArray(new Map.Entry[0]);
-        array[0].setValue((V) "66");
-        assertEquals(Integer.valueOf(66), array[0].getValue());
-    }
-
-    public void testTransformedMap_17_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        map = TransformedMap.transformingMap(new HashMap(), null,
-                                             (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        final Set<Map.Entry<K, V>> entrySet = map.entrySet();
-        final Map.Entry<K, V>[] array = entrySet.toArray(new Map.Entry[0]);
-        array[0].setValue((V) "66");
-        assertEquals(Integer.valueOf(66), map.get(array[0].getKey()));
-    }
-
-    public void testTransformedMap_18_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        map = TransformedMap.transformingMap(new HashMap(), null,
-                                             (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        final Set<Map.Entry<K, V>> entrySet = map.entrySet();
-        final Map.Entry<K, V>[] array = entrySet.toArray(new Map.Entry[0]);
-        array[0].setValue((V) "66");
-
-        final Map.Entry<K, V> entry = entrySet.iterator().next();
-        entry.setValue((V) "88");
-        assertEquals(Integer.valueOf(88), entry.getValue());
-    }
-
-    public void testTransformedMap_19_oe() {
-        final Object[] els = new Object[] { "1", "3", "5", "7", "2", "4", "6" };
-
-        Map<K, V> map = TransformedMap
-                .transformingMap(
-                        new HashMap<K, V>(),
-                        (Transformer<? super K, ? extends K>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER,
-                        null);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        map = TransformedMap.transformingMap(new HashMap(), null,
-                                             (Transformer) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (int i = 0; i < els.length; i++) {
-            map.put((K) els[i], (V) els[i]);
-        }
-
-
-        final Set<Map.Entry<K, V>> entrySet = map.entrySet();
-        final Map.Entry<K, V>[] array = entrySet.toArray(new Map.Entry[0]);
-        array[0].setValue((V) "66");
-
-        final Map.Entry<K, V> entry = entrySet.iterator().next();
-        entry.setValue((V) "88");
-        assertEquals(Integer.valueOf(88), map.get(entry.getKey()));
     }
 
     public void testFactory_Decorate_1_oe() {
@@ -442,7 +262,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                         base,
                         null,
                         (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(3, trans.size());
+        assertEquals(3, base.size());
     }
 
     public void testFactory_Decorate_2_oe() {
@@ -456,7 +276,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                         base,
                         null,
                         (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals("1", trans.get("A"));
+        assertEquals("3", trans.get("C").toString());
     }
 
     public void testFactory_Decorate_3_oe() {
@@ -470,21 +290,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                         base,
                         null,
                         (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals("2", trans.get("B"));
-    }
-
-    public void testFactory_Decorate_4_oe() {
-        final Map<K, V> base = new HashMap<>();
-        base.put((K) "A", (V) "1");
-        base.put((K) "B", (V) "2");
-        base.put((K) "C", (V) "3");
-
-        final Map<K, V> trans = TransformedMap
-                .transformingMap(
-                        base,
-                        null,
-                        (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals("3", trans.get("C"));
+        assertEquals("3", trans.get("C").toString());
     }
 
     public void testFactory_Decorate_5_oe() {
@@ -499,35 +305,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                         null,
                         (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         trans.put((K) "D", (V) "4");
-        assertEquals(Integer.valueOf(4), trans.get("D"));
-    }
-
-    public void testFactory_decorateTransform_1_oe() {
-        final Map<K, V> base = new HashMap<>();
-        base.put((K) "A", (V) "1");
-        base.put((K) "B", (V) "2");
-        base.put((K) "C", (V) "3");
-
-        final Map<K, V> trans = TransformedMap
-                .transformedMap(
-                        base,
-                        null,
-                        (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(3, trans.size());
-    }
-
-    public void testFactory_decorateTransform_2_oe() {
-        final Map<K, V> base = new HashMap<>();
-        base.put((K) "A", (V) "1");
-        base.put((K) "B", (V) "2");
-        base.put((K) "C", (V) "3");
-
-        final Map<K, V> trans = TransformedMap
-                .transformedMap(
-                        base,
-                        null,
-                        (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(Integer.valueOf(1), trans.get("A"));
+        assertEquals("{A=1, B=2, C=3, D=4}", trans.toString());
     }
 
     public void testFactory_decorateTransform_3_oe() {
@@ -541,36 +319,7 @@ public class TransformedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K,
                         base,
                         null,
                         (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(Integer.valueOf(2), trans.get("B"));
-    }
-
-    public void testFactory_decorateTransform_4_oe() {
-        final Map<K, V> base = new HashMap<>();
-        base.put((K) "A", (V) "1");
-        base.put((K) "B", (V) "2");
-        base.put((K) "C", (V) "3");
-
-        final Map<K, V> trans = TransformedMap
-                .transformedMap(
-                        base,
-                        null,
-                        (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(Integer.valueOf(3), trans.get("C"));
-    }
-
-    public void testFactory_decorateTransform_5_oe() {
-        final Map<K, V> base = new HashMap<>();
-        base.put((K) "A", (V) "1");
-        base.put((K) "B", (V) "2");
-        base.put((K) "C", (V) "3");
-
-        final Map<K, V> trans = TransformedMap
-                .transformedMap(
-                        base,
-                        null,
-                        (Transformer<? super V, ? extends V>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        trans.put((K) "D", (V) "4");
-        assertEquals(Integer.valueOf(4), trans.get("D"));
+        assertDoesNotThrow(() -> TransformedMap.transformedMap(base, null, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER));
     }
 
 }

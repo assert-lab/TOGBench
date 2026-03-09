@@ -25,7 +25,7 @@ import org.junit.Test;
 public class SortedPropertiesTest_OE25Dev {
 
     @Test
-    public void testKeys_1_oe() {
+    public void testKeys() {
         final SortedProperties sortedProperties = new SortedProperties();
         for (char ch = 'Z'; ch >= 'A'; ch--) {
             sortedProperties.put(String.valueOf(ch), "Value" + ch);
@@ -33,7 +33,8 @@ public class SortedPropertiesTest_OE25Dev {
         final Enumeration<Object> keys = sortedProperties.keys();
         for (char ch = 'A'; ch <= 'Z'; ch++) {
             Assert.assertEquals(String.valueOf(ch), keys.nextElement());
+        }
     }
-    }
+
 
 }

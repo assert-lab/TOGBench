@@ -38,7 +38,7 @@ public class EnumerationUtilsTest_OE25Dev {
     public static final String TO_LIST_FIXTURE = "this is a test";
 
     @Test
-    public void testToListWithStringTokenizer_1_oe() {
+    public void testToListWithStringTokenizer() {
         final List<String> expectedList1 = new ArrayList<>();
         final StringTokenizer st = new StringTokenizer(TO_LIST_FIXTURE);
              while (st.hasMoreTokens()) {
@@ -51,38 +51,60 @@ public class EnumerationUtilsTest_OE25Dev {
         expectedList2.add("test");
         final List<String> actualList = EnumerationUtils.toList(new StringTokenizer(TO_LIST_FIXTURE));
         assertEquals(expectedList1, expectedList2);
-    }
-
-    @Test
-    public void testToListWithStringTokenizer_2_oe() {
-        final List<String> expectedList1 = new ArrayList<>();
-        final StringTokenizer st = new StringTokenizer(TO_LIST_FIXTURE);
-             while (st.hasMoreTokens()) {
-                 expectedList1.add(st.nextToken());
-             }
-        final List<String> expectedList2 = new ArrayList<>();
-        expectedList2.add("this");
-        expectedList2.add("is");
-        expectedList2.add("a");
-        expectedList2.add("test");
-        final List<String> actualList = EnumerationUtils.toList(new StringTokenizer(TO_LIST_FIXTURE));
         assertEquals(expectedList1, actualList);
+        assertEquals(expectedList2, actualList);
     }
 
     @Test
-    public void testToListWithStringTokenizer_3_oe() {
-        final List<String> expectedList1 = new ArrayList<>();
-        final StringTokenizer st = new StringTokenizer(TO_LIST_FIXTURE);
-             while (st.hasMoreTokens()) {
-                 expectedList1.add(st.nextToken());
-             }
-        final List<String> expectedList2 = new ArrayList<>();
-        expectedList2.add("this");
-        expectedList2.add("is");
-        expectedList2.add("a");
-        expectedList2.add("test");
-        final List<String> actualList = EnumerationUtils.toList(new StringTokenizer(TO_LIST_FIXTURE));
-        assertEquals(expectedList2, actualList);
+    public void testToListWithHashtable() {
+        final Hashtable<String, Integer> expected = new Hashtable<>();
+        expected.put("one", Integer.valueOf(1));
+        expected.put("two", Integer.valueOf(2));
+        expected.put("three", Integer.valueOf(3));
+        // validate elements.
+        final List<Integer> actualEltList = EnumerationUtils.toList(expected.elements());
+        assertEquals(expected.size(), actualEltList.size());
+        assertTrue(actualEltList.contains(Integer.valueOf(1)));
+        assertTrue(actualEltList.contains(Integer.valueOf(2)));
+        assertTrue(actualEltList.contains(Integer.valueOf(3)));
+        final List<Integer> expectedEltList = new ArrayList<>();
+        expectedEltList.add(Integer.valueOf(1));
+        expectedEltList.add(Integer.valueOf(2));
+        expectedEltList.add(Integer.valueOf(3));
+        assertTrue(actualEltList.containsAll(expectedEltList));
+
+        // validate keys.
+        final List<String> actualKeyList = EnumerationUtils.toList(expected.keys());
+        assertEquals(expected.size(), actualEltList.size());
+        assertTrue(actualKeyList.contains("one"));
+        assertTrue(actualKeyList.contains("two"));
+        assertTrue(actualKeyList.contains("three"));
+        final List<String> expectedKeyList = new ArrayList<>();
+        expectedKeyList.add("one");
+        expectedKeyList.add("two");
+        expectedKeyList.add("three");
+        assertTrue(actualKeyList.containsAll(expectedKeyList));
+    }
+
+    @Test
+    public void getFromEnumeration() throws Exception {
+        // Enumeration, entry exists
+        final Vector<String> vector = new Vector<>();
+        vector.addElement("zero");
+        vector.addElement("one");
+        Enumeration<String> en = vector.elements();
+        assertEquals("zero", EnumerationUtils.get(en, 0));
+        en = vector.elements();
+        assertEquals("one", EnumerationUtils.get(en, 1));
+
+        // Enumerator, non-existent entry
+        try {
+            EnumerationUtils.get(en, 3);
+            fail("Expecting IndexOutOfBoundsException.");
+        } catch (final IndexOutOfBoundsException e) {
+            // expected
+        }
+        assertTrue(!en.hasMoreElements());
     }
 
     @Test
@@ -92,7 +114,7 @@ public class EnumerationUtilsTest_OE25Dev {
         expected.put("two", Integer.valueOf(2));
         expected.put("three", Integer.valueOf(3));
         final List<Integer> actualEltList = EnumerationUtils.toList(expected.elements());
-        assertEquals(expected.size(), actualEltList.size());
+        assertEquals(3, EnumerationUtils.size(expected.elements()));
     }
 
     @Test
@@ -102,7 +124,7 @@ public class EnumerationUtilsTest_OE25Dev {
         expected.put("two", Integer.valueOf(2));
         expected.put("three", Integer.valueOf(3));
         final List<Integer> actualEltList = EnumerationUtils.toList(expected.elements());
-        assertTrue(actualEltList.contains(Integer.valueOf(1)));
+        assertEquals(3, actualEltList.size());
     }
 
     @Test
@@ -112,7 +134,7 @@ public class EnumerationUtilsTest_OE25Dev {
         expected.put("two", Integer.valueOf(2));
         expected.put("three", Integer.valueOf(3));
         final List<Integer> actualEltList = EnumerationUtils.toList(expected.elements());
-        assertTrue(actualEltList.contains(Integer.valueOf(2)));
+        assertEquals(3, actualEltList.size());
     }
 
     @Test
@@ -122,37 +144,7 @@ public class EnumerationUtilsTest_OE25Dev {
         expected.put("two", Integer.valueOf(2));
         expected.put("three", Integer.valueOf(3));
         final List<Integer> actualEltList = EnumerationUtils.toList(expected.elements());
-        assertTrue(actualEltList.contains(Integer.valueOf(3)));
-    }
-
-    @Test
-    public void testToListWithHashtable_5_oe() {
-        final Hashtable<String, Integer> expected = new Hashtable<>();
-        expected.put("one", Integer.valueOf(1));
-        expected.put("two", Integer.valueOf(2));
-        expected.put("three", Integer.valueOf(3));
-        final List<Integer> actualEltList = EnumerationUtils.toList(expected.elements());
-        final List<Integer> expectedEltList = new ArrayList<>();
-        expectedEltList.add(Integer.valueOf(1));
-        expectedEltList.add(Integer.valueOf(2));
-        expectedEltList.add(Integer.valueOf(3));
-        assertTrue(actualEltList.containsAll(expectedEltList));
-    }
-
-    @Test
-    public void testToListWithHashtable_6_oe() {
-        final Hashtable<String, Integer> expected = new Hashtable<>();
-        expected.put("one", Integer.valueOf(1));
-        expected.put("two", Integer.valueOf(2));
-        expected.put("three", Integer.valueOf(3));
-        final List<Integer> actualEltList = EnumerationUtils.toList(expected.elements());
-        final List<Integer> expectedEltList = new ArrayList<>();
-        expectedEltList.add(Integer.valueOf(1));
-        expectedEltList.add(Integer.valueOf(2));
-        expectedEltList.add(Integer.valueOf(3));
-
-        final List<String> actualKeyList = EnumerationUtils.toList(expected.keys());
-        assertEquals(expected.size(), actualEltList.size());
+        assertEquals(3, actualEltList.size());
     }
 
     @Test
@@ -168,7 +160,7 @@ public class EnumerationUtilsTest_OE25Dev {
         expectedEltList.add(Integer.valueOf(3));
 
         final List<String> actualKeyList = EnumerationUtils.toList(expected.keys());
-        assertTrue(actualKeyList.contains("one"));
+        assertEquals(true, EnumerationUtils.contains(expected.elements(), 1));
     }
 
     @Test
@@ -184,7 +176,7 @@ public class EnumerationUtilsTest_OE25Dev {
         expectedEltList.add(Integer.valueOf(3));
 
         final List<String> actualKeyList = EnumerationUtils.toList(expected.keys());
-        assertTrue(actualKeyList.contains("two"));
+        assertEquals(true, EnumerationUtils.contains(expected.elements(), Integer.valueOf(1)));
     }
 
     @Test
@@ -200,27 +192,7 @@ public class EnumerationUtilsTest_OE25Dev {
         expectedEltList.add(Integer.valueOf(3));
 
         final List<String> actualKeyList = EnumerationUtils.toList(expected.keys());
-        assertTrue(actualKeyList.contains("three"));
-    }
-
-    @Test
-    public void testToListWithHashtable_10_oe() {
-        final Hashtable<String, Integer> expected = new Hashtable<>();
-        expected.put("one", Integer.valueOf(1));
-        expected.put("two", Integer.valueOf(2));
-        expected.put("three", Integer.valueOf(3));
-        final List<Integer> actualEltList = EnumerationUtils.toList(expected.elements());
-        final List<Integer> expectedEltList = new ArrayList<>();
-        expectedEltList.add(Integer.valueOf(1));
-        expectedEltList.add(Integer.valueOf(2));
-        expectedEltList.add(Integer.valueOf(3));
-
-        final List<String> actualKeyList = EnumerationUtils.toList(expected.keys());
-        final List<String> expectedKeyList = new ArrayList<>();
-        expectedKeyList.add("one");
-        expectedKeyList.add("two");
-        expectedKeyList.add("three");
-        assertTrue(actualKeyList.containsAll(expectedKeyList));
+        assertEquals(true, EnumerationUtils.contains(expected.elements(), Integer.valueOf(1)));
     }
 
     @Test
@@ -229,7 +201,7 @@ public class EnumerationUtilsTest_OE25Dev {
         vector.addElement("zero");
         vector.addElement("one");
         Enumeration<String> en = vector.elements();
-        assertEquals("zero", EnumerationUtils.get(en, 0));
+        assertEquals("one", vector.get(1));
     }
 
     @Test
@@ -239,7 +211,7 @@ public class EnumerationUtilsTest_OE25Dev {
         vector.addElement("one");
         Enumeration<String> en = vector.elements();
         en = vector.elements();
-        assertEquals("one", EnumerationUtils.get(en, 1));
+        assertEquals("one", vector.get(1));
     }
 
     @Test
@@ -254,7 +226,7 @@ public class EnumerationUtilsTest_OE25Dev {
             EnumerationUtils.get(en, 3);
         } catch (final IndexOutOfBoundsException e) {
         }
-        assertTrue(!en.hasMoreElements());
+        assertEquals(true, en.hasMoreElements());
     }
 
 }

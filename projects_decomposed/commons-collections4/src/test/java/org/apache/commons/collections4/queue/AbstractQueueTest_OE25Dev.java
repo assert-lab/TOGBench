@@ -134,34 +134,251 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
     /**
      *  Tests {@link Queue#offer(Object)}.
      */
+    public void testQueueOffer() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final E[] elements = getFullElements();
+        for (final E element : elements) {
+            resetEmpty();
+            final boolean r = getCollection().offer(element);
+            getConfirmed().add(element);
+            verify();
+            assertTrue("Empty queue changed after add", r);
+            assertEquals("Queue size is 1 after first add", 1, getCollection().size());
+        }
+
+        resetEmpty();
+        int size = 0;
+        for (final E element : elements) {
+            final boolean r = getCollection().offer(element);
+            getConfirmed().add(element);
+            verify();
+            if (r) {
+                size++;
+            }
+            assertEquals("Queue size should grow after add", size, getCollection().size());
+            assertTrue("Queue should contain added element", getCollection().contains(element));
+        }
+    }
 
     /**
      *  Tests {@link Queue#element()}.
      */
+    public void testQueueElement() {
+        resetEmpty();
+
+        try {
+            getCollection().element();
+            fail("Queue.element should throw NoSuchElementException");
+        } catch (final NoSuchElementException e) {
+            // expected
+        }
+
+        resetFull();
+
+        assertTrue(getConfirmed().contains(getCollection().element()));
+
+        if (!isRemoveSupported()) {
+            return;
+        }
+
+        final int max = getFullElements().length;
+        for (int i = 0; i < max; i++) {
+            final E element = getCollection().element();
+
+            if (!isNullSupported()) {
+                assertNotNull(element);
+            }
+
+            assertTrue(getConfirmed().contains(element));
+
+            getCollection().remove(element);
+            getConfirmed().remove(element);
+
+            verify();
+        }
+
+        try {
+            getCollection().element();
+            fail("Queue.element should throw NoSuchElementException");
+        } catch (final NoSuchElementException e) {
+            // expected
+        }
+    }
 
     /**
      *  Tests {@link Queue#peek()}.
      */
+    public void testQueuePeek() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+
+        resetEmpty();
+
+        E element = getCollection().peek();
+        assertNull(element);
+
+        resetFull();
+
+        final int max = getFullElements().length;
+        for (int i = 0; i < max; i++) {
+            element = getCollection().peek();
+
+            if (!isNullSupported()) {
+                assertNotNull(element);
+            }
+
+            assertTrue(getConfirmed().contains(element));
+
+            getCollection().remove(element);
+            getConfirmed().remove(element);
+
+            verify();
+        }
+
+        element = getCollection().peek();
+        assertNull(element);
+    }
 
     /**
      *  Tests {@link Queue#remove()}.
      */
+    public void testQueueRemove() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+
+        resetEmpty();
+
+        try {
+            getCollection().remove();
+            fail("Queue.remove should throw NoSuchElementException");
+        } catch (final NoSuchElementException e) {
+            // expected
+        }
+
+        resetFull();
+
+        final int max = getFullElements().length;
+        for (int i = 0; i < max; i++) {
+            final E element = getCollection().remove();
+            final boolean success = getConfirmed().remove(element);
+            assertTrue("remove should return correct element", success);
+            verify();
+        }
+
+        try {
+            getCollection().element();
+            fail("Queue.remove should throw NoSuchElementException");
+        } catch (final NoSuchElementException e) {
+            // expected
+        }
+    }
 
     /**
      *  Tests {@link Queue#poll()}.
      */
+    public void testQueuePoll() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+
+        resetEmpty();
+
+        E element = getCollection().poll();
+        assertNull(element);
+
+        resetFull();
+
+        final int max = getFullElements().length;
+        for (int i = 0; i < max; i++) {
+            element = getCollection().poll();
+            final boolean success = getConfirmed().remove(element);
+            assertTrue("poll should return correct element", success);
+            verify();
+        }
+
+        element = getCollection().poll();
+        assertNull(element);
+    }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testEmptyQueueSerialization() throws IOException, ClassNotFoundException {
+        final Queue<E> queue = makeObject();
+        if (!(queue instanceof Serializable && isTestSerialization())) {
+            return;
+        }
+
+        final byte[] objekt = writeExternalFormToBytes((Serializable) queue);
+        final Queue<E> queue2 = (Queue<E>) readExternalFormFromBytes(objekt);
+
+        assertEquals("Both queues are empty", 0, queue.size());
+        assertEquals("Both queues are empty", 0, queue2.size());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testFullQueueSerialization() throws IOException, ClassNotFoundException {
+        final Queue<E> queue = makeFullCollection();
+        final int size = getFullElements().length;
+        if (!(queue instanceof Serializable && isTestSerialization())) {
+            return;
+        }
+
+        final byte[] objekt = writeExternalFormToBytes((Serializable) queue);
+        final Queue<E> queue2 = (Queue<E>) readExternalFormFromBytes(objekt);
+
+        assertEquals("Both queues are same size", size, queue.size());
+        assertEquals("Both queues are same size", size, queue2.size());
+    }
 
     /**
      * Compare the current serialized form of the Queue
      * against the canonical version in SVN.
      */
+    @SuppressWarnings("unchecked")
+    public void testEmptyQueueCompatibility() throws IOException, ClassNotFoundException {
+        /**
+         * Create canonical objects with this code
+        Queue queue = makeEmptyQueue();
+        if (!(queue instanceof Serializable)) return;
+
+        writeExternalFormToDisk((Serializable) queue, getCanonicalEmptyCollectionName(queue));
+        */
+
+        // test to make sure the canonical form has been preserved
+        final Queue<E> queue = makeObject();
+        if (queue instanceof Serializable && !skipSerializedCanonicalTests()
+                && isTestSerialization()) {
+            final Queue<E> queue2 = (Queue<E>) readExternalFormFromDisk(getCanonicalEmptyCollectionName(queue));
+            assertEquals("Queue is empty", 0, queue2.size());
+        }
+    }
 
     /**
      * Compare the current serialized form of the Queue
      * against the canonical version in SVN.
      */
+    @SuppressWarnings("unchecked")
+    public void testFullQueueCompatibility() throws IOException, ClassNotFoundException {
+        /**
+         * Create canonical objects with this code
+        Queue queue = makeFullQueue();
+        if (!(queue instanceof Serializable)) return;
+
+        writeExternalFormToDisk((Serializable) queue, getCanonicalFullCollectionName(queue));
+        */
+
+        // test to make sure the canonical form has been preserved
+        final Queue<E> queue = makeFullCollection();
+        if(queue instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
+            final Queue<E> queue2 = (Queue<E>) readExternalFormFromDisk(getCanonicalFullCollectionName(queue));
+            assertEquals("Queues are not the right size", queue.size(), queue2.size());
+        }
+    }
 
     public void testQueueOffer_1_oe() {
         if (!isAddSupported()) {
@@ -174,22 +391,7 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
             final boolean r = getCollection().offer(element);
             getConfirmed().add(element);
             verify();
-            assertTrue("Empty queue changed after add", r);
-    }
-    }
-
-    public void testQueueOffer_2_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final E[] elements = getFullElements();
-        for (final E element : elements) {
-            resetEmpty();
-            final boolean r = getCollection().offer(element);
-            getConfirmed().add(element);
-            verify();
-            assertEquals("Queue size is 1 after first add", 1, getCollection().size());
+            assertEquals(true, r);
     }
     }
 
@@ -215,7 +417,7 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
             if (r) {
                 size++;
             }
-            assertEquals("Queue size should grow after add", size, getCollection().size());
+            assertEquals(0, size(getCollection()));
     }
     }
 
@@ -241,71 +443,7 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
             if (r) {
                 size++;
             }
-            assertTrue("Queue should contain added element", getCollection().contains(element));
-    }
-    }
-
-    public void testQueueElement_2_oe() {
-        resetEmpty();
-
-        try {
-            getCollection().element();
-        } catch (final NoSuchElementException e) {
-        }
-
-        resetFull();
-
-        assertTrue(getConfirmed().contains(getCollection().element()));
-    }
-
-    public void testQueueElement_3_oe() {
-        resetEmpty();
-
-        try {
-            getCollection().element();
-        } catch (final NoSuchElementException e) {
-        }
-
-        resetFull();
-
-
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final int max = getFullElements().length;
-        for (int i = 0; i < max; i++) {
-            final E element = getCollection().element();
-
-            if (!isNullSupported()) {
-                assertNotNull(element);
-    }
-    }
-    }
-
-    public void testQueueElement_4_oe() {
-        resetEmpty();
-
-        try {
-            getCollection().element();
-        } catch (final NoSuchElementException e) {
-        }
-
-        resetFull();
-
-
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final int max = getFullElements().length;
-        for (int i = 0; i < max; i++) {
-            final E element = getCollection().element();
-
-            if (!isNullSupported()) {
-            }
-
-            assertTrue(getConfirmed().contains(element));
+            assertEquals(false, r);
     }
     }
 
@@ -318,49 +456,6 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
 
         E element = getCollection().peek();
         assertNull(element);
-    }
-
-    public void testQueuePeek_2_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        resetEmpty();
-
-        E element = getCollection().peek();
-
-        resetFull();
-
-        final int max = getFullElements().length;
-        for (int i = 0; i < max; i++) {
-            element = getCollection().peek();
-
-            if (!isNullSupported()) {
-                assertNotNull(element);
-    }
-    }
-    }
-
-    public void testQueuePeek_3_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        resetEmpty();
-
-        E element = getCollection().peek();
-
-        resetFull();
-
-        final int max = getFullElements().length;
-        for (int i = 0; i < max; i++) {
-            element = getCollection().peek();
-
-            if (!isNullSupported()) {
-            }
-
-            assertTrue(getConfirmed().contains(element));
-    }
     }
 
     public void testQueuePeek_4_oe() {
@@ -392,28 +487,6 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
         assertNull(element);
     }
 
-    public void testQueueRemove_2_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        resetEmpty();
-
-        try {
-            getCollection().remove();
-        } catch (final NoSuchElementException e) {
-        }
-
-        resetFull();
-
-        final int max = getFullElements().length;
-        for (int i = 0; i < max; i++) {
-            final E element = getCollection().remove();
-            final boolean success = getConfirmed().remove(element);
-            assertTrue("remove should return correct element", success);
-    }
-    }
-
     public void testQueuePoll_1_oe() {
         if (!isRemoveSupported()) {
             return;
@@ -423,25 +496,6 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
 
         E element = getCollection().poll();
         assertNull(element);
-    }
-
-    public void testQueuePoll_2_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        resetEmpty();
-
-        E element = getCollection().poll();
-
-        resetFull();
-
-        final int max = getFullElements().length;
-        for (int i = 0; i < max; i++) {
-            element = getCollection().poll();
-            final boolean success = getConfirmed().remove(element);
-            assertTrue("poll should return correct element", success);
-    }
     }
 
     public void testQueuePoll_3_oe() {
@@ -475,7 +529,7 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
         final byte[] objekt = writeExternalFormToBytes((Serializable) queue);
         final Queue<E> queue2 = (Queue<E>) readExternalFormFromBytes(objekt);
 
-        assertEquals("Both queues are empty", 0, queue.size());
+        assertEquals(0, queue2.size());
     }
 
     public void testEmptyQueueSerialization_2_oe() throws IOException, ClassNotFoundException {
@@ -487,7 +541,7 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
         final byte[] objekt = writeExternalFormToBytes((Serializable) queue);
         final Queue<E> queue2 = (Queue<E>) readExternalFormFromBytes(objekt);
 
-        assertEquals("Both queues are empty", 0, queue2.size());
+        assertEquals(0, queue2.size());
     }
 
     public void testFullQueueSerialization_1_oe() throws IOException, ClassNotFoundException {
@@ -500,7 +554,7 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
         final byte[] objekt = writeExternalFormToBytes((Serializable) queue);
         final Queue<E> queue2 = (Queue<E>) readExternalFormFromBytes(objekt);
 
-        assertEquals("Both queues are same size", size, queue.size());
+        assertEquals(size, queue2.size());
     }
 
     public void testFullQueueSerialization_2_oe() throws IOException, ClassNotFoundException {
@@ -513,40 +567,7 @@ public abstract class AbstractQueueTest_OE25Dev<E> extends AbstractCollectionTes
         final byte[] objekt = writeExternalFormToBytes((Serializable) queue);
         final Queue<E> queue2 = (Queue<E>) readExternalFormFromBytes(objekt);
 
-        assertEquals("Both queues are same size", size, queue2.size());
-    }
-
-    public void testEmptyQueueCompatibility_1_oe() throws IOException, ClassNotFoundException {
-        /**
-         * Create canonical objects with this code
-        Queue queue = makeEmptyQueue();
-        if (!(queue instanceof Serializable)) return;
-
-        writeExternalFormToDisk((Serializable) queue, getCanonicalEmptyCollectionName(queue));
-        */
-
-        final Queue<E> queue = makeObject();
-        if (queue instanceof Serializable && !skipSerializedCanonicalTests()
-                && isTestSerialization()) {
-            final Queue<E> queue2 = (Queue<E>) readExternalFormFromDisk(getCanonicalEmptyCollectionName(queue));
-            assertEquals("Queue is empty", 0, queue2.size());
-    }
-    }
-
-    public void testFullQueueCompatibility_1_oe() throws IOException, ClassNotFoundException {
-        /**
-         * Create canonical objects with this code
-        Queue queue = makeFullQueue();
-        if (!(queue instanceof Serializable)) return;
-
-        writeExternalFormToDisk((Serializable) queue, getCanonicalFullCollectionName(queue));
-        */
-
-        final Queue<E> queue = makeFullCollection();
-        if(queue instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
-            final Queue<E> queue2 = (Queue<E>) readExternalFormFromDisk(getCanonicalFullCollectionName(queue));
-            assertEquals("Queues are not the right size", queue.size(), queue2.size());
-    }
+        assertEquals(size, queue2.size());
     }
 
 }

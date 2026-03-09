@@ -62,17 +62,39 @@ public class SingletonIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
     }
 
     //-----------------------------------------------------------------------
-
-    public void testIterator_1_oe() {
+    public void testIterator() {
         final Iterator<E> iter = makeObject();
         assertTrue("Iterator has a first item", iter.hasNext());
-    }
-
-    public void testIterator_2_oe() {
-        final Iterator<E> iter = makeObject();
 
         final E iterValue = iter.next();
         assertEquals("Iteration value is correct", testValue, iterValue);
+
+        assertTrue("Iterator should now be empty", !iter.hasNext());
+
+        try {
+            iter.next();
+        } catch (final Exception e) {
+            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+    }
+
+    public void testReset() {
+        final ResettableIterator<E> it = makeObject();
+
+        assertEquals(true, it.hasNext());
+        assertEquals(testValue, it.next());
+        assertEquals(false, it.hasNext());
+
+        it.reset();
+
+        assertEquals(true, it.hasNext());
+        assertEquals(testValue, it.next());
+        assertEquals(false, it.hasNext());
+
+        it.reset();
+        it.reset();
+
+        assertEquals(true, it.hasNext());
     }
 
     public void testIterator_3_oe() {
@@ -80,32 +102,13 @@ public class SingletonIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
 
         final E iterValue = iter.next();
 
-        assertTrue("Iterator should now be empty", !iter.hasNext());
-    }
-
-    public void testIterator_4_oe() {
-        final Iterator<E> iter = makeObject();
-
-        final E iterValue = iter.next();
-
-
-        try {
-            iter.next();
-        } catch (final Exception e) {
-            assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
-    }
-    }
-
-    public void testReset_1_oe() {
-        final ResettableIterator<E> it = makeObject();
-
-        assertEquals(true, it.hasNext());
+        assertEquals(true, iter.hasNext());
     }
 
     public void testReset_2_oe() {
         final ResettableIterator<E> it = makeObject();
 
-        assertEquals(testValue, it.next());
+        assertEquals(false, it.hasNext());
     }
 
     public void testReset_4_oe() {
@@ -123,20 +126,7 @@ public class SingletonIterator2Test_OE25Dev<E> extends AbstractIteratorTest<E> {
 
         it.reset();
 
-        assertEquals(testValue, it.next());
-    }
-
-    public void testReset_7_oe() {
-        final ResettableIterator<E> it = makeObject();
-
-
-        it.reset();
-
-
-        it.reset();
-        it.reset();
-
-        assertEquals(true, it.hasNext());
+        assertEquals(false, it.hasNext());
     }
 
 }

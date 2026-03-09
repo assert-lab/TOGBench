@@ -60,33 +60,14 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
     }
 
     @Test
-    public void testThrowingClosure_1_oe() {
+    public void testThrowingClosure() {
         Closure<Integer> closure = generateNoExceptionClosure();
         try {
             closure.execute(Integer.valueOf(0));
         } catch (final FunctorException ex) {
             Assert.fail();
-    }
-    }
-
-    @Test
-    public void testThrowingClosure_2_oe() {
-        Closure<Integer> closure = generateNoExceptionClosure();
-        try {
-            closure.execute(Integer.valueOf(0));
-        } catch (final FunctorException ex) {
         } catch (final RuntimeException ex) {
             Assert.fail();
-    }
-    }
-
-    @Test
-    public void testThrowingClosure_4_oe() {
-        Closure<Integer> closure = generateNoExceptionClosure();
-        try {
-            closure.execute(Integer.valueOf(0));
-        } catch (final FunctorException ex) {
-        } catch (final RuntimeException ex) {
         }
 
         closure = generateIOExceptionClosure();
@@ -95,41 +76,8 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
             Assert.fail();
         } catch (final FunctorException ex) {
             Assert.assertTrue(ex.getCause() instanceof IOException);
-    }
-    }
-
-    @Test
-    public void testThrowingClosure_5_oe() {
-        Closure<Integer> closure = generateNoExceptionClosure();
-        try {
-            closure.execute(Integer.valueOf(0));
-        } catch (final FunctorException ex) {
-        } catch (final RuntimeException ex) {
-        }
-
-        closure = generateIOExceptionClosure();
-        try {
-            closure.execute(Integer.valueOf(0));
-        } catch (final FunctorException ex) {
         } catch (final RuntimeException ex) {
             Assert.fail();
-    }
-    }
-
-    @Test
-    public void testThrowingClosure_8_oe() {
-        Closure<Integer> closure = generateNoExceptionClosure();
-        try {
-            closure.execute(Integer.valueOf(0));
-        } catch (final FunctorException ex) {
-        } catch (final RuntimeException ex) {
-        }
-
-        closure = generateIOExceptionClosure();
-        try {
-            closure.execute(Integer.valueOf(0));
-        } catch (final FunctorException ex) {
-        } catch (final RuntimeException ex) {
         }
 
         closure = generateNullPointerExceptionClosure();
@@ -137,9 +85,11 @@ public class CatchAndRethrowClosureTest_OE25Dev extends AbstractClosureTest {
             closure.execute(Integer.valueOf(0));
             Assert.fail();
         } catch (final FunctorException ex) {
+            Assert.fail();
         } catch (final RuntimeException ex) {
             Assert.assertTrue(ex instanceof NullPointerException);
+        }
     }
-    }
+
 
 }

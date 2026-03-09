@@ -67,31 +67,86 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
         return true;
     }
 
-    public void testIterator_1_oe() {
+    public void testIterator() {
         final ListIterator<E> iter = makeObject();
         assertTrue( "Iterator should have next item", iter.hasNext() );
+        assertTrue( "Iterator should have no previous item", !iter.hasPrevious() );
+        assertEquals( "Iteration next index", 0, iter.nextIndex() );
+        assertEquals( "Iteration previous index", -1, iter.previousIndex() );
+
+        Object iterValue = iter.next();
+        assertEquals( "Iteration value is correct", testValue, iterValue );
+
+        assertTrue( "Iterator should have no next item", !iter.hasNext() );
+        assertTrue( "Iterator should have previous item", iter.hasPrevious() );
+        assertEquals( "Iteration next index", 1, iter.nextIndex() );
+        assertEquals( "Iteration previous index", 0, iter.previousIndex() );
+
+        iterValue = iter.previous();
+        assertEquals( "Iteration value is correct", testValue, iterValue );
+
+        assertTrue( "Iterator should have next item", iter.hasNext() );
+        assertTrue( "Iterator should have no previous item", !iter.hasPrevious() );
+        assertEquals( "Iteration next index", 0, iter.nextIndex() );
+        assertEquals( "Iteration previous index", -1, iter.previousIndex() );
+
+        iterValue = iter.next();
+        assertEquals( "Iteration value is correct", testValue, iterValue );
+
+        assertTrue( "Iterator should have no next item", !iter.hasNext() );
+        assertTrue( "Iterator should have previous item", iter.hasPrevious() );
+        assertEquals( "Iteration next index", 1, iter.nextIndex() );
+        assertEquals( "Iteration previous index", 0, iter.previousIndex() );
+
+        try {
+            iter.next();
+        } catch (final Exception e) {
+          assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
+        iter.previous();
+        try {
+            iter.previous();
+        } catch (final Exception e) {
+          assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
     }
 
-    public void testIterator_2_oe() {
+    public void testReset() {
+        final ResettableListIterator<E> it = makeObject();
+
+        assertEquals(true, it.hasNext());
+        assertEquals(false, it.hasPrevious());
+        assertEquals(testValue, it.next());
+        assertEquals(false, it.hasNext());
+        assertEquals(true, it.hasPrevious());
+
+        it.reset();
+
+        assertEquals(true, it.hasNext());
+        assertEquals(false, it.hasPrevious());
+        assertEquals(testValue, it.next());
+        assertEquals(false, it.hasNext());
+        assertEquals(true, it.hasPrevious());
+
+        it.reset();
+        it.reset();
+
+        assertEquals(true, it.hasNext());
+    }
+
+    public void testIterator_1_oe() {
         final ListIterator<E> iter = makeObject();
-        assertTrue( "Iterator should have no previous item", !iter.hasPrevious() );
+        assertEquals(false, iter.hasNext());
     }
 
     public void testIterator_3_oe() {
         final ListIterator<E> iter = makeObject();
-        assertEquals( "Iteration next index", 0, iter.nextIndex() );
+        assertEquals(0, iter.nextIndex());
     }
 
     public void testIterator_4_oe() {
         final ListIterator<E> iter = makeObject();
-        assertEquals( "Iteration previous index", -1, iter.previousIndex() );
-    }
-
-    public void testIterator_5_oe() {
-        final ListIterator<E> iter = makeObject();
-
-        Object iterValue = iter.next();
-        assertEquals( "Iteration value is correct", testValue, iterValue );
+        assertEquals(-1, iter.previousIndex());
     }
 
     public void testIterator_6_oe() {
@@ -99,7 +154,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         Object iterValue = iter.next();
 
-        assertTrue( "Iterator should have no next item", !iter.hasNext() );
+        assertEquals(true, iter.hasNext());
     }
 
     public void testIterator_7_oe() {
@@ -107,7 +162,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         Object iterValue = iter.next();
 
-        assertTrue( "Iterator should have previous item", iter.hasPrevious() );
+        assertEquals(false, iter.hasPrevious());
     }
 
     public void testIterator_8_oe() {
@@ -115,7 +170,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         Object iterValue = iter.next();
 
-        assertEquals( "Iteration next index", 1, iter.nextIndex() );
+        assertEquals(1, iter.nextIndex());
     }
 
     public void testIterator_9_oe() {
@@ -123,17 +178,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         Object iterValue = iter.next();
 
-        assertEquals( "Iteration previous index", 0, iter.previousIndex() );
-    }
-
-    public void testIterator_10_oe() {
-        final ListIterator<E> iter = makeObject();
-
-        Object iterValue = iter.next();
-
-
-        iterValue = iter.previous();
-        assertEquals( "Iteration value is correct", testValue, iterValue );
+        assertEquals(0, iter.previousIndex());
     }
 
     public void testIterator_11_oe() {
@@ -144,7 +189,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         iterValue = iter.previous();
 
-        assertTrue( "Iterator should have next item", iter.hasNext() );
+        assertEquals(true, iter.hasNext());
     }
 
     public void testIterator_12_oe() {
@@ -155,7 +200,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         iterValue = iter.previous();
 
-        assertTrue( "Iterator should have no previous item", !iter.hasPrevious() );
+        assertEquals(true, iter.hasPrevious());
     }
 
     public void testIterator_13_oe() {
@@ -166,7 +211,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         iterValue = iter.previous();
 
-        assertEquals( "Iteration next index", 0, iter.nextIndex() );
+        assertEquals(1, iter.nextIndex());
     }
 
     public void testIterator_14_oe() {
@@ -177,7 +222,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         iterValue = iter.previous();
 
-        assertEquals( "Iteration previous index", -1, iter.previousIndex() );
+        assertEquals(0, iter.previousIndex());
     }
 
     public void testIterator_15_oe() {
@@ -190,7 +235,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
 
         iterValue = iter.next();
-        assertEquals( "Iteration value is correct", testValue, iterValue );
+        assertEquals(false, iter.hasPrevious());
     }
 
     public void testIterator_16_oe() {
@@ -204,7 +249,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         iterValue = iter.next();
 
-        assertTrue( "Iterator should have no next item", !iter.hasNext() );
+        assertEquals(true, iter.hasNext());
     }
 
     public void testIterator_17_oe() {
@@ -218,7 +263,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         iterValue = iter.next();
 
-        assertTrue( "Iterator should have previous item", iter.hasPrevious() );
+        assertEquals(false, iter.hasPrevious());
     }
 
     public void testIterator_18_oe() {
@@ -232,7 +277,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         iterValue = iter.next();
 
-        assertEquals( "Iteration next index", 1, iter.nextIndex() );
+        assertEquals(1, iter.nextIndex());
     }
 
     public void testIterator_19_oe() {
@@ -246,50 +291,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         iterValue = iter.next();
 
-        assertEquals( "Iteration previous index", 0, iter.previousIndex() );
-    }
-
-    public void testIterator_20_oe() {
-        final ListIterator<E> iter = makeObject();
-
-        Object iterValue = iter.next();
-
-
-        iterValue = iter.previous();
-
-
-        iterValue = iter.next();
-
-
-        try {
-            iter.next();
-        } catch (final Exception e) {
-          assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
-    }
-    }
-
-    public void testIterator_21_oe() {
-        final ListIterator<E> iter = makeObject();
-
-        Object iterValue = iter.next();
-
-
-        iterValue = iter.previous();
-
-
-        iterValue = iter.next();
-
-
-        try {
-            iter.next();
-        } catch (final Exception e) {
-        }
-        iter.previous();
-        try {
-            iter.previous();
-        } catch (final Exception e) {
-          assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
-    }
+        assertEquals(0, iter.previousIndex());
     }
 
     public void testReset_1_oe() {
@@ -307,7 +309,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
     public void testReset_3_oe() {
         final ResettableListIterator<E> it = makeObject();
 
-        assertEquals(testValue, it.next());
+        assertEquals(false, it.nextCalled);
     }
 
     public void testReset_6_oe() {
@@ -334,7 +336,7 @@ public class SingletonListIteratorTest_OE25Dev<E> extends AbstractListIteratorTe
 
         it.reset();
 
-        assertEquals(testValue, it.next());
+        assertEquals(false, it.nextCalled);
     }
 
     public void testReset_11_oe() {

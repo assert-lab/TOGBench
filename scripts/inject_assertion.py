@@ -1,7 +1,7 @@
 # python3 scripts/inject_assertion.py \
-#   --inputs projects_decomposed/commons-configuration2/dataset/inputs_no_assert.csv \
-#   --preds  /home/tasfia/Desktop/oe25_for_toga/toga_output_OE25Dev/commons-configuration2/oracle_preds.csv \
-#   --out    projects_decomposed/commons-configuration2/dataset/inputs_llm.csv
+#   --inputs projects_decomposed/commons-collections4/dataset/inputs_no_assert.csv \
+#   --preds  /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/dataset/togll.csv \
+#   --out    projects_decomposed/commons-collections4/dataset/inputs_llm.csv
 
 import argparse
 from pathlib import Path
@@ -33,17 +33,17 @@ def fill_file(inputs_path: Path, preds_path: Path, out_path: Path) -> dict:
 
     preds = pd.read_csv(preds_path)
 
-    if "bug_num" not in preds.columns:
-        raise ValueError(f"{preds_path} must contain column: bug_num")
+    if "id" not in preds.columns:
+        raise ValueError(f"{preds_path} must contain column: id")
 
-    if "assert_pred" not in preds.columns:
-        raise ValueError(f"{preds_path} must contain column: assert_pred")
+    if "output" not in preds.columns:
+        raise ValueError(f"{preds_path} must contain column: output")
 
-    preds = preds[preds["assert_pred"].notna()]
+    preds = preds[preds["output"].notna()]
 
     preds = preds.rename(columns={
-        "bug_num": "id",
-        "assert_pred": "output"
+        "id": "id",
+        "output": "output"
     })
 
     if "id" not in inputs.columns or "test_prefix" not in inputs.columns:

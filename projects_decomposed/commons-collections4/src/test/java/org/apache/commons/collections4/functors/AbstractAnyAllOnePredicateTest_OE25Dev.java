@@ -44,11 +44,27 @@ public abstract class AbstractAnyAllOnePredicateTest_OE25Dev<T> extends Abstract
     /**
      * Tests whether <code>getInstance</code> with a one element array returns the first element in the array.
      */
+    @Override
+    @SuppressWarnings("unchecked")
+    @Test
+    public final void singleElementArrayToGetInstance() {
+        final Predicate<T> predicate = createMockPredicate(null);
+        final Predicate<T> allPredicate = getPredicateInstance(predicate);
+        assertSame("expected argument to be returned by getInstance()", predicate, allPredicate);
+    }
 
     /**
      * Tests that passing a singleton collection to <code>getInstance</code> returns the single element in the
      * collection.
      */
+    @Override
+    @Test
+    public final void singletonCollectionToGetInstance() {
+        final Predicate<T> predicate = createMockPredicate(null);
+        final Predicate<T> allPredicate = getPredicateInstance(
+                Collections.<Predicate<T>>singleton(predicate));
+        assertSame("expected singleton collection member to be returned by getInstance()",predicate,allPredicate);
+    }
 
     /**
      * Tests creating composite predicate instances with single predicates and verifies that the composite returns
@@ -64,7 +80,7 @@ public abstract class AbstractAnyAllOnePredicateTest_OE25Dev<T> extends Abstract
     public final void singleElementArrayToGetInstance_1_oe() {
         final Predicate<T> predicate = createMockPredicate(null);
         final Predicate<T> allPredicate = getPredicateInstance(predicate);
-        assertSame("expected argument to be returned by getInstance()", predicate, allPredicate);
+        assertEquals(false, allPredicate.apply(null));
     }
 
     @Test
@@ -72,7 +88,7 @@ public abstract class AbstractAnyAllOnePredicateTest_OE25Dev<T> extends Abstract
         final Predicate<T> predicate = createMockPredicate(null);
         final Predicate<T> allPredicate = getPredicateInstance(
                 Collections.<Predicate<T>>singleton(predicate));
-        assertSame("expected singleton collection member to be returned by getInstance()",predicate,allPredicate);
+        assertNotNull(allPredicate);
     }
 
 }

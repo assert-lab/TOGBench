@@ -91,6 +91,21 @@ public class UnmodifiableQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
         } catch (final UnsupportedOperationException ex) {}
     }
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullCollection() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final Queue<E> queue = makeFullCollection();
+        assertSame(queue, UnmodifiableQueue.unmodifiableQueue(queue));
+
+        try {
+            UnmodifiableQueue.unmodifiableQueue(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     //-----------------------------------------------------------------------
 
     @Override
@@ -107,24 +122,17 @@ public class UnmodifiableQueueTest_OE25Dev<E> extends AbstractQueueTest<E> {
 
     public void testUnmodifiable_1_oe() {
         boolean a = makeObject() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testUnmodifiable_2_oe() {
         boolean a = makeFullCollection() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testDecorateFactory_1_oe() {
         final Queue<E> queue = makeFullCollection();
-        assertSame(queue, UnmodifiableQueue.unmodifiableQueue(queue));
-    }
-
-public void testDecorateFactory_oe_101_oe() {
-        try {
-            UnmodifiableQueue.unmodifiableQueue(null);
-            fail();
-        } catch (final NullPointerException ex) {}
+        assertEquals(true, queue.isEmpty());
     }
 
 }

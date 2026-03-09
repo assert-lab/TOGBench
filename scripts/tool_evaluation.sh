@@ -1,9 +1,9 @@
-python3 scripts/remove_assertion.py --root projects_decomposed/commons-configuration2
+python3 scripts/remove_assertion.py --root projects_decomposed/joda-time
 
 python3 scripts/inject_assertion.py \
-  --inputs projects_decomposed/commons-configuration2/dataset/inputs_no_assert.csv \
-  --preds  projects_decomposed/commons-configuration2/dataset/doc2oracll.csv \
-  --out    projects_decomposed/commons-configuration2/dataset/inputs_llm.csv
+  --inputs projects_decomposed/joda-time/dataset/inputs_no_assert.csv \
+  --preds  projects_decomposed/joda-time/dataset/doc2oracll.csv \
+  --out    projects_decomposed/joda-time/dataset/inputs_llm.csv
 
 find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
 
@@ -15,7 +15,9 @@ mvn test -Dtest="*_OE25Dev#*_oe"
 
 python3 scripts/comment-incompatible_assertions.py
 
-grep -R --include="*OE25Dev.java" "// incorrect assertion" projects_decomposed/commons-configuration2 | wc -l
+grep -R --include="*OE25Dev.java" "// incorrect assertion" projects_decomposed/joda-time | wc -l
+
+grep -R -F '//TOGA incorrect assertion' evosuite-artifacts/commons-collections4-4.4-src --include='*.java' | wc -l
 
 
 

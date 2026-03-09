@@ -134,6 +134,240 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
     }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testBagAdd() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        bag.add((T) "A");
+        assertTrue("Should contain 'A'", bag.contains("A"));
+        assertEquals("Should have count of 1", 1, bag.getCount("A"));
+        bag.add((T) "A");
+        assertTrue("Should contain 'A'", bag.contains("A"));
+        assertEquals("Should have count of 2", 2, bag.getCount("A"));
+        bag.add((T) "B");
+        assertTrue(bag.contains("A"));
+        assertTrue(bag.contains("B"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagEqualsSelf() {
+        final Bag<T> bag = makeObject();
+        assertTrue(bag.equals(bag));
+
+        if (!isAddSupported()) {
+            return;
+        }
+
+        bag.add((T) "elt");
+        assertTrue(bag.equals(bag));
+        bag.add((T) "elt"); // again
+        assertTrue(bag.equals(bag));
+        bag.add((T) "elt2");
+        assertTrue(bag.equals(bag));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagRemove() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        bag.add((T) "A");
+        assertEquals("Should have count of 1", 1, bag.getCount("A"));
+        bag.remove("A");
+        assertEquals("Should have count of 0", 0, bag.getCount("A"));
+        bag.add((T) "A");
+        bag.add((T) "A");
+        bag.add((T) "A");
+        bag.add((T) "A");
+        assertEquals("Should have count of 4", 4, bag.getCount("A"));
+        bag.remove("A", 0);
+        assertEquals("Should have count of 4", 4, bag.getCount("A"));
+        bag.remove("A", 2);
+        assertEquals("Should have count of 2", 2, bag.getCount("A"));
+        bag.remove("A");
+        assertEquals("Should have count of 0", 0, bag.getCount("A"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagRemoveAll() {
+        if (!isRemoveSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        bag.add((T) "A", 2);
+        assertEquals("Should have count of 2", 2, bag.getCount("A"));
+        bag.add((T) "B");
+        bag.add((T) "C");
+        assertEquals("Should have count of 4", 4, bag.size());
+        final List<String> delete = new ArrayList<>();
+        delete.add("A");
+        delete.add("B");
+        bag.removeAll(delete);
+        assertEquals("Should have count of 1", 1, bag.getCount("A"));
+        assertEquals("Should have count of 0", 0, bag.getCount("B"));
+        assertEquals("Should have count of 1", 1, bag.getCount("C"));
+        assertEquals("Should have count of 2", 2, bag.size());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagContains() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+
+        assertEquals("Bag does not have at least 1 'A'", false, bag.contains("A"));
+        assertEquals("Bag does not have at least 1 'B'", false, bag.contains("B"));
+
+        bag.add((T) "A");  // bag 1A
+        assertEquals("Bag has at least 1 'A'", true, bag.contains("A"));
+        assertEquals("Bag does not have at least 1 'B'", false, bag.contains("B"));
+
+        bag.add((T) "A");  // bag 2A
+        assertEquals("Bag has at least 1 'A'", true, bag.contains("A"));
+        assertEquals("Bag does not have at least 1 'B'", false, bag.contains("B"));
+
+        bag.add((T) "B");  // bag 2A,1B
+        assertEquals("Bag has at least 1 'A'", true, bag.contains("A"));
+        assertEquals("Bag has at least 1 'B'", true, bag.contains("B"));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagContainsAll() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        final List<String> known = new ArrayList<>();
+        final List<String> known1A = new ArrayList<>();
+        known1A.add("A");
+        final List<String> known2A = new ArrayList<>();
+        known2A.add("A");
+        known2A.add("A");
+        final List<String> known1B = new ArrayList<>();
+        known1B.add("B");
+        final List<String> known1A1B = new ArrayList<>();
+        known1A1B.add("A");
+        known1A1B.add("B");
+
+        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
+        assertEquals("Bag does not containsAll of 1 'A'", false, bag.containsAll(known1A));
+        assertEquals("Bag does not containsAll of 2 'A'", false, bag.containsAll(known2A));
+        assertEquals("Bag does not containsAll of 1 'B'", false, bag.containsAll(known1B));
+        assertEquals("Bag does not containsAll of 1 'A' 1 'B'", false, bag.containsAll(known1A1B));
+
+        bag.add((T) "A");  // bag 1A
+        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
+        assertEquals("Bag containsAll of 1 'A'", true, bag.containsAll(known1A));
+        assertEquals("Bag does not containsAll of 2 'A'", false, bag.containsAll(known2A));
+        assertEquals("Bag does not containsAll of 1 'B'", false, bag.containsAll(known1B));
+        assertEquals("Bag does not containsAll of 1 'A' 1 'B'", false, bag.containsAll(known1A1B));
+
+        bag.add((T) "A");  // bag 2A
+        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
+        assertEquals("Bag containsAll of 1 'A'", true, bag.containsAll(known1A));
+        assertEquals("Bag containsAll of 2 'A'", true, bag.containsAll(known2A));
+        assertEquals("Bag does not containsAll of 1 'B'", false, bag.containsAll(known1B));
+        assertEquals("Bag does not containsAll of 1 'A' 1 'B'", false, bag.containsAll(known1A1B));
+
+        bag.add((T) "A");  // bag 3A
+        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
+        assertEquals("Bag containsAll of 1 'A'", true, bag.containsAll(known1A));
+        assertEquals("Bag containsAll of 2 'A'", true, bag.containsAll(known2A));
+        assertEquals("Bag does not containsAll of 1 'B'", false, bag.containsAll(known1B));
+        assertEquals("Bag does not containsAll of 1 'A' 1 'B'", false, bag.containsAll(known1A1B));
+
+        bag.add((T) "B");  // bag 3A1B
+        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
+        assertEquals("Bag containsAll of 1 'A'", true, bag.containsAll(known1A));
+        assertEquals("Bag containsAll of 2 'A'", true, bag.containsAll(known2A));
+        assertEquals("Bag containsAll of 1 'B'", true, bag.containsAll(known1B));
+        assertEquals("Bag containsAll of 1 'A' 1 'B'", true, bag.containsAll(known1A1B));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagSize() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        assertEquals("Should have 0 total items", 0, bag.size());
+        bag.add((T) "A");
+        assertEquals("Should have 1 total items", 1, bag.size());
+        bag.add((T) "A");
+        assertEquals("Should have 2 total items", 2, bag.size());
+        bag.add((T) "A");
+        assertEquals("Should have 3 total items", 3, bag.size());
+        bag.add((T) "B");
+        assertEquals("Should have 4 total items", 4, bag.size());
+        bag.add((T) "B");
+        assertEquals("Should have 5 total items", 5, bag.size());
+        bag.remove("A", 2);
+        assertEquals("Should have 1 'A'", 1, bag.getCount("A"));
+        assertEquals("Should have 3 total items", 3, bag.size());
+        bag.remove("B");
+        assertEquals("Should have 1 total item", 1, bag.size());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagRetainAll() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        bag.add((T) "A");
+        bag.add((T) "A");
+        bag.add((T) "A");
+        bag.add((T) "B");
+        bag.add((T) "B");
+        bag.add((T) "C");
+        final List<String> retains = new ArrayList<>();
+        retains.add("B");
+        retains.add("C");
+        bag.retainAll(retains);
+        assertEquals("Should have 2 total items", 2, bag.size());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagIterator() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        bag.add((T) "A");
+        bag.add((T) "A");
+        bag.add((T) "B");
+        assertEquals("Bag should have 3 items", 3, bag.size());
+        final Iterator<T> i = bag.iterator();
+
+        boolean foundA = false;
+        while (i.hasNext()) {
+            final String element = (String) i.next();
+            // ignore the first A, remove the second via Iterator.remove()
+            if (element.equals("A")) {
+                if (!foundA) {
+                    foundA = true;
+                } else {
+                    i.remove();
+                }
+            }
+        }
+
+        assertTrue("Bag should still contain 'A'", bag.contains("A"));
+        assertEquals("Bag should have 2 items", 2, bag.size());
+        assertEquals("Bag should have 1 'A'", 1, bag.getCount("A"));
+    }
 
     @SuppressWarnings("unchecked")
     public void testBagIteratorFail() {
@@ -178,7 +412,187 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         }
     }
 
+    @SuppressWarnings("unchecked")
+    public void testBagIteratorFailDoubleRemove() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        bag.add((T) "A");
+        bag.add((T) "A");
+        bag.add((T) "B");
+        final Iterator<T> it = bag.iterator();
+        it.next();
+        it.next();
+        assertEquals(3, bag.size());
+        it.remove();
+        assertEquals(2, bag.size());
+        try {
+            it.remove();
+            fail("Should throw IllegalStateException");
+        } catch (final IllegalStateException ex) {
+            // expected
+        }
+        assertEquals(2, bag.size());
+        it.next();
+        it.remove();
+        assertEquals(1, bag.size());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagIteratorRemoveProtectsInvariants() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        bag.add((T) "A");
+        bag.add((T) "A");
+        assertEquals(2, bag.size());
+        final Iterator<T> it = bag.iterator();
+        assertEquals("A", it.next());
+        assertEquals(true, it.hasNext());
+        it.remove();
+        assertEquals(1, bag.size());
+        assertEquals(true, it.hasNext());
+        assertEquals("A", it.next());
+        assertEquals(false, it.hasNext());
+        it.remove();
+        assertEquals(0, bag.size());
+        assertEquals(false, it.hasNext());
+
+        final Iterator<T> it2 = bag.iterator();
+        assertEquals(false, it2.hasNext());
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagToArray() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        bag.add((T) "A");
+        bag.add((T) "A");
+        bag.add((T) "B");
+        bag.add((T) "B");
+        bag.add((T) "C");
+        final Object[] array = bag.toArray();
+        int a = 0, b = 0, c = 0;
+        for (final Object element : array) {
+            a += element.equals("A") ? 1 : 0;
+            b += element.equals("B") ? 1 : 0;
+            c += element.equals("C") ? 1 : 0;
+        }
+        assertEquals(2, a);
+        assertEquals(2, b);
+        assertEquals(1, c);
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagToArrayPopulate() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        bag.add((T) "A");
+        bag.add((T) "A");
+        bag.add((T) "B");
+        bag.add((T) "B");
+        bag.add((T) "C");
+        final String[] array = bag.toArray(new String[0]);
+        int a = 0, b = 0, c = 0;
+        for (final String element : array) {
+            a += element.equals("A") ? 1 : 0;
+            b += element.equals("B") ? 1 : 0;
+            c += element.equals("C") ? 1 : 0;
+        }
+        assertEquals(2, a);
+        assertEquals(2, b);
+        assertEquals(1, c);
+    }
+
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testBagEquals() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        final Bag<T> bag2 = makeObject();
+        assertEquals(true, bag.equals(bag2));
+        bag.add((T) "A");
+        assertEquals(false, bag.equals(bag2));
+        bag2.add((T) "A");
+        assertEquals(true, bag.equals(bag2));
+        bag.add((T) "A");
+        bag.add((T) "B");
+        bag.add((T) "B");
+        bag.add((T) "C");
+        bag2.add((T) "A");
+        bag2.add((T) "B");
+        bag2.add((T) "B");
+        bag2.add((T) "C");
+        assertEquals(true, bag.equals(bag2));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagEqualsHashBag() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        final Bag<T> bag2 = new HashBag<>();
+        assertEquals(true, bag.equals(bag2));
+        bag.add((T) "A");
+        assertEquals(false, bag.equals(bag2));
+        bag2.add((T) "A");
+        assertEquals(true, bag.equals(bag2));
+        bag.add((T) "A");
+        bag.add((T) "B");
+        bag.add((T) "B");
+        bag.add((T) "C");
+        bag2.add((T) "A");
+        bag2.add((T) "B");
+        bag2.add((T) "B");
+        bag2.add((T) "C");
+        assertEquals(true, bag.equals(bag2));
+    }
+
+    @SuppressWarnings("unchecked")
+    public void testBagHashCode() {
+        if (!isAddSupported()) {
+            return;
+        }
+
+        final Bag<T> bag = makeObject();
+        final Bag<T> bag2 = makeObject();
+        assertEquals(0, bag.hashCode());
+        assertEquals(0, bag2.hashCode());
+        assertEquals(bag.hashCode(), bag2.hashCode());
+        bag.add((T) "A");
+        bag.add((T) "A");
+        bag.add((T) "B");
+        bag.add((T) "B");
+        bag.add((T) "C");
+        bag2.add((T) "A");
+        bag2.add((T) "A");
+        bag2.add((T) "B");
+        bag2.add((T) "B");
+        bag2.add((T) "C");
+        assertEquals(bag.hashCode(), bag2.hashCode());
+
+        int total = 0;
+        total += "A".hashCode() ^ 2;
+        total += "B".hashCode() ^ 2;
+        total += "C".hashCode() ^ 1;
+        assertEquals(total, bag.hashCode());
+        assertEquals(total, bag2.hashCode());
+    }
 
     //-----------------------------------------------------------------------
 
@@ -265,11 +679,29 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
      * Compare the current serialized form of the Bag
      * against the canonical version in SVN.
      */
+    public void testEmptyBagCompatibility() throws IOException, ClassNotFoundException {
+        // test to make sure the canonical form has been preserved
+        final Bag<T> bag = makeObject();
+        if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
+            final Bag<?> bag2 = (Bag<?>) readExternalFormFromDisk(getCanonicalEmptyCollectionName(bag));
+            assertTrue("Bag is empty",bag2.size()  == 0);
+            assertEquals(bag, bag2);
+        }
+    }
 
     /**
      * Compare the current serialized form of the Bag
      * against the canonical version in SVN.
      */
+    public void testFullBagCompatibility() throws IOException, ClassNotFoundException {
+        // test to make sure the canonical form has been preserved
+        final Bag<T> bag = makeFullCollection();
+        if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
+            final Bag<?> bag2 = (Bag<?>) readExternalFormFromDisk(getCanonicalFullCollectionName(bag));
+            assertEquals("Bag is the right size",bag.size(), bag2.size());
+            assertEquals(bag, bag2);
+        }
+    }
 
     public void testBagAdd_1_oe() {
         if (!isAddSupported()) {
@@ -278,17 +710,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         final Bag<T> bag = makeObject();
         bag.add((T) "A");
-        assertTrue("Should contain 'A'", bag.contains("A"));
-    }
-
-    public void testBagAdd_2_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        assertEquals("Should have count of 1", 1, bag.getCount("A"));
+        assertEquals(true, bag.contains((Object) "A"));
     }
 
     public void testBagAdd_3_oe() {
@@ -299,18 +721,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         final Bag<T> bag = makeObject();
         bag.add((T) "A");
         bag.add((T) "A");
-        assertTrue("Should contain 'A'", bag.contains("A"));
-    }
-
-    public void testBagAdd_4_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        assertEquals("Should have count of 2", 2, bag.getCount("A"));
+        assertEquals(2, bag.size());
     }
 
     public void testBagAdd_5_oe() {
@@ -322,7 +733,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");
         bag.add((T) "A");
         bag.add((T) "B");
-        assertTrue(bag.contains("A"));
+        assertEquals(3, bag.size());
     }
 
     public void testBagAdd_6_oe() {
@@ -334,12 +745,12 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");
         bag.add((T) "A");
         bag.add((T) "B");
-        assertTrue(bag.contains("B"));
+        assertEquals(3, bag.size());
     }
 
     public void testBagEqualsSelf_1_oe() {
         final Bag<T> bag = makeObject();
-        assertTrue(bag.equals(bag));
+        assertEquals(true, bag.isEmpty());
     }
 
     public void testBagEqualsSelf_2_oe() {
@@ -350,7 +761,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         }
 
         bag.add((T) "elt");
-        assertTrue(bag.equals(bag));
+        assertEquals(true, bag.add((T) "elt", 1));
     }
 
     public void testBagEqualsSelf_3_oe() {
@@ -362,7 +773,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         bag.add((T) "elt");
         bag.add((T) "elt"); // again
-        assertTrue(bag.equals(bag));
+        assertEquals(true, bag.add((T) "elt", 1));
     }
 
     public void testBagEqualsSelf_4_oe() {
@@ -375,104 +786,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "elt");
         bag.add((T) "elt"); // again
         bag.add((T) "elt2");
-        assertTrue(bag.equals(bag));
-    }
-
-    public void testBagRemove_1_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        assertEquals("Should have count of 1", 1, bag.getCount("A"));
-    }
-
-    public void testBagRemove_2_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.remove("A");
-        assertEquals("Should have count of 0", 0, bag.getCount("A"));
-    }
-
-    public void testBagRemove_3_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.remove("A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        assertEquals("Should have count of 4", 4, bag.getCount("A"));
-    }
-
-    public void testBagRemove_4_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.remove("A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.remove("A", 0);
-        assertEquals("Should have count of 4", 4, bag.getCount("A"));
-    }
-
-    public void testBagRemove_5_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.remove("A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.remove("A", 0);
-        bag.remove("A", 2);
-        assertEquals("Should have count of 2", 2, bag.getCount("A"));
-    }
-
-    public void testBagRemove_6_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.remove("A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.remove("A", 0);
-        bag.remove("A", 2);
-        bag.remove("A");
-        assertEquals("Should have count of 0", 0, bag.getCount("A"));
-    }
-
-    public void testBagRemoveAll_1_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A", 2);
-        assertEquals("Should have count of 2", 2, bag.getCount("A"));
+        assertEquals(true, bag.add((T) "elt2", 1));
     }
 
     public void testBagRemoveAll_2_oe() {
@@ -484,55 +798,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A", 2);
         bag.add((T) "B");
         bag.add((T) "C");
-        assertEquals("Should have count of 4", 4, bag.size());
-    }
-
-    public void testBagRemoveAll_3_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A", 2);
-        bag.add((T) "B");
-        bag.add((T) "C");
-        final List<String> delete = new ArrayList<>();
-        delete.add("A");
-        delete.add("B");
-        bag.removeAll(delete);
-        assertEquals("Should have count of 1", 1, bag.getCount("A"));
-    }
-
-    public void testBagRemoveAll_4_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A", 2);
-        bag.add((T) "B");
-        bag.add((T) "C");
-        final List<String> delete = new ArrayList<>();
-        delete.add("A");
-        delete.add("B");
-        bag.removeAll(delete);
-        assertEquals("Should have count of 0", 0, bag.getCount("B"));
-    }
-
-    public void testBagRemoveAll_5_oe() {
-        if (!isRemoveSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A", 2);
-        bag.add((T) "B");
-        bag.add((T) "C");
-        final List<String> delete = new ArrayList<>();
-        delete.add("A");
-        delete.add("B");
-        bag.removeAll(delete);
-        assertEquals("Should have count of 1", 1, bag.getCount("C"));
+        assertEquals(3, bag.size());
     }
 
     public void testBagRemoveAll_6_oe() {
@@ -548,7 +814,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         delete.add("A");
         delete.add("B");
         bag.removeAll(delete);
-        assertEquals("Should have count of 2", 2, bag.size());
+        assertEquals(2, bag.size());
     }
 
     public void testBagContains_1_oe() {
@@ -558,7 +824,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         final Bag<T> bag = makeObject();
 
-        assertEquals("Bag does not have at least 1 'A'", false, bag.contains("A"));
+        assertEquals(false, bag.contains(null));
     }
 
     public void testBagContains_2_oe() {
@@ -568,7 +834,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         final Bag<T> bag = makeObject();
 
-        assertEquals("Bag does not have at least 1 'B'", false, bag.contains("B"));
+        assertEquals(false, bag.contains(null));
     }
 
     public void testBagContains_3_oe() {
@@ -580,7 +846,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
 
         bag.add((T) "A");  // bag 1A
-        assertEquals("Bag has at least 1 'A'", true, bag.contains("A"));
+        assertEquals(true, bag.contains((Object) "A"));
     }
 
     public void testBagContains_4_oe() {
@@ -592,7 +858,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
 
         bag.add((T) "A");  // bag 1A
-        assertEquals("Bag does not have at least 1 'B'", false, bag.contains("B"));
+        assertEquals(true, bag.contains((Object) "A"));
     }
 
     public void testBagContains_5_oe() {
@@ -606,7 +872,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");  // bag 1A
 
         bag.add((T) "A");  // bag 2A
-        assertEquals("Bag has at least 1 'A'", true, bag.contains("A"));
+        assertEquals(2, bag.size());
     }
 
     public void testBagContains_6_oe() {
@@ -620,7 +886,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");  // bag 1A
 
         bag.add((T) "A");  // bag 2A
-        assertEquals("Bag does not have at least 1 'B'", false, bag.contains("B"));
+        assertEquals(2, bag.size());
     }
 
     public void testBagContains_7_oe() {
@@ -636,7 +902,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");  // bag 2A
 
         bag.add((T) "B");  // bag 2A,1B
-        assertEquals("Bag has at least 1 'A'", true, bag.contains("A"));
+        assertEquals(3, bag.size());
     }
 
     public void testBagContains_8_oe() {
@@ -652,632 +918,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");  // bag 2A
 
         bag.add((T) "B");  // bag 2A,1B
-        assertEquals("Bag has at least 1 'B'", true, bag.contains("B"));
-    }
-
-    public void testBagContainsAll_1_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
-    }
-
-    public void testBagContainsAll_2_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-        assertEquals("Bag does not containsAll of 1 'A'", false, bag.containsAll(known1A));
-    }
-
-    public void testBagContainsAll_3_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-        assertEquals("Bag does not containsAll of 2 'A'", false, bag.containsAll(known2A));
-    }
-
-    public void testBagContainsAll_4_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-        assertEquals("Bag does not containsAll of 1 'B'", false, bag.containsAll(known1B));
-    }
-
-    public void testBagContainsAll_5_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-        assertEquals("Bag does not containsAll of 1 'A' 1 'B'", false, bag.containsAll(known1A1B));
-    }
-
-    public void testBagContainsAll_6_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
-    }
-
-    public void testBagContainsAll_7_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-        assertEquals("Bag containsAll of 1 'A'", true, bag.containsAll(known1A));
-    }
-
-    public void testBagContainsAll_8_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-        assertEquals("Bag does not containsAll of 2 'A'", false, bag.containsAll(known2A));
-    }
-
-    public void testBagContainsAll_9_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-        assertEquals("Bag does not containsAll of 1 'B'", false, bag.containsAll(known1B));
-    }
-
-    public void testBagContainsAll_10_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-        assertEquals("Bag does not containsAll of 1 'A' 1 'B'", false, bag.containsAll(known1A1B));
-    }
-
-    public void testBagContainsAll_11_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
-    }
-
-    public void testBagContainsAll_12_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-        assertEquals("Bag containsAll of 1 'A'", true, bag.containsAll(known1A));
-    }
-
-    public void testBagContainsAll_13_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-        assertEquals("Bag containsAll of 2 'A'", true, bag.containsAll(known2A));
-    }
-
-    public void testBagContainsAll_14_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-        assertEquals("Bag does not containsAll of 1 'B'", false, bag.containsAll(known1B));
-    }
-
-    public void testBagContainsAll_15_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-        assertEquals("Bag does not containsAll of 1 'A' 1 'B'", false, bag.containsAll(known1A1B));
-    }
-
-    public void testBagContainsAll_16_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
-    }
-
-    public void testBagContainsAll_17_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-        assertEquals("Bag containsAll of 1 'A'", true, bag.containsAll(known1A));
-    }
-
-    public void testBagContainsAll_18_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-        assertEquals("Bag containsAll of 2 'A'", true, bag.containsAll(known2A));
-    }
-
-    public void testBagContainsAll_19_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-        assertEquals("Bag does not containsAll of 1 'B'", false, bag.containsAll(known1B));
-    }
-
-    public void testBagContainsAll_20_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-        assertEquals("Bag does not containsAll of 1 'A' 1 'B'", false, bag.containsAll(known1A1B));
-    }
-
-    public void testBagContainsAll_21_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-
-        bag.add((T) "B");  // bag 3A1B
-        assertEquals("Bag containsAll of empty", true, bag.containsAll(known));
-    }
-
-    public void testBagContainsAll_22_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-
-        bag.add((T) "B");  // bag 3A1B
-        assertEquals("Bag containsAll of 1 'A'", true, bag.containsAll(known1A));
-    }
-
-    public void testBagContainsAll_23_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-
-        bag.add((T) "B");  // bag 3A1B
-        assertEquals("Bag containsAll of 2 'A'", true, bag.containsAll(known2A));
-    }
-
-    public void testBagContainsAll_24_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-
-        bag.add((T) "B");  // bag 3A1B
-        assertEquals("Bag containsAll of 1 'B'", true, bag.containsAll(known1B));
-    }
-
-    public void testBagContainsAll_25_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final List<String> known = new ArrayList<>();
-        final List<String> known1A = new ArrayList<>();
-        known1A.add("A");
-        final List<String> known2A = new ArrayList<>();
-        known2A.add("A");
-        known2A.add("A");
-        final List<String> known1B = new ArrayList<>();
-        known1B.add("B");
-        final List<String> known1A1B = new ArrayList<>();
-        known1A1B.add("A");
-        known1A1B.add("B");
-
-
-        bag.add((T) "A");  // bag 1A
-
-        bag.add((T) "A");  // bag 2A
-
-        bag.add((T) "A");  // bag 3A
-
-        bag.add((T) "B");  // bag 3A1B
-        assertEquals("Bag containsAll of 1 'A' 1 'B'", true, bag.containsAll(known1A1B));
+        assertEquals(3, bag.size());
     }
 
     public void testBagSize_1_oe() {
@@ -1286,7 +927,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         }
 
         final Bag<T> bag = makeObject();
-        assertEquals("Should have 0 total items", 0, bag.size());
+        assertEquals(0, size(bag));
     }
 
     public void testBagSize_2_oe() {
@@ -1296,7 +937,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         final Bag<T> bag = makeObject();
         bag.add((T) "A");
-        assertEquals("Should have 1 total items", 1, bag.size());
+        assertEquals(1, bag.size());
     }
 
     public void testBagSize_3_oe() {
@@ -1307,7 +948,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         final Bag<T> bag = makeObject();
         bag.add((T) "A");
         bag.add((T) "A");
-        assertEquals("Should have 2 total items", 2, bag.size());
+        assertEquals(2, bag.size());
     }
 
     public void testBagSize_4_oe() {
@@ -1319,7 +960,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");
         bag.add((T) "A");
         bag.add((T) "A");
-        assertEquals("Should have 3 total items", 3, bag.size());
+        assertEquals(3, bag.size());
     }
 
     public void testBagSize_5_oe() {
@@ -1332,7 +973,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");
         bag.add((T) "A");
         bag.add((T) "B");
-        assertEquals("Should have 4 total items", 4, bag.size());
+        assertEquals(4, bag.size());
     }
 
     public void testBagSize_6_oe() {
@@ -1346,72 +987,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");
         bag.add((T) "B");
         bag.add((T) "B");
-        assertEquals("Should have 5 total items", 5, bag.size());
-    }
-
-    public void testBagSize_7_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        bag.add((T) "B");
-        bag.remove("A", 2);
-        assertEquals("Should have 1 'A'", 1, bag.getCount("A"));
-    }
-
-    public void testBagSize_8_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        bag.add((T) "B");
-        bag.remove("A", 2);
-        assertEquals("Should have 3 total items", 3, bag.size());
-    }
-
-    public void testBagSize_9_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        bag.add((T) "B");
-        bag.remove("A", 2);
-        bag.remove("B");
-        assertEquals("Should have 1 total item", 1, bag.size());
-    }
-
-    public void testBagRetainAll_1_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        bag.add((T) "B");
-        bag.add((T) "C");
-        final List<String> retains = new ArrayList<>();
-        retains.add("B");
-        retains.add("C");
-        bag.retainAll(retains);
-        assertEquals("Should have 2 total items", 2, bag.size());
+        assertEquals(4, bag.size());
     }
 
     public void testBagIterator_1_oe() {
@@ -1423,7 +999,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");
         bag.add((T) "A");
         bag.add((T) "B");
-        assertEquals("Bag should have 3 items", 3, bag.size());
+        assertEquals(3, bag.size());
     }
 
     public void testBagIterator_2_oe() {
@@ -1449,59 +1025,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
             }
         }
 
-        assertTrue("Bag should still contain 'A'", bag.contains("A"));
-    }
-
-    public void testBagIterator_3_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        final Iterator<T> i = bag.iterator();
-
-        boolean foundA = false;
-        while (i.hasNext()) {
-            final String element = (String) i.next();
-            if (element.equals("A")) {
-                if (!foundA) {
-                    foundA = true;
-                } else {
-                    i.remove();
-                }
-            }
-        }
-
-        assertEquals("Bag should have 2 items", 2, bag.size());
-    }
-
-    public void testBagIterator_4_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        final Iterator<T> i = bag.iterator();
-
-        boolean foundA = false;
-        while (i.hasNext()) {
-            final String element = (String) i.next();
-            if (element.equals("A")) {
-                if (!foundA) {
-                    foundA = true;
-                } else {
-                    i.remove();
-                }
-            }
-        }
-
-        assertEquals("Bag should have 1 'A'", 1, bag.getCount("A"));
+        assertEquals(2, bag.size());
     }
 
     public void testBagIteratorFailDoubleRemove_1_oe() {
@@ -1574,7 +1098,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         }
         it.next();
         it.remove();
-        assertEquals(1, bag.size());
+        assertEquals(2, bag.size());
     }
 
     public void testBagIteratorRemoveProtectsInvariants_1_oe() {
@@ -1586,30 +1110,6 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");
         bag.add((T) "A");
         assertEquals(2, bag.size());
-    }
-
-    public void testBagIteratorRemoveProtectsInvariants_2_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        final Iterator<T> it = bag.iterator();
-        assertEquals("A", it.next());
-    }
-
-    public void testBagIteratorRemoveProtectsInvariants_3_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        final Iterator<T> it = bag.iterator();
-        assertEquals(true, it.hasNext());
     }
 
     public void testBagIteratorRemoveProtectsInvariants_4_oe() {
@@ -1625,32 +1125,6 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         assertEquals(1, bag.size());
     }
 
-    public void testBagIteratorRemoveProtectsInvariants_5_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        final Iterator<T> it = bag.iterator();
-        it.remove();
-        assertEquals(true, it.hasNext());
-    }
-
-    public void testBagIteratorRemoveProtectsInvariants_6_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        final Iterator<T> it = bag.iterator();
-        it.remove();
-        assertEquals("A", it.next());
-    }
-
     public void testBagIteratorRemoveProtectsInvariants_7_oe() {
         if (!isAddSupported()) {
             return;
@@ -1661,7 +1135,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         bag.add((T) "A");
         final Iterator<T> it = bag.iterator();
         it.remove();
-        assertEquals(false, it.hasNext());
+        assertEquals(true, it.hasNext());
     }
 
     public void testBagIteratorRemoveProtectsInvariants_8_oe() {
@@ -1675,7 +1149,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         final Iterator<T> it = bag.iterator();
         it.remove();
         it.remove();
-        assertEquals(0, bag.size());
+        assertEquals(1, bag.size());
     }
 
     public void testBagIteratorRemoveProtectsInvariants_9_oe() {
@@ -1690,22 +1164,6 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         it.remove();
         it.remove();
         assertEquals(false, it.hasNext());
-    }
-
-    public void testBagIteratorRemoveProtectsInvariants_10_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        final Iterator<T> it = bag.iterator();
-        it.remove();
-        it.remove();
-
-        final Iterator<T> it2 = bag.iterator();
-        assertEquals(false, it2.hasNext());
     }
 
     public void testBagToArray_1_oe() {
@@ -1747,7 +1205,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
             b += element.equals("B") ? 1 : 0;
             c += element.equals("C") ? 1 : 0;
         }
-        assertEquals(2, b);
+        assertEquals(2, a);
     }
 
     public void testBagToArray_3_oe() {
@@ -1768,7 +1226,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
             b += element.equals("B") ? 1 : 0;
             c += element.equals("C") ? 1 : 0;
         }
-        assertEquals(1, c);
+        assertEquals(2, a);
     }
 
     public void testBagToArrayPopulate_1_oe() {
@@ -1810,7 +1268,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
             b += element.equals("B") ? 1 : 0;
             c += element.equals("C") ? 1 : 0;
         }
-        assertEquals(2, b);
+        assertEquals(2, a);
     }
 
     public void testBagToArrayPopulate_3_oe() {
@@ -1831,7 +1289,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
             b += element.equals("B") ? 1 : 0;
             c += element.equals("C") ? 1 : 0;
         }
-        assertEquals(1, c);
+        assertEquals(2, a);
     }
 
     public void testBagEquals_1_oe() {
@@ -1841,7 +1299,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         final Bag<T> bag = makeObject();
         final Bag<T> bag2 = makeObject();
-        assertEquals(true, bag.equals(bag2));
+        assertEquals(false, bag2.isEmpty());
     }
 
     public void testBagEquals_2_oe() {
@@ -1852,7 +1310,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         final Bag<T> bag = makeObject();
         final Bag<T> bag2 = makeObject();
         bag.add((T) "A");
-        assertEquals(false, bag.equals(bag2));
+        assertEquals(true, bag.add((T) "A", 1));
     }
 
     public void testBagEquals_3_oe() {
@@ -1864,27 +1322,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         final Bag<T> bag2 = makeObject();
         bag.add((T) "A");
         bag2.add((T) "A");
-        assertEquals(true, bag.equals(bag2));
-    }
-
-    public void testBagEquals_4_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final Bag<T> bag2 = makeObject();
-        bag.add((T) "A");
-        bag2.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        bag.add((T) "B");
-        bag.add((T) "C");
-        bag2.add((T) "A");
-        bag2.add((T) "B");
-        bag2.add((T) "B");
-        bag2.add((T) "C");
-        assertEquals(true, bag.equals(bag2));
+        assertEquals(true, bag2.add((T) "A", 1));
     }
 
     public void testBagEqualsHashBag_1_oe() {
@@ -1894,7 +1332,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         final Bag<T> bag = makeObject();
         final Bag<T> bag2 = new HashBag<>();
-        assertEquals(true, bag.equals(bag2));
+        assertEquals(true, bag2.isEmpty());
     }
 
     public void testBagEqualsHashBag_2_oe() {
@@ -1905,7 +1343,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         final Bag<T> bag = makeObject();
         final Bag<T> bag2 = new HashBag<>();
         bag.add((T) "A");
-        assertEquals(false, bag.equals(bag2));
+        assertEquals(true, bag.add((T) "A", 1));
     }
 
     public void testBagEqualsHashBag_3_oe() {
@@ -1917,27 +1355,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         final Bag<T> bag2 = new HashBag<>();
         bag.add((T) "A");
         bag2.add((T) "A");
-        assertEquals(true, bag.equals(bag2));
-    }
-
-    public void testBagEqualsHashBag_4_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final Bag<T> bag2 = new HashBag<>();
-        bag.add((T) "A");
-        bag2.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        bag.add((T) "B");
-        bag.add((T) "C");
-        bag2.add((T) "A");
-        bag2.add((T) "B");
-        bag2.add((T) "B");
-        bag2.add((T) "C");
-        assertEquals(true, bag.equals(bag2));
+        assertEquals(true, bag2.add((T) "A", 1));
     }
 
     public void testBagHashCode_1_oe() {
@@ -1947,7 +1365,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         final Bag<T> bag = makeObject();
         final Bag<T> bag2 = makeObject();
-        assertEquals(0, bag.hashCode());
+        assertEquals(false, bag2.isEmpty());
     }
 
     public void testBagHashCode_2_oe() {
@@ -1957,7 +1375,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         final Bag<T> bag = makeObject();
         final Bag<T> bag2 = makeObject();
-        assertEquals(0, bag2.hashCode());
+        assertEquals(false, bag2.isEmpty());
     }
 
     public void testBagHashCode_3_oe() {
@@ -1967,100 +1385,14 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
 
         final Bag<T> bag = makeObject();
         final Bag<T> bag2 = makeObject();
-        assertEquals(bag.hashCode(), bag2.hashCode());
-    }
-
-    public void testBagHashCode_4_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final Bag<T> bag2 = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        bag.add((T) "B");
-        bag.add((T) "C");
-        bag2.add((T) "A");
-        bag2.add((T) "A");
-        bag2.add((T) "B");
-        bag2.add((T) "B");
-        bag2.add((T) "C");
-        assertEquals(bag.hashCode(), bag2.hashCode());
-    }
-
-    public void testBagHashCode_5_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final Bag<T> bag2 = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        bag.add((T) "B");
-        bag.add((T) "C");
-        bag2.add((T) "A");
-        bag2.add((T) "A");
-        bag2.add((T) "B");
-        bag2.add((T) "B");
-        bag2.add((T) "C");
-
-        int total = 0;
-        total += "A".hashCode() ^ 2;
-        total += "B".hashCode() ^ 2;
-        total += "C".hashCode() ^ 1;
-        assertEquals(total, bag.hashCode());
-    }
-
-    public void testBagHashCode_6_oe() {
-        if (!isAddSupported()) {
-            return;
-        }
-
-        final Bag<T> bag = makeObject();
-        final Bag<T> bag2 = makeObject();
-        bag.add((T) "A");
-        bag.add((T) "A");
-        bag.add((T) "B");
-        bag.add((T) "B");
-        bag.add((T) "C");
-        bag2.add((T) "A");
-        bag2.add((T) "A");
-        bag2.add((T) "B");
-        bag2.add((T) "B");
-        bag2.add((T) "C");
-
-        int total = 0;
-        total += "A".hashCode() ^ 2;
-        total += "B".hashCode() ^ 2;
-        total += "C".hashCode() ^ 1;
-        assertEquals(total, bag2.hashCode());
-    }
-
-    public void testEmptyBagCompatibility_1_oe() throws IOException, ClassNotFoundException {
-        final Bag<T> bag = makeObject();
-        if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
-            final Bag<?> bag2 = (Bag<?>) readExternalFormFromDisk(getCanonicalEmptyCollectionName(bag));
-            assertTrue("Bag is empty",bag2.size()  == 0);
-    }
+        assertEquals(false, bag2.isEmpty());
     }
 
     public void testEmptyBagCompatibility_2_oe() throws IOException, ClassNotFoundException {
         final Bag<T> bag = makeObject();
         if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
             final Bag<?> bag2 = (Bag<?>) readExternalFormFromDisk(getCanonicalEmptyCollectionName(bag));
-            assertEquals(bag, bag2);
-    }
-    }
-
-    public void testFullBagCompatibility_1_oe() throws IOException, ClassNotFoundException {
-        final Bag<T> bag = makeFullCollection();
-        if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
-            final Bag<?> bag2 = (Bag<?>) readExternalFormFromDisk(getCanonicalFullCollectionName(bag));
-            assertEquals("Bag is the right size",bag.size(), bag2.size());
+            assertEquals(false, bag2.isEmpty());
     }
     }
 
@@ -2068,7 +1400,7 @@ public abstract class AbstractBagTest_OE25Dev<T> extends AbstractCollectionTest<
         final Bag<T> bag = makeFullCollection();
         if (bag instanceof Serializable && !skipSerializedCanonicalTests() && isTestSerialization()) {
             final Bag<?> bag2 = (Bag<?>) readExternalFormFromDisk(getCanonicalFullCollectionName(bag));
-            assertEquals(bag, bag2);
+            assertEquals(false, bag2.isEmpty());
     }
     }
 

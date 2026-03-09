@@ -62,10 +62,137 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
     }
 
     //-----------------------------------------------------------------------
+    @SuppressWarnings("unchecked")
+    public void testReset() {
+        resetEmpty();
+        OrderedMap<K, V> ordered = getMap();
+        ((ResettableIterator<K>) ordered.mapIterator()).reset();
+
+        resetFull();
+        ordered = getMap();
+        final List<K> list = new ArrayList<>(ordered.keySet());
+        final ResettableIterator<K> it = (ResettableIterator<K>) ordered.mapIterator();
+        assertSame(list.get(0), it.next());
+        assertSame(list.get(1), it.next());
+        it.reset();
+        assertSame(list.get(0), it.next());
+    }
 
     //-----------------------------------------------------------------------
+    public void testInsertionOrder() {
+        if (!isPutAddSupported() || !isPutChangeSupported()) {
+            return;
+        }
+        final K[] keys = getSampleKeys();
+        final V[] values = getSampleValues();
+        Iterator<K> keyIter;
+        Iterator<V> valueIter;
+
+        resetEmpty();
+        map.put(keys[0], values[0]);
+        map.put(keys[1], values[1]);
+        keyIter = map.keySet().iterator();
+        assertSame(keys[0], keyIter.next());
+        assertSame(keys[1], keyIter.next());
+        valueIter = map.values().iterator();
+        assertSame(values[0], valueIter.next());
+        assertSame(values[1], valueIter.next());
+
+        // no change to order
+        map.put(keys[1], values[1]);
+        keyIter = map.keySet().iterator();
+        assertSame(keys[0], keyIter.next());
+        assertSame(keys[1], keyIter.next());
+        valueIter = map.values().iterator();
+        assertSame(values[0], valueIter.next());
+        assertSame(values[1], valueIter.next());
+
+        // no change to order
+        map.put(keys[1], values[2]);
+        keyIter = map.keySet().iterator();
+        assertSame(keys[0], keyIter.next());
+        assertSame(keys[1], keyIter.next());
+        valueIter = map.values().iterator();
+        assertSame(values[0], valueIter.next());
+        assertSame(values[2], valueIter.next());
+
+        // no change to order
+        map.put(keys[0], values[3]);
+        keyIter = map.keySet().iterator();
+        assertSame(keys[0], keyIter.next());
+        assertSame(keys[1], keyIter.next());
+        valueIter = map.values().iterator();
+        assertSame(values[3], valueIter.next());
+        assertSame(values[2], valueIter.next());
+    }
 
     //-----------------------------------------------------------------------
+    public void testGetByIndex() {
+        resetEmpty();
+        LinkedMap<K, V> lm = getMap();
+        try {
+            lm.get(0);
+        } catch (final IndexOutOfBoundsException ex) {}
+        try {
+            lm.get(-1);
+        } catch (final IndexOutOfBoundsException ex) {}
+
+        resetFull();
+        lm = getMap();
+        try {
+            lm.get(-1);
+        } catch (final IndexOutOfBoundsException ex) {}
+        try {
+            lm.get(lm.size());
+        } catch (final IndexOutOfBoundsException ex) {}
+
+        int i = 0;
+        for (final MapIterator<K, V> it = lm.mapIterator(); it.hasNext(); i++) {
+            assertSame(it.next(), lm.get(i));
+        }
+    }
+
+    public void testGetValueByIndex() {
+        resetEmpty();
+        LinkedMap<K, V> lm = getMap();
+        try {
+            lm.getValue(0);
+        } catch (final IndexOutOfBoundsException ex) {}
+        try {
+            lm.getValue(-1);
+        } catch (final IndexOutOfBoundsException ex) {}
+
+        resetFull();
+        lm = getMap();
+        try {
+            lm.getValue(-1);
+        } catch (final IndexOutOfBoundsException ex) {}
+        try {
+            lm.getValue(lm.size());
+        } catch (final IndexOutOfBoundsException ex) {}
+
+        int i = 0;
+        for (final MapIterator<K, V> it = lm.mapIterator(); it.hasNext(); i++) {
+            it.next();
+            assertSame(it.getValue(), lm.getValue(i));
+        }
+    }
+
+    public void testIndexOf() {
+        resetEmpty();
+        LinkedMap<K, V> lm = getMap();
+        assertEquals(-1, lm.indexOf(getOtherKeys()));
+
+        resetFull();
+        lm = getMap();
+        final List<K> list = new ArrayList<>();
+        for (final MapIterator<K, V> it = lm.mapIterator(); it.hasNext();) {
+            list.add(it.next());
+        }
+        for (int i = 0; i < list.size(); i++) {
+            assertEquals(i, lm.indexOf(list.get(i)));
+        }
+    }
 
     public void testRemoveByIndex() {
         resetEmpty();
@@ -145,6 +272,15 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         }
     }
 
+    @SuppressWarnings("unchecked")
+    public void testClone() {
+        final LinkedMap<K, V> map = new LinkedMap<>(10);
+        map.put((K) "1", (V) "1");
+        final Map<K, V> cloned = map.clone();
+        assertEquals(map.size(), cloned.size());
+        assertSame(map.get("1"), cloned.get("1"));
+    }
+
 //    public void testCreate() throws Exception {
 //        resetEmpty();
 //        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/LinkedMap.emptyCollection.version4.obj");
@@ -163,6 +299,10 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
     /**
      * Test for <a href="https://issues.apache.org/jira/browse/COLLECTIONS-323">COLLECTIONS-323</a>.
      */
+    public void testInitialCapacityZero() {
+        final LinkedMap<String,String> map = new LinkedMap<>(0);
+        assertEquals(1, map.data.length);
+    }
 
     public void testReset_1_oe() {
         resetEmpty();
@@ -173,7 +313,7 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         ordered = getMap();
         final List<K> list = new ArrayList<>(ordered.keySet());
         final ResettableIterator<K> it = (ResettableIterator<K>) ordered.mapIterator();
-        assertSame(list.get(0), it.next());
+        assertEquals(0, ordered.get(0).intValue());
     }
 
     public void testReset_3_oe() {
@@ -186,7 +326,7 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         final List<K> list = new ArrayList<>(ordered.keySet());
         final ResettableIterator<K> it = (ResettableIterator<K>) ordered.mapIterator();
         it.reset();
-        assertSame(list.get(0), it.next());
+        assertNotNull(ordered.get(0));
     }
 
     public void testInsertionOrder_1_oe() {
@@ -202,7 +342,7 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.put(keys[0], values[0]);
         map.put(keys[1], values[1]);
         keyIter = map.keySet().iterator();
-        assertSame(keys[0], keyIter.next());
+        assertEquals(true, keyIter.hasNext());
     }
 
     public void testInsertionOrder_3_oe() {
@@ -219,7 +359,7 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.put(keys[1], values[1]);
         keyIter = map.keySet().iterator();
         valueIter = map.values().iterator();
-        assertSame(values[0], valueIter.next());
+        assertEquals(true, keyIter.hasNext());
     }
 
     public void testInsertionOrder_5_oe() {
@@ -239,7 +379,7 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
 
         map.put(keys[1], values[1]);
         keyIter = map.keySet().iterator();
-        assertSame(keys[0], keyIter.next());
+        assertEquals(true, keyIter.hasNext());
     }
 
     public void testInsertionOrder_7_oe() {
@@ -260,138 +400,7 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         map.put(keys[1], values[1]);
         keyIter = map.keySet().iterator();
         valueIter = map.values().iterator();
-        assertSame(values[0], valueIter.next());
-    }
-
-    public void testInsertionOrder_9_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final K[] keys = getSampleKeys();
-        final V[] values = getSampleValues();
-        Iterator<K> keyIter;
-        Iterator<V> valueIter;
-
-        resetEmpty();
-        map.put(keys[0], values[0]);
-        map.put(keys[1], values[1]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[1], values[1]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[1], values[2]);
-        keyIter = map.keySet().iterator();
-        assertSame(keys[0], keyIter.next());
-    }
-
-    public void testInsertionOrder_11_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final K[] keys = getSampleKeys();
-        final V[] values = getSampleValues();
-        Iterator<K> keyIter;
-        Iterator<V> valueIter;
-
-        resetEmpty();
-        map.put(keys[0], values[0]);
-        map.put(keys[1], values[1]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[1], values[1]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[1], values[2]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-        assertSame(values[0], valueIter.next());
-    }
-
-    public void testInsertionOrder_13_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final K[] keys = getSampleKeys();
-        final V[] values = getSampleValues();
-        Iterator<K> keyIter;
-        Iterator<V> valueIter;
-
-        resetEmpty();
-        map.put(keys[0], values[0]);
-        map.put(keys[1], values[1]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[1], values[1]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[1], values[2]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[0], values[3]);
-        keyIter = map.keySet().iterator();
-        assertSame(keys[0], keyIter.next());
-    }
-
-    public void testInsertionOrder_15_oe() {
-        if (!isPutAddSupported() || !isPutChangeSupported()) {
-            return;
-        }
-        final K[] keys = getSampleKeys();
-        final V[] values = getSampleValues();
-        Iterator<K> keyIter;
-        Iterator<V> valueIter;
-
-        resetEmpty();
-        map.put(keys[0], values[0]);
-        map.put(keys[1], values[1]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[1], values[1]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[1], values[2]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-
-        map.put(keys[0], values[3]);
-        keyIter = map.keySet().iterator();
-        valueIter = map.values().iterator();
-        assertSame(values[3], valueIter.next());
-    }
-
-    public void testGetByIndex_1_oe() {
-        resetEmpty();
-        LinkedMap<K, V> lm = getMap();
-        try {
-            lm.get(0);
-        } catch (final IndexOutOfBoundsException ex) {}
-        try {
-            lm.get(-1);
-        } catch (final IndexOutOfBoundsException ex) {}
-
-        resetFull();
-        lm = getMap();
-        try {
-            lm.get(-1);
-        } catch (final IndexOutOfBoundsException ex) {}
-        try {
-            lm.get(lm.size());
-        } catch (final IndexOutOfBoundsException ex) {}
-
-        int i = 0;
-        for (final MapIterator<K, V> it = lm.mapIterator(); it.hasNext(); i++) {
-            assertSame(it.next(), lm.get(i));
-    }
+        assertEquals(true, keyIter.hasNext());
     }
 
     public void testGetValueByIndex_1_oe() {
@@ -416,48 +425,33 @@ public class LinkedMapTest_OE25Dev<K, V> extends AbstractOrderedMapTest<K, V> {
         int i = 0;
         for (final MapIterator<K, V> it = lm.mapIterator(); it.hasNext(); i++) {
             it.next();
-            assertSame(it.getValue(), lm.getValue(i));
+            assertEquals(false, lm.isEmpty());
     }
     }
 
     public void testIndexOf_1_oe() {
         resetEmpty();
         LinkedMap<K, V> lm = getMap();
-        assertEquals(-1, lm.indexOf(getOtherKeys()));
-    }
-
-    public void testIndexOf_2_oe() {
-        resetEmpty();
-        LinkedMap<K, V> lm = getMap();
-
-        resetFull();
-        lm = getMap();
-        final List<K> list = new ArrayList<>();
-        for (final MapIterator<K, V> it = lm.mapIterator(); it.hasNext();) {
-            list.add(it.next());
-        }
-        for (int i = 0; i < list.size(); i++) {
-            assertEquals(i, lm.indexOf(list.get(i)));
-    }
+        assertEquals(0, lm.indexOf(1));
     }
 
     public void testClone_1_oe() {
         final LinkedMap<K, V> map = new LinkedMap<>(10);
         map.put((K) "1", (V) "1");
         final Map<K, V> cloned = map.clone();
-        assertEquals(map.size(), cloned.size());
+        assertEquals(1, map.size());
     }
 
     public void testClone_2_oe() {
         final LinkedMap<K, V> map = new LinkedMap<>(10);
         map.put((K) "1", (V) "1");
         final Map<K, V> cloned = map.clone();
-        assertSame(map.get("1"), cloned.get("1"));
+        assertEquals("1", map.get(0));
     }
 
     public void testInitialCapacityZero_1_oe() {
         final LinkedMap<String,String> map = new LinkedMap<>(0);
-        assertEquals(1, map.data.length);
+        assertEquals(true, map.isEmpty());
     }
 
 }

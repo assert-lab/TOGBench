@@ -64,6 +64,39 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
                 (Transformer<E, E>) TransformedCollectionTest.NOOP_TRANSFORMER);
     }
 
+    @SuppressWarnings("unchecked")
+    public void testTransformedSet() {
+        final Set<E> set = TransformedSet.transformingSet(new HashSet<E>(),
+                (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(0, set.size());
+        final E[] els = (E[]) new Object[] { "1", "3", "5", "7", "2", "4", "6" };
+        for (int i = 0; i < els.length; i++) {
+            set.add(els[i]);
+            assertEquals(i + 1, set.size());
+            assertEquals(true, set.contains(Integer.valueOf((String) els[i])));
+            assertEquals(false, set.contains(els[i]));
+        }
+
+        assertEquals(false, set.remove(els[0]));
+        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+
+    }
+
+    public void testTransformedSet_decorateTransform() {
+        final Set<Object> originalSet = new HashSet<>();
+        final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
+        Collections.addAll(originalSet, els);
+        final Set<?> set = TransformedSet.transformedSet(originalSet, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(els.length, set.size());
+        for (final Object el : els) {
+            assertEquals(true, set.contains(Integer.valueOf((String) el)));
+            assertEquals(false, set.contains(el));
+        }
+
+        assertEquals(false, set.remove(els[0]));
+        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4";
@@ -79,7 +112,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
     public void testTransformedSet_1_oe() {
         final Set<E> set = TransformedSet.transformingSet(new HashSet<E>(),
                 (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(0, set.size());
+        assertEquals(0, TransformedSet.size(set));
     }
 
     public void testTransformedSet_2_oe() {
@@ -88,7 +121,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         final E[] els = (E[]) new Object[] { "1", "3", "5", "7", "2", "4", "6" };
         for (int i = 0; i < els.length; i++) {
             set.add(els[i]);
-            assertEquals(i + 1, set.size());
+            assertEquals(7, set.size());
     }
     }
 
@@ -98,7 +131,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         final E[] els = (E[]) new Object[] { "1", "3", "5", "7", "2", "4", "6" };
         for (int i = 0; i < els.length; i++) {
             set.add(els[i]);
-            assertEquals(true, set.contains(Integer.valueOf((String) els[i])));
+            assertEquals(true, set.contains("1"));
     }
     }
 
@@ -108,7 +141,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         final E[] els = (E[]) new Object[] { "1", "3", "5", "7", "2", "4", "6" };
         for (int i = 0; i < els.length; i++) {
             set.add(els[i]);
-            assertEquals(false, set.contains(els[i]));
+            assertEquals(true, set.contains("1"));
     }
     }
 
@@ -120,7 +153,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
             set.add(els[i]);
         }
 
-        assertEquals(false, set.remove(els[0]));
+        assertEquals(false, set.isEmpty());
     }
 
     public void testTransformedSet_6_oe() {
@@ -131,7 +164,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
             set.add(els[i]);
         }
 
-        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+        assertEquals(false, set.isEmpty());
     }
 
     public void testTransformedSet_decorateTransform_1_oe() {
@@ -139,7 +172,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         Collections.addAll(originalSet, els);
         final Set<?> set = TransformedSet.transformedSet(originalSet, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(els.length, set.size());
+        assertEquals(7, set.size());
     }
 
     public void testTransformedSet_decorateTransform_2_oe() {
@@ -148,7 +181,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         Collections.addAll(originalSet, els);
         final Set<?> set = TransformedSet.transformedSet(originalSet, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         for (final Object el : els) {
-            assertEquals(true, set.contains(Integer.valueOf((String) el)));
+            assertEquals(true, set.containsAll(set));
     }
     }
 
@@ -158,7 +191,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         Collections.addAll(originalSet, els);
         final Set<?> set = TransformedSet.transformedSet(originalSet, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         for (final Object el : els) {
-            assertEquals(false, set.contains(el));
+            assertEquals(true, set.contains("1"));
     }
     }
 
@@ -170,7 +203,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         for (final Object el : els) {
         }
 
-        assertEquals(false, set.remove(els[0]));
+        assertEquals(false, set.isEmpty());
     }
 
     public void testTransformedSet_decorateTransform_5_oe() {
@@ -181,7 +214,7 @@ public class TransformedSetTest_OE25Dev<E> extends AbstractSetTest<E> {
         for (final Object el : els) {
         }
 
-        assertEquals(true, set.remove(Integer.valueOf((String) els[0])));
+        assertEquals(false, set.isEmpty());
     }
 
 }

@@ -81,6 +81,16 @@ public class UnmodifiableListTest_OE25Dev<E> extends AbstractListTest<E> {
         verifyUnmodifiable(list.subList(0, 2));
     }
 
+    public void testDecorateFactory() {
+        final List<E> list = makeObject();
+        assertSame(list, UnmodifiableList.unmodifiableList(list));
+
+        try {
+            UnmodifiableList.unmodifiableList(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     @SuppressWarnings("unchecked")
     protected void verifyUnmodifiable(final List<E> list) {
         try {
@@ -176,14 +186,7 @@ public class UnmodifiableListTest_OE25Dev<E> extends AbstractListTest<E> {
 
     public void testDecorateFactory_1_oe() {
         final List<E> list = makeObject();
-        assertSame(list, UnmodifiableList.unmodifiableList(list));
-    }
-
-public void testDecorateFactory_oe_101_oe() {
-        try {
-            UnmodifiableList.unmodifiableList(null);
-            fail();
-        } catch (final NullPointerException ex) {}
+        assertEquals(false, list.isEmpty());
     }
 
 }

@@ -44,6 +44,24 @@ public class HashedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
         return "4";
     }
 
+    @SuppressWarnings("unchecked")
+    public void testClone() {
+        final HashedMap<K, V> map = new HashedMap<>(10);
+        map.put((K) "1", (V) "1");
+        final HashedMap<K, V> cloned = map.clone();
+        assertEquals(map.size(), cloned.size());
+        assertSame(map.get("1"), cloned.get("1"));
+    }
+
+    public void testInternalState() {
+        final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
+        assertEquals(0.75f, map.loadFactor, 0.1f);
+        assertEquals(0, map.size);
+        assertEquals(64, map.data.length);
+        assertEquals(48, map.threshold);
+        assertEquals(0, map.modCount);
+    }
+
 //    public void testCreate() throws Exception {
 //        resetEmpty();
 //        writeExternalFormToDisk((java.io.Serializable) map, "src/test/resources/data/test/HashedMap.emptyCollection.version4.obj");
@@ -54,49 +72,53 @@ public class HashedMapTest_OE25Dev<K, V> extends AbstractIterableMapTest<K, V> {
     /**
      * Test for <a href="https://issues.apache.org/jira/browse/COLLECTIONS-323">COLLECTIONS-323</a>.
      */
+    public void testInitialCapacityZero() {
+        final HashedMap<String,String> map = new HashedMap<>(0);
+        assertEquals(1, map.data.length);
+    }
 
     public void testClone_1_oe() {
         final HashedMap<K, V> map = new HashedMap<>(10);
         map.put((K) "1", (V) "1");
         final HashedMap<K, V> cloned = map.clone();
-        assertEquals(map.size(), cloned.size());
+        assertEquals(1, map.size());
     }
 
     public void testClone_2_oe() {
         final HashedMap<K, V> map = new HashedMap<>(10);
         map.put((K) "1", (V) "1");
         final HashedMap<K, V> cloned = map.clone();
-        assertSame(map.get("1"), cloned.get("1"));
+        assertEquals("1", map.get("1"));
     }
 
     public void testInternalState_1_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
-        assertEquals(0.75f, map.loadFactor, 0.1f);
+        assertEquals(true, map.isEmpty());
     }
 
     public void testInternalState_2_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
-        assertEquals(0, map.size);
+        assertEquals(true, map.isEmpty());
     }
 
     public void testInternalState_3_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
-        assertEquals(64, map.data.length);
+        assertEquals(true, map.isEmpty());
     }
 
     public void testInternalState_4_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
-        assertEquals(48, map.threshold);
+        assertEquals(true, map.isEmpty());
     }
 
     public void testInternalState_5_oe() {
         final HashedMap<K, V> map = new HashedMap<>(42, 0.75f);
-        assertEquals(0, map.modCount);
+        assertEquals(true, map.isEmpty());
     }
 
     public void testInitialCapacityZero_1_oe() {
         final HashedMap<String,String> map = new HashedMap<>(0);
-        assertEquals(1, map.data.length);
+        assertEquals(true, map.isEmpty());
     }
 
 }

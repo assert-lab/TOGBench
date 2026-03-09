@@ -68,26 +68,20 @@ public class FixedSizeListTest_OE25Dev<E> extends AbstractListTest<E> {
 //        writeExternalFormToDisk((java.io.Serializable) getCollection(), "src/test/resources/data/test/FixedSizeList.fullCollection.version4.obj");
 //    }
 
-    public void testListAllowsMutationOfUnderlyingCollection_1_oe() {
+    public void testListAllowsMutationOfUnderlyingCollection() {
 
         List<String> decoratedList = new ArrayList<>();
         decoratedList.add("item 1");
         decoratedList.add("item 2");
+        //
         FixedSizeList<String> fixedSizeList = FixedSizeList.fixedSizeList(decoratedList);
         int sizeBefore = fixedSizeList.size();
+        //
         boolean changed = decoratedList.add("New Value");
         Assert.assertTrue(changed);
-    }
-
-    public void testListAllowsMutationOfUnderlyingCollection_2_oe() {
-
-        List<String> decoratedList = new ArrayList<>();
-        decoratedList.add("item 1");
-        decoratedList.add("item 2");
-        FixedSizeList<String> fixedSizeList = FixedSizeList.fixedSizeList(decoratedList);
-        int sizeBefore = fixedSizeList.size();
-        boolean changed = decoratedList.add("New Value");
+        //
         Assert.assertEquals("Modifying an the underlying list is allowed",sizeBefore + 1,fixedSizeList.size());
     }
+
 
 }

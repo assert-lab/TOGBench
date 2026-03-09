@@ -92,6 +92,15 @@ public class TreeBagTest_OE25Dev<T> extends AbstractSortedBagTest<T> {
         }
     }
 
+    public void testOrdering() {
+        final Bag<T> bag = setupBag();
+        assertEquals("Should get elements in correct order", "A", bag.toArray()[0]);
+        assertEquals("Should get elements in correct order", "B", bag.toArray()[1]);
+        assertEquals("Should get elements in correct order", "C", bag.toArray()[2]);
+        assertEquals("Should get first key", "A", ((SortedBag<T>) bag).first());
+        assertEquals("Should get last key", "D", ((SortedBag<T>) bag).last());
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4";
@@ -106,27 +115,27 @@ public class TreeBagTest_OE25Dev<T> extends AbstractSortedBagTest<T> {
 
     public void testOrdering_1_oe() {
         final Bag<T> bag = setupBag();
-        assertEquals("Should get elements in correct order", "A", bag.toArray()[0]);
+        assertEquals(true, bag.isEmpty());
     }
 
     public void testOrdering_2_oe() {
         final Bag<T> bag = setupBag();
-        assertEquals("Should get elements in correct order", "B", bag.toArray()[1]);
+        assertEquals(true, bag.isEmpty());
     }
 
     public void testOrdering_3_oe() {
         final Bag<T> bag = setupBag();
-        assertEquals("Should get elements in correct order", "C", bag.toArray()[2]);
+        assertEquals(true, bag.isEmpty());
     }
 
     public void testOrdering_4_oe() {
         final Bag<T> bag = setupBag();
-        assertEquals("Should get first key", "A", ((SortedBag<T>) bag).first());
+        assertNull(bag.first());
     }
 
     public void testOrdering_5_oe() {
         final Bag<T> bag = setupBag();
-        assertEquals("Should get last key", "D", ((SortedBag<T>) bag).last());
+        assertNull(bag.last());
     }
 
 }

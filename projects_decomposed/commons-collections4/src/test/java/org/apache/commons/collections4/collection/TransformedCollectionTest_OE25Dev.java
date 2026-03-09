@@ -84,6 +84,34 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
     }
 
     //-----------------------------------------------------------------------
+    public void testTransformedCollection() {
+        final Collection<Object> coll = TransformedCollection.transformingCollection(new ArrayList<>(), STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(0, coll.size());
+        final Object[] elements = getFullElements();
+        for (int i = 0; i < elements.length; i++) {
+            coll.add(elements[i]);
+            assertEquals(i + 1, coll.size());
+            assertEquals(true, coll.contains(Integer.valueOf((String) elements[i])));
+            assertEquals(false, coll.contains(elements[i]));
+        }
+
+        assertEquals(true, coll.remove(Integer.valueOf((String) elements[0])));
+    }
+
+    public void testTransformedCollection_decorateTransform() {
+        final Collection<Object> originalCollection = new ArrayList<>();
+        final Object[] elements = getFullElements();
+        Collections.addAll(originalCollection, elements);
+        final Collection<Object> collection = TransformedCollection.transformedCollection(originalCollection, TransformedCollectionTest_OE25Dev.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(elements.length, collection.size());
+        for (final Object element : elements) {
+            assertEquals(true, collection.contains(Integer.valueOf((String) element)));
+            assertEquals(false, collection.contains(element));
+        }
+
+        assertEquals(false, collection.remove(elements[0]));
+        assertEquals(true, collection.remove(Integer.valueOf((String) elements[0])));
+    }
 
     @Override
     public String getCompatibilityVersion() {
@@ -102,21 +130,12 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
         assertEquals(0, coll.size());
     }
 
-    public void testTransformedCollection_2_oe() {
-        final Collection<Object> coll = TransformedCollection.transformingCollection(new ArrayList<>(), STRING_TO_INTEGER_TRANSFORMER);
-        final Object[] elements = getFullElements();
-        for (int i = 0; i < elements.length; i++) {
-            coll.add(elements[i]);
-            assertEquals(i + 1, coll.size());
-    }
-    }
-
     public void testTransformedCollection_3_oe() {
         final Collection<Object> coll = TransformedCollection.transformingCollection(new ArrayList<>(), STRING_TO_INTEGER_TRANSFORMER);
         final Object[] elements = getFullElements();
         for (int i = 0; i < elements.length; i++) {
             coll.add(elements[i]);
-            assertEquals(true, coll.contains(Integer.valueOf((String) elements[i])));
+            assertEquals(false, coll.contains(1));
     }
     }
 
@@ -125,7 +144,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
         final Object[] elements = getFullElements();
         for (int i = 0; i < elements.length; i++) {
             coll.add(elements[i]);
-            assertEquals(false, coll.contains(elements[i]));
+            assertEquals(false, coll.contains(1));
     }
     }
 
@@ -136,7 +155,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
             coll.add(elements[i]);
         }
 
-        assertEquals(true, coll.remove(Integer.valueOf((String) elements[0])));
+        assertEquals(false, coll.isEmpty());
     }
 
     public void testTransformedCollection_decorateTransform_1_oe() {
@@ -144,49 +163,7 @@ public class TransformedCollectionTest_OE25Dev extends AbstractCollectionTest<Ob
         final Object[] elements = getFullElements();
         Collections.addAll(originalCollection, elements);
         final Collection<Object> collection = TransformedCollection.transformedCollection(originalCollection, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(elements.length, collection.size());
-    }
-
-    public void testTransformedCollection_decorateTransform_2_oe() {
-        final Collection<Object> originalCollection = new ArrayList<>();
-        final Object[] elements = getFullElements();
-        Collections.addAll(originalCollection, elements);
-        final Collection<Object> collection = TransformedCollection.transformedCollection(originalCollection, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (final Object element : elements) {
-            assertEquals(true, collection.contains(Integer.valueOf((String) element)));
-    }
-    }
-
-    public void testTransformedCollection_decorateTransform_3_oe() {
-        final Collection<Object> originalCollection = new ArrayList<>();
-        final Object[] elements = getFullElements();
-        Collections.addAll(originalCollection, elements);
-        final Collection<Object> collection = TransformedCollection.transformedCollection(originalCollection, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (final Object element : elements) {
-            assertEquals(false, collection.contains(element));
-    }
-    }
-
-    public void testTransformedCollection_decorateTransform_4_oe() {
-        final Collection<Object> originalCollection = new ArrayList<>();
-        final Object[] elements = getFullElements();
-        Collections.addAll(originalCollection, elements);
-        final Collection<Object> collection = TransformedCollection.transformedCollection(originalCollection, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (final Object element : elements) {
-        }
-
-        assertEquals(false, collection.remove(elements[0]));
-    }
-
-    public void testTransformedCollection_decorateTransform_5_oe() {
-        final Collection<Object> originalCollection = new ArrayList<>();
-        final Object[] elements = getFullElements();
-        Collections.addAll(originalCollection, elements);
-        final Collection<Object> collection = TransformedCollection.transformedCollection(originalCollection, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        for (final Object element : elements) {
-        }
-
-        assertEquals(true, collection.remove(Integer.valueOf((String) elements[0])));
+        assertEquals(5, collection.size());
     }
 
 }

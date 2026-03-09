@@ -154,6 +154,310 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
+    public void testArrayIterator() {
+        final Object[] objArray = {"a", "b", "c"};
+        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
+        assertTrue(iterator.next().equals("a"));
+        assertTrue(iterator.next().equals("b"));
+        iterator.reset();
+        assertTrue(iterator.next().equals("a"));
+
+        try {
+            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
+            fail("Expecting IllegalArgumentException");
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayIterator((Object[]) null);
+            fail("Expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayIterator(objArray, 1);
+        assertTrue(iterator.next().equals("b"));
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, -1);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayIterator(objArray, 3);
+        assertTrue(!iterator.hasNext());
+        iterator.reset();
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, 4);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayIterator(objArray, 2, 3);
+        assertTrue(iterator.next().equals("c"));
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, 2, 4);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, -1, 1);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayIterator(objArray, 2, 1);
+            fail("Expecting IllegalArgumentException");
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayIterator(intArray);
+        assertTrue(iterator.next().equals(Integer.valueOf(0)));
+        assertTrue(iterator.next().equals(Integer.valueOf(1)));
+        iterator.reset();
+        assertTrue(iterator.next().equals(Integer.valueOf(0)));
+
+        iterator = IteratorUtils.arrayIterator(intArray, 1);
+        assertTrue(iterator.next().equals(Integer.valueOf(1)));
+
+        try {
+            iterator = IteratorUtils.arrayIterator(intArray, -1);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayIterator(intArray, 3);
+        assertTrue(!iterator.hasNext());
+        iterator.reset();
+
+        try {
+            iterator = IteratorUtils.arrayIterator(intArray, 4);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayIterator(intArray, 2, 3);
+        assertTrue(iterator.next().equals(Integer.valueOf(2)));
+
+        try {
+            iterator = IteratorUtils.arrayIterator(intArray, 2, 4);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayIterator(intArray, -1, 1);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayIterator(intArray, 2, 1);
+            fail("Expecting IllegalArgumentException");
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+
+    @Test
+    public void testArrayListIterator() {
+        final Object[] objArray = {"a", "b", "c", "d"};
+        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
+        assertTrue(!iterator.hasPrevious());
+        assertTrue(iterator.previousIndex() == -1);
+        assertTrue(iterator.nextIndex() == 0);
+        assertTrue(iterator.next().equals("a"));
+        assertTrue(iterator.previous().equals("a"));
+        assertTrue(iterator.next().equals("a"));
+        assertTrue(iterator.previousIndex() == 0);
+        assertTrue(iterator.nextIndex() == 1);
+        assertTrue(iterator.next().equals("b"));
+        assertTrue(iterator.next().equals("c"));
+        assertTrue(iterator.next().equals("d"));
+        assertTrue(iterator.nextIndex()== 4);// size of list assertTrue(iterator.previousIndex()== 3);
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
+            fail("Expecting IllegalArgumentException");
+        } catch (final IllegalArgumentException ex) {
+                // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator((Object[]) null);
+            fail("Expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+                // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 1);
+        assertTrue(iterator.previousIndex() == -1);
+        assertTrue(!iterator.hasPrevious());
+        assertTrue(iterator.nextIndex() == 0);
+        assertTrue(iterator.next().equals("b"));
+        assertTrue(iterator.previousIndex() == 0);
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1);
+            fail("Expecting IndexOutOfBoundsException.");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 3);
+        assertTrue(iterator.hasNext());
+        try {
+            iterator.previous();
+            fail("Expecting NoSuchElementException.");
+        } catch (final NoSuchElementException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 5);
+            fail("Expecting IndexOutOfBoundsException.");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
+        assertTrue(iterator.next().equals("c"));
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
+            fail("Expecting IllegalArgumentException");
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+
+        final int[] intArray = {0, 1, 2};
+        iterator = IteratorUtils.arrayListIterator(intArray);
+        assertTrue(iterator.previousIndex() == -1);
+        assertTrue(!iterator.hasPrevious());
+        assertTrue(iterator.nextIndex() == 0);
+        assertTrue(iterator.next().equals(Integer.valueOf(0)));
+        assertTrue(iterator.previousIndex() == 0);
+        assertTrue(iterator.nextIndex() == 1);
+        assertTrue(iterator.next().equals(Integer.valueOf(1)));
+        assertTrue(iterator.previousIndex() == 1);
+        assertTrue(iterator.nextIndex() == 2);
+        assertTrue(iterator.previous().equals(Integer.valueOf(1)));
+        assertTrue(iterator.next().equals(Integer.valueOf(1)));
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 1);
+        assertTrue(iterator.previousIndex() == -1);
+        assertTrue(!iterator.hasPrevious());
+        assertTrue(iterator.nextIndex() == 0);
+        assertTrue(iterator.next().equals(Integer.valueOf(1)));
+        assertTrue(iterator.previous().equals(Integer.valueOf(1)));
+        assertTrue(iterator.next().equals(Integer.valueOf(1)));
+        assertTrue(iterator.previousIndex() == 0);
+        assertTrue(iterator.nextIndex() == 1);
+        assertTrue(iterator.next().equals(Integer.valueOf(2)));
+        assertTrue(iterator.previousIndex() == 1);
+        assertTrue(iterator.nextIndex() == 2);
+        assertTrue(iterator.previous().equals(Integer.valueOf(2)));
+        assertTrue(iterator.previousIndex() == 0);
+        assertTrue(iterator.nextIndex() == 1);
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(intArray, -1);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 3);
+        assertTrue(!iterator.hasNext());
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(intArray, 4);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        iterator = IteratorUtils.arrayListIterator(intArray, 2, 3);
+        assertTrue(!iterator.hasPrevious());
+        assertTrue(iterator.previousIndex() == -1);
+        assertTrue(iterator.next().equals(Integer.valueOf(2)));
+        assertTrue(iterator.hasPrevious());
+        assertTrue(!iterator.hasNext());
+
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(intArray, 2, 4);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(intArray, -1, 1);
+            fail("Expecting IndexOutOfBoundsException");
+        } catch (final IndexOutOfBoundsException ex) {
+            // expected
+        }
+
+        try {
+            iterator = IteratorUtils.arrayListIterator(intArray, 2, 1);
+            fail("Expecting IllegalArgumentException");
+        } catch (final IllegalArgumentException ex) {
+            // expected
+        }
+    }
+
+    @Test
+    public void testAsIterable() {
+        final List<Integer> list = new ArrayList<>();
+        list.add(Integer.valueOf(0));
+        list.add(Integer.valueOf(1));
+        list.add(Integer.valueOf(2));
+        final Iterator<Integer> iterator = list.iterator();
+
+        final Iterable<Integer> iterable = IteratorUtils.asIterable(iterator);
+        int expected = 0;
+        for(final Integer actual : iterable) {
+            assertEquals(expected, actual.intValue());
+            ++expected;
+        }
+        // insure iteration occurred
+        assertTrue(expected > 0);
+
+        // single use iterator
+        assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
+    }
+
+    @Test
     public void testAsIterableNull() {
         try {
             IteratorUtils.asIterable(null);
@@ -161,6 +465,33 @@ public class IteratorUtilsTest_OE25Dev {
         } catch (final NullPointerException ex) {
             // success
         }
+    }
+
+    @Test
+    public void testAsMultipleIterable() {
+        final List<Integer> list = new ArrayList<>();
+        list.add(Integer.valueOf(0));
+        list.add(Integer.valueOf(1));
+        list.add(Integer.valueOf(2));
+        final Iterator<Integer> iterator = list.iterator();
+
+        final Iterable<Integer> iterable = IteratorUtils.asMultipleUseIterable(iterator);
+        int expected = 0;
+        for(final Integer actual : iterable) {
+            assertEquals(expected, actual.intValue());
+            ++expected;
+        }
+        // insure iteration occurred
+        assertTrue(expected > 0);
+
+        // multiple use iterator
+        expected = 0;
+        for(final Integer actual : iterable) {
+            assertEquals(expected, actual.intValue());
+            ++expected;
+        }
+        // insure iteration occurred
+        assertTrue(expected > 0);
     }
 
 
@@ -177,41 +508,471 @@ public class IteratorUtilsTest_OE25Dev {
     /**
      * Tests methods collatedIterator(...)
      */
+    @Test
+    public void testCollatedIterator() {
+        try {
+            IteratorUtils.collatedIterator(null, collectionOdd.iterator(), null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        try {
+            IteratorUtils.collatedIterator(null, null, collectionEven.iterator());
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        // natural ordering
+        Iterator<Integer> it =
+                IteratorUtils.collatedIterator(null, collectionOdd.iterator(), collectionEven.iterator());
+
+        List<Integer> result = IteratorUtils.toList(it);
+        assertEquals(12, result.size());
+
+        final List<Integer> combinedList = new ArrayList<>();
+        combinedList.addAll(collectionOdd);
+        combinedList.addAll(collectionEven);
+        Collections.sort(combinedList);
+
+        assertEquals(combinedList, result);
+
+        it = IteratorUtils.collatedIterator(null, collectionOdd.iterator(), emptyCollection.iterator());
+        result = IteratorUtils.toList(it);
+        assertEquals(collectionOdd, result);
+
+        final Comparator<Integer> reverseComparator =
+                ComparatorUtils.reversedComparator(ComparatorUtils.<Integer>naturalComparator());
+
+        Collections.reverse(collectionOdd);
+        Collections.reverse(collectionEven);
+        Collections.reverse(combinedList);
+
+        it = IteratorUtils.collatedIterator(reverseComparator,
+                                            collectionOdd.iterator(),
+                                            collectionEven.iterator());
+        result = IteratorUtils.toList(it);
+        assertEquals(combinedList, result);
+    }
 
     //-----------------------------------------------------------------------
     /**
      * Test empty iterator
      */
+    @Test
+    public void testEmptyIterator() {
+        assertSame(EmptyIterator.INSTANCE, IteratorUtils.EMPTY_ITERATOR);
+        assertSame(EmptyIterator.RESETTABLE_INSTANCE, IteratorUtils.EMPTY_ITERATOR);
+        assertEquals(true, IteratorUtils.EMPTY_ITERATOR instanceof Iterator);
+        assertEquals(true, IteratorUtils.EMPTY_ITERATOR instanceof ResettableIterator);
+        assertEquals(false, IteratorUtils.EMPTY_ITERATOR instanceof OrderedIterator);
+        assertEquals(false, IteratorUtils.EMPTY_ITERATOR instanceof ListIterator);
+        assertEquals(false, IteratorUtils.EMPTY_ITERATOR instanceof MapIterator);
+        assertEquals(false, IteratorUtils.EMPTY_ITERATOR.hasNext());
+        IteratorUtils.EMPTY_ITERATOR.reset();
+        assertSame(IteratorUtils.EMPTY_ITERATOR, IteratorUtils.EMPTY_ITERATOR);
+        assertSame(IteratorUtils.EMPTY_ITERATOR, IteratorUtils.emptyIterator());
+        try {
+            IteratorUtils.EMPTY_ITERATOR.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+        try {
+            IteratorUtils.EMPTY_ITERATOR.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
 
     //-----------------------------------------------------------------------
     /**
      * Test empty list iterator
      */
+    @Test
+    public void testEmptyListIterator() {
+        assertSame(EmptyListIterator.INSTANCE, IteratorUtils.EMPTY_LIST_ITERATOR);
+        assertSame(EmptyListIterator.RESETTABLE_INSTANCE, IteratorUtils.EMPTY_LIST_ITERATOR);
+        assertEquals(true, IteratorUtils.EMPTY_LIST_ITERATOR instanceof Iterator);
+        assertEquals(true, IteratorUtils.EMPTY_LIST_ITERATOR instanceof ListIterator);
+        assertEquals(true, IteratorUtils.EMPTY_LIST_ITERATOR instanceof ResettableIterator);
+        assertEquals(true, IteratorUtils.EMPTY_LIST_ITERATOR instanceof ResettableListIterator);
+        assertEquals(false, IteratorUtils.EMPTY_LIST_ITERATOR instanceof MapIterator);
+        assertEquals(false, IteratorUtils.EMPTY_LIST_ITERATOR.hasNext());
+        assertEquals(0, IteratorUtils.EMPTY_LIST_ITERATOR.nextIndex());
+        assertEquals(-1, IteratorUtils.EMPTY_LIST_ITERATOR.previousIndex());
+        IteratorUtils.EMPTY_LIST_ITERATOR.reset();
+        assertSame(IteratorUtils.EMPTY_LIST_ITERATOR, IteratorUtils.EMPTY_LIST_ITERATOR);
+        assertSame(IteratorUtils.EMPTY_LIST_ITERATOR, IteratorUtils.emptyListIterator());
+        try {
+            IteratorUtils.EMPTY_LIST_ITERATOR.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+        try {
+            IteratorUtils.EMPTY_LIST_ITERATOR.previous();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+        try {
+            IteratorUtils.EMPTY_LIST_ITERATOR.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+        try {
+            IteratorUtils.emptyListIterator().set(null);
+            fail();
+        } catch (final IllegalStateException ex) {}
+        try {
+            IteratorUtils.emptyListIterator().add(null);
+            fail();
+        } catch (final UnsupportedOperationException ex) {}
+    }
 
     //-----------------------------------------------------------------------
     /**
      * Test empty map iterator
      */
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testEmptyMapIterator() {
+        assertSame(EmptyMapIterator.INSTANCE, IteratorUtils.EMPTY_MAP_ITERATOR);
+        assertEquals(true, IteratorUtils.EMPTY_MAP_ITERATOR instanceof Iterator);
+        assertEquals(true, IteratorUtils.EMPTY_MAP_ITERATOR instanceof MapIterator);
+        assertEquals(true, IteratorUtils.EMPTY_MAP_ITERATOR instanceof ResettableIterator);
+        assertEquals(false, IteratorUtils.EMPTY_MAP_ITERATOR instanceof ListIterator);
+        assertEquals(false, IteratorUtils.EMPTY_MAP_ITERATOR instanceof OrderedIterator);
+        assertEquals(false, IteratorUtils.EMPTY_MAP_ITERATOR instanceof OrderedMapIterator);
+        assertEquals(false, IteratorUtils.EMPTY_MAP_ITERATOR.hasNext());
+        ((ResettableIterator<Object>) IteratorUtils.EMPTY_MAP_ITERATOR).reset();
+        assertSame(IteratorUtils.EMPTY_MAP_ITERATOR, IteratorUtils.EMPTY_MAP_ITERATOR);
+        assertSame(IteratorUtils.EMPTY_MAP_ITERATOR, IteratorUtils.emptyMapIterator());
+        try {
+            IteratorUtils.EMPTY_MAP_ITERATOR.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+        try {
+            IteratorUtils.EMPTY_MAP_ITERATOR.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+        try {
+            IteratorUtils.EMPTY_MAP_ITERATOR.getKey();
+            fail();
+        } catch (final IllegalStateException ex) {}
+        try {
+            IteratorUtils.EMPTY_MAP_ITERATOR.getValue();
+            fail();
+        } catch (final IllegalStateException ex) {}
+        try {
+            IteratorUtils.EMPTY_MAP_ITERATOR.setValue(null);
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
 
     //-----------------------------------------------------------------------
     /**
      * Test empty map iterator
      */
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testEmptyOrderedIterator() {
+        assertSame(EmptyOrderedIterator.INSTANCE, IteratorUtils.EMPTY_ORDERED_ITERATOR);
+        assertEquals(true, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof Iterator);
+        assertEquals(true, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof OrderedIterator);
+        assertEquals(true, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof ResettableIterator);
+        assertEquals(false, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof ListIterator);
+        assertEquals(false, IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof MapIterator);
+        assertEquals(false, IteratorUtils.EMPTY_ORDERED_ITERATOR.hasNext());
+        assertEquals(false, IteratorUtils.EMPTY_ORDERED_ITERATOR.hasPrevious());
+        ((ResettableIterator<Object>) IteratorUtils.EMPTY_ORDERED_ITERATOR).reset();
+        assertSame(IteratorUtils.EMPTY_ORDERED_ITERATOR, IteratorUtils.EMPTY_ORDERED_ITERATOR);
+        assertSame(IteratorUtils.EMPTY_ORDERED_ITERATOR, IteratorUtils.emptyOrderedIterator());
+        try {
+            IteratorUtils.EMPTY_ORDERED_ITERATOR.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+        try {
+            IteratorUtils.EMPTY_ORDERED_ITERATOR.previous();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+        try {
+            IteratorUtils.EMPTY_ORDERED_ITERATOR.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
 
     //-----------------------------------------------------------------------
     /**
      * Test empty map iterator
      */
+    @Test
+    @SuppressWarnings("unchecked")
+    public void testEmptyOrderedMapIterator() {
+        assertSame(EmptyOrderedMapIterator.INSTANCE, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR);
+        assertEquals(true, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof Iterator);
+        assertEquals(true, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof MapIterator);
+        assertEquals(true, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof OrderedMapIterator);
+        assertEquals(true, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof ResettableIterator);
+        assertEquals(false, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof ListIterator);
+        assertEquals(false, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.hasNext());
+        assertEquals(false, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.hasPrevious());
+        ((ResettableIterator<Object>) IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR).reset();
+        assertSame(IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR);
+        assertSame(IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR, IteratorUtils.emptyOrderedMapIterator());
+        try {
+            IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+        try {
+            IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.previous();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+        try {
+            IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+        try {
+            IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.getKey();
+            fail();
+        } catch (final IllegalStateException ex) {}
+        try {
+            IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.getValue();
+            fail();
+        } catch (final IllegalStateException ex) {}
+        try {
+            IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.setValue(null);
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
+
+    @Test
+    public void testFind() {
+        Predicate<Number> testPredicate = equalPredicate((Number) 4);
+        Integer test = IteratorUtils.find(iterableA.iterator(), testPredicate);
+        assertTrue(test.equals(4));
+        testPredicate = equalPredicate((Number) 45);
+        test = IteratorUtils.find(iterableA.iterator(), testPredicate);
+        assertTrue(test == null);
+        assertNull(IteratorUtils.find(null,testPredicate));
+        try {
+            assertNull(IteratorUtils.find(iterableA.iterator(), null));
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+    @Test
+    public void testFirstFromIterator() throws Exception {
+        // Iterator, entry exists
+        final Iterator<Integer> iterator = iterableA.iterator();
+        assertEquals(1, (int) IteratorUtils.first(iterator));
+    }
 
     // -----------------------------------------------------------------------
+    @Test
+    public void testForEach() {
+        final List<Integer> listA = new ArrayList<>();
+        listA.add(1);
+
+        final List<Integer> listB = new ArrayList<>();
+        listB.add(2);
+
+        final Closure<List<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
+        final Collection<List<Integer>> col = new ArrayList<>();
+        col.add(listA);
+        col.add(listB);
+        IteratorUtils.forEach(col.iterator(), testClosure);
+        assertTrue(listA.isEmpty() && listB.isEmpty());
+        try {
+            IteratorUtils.forEach(col.iterator(), null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        IteratorUtils.forEach(null, testClosure);
+
+        // null should be OK
+        col.add(null);
+        IteratorUtils.forEach(col.iterator(), testClosure);
+    }
+
+    @Test
+    public void testForEachButLast() {
+        final List<Integer> listA = new ArrayList<>();
+        listA.add(1);
+
+        final List<Integer> listB = new ArrayList<>();
+        listB.add(2);
+
+        final Closure<List<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
+        final Collection<List<Integer>> col = new ArrayList<>();
+        col.add(listA);
+        col.add(listB);
+        List<Integer> last = IteratorUtils.forEachButLast(col.iterator(), testClosure);
+        assertTrue(listA.isEmpty() && !listB.isEmpty());
+        assertSame(listB, last);
+
+        try {
+            IteratorUtils.forEachButLast(col.iterator(), null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        IteratorUtils.forEachButLast(null, testClosure);
+
+        // null should be OK
+        col.add(null);
+        col.add(null);
+        last = IteratorUtils.forEachButLast(col.iterator(), testClosure);
+        assertNull(last);
+    }
+
+    @Test
+    public void testGetAtIndexFromIterator() throws Exception {
+        // Iterator, entry exists
+        Iterator<Integer> iterator = iterableA.iterator();
+        assertEquals(1, (int) IteratorUtils.get(iterator, 0));
+        iterator = iterableA.iterator();
+        assertEquals(2, (int) IteratorUtils.get(iterator, 1));
+
+        // Iterator, non-existent entry
+        try {
+            IteratorUtils.get(iterator, 10);
+            fail("Expecting IndexOutOfBoundsException.");
+        } catch (final IndexOutOfBoundsException e) {
+            // expected
+        }
+        assertTrue(!iterator.hasNext());
+    }
+    @Test
+    public void testGetIterator() {
+    	final Object[] objArray = {"a", "b", "c"};
+        final Map<String, String> inMap = new HashMap<>();
+        final Node[] nodes = createNodes();
+        final NodeList nodeList = createNodeList(nodes);
+
+        assertTrue("returns empty iterator when null passed", IteratorUtils.getIterator(null) instanceof EmptyIterator);
+        assertTrue("returns Iterator when Iterator directly ", IteratorUtils.getIterator(iterableA.iterator()) instanceof Iterator);
+        assertTrue("returns Iterator when iterable passed", IteratorUtils.getIterator(iterableA) instanceof Iterator);
+        assertTrue("returns ObjectArrayIterator when Object array passed", IteratorUtils.getIterator(objArray) instanceof ObjectArrayIterator);
+        assertTrue("returns Iterator when Map passed", IteratorUtils.getIterator(inMap) instanceof Iterator);
+        assertTrue("returns NodeListIterator when nodeList passed", IteratorUtils.getIterator(nodeList) instanceof NodeListIterator);
+        assertTrue("returns EnumerationIterator when Enumeration passed", IteratorUtils.getIterator(new Vector().elements()) instanceof EnumerationIterator);
+
+    }
+
+    @Test
+    public void testIndexOf() {
+        Predicate<Number> testPredicate = equalPredicate((Number) 4);
+        int index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
+        assertEquals(6, index);
+        testPredicate = equalPredicate((Number) 45);
+        index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
+        assertEquals(-1, index);
+        assertEquals(-1, IteratorUtils.indexOf(null, testPredicate));
+        try {
+            IteratorUtils.indexOf(iterableA.iterator(), null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
 
     /**
      * Tests method nodeListIterator(Node)
      */
+    @Test
+    public void testNodeIterator() {
+        final Node[] nodes = createNodes();
+        final NodeList nodeList = createNodeList(nodes);
+        final Node parentNode = createMock(Node.class);
+        expect(parentNode.getChildNodes()).andStubReturn(nodeList);
+        replay(parentNode);
+
+        final Iterator<Node> iterator = IteratorUtils.nodeListIterator(parentNode);
+        int expectedNodeIndex = 0;
+        for (final Node actual : IteratorUtils.asIterable(iterator)) {
+            assertEquals(nodes[expectedNodeIndex], actual);
+            ++expectedNodeIndex;
+        }
+
+        // insure iteration occurred
+        assertTrue(expectedNodeIndex > 0);
+
+        // single use iterator
+        assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
+    }
 
     /**
      * Tests method nodeListIterator(NodeList)
      */
+    @Test
+    public void testNodeListIterator() {
+        final Node[] nodes = createNodes();
+        final NodeList nodeList = createNodeList(nodes);
+
+        final Iterator<Node> iterator = IteratorUtils.nodeListIterator(nodeList);
+        int expectedNodeIndex = 0;
+        for (final Node actual : IteratorUtils.asIterable(iterator)) {
+            assertEquals(nodes[expectedNodeIndex], actual);
+            ++expectedNodeIndex;
+        }
+
+        // insure iteration occurred
+        assertTrue(expectedNodeIndex > 0);
+
+        // single use iterator
+        assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
+    }
+
+    @Test
+    public void testToArray() {
+        final List<Object> list = new ArrayList<>();
+        list.add(Integer.valueOf(1));
+        list.add("Two");
+        list.add(null);
+        final Object[] result = IteratorUtils.toArray(list.iterator());
+        assertEquals(list, Arrays.asList(result));
+
+        try {
+        	IteratorUtils.toArray(null);
+            fail("Expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+
+    @Test
+    public void testToArray2() {
+        final List<String> list = new ArrayList<>();
+        list.add("One");
+        list.add("Two");
+        list.add(null);
+        final String[] result = IteratorUtils.toArray(list.iterator(), String.class);
+        assertEquals(list, Arrays.asList(result));
+
+        try {
+        	IteratorUtils.toArray(list.iterator(), null);
+            fail("Expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+
+        try {
+        	IteratorUtils.toArray(null, String.class);
+            fail("Expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+            // success
+        }
+    }
+
+    @Test
+    public void testToList() {
+        final List<Object> list = new ArrayList<>();
+        list.add(Integer.valueOf(1));
+        list.add("Two");
+        list.add(null);
+        final List<Object> result = IteratorUtils.toList(list.iterator());
+        assertEquals(list, result);
+    }
 
     @Test
     public void testToListIterator() {
@@ -270,6 +1031,28 @@ public class IteratorUtilsTest_OE25Dev {
     /**
      * Test next() and hasNext() for an immutable Iterator.
      */
+    @Test
+    public void testUnmodifiableIteratorIteration() {
+        final Iterator<String> iterator = getImmutableIterator();
+
+        assertTrue(iterator.hasNext());
+
+        assertEquals("a", iterator.next());
+
+        assertTrue(iterator.hasNext());
+
+        assertEquals("b", iterator.next());
+
+        assertTrue(iterator.hasNext());
+
+        assertEquals("c", iterator.next());
+
+        assertTrue(iterator.hasNext());
+
+        assertEquals("d", iterator.next());
+
+        assertTrue(!iterator.hasNext());
+    }
 
     /**
      * Test remove() for an immutable ListIterator.
@@ -333,12 +1116,59 @@ public class IteratorUtilsTest_OE25Dev {
      * Test next(), hasNext(), previous() and hasPrevious() for an immutable
      * ListIterator.
      */
+    @Test
+    public void testUnmodifiableListIteratorIteration() {
+        final ListIterator<String> listIterator = getImmutableListIterator();
+
+        assertTrue(!listIterator.hasPrevious());
+        assertTrue(listIterator.hasNext());
+
+        assertEquals("a", listIterator.next());
+
+        assertTrue(listIterator.hasPrevious());
+        assertTrue(listIterator.hasNext());
+
+        assertEquals("b", listIterator.next());
+
+        assertTrue(listIterator.hasPrevious());
+        assertTrue(listIterator.hasNext());
+
+        assertEquals("c", listIterator.next());
+
+        assertTrue(listIterator.hasPrevious());
+        assertTrue(listIterator.hasNext());
+
+        assertEquals("d", listIterator.next());
+
+        assertTrue(listIterator.hasPrevious());
+        assertTrue(!listIterator.hasNext());
+
+        assertEquals("d", listIterator.previous());
+
+        assertTrue(listIterator.hasPrevious());
+        assertTrue(listIterator.hasNext());
+
+        assertEquals("c", listIterator.previous());
+
+        assertTrue(listIterator.hasPrevious());
+        assertTrue(listIterator.hasNext());
+
+        assertEquals("b", listIterator.previous());
+
+        assertTrue(listIterator.hasPrevious());
+        assertTrue(listIterator.hasNext());
+
+        assertEquals("a", listIterator.previous());
+
+        assertTrue(!listIterator.hasPrevious());
+        assertTrue(listIterator.hasNext());
+    }
 
     @Test
     public void testArrayIterator_1_oe() {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
-        assertTrue(iterator.next().equals("a"));
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -346,421 +1176,42 @@ public class IteratorUtilsTest_OE25Dev {
         final Object[] objArray = {"a", "b", "c"};
         ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
         iterator.reset();
-        assertTrue(iterator.next().equals("a"));
-    }
-
-    @Test
-    public void testArrayIterator_6_oe() {
-        final Object[] objArray = {"a", "b", "c"};
-        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 1);
-        assertTrue(iterator.next().equals("b"));
-    }
-
-    @Test
-    public void testArrayIterator_8_oe() {
-        final Object[] objArray = {"a", "b", "c"};
-        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 3);
-        assertTrue(!iterator.hasNext());
-    }
-
-    @Test
-    public void testArrayIterator_10_oe() {
-        final Object[] objArray = {"a", "b", "c"};
-        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 3);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 2, 3);
-        assertTrue(iterator.next().equals("c"));
-    }
-
-    @Test
-    public void testArrayIterator_14_oe() {
-        final Object[] objArray = {"a", "b", "c"};
-        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 3);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayIterator(intArray);
-        assertTrue(iterator.next().equals(Integer.valueOf(0)));
-    }
-
-    @Test
-    public void testArrayIterator_16_oe() {
-        final Object[] objArray = {"a", "b", "c"};
-        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 3);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayIterator(intArray);
-        iterator.reset();
-        assertTrue(iterator.next().equals(Integer.valueOf(0)));
-    }
-
-    @Test
-    public void testArrayIterator_17_oe() {
-        final Object[] objArray = {"a", "b", "c"};
-        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 3);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayIterator(intArray);
-        iterator.reset();
-
-        iterator = IteratorUtils.arrayIterator(intArray, 1);
-        assertTrue(iterator.next().equals(Integer.valueOf(1)));
-    }
-
-    @Test
-    public void testArrayIterator_19_oe() {
-        final Object[] objArray = {"a", "b", "c"};
-        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 3);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayIterator(intArray);
-        iterator.reset();
-
-        iterator = IteratorUtils.arrayIterator(intArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(intArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(intArray, 3);
-        assertTrue(!iterator.hasNext());
-    }
-
-    @Test
-    public void testArrayIterator_21_oe() {
-        final Object[] objArray = {"a", "b", "c"};
-        ResettableIterator<Object> iterator = IteratorUtils.arrayIterator(objArray);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 3);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayIterator(intArray);
-        iterator.reset();
-
-        iterator = IteratorUtils.arrayIterator(intArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayIterator(intArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(intArray, 3);
-        iterator.reset();
-
-        try {
-            iterator = IteratorUtils.arrayIterator(intArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayIterator(intArray, 2, 3);
-        assertTrue(iterator.next().equals(Integer.valueOf(2)));
+        assertEquals(true, iterator.hasNext());
     }
 
     @Test
     public void testArrayListIterator_1_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        assertTrue(!iterator.hasPrevious());
+        assertEquals(false, iterator.hasPrevious());
     }
 
     @Test
     public void testArrayListIterator_2_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        assertTrue(iterator.previousIndex() == -1);
+        assertEquals(-1, iterator.previousIndex());
     }
 
     @Test
     public void testArrayListIterator_3_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        assertTrue(iterator.nextIndex() == 0);
+        assertEquals(1, iterator.nextIndex());
     }
 
     @Test
     public void testArrayListIterator_4_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        assertTrue(iterator.next().equals("a"));
+        assertEquals(true, iterator.hasNext());
     }
 
     @Test
     public void testArrayListIterator_6_oe() {
         final Object[] objArray = {"a", "b", "c", "d"};
         ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-        assertTrue(iterator.next().equals("a"));
+        assertEquals(true, iterator.hasNext());
     }
 
     @Test
@@ -779,7 +1230,7 @@ public class IteratorUtilsTest_OE25Dev {
         }
 
         iterator = IteratorUtils.arrayListIterator(objArray, 1);
-        assertTrue(iterator.previousIndex() == -1);
+        assertEquals(0, iterator.previousIndex());
     }
 
     @Test
@@ -798,7 +1249,7 @@ public class IteratorUtilsTest_OE25Dev {
         }
 
         iterator = IteratorUtils.arrayListIterator(objArray, 1);
-        assertTrue(!iterator.hasPrevious());
+        assertEquals(true, iterator.hasPrevious());
     }
 
     @Test
@@ -817,7 +1268,7 @@ public class IteratorUtilsTest_OE25Dev {
         }
 
         iterator = IteratorUtils.arrayListIterator(objArray, 1);
-        assertTrue(iterator.nextIndex() == 0);
+        assertEquals(1, iterator.nextIndex());
     }
 
     @Test
@@ -836,70 +1287,7 @@ public class IteratorUtilsTest_OE25Dev {
         }
 
         iterator = IteratorUtils.arrayListIterator(objArray, 1);
-        assertTrue(iterator.next().equals("b"));
-    }
-
-    @Test
-    public void testArrayListIterator_21_oe() {
-        final Object[] objArray = {"a", "b", "c", "d"};
-        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 3);
-        assertTrue(iterator.hasNext());
-    }
-
-    @Test
-    public void testArrayListIterator_24_oe() {
-        final Object[] objArray = {"a", "b", "c", "d"};
-        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 3);
-        try {
-            iterator.previous();
-        } catch (final NoSuchElementException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
-        assertTrue(iterator.next().equals("c"));
+        assertEquals(1, iterator.nextIndex());
     }
 
     @Test
@@ -954,7 +1342,7 @@ public class IteratorUtilsTest_OE25Dev {
 
         final int[] intArray = {0, 1, 2};
         iterator = IteratorUtils.arrayListIterator(intArray);
-        assertTrue(iterator.previousIndex() == -1);
+        assertEquals(2, iterator.previousIndex());
     }
 
     @Test
@@ -1009,7 +1397,7 @@ public class IteratorUtilsTest_OE25Dev {
 
         final int[] intArray = {0, 1, 2};
         iterator = IteratorUtils.arrayListIterator(intArray);
-        assertTrue(!iterator.hasPrevious());
+        assertEquals(false, iterator.hasPrevious());
     }
 
     @Test
@@ -1064,62 +1452,7 @@ public class IteratorUtilsTest_OE25Dev {
 
         final int[] intArray = {0, 1, 2};
         iterator = IteratorUtils.arrayListIterator(intArray);
-        assertTrue(iterator.nextIndex() == 0);
-    }
-
-    @Test
-    public void testArrayListIterator_31_oe() {
-        final Object[] objArray = {"a", "b", "c", "d"};
-        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 3);
-        try {
-            iterator.previous();
-        } catch (final NoSuchElementException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayListIterator(intArray);
-        assertTrue(iterator.next().equals(Integer.valueOf(0)));
+        assertEquals(3, iterator.nextIndex());
     }
 
     @Test
@@ -1176,7 +1509,7 @@ public class IteratorUtilsTest_OE25Dev {
         iterator = IteratorUtils.arrayListIterator(intArray);
 
         iterator = IteratorUtils.arrayListIterator(intArray, 1);
-        assertTrue(iterator.previousIndex() == -1);
+        assertEquals(2, iterator.previousIndex());
     }
 
     @Test
@@ -1233,7 +1566,7 @@ public class IteratorUtilsTest_OE25Dev {
         iterator = IteratorUtils.arrayListIterator(intArray);
 
         iterator = IteratorUtils.arrayListIterator(intArray, 1);
-        assertTrue(!iterator.hasPrevious());
+        assertEquals(false, iterator.hasPrevious());
     }
 
     @Test
@@ -1290,7 +1623,7 @@ public class IteratorUtilsTest_OE25Dev {
         iterator = IteratorUtils.arrayListIterator(intArray);
 
         iterator = IteratorUtils.arrayListIterator(intArray, 1);
-        assertTrue(iterator.nextIndex() == 0);
+        assertEquals(2, iterator.nextIndex());
     }
 
     @Test
@@ -1347,7 +1680,7 @@ public class IteratorUtilsTest_OE25Dev {
         iterator = IteratorUtils.arrayListIterator(intArray);
 
         iterator = IteratorUtils.arrayListIterator(intArray, 1);
-        assertTrue(iterator.next().equals(Integer.valueOf(1)));
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -1404,284 +1737,7 @@ public class IteratorUtilsTest_OE25Dev {
         iterator = IteratorUtils.arrayListIterator(intArray);
 
         iterator = IteratorUtils.arrayListIterator(intArray, 1);
-        assertTrue(iterator.next().equals(Integer.valueOf(1)));
-    }
-
-    @Test
-    public void testArrayListIterator_54_oe() {
-        final Object[] objArray = {"a", "b", "c", "d"};
-        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 3);
-        try {
-            iterator.previous();
-        } catch (final NoSuchElementException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayListIterator(intArray);
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(intArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 3);
-        assertTrue(!iterator.hasNext());
-    }
-
-    @Test
-    public void testArrayListIterator_56_oe() {
-        final Object[] objArray = {"a", "b", "c", "d"};
-        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 3);
-        try {
-            iterator.previous();
-        } catch (final NoSuchElementException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayListIterator(intArray);
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(intArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 3);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(intArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 2, 3);
-        assertTrue(!iterator.hasPrevious());
-    }
-
-    @Test
-    public void testArrayListIterator_57_oe() {
-        final Object[] objArray = {"a", "b", "c", "d"};
-        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 3);
-        try {
-            iterator.previous();
-        } catch (final NoSuchElementException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayListIterator(intArray);
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(intArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 3);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(intArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 2, 3);
-        assertTrue(iterator.previousIndex() == -1);
-    }
-
-    @Test
-    public void testArrayListIterator_58_oe() {
-        final Object[] objArray = {"a", "b", "c", "d"};
-        ResettableListIterator<Object> iterator = IteratorUtils.arrayListIterator(objArray);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(Integer.valueOf(0));
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator((Object[]) null);
-        } catch (final NullPointerException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 3);
-        try {
-            iterator.previous();
-        } catch (final NoSuchElementException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(objArray, 2, 3);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 5);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, -1, 1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(objArray, 2, 1);
-        } catch (final IllegalArgumentException ex) {
-        }
-
-        final int[] intArray = {0, 1, 2};
-        iterator = IteratorUtils.arrayListIterator(intArray);
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 1);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(intArray, -1);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 3);
-
-        try {
-            iterator = IteratorUtils.arrayListIterator(intArray, 4);
-        } catch (final IndexOutOfBoundsException ex) {
-        }
-
-        iterator = IteratorUtils.arrayListIterator(intArray, 2, 3);
-        assertTrue(iterator.next().equals(Integer.valueOf(2)));
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -1697,7 +1753,7 @@ public class IteratorUtilsTest_OE25Dev {
         for(final Integer actual : iterable) {
             ++expected;
         }
-        assertTrue(expected > 0);
+        assertEquals(3, expected);
     }
 
     @Test
@@ -1714,7 +1770,7 @@ public class IteratorUtilsTest_OE25Dev {
             ++expected;
         }
 
-        assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
+        assertEquals(3, expected);
     }
 
     @Test
@@ -1730,7 +1786,7 @@ public class IteratorUtilsTest_OE25Dev {
         for(final Integer actual : iterable) {
             ++expected;
         }
-        assertTrue(expected > 0);
+        assertEquals(3, expected);
     }
 
     @Test
@@ -1751,7 +1807,7 @@ public class IteratorUtilsTest_OE25Dev {
         for(final Integer actual : iterable) {
             ++expected;
         }
-        assertTrue(expected > 0);
+        assertEquals(3, expected);
     }
 
     @Test
@@ -1770,7 +1826,7 @@ public class IteratorUtilsTest_OE25Dev {
                 IteratorUtils.collatedIterator(null, collectionOdd.iterator(), collectionEven.iterator());
 
         List<Integer> result = IteratorUtils.toList(it);
-        assertEquals(12, result.size());
+        assertEquals(0, IteratorUtils.size(null));
     }
 
     @Test
@@ -1795,7 +1851,7 @@ public class IteratorUtilsTest_OE25Dev {
         combinedList.addAll(collectionEven);
         Collections.sort(combinedList);
 
-        assertEquals(combinedList, result);
+        assertEquals(false, it.hasNext());
     }
 
     @Test
@@ -1823,7 +1879,7 @@ public class IteratorUtilsTest_OE25Dev {
 
         it = IteratorUtils.collatedIterator(null, collectionOdd.iterator(), emptyCollection.iterator());
         result = IteratorUtils.toList(it);
-        assertEquals(collectionOdd, result);
+        assertEquals(false, it.hasNext());
     }
 
     @Test
@@ -1863,31 +1919,31 @@ public class IteratorUtilsTest_OE25Dev {
                                             collectionOdd.iterator(),
                                             collectionEven.iterator());
         result = IteratorUtils.toList(it);
-        assertEquals(combinedList, result);
+        assertNotNull(result);
     }
 
     @Test
     public void testEmptyIterator_1_oe() {
         Object a = IteratorUtils.EMPTY_ITERATOR;
-        assertSame(EmptyIterator.INSTANCE, a);
+        assertEquals(false, IteratorUtils.isEmpty(IteratorUtils.EMPTY_ITERATOR));
     }
 
     @Test
     public void testEmptyIterator_2_oe() {
         Object a = IteratorUtils.EMPTY_ITERATOR;
-        assertSame(EmptyIterator.RESETTABLE_INSTANCE, a);
+        assertEquals(false, IteratorUtils.isEmpty(IteratorUtils.EMPTY_ITERATOR));
     }
 
     @Test
     public void testEmptyIterator_3_oe() {
         Object a = IteratorUtils.EMPTY_ITERATOR instanceof Iterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     public void testEmptyIterator_4_oe() {
         Object a = IteratorUtils.EMPTY_ITERATOR instanceof ResettableIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
@@ -1909,68 +1965,56 @@ public class IteratorUtilsTest_OE25Dev {
     }
 
     @Test
-    public void testEmptyIterator_8_oe() {
-        Object a = IteratorUtils.EMPTY_ITERATOR.hasNext();
-        assertEquals(false, a);
-    }
-
-    @Test
     public void testEmptyIterator_9_oe() {
         IteratorUtils.EMPTY_ITERATOR.reset();
-        assertSame(IteratorUtils.EMPTY_ITERATOR, IteratorUtils.EMPTY_ITERATOR);
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
     public void testEmptyIterator_10_oe() {
         IteratorUtils.EMPTY_ITERATOR.reset();
-        assertSame(IteratorUtils.EMPTY_ITERATOR, IteratorUtils.emptyIterator());
+        assertEquals(false, IteratorUtils.EMPTY_ITERATOR.hasNext());
     }
 
     @Test
     public void testEmptyListIterator_1_oe() {
         Object a = IteratorUtils.EMPTY_LIST_ITERATOR;
-        assertSame(EmptyListIterator.INSTANCE, a);
+        assertEquals(false, IteratorUtils.isEmpty(IteratorUtils.EMPTY_LIST_ITERATOR));
     }
 
     @Test
     public void testEmptyListIterator_2_oe() {
         Object a = IteratorUtils.EMPTY_LIST_ITERATOR;
-        assertSame(EmptyListIterator.RESETTABLE_INSTANCE, a);
+        assertEquals(false, IteratorUtils.isEmpty(IteratorUtils.EMPTY_LIST_ITERATOR));
     }
 
     @Test
     public void testEmptyListIterator_3_oe() {
         Object a = IteratorUtils.EMPTY_LIST_ITERATOR instanceof Iterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     public void testEmptyListIterator_4_oe() {
         Object a = IteratorUtils.EMPTY_LIST_ITERATOR instanceof ListIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     public void testEmptyListIterator_5_oe() {
         Object a = IteratorUtils.EMPTY_LIST_ITERATOR instanceof ResettableIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     public void testEmptyListIterator_6_oe() {
         Object a = IteratorUtils.EMPTY_LIST_ITERATOR instanceof ResettableListIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     public void testEmptyListIterator_7_oe() {
         Object a = IteratorUtils.EMPTY_LIST_ITERATOR instanceof MapIterator;
-        assertEquals(false, a);
-    }
-
-    @Test
-    public void testEmptyListIterator_8_oe() {
-        Object a = IteratorUtils.EMPTY_LIST_ITERATOR.hasNext();
         assertEquals(false, a);
     }
 
@@ -1983,26 +2027,26 @@ public class IteratorUtilsTest_OE25Dev {
     @Test
     public void testEmptyListIterator_10_oe() {
         Object a = IteratorUtils.EMPTY_LIST_ITERATOR.previousIndex();
-        assertEquals(-1, a);
+        assertEquals(0, a);
     }
 
     @Test
     public void testEmptyListIterator_11_oe() {
         IteratorUtils.EMPTY_LIST_ITERATOR.reset();
-        assertSame(IteratorUtils.EMPTY_LIST_ITERATOR, IteratorUtils.EMPTY_LIST_ITERATOR);
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
     public void testEmptyListIterator_12_oe() {
         IteratorUtils.EMPTY_LIST_ITERATOR.reset();
-        assertSame(IteratorUtils.EMPTY_LIST_ITERATOR, IteratorUtils.emptyListIterator());
+        assertEquals(false, IteratorUtils.EMPTY_LIST_ITERATOR.hasPrevious());
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_1_oe() {
         Object a = IteratorUtils.EMPTY_MAP_ITERATOR;
-        assertSame(EmptyMapIterator.INSTANCE, a);
+        assertEquals(false, IteratorUtils.isEmpty(IteratorUtils.EMPTY_MAP_ITERATOR));
     }
 
     @Test
@@ -2016,14 +2060,14 @@ public class IteratorUtilsTest_OE25Dev {
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_3_oe() {
         Object a = IteratorUtils.EMPTY_MAP_ITERATOR instanceof MapIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_4_oe() {
         Object a = IteratorUtils.EMPTY_MAP_ITERATOR instanceof ResettableIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
@@ -2058,42 +2102,42 @@ public class IteratorUtilsTest_OE25Dev {
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_9_oe() {
         ((ResettableIterator<Object>) IteratorUtils.EMPTY_MAP_ITERATOR).reset();
-        assertSame(IteratorUtils.EMPTY_MAP_ITERATOR, IteratorUtils.EMPTY_MAP_ITERATOR);
+        assertNull(iterator.next());
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyMapIterator_10_oe() {
         ((ResettableIterator<Object>) IteratorUtils.EMPTY_MAP_ITERATOR).reset();
-        assertSame(IteratorUtils.EMPTY_MAP_ITERATOR, IteratorUtils.emptyMapIterator());
+        assertEquals(false, IteratorUtils.emptyMapIterator().hasNext());
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_1_oe() {
         Object a = IteratorUtils.EMPTY_ORDERED_ITERATOR;
-        assertSame(EmptyOrderedIterator.INSTANCE, a);
+        assertEquals(false, IteratorUtils.isEmpty(IteratorUtils.EMPTY_ORDERED_ITERATOR));
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_2_oe() {
         Object a = IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof Iterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_3_oe() {
         Object a = IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof OrderedIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_4_oe() {
         Object a = IteratorUtils.EMPTY_ORDERED_ITERATOR instanceof ResettableIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
@@ -2128,49 +2172,49 @@ public class IteratorUtilsTest_OE25Dev {
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_9_oe() {
         ((ResettableIterator<Object>) IteratorUtils.EMPTY_ORDERED_ITERATOR).reset();
-        assertSame(IteratorUtils.EMPTY_ORDERED_ITERATOR, IteratorUtils.EMPTY_ORDERED_ITERATOR);
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedIterator_10_oe() {
         ((ResettableIterator<Object>) IteratorUtils.EMPTY_ORDERED_ITERATOR).reset();
-        assertSame(IteratorUtils.EMPTY_ORDERED_ITERATOR, IteratorUtils.emptyOrderedIterator());
+        assertEquals(false, IteratorUtils.EMPTY_ORDERED_ITERATOR.hasNext());
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_1_oe() {
         Object a = IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR;
-        assertSame(EmptyOrderedMapIterator.INSTANCE, a);
+        assertEquals(false, IteratorUtils.isEmpty(IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR));
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_2_oe() {
         Object a = IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof Iterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_3_oe() {
         Object a = IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof MapIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_4_oe() {
         Object a = IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof OrderedMapIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_5_oe() {
         Object a = IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR instanceof ResettableIterator;
-        assertEquals(true, a);
+        assertEquals(false, a);
     }
 
     @Test
@@ -2198,45 +2242,27 @@ public class IteratorUtilsTest_OE25Dev {
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_9_oe() {
         ((ResettableIterator<Object>) IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR).reset();
-        assertSame(IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR);
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
     @SuppressWarnings("unchecked")
     public void testEmptyOrderedMapIterator_10_oe() {
         ((ResettableIterator<Object>) IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR).reset();
-        assertSame(IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR, IteratorUtils.emptyOrderedMapIterator());
+        assertEquals(false, IteratorUtils.EMPTY_ORDERED_MAP_ITERATOR.hasNext());
     }
 
     @Test
     public void testFind_1_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         Integer test = IteratorUtils.find(iterableA.iterator(), testPredicate);
-        assertTrue(test.equals(4));
-    }
-
-    @Test
-    public void testFind_2_oe() {
-        Predicate<Number> testPredicate = equalPredicate((Number) 4);
-        Integer test = IteratorUtils.find(iterableA.iterator(), testPredicate);
-        testPredicate = equalPredicate((Number) 45);
-        test = IteratorUtils.find(iterableA.iterator(), testPredicate);
-        assertTrue(test == null);
-    }
-
-    @Test
-    public void testFind_3_oe() {
-        Predicate<Number> testPredicate = equalPredicate((Number) 4);
-        Integer test = IteratorUtils.find(iterableA.iterator(), testPredicate);
-        testPredicate = equalPredicate((Number) 45);
-        test = IteratorUtils.find(iterableA.iterator(), testPredicate);
-        assertNull(IteratorUtils.find(null,testPredicate));
+        assertEquals(false, test.hasNext());
     }
 
     @Test
     public void testFirstFromIterator_1_oe() throws Exception {
         final Iterator<Integer> iterator = iterableA.iterator();
-        assertEquals(1, (int) IteratorUtils.first(iterator));
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -2252,7 +2278,7 @@ public class IteratorUtilsTest_OE25Dev {
         col.add(listA);
         col.add(listB);
         IteratorUtils.forEach(col.iterator(), testClosure);
-        assertTrue(listA.isEmpty() && listB.isEmpty());
+        assertEquals(true, IteratorUtils.isEmpty(col.iterator()));
     }
 
     @Test
@@ -2268,7 +2294,7 @@ public class IteratorUtilsTest_OE25Dev {
         col.add(listA);
         col.add(listB);
         List<Integer> last = IteratorUtils.forEachButLast(col.iterator(), testClosure);
-        assertTrue(listA.isEmpty() && !listB.isEmpty());
+        assertEquals(false, ListUtils.isEmpty(listB));
     }
 
     @Test
@@ -2284,47 +2310,13 @@ public class IteratorUtilsTest_OE25Dev {
         col.add(listA);
         col.add(listB);
         List<Integer> last = IteratorUtils.forEachButLast(col.iterator(), testClosure);
-        assertSame(listB, last);
-    }
-
-    @Test
-    public void testForEachButLast_4_oe() {
-        final List<Integer> listA = new ArrayList<>();
-        listA.add(1);
-
-        final List<Integer> listB = new ArrayList<>();
-        listB.add(2);
-
-        final Closure<List<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
-        final Collection<List<Integer>> col = new ArrayList<>();
-        col.add(listA);
-        col.add(listB);
-        List<Integer> last = IteratorUtils.forEachButLast(col.iterator(), testClosure);
-
-        try {
-            IteratorUtils.forEachButLast(col.iterator(), null);
-        } catch (final NullPointerException npe) {
-        }
-
-        IteratorUtils.forEachButLast(null, testClosure);
-
-        col.add(null);
-        col.add(null);
-        last = IteratorUtils.forEachButLast(col.iterator(), testClosure);
-        assertNull(last);
+        assertEquals(false, last.hasNext());
     }
 
     @Test
     public void testGetAtIndexFromIterator_1_oe() throws Exception {
         Iterator<Integer> iterator = iterableA.iterator();
-        assertEquals(1, (int) IteratorUtils.get(iterator, 0));
-    }
-
-    @Test
-    public void testGetAtIndexFromIterator_2_oe() throws Exception {
-        Iterator<Integer> iterator = iterableA.iterator();
-        iterator = iterableA.iterator();
-        assertEquals(2, (int) IteratorUtils.get(iterator, 1));
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -2336,102 +2328,7 @@ public class IteratorUtilsTest_OE25Dev {
             IteratorUtils.get(iterator, 10);
         } catch (final IndexOutOfBoundsException e) {
         }
-        assertTrue(!iterator.hasNext());
-    }
-
-    @Test
-    public void testGetIterator_1_oe() {
-    	final Object[] objArray = {"a", "b", "c"};
-        final Map<String, String> inMap = new HashMap<>();
-        final Node[] nodes = createNodes();
-        final NodeList nodeList = createNodeList(nodes);
-
-        assertTrue("returns empty iterator when null passed", IteratorUtils.getIterator(null) instanceof EmptyIterator);
-    }
-
-    @Test
-    public void testGetIterator_2_oe() {
-    	final Object[] objArray = {"a", "b", "c"};
-        final Map<String, String> inMap = new HashMap<>();
-        final Node[] nodes = createNodes();
-        final NodeList nodeList = createNodeList(nodes);
-
-        assertTrue("returns Iterator when Iterator directly ", IteratorUtils.getIterator(iterableA.iterator()) instanceof Iterator);
-    }
-
-    @Test
-    public void testGetIterator_3_oe() {
-    	final Object[] objArray = {"a", "b", "c"};
-        final Map<String, String> inMap = new HashMap<>();
-        final Node[] nodes = createNodes();
-        final NodeList nodeList = createNodeList(nodes);
-
-        assertTrue("returns Iterator when iterable passed", IteratorUtils.getIterator(iterableA) instanceof Iterator);
-    }
-
-    @Test
-    public void testGetIterator_4_oe() {
-    	final Object[] objArray = {"a", "b", "c"};
-        final Map<String, String> inMap = new HashMap<>();
-        final Node[] nodes = createNodes();
-        final NodeList nodeList = createNodeList(nodes);
-
-        assertTrue("returns ObjectArrayIterator when Object array passed", IteratorUtils.getIterator(objArray) instanceof ObjectArrayIterator);
-    }
-
-    @Test
-    public void testGetIterator_5_oe() {
-    	final Object[] objArray = {"a", "b", "c"};
-        final Map<String, String> inMap = new HashMap<>();
-        final Node[] nodes = createNodes();
-        final NodeList nodeList = createNodeList(nodes);
-
-        assertTrue("returns Iterator when Map passed", IteratorUtils.getIterator(inMap) instanceof Iterator);
-    }
-
-    @Test
-    public void testGetIterator_6_oe() {
-    	final Object[] objArray = {"a", "b", "c"};
-        final Map<String, String> inMap = new HashMap<>();
-        final Node[] nodes = createNodes();
-        final NodeList nodeList = createNodeList(nodes);
-
-        assertTrue("returns NodeListIterator when nodeList passed", IteratorUtils.getIterator(nodeList) instanceof NodeListIterator);
-    }
-
-    @Test
-    public void testGetIterator_7_oe() {
-    	final Object[] objArray = {"a", "b", "c"};
-        final Map<String, String> inMap = new HashMap<>();
-        final Node[] nodes = createNodes();
-        final NodeList nodeList = createNodeList(nodes);
-
-        assertTrue("returns EnumerationIterator when Enumeration passed", IteratorUtils.getIterator(new Vector().elements()) instanceof EnumerationIterator);
-    }
-
-    @Test
-    public void testIndexOf_1_oe() {
-        Predicate<Number> testPredicate = equalPredicate((Number) 4);
-        int index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
-        assertEquals(6, index);
-    }
-
-    @Test
-    public void testIndexOf_2_oe() {
-        Predicate<Number> testPredicate = equalPredicate((Number) 4);
-        int index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
-        testPredicate = equalPredicate((Number) 45);
-        index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
-        assertEquals(-1, index);
-    }
-
-    @Test
-    public void testIndexOf_3_oe() {
-        Predicate<Number> testPredicate = equalPredicate((Number) 4);
-        int index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
-        testPredicate = equalPredicate((Number) 45);
-        index = IteratorUtils.indexOf(iterableA.iterator(), testPredicate);
-        assertEquals(-1, IteratorUtils.indexOf(null, testPredicate));
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -2448,7 +2345,7 @@ public class IteratorUtilsTest_OE25Dev {
             ++expectedNodeIndex;
         }
 
-        assertTrue(expectedNodeIndex > 0);
+        assertEquals(0, expectedNodeIndex);
     }
 
     @Test
@@ -2466,7 +2363,7 @@ public class IteratorUtilsTest_OE25Dev {
         }
 
 
-        assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
+        assertEquals(0, expectedNodeIndex);
     }
 
     @Test
@@ -2480,7 +2377,7 @@ public class IteratorUtilsTest_OE25Dev {
             ++expectedNodeIndex;
         }
 
-        assertTrue(expectedNodeIndex > 0);
+        assertEquals(5, expectedNodeIndex);
     }
 
     @Test
@@ -2495,7 +2392,7 @@ public class IteratorUtilsTest_OE25Dev {
         }
 
 
-        assertFalse("should not be able to iterate twice", IteratorUtils.asIterable(iterator).iterator().hasNext());
+        assertEquals(0, expectedNodeIndex);
     }
 
     @Test
@@ -2505,7 +2402,7 @@ public class IteratorUtilsTest_OE25Dev {
         list.add("Two");
         list.add(null);
         final Object[] result = IteratorUtils.toArray(list.iterator());
-        assertEquals(list, Arrays.asList(result));
+        assertEquals(3, list.size());
     }
 
     @Test
@@ -2515,7 +2412,7 @@ public class IteratorUtilsTest_OE25Dev {
         list.add("Two");
         list.add(null);
         final String[] result = IteratorUtils.toArray(list.iterator(), String.class);
-        assertEquals(list, Arrays.asList(result));
+        assertEquals(false, list.isEmpty());
     }
 
     @Test
@@ -2525,14 +2422,14 @@ public class IteratorUtilsTest_OE25Dev {
         list.add("Two");
         list.add(null);
         final List<Object> result = IteratorUtils.toList(list.iterator());
-        assertEquals(list, result);
+        assertEquals(false, result.hasNext());
     }
 
     @Test
     public void testUnmodifiableIteratorIteration_1_oe() {
         final Iterator<String> iterator = getImmutableIterator();
 
-        assertTrue(iterator.hasNext());
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -2540,7 +2437,7 @@ public class IteratorUtilsTest_OE25Dev {
         final Iterator<String> iterator = getImmutableIterator();
 
 
-        assertEquals("a", iterator.next());
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -2549,7 +2446,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(iterator.hasNext());
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -2560,7 +2457,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(iterator.hasNext());
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
@@ -2573,21 +2470,21 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(iterator.hasNext());
+        assertEquals(false, iterator.hasNext());
     }
 
     @Test
     public void testUnmodifiableListIteratorIteration_1_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
-        assertTrue(!listIterator.hasPrevious());
+        assertEquals(false, listIterator.hasPrevious());
     }
 
     @Test
     public void testUnmodifiableListIteratorIteration_2_oe() {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
-        assertTrue(listIterator.hasNext());
+        assertEquals(false, listIterator.hasNext());
     }
 
     @Test
@@ -2595,7 +2492,7 @@ public class IteratorUtilsTest_OE25Dev {
         final ListIterator<String> listIterator = getImmutableListIterator();
 
 
-        assertEquals("a", listIterator.next());
+        assertEquals(0, listIterator.nextIndex());
     }
 
     @Test
@@ -2604,7 +2501,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(listIterator.hasNext());
+        assertEquals(false, listIterator.hasNext());
     }
 
     @Test
@@ -2615,7 +2512,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(listIterator.hasNext());
+        assertEquals(false, listIterator.hasNext());
     }
 
     @Test
@@ -2628,7 +2525,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(listIterator.hasNext());
+        assertEquals(false, listIterator.hasNext());
     }
 
     @Test
@@ -2645,7 +2542,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(listIterator.hasNext());
+        assertEquals(false, listIterator.hasNext());
     }
 
     @Test
@@ -2664,7 +2561,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(listIterator.hasNext());
+        assertEquals(false, listIterator.hasNext());
     }
 
     @Test
@@ -2685,7 +2582,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(listIterator.hasNext());
+        assertEquals(false, listIterator.hasNext());
     }
 
     @Test
@@ -2708,7 +2605,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(!listIterator.hasPrevious());
+        assertEquals(false, listIterator.hasPrevious());
     }
 
     @Test
@@ -2731,143 +2628,7 @@ public class IteratorUtilsTest_OE25Dev {
 
 
 
-        assertTrue(listIterator.hasNext());
-    }
-
-@Test
-    public void testAsIterableNull_oe_101_oe() {
-        try {
-            IteratorUtils.asIterable(null);
-            fail("Expecting NullPointerException");
-        } catch (final NullPointerException ex) {
-            // success
-        }
-    }
-
-@Test
-    public void testAsMultipleIterableNull_oe_101_oe() {
-        try {
-            IteratorUtils.asMultipleUseIterable(null);
-            fail("Expecting NullPointerException");
-        } catch (final NullPointerException ex) {
-            // success
-        }
-    }
-
-@Test
-    public void testCollatedIterator_oe_101_oe() {
-        try {
-            IteratorUtils.collatedIterator(null, collectionOdd.iterator(), null);
-            fail("expecting NullPointerException");
-        } catch (final NullPointerException npe) {
-            // expected
-        }
-    }
-
-@Test
-    public void testCollatedIterator_oe_102_oe() {
-        try {
-            IteratorUtils.collatedIterator(null, null, collectionEven.iterator());
-            fail("expecting NullPointerException");
-        } catch (final NullPointerException npe) {
-            // expected
-        }
-    }
-
-@Test
-    public void testEmptyIterator_oe_101_oe() {
-        try {
-            IteratorUtils.EMPTY_ITERATOR.next();
-            fail();
-        } catch (final NoSuchElementException ex) {}
-    }
-
-@Test
-    public void testEmptyIterator_oe_102_oe() {
-        try {
-            IteratorUtils.EMPTY_ITERATOR.remove();
-            fail();
-        } catch (final IllegalStateException ex) {}
-    }
-
-@Test
-    public void testEmptyListIterator_oe_101_oe() {
-        try {
-            IteratorUtils.EMPTY_LIST_ITERATOR.next();
-            fail();
-        } catch (final NoSuchElementException ex) {}
-    }
-
-@Test
-    public void testEmptyListIterator_oe_102_oe() {
-        try {
-            IteratorUtils.EMPTY_LIST_ITERATOR.previous();
-            fail();
-        } catch (final NoSuchElementException ex) {}
-    }
-
-@Test
-    public void testEmptyListIterator_oe_103_oe() {
-        try {
-            IteratorUtils.EMPTY_LIST_ITERATOR.remove();
-            fail();
-        } catch (final IllegalStateException ex) {}
-    }
-
-@Test
-    public void testEmptyListIterator_oe_104_oe() {
-        try {
-            IteratorUtils.emptyListIterator().set(null);
-            fail();
-        } catch (final IllegalStateException ex) {}
-    }
-
-@Test
-    public void testEmptyListIterator_oe_105_oe() {
-        try {
-            IteratorUtils.emptyListIterator().add(null);
-            fail();
-        } catch (final UnsupportedOperationException ex) {}
-    }
-
-@Test
-    public void testIndexOf_oe_101_oe() {
-        try {
-            IteratorUtils.indexOf(iterableA.iterator(), null);
-            fail("expecting NullPointerException");
-        } catch (final NullPointerException npe) {
-            // expected
-        }
-    }
-
-@Test
-    public void testToArray_oe_101_oe() {
-        try {
-        	IteratorUtils.toArray(null);
-            fail("Expecting NullPointerException");
-        } catch (final NullPointerException ex) {
-            // success
-        }
-    }
-
-@Test
-    public void testToArray2_oe_102_oe() {
-        try {
-        	IteratorUtils.toArray(null, String.class);
-            fail("Expecting NullPointerException");
-        } catch (final NullPointerException ex) {
-            // success
-        }
-    }
-
-@Test
-    public void testToListIteratorNull_oe_101_oe() {
-        try {
-            IteratorUtils.toListIterator(null);
-            fail("Expecting NullPointerException");
-        } catch (final NullPointerException ex) {
-            // success
-        }
+        assertEquals(false, listIterator.hasNext());
     }
 
 }

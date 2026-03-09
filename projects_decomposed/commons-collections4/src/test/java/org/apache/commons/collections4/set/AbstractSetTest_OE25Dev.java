@@ -141,34 +141,39 @@ public abstract class AbstractSetTest_OE25Dev<E> extends AbstractCollectionTest<
     /**
      * Tests {@link Set#equals(Object)}.
      */
-
-    /**
-     * Tests {@link Set#hashCode()}.
-     */
-
-    public void testSetEquals_1_oe() {
+    @SuppressWarnings("unchecked")
+    public void testSetEquals() {
         resetEmpty();
         assertEquals("Empty sets should be equal", getCollection(), getConfirmed());
-    }
-
-    public void testSetEquals_2_oe() {
-        resetEmpty();
         verify();
 
         final Collection<E> set2 = makeConfirmedCollection();
         set2.add((E) "foo");
         assertTrue("Empty set shouldn't equal nonempty set", !getCollection().equals(set2));
-    }
-
-    public void testSetEquals_3_oe() {
-        resetEmpty();
-        verify();
-
-        final Collection<E> set2 = makeConfirmedCollection();
-        set2.add((E) "foo");
 
         resetFull();
         assertEquals("Full sets should be equal", getCollection(), getConfirmed());
+        verify();
+
+        set2.clear();
+        set2.addAll(Arrays.asList(getOtherElements()));
+        assertTrue("Sets with different contents shouldn't be equal", !getCollection().equals(set2));
+    }
+
+    /**
+     * Tests {@link Set#hashCode()}.
+     */
+    public void testSetHashCode() {
+        resetEmpty();
+        assertEquals("Empty sets have equal hashCodes",getCollection().hashCode(),getConfirmed().hashCode());
+
+        resetFull();
+        assertEquals("Equal sets have equal hashCodes",getCollection().hashCode(),getConfirmed().hashCode());
+    }
+
+    public void testSetEquals_1_oe() {
+        resetEmpty();
+        assertNull(MultiValuedMap.getCollection(map, key));
     }
 
     public void testSetEquals_4_oe() {
@@ -183,19 +188,19 @@ public abstract class AbstractSetTest_OE25Dev<E> extends AbstractCollectionTest<
 
         set2.clear();
         set2.addAll(Arrays.asList(getOtherElements()));
-        assertTrue("Sets with different contents shouldn't be equal", !getCollection().equals(set2));
+        assertEquals(false, set2.isEmpty());
     }
 
     public void testSetHashCode_1_oe() {
         resetEmpty();
-        assertEquals("Empty sets have equal hashCodes",getCollection().hashCode(),getConfirmed().hashCode());
+        assertNull(MultiValuedMap.getCollection(map, key));
     }
 
     public void testSetHashCode_2_oe() {
         resetEmpty();
 
         resetFull();
-        assertEquals("Equal sets have equal hashCodes",getCollection().hashCode(),getConfirmed().hashCode());
+        assertNull(MultiValuedMap.getCollection(map, key));
     }
 
 }

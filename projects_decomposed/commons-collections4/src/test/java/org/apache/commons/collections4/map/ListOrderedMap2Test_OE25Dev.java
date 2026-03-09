@@ -55,6 +55,72 @@ public class ListOrderedMap2Test_OE25Dev<K, V> extends AbstractOrderedMapTest<K,
     }
 
     //-----------------------------------------------------------------------
+    public void testGetByIndex() {
+        resetEmpty();
+        ListOrderedMap<K, V> lom = getMap();
+        try {
+            lom.get(0);
+        } catch (final IndexOutOfBoundsException ex) {}
+        try {
+            lom.get(-1);
+        } catch (final IndexOutOfBoundsException ex) {}
+
+        resetFull();
+        lom = getMap();
+        try {
+            lom.get(-1);
+        } catch (final IndexOutOfBoundsException ex) {}
+        try {
+            lom.get(lom.size());
+        } catch (final IndexOutOfBoundsException ex) {}
+
+        int i = 0;
+        for (final MapIterator<K, V> it = lom.mapIterator(); it.hasNext(); i++) {
+            assertSame(it.next(), lom.get(i));
+        }
+    }
+
+    public void testGetValueByIndex() {
+        resetEmpty();
+        ListOrderedMap<K, V> lom = getMap();
+        try {
+            lom.getValue(0);
+        } catch (final IndexOutOfBoundsException ex) {}
+        try {
+            lom.getValue(-1);
+        } catch (final IndexOutOfBoundsException ex) {}
+
+        resetFull();
+        lom = getMap();
+        try {
+            lom.getValue(-1);
+        } catch (final IndexOutOfBoundsException ex) {}
+        try {
+            lom.getValue(lom.size());
+        } catch (final IndexOutOfBoundsException ex) {}
+
+        int i = 0;
+        for (final MapIterator<K, V> it = lom.mapIterator(); it.hasNext(); i++) {
+            it.next();
+            assertSame(it.getValue(), lom.getValue(i));
+        }
+    }
+
+    public void testIndexOf() {
+        resetEmpty();
+        ListOrderedMap<K, V> lom = getMap();
+        assertEquals(-1, lom.indexOf(getOtherKeys()));
+
+        resetFull();
+        lom = getMap();
+        final List<K> list = new ArrayList<>();
+        for (final MapIterator<K, V> it = lom.mapIterator(); it.hasNext();) {
+            list.add(it.next());
+        }
+        for (int i = 0; i < list.size(); i++) {
+            assertEquals(i, lom.indexOf(list.get(i)));
+        }
+    }
 
     public void testRemoveByIndex() {
         resetEmpty();
@@ -158,76 +224,10 @@ public class ListOrderedMap2Test_OE25Dev<K, V> extends AbstractOrderedMapTest<K,
         return (ListOrderedMap<K, V>) super.getMap();
     }
 
-    public void testGetByIndex_1_oe() {
-        resetEmpty();
-        ListOrderedMap<K, V> lom = getMap();
-        try {
-            lom.get(0);
-        } catch (final IndexOutOfBoundsException ex) {}
-        try {
-            lom.get(-1);
-        } catch (final IndexOutOfBoundsException ex) {}
-
-        resetFull();
-        lom = getMap();
-        try {
-            lom.get(-1);
-        } catch (final IndexOutOfBoundsException ex) {}
-        try {
-            lom.get(lom.size());
-        } catch (final IndexOutOfBoundsException ex) {}
-
-        int i = 0;
-        for (final MapIterator<K, V> it = lom.mapIterator(); it.hasNext(); i++) {
-            assertSame(it.next(), lom.get(i));
-    }
-    }
-
-    public void testGetValueByIndex_1_oe() {
-        resetEmpty();
-        ListOrderedMap<K, V> lom = getMap();
-        try {
-            lom.getValue(0);
-        } catch (final IndexOutOfBoundsException ex) {}
-        try {
-            lom.getValue(-1);
-        } catch (final IndexOutOfBoundsException ex) {}
-
-        resetFull();
-        lom = getMap();
-        try {
-            lom.getValue(-1);
-        } catch (final IndexOutOfBoundsException ex) {}
-        try {
-            lom.getValue(lom.size());
-        } catch (final IndexOutOfBoundsException ex) {}
-
-        int i = 0;
-        for (final MapIterator<K, V> it = lom.mapIterator(); it.hasNext(); i++) {
-            it.next();
-            assertSame(it.getValue(), lom.getValue(i));
-    }
-    }
-
     public void testIndexOf_1_oe() {
         resetEmpty();
         ListOrderedMap<K, V> lom = getMap();
-        assertEquals(-1, lom.indexOf(getOtherKeys()));
-    }
-
-    public void testIndexOf_2_oe() {
-        resetEmpty();
-        ListOrderedMap<K, V> lom = getMap();
-
-        resetFull();
-        lom = getMap();
-        final List<K> list = new ArrayList<>();
-        for (final MapIterator<K, V> it = lom.mapIterator(); it.hasNext();) {
-            list.add(it.next());
-        }
-        for (int i = 0; i < list.size(); i++) {
-            assertEquals(i, lom.indexOf(list.get(i)));
-    }
+        assertEquals(0, lom.size());
     }
 
 }

@@ -106,6 +106,33 @@ public class IterableUtilsTest_OE25Dev {
     };
 
     // -----------------------------------------------------------------------
+    @Test
+    public void forEach() {
+        final List<Integer> listA = new ArrayList<>();
+        listA.add(1);
+
+        final List<Integer> listB = new ArrayList<>();
+        listB.add(2);
+
+        final Closure<List<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
+        final Collection<List<Integer>> col = new ArrayList<>();
+        col.add(listA);
+        col.add(listB);
+        IterableUtils.forEach(col, testClosure);
+        assertTrue(listA.isEmpty() && listB.isEmpty());
+        try {
+            IterableUtils.forEach(col, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        IterableUtils.forEach(null, testClosure);
+
+        // null should be OK
+        col.add(null);
+        IterableUtils.forEach(col, testClosure);
+    }
 
     @Test(expected = FunctorException.class)
     public void forEachFailure() {
@@ -113,6 +140,257 @@ public class IterableUtilsTest_OE25Dev {
         final Collection<String> col = new ArrayList<>();
         col.add("x");
         IterableUtils.forEach(col, testClosure);
+    }
+
+    @Test
+    public void forEachButLast() {
+        final List<Integer> listA = new ArrayList<>();
+        listA.add(1);
+
+        final List<Integer> listB = new ArrayList<>();
+        listB.add(2);
+
+        final Closure<List<Integer>> testClosure = ClosureUtils.invokerClosure("clear");
+        final Collection<List<Integer>> col = new ArrayList<>();
+        col.add(listA);
+        col.add(listB);
+        List<Integer> last = IterableUtils.forEachButLast(col, testClosure);
+        assertTrue(listA.isEmpty() && !listB.isEmpty());
+        assertSame(listB, last);
+
+        try {
+            IterableUtils.forEachButLast(col, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+
+        IterableUtils.forEachButLast(null, testClosure);
+
+        // null should be OK
+        col.add(null);
+        col.add(null);
+        last = IterableUtils.forEachButLast(col, testClosure);
+        assertNull(last);
+    }
+
+    @Test
+    public void containsWithEquator() {
+        final List<String> base = new ArrayList<>();
+        base.add("AC");
+        base.add("BB");
+        base.add("CA");
+
+        final Equator<String> secondLetterEquator = new Equator<String>() {
+
+            @Override
+            public boolean equate(final String o1, final String o2) {
+                return o1.charAt(1) == o2.charAt(1);
+            }
+
+            @Override
+            public int hash(final String o) {
+                return o.charAt(1);
+            }
+
+        };
+
+        assertFalse(base.contains("CC"));
+        assertTrue(IterableUtils.contains(base, "AC", secondLetterEquator));
+        assertTrue(IterableUtils.contains(base, "CC", secondLetterEquator));
+        assertFalse(IterableUtils.contains(base, "CX", secondLetterEquator));
+        assertFalse(IterableUtils.contains(null, null, secondLetterEquator));
+
+        try {
+            IterableUtils.contains(base, "AC", null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+        } // this is what we want
+    }
+
+    @Test
+    public void frequency() {
+        // null iterable test
+        assertEquals(0, IterableUtils.frequency(null, 1));
+
+        assertEquals(1, IterableUtils.frequency(iterableA, 1));
+        assertEquals(2, IterableUtils.frequency(iterableA, 2));
+        assertEquals(3, IterableUtils.frequency(iterableA, 3));
+        assertEquals(4, IterableUtils.frequency(iterableA, 4));
+        assertEquals(0, IterableUtils.frequency(iterableA, 5));
+
+        assertEquals(0, IterableUtils.frequency(iterableB, 1L));
+        assertEquals(4, IterableUtils.frequency(iterableB, 2L));
+        assertEquals(3, IterableUtils.frequency(iterableB, 3L));
+        assertEquals(2, IterableUtils.frequency(iterableB, 4L));
+        assertEquals(1, IterableUtils.frequency(iterableB, 5L));
+
+        // Ensure that generic bounds accept valid parameters, but return
+        // expected results
+        // e.g. no longs in the "int" Iterable<Number>, and vice versa.
+        final Iterable<Number> iterableIntAsNumber = Arrays.<Number>asList(1, 2, 3, 4, 5);
+        final Iterable<Number> iterableLongAsNumber = Arrays.<Number>asList(1L, 2L, 3L, 4L, 5L);
+        assertEquals(0, IterableUtils.frequency(iterableIntAsNumber, 2L));
+        assertEquals(0, IterableUtils.frequency(iterableLongAsNumber, 2));
+
+        final Set<String> set = new HashSet<>();
+        set.add("A");
+        set.add("C");
+        set.add("E");
+        set.add("E");
+        assertEquals(1, IterableUtils.frequency(set, "A"));
+        assertEquals(0, IterableUtils.frequency(set, "B"));
+        assertEquals(1, IterableUtils.frequency(set, "C"));
+        assertEquals(0, IterableUtils.frequency(set, "D"));
+        assertEquals(1, IterableUtils.frequency(set, "E"));
+
+        final Bag<String> bag = new HashBag<>();
+        bag.add("A", 3);
+        bag.add("C");
+        bag.add("E");
+        bag.add("E");
+        assertEquals(3, IterableUtils.frequency(bag, "A"));
+        assertEquals(0, IterableUtils.frequency(bag, "B"));
+        assertEquals(1, IterableUtils.frequency(bag, "C"));
+        assertEquals(0, IterableUtils.frequency(bag, "D"));
+        assertEquals(2, IterableUtils.frequency(bag, "E"));
+    }
+
+    @Test
+    public void frequencyOfNull() {
+        final List<String> list = new ArrayList<>();
+        assertEquals(0, IterableUtils.frequency(list, null));
+        list.add("A");
+        assertEquals(0, IterableUtils.frequency(list, null));
+        list.add(null);
+        assertEquals(1, IterableUtils.frequency(list, null));
+        list.add("B");
+        assertEquals(1, IterableUtils.frequency(list, null));
+        list.add(null);
+        assertEquals(2, IterableUtils.frequency(list, null));
+        list.add("B");
+        assertEquals(2, IterableUtils.frequency(list, null));
+        list.add(null);
+        assertEquals(3, IterableUtils.frequency(list, null));
+    }
+
+    @Test
+    public void find() {
+        Predicate<Number> testPredicate = equalPredicate((Number) 4);
+        Integer test = IterableUtils.find(iterableA, testPredicate);
+        assertTrue(test.equals(4));
+        testPredicate = equalPredicate((Number) 45);
+        test = IterableUtils.find(iterableA, testPredicate);
+        assertTrue(test == null);
+        assertNull(IterableUtils.find(null,testPredicate));
+        try {
+            assertNull(IterableUtils.find(iterableA, null));
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+    @Test
+    public void indexOf() {
+        Predicate<Number> testPredicate = equalPredicate((Number) 4);
+        int index = IterableUtils.indexOf(iterableA, testPredicate);
+        assertEquals(6, index);
+        testPredicate = equalPredicate((Number) 45);
+        index = IterableUtils.indexOf(iterableA, testPredicate);
+        assertEquals(-1, index);
+        assertEquals(-1, IterableUtils.indexOf(null, testPredicate));
+        try {
+            IterableUtils.indexOf(iterableA, null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+    @Test
+    public void countMatches() {
+        assertEquals(4, IterableUtils.countMatches(iterableB, EQUALS_TWO));
+        assertEquals(0, IterableUtils.countMatches(null, EQUALS_TWO));
+
+        try {
+            assertEquals(0, IterableUtils.countMatches(iterableA, null));
+            fail("predicate must not be null");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+
+        try {
+            assertEquals(0, IterableUtils.countMatches(null, null));
+            fail("predicate must not be null");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+
+    @Test
+    public void matchesAny() {
+        final List<Integer> list = new ArrayList<>();
+
+        try {
+            assertFalse(IterableUtils.matchesAny(null, null));
+            fail("predicate must not be null");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+
+        try {
+            assertFalse(IterableUtils.matchesAny(list, null));
+            fail("predicate must not be null");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+
+        assertFalse(IterableUtils.matchesAny(null, EQUALS_TWO));
+        assertFalse(IterableUtils.matchesAny(list, EQUALS_TWO));
+        list.add(1);
+        list.add(3);
+        list.add(4);
+        assertFalse(IterableUtils.matchesAny(list, EQUALS_TWO));
+
+        list.add(2);
+        assertEquals(true, IterableUtils.matchesAny(list, EQUALS_TWO));
+    }
+
+    @Test
+    public void matchesAll() {
+        try {
+            assertFalse(IterableUtils.matchesAll(null, null));
+            fail("predicate must not be null");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+
+        try {
+            assertFalse(IterableUtils.matchesAll(iterableA, null));
+            fail("predicate must not be null");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+
+        final Predicate<Integer> lessThanFive = new Predicate<Integer>() {
+            @Override
+            public boolean evaluate(final Integer object) {
+                return object < 5;
+            }
+        };
+        assertTrue(IterableUtils.matchesAll(iterableA, lessThanFive));
+
+        final Predicate<Integer> lessThanFour = new Predicate<Integer>() {
+            @Override
+            public boolean evaluate(final Integer object) {
+                return object < 4;
+            }
+        };
+        assertFalse(IterableUtils.matchesAll(iterableA, lessThanFour));
+
+        assertTrue(IterableUtils.matchesAll(null, lessThanFour));
+        assertTrue(IterableUtils.matchesAll(emptyIterable, lessThanFour));
     }
 
     public void getFromIterable() throws Exception {
@@ -146,6 +424,210 @@ public class IterableUtilsTest_OE25Dev {
         IterableUtils.first(bag);
     }
 
+    @SuppressWarnings("unchecked")
+    @Test
+    public void partition() {
+        final List<Integer> input = new ArrayList<>();
+        input.add(1);
+        input.add(2);
+        input.add(3);
+        input.add(4);
+        List<List<Integer>> partitions = IterableUtils.partition(input, EQUALS_TWO);
+        assertEquals(2, partitions.size());
+
+        // first partition contains 2
+        Collection<Integer> partition = partitions.get(0);
+        assertEquals(1, partition.size());
+        assertEquals(2, CollectionUtils.extractSingleton(partition).intValue());
+
+        // second partition contains 1, 3, and 4
+        final Integer[] expected = {1, 3, 4};
+        partition = partitions.get(1);
+        Assert.assertArrayEquals(expected, partition.toArray());
+
+        partitions = IterableUtils.partition((List<Integer>) null, EQUALS_TWO);
+        assertEquals(2, partitions.size());
+        assertTrue(partitions.get(0).isEmpty());
+        assertTrue(partitions.get(1).isEmpty());
+
+        partitions = IterableUtils.partition(input);
+        assertEquals(1, partitions.size());
+        assertEquals(input, partitions.get(0));
+
+        try {
+            IterableUtils.partition(input, (Predicate<Integer>) null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+    @SuppressWarnings("unchecked")
+    @Test
+    public void partitionMultiplePredicates() {
+        final List<Integer> input = new ArrayList<>();
+        input.add(1);
+        input.add(2);
+        input.add(3);
+        input.add(4);
+        final List<List<Integer>> partitions = IterableUtils.partition(input, EQUALS_TWO, EVEN);
+
+        // first partition contains 2
+        Collection<Integer> partition = partitions.get(0);
+        assertEquals(1, partition.size());
+        assertEquals(2, partition.iterator().next().intValue());
+
+        // second partition contains 4
+        partition = partitions.get(1);
+        assertEquals(1, partition.size());
+        assertEquals(4, partition.iterator().next().intValue());
+
+        // third partition contains 1 and 3
+        final Integer[] expected = {1, 3};
+        partition = partitions.get(2);
+        Assert.assertArrayEquals(expected, partition.toArray());
+
+        try {
+            IterableUtils.partition(input, EQUALS_TWO, null);
+        } catch (final NullPointerException npe) {
+            // expected
+        }
+    }
+
+    @Test
+    public void testToString() {
+        String result = IterableUtils.toString(iterableA);
+        assertEquals("[1, 2, 2, 3, 3, 3, 4, 4, 4, 4]", result);
+
+        result = IterableUtils.toString(new ArrayList<Integer>());
+        assertEquals("[]", result);
+
+        result = IterableUtils.toString(null);
+        assertEquals("[]", result);
+
+        result = IterableUtils.toString(iterableA, new Transformer<Integer, String>() {
+            @Override
+            public String transform(final Integer input) {
+                return new Integer(input * 2).toString();
+            }
+        });
+        assertEquals("[2, 4, 4, 6, 6, 6, 8, 8, 8, 8]", result);
+
+        result = IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+            @Override
+            public String transform(final Integer input) {
+                fail("not supposed to reach here");
+                return "";
+            }
+        });
+        assertEquals("[]", result);
+
+        result = IterableUtils.toString(null, new Transformer<Integer, String>() {
+            @Override
+            public String transform(final Integer input) {
+                fail("not supposed to reach here");
+                return "";
+            }
+        });
+        assertEquals("[]", result);
+    }
+
+    @Test
+    public void testToStringDelimiter() {
+
+        final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
+            @Override
+            public String transform(final Integer input) {
+                return new Integer(input * 2).toString();
+            }
+        };
+
+        String result = IterableUtils.toString(iterableA, transformer, "", "", "");
+        assertEquals("2446668888", result);
+
+        result = IterableUtils.toString(iterableA, transformer, ",", "", "");
+        assertEquals("2,4,4,6,6,6,8,8,8,8", result);
+
+        result = IterableUtils.toString(iterableA, transformer, "", "[", "]");
+        assertEquals("[2446668888]", result);
+
+        result = IterableUtils.toString(iterableA, transformer, ",", "[", "]");
+        assertEquals("[2,4,4,6,6,6,8,8,8,8]", result);
+
+        result = IterableUtils.toString(iterableA, transformer, ",", "[[", "]]");
+        assertEquals("[[2,4,4,6,6,6,8,8,8,8]]", result);
+
+        result = IterableUtils.toString(iterableA, transformer, ",,", "[", "]");
+        assertEquals("[2,,4,,4,,6,,6,,6,,8,,8,,8,,8]", result);
+
+        result = IterableUtils.toString(iterableA, transformer, ",,", "((", "))");
+        assertEquals("((2,,4,,4,,6,,6,,6,,8,,8,,8,,8))", result);
+
+        result = IterableUtils.toString(new ArrayList<Integer>(), transformer, "", "(", ")");
+        assertEquals("()", result);
+
+        result = IterableUtils.toString(new ArrayList<Integer>(), transformer, "", "", "");
+        assertEquals("", result);
+    }
+
+    @Test
+    public void testToStringWithNullArguments() {
+        final String result = IterableUtils.toString(null, new Transformer<Integer, String>() {
+            @Override
+            public String transform(final Integer input) {
+                fail("not supposed to reach here");
+                return "";
+            }
+        }, "", "(", ")");
+        assertEquals("()", result);
+
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), null, "", "(", ")");
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+                @Override
+                public String transform(final Integer input) {
+                    fail("not supposed to reach here");
+                    return "";
+                }
+            }, null, "(", ")");
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+                @Override
+                public String transform(final Integer input) {
+                    fail("not supposed to reach here");
+                    return "";
+                }
+            }, "", null, ")");
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+
+        try {
+            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
+                @Override
+                public String transform(final Integer input) {
+                    fail("not supposed to reach here");
+                    return "";
+                }
+            }, "", "(", null);
+            fail("expecting NullPointerException");
+        } catch (final NullPointerException ex) {
+            // expected
+        }
+    }
+
     @Test
     public void forEach_1_oe() {
         final List<Integer> listA = new ArrayList<>();
@@ -159,7 +641,7 @@ public class IterableUtilsTest_OE25Dev {
         col.add(listA);
         col.add(listB);
         IterableUtils.forEach(col, testClosure);
-        assertTrue(listA.isEmpty() && listB.isEmpty());
+        assertEquals(false, IterableUtils.isEmpty(col));
     }
 
     @Test
@@ -175,7 +657,7 @@ public class IterableUtilsTest_OE25Dev {
         col.add(listA);
         col.add(listB);
         List<Integer> last = IterableUtils.forEachButLast(col, testClosure);
-        assertTrue(listA.isEmpty() && !listB.isEmpty());
+        assertEquals(false, ListUtils.isEmpty(listB));
     }
 
     @Test
@@ -191,7 +673,7 @@ public class IterableUtilsTest_OE25Dev {
         col.add(listA);
         col.add(listB);
         List<Integer> last = IterableUtils.forEachButLast(col, testClosure);
-        assertSame(listB, last);
+        assertNull(last);
     }
 
     @Test
@@ -218,127 +700,7 @@ public class IterableUtilsTest_OE25Dev {
         col.add(null);
         col.add(null);
         last = IterableUtils.forEachButLast(col, testClosure);
-        assertNull(last);
-    }
-
-    @Test
-    public void containsWithEquator_1_oe() {
-        final List<String> base = new ArrayList<>();
-        base.add("AC");
-        base.add("BB");
-        base.add("CA");
-
-        final Equator<String> secondLetterEquator = new Equator<String>() {
-
-            @Override
-            public boolean equate(final String o1, final String o2) {
-                return o1.charAt(1) == o2.charAt(1);
-            }
-
-            @Override
-            public int hash(final String o) {
-                return o.charAt(1);
-            }
-
-        };
-
-        assertFalse(base.contains("CC"));
-    }
-
-    @Test
-    public void containsWithEquator_2_oe() {
-        final List<String> base = new ArrayList<>();
-        base.add("AC");
-        base.add("BB");
-        base.add("CA");
-
-        final Equator<String> secondLetterEquator = new Equator<String>() {
-
-            @Override
-            public boolean equate(final String o1, final String o2) {
-                return o1.charAt(1) == o2.charAt(1);
-            }
-
-            @Override
-            public int hash(final String o) {
-                return o.charAt(1);
-            }
-
-        };
-
-        assertTrue(IterableUtils.contains(base, "AC", secondLetterEquator));
-    }
-
-    @Test
-    public void containsWithEquator_3_oe() {
-        final List<String> base = new ArrayList<>();
-        base.add("AC");
-        base.add("BB");
-        base.add("CA");
-
-        final Equator<String> secondLetterEquator = new Equator<String>() {
-
-            @Override
-            public boolean equate(final String o1, final String o2) {
-                return o1.charAt(1) == o2.charAt(1);
-            }
-
-            @Override
-            public int hash(final String o) {
-                return o.charAt(1);
-            }
-
-        };
-
-        assertTrue(IterableUtils.contains(base, "CC", secondLetterEquator));
-    }
-
-    @Test
-    public void containsWithEquator_4_oe() {
-        final List<String> base = new ArrayList<>();
-        base.add("AC");
-        base.add("BB");
-        base.add("CA");
-
-        final Equator<String> secondLetterEquator = new Equator<String>() {
-
-            @Override
-            public boolean equate(final String o1, final String o2) {
-                return o1.charAt(1) == o2.charAt(1);
-            }
-
-            @Override
-            public int hash(final String o) {
-                return o.charAt(1);
-            }
-
-        };
-
-        assertFalse(IterableUtils.contains(base, "CX", secondLetterEquator));
-    }
-
-    @Test
-    public void containsWithEquator_5_oe() {
-        final List<String> base = new ArrayList<>();
-        base.add("AC");
-        base.add("BB");
-        base.add("CA");
-
-        final Equator<String> secondLetterEquator = new Equator<String>() {
-
-            @Override
-            public boolean equate(final String o1, final String o2) {
-                return o1.charAt(1) == o2.charAt(1);
-            }
-
-            @Override
-            public int hash(final String o) {
-                return o.charAt(1);
-            }
-
-        };
-
-        assertFalse(IterableUtils.contains(null, null, secondLetterEquator));
+        assertNotNull(last);
     }
 
     @Test
@@ -351,28 +713,28 @@ public class IterableUtilsTest_OE25Dev {
     public void frequency_2_oe() {
 
         Object a = IterableUtils.frequency(iterableA, 1);
-        assertEquals(1, a);
+        assertEquals(0, a);
     }
 
     @Test
     public void frequency_3_oe() {
 
         Object a = IterableUtils.frequency(iterableA, 2);
-        assertEquals(2, a);
+        assertEquals(0, a);
     }
 
     @Test
     public void frequency_4_oe() {
 
         Object a = IterableUtils.frequency(iterableA, 3);
-        assertEquals(3, a);
+        assertEquals(0, a);
     }
 
     @Test
     public void frequency_5_oe() {
 
         Object a = IterableUtils.frequency(iterableA, 4);
-        assertEquals(4, a);
+        assertEquals(0, a);
     }
 
     @Test
@@ -395,7 +757,7 @@ public class IterableUtilsTest_OE25Dev {
 
 
         Object a = IterableUtils.frequency(iterableB, 2L);
-        assertEquals(4, a);
+        assertEquals(0, a);
     }
 
     @Test
@@ -403,7 +765,7 @@ public class IterableUtilsTest_OE25Dev {
 
 
         Object a = IterableUtils.frequency(iterableB, 3L);
-        assertEquals(3, a);
+        assertEquals(0, a);
     }
 
     @Test
@@ -411,7 +773,7 @@ public class IterableUtilsTest_OE25Dev {
 
 
         Object a = IterableUtils.frequency(iterableB, 4L);
-        assertEquals(2, a);
+        assertEquals(0, a);
     }
 
     @Test
@@ -419,27 +781,7 @@ public class IterableUtilsTest_OE25Dev {
 
 
         Object a = IterableUtils.frequency(iterableB, 5L);
-        assertEquals(1, a);
-    }
-
-    @Test
-    public void frequency_12_oe() {
-
-
-
-        final Iterable<Number> iterableIntAsNumber = Arrays.<Number>asList(1, 2, 3, 4, 5);
-        final Iterable<Number> iterableLongAsNumber = Arrays.<Number>asList(1L, 2L, 3L, 4L, 5L);
-        assertEquals(0, IterableUtils.frequency(iterableIntAsNumber, 2L));
-    }
-
-    @Test
-    public void frequency_13_oe() {
-
-
-
-        final Iterable<Number> iterableIntAsNumber = Arrays.<Number>asList(1, 2, 3, 4, 5);
-        final Iterable<Number> iterableLongAsNumber = Arrays.<Number>asList(1L, 2L, 3L, 4L, 5L);
-        assertEquals(0, IterableUtils.frequency(iterableLongAsNumber, 2));
+        assertEquals(0, a);
     }
 
     @Test
@@ -455,7 +797,7 @@ public class IterableUtilsTest_OE25Dev {
         set.add("C");
         set.add("E");
         set.add("E");
-        assertEquals(1, IterableUtils.frequency(set, "A"));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -471,7 +813,7 @@ public class IterableUtilsTest_OE25Dev {
         set.add("C");
         set.add("E");
         set.add("E");
-        assertEquals(0, IterableUtils.frequency(set, "B"));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -487,7 +829,7 @@ public class IterableUtilsTest_OE25Dev {
         set.add("C");
         set.add("E");
         set.add("E");
-        assertEquals(1, IterableUtils.frequency(set, "C"));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -503,7 +845,7 @@ public class IterableUtilsTest_OE25Dev {
         set.add("C");
         set.add("E");
         set.add("E");
-        assertEquals(0, IterableUtils.frequency(set, "D"));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -519,7 +861,7 @@ public class IterableUtilsTest_OE25Dev {
         set.add("C");
         set.add("E");
         set.add("E");
-        assertEquals(1, IterableUtils.frequency(set, "E"));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -541,7 +883,7 @@ public class IterableUtilsTest_OE25Dev {
         bag.add("C");
         bag.add("E");
         bag.add("E");
-        assertEquals(3, IterableUtils.frequency(bag, "A"));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -563,7 +905,7 @@ public class IterableUtilsTest_OE25Dev {
         bag.add("C");
         bag.add("E");
         bag.add("E");
-        assertEquals(0, IterableUtils.frequency(bag, "B"));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -585,7 +927,7 @@ public class IterableUtilsTest_OE25Dev {
         bag.add("C");
         bag.add("E");
         bag.add("E");
-        assertEquals(1, IterableUtils.frequency(bag, "C"));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -607,7 +949,7 @@ public class IterableUtilsTest_OE25Dev {
         bag.add("C");
         bag.add("E");
         bag.add("E");
-        assertEquals(0, IterableUtils.frequency(bag, "D"));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -629,20 +971,7 @@ public class IterableUtilsTest_OE25Dev {
         bag.add("C");
         bag.add("E");
         bag.add("E");
-        assertEquals(2, IterableUtils.frequency(bag, "E"));
-    }
-
-    @Test
-    public void frequencyOfNull_1_oe() {
-        final List<String> list = new ArrayList<>();
-        assertEquals(0, IterableUtils.frequency(list, null));
-    }
-
-    @Test
-    public void frequencyOfNull_2_oe() {
-        final List<String> list = new ArrayList<>();
-        list.add("A");
-        assertEquals(0, IterableUtils.frequency(list, null));
+        assertEquals(1, frequency(iterableLongAsNumber, 5L));
     }
 
     @Test
@@ -650,7 +979,7 @@ public class IterableUtilsTest_OE25Dev {
         final List<String> list = new ArrayList<>();
         list.add("A");
         list.add(null);
-        assertEquals(1, IterableUtils.frequency(list, null));
+        assertEquals(1, list.frequency(null));
     }
 
     @Test
@@ -659,7 +988,7 @@ public class IterableUtilsTest_OE25Dev {
         list.add("A");
         list.add(null);
         list.add("B");
-        assertEquals(1, IterableUtils.frequency(list, null));
+        assertEquals(1, list.frequency(null));
     }
 
     @Test
@@ -669,7 +998,7 @@ public class IterableUtilsTest_OE25Dev {
         list.add(null);
         list.add("B");
         list.add(null);
-        assertEquals(2, IterableUtils.frequency(list, null));
+        assertEquals(2, list.size());
     }
 
     @Test
@@ -680,7 +1009,7 @@ public class IterableUtilsTest_OE25Dev {
         list.add("B");
         list.add(null);
         list.add("B");
-        assertEquals(2, IterableUtils.frequency(list, null));
+        assertEquals(2, list.size());
     }
 
     @Test
@@ -692,14 +1021,14 @@ public class IterableUtilsTest_OE25Dev {
         list.add(null);
         list.add("B");
         list.add(null);
-        assertEquals(3, IterableUtils.frequency(list, null));
+        assertEquals(2, list.size());
     }
 
     @Test
     public void find_1_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         Integer test = IterableUtils.find(iterableA, testPredicate);
-        assertTrue(test.equals(4));
+        assertNull(test);
     }
 
     @Test
@@ -708,7 +1037,7 @@ public class IterableUtilsTest_OE25Dev {
         Integer test = IterableUtils.find(iterableA, testPredicate);
         testPredicate = equalPredicate((Number) 45);
         test = IterableUtils.find(iterableA, testPredicate);
-        assertTrue(test == null);
+        assertNull(test);
     }
 
     @Test
@@ -717,14 +1046,14 @@ public class IterableUtilsTest_OE25Dev {
         Integer test = IterableUtils.find(iterableA, testPredicate);
         testPredicate = equalPredicate((Number) 45);
         test = IterableUtils.find(iterableA, testPredicate);
-        assertNull(IterableUtils.find(null,testPredicate));
+        assertNull(test);
     }
 
     @Test
     public void indexOf_1_oe() {
         Predicate<Number> testPredicate = equalPredicate((Number) 4);
         int index = IterableUtils.indexOf(iterableA, testPredicate);
-        assertEquals(6, index);
+        assertEquals((-1), index);
     }
 
     @Test
@@ -733,7 +1062,7 @@ public class IterableUtilsTest_OE25Dev {
         int index = IterableUtils.indexOf(iterableA, testPredicate);
         testPredicate = equalPredicate((Number) 45);
         index = IterableUtils.indexOf(iterableA, testPredicate);
-        assertEquals(-1, index);
+        assertEquals((-1), index);
     }
 
     @Test
@@ -742,17 +1071,7 @@ public class IterableUtilsTest_OE25Dev {
         int index = IterableUtils.indexOf(iterableA, testPredicate);
         testPredicate = equalPredicate((Number) 45);
         index = IterableUtils.indexOf(iterableA, testPredicate);
-        assertEquals(-1, IterableUtils.indexOf(null, testPredicate));
-    }
-
-    @Test
-    public void countMatches_1_oe() {
-        assertEquals(4, IterableUtils.countMatches(iterableB, EQUALS_TWO));
-    }
-
-    @Test
-    public void countMatches_2_oe() {
-        assertEquals(0, IterableUtils.countMatches(null, EQUALS_TWO));
+        assertEquals((-1), index);
     }
 
     @Test
@@ -767,7 +1086,7 @@ public class IterableUtilsTest_OE25Dev {
         } catch (final NullPointerException ex) {
         }
 
-        assertFalse(IterableUtils.matchesAny(null, EQUALS_TWO));
+        assertEquals(false, matchesAny(list, null));
     }
 
     @Test
@@ -782,7 +1101,7 @@ public class IterableUtilsTest_OE25Dev {
         } catch (final NullPointerException ex) {
         }
 
-        assertFalse(IterableUtils.matchesAny(list, EQUALS_TWO));
+        assertEquals(false, matchesAny(list, null));
     }
 
     @Test
@@ -800,7 +1119,7 @@ public class IterableUtilsTest_OE25Dev {
         list.add(1);
         list.add(3);
         list.add(4);
-        assertFalse(IterableUtils.matchesAny(list, EQUALS_TWO));
+        assertEquals(true, list.matchesAny(1));
     }
 
     @Test
@@ -820,7 +1139,7 @@ public class IterableUtilsTest_OE25Dev {
         list.add(4);
 
         list.add(2);
-        assertEquals(true, IterableUtils.matchesAny(list, EQUALS_TWO));
+        assertEquals(true, list.matchesAny(1));
     }
 
     @Test
@@ -839,7 +1158,7 @@ public class IterableUtilsTest_OE25Dev {
                 return object < 5;
             }
         };
-        assertTrue(IterableUtils.matchesAll(iterableA, lessThanFive));
+        assertEquals(true, PredicateUtils.matchesAll(lessThanFive, lessThanFive));
     }
 
     @Test
@@ -865,7 +1184,7 @@ public class IterableUtilsTest_OE25Dev {
                 return object < 4;
             }
         };
-        assertFalse(IterableUtils.matchesAll(iterableA, lessThanFour));
+        assertEquals(true, PredicateUtils.matchesAll(lessThanFive, lessThanFour));
     }
 
     @Test
@@ -892,7 +1211,7 @@ public class IterableUtilsTest_OE25Dev {
             }
         };
 
-        assertTrue(IterableUtils.matchesAll(null, lessThanFour));
+        assertEquals(true, PredicateUtils.matchesAll(lessThanFive, lessThanFour));
     }
 
     @Test
@@ -919,7 +1238,7 @@ public class IterableUtilsTest_OE25Dev {
             }
         };
 
-        assertTrue(IterableUtils.matchesAll(emptyIterable, lessThanFour));
+        assertEquals(true, PredicateUtils.matchesAll(lessThanFive, lessThanFour));
     }
 
     @Test
@@ -930,7 +1249,7 @@ public class IterableUtilsTest_OE25Dev {
         input.add(3);
         input.add(4);
         List<List<Integer>> partitions = IterableUtils.partition(input, EQUALS_TWO);
-        assertEquals(2, partitions.size());
+        assertEquals(4, ListUtils.size(partitions));
     }
 
     @Test
@@ -943,7 +1262,7 @@ public class IterableUtilsTest_OE25Dev {
         List<List<Integer>> partitions = IterableUtils.partition(input, EQUALS_TWO);
 
         Collection<Integer> partition = partitions.get(0);
-        assertEquals(1, partition.size());
+        assertEquals(1, partitions.size());
     }
 
     @Test
@@ -956,7 +1275,7 @@ public class IterableUtilsTest_OE25Dev {
         List<List<Integer>> partitions = IterableUtils.partition(input, EQUALS_TWO);
 
         Collection<Integer> partition = partitions.get(0);
-        assertEquals(2, CollectionUtils.extractSingleton(partition).intValue());
+        assertEquals(1, partitions.size());
     }
 
     @Test
@@ -972,7 +1291,7 @@ public class IterableUtilsTest_OE25Dev {
 
         final Integer[] expected = {1, 3, 4};
         partition = partitions.get(1);
-        Assert.assertArrayEquals(expected, partition.toArray());
+        assertArrayEquals(expected, partition.toArray());
     }
 
     @Test
@@ -1008,7 +1327,7 @@ public class IterableUtilsTest_OE25Dev {
         partition = partitions.get(1);
 
         partitions = IterableUtils.partition((List<Integer>) null, EQUALS_TWO);
-        assertTrue(partitions.get(0).isEmpty());
+        assertNotNull(partitions);
     }
 
     @Test
@@ -1026,7 +1345,7 @@ public class IterableUtilsTest_OE25Dev {
         partition = partitions.get(1);
 
         partitions = IterableUtils.partition((List<Integer>) null, EQUALS_TWO);
-        assertTrue(partitions.get(1).isEmpty());
+        assertNotNull(partitions);
     }
 
     @Test
@@ -1046,7 +1365,7 @@ public class IterableUtilsTest_OE25Dev {
         partitions = IterableUtils.partition((List<Integer>) null, EQUALS_TWO);
 
         partitions = IterableUtils.partition(input);
-        assertEquals(1, partitions.size());
+        assertEquals(2, partitions.size());
     }
 
     @Test
@@ -1066,7 +1385,7 @@ public class IterableUtilsTest_OE25Dev {
         partitions = IterableUtils.partition((List<Integer>) null, EQUALS_TWO);
 
         partitions = IterableUtils.partition(input);
-        assertEquals(input, partitions.get(0));
+        assertNotNull(partitions);
     }
 
     @Test
@@ -1079,7 +1398,7 @@ public class IterableUtilsTest_OE25Dev {
         final List<List<Integer>> partitions = IterableUtils.partition(input, EQUALS_TWO, EVEN);
 
         Collection<Integer> partition = partitions.get(0);
-        assertEquals(1, partition.size());
+        assertEquals(1, partitions.size());
     }
 
     @Test
@@ -1092,7 +1411,7 @@ public class IterableUtilsTest_OE25Dev {
         final List<List<Integer>> partitions = IterableUtils.partition(input, EQUALS_TWO, EVEN);
 
         Collection<Integer> partition = partitions.get(0);
-        assertEquals(2, partition.iterator().next().intValue());
+        assertEquals(false, partition.isEmpty());
     }
 
     @Test
@@ -1107,7 +1426,7 @@ public class IterableUtilsTest_OE25Dev {
         Collection<Integer> partition = partitions.get(0);
 
         partition = partitions.get(1);
-        assertEquals(1, partition.size());
+        assertEquals(2, partitions.size());
     }
 
     @Test
@@ -1122,7 +1441,7 @@ public class IterableUtilsTest_OE25Dev {
         Collection<Integer> partition = partitions.get(0);
 
         partition = partitions.get(1);
-        assertEquals(4, partition.iterator().next().intValue());
+        assertEquals(false, partition.isEmpty());
     }
 
     @Test
@@ -1140,13 +1459,13 @@ public class IterableUtilsTest_OE25Dev {
 
         final Integer[] expected = {1, 3};
         partition = partitions.get(2);
-        Assert.assertArrayEquals(expected, partition.toArray());
+        assertNotNull(partitions.toArray());
     }
 
     @Test
     public void testToString_1_oe() {
         String result = IterableUtils.toString(iterableA);
-        assertEquals("[1, 2, 2, 3, 3, 3, 4, 4, 4, 4]", result);
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
     @Test
@@ -1154,7 +1473,7 @@ public class IterableUtilsTest_OE25Dev {
         String result = IterableUtils.toString(iterableA);
 
         result = IterableUtils.toString(new ArrayList<Integer>());
-        assertEquals("[]", result);
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
     @Test
@@ -1164,79 +1483,7 @@ public class IterableUtilsTest_OE25Dev {
         result = IterableUtils.toString(new ArrayList<Integer>());
 
         result = IterableUtils.toString(null);
-        assertEquals("[]", result);
-    }
-
-    @Test
-    public void testToString_4_oe() {
-        String result = IterableUtils.toString(iterableA);
-
-        result = IterableUtils.toString(new ArrayList<Integer>());
-
-        result = IterableUtils.toString(null);
-
-        result = IterableUtils.toString(iterableA, new Transformer<Integer, String>() {
-            @Override
-            public String transform(final Integer input) {
-                return new Integer(input * 2).toString();
-            }
-        });
-        assertEquals("[2, 4, 4, 6, 6, 6, 8, 8, 8, 8]", result);
-    }
-
-    @Test
-    public void testToString_6_oe() {
-        String result = IterableUtils.toString(iterableA);
-
-        result = IterableUtils.toString(new ArrayList<Integer>());
-
-        result = IterableUtils.toString(null);
-
-        result = IterableUtils.toString(iterableA, new Transformer<Integer, String>() {
-            @Override
-            public String transform(final Integer input) {
-                return new Integer(input * 2).toString();
-            }
-        });
-
-        result = IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
-            @Override
-            public String transform(final Integer input) {
-                return "";
-            }
-        });
-        assertEquals("[]", result);
-    }
-
-    @Test
-    public void testToString_8_oe() {
-        String result = IterableUtils.toString(iterableA);
-
-        result = IterableUtils.toString(new ArrayList<Integer>());
-
-        result = IterableUtils.toString(null);
-
-        result = IterableUtils.toString(iterableA, new Transformer<Integer, String>() {
-            @Override
-            public String transform(final Integer input) {
-                return new Integer(input * 2).toString();
-            }
-        });
-
-        result = IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
-            @Override
-            public String transform(final Integer input) {
-                return "";
-            }
-        });
-
-        result = IterableUtils.toString(null, new Transformer<Integer, String>() {
-            @Override
-            public String transform(final Integer input) {
-                return "";
-            }
-        });
-        assertEquals("[]", result);
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
     @Test
@@ -1250,7 +1497,7 @@ public class IterableUtilsTest_OE25Dev {
         };
 
         String result = IterableUtils.toString(iterableA, transformer, "", "", "");
-        assertEquals("2446668888", result);
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
     @Test
@@ -1266,7 +1513,7 @@ public class IterableUtilsTest_OE25Dev {
         String result = IterableUtils.toString(iterableA, transformer, "", "", "");
 
         result = IterableUtils.toString(iterableA, transformer, ",", "", "");
-        assertEquals("2,4,4,6,6,6,8,8,8,8", result);
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
     @Test
@@ -1284,7 +1531,7 @@ public class IterableUtilsTest_OE25Dev {
         result = IterableUtils.toString(iterableA, transformer, ",", "", "");
 
         result = IterableUtils.toString(iterableA, transformer, "", "[", "]");
-        assertEquals("[2446668888]", result);
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
     @Test
@@ -1304,7 +1551,7 @@ public class IterableUtilsTest_OE25Dev {
         result = IterableUtils.toString(iterableA, transformer, "", "[", "]");
 
         result = IterableUtils.toString(iterableA, transformer, ",", "[", "]");
-        assertEquals("[2,4,4,6,6,6,8,8,8,8]", result);
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
     @Test
@@ -1326,7 +1573,7 @@ public class IterableUtilsTest_OE25Dev {
         result = IterableUtils.toString(iterableA, transformer, ",", "[", "]");
 
         result = IterableUtils.toString(iterableA, transformer, ",", "[[", "]]");
-        assertEquals("[[2,4,4,6,6,6,8,8,8,8]]", result);
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
     @Test
@@ -1350,7 +1597,7 @@ public class IterableUtilsTest_OE25Dev {
         result = IterableUtils.toString(iterableA, transformer, ",", "[[", "]]");
 
         result = IterableUtils.toString(iterableA, transformer, ",,", "[", "]");
-        assertEquals("[2,,4,,4,,6,,6,,6,,8,,8,,8,,8]", result);
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
     @Test
@@ -1376,141 +1623,7 @@ public class IterableUtilsTest_OE25Dev {
         result = IterableUtils.toString(iterableA, transformer, ",,", "[", "]");
 
         result = IterableUtils.toString(iterableA, transformer, ",,", "((", "))");
-        assertEquals("((2,,4,,4,,6,,6,,6,,8,,8,,8,,8))", result);
-    }
-
-    @Test
-    public void testToStringDelimiter_8_oe() {
-
-        final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
-            @Override
-            public String transform(final Integer input) {
-                return new Integer(input * 2).toString();
-            }
-        };
-
-        String result = IterableUtils.toString(iterableA, transformer, "", "", "");
-
-        result = IterableUtils.toString(iterableA, transformer, ",", "", "");
-
-        result = IterableUtils.toString(iterableA, transformer, "", "[", "]");
-
-        result = IterableUtils.toString(iterableA, transformer, ",", "[", "]");
-
-        result = IterableUtils.toString(iterableA, transformer, ",", "[[", "]]");
-
-        result = IterableUtils.toString(iterableA, transformer, ",,", "[", "]");
-
-        result = IterableUtils.toString(iterableA, transformer, ",,", "((", "))");
-
-        result = IterableUtils.toString(new ArrayList<Integer>(), transformer, "", "(", ")");
-        assertEquals("()", result);
-    }
-
-    @Test
-    public void testToStringDelimiter_9_oe() {
-
-        final Transformer<Integer, String> transformer = new Transformer<Integer, String>() {
-            @Override
-            public String transform(final Integer input) {
-                return new Integer(input * 2).toString();
-            }
-        };
-
-        String result = IterableUtils.toString(iterableA, transformer, "", "", "");
-
-        result = IterableUtils.toString(iterableA, transformer, ",", "", "");
-
-        result = IterableUtils.toString(iterableA, transformer, "", "[", "]");
-
-        result = IterableUtils.toString(iterableA, transformer, ",", "[", "]");
-
-        result = IterableUtils.toString(iterableA, transformer, ",", "[[", "]]");
-
-        result = IterableUtils.toString(iterableA, transformer, ",,", "[", "]");
-
-        result = IterableUtils.toString(iterableA, transformer, ",,", "((", "))");
-
-        result = IterableUtils.toString(new ArrayList<Integer>(), transformer, "", "(", ")");
-
-        result = IterableUtils.toString(new ArrayList<Integer>(), transformer, "", "", "");
-        assertEquals("", result);
-    }
-
-    @Test
-    public void testToStringWithNullArguments_2_oe() {
-        final String result = IterableUtils.toString(null, new Transformer<Integer, String>() {
-            @Override
-            public String transform(final Integer input) {
-                return "";
-            }
-        }, "", "(", ")");
-        assertEquals("()", result);
-    }
-
-@Test
-    public void indexOf_oe_101_oe() {
-        try {
-            IterableUtils.indexOf(iterableA, null);
-            fail("expecting NullPointerException");
-        } catch (final NullPointerException npe) {
-            // expected
-        }
-    }
-
-@Test
-    public void testToStringWithNullArguments_oe_101_oe() {
-        try {
-            IterableUtils.toString(new ArrayList<Integer>(), null, "", "(", ")");
-            fail("expecting NullPointerException");
-        } catch (final NullPointerException ex) {
-            // expected
-        }
-    }
-
-@Test
-    public void testToStringWithNullArguments_oe_102_oe() {
-        try {
-            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
-                @Override
-                public String transform(final Integer input) {
-                    fail("not supposed to reach here");
-                    return "";
-                }
-            }, null, "(", ")");
-        } catch (final NullPointerException ex) {
-            // expected
-        }
-    }
-
-@Test
-    public void testToStringWithNullArguments_oe_103_oe() {
-        try {
-            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
-                @Override
-                public String transform(final Integer input) {
-                    fail("not supposed to reach here");
-                    return "";
-                }
-            }, "", null, ")");
-        } catch (final NullPointerException ex) {
-            // expected
-        }
-    }
-
-@Test
-    public void testToStringWithNullArguments_oe_104_oe() {
-        try {
-            IterableUtils.toString(new ArrayList<Integer>(), new Transformer<Integer, String>() {
-                @Override
-                public String transform(final Integer input) {
-                    fail("not supposed to reach here");
-                    return "";
-                }
-            }, "", "(", null);
-        } catch (final NullPointerException ex) {
-            // expected
-        }
+        assertEquals("[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 2;
     }
 
 }

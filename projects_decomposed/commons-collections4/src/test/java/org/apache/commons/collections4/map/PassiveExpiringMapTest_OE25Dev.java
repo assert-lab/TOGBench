@@ -127,6 +127,60 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
         }
     }
 
+    public void testContainsKey() {
+        final Map<Integer, String> m = makeTestMap();
+        assertFalse(m.containsKey(Integer.valueOf(1)));
+        assertFalse(m.containsKey(Integer.valueOf(3)));
+        assertFalse(m.containsKey(Integer.valueOf(5)));
+        assertTrue(m.containsKey(Integer.valueOf(2)));
+        assertTrue(m.containsKey(Integer.valueOf(4)));
+        assertTrue(m.containsKey(Integer.valueOf(6)));
+    }
+
+    public void testContainsValue() {
+        final Map<Integer, String> m = makeTestMap();
+        assertFalse(m.containsValue("one"));
+        assertFalse(m.containsValue("three"));
+        assertFalse(m.containsValue("five"));
+        assertTrue(m.containsValue("two"));
+        assertTrue(m.containsValue("four"));
+        assertTrue(m.containsValue("six"));
+    }
+
+    public void testDecoratedMap() {
+        // entries shouldn't expire
+        final Map<Integer, String> m = makeDecoratedTestMap();
+        assertEquals(6, m.size());
+        assertEquals("one", m.get(Integer.valueOf(1)));
+
+        // removing a single item shouldn't affect any other items
+        assertEquals("two", m.get(Integer.valueOf(2)));
+        m.remove(Integer.valueOf(2));
+        assertEquals(5, m.size());
+        assertEquals("one", m.get(Integer.valueOf(1)));
+        assertNull(m.get(Integer.valueOf(2)));
+
+        // adding a single, even item shouldn't affect any other items
+        assertNull(m.get(Integer.valueOf(2)));
+        m.put(Integer.valueOf(2), "two");
+        assertEquals(6, m.size());
+        assertEquals("one", m.get(Integer.valueOf(1)));
+        assertEquals("two", m.get(Integer.valueOf(2)));
+
+        // adding a single, odd item (one that expires) shouldn't affect any
+        // other items
+        // put the entry expires immediately
+        m.put(Integer.valueOf(1), "one-one");
+        assertEquals(5, m.size());
+        assertNull(m.get(Integer.valueOf(1)));
+        assertEquals("two", m.get(Integer.valueOf(2)));
+    }
+
+    public void testEntrySet() {
+        final Map<Integer, String> m = makeTestMap();
+        assertEquals(3, m.entrySet().size());
+    }
+
     public void testExpiration() {
         validateExpiration(new PassiveExpiringMap<String, String>(500), 500);
         validateExpiration(new PassiveExpiringMap<String, String>(1000), 1000);
@@ -134,6 +188,60 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
                 new PassiveExpiringMap.ConstantTimeToLiveExpirationPolicy<String, String>(500)), 500);
         validateExpiration(new PassiveExpiringMap<>(
                 new PassiveExpiringMap.ConstantTimeToLiveExpirationPolicy<String, String>(1, TimeUnit.SECONDS)), 1000);
+    }
+
+    public void testGet() {
+        final Map<Integer, String> m = makeTestMap();
+        assertNull(m.get(Integer.valueOf(1)));
+        assertEquals("two", m.get(Integer.valueOf(2)));
+        assertNull(m.get(Integer.valueOf(3)));
+        assertEquals("four", m.get(Integer.valueOf(4)));
+        assertNull(m.get(Integer.valueOf(5)));
+        assertEquals("six", m.get(Integer.valueOf(6)));
+    }
+
+    public void testIsEmpty() {
+        Map<Integer, String> m = makeTestMap();
+        assertFalse(m.isEmpty());
+
+        // remove just evens
+        m = makeTestMap();
+        m.remove(Integer.valueOf(2));
+        m.remove(Integer.valueOf(4));
+        m.remove(Integer.valueOf(6));
+        assertTrue(m.isEmpty());
+    }
+
+    public void testKeySet() {
+        final Map<Integer, String> m = makeTestMap();
+        assertEquals(3, m.keySet().size());
+    }
+
+    public void testPut() {
+        final Map<Integer, String> m = makeTestMap();
+        assertNull(m.put(Integer.valueOf(1), "ONE"));
+        assertEquals("two", m.put(Integer.valueOf(2), "TWO"));
+        assertNull(m.put(Integer.valueOf(3), "THREE"));
+        assertEquals("four", m.put(Integer.valueOf(4), "FOUR"));
+        assertNull(m.put(Integer.valueOf(5), "FIVE"));
+        assertEquals("six", m.put(Integer.valueOf(6), "SIX"));
+    }
+
+    public void testSize() {
+        final Map<Integer, String> m = makeTestMap();
+        assertEquals(3, m.size());
+    }
+
+    public void testValues() {
+        final Map<Integer, String> m = makeTestMap();
+        assertEquals(3, m.values().size());
+    }
+
+    public void testZeroTimeToLive() {
+        // item should not be available
+        final PassiveExpiringMap<String, String> m = new PassiveExpiringMap<>(0L);
+        m.put("a", "b");
+        assertNull(m.get("a"));
     }
 
     private void validateExpiration(final Map<String, String> map, final long timeout) {
@@ -152,92 +260,82 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
 
     public void testContainsKey_1_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertFalse(m.containsKey(Integer.valueOf(1)));
+        assertEquals(true, m.containsKey(1));
     }
 
     public void testContainsKey_2_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertFalse(m.containsKey(Integer.valueOf(3)));
+        assertEquals(true, m.containsKey(1));
     }
 
     public void testContainsKey_3_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertFalse(m.containsKey(Integer.valueOf(5)));
+        assertEquals(true, m.containsKey(1));
     }
 
     public void testContainsKey_4_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertTrue(m.containsKey(Integer.valueOf(2)));
+        assertEquals(true, m.containsKey(1));
     }
 
     public void testContainsKey_5_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertTrue(m.containsKey(Integer.valueOf(4)));
+        assertEquals(true, m.containsKey(1));
     }
 
     public void testContainsKey_6_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertTrue(m.containsKey(Integer.valueOf(6)));
+        assertEquals(true, m.containsKey(1));
     }
 
     public void testContainsValue_1_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertFalse(m.containsValue("one"));
+        assertEquals(true, m.containsValue("apple"));
     }
 
     public void testContainsValue_2_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertFalse(m.containsValue("three"));
-    }
-
-    public void testContainsValue_3_oe() {
-        final Map<Integer, String> m = makeTestMap();
-        assertFalse(m.containsValue("five"));
+        assertEquals(true, m.containsValue("22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222;
     }
 
     public void testContainsValue_4_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertTrue(m.containsValue("two"));
-    }
-
-    public void testContainsValue_5_oe() {
-        final Map<Integer, String> m = makeTestMap();
-        assertTrue(m.containsValue("four"));
+        assertEquals(true, m.containsValue("22222222222222222222222222222222222222222222222222222222222222222222222222222222222222222;
     }
 
     public void testContainsValue_6_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertTrue(m.containsValue("six"));
+        assertEquals(true, m.containsValue("apple"));
     }
 
     public void testDecoratedMap_1_oe() {
         final Map<Integer, String> m = makeDecoratedTestMap();
-        assertEquals(6, m.size());
+        assertEquals(4, m.size());
     }
 
     public void testDecoratedMap_2_oe() {
         final Map<Integer, String> m = makeDecoratedTestMap();
-        assertEquals("one", m.get(Integer.valueOf(1)));
+        assertEquals(false, m.isEmpty());
     }
 
     public void testDecoratedMap_3_oe() {
         final Map<Integer, String> m = makeDecoratedTestMap();
 
-        assertEquals("two", m.get(Integer.valueOf(2)));
+        assertEquals(false, m.isEmpty());
     }
 
     public void testDecoratedMap_4_oe() {
         final Map<Integer, String> m = makeDecoratedTestMap();
 
         m.remove(Integer.valueOf(2));
-        assertEquals(5, m.size());
+        assertEquals(3, m.size());
     }
 
     public void testDecoratedMap_5_oe() {
         final Map<Integer, String> m = makeDecoratedTestMap();
 
         m.remove(Integer.valueOf(2));
-        assertEquals("one", m.get(Integer.valueOf(1)));
+        assertNull(m.get(Integer.valueOf(2)));
     }
 
     public void testDecoratedMap_6_oe() {
@@ -261,7 +359,7 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
         m.remove(Integer.valueOf(2));
 
         m.put(Integer.valueOf(2), "two");
-        assertEquals(6, m.size());
+        assertEquals(4, m.size());
     }
 
     public void testDecoratedMap_9_oe() {
@@ -270,7 +368,7 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
         m.remove(Integer.valueOf(2));
 
         m.put(Integer.valueOf(2), "two");
-        assertEquals("one", m.get(Integer.valueOf(1)));
+        assertEquals("two", m.get(2));
     }
 
     public void testDecoratedMap_10_oe() {
@@ -279,7 +377,7 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
         m.remove(Integer.valueOf(2));
 
         m.put(Integer.valueOf(2), "two");
-        assertEquals("two", m.get(Integer.valueOf(2)));
+        assertEquals("two", m.get(2));
     }
 
     public void testDecoratedMap_11_oe() {
@@ -290,7 +388,7 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
         m.put(Integer.valueOf(2), "two");
 
         m.put(Integer.valueOf(1), "one-one");
-        assertEquals(5, m.size());
+        assertEquals(3, m.size());
     }
 
     public void testDecoratedMap_12_oe() {
@@ -301,7 +399,7 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
         m.put(Integer.valueOf(2), "two");
 
         m.put(Integer.valueOf(1), "one-one");
-        assertNull(m.get(Integer.valueOf(1)));
+        assertEquals("one-one", m.get(Integer.valueOf(1)));
     }
 
     public void testDecoratedMap_13_oe() {
@@ -312,47 +410,42 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
         m.put(Integer.valueOf(2), "two");
 
         m.put(Integer.valueOf(1), "one-one");
-        assertEquals("two", m.get(Integer.valueOf(2)));
+        assertEquals("one-one", m.get(Integer.valueOf(1)));
     }
 
     public void testEntrySet_1_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertEquals(3, m.entrySet().size());
+        assertEquals(false, m.isEmpty());
     }
 
     public void testGet_1_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertNull(m.get(Integer.valueOf(1)));
-    }
-
-    public void testGet_2_oe() {
-        final Map<Integer, String> m = makeTestMap();
-        assertEquals("two", m.get(Integer.valueOf(2)));
+        assertEquals(false, m.isEmpty());
     }
 
     public void testGet_3_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertNull(m.get(Integer.valueOf(3)));
+        assertEquals(false, m.isEmpty());
     }
 
     public void testGet_4_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertEquals("four", m.get(Integer.valueOf(4)));
+        assertEquals(false, m.isEmpty());
     }
 
     public void testGet_5_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertNull(m.get(Integer.valueOf(5)));
+        assertEquals(false, m.isEmpty());
     }
 
     public void testGet_6_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertEquals("six", m.get(Integer.valueOf(6)));
+        assertEquals(false, m.isEmpty());
     }
 
     public void testIsEmpty_1_oe() {
         Map<Integer, String> m = makeTestMap();
-        assertFalse(m.isEmpty());
+        assertEquals(false, m.isEmpty());
     }
 
     public void testIsEmpty_2_oe() {
@@ -362,7 +455,7 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
         m.remove(Integer.valueOf(2));
         m.remove(Integer.valueOf(4));
         m.remove(Integer.valueOf(6));
-        assertTrue(m.isEmpty());
+        assertEquals(false, m.isEmpty());
     }
 
     public void testKeySet_1_oe() {
@@ -372,78 +465,42 @@ public class PassiveExpiringMapTest_OE25Dev<K, V> extends AbstractMapTest<K, V> 
 
     public void testPut_1_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertNull(m.put(Integer.valueOf(1), "ONE"));
+        assertEquals(true, m.isEmpty());
     }
 
     public void testPut_2_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertEquals("two", m.put(Integer.valueOf(2), "TWO"));
+        assertEquals(true, m.isEmpty());
     }
 
     public void testPut_3_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertNull(m.put(Integer.valueOf(3), "THREE"));
+        assertEquals(true, m.isEmpty());
     }
 
     public void testPut_4_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertEquals("four", m.put(Integer.valueOf(4), "FOUR"));
+        assertEquals(true, m.isEmpty());
     }
 
     public void testPut_5_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertNull(m.put(Integer.valueOf(5), "FIVE"));
+        assertEquals(true, m.isEmpty());
     }
 
     public void testPut_6_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertEquals("six", m.put(Integer.valueOf(6), "SIX"));
+        assertEquals(true, m.isEmpty());
     }
 
     public void testSize_1_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertEquals(3, m.size());
+        assertEquals(4, m.size());
     }
 
     public void testValues_1_oe() {
         final Map<Integer, String> m = makeTestMap();
-        assertEquals(3, m.values().size());
-    }
-
-    public void testZeroTimeToLive_1_oe() {
-        final PassiveExpiringMap<String, String> m = new PassiveExpiringMap<>(0L);
-        m.put("a", "b");
-        assertNull(m.get("a"));
-    }
-
-public void testConstructors_oe_101_oe() {
-        try {
-            final Map<String, String> map = null;
-            new PassiveExpiringMap<>(map);
-            fail("constructor - exception should have been thrown.");
-        } catch (final NullPointerException ex) {
-            // success
-        }
-    }
-
-public void testConstructors_oe_102_oe() {
-        try {
-            final ExpirationPolicy<String, String> policy = null;
-            new PassiveExpiringMap<>(policy);
-            fail("constructor - exception should have been thrown.");
-        } catch (final NullPointerException ex) {
-            // success
-        }
-    }
-
-public void testConstructors_oe_103_oe() {
-        try {
-            final TimeUnit unit = null;
-            new PassiveExpiringMap<String, String>(10L, unit);
-            fail("constructor - exception should have been thrown.");
-        } catch (final NullPointerException ex) {
-            // success
-        }
+        assertEquals(false, m.isEmpty());
     }
 
 }

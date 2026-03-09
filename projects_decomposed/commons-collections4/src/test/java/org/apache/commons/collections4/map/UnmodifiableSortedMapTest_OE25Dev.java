@@ -64,6 +64,21 @@ public class UnmodifiableSortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTe
 
     //-----------------------------------------------------------------------
 
+    public void testUnmodifiable() {
+        assertTrue(makeObject() instanceof Unmodifiable);
+        assertTrue(makeFullMap() instanceof Unmodifiable);
+    }
+
+    public void testDecorateFactory() {
+        final SortedMap<K, V> map = makeFullMap();
+        assertSame(map, UnmodifiableSortedMap.unmodifiableSortedMap(map));
+
+        try {
+            UnmodifiableSortedMap.unmodifiableSortedMap(null);
+            fail();
+        } catch (final NullPointerException ex) {}
+    }
+
     //-----------------------------------------------------------------------
 
     @Override
@@ -84,24 +99,17 @@ public class UnmodifiableSortedMapTest_OE25Dev<K, V> extends AbstractSortedMapTe
 
     public void testUnmodifiable_1_oe() {
         boolean a = makeObject() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testUnmodifiable_2_oe() {
         boolean a = makeFullMap() instanceof Unmodifiable;
-        assertTrue(a);
+        assertEquals(false, a);
     }
 
     public void testDecorateFactory_1_oe() {
         final SortedMap<K, V> map = makeFullMap();
-        assertSame(map, UnmodifiableSortedMap.unmodifiableSortedMap(map));
-    }
-
-public void testDecorateFactory_oe_101_oe() {
-        try {
-            UnmodifiableSortedMap.unmodifiableSortedMap(null);
-            fail();
-        } catch (final NullPointerException ex) {}
+        assertEquals(true, map.isEmpty());
     }
 
 }

@@ -47,33 +47,45 @@ public class MapBackedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
         return set;
     }
 
+    @SuppressWarnings("unchecked")
+    public void testOrdering() {
+        final Set<E> set = setupSet();
+        Iterator<E> it = set.iterator();
+
+        for (int i = 0; i < 10; i++) {
+            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
+        }
+
+        for (int i = 0; i < 10; i += 2) {
+            assertTrue("Must be able to remove int", set.remove(Integer.toString(i)));
+        }
+
+        it = set.iterator();
+        for (int i = 1; i < 10; i += 2) {
+            assertEquals("Sequence is wrong after remove ", Integer.toString(i), it.next());
+        }
+
+        for (int i = 0; i < 10; i++) {
+            set.add((E) Integer.toString(i));
+        }
+
+        assertEquals("Size of set is wrong!", 10, set.size());
+
+        it = set.iterator();
+        for (int i = 1; i < 10; i += 2) {
+            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
+        }
+        for (int i = 0; i < 10; i += 2) {
+            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
+        }
+    }
+
     @Override
     public void testCanonicalEmptyCollectionExists() {
     }
 
     @Override
     public void testCanonicalFullCollectionExists() {
-    }
-
-    public void testOrdering_1_oe() {
-        final Set<E> set = setupSet();
-        Iterator<E> it = set.iterator();
-
-        for (int i = 0; i < 10; i++) {
-            assertEquals("Sequence is wrong", Integer.toString(i), it.next());
-    }
-    }
-
-    public void testOrdering_2_oe() {
-        final Set<E> set = setupSet();
-        Iterator<E> it = set.iterator();
-
-        for (int i = 0; i < 10; i++) {
-        }
-
-        for (int i = 0; i < 10; i += 2) {
-            assertTrue("Must be able to remove int", set.remove(Integer.toString(i)));
-    }
     }
 
     public void testOrdering_4_oe() {
@@ -94,7 +106,7 @@ public class MapBackedSet2Test_OE25Dev<E> extends AbstractSetTest<E> {
             set.add((E) Integer.toString(i));
         }
 
-        assertEquals("Size of set is wrong!", 10, set.size());
+        assertEquals(10, set.size());
     }
 
 }

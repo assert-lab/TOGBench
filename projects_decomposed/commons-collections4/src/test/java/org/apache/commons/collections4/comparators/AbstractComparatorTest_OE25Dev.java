@@ -104,18 +104,64 @@ public abstract class AbstractComparatorTest_OE25Dev<T> extends AbstractObjectTe
     /**
      * Test sorting an empty list
      */
+    @Test
+    public void testEmptyListSort() {
+        final List<T> list = new LinkedList<>();
+        sortObjects(list, makeObject());
+
+        final List<T> list2 = new LinkedList<>();
+
+        assertTrue("Comparator cannot sort empty lists", list2.equals(list));
+    }
 
     /**
      * Test sorting a reversed list.
      */
+    @Test
+    public void testReverseListSort() {
+        final Comparator<T> comparator = makeObject();
+
+        final List<T> randomList = getComparableObjectsOrdered();
+        reverseObjects(randomList);
+        sortObjects(randomList, comparator);
+
+        final List<T> orderedList = getComparableObjectsOrdered();
+
+        assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
+    }
 
     /**
      * Test sorting a random list.
      */
+    @Test
+    public void testRandomListSort() {
+        final Comparator<T> comparator = makeObject();
+
+        final List<T> randomList = getComparableObjectsOrdered();
+        randomizeObjects(randomList);
+        sortObjects(randomList,comparator);
+
+        final List<T> orderedList = getComparableObjectsOrdered();
+
+        /* debug
+        Iterator i = randomList.iterator();
+        while (i.hasNext()) {
+            System.out.println(i.next());
+        }
+        */
+
+        assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
+
+    }
 
     /**
      * Nearly all Comparators should be Serializable.
      */
+    @Test
+    public void testComparatorIsSerializable() {
+        final Comparator<T> comparator = makeObject();
+        assertTrue("This comparator should be Serializable.",comparator instanceof Serializable);
+    }
 
     public String getCanonicalComparatorName(final Object object) {
         final StringBuilder retval = new StringBuilder();
@@ -133,6 +179,41 @@ public abstract class AbstractComparatorTest_OE25Dev<T> extends AbstractObjectTe
      * Compare the current serialized form of the Comparator
      * against the canonical version in SVN.
      */
+    @SuppressWarnings("unchecked")
+    @Test
+    public void testComparatorCompatibility() throws IOException, ClassNotFoundException {
+        if (!skipSerializedCanonicalTests()) {
+            Comparator<T> comparator = null;
+
+            // test to make sure the canonical form has been preserved
+            try {
+                comparator = (Comparator<T>) readExternalFormFromDisk(getCanonicalComparatorName(makeObject()));
+            } catch (final FileNotFoundException exception) {
+
+                final boolean autoCreateSerialized = false;
+
+                if (autoCreateSerialized) {
+                    comparator = makeObject();
+                    final String fileName = getCanonicalComparatorName(comparator);
+                    writeExternalFormToDisk((Serializable) comparator, fileName);
+                    fail("Serialized form could not be found. A serialized version " + "has now been written(and should be added to CVS): " + fileName);
+                } else {
+                    fail("The Serialized form could be located to test serialization " + "compatibility: " + exception.getMessage());
+                }
+            }
+
+
+            // make sure the canonical form produces the ordering we currently
+            // expect
+            final List<T> randomList = getComparableObjectsOrdered();
+            reverseObjects(randomList);
+            sortObjects(randomList, comparator);
+
+            final List<T> orderedList = getComparableObjectsOrdered();
+
+            assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
+        }
+    }
 
     @Test
     public void testEmptyListSort_1_oe() {
@@ -141,7 +222,7 @@ public abstract class AbstractComparatorTest_OE25Dev<T> extends AbstractObjectTe
 
         final List<T> list2 = new LinkedList<>();
 
-        assertTrue("Comparator cannot sort empty lists", list2.equals(list));
+        assertEquals(0, list2.size());
     }
 
     @Test
@@ -154,106 +235,13 @@ public abstract class AbstractComparatorTest_OE25Dev<T> extends AbstractObjectTe
 
         final List<T> orderedList = getComparableObjectsOrdered();
 
-        assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
-    }
-
-    @Test
-    public void testRandomListSort_1_oe() {
-        final Comparator<T> comparator = makeObject();
-
-        final List<T> randomList = getComparableObjectsOrdered();
-        randomizeObjects(randomList);
-        sortObjects(randomList,comparator);
-
-        final List<T> orderedList = getComparableObjectsOrdered();
-
-        /* debug
-        Iterator i = randomList.iterator();
-        while (i.hasNext()) {
-            System.out.println(i.next());
-        }
-        */
-
-        assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
+        assertEquals(0, comparator.compare(orderedList.get(orderedList.size() - 1), orderedList.get(orderedList.size() - 1)));
     }
 
     @Test
     public void testComparatorIsSerializable_1_oe() {
         final Comparator<T> comparator = makeObject();
-        assertTrue("This comparator should be Serializable.",comparator instanceof Serializable);
-    }
-
-    @Test
-    public void testComparatorCompatibility_1_oe() throws IOException, ClassNotFoundException {
-        if (!skipSerializedCanonicalTests()) {
-            Comparator<T> comparator = null;
-
-            try {
-                comparator = (Comparator<T>) readExternalFormFromDisk(getCanonicalComparatorName(makeObject()));
-            } catch (final FileNotFoundException exception) {
-
-                final boolean autoCreateSerialized = false;
-
-                if (autoCreateSerialized) {
-                    comparator = makeObject();
-                    final String fileName = getCanonicalComparatorName(comparator);
-                    writeExternalFormToDisk((Serializable) comparator, fileName);
-                    fail("Serialized form could not be found. A serialized version " + "has now been written(and should be added to CVS): " + fileName);
-    }
-    }
-    }
-    }
-
-    @Test
-    public void testComparatorCompatibility_2_oe() throws IOException, ClassNotFoundException {
-        if (!skipSerializedCanonicalTests()) {
-            Comparator<T> comparator = null;
-
-            try {
-                comparator = (Comparator<T>) readExternalFormFromDisk(getCanonicalComparatorName(makeObject()));
-            } catch (final FileNotFoundException exception) {
-
-                final boolean autoCreateSerialized = false;
-
-                if (autoCreateSerialized) {
-                    comparator = makeObject();
-                    final String fileName = getCanonicalComparatorName(comparator);
-                    writeExternalFormToDisk((Serializable) comparator, fileName);
-                } else {
-                    fail("The Serialized form could be located to test serialization " + "compatibility: " + exception.getMessage());
-    }
-    }
-    }
-    }
-
-    @Test
-    public void testComparatorCompatibility_3_oe() throws IOException, ClassNotFoundException {
-        if (!skipSerializedCanonicalTests()) {
-            Comparator<T> comparator = null;
-
-            try {
-                comparator = (Comparator<T>) readExternalFormFromDisk(getCanonicalComparatorName(makeObject()));
-            } catch (final FileNotFoundException exception) {
-
-                final boolean autoCreateSerialized = false;
-
-                if (autoCreateSerialized) {
-                    comparator = makeObject();
-                    final String fileName = getCanonicalComparatorName(comparator);
-                    writeExternalFormToDisk((Serializable) comparator, fileName);
-                } else {
-                }
-            }
-
-
-            final List<T> randomList = getComparableObjectsOrdered();
-            reverseObjects(randomList);
-            sortObjects(randomList, comparator);
-
-            final List<T> orderedList = getComparableObjectsOrdered();
-
-            assertTrue("Comparator did not reorder the List correctly",orderedList.equals(randomList));
-    }
+        assertEquals(0, comparator.compare(0, 0));
     }
 
 }

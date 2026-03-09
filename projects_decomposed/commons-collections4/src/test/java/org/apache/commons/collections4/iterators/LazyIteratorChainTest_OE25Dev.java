@@ -85,41 +85,24 @@ public class LazyIteratorChainTest_OE25Dev extends AbstractIteratorTest<String> 
         return chain;
     }
 
-    public void testIterator_1_oe() {
+    public void testIterator() {
         final Iterator<String> iter = makeObject();
         for (final String testValue : testArray) {
             final Object iterValue = iter.next();
 
             assertEquals( "Iteration value is correct", testValue, iterValue );
-    }
-    }
-
-    public void testIterator_2_oe() {
-        final Iterator<String> iter = makeObject();
-        for (final String testValue : testArray) {
-            final Object iterValue = iter.next();
-
         }
 
         assertTrue("Iterator should now be empty", !iter.hasNext());
-    }
-
-    public void testIterator_3_oe() {
-        final Iterator<String> iter = makeObject();
-        for (final String testValue : testArray) {
-            final Object iterValue = iter.next();
-
-        }
-
 
         try {
             iter.next();
         } catch (final Exception e) {
             assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
-    }
+        }
     }
 
-    public void testRemoveFromFilteredIterator_1_oe() {
+    public void testRemoveFromFilteredIterator() {
 
         final Predicate<Integer> myPredicate = new Predicate<Integer>() {
             @Override
@@ -145,41 +128,16 @@ public class LazyIteratorChainTest_OE25Dev extends AbstractIteratorTest<String> 
             it.remove();
         }
         assertEquals(0, list1.size());
-    }
-
-    public void testRemoveFromFilteredIterator_2_oe() {
-
-        final Predicate<Integer> myPredicate = new Predicate<Integer>() {
-            @Override
-            public boolean evaluate(final Integer i) {
-                return i.compareTo(Integer.valueOf(4)) < 0;
-            }
-        };
-
-        final List<Integer> list1 = new ArrayList<>();
-        final List<Integer> list2 = new ArrayList<>();
-
-        list1.add(Integer.valueOf(1));
-        list1.add(Integer.valueOf(2));
-        list2.add(Integer.valueOf(3));
-        list2.add(Integer.valueOf(4)); // will be ignored by the predicate
-
-        final Iterator<Integer> it1 = IteratorUtils.filteredIterator(list1.iterator(), myPredicate);
-        final Iterator<Integer> it2 = IteratorUtils.filteredIterator(list2.iterator(), myPredicate);
-
-        final Iterator<Integer> it = IteratorUtils.chainedIterator(it1, it2);
-        while (it.hasNext()) {
-            it.next();
-            it.remove();
-        }
         assertEquals(1, list2.size());
     }
 
-    public void testRemove_2_oe() {
+    @Override
+    public void testRemove() {
         final Iterator<String> iter = makeObject();
 
         try {
             iter.remove();
+            fail("Calling remove before the first call to next() should throw an exception");
         } catch (final IllegalStateException e) {
 
         }
@@ -188,21 +146,6 @@ public class LazyIteratorChainTest_OE25Dev extends AbstractIteratorTest<String> 
             final String iterValue = iter.next();
 
             assertEquals("Iteration value is correct", testValue, iterValue);
-    }
-    }
-
-    public void testRemove_3_oe() {
-        final Iterator<String> iter = makeObject();
-
-        try {
-            iter.remove();
-        } catch (final IllegalStateException e) {
-
-        }
-
-        for (final String testValue : testArray) {
-            final String iterValue = iter.next();
-
 
             if (!iterValue.equals("Four")) {
                 iter.remove();
@@ -210,48 +153,58 @@ public class LazyIteratorChainTest_OE25Dev extends AbstractIteratorTest<String> 
         }
 
         assertTrue("List is empty",list1.size() == 0);
-    }
-
-    public void testRemove_4_oe() {
-        final Iterator<String> iter = makeObject();
-
-        try {
-            iter.remove();
-        } catch (final IllegalStateException e) {
-
-        }
-
-        for (final String testValue : testArray) {
-            final String iterValue = iter.next();
-
-
-            if (!iterValue.equals("Four")) {
-                iter.remove();
-            }
-        }
-
         assertTrue("List is empty",list2.size() == 1);
+        assertTrue("List is empty",list3.size() == 0);
     }
 
-    public void testRemove_5_oe() {
-        final Iterator<String> iter = makeObject();
-
-        try {
-            iter.remove();
-        } catch (final IllegalStateException e) {
-
-        }
-
-        for (final String testValue : testArray) {
-            final String iterValue = iter.next();
-
-
-            if (!iterValue.equals("Four")) {
-                iter.remove();
+    public void testFirstIteratorIsEmptyBug() {
+        final List<String> empty = new ArrayList<>();
+        final List<String> notEmpty = new ArrayList<>();
+        notEmpty.add("A");
+        notEmpty.add("B");
+        notEmpty.add("C");
+        final LazyIteratorChain<String> chain = new LazyIteratorChain<String>() {
+            @Override
+            protected Iterator<String> nextIterator(final int count) {
+                switch (count) {
+                case 1:
+                    return empty.iterator();
+                case 2:
+                    return notEmpty.iterator();
+                }
+                return null;
             }
+        };
+        assertTrue("should have next",chain.hasNext());
+        assertEquals("A",chain.next());
+        assertTrue("should have next",chain.hasNext());
+        assertEquals("B",chain.next());
+        assertTrue("should have next",chain.hasNext());
+        assertEquals("C",chain.next());
+        assertTrue("should not have next",!chain.hasNext());
+    }
+
+    public void testEmptyChain() {
+        final LazyIteratorChain<String> chain = makeEmptyIterator();
+        assertEquals(false, chain.hasNext());
+        try {
+            chain.next();
+            fail();
+        } catch (final NoSuchElementException ex) {}
+        try {
+            chain.remove();
+            fail();
+        } catch (final IllegalStateException ex) {}
+    }
+
+    public void testIterator_2_oe() {
+        final Iterator<String> iter = makeObject();
+        for (final String testValue : testArray) {
+            final Object iterValue = iter.next();
+
         }
 
-        assertTrue("List is empty",list3.size() == 0);
+        assertEquals(true, iter.hasNext());
     }
 
     public void testFirstIteratorIsEmptyBug_1_oe() {
@@ -272,7 +225,7 @@ public class LazyIteratorChainTest_OE25Dev extends AbstractIteratorTest<String> 
                 return null;
             }
         };
-        assertTrue("should have next",chain.hasNext());
+        assertEquals(true, chain.hasNext());
     }
 
     public void testFirstIteratorIsEmptyBug_2_oe() {
@@ -293,7 +246,7 @@ public class LazyIteratorChainTest_OE25Dev extends AbstractIteratorTest<String> 
                 return null;
             }
         };
-        assertEquals("A",chain.next());
+        assertEquals("A", chain.next());
     }
 
     public void testFirstIteratorIsEmptyBug_3_oe() {
@@ -314,7 +267,7 @@ public class LazyIteratorChainTest_OE25Dev extends AbstractIteratorTest<String> 
                 return null;
             }
         };
-        assertTrue("should have next",chain.hasNext());
+        assertEquals(true, chain.hasNext());
     }
 
     public void testFirstIteratorIsEmptyBug_5_oe() {
@@ -335,7 +288,7 @@ public class LazyIteratorChainTest_OE25Dev extends AbstractIteratorTest<String> 
                 return null;
             }
         };
-        assertTrue("should have next",chain.hasNext());
+        assertEquals(true, chain.hasNext());
     }
 
     public void testEmptyChain_1_oe() {

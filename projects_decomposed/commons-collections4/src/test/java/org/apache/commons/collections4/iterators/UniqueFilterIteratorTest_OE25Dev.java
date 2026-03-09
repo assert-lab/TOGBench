@@ -65,39 +65,23 @@ public class UniqueFilterIteratorTest_OE25Dev<E> extends AbstractIteratorTest<E>
         return new UniqueFilterIterator<>(i);
     }
 
-    public void testIterator_1_oe() {
+    public void testIterator() {
         final Iterator<E> iter = makeObject();
         for (final String testValue : testArray) {
             final E iterValue = iter.next();
 
             assertEquals( "Iteration value is correct", testValue, iterValue );
-    }
-    }
-
-    public void testIterator_2_oe() {
-        final Iterator<E> iter = makeObject();
-        for (final String testValue : testArray) {
-            final E iterValue = iter.next();
-
         }
 
         assertTrue("Iterator should now be empty", ! iter.hasNext() );
-    }
-
-    public void testIterator_3_oe() {
-        final Iterator<E> iter = makeObject();
-        for (final String testValue : testArray) {
-            final E iterValue = iter.next();
-
-        }
-
 
         try {
             iter.next();
         } catch (final Exception e) {
             assertTrue("NoSuchElementException must be thrown",e.getClass().equals(new NoSuchElementException().getClass()));
+        }
     }
-    }
+
 
 }
 

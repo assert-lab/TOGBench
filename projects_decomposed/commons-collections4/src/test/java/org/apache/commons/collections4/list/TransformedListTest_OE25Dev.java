@@ -62,6 +62,71 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         return TransformedList.transformingList(list, (Transformer<E, E>) TransformedCollectionTest.NOOP_TRANSFORMER);
     }
 
+    @SuppressWarnings("unchecked")
+    public void testTransformedList() {
+        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(0, list.size());
+        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
+        for (int i = 0; i < els.length; i++) {
+            list.add(els[i]);
+            assertEquals(i + 1, list.size());
+            assertEquals(true, list.contains(Integer.valueOf((String) els[i])));
+            assertEquals(false, list.contains(els[i]));
+        }
+
+        assertEquals(false, list.remove(els[0]));
+        assertEquals(true, list.remove(Integer.valueOf((String) els[0])));
+
+        list.clear();
+        for (int i = 0; i < els.length; i++) {
+            list.add(0, els[i]);
+            assertEquals(i + 1, list.size());
+            assertEquals(Integer.valueOf((String) els[i]), list.get(0));
+        }
+
+        list.set(0, (E) "22");
+        assertEquals(Integer.valueOf(22), list.get(0));
+
+        final ListIterator<E> it = list.listIterator();
+        it.next();
+        it.set((E) "33");
+        assertEquals(Integer.valueOf(33), list.get(0));
+        it.add((E) "44");
+        assertEquals(Integer.valueOf(44), list.get(1));
+
+        final List<E> adds = new ArrayList<>();
+        adds.add((E) "1");
+        adds.add((E) "2");
+        list.clear();
+        list.addAll(adds);
+        assertEquals(Integer.valueOf(1), list.get(0));
+        assertEquals(Integer.valueOf(2), list.get(1));
+
+        adds.clear();
+        adds.add((E) "3");
+        list.addAll(1, adds);
+        assertEquals(Integer.valueOf(1), list.get(0));
+        assertEquals(Integer.valueOf(3), list.get(1));
+        assertEquals(Integer.valueOf(2), list.get(2));
+    }
+
+    public void testTransformedList_decorateTransform() {
+        final List<Object> originalList = new ArrayList<>();
+        final Object[] els = new Object[] {"1", "3", "5", "7", "2", "4", "6"};
+        for (final Object el : els) {
+            originalList.add(el);
+        }
+        final List<?> list = TransformedList.transformedList(originalList, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
+        assertEquals(els.length, list.size());
+        for (final Object el : els) {
+            assertEquals(true, list.contains(Integer.valueOf((String) el)));
+            assertEquals(false, list.contains(el));
+        }
+
+        assertEquals(false, list.remove(els[0]));
+        assertEquals(true, list.remove(Integer.valueOf((String) els[0])));
+    }
+
     @Override
     public String getCompatibilityVersion() {
         return "4";
@@ -84,7 +149,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (int i = 0; i < els.length; i++) {
             list.add(els[i]);
-            assertEquals(i + 1, list.size());
+            assertEquals(7, list.size());
     }
     }
 
@@ -93,7 +158,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (int i = 0; i < els.length; i++) {
             list.add(els[i]);
-            assertEquals(true, list.contains(Integer.valueOf((String) els[i])));
+            assertEquals(true, list.contains("1"));
     }
     }
 
@@ -102,7 +167,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
         for (int i = 0; i < els.length; i++) {
             list.add(els[i]);
-            assertEquals(false, list.contains(els[i]));
+            assertEquals(true, list.containsAll(list));
     }
     }
 
@@ -113,7 +178,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
             list.add(els[i]);
         }
 
-        assertEquals(false, list.remove(els[0]));
+        assertEquals("[1, 3, 5, 7, 2, 4, 6]", list.toString());
     }
 
     public void testTransformedList_6_oe() {
@@ -123,7 +188,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
             list.add(els[i]);
         }
 
-        assertEquals(true, list.remove(Integer.valueOf((String) els[0])));
+        assertEquals("[1, 3, 5, 7, 2, 4, 6]", list.toString());
     }
 
     public void testTransformedList_7_oe() {
@@ -137,235 +202,8 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         list.clear();
         for (int i = 0; i < els.length; i++) {
             list.add(0, els[i]);
-            assertEquals(i + 1, list.size());
+            assertEquals(0, list.size());
     }
-    }
-
-    public void testTransformedList_8_oe() {
-        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        for (int i = 0; i < els.length; i++) {
-            list.add(els[i]);
-        }
-
-
-        list.clear();
-        for (int i = 0; i < els.length; i++) {
-            list.add(0, els[i]);
-            assertEquals(Integer.valueOf((String) els[i]), list.get(0));
-    }
-    }
-
-    public void testTransformedList_9_oe() {
-        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        for (int i = 0; i < els.length; i++) {
-            list.add(els[i]);
-        }
-
-
-        list.clear();
-        for (int i = 0; i < els.length; i++) {
-            list.add(0, els[i]);
-        }
-
-        list.set(0, (E) "22");
-        assertEquals(Integer.valueOf(22), list.get(0));
-    }
-
-    public void testTransformedList_10_oe() {
-        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        for (int i = 0; i < els.length; i++) {
-            list.add(els[i]);
-        }
-
-
-        list.clear();
-        for (int i = 0; i < els.length; i++) {
-            list.add(0, els[i]);
-        }
-
-        list.set(0, (E) "22");
-
-        final ListIterator<E> it = list.listIterator();
-        it.next();
-        it.set((E) "33");
-        assertEquals(Integer.valueOf(33), list.get(0));
-    }
-
-    public void testTransformedList_11_oe() {
-        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        for (int i = 0; i < els.length; i++) {
-            list.add(els[i]);
-        }
-
-
-        list.clear();
-        for (int i = 0; i < els.length; i++) {
-            list.add(0, els[i]);
-        }
-
-        list.set(0, (E) "22");
-
-        final ListIterator<E> it = list.listIterator();
-        it.next();
-        it.set((E) "33");
-        it.add((E) "44");
-        assertEquals(Integer.valueOf(44), list.get(1));
-    }
-
-    public void testTransformedList_12_oe() {
-        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        for (int i = 0; i < els.length; i++) {
-            list.add(els[i]);
-        }
-
-
-        list.clear();
-        for (int i = 0; i < els.length; i++) {
-            list.add(0, els[i]);
-        }
-
-        list.set(0, (E) "22");
-
-        final ListIterator<E> it = list.listIterator();
-        it.next();
-        it.set((E) "33");
-        it.add((E) "44");
-
-        final List<E> adds = new ArrayList<>();
-        adds.add((E) "1");
-        adds.add((E) "2");
-        list.clear();
-        list.addAll(adds);
-        assertEquals(Integer.valueOf(1), list.get(0));
-    }
-
-    public void testTransformedList_13_oe() {
-        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        for (int i = 0; i < els.length; i++) {
-            list.add(els[i]);
-        }
-
-
-        list.clear();
-        for (int i = 0; i < els.length; i++) {
-            list.add(0, els[i]);
-        }
-
-        list.set(0, (E) "22");
-
-        final ListIterator<E> it = list.listIterator();
-        it.next();
-        it.set((E) "33");
-        it.add((E) "44");
-
-        final List<E> adds = new ArrayList<>();
-        adds.add((E) "1");
-        adds.add((E) "2");
-        list.clear();
-        list.addAll(adds);
-        assertEquals(Integer.valueOf(2), list.get(1));
-    }
-
-    public void testTransformedList_14_oe() {
-        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        for (int i = 0; i < els.length; i++) {
-            list.add(els[i]);
-        }
-
-
-        list.clear();
-        for (int i = 0; i < els.length; i++) {
-            list.add(0, els[i]);
-        }
-
-        list.set(0, (E) "22");
-
-        final ListIterator<E> it = list.listIterator();
-        it.next();
-        it.set((E) "33");
-        it.add((E) "44");
-
-        final List<E> adds = new ArrayList<>();
-        adds.add((E) "1");
-        adds.add((E) "2");
-        list.clear();
-        list.addAll(adds);
-
-        adds.clear();
-        adds.add((E) "3");
-        list.addAll(1, adds);
-        assertEquals(Integer.valueOf(1), list.get(0));
-    }
-
-    public void testTransformedList_15_oe() {
-        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        for (int i = 0; i < els.length; i++) {
-            list.add(els[i]);
-        }
-
-
-        list.clear();
-        for (int i = 0; i < els.length; i++) {
-            list.add(0, els[i]);
-        }
-
-        list.set(0, (E) "22");
-
-        final ListIterator<E> it = list.listIterator();
-        it.next();
-        it.set((E) "33");
-        it.add((E) "44");
-
-        final List<E> adds = new ArrayList<>();
-        adds.add((E) "1");
-        adds.add((E) "2");
-        list.clear();
-        list.addAll(adds);
-
-        adds.clear();
-        adds.add((E) "3");
-        list.addAll(1, adds);
-        assertEquals(Integer.valueOf(3), list.get(1));
-    }
-
-    public void testTransformedList_16_oe() {
-        final List<E> list = TransformedList.transformingList(new ArrayList<E>(), (Transformer<E, E>) TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        final E[] els = (E[]) new Object[] {"1", "3", "5", "7", "2", "4", "6"};
-        for (int i = 0; i < els.length; i++) {
-            list.add(els[i]);
-        }
-
-
-        list.clear();
-        for (int i = 0; i < els.length; i++) {
-            list.add(0, els[i]);
-        }
-
-        list.set(0, (E) "22");
-
-        final ListIterator<E> it = list.listIterator();
-        it.next();
-        it.set((E) "33");
-        it.add((E) "44");
-
-        final List<E> adds = new ArrayList<>();
-        adds.add((E) "1");
-        adds.add((E) "2");
-        list.clear();
-        list.addAll(adds);
-
-        adds.clear();
-        adds.add((E) "3");
-        list.addAll(1, adds);
-        assertEquals(Integer.valueOf(2), list.get(2));
     }
 
     public void testTransformedList_decorateTransform_1_oe() {
@@ -375,7 +213,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
             originalList.add(el);
         }
         final List<?> list = TransformedList.transformedList(originalList, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
-        assertEquals(els.length, list.size());
+        assertEquals(7, list.size());
     }
 
     public void testTransformedList_decorateTransform_2_oe() {
@@ -386,7 +224,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         }
         final List<?> list = TransformedList.transformedList(originalList, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         for (final Object el : els) {
-            assertEquals(true, list.contains(Integer.valueOf((String) el)));
+            assertEquals(false, list.contains(1));
     }
     }
 
@@ -398,7 +236,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         }
         final List<?> list = TransformedList.transformedList(originalList, TransformedCollectionTest.STRING_TO_INTEGER_TRANSFORMER);
         for (final Object el : els) {
-            assertEquals(false, list.contains(el));
+            assertEquals(false, list.contains(1));
     }
     }
 
@@ -412,7 +250,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         for (final Object el : els) {
         }
 
-        assertEquals(false, list.remove(els[0]));
+        assertEquals("[1, 3, 5, 7, 2, 4, 6]", list.toString());
     }
 
     public void testTransformedList_decorateTransform_5_oe() {
@@ -425,7 +263,7 @@ public class TransformedListTest_OE25Dev<E> extends AbstractListTest<E> {
         for (final Object el : els) {
         }
 
-        assertEquals(true, list.remove(Integer.valueOf((String) els[0])));
+        assertEquals("[1, 3, 5, 7, 2, 4, 6]", list.toString());
     }
 
 }
