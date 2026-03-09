@@ -7,8 +7,7 @@ commons-jexl3_406_101,"@Test
         } catch (final JexlException.Parsing xparse) {
             final String str = xparse.detailedMessage();
         }
-    }
-",ForEachTest::testForEachContinueBroken_oe_101_oe,"protected String detailedMessage() {
+    }",ForEachTest::testForEachContinueBroken_oe_101_oe,"protected String detailedMessage() {
         Class<? extends JexlException> clazz = getClass();
         String name = clazz == JexlException.class? ""JEXL"" : clazz.getSimpleName().toLowerCase();
         return name + "" error : "" + getDetail();
@@ -24,8 +23,7 @@ commons-jexl3_595_101,"@Test
             Assert.fail(""empty context should be readonly"");
         } catch(UnsupportedOperationException xun) {
         }
-    }
-",MiscIntrospectionTest::testEmptyContext_oe_101_oe,"@Override
+    }",MiscIntrospectionTest::testEmptyContext_oe_101_oe,"@Override
         public void set(final String name, final Object value) {
             throw new UnsupportedOperationException(""Not supported in void context."");
         }",
@@ -36,5 +34,4 @@ commons-jexl3_597_101,"@Test
             Assert.fail(""non-array wrap?"");
         } catch(IllegalArgumentException xil) {
         }
-    }
-",MiscIntrospectionTest::testArrayListWrapper_oe_101_oe,,
+    }",MiscIntrospectionTest::testArrayListWrapper_oe_101_oe,,

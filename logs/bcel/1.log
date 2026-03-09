@@ -19,27 +19,27 @@
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 1 file to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/apidocs/META-INF
+     [copy] Copying 1 file to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/bcel/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
 [INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ bcel ---
 [INFO] 
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ bcel ---
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel
-[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773032028609
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/bcel' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/bcel
+[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054776145
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ bcel ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/bcel/src/main/resources
 [INFO] Copying 1 resource to META-INF
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ bcel ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 391 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/main/java/org/apache/bcel/classfile/CodeException.java: Some input files use or override a deprecated API.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/main/java/org/apache/bcel/classfile/CodeException.java: Recompile with -Xlint:deprecation for details.
+[INFO] Compiling 391 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/bcel/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/bcel/src/main/java/org/apache/bcel/classfile/CodeException.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/bcel/src/main/java/org/apache/bcel/classfile/CodeException.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
 [INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ bcel ---
 [INFO] 
@@ -53,61 +53,82 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ bcel ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 88 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/InstructionHandleTestCase_OE25Dev.java:[65,17] method testsetInstructionNull() is already defined in class org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/InstructionHandleTestCase_OE25Dev.java:[73,17] method testsetInstructionnotI() is already defined in class org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/BranchHandleTestCase_OE25Dev.java:[56,17] method testsetInstructionNull() is already defined in class org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/BranchHandleTestCase_OE25Dev.java:[64,17] method testsetInstructionnotBI() is already defined in class org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/InstructionHandleTestCase_OE25Dev.java:[64,2] cannot find symbol
-  symbol:   class Test_oe
-  location: class org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/InstructionHandleTestCase_OE25Dev.java:[72,2] cannot find symbol
-  symbol:   class Test_oe
-  location: class org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/BranchHandleTestCase_OE25Dev.java:[55,2] cannot find symbol
-  symbol:   class Test_oe
-  location: class org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/BranchHandleTestCase_OE25Dev.java:[63,2] cannot find symbol
-  symbol:   class Test_oe
-  location: class org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/util/BCELifierTestCase_OE25Dev.java:[71,9] cannot find symbol
-  symbol:   method testClassOnPath(java.lang.String)
-  location: class org.apache.bcel.util.BCELifierTestCase_OE25Dev
-[INFO] 9 errors 
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 112 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/bcel/target/test-classes
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ bcel ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/bcel/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ bcel ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.16 s - in org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
+[INFO] Running org.apache.bcel.generic.TypeTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.generic.TypeTestCase_OE25Dev
+[INFO] Running org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
+[INFO] Running org.apache.bcel.generic.AnnotationGenTestCase_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.apache.bcel.generic.AnnotationGenTestCase_OE25Dev
+[INFO] Running org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.254 s - in org.apache.bcel.generic.GeneratingAnnotatedClassesTestCase_OE25Dev
+[INFO] Running org.apache.bcel.generic.MethodGenTestCase_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.bcel.generic.MethodGenTestCase_OE25Dev
+[INFO] Running org.apache.bcel.generic.FieldAnnotationsTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.bcel.generic.FieldAnnotationsTestCase_OE25Dev
+[INFO] Running org.apache.bcel.EnclosingMethodAttributeTestCase_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.bcel.EnclosingMethodAttributeTestCase_OE25Dev
+[INFO] Running org.apache.bcel.AnonymousClassTestCase_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.bcel.AnonymousClassTestCase_OE25Dev
+[INFO] Running org.apache.bcel.AnnotationAccessFlagTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.bcel.AnnotationAccessFlagTestCase_OE25Dev
+[INFO] Running org.apache.bcel.PLSETestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.bcel.PLSETestCase_OE25Dev
+[INFO] Running org.apache.bcel.ElementValueGenTestCase_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.bcel.ElementValueGenTestCase_OE25Dev
+[INFO] Running org.apache.bcel.EnumAccessFlagTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.EnumAccessFlagTestCase_OE25Dev
+[INFO] Running org.apache.bcel.classfile.UtilityTestCase_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.bcel.classfile.UtilityTestCase_OE25Dev
+[INFO] Running org.apache.bcel.classfile.ConstantPoolTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.bcel.classfile.ConstantPoolTestCase_OE25Dev
+[INFO] Running org.apache.bcel.util.ClassPathRepositoryTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.ClassPathRepositoryTestCase_OE25Dev
+[INFO] Running org.apache.bcel.util.BCELifierTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.bcel.util.BCELifierTestCase_OE25Dev
+[INFO] Running org.apache.bcel.util.LruCacheClassPathRepositoryTestCase_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in org.apache.bcel.util.LruCacheClassPathRepositoryTestCase_OE25Dev
+[INFO] Running org.apache.bcel.util.Class2HTMLTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.bcel.util.Class2HTMLTestCase_OE25Dev
+[INFO] Running org.apache.bcel.util.InstructionFinderTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.apache.bcel.util.InstructionFinderTest_OE25Dev
+[INFO] Running org.apache.bcel.util.ClassPathTestCase_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.util.ClassPathTestCase_OE25Dev
+[INFO] Running org.apache.bcel.util.ModularRuntimeImageTestCase_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.bcel.util.ModularRuntimeImageTestCase_OE25Dev
+[INFO] Running org.apache.bcel.CounterVisitorTestCase_OE25Dev
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in org.apache.bcel.CounterVisitorTestCase_OE25Dev
+[INFO] Running org.apache.bcel.AnnotationDefaultAttributeTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.AnnotationDefaultAttributeTestCase_OE25Dev
+[INFO] Running org.apache.bcel.InstructionFinderTestCase_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.bcel.InstructionFinderTestCase_OE25Dev
+[INFO] Running org.apache.bcel.verifier.VerifierReturnTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 s - in org.apache.bcel.verifier.VerifierReturnTestCase_OE25Dev
+[INFO] Running org.apache.bcel.verifier.VerifierTestCase_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.bcel.verifier.VerifierTestCase_OE25Dev
+[INFO] Running org.apache.bcel.verifier.VerifierInvokeTestCase_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in org.apache.bcel.verifier.VerifierInvokeTestCase_OE25Dev
+[INFO] Running org.apache.bcel.verifier.VerifierArrayAccessTestCase_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.bcel.verifier.VerifierArrayAccessTestCase_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 202, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  14.151 s
-[INFO] Finished at: 2026-03-08T23:53:59-05:00
+[INFO] Total time:  18.685 s
+[INFO] Finished at: 2026-03-09T06:13:10-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project bcel: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/InstructionHandleTestCase_OE25Dev.java:[65,17] method testsetInstructionNull() is already defined in class org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/InstructionHandleTestCase_OE25Dev.java:[73,17] method testsetInstructionnotI() is already defined in class org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/BranchHandleTestCase_OE25Dev.java:[56,17] method testsetInstructionNull() is already defined in class org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/BranchHandleTestCase_OE25Dev.java:[64,17] method testsetInstructionnotBI() is already defined in class org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/InstructionHandleTestCase_OE25Dev.java:[64,2] cannot find symbol
-[ERROR]   symbol:   class Test_oe
-[ERROR]   location: class org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/InstructionHandleTestCase_OE25Dev.java:[72,2] cannot find symbol
-[ERROR]   symbol:   class Test_oe
-[ERROR]   location: class org.apache.bcel.generic.InstructionHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/BranchHandleTestCase_OE25Dev.java:[55,2] cannot find symbol
-[ERROR]   symbol:   class Test_oe
-[ERROR]   location: class org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/generic/BranchHandleTestCase_OE25Dev.java:[63,2] cannot find symbol
-[ERROR]   symbol:   class Test_oe
-[ERROR]   location: class org.apache.bcel.generic.BranchHandleTestCase_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/bcel/src/test/java/org/apache/bcel/util/BCELifierTestCase_OE25Dev.java:[71,9] cannot find symbol
-[ERROR]   symbol:   method testClassOnPath(java.lang.String)
-[ERROR]   location: class org.apache.bcel.util.BCELifierTestCase_OE25Dev
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

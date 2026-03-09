@@ -5,10 +5,8 @@ coll_3_101,"@Test
             ComparatorUtils.max(1, null, null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",ComparatorUtilsTest::max_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    }",ComparatorUtilsTest::max_oe_101_oe,"@SuppressWarnings(""unchecked"")
     public static <E> E max(final E o1, final E o2, Comparator<E> comparator) {
         if (comparator == null) {
             comparator = NATURAL_COMPARATOR;
@@ -32,10 +30,8 @@ coll_3_102,"@Test
             ComparatorUtils.max(null, 10, null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",ComparatorUtilsTest::max_oe_102_oe,"@SuppressWarnings(""unchecked"")
+    }",ComparatorUtilsTest::max_oe_102_oe,"@SuppressWarnings(""unchecked"")
     public static <E> E max(final E o1, final E o2, Comparator<E> comparator) {
         if (comparator == null) {
             comparator = NATURAL_COMPARATOR;
@@ -59,10 +55,8 @@ coll_4_101,"@Test
             ComparatorUtils.min(1, null, null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",ComparatorUtilsTest::min_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    }",ComparatorUtilsTest::min_oe_101_oe,"@SuppressWarnings(""unchecked"")
     public static <E> E min(final E o1, final E o2, Comparator<E> comparator) {
         if (comparator == null) {
             comparator = NATURAL_COMPARATOR;
@@ -86,10 +80,8 @@ coll_4_102,"@Test
             ComparatorUtils.min(null, 10, null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",ComparatorUtilsTest::min_oe_102_oe,"@SuppressWarnings(""unchecked"")
+    }",ComparatorUtilsTest::min_oe_102_oe,"@SuppressWarnings(""unchecked"")
     public static <E> E min(final E o1, final E o2, Comparator<E> comparator) {
         if (comparator == null) {
             comparator = NATURAL_COMPARATOR;
@@ -113,10 +105,8 @@ coll_7_101,"@Test
             SetUtils.difference(setA, null);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",SetUtilsTest::difference_oe_101_oe,"public static <E> SetView<E> difference(final Set<? extends E> a, final Set<? extends E> b) {
+    }",SetUtilsTest::difference_oe_101_oe,"public static <E> SetView<E> difference(final Set<? extends E> a, final Set<? extends E> b) {
         if (a == null || b == null) {
             throw new NullPointerException(""Sets must not be null."");
         }
@@ -159,10 +149,8 @@ coll_7_102,"@Test
             SetUtils.difference(null, setA);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",SetUtilsTest::difference_oe_102_oe,"public static <E> SetView<E> difference(final Set<? extends E> a, final Set<? extends E> b) {
+    }",SetUtilsTest::difference_oe_102_oe,"public static <E> SetView<E> difference(final Set<? extends E> a, final Set<? extends E> b) {
         if (a == null || b == null) {
             throw new NullPointerException(""Sets must not be null."");
         }
@@ -205,10 +193,8 @@ coll_8_101,"@Test
             SetUtils.disjunction(setA, null);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",SetUtilsTest::disjunction_oe_101_oe,"public static <E> SetView<E> disjunction(final Set<? extends E> a, final Set<? extends E> b) {
+    }",SetUtilsTest::disjunction_oe_101_oe,"public static <E> SetView<E> disjunction(final Set<? extends E> a, final Set<? extends E> b) {
         if (a == null || b == null) {
             throw new NullPointerException(""Sets must not be null."");
         }
@@ -259,10 +245,8 @@ coll_8_102,"@Test
             SetUtils.disjunction(null, setA);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",SetUtilsTest::disjunction_oe_102_oe,"public static <E> SetView<E> disjunction(final Set<? extends E> a, final Set<? extends E> b) {
+    }",SetUtilsTest::disjunction_oe_102_oe,"public static <E> SetView<E> disjunction(final Set<? extends E> a, final Set<? extends E> b) {
         if (a == null || b == null) {
             throw new NullPointerException(""Sets must not be null."");
         }
@@ -313,10 +297,8 @@ coll_9_101,"@Test
             SetUtils.intersection(setA, null);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",SetUtilsTest::intersection_oe_101_oe,"public static <E> SetView<E> intersection(final Set<? extends E> a, final Set<? extends E> b) {
+    }",SetUtilsTest::intersection_oe_101_oe,"public static <E> SetView<E> intersection(final Set<? extends E> a, final Set<? extends E> b) {
         if (a == null || b == null) {
             throw new NullPointerException(""Sets must not be null."");
         }
@@ -358,10 +340,8 @@ coll_9_102,"@Test
             SetUtils.intersection(null, setA);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",SetUtilsTest::intersection_oe_102_oe,"public static <E> SetView<E> intersection(final Set<? extends E> a, final Set<? extends E> b) {
+    }",SetUtilsTest::intersection_oe_102_oe,"public static <E> SetView<E> intersection(final Set<? extends E> a, final Set<? extends E> b) {
         if (a == null || b == null) {
             throw new NullPointerException(""Sets must not be null."");
         }
@@ -403,10 +383,8 @@ coll_15_101,"@Test
             SetUtils.predicatedSet(new HashSet<>(), null);
             fail(""Expecting NullPointerException for null predicate."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",SetUtilsTest::testpredicatedSet_oe_101_oe,"public static <E> Set<E> predicatedSet(final Set<E> set, final Predicate<? super E> predicate) {
+    }",SetUtilsTest::testpredicatedSet_oe_101_oe,"public static <E> Set<E> predicatedSet(final Set<E> set, final Predicate<? super E> predicate) {
         return PredicatedSet.predicatedSet(set, predicate);
     }","/**
      * Returns a predicated (validating) set backed by the given set.
@@ -428,10 +406,8 @@ coll_18_101,"@Test
             SetUtils.union(setA, null);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",SetUtilsTest::union_oe_101_oe,"public static <E> SetView<E> union(final Set<? extends E> a, final Set<? extends E> b) {
+    }",SetUtilsTest::union_oe_101_oe,"public static <E> SetView<E> union(final Set<? extends E> a, final Set<? extends E> b) {
         if (a == null || b == null) {
             throw new NullPointerException(""Sets must not be null."");
         }
@@ -478,10 +454,8 @@ coll_18_102,"@Test
             SetUtils.union(null, setA);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",SetUtilsTest::union_oe_102_oe,"public static <E> SetView<E> union(final Set<? extends E> a, final Set<? extends E> b) {
+    }",SetUtilsTest::union_oe_102_oe,"public static <E> SetView<E> union(final Set<? extends E> a, final Set<? extends E> b) {
         if (a == null || b == null) {
             throw new NullPointerException(""Sets must not be null."");
         }
@@ -528,10 +502,8 @@ coll_25_101,"@Test
             ListUtils.predicatedList(new ArrayList<>(), null);
             fail(""Expecting IllegalArgumentException for null predicate."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",ListUtilsTest::testPredicatedList_oe_101_oe,"public static <E> List<E> predicatedList(final List<E> list, final Predicate<E> predicate) {
+    }",ListUtilsTest::testPredicatedList_oe_101_oe,"public static <E> List<E> predicatedList(final List<E> list, final Predicate<E> predicate) {
         return PredicatedList.predicatedList(list, predicate);
     }","/**
      * Returns a predicated (validating) list backed by the given list.
@@ -553,8 +525,7 @@ coll_32_101,"@Test
             ListUtils.retainAll(null, null);
             fail(""expecting NullPointerException"");
         } catch(final NullPointerException npe){} // this is what we want
-    }
-",ListUtilsTest::testRetainAll_oe_101_oe,"public static <E> List<E> retainAll(final Collection<E> collection, final Collection<?> retain) {
+    }",ListUtilsTest::testRetainAll_oe_101_oe,"public static <E> List<E> retainAll(final Collection<E> collection, final Collection<?> retain) {
         final List<E> list = new ArrayList<>(Math.min(collection.size(), retain.size()));
 
         for (final E obj : collection) {
@@ -591,8 +562,7 @@ coll_33_101,"@Test
             ListUtils.removeAll(null, null);
             fail(""expecting NullPointerException"");
         } catch(final NullPointerException npe) {} // this is what we want
-    }
-",ListUtilsTest::testRemoveAll_oe_101_oe,"public static <E> List<E> removeAll(final Collection<E> collection, final Collection<?> remove) {
+    }",ListUtilsTest::testRemoveAll_oe_101_oe,"public static <E> List<E> removeAll(final Collection<E> collection, final Collection<?> remove) {
         final List<E> list = new ArrayList<>();
         for (final E obj : collection) {
             if (!remove.contains(obj)) {
@@ -629,8 +599,7 @@ coll_38_101,"@Test
           ListUtils.longestCommonSubsequence((String) null, null);
           fail(""failed to check for null argument"");
       } catch (final NullPointerException e) {}
-    }
-",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_101_oe,"public static <E> List<E> longestCommonSubsequence(final List<E> a, final List<E> b) {
+    }",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_101_oe,"public static <E> List<E> longestCommonSubsequence(final List<E> a, final List<E> b) {
       return longestCommonSubsequence( a, b, DefaultEquator.defaultEquator() );
     }","/**
      * Returns the longest common subsequence (LCS) of two sequences (lists).
@@ -648,8 +617,7 @@ coll_38_102,"@Test
           ListUtils.longestCommonSubsequence(""A"", null);
           fail(""failed to check for null argument"");
       } catch (final NullPointerException e) {}
-    }
-",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_102_oe,"public static <E> List<E> longestCommonSubsequence(final List<E> a, final List<E> b) {
+    }",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_102_oe,"public static <E> List<E> longestCommonSubsequence(final List<E> a, final List<E> b) {
       return longestCommonSubsequence( a, b, DefaultEquator.defaultEquator() );
     }","/**
      * Returns the longest common subsequence (LCS) of two sequences (lists).
@@ -667,8 +635,7 @@ coll_38_103,"@Test
           ListUtils.longestCommonSubsequence(null, ""A"");
           fail(""failed to check for null argument"");
       } catch (final NullPointerException e) {}
-    }
-",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_103_oe,"public static <E> List<E> longestCommonSubsequence(final List<E> a, final List<E> b) {
+    }",ListUtilsTest::testLongestCommonSubsequenceWithString_oe_103_oe,"public static <E> List<E> longestCommonSubsequence(final List<E> a, final List<E> b) {
       return longestCommonSubsequence( a, b, DefaultEquator.defaultEquator() );
     }","/**
      * Returns the longest common subsequence (LCS) of two sequences (lists).
@@ -686,8 +653,7 @@ coll_115_101,"@Test
             TransformerUtils.ifTransformer(null, null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",TransformerUtilsTest::testIfTransformer_oe_101_oe,"public static <T> Transformer<T, T> ifTransformer(final Predicate<? super T> predicate,
+    }",TransformerUtilsTest::testIfTransformer_oe_101_oe,"public static <T> Transformer<T, T> ifTransformer(final Predicate<? super T> predicate,
                                                       final Transformer<? super T, ? extends T> trueTransformer) {
         return IfTransformer.ifTransformer(predicate, trueTransformer);
     }","/**
@@ -708,8 +674,7 @@ coll_115_102,"@Test
             TransformerUtils.ifTransformer(TruePredicate.truePredicate(), null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",TransformerUtilsTest::testIfTransformer_oe_102_oe,"public static <T> Predicate<T> truePredicate() {
+    }",TransformerUtilsTest::testIfTransformer_oe_102_oe,"public static <T> Predicate<T> truePredicate() {
         return INSTANCE;
     }","/**
      * Factory returning the singleton instance.
@@ -724,8 +689,7 @@ coll_115_103,"@Test
             TransformerUtils.ifTransformer(null, ConstantTransformer.constantTransformer(""A""));
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",TransformerUtilsTest::testIfTransformer_oe_103_oe,"public static <I, O> Transformer<I, O> constantTransformer(final O constantToReturn) {
+    }",TransformerUtilsTest::testIfTransformer_oe_103_oe,"public static <I, O> Transformer<I, O> constantTransformer(final O constantToReturn) {
         return ConstantTransformer.constantTransformer(constantToReturn);
     }","/**
      * Creates a Transformer that will return the same object each time the
@@ -743,8 +707,7 @@ coll_115_104,"@Test
             TransformerUtils.ifTransformer(null, null, null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",TransformerUtilsTest::testIfTransformer_oe_104_oe,"public static <T> Transformer<T, T> ifTransformer(final Predicate<? super T> predicate,
+    }",TransformerUtilsTest::testIfTransformer_oe_104_oe,"public static <T> Transformer<T, T> ifTransformer(final Predicate<? super T> predicate,
                                                       final Transformer<? super T, ? extends T> trueTransformer) {
         return IfTransformer.ifTransformer(predicate, trueTransformer);
     }","/**
@@ -765,8 +728,7 @@ coll_117_101,"@Test
             TransformerUtils.switchMapTransformer(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",TransformerUtilsTest::testSwitchMapTransformer_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    }",TransformerUtilsTest::testSwitchMapTransformer_oe_101_oe,"@SuppressWarnings(""unchecked"")
     public static <I, O> Transformer<I, O> switchMapTransformer(
             final Map<I, Transformer<I, O>> objectsAndTransformers) {
 
@@ -806,8 +768,7 @@ coll_118_101,"@Test
             TransformerUtils.invokerTransformer(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",TransformerUtilsTest::testInvokerTransformer_oe_101_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+    }",TransformerUtilsTest::testInvokerTransformer_oe_101_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
         return InvokerTransformer.invokerTransformer(methodName, null, null);
     }","/**
      * Gets a Transformer that invokes a method on the input object.
@@ -833,8 +794,7 @@ coll_118_102,"@Test
             TransformerUtils.invokerTransformer(""noSuchMethod"").transform(new Object());
             fail();
         } catch (final FunctorException ex) {}
-    }
-",TransformerUtilsTest::testInvokerTransformer_oe_102_oe,"@Override
+    }",TransformerUtilsTest::testInvokerTransformer_oe_102_oe,"@Override
             public EquatorWrapper<?> transform(final Object input) {
                 return new EquatorWrapper(equator, input);
             }",
@@ -844,8 +804,7 @@ coll_119_101,"@Test
             TransformerUtils.invokerTransformer(null, null, null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",TransformerUtilsTest::testInvokerTransformer2_oe_101_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+    }",TransformerUtilsTest::testInvokerTransformer2_oe_101_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
         return InvokerTransformer.invokerTransformer(methodName, null, null);
     }","/**
      * Gets a Transformer that invokes a method on the input object.
@@ -872,8 +831,7 @@ coll_119_102,"@Test
                     new Object[] { cString }).transform(new Object());
             fail();
         } catch (final FunctorException ex) {}
-    }
-",TransformerUtilsTest::testInvokerTransformer2_oe_102_oe,"@Override
+    }",TransformerUtilsTest::testInvokerTransformer2_oe_102_oe,"@Override
             public EquatorWrapper<?> transform(final Object input) {
                 return new EquatorWrapper(equator, input);
             }",
@@ -883,8 +841,7 @@ coll_119_103,"@Test
             TransformerUtils.invokerTransformer(""badArgs"", null, new Object[] { cString });
             fail();
         } catch (final IllegalArgumentException ex) {}
-    }
-",TransformerUtilsTest::testInvokerTransformer2_oe_103_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+    }",TransformerUtilsTest::testInvokerTransformer2_oe_103_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
         return InvokerTransformer.invokerTransformer(methodName, null, null);
     }","/**
      * Gets a Transformer that invokes a method on the input object.
@@ -910,8 +867,7 @@ coll_119_104,"@Test
             TransformerUtils.invokerTransformer(""badArgs"", new Class[] { Object.class }, null);
             fail();
         } catch (final IllegalArgumentException ex) {}
-    }
-",TransformerUtilsTest::testInvokerTransformer2_oe_104_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+    }",TransformerUtilsTest::testInvokerTransformer2_oe_104_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
         return InvokerTransformer.invokerTransformer(methodName, null, null);
     }","/**
      * Gets a Transformer that invokes a method on the input object.
@@ -937,8 +893,7 @@ coll_119_105,"@Test
             TransformerUtils.invokerTransformer(""badArgs"", new Class[] {}, new Object[] { cString });
             fail();
         } catch (final IllegalArgumentException ex) {}
-    }
-",TransformerUtilsTest::testInvokerTransformer2_oe_105_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
+    }",TransformerUtilsTest::testInvokerTransformer2_oe_105_oe,"public static <I, O> Transformer<I, O> invokerTransformer(final String methodName) {
         return InvokerTransformer.invokerTransformer(methodName, null, null);
     }","/**
      * Gets a Transformer that invokes a method on the input object.
@@ -964,8 +919,7 @@ coll_121_101,"@Test
             TransformerUtils.instantiateTransformer(null, new Object[] { ""str"" });
             fail();
         } catch (final IllegalArgumentException ex) {}
-    }
-",TransformerUtilsTest::testInstantiateTransformerNull_oe_101_oe,"public static <T> Transformer<Class<? extends T>, T> instantiateTransformer() {
+    }",TransformerUtilsTest::testInstantiateTransformerNull_oe_101_oe,"public static <T> Transformer<Class<? extends T>, T> instantiateTransformer() {
         return InstantiateTransformer.instantiateTransformer();
     }","/**
      * Gets a Transformer that expects an input Class object that it will instantiate.
@@ -980,8 +934,7 @@ coll_121_102,"@Test
             TransformerUtils.instantiateTransformer(new Class[] {}, new Object[] { ""str"" });
             fail();
         } catch (final IllegalArgumentException ex) {}
-    }
-",TransformerUtilsTest::testInstantiateTransformerNull_oe_102_oe,"public static <T> Transformer<Class<? extends T>, T> instantiateTransformer() {
+    }",TransformerUtilsTest::testInstantiateTransformerNull_oe_102_oe,"public static <T> Transformer<Class<? extends T>, T> instantiateTransformer() {
         return InstantiateTransformer.instantiateTransformer();
     }","/**
      * Gets a Transformer that expects an input Class object that it will instantiate.
@@ -996,10 +949,8 @@ coll_138_101,"@Test
             FluentIterable.of(iterableOdd).collate(null).toList();
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",FluentIterableTest::collate_oe_101_oe,"public List<E> toList() {
+    }",FluentIterableTest::collate_oe_101_oe,"public List<E> toList() {
         return IterableUtils.toList(iterable);
     }","/**
      * Returns a mutable list containing all elements of this iterable
@@ -1015,10 +966,8 @@ coll_140_101,"@Test
             FluentIterable.of(iterableA).filter(null).toList();
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",FluentIterableTest::filter_oe_101_oe,"public List<E> toList() {
+    }",FluentIterableTest::filter_oe_101_oe,"public List<E> toList() {
         return IterableUtils.toList(iterable);
     }","/**
      * Returns a mutable list containing all elements of this iterable
@@ -1034,10 +983,8 @@ coll_141_101,"@Test
             FluentIterable.of(iterableA).forEach((Closure<Integer>) null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",FluentIterableTest::forEach_oe_101_oe,"public void forEach(final Closure<? super E> closure) {
+    }",FluentIterableTest::forEach_oe_101_oe,"public void forEach(final Closure<? super E> closure) {
         IterableUtils.forEach(iterable, closure);
     }","/**
      * Applies the closure to all elements contained in this iterable.
@@ -1051,10 +998,8 @@ coll_142_101,"@Test
             FluentIterable.of(iterableA).limit(-2).toList();
             fail(""expecting IllegalArgumentException"");
         } catch (final IllegalArgumentException iae) {
-            // expected
         }
-    }
-",FluentIterableTest::limit_oe_101_oe,"public List<E> toList() {
+    }",FluentIterableTest::limit_oe_101_oe,"public List<E> toList() {
         return IterableUtils.toList(iterable);
     }","/**
      * Returns a mutable list containing all elements of this iterable
@@ -1070,10 +1015,8 @@ coll_144_101,"@Test
             FluentIterable.of(iterableA).skip(-4).toList();
             fail(""expecting IllegalArgumentException"");
         } catch (final IllegalArgumentException iae) {
-            // expected
         }
-    }
-",FluentIterableTest::skip_oe_101_oe,"public List<E> toList() {
+    }",FluentIterableTest::skip_oe_101_oe,"public List<E> toList() {
         return IterableUtils.toList(iterable);
     }","/**
      * Returns a mutable list containing all elements of this iterable
@@ -1089,10 +1032,8 @@ coll_145_101,"@Test
             FluentIterable.of(iterableA).transform(null).toList();
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",FluentIterableTest::transform_oe_101_oe,"public List<E> toList() {
+    }",FluentIterableTest::transform_oe_101_oe,"public List<E> toList() {
         return IterableUtils.toList(iterable);
     }","/**
      * Returns a mutable list containing all elements of this iterable
@@ -1108,10 +1049,8 @@ coll_150_101,"@Test
             FluentIterable.of(iterableEven).allMatch(null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",FluentIterableTest::allMatch_oe_101_oe,"public boolean allMatch(final Predicate<? super E> predicate) {
+    }",FluentIterableTest::allMatch_oe_101_oe,"public boolean allMatch(final Predicate<? super E> predicate) {
         return IterableUtils.matchesAll(iterable, predicate);
     }","/**
      * Checks if all elements contained in this iterable are matching the
@@ -1130,10 +1069,8 @@ coll_151_101,"@Test
             FluentIterable.of(iterableEven).anyMatch(null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",FluentIterableTest::anyMatch_oe_101_oe,"public boolean anyMatch(final Predicate<? super E> predicate) {
+    }",FluentIterableTest::anyMatch_oe_101_oe,"public boolean anyMatch(final Predicate<? super E> predicate) {
         return IterableUtils.matchesAny(iterable, predicate);
     }","/**
      * Checks if this iterable contains any element matching the provided predicate.
@@ -1151,10 +1088,8 @@ coll_153_101,"@Test
             FluentIterable.of((Iterable<?>) null).size();
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",FluentIterableTest::size_oe_101_oe,"public int size() {
+    }",FluentIterableTest::size_oe_101_oe,"public int size() {
         return IterableUtils.size(iterable);
     }","/**
      * Returns the number of elements that are contained in this iterable.
@@ -1168,10 +1103,8 @@ coll_156_101,"@Test
             FluentIterable.of(iterableA).copyInto(null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",FluentIterableTest::copyInto_oe_101_oe,"public void copyInto(final Collection<? super E> collection) {
+    }",FluentIterableTest::copyInto_oe_101_oe,"public void copyInto(final Collection<? super E> collection) {
         if (collection == null) {
             throw new NullPointerException(""Collection must not be null"");
         }
@@ -1189,10 +1122,8 @@ coll_158_101,"@Test
             FluentIterable.of(iterableEven).get(-1);
             fail(""expecting IndexOutOfBoundsException"");
         } catch (final IndexOutOfBoundsException ioe) {
-            // expected
         }
-    }
-",FluentIterableTest::get_oe_101_oe,"public E get(final int position) {
+    }",FluentIterableTest::get_oe_101_oe,"public E get(final int position) {
         return IterableUtils.get(iterable, position);
     }","/**
      * Returns the element at the provided position in this iterable.
@@ -1210,10 +1141,8 @@ coll_158_102,"@Test
             FluentIterable.of(iterableEven).get(IterableUtils.size(iterableEven));
             fail(""expecting IndexOutOfBoundsException"");
         } catch (final IndexOutOfBoundsException ioe) {
-            // expected
         }
-    }
-",FluentIterableTest::get_oe_102_oe,"public int size() {
+    }",FluentIterableTest::get_oe_102_oe,"public int size() {
         return IterableUtils.size(iterable);
     }","/**
      * Returns the number of elements that are contained in this iterable.
@@ -1227,10 +1156,8 @@ coll_167_101,"@Test
             IterableUtils.indexOf(iterableA, null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",IterableUtilsTest::indexOf_oe_101_oe,"public static <E> int indexOf(final Iterable<E> iterable, final Predicate<? super E> predicate) {
+    }",IterableUtilsTest::indexOf_oe_101_oe,"public static <E> int indexOf(final Iterable<E> iterable, final Predicate<? super E> predicate) {
         return IteratorUtils.indexOf(emptyIteratorIfNull(iterable), predicate);
     }","/**
      * Returns the index of the first element in the specified iterable that
@@ -1250,10 +1177,8 @@ coll_175_101,"@Test
             IterableUtils.toString(new ArrayList<Integer>(), null, """", ""("", "")"");
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",IterableUtilsTest::testToStringWithNullArguments_oe_101_oe,,
+    }",IterableUtilsTest::testToStringWithNullArguments_oe_101_oe,,
 coll_175_102,"@Test
     public void testToStringWithNullArguments_oe_102_oe() {
         try {
@@ -1265,10 +1190,8 @@ coll_175_102,"@Test
                 }
             }, null, ""("", "")"");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",IterableUtilsTest::testToStringWithNullArguments_oe_102_oe,"@Override
+    }",IterableUtilsTest::testToStringWithNullArguments_oe_102_oe,"@Override
             public EquatorWrapper<?> transform(final Object input) {
                 return new EquatorWrapper(equator, input);
             }",
@@ -1283,10 +1206,8 @@ coll_175_103,"@Test
                 }
             }, """", null, "")"");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",IterableUtilsTest::testToStringWithNullArguments_oe_103_oe,"@Override
+    }",IterableUtilsTest::testToStringWithNullArguments_oe_103_oe,"@Override
             public EquatorWrapper<?> transform(final Object input) {
                 return new EquatorWrapper(equator, input);
             }",
@@ -1301,10 +1222,8 @@ coll_175_104,"@Test
                 }
             }, """", ""("", null);
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",IterableUtilsTest::testToStringWithNullArguments_oe_104_oe,"@Override
+    }",IterableUtilsTest::testToStringWithNullArguments_oe_104_oe,"@Override
             public EquatorWrapper<?> transform(final Object input) {
                 return new EquatorWrapper(equator, input);
             }",
@@ -1314,10 +1233,8 @@ coll_180_101,"@Test
             BagUtils.synchronizedBag(null);
             fail(""Expecting NullPointerException for null bag."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testSynchronizedBag_oe_101_oe,"public static <E> Bag<E> synchronizedBag(final Bag<E> bag) {
+    }",BagUtilsTest::testSynchronizedBag_oe_101_oe,"public static <E> Bag<E> synchronizedBag(final Bag<E> bag) {
         return SynchronizedBag.synchronizedBag(bag);
     }","/**
      * Returns a synchronized (thread-safe) bag backed by the given bag. In
@@ -1352,10 +1269,8 @@ coll_181_101,"@Test
             BagUtils.unmodifiableBag(null);
             fail(""Expecting NullPointerException for null bag."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testUnmodifiableBag_oe_101_oe,"public static <E> Bag<E> unmodifiableBag(final Bag<? extends E> bag) {
+    }",BagUtilsTest::testUnmodifiableBag_oe_101_oe,"public static <E> Bag<E> unmodifiableBag(final Bag<? extends E> bag) {
         return UnmodifiableBag.unmodifiableBag(bag);
     }","/**
      * Returns an unmodifiable view of the given bag. Any modification attempts
@@ -1372,10 +1287,8 @@ coll_182_101,"@Test
             BagUtils.predicatedBag(null,truePredicate);
             fail(""Expecting NullPointerException for null bag."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testPredicatedBag_oe_101_oe,"public static <E> Bag<E> predicatedBag(final Bag<E> bag, final Predicate<? super E> predicate) {
+    }",BagUtilsTest::testPredicatedBag_oe_101_oe,"public static <E> Bag<E> predicatedBag(final Bag<E> bag, final Predicate<? super E> predicate) {
         return PredicatedBag.predicatedBag(bag, predicate);
     }","/**
      * Returns a predicated (validating) bag backed by the given bag.
@@ -1399,10 +1312,8 @@ coll_182_102,"@Test
             BagUtils.predicatedBag(new HashBag<>(), null);
             fail(""Expecting NullPointerException for null predicate."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testPredicatedBag_oe_102_oe,"public static <E> Bag<E> predicatedBag(final Bag<E> bag, final Predicate<? super E> predicate) {
+    }",BagUtilsTest::testPredicatedBag_oe_102_oe,"public static <E> Bag<E> predicatedBag(final Bag<E> bag, final Predicate<? super E> predicate) {
         return PredicatedBag.predicatedBag(bag, predicate);
     }","/**
      * Returns a predicated (validating) bag backed by the given bag.
@@ -1426,10 +1337,8 @@ coll_183_101,"@Test
             BagUtils.transformingBag(null, nopTransformer);
             fail(""Expecting NullPointerException for null bag."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testTransformedBag_oe_101_oe,"public static <E> Bag<E> transformingBag(final Bag<E> bag, final Transformer<? super E, ? extends E> transformer) {
+    }",BagUtilsTest::testTransformedBag_oe_101_oe,"public static <E> Bag<E> transformingBag(final Bag<E> bag, final Transformer<? super E, ? extends E> transformer) {
         return TransformedBag.transformingBag(bag, transformer);
     }","/**
      * Returns a transformed bag backed by the given bag.
@@ -1455,10 +1364,8 @@ coll_183_102,"@Test
             BagUtils.transformingBag(new HashBag<>(), null);
             fail(""Expecting NullPointerException for null transformer."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testTransformedBag_oe_102_oe,"public static <E> Bag<E> transformingBag(final Bag<E> bag, final Transformer<? super E, ? extends E> transformer) {
+    }",BagUtilsTest::testTransformedBag_oe_102_oe,"public static <E> Bag<E> transformingBag(final Bag<E> bag, final Transformer<? super E, ? extends E> transformer) {
         return TransformedBag.transformingBag(bag, transformer);
     }","/**
      * Returns a transformed bag backed by the given bag.
@@ -1484,10 +1391,8 @@ coll_184_101,"@Test
             BagUtils.synchronizedSortedBag(null);
             fail(""Expecting NullPointerException for null bag."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testSynchronizedSortedBag_oe_101_oe,"public static <E> SortedBag<E> synchronizedSortedBag(final SortedBag<E> bag) {
+    }",BagUtilsTest::testSynchronizedSortedBag_oe_101_oe,"public static <E> SortedBag<E> synchronizedSortedBag(final SortedBag<E> bag) {
         return SynchronizedSortedBag.synchronizedSortedBag(bag);
     }","/**
      * Returns a synchronized (thread-safe) sorted bag backed by the given
@@ -1522,10 +1427,8 @@ coll_185_101,"@Test
             BagUtils.unmodifiableSortedBag(null);
             fail(""Expecting NullPointerException for null bag."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testUnmodifiableSortedBag_oe_101_oe,"public static <E> SortedBag<E> unmodifiableSortedBag(final SortedBag<E> bag) {
+    }",BagUtilsTest::testUnmodifiableSortedBag_oe_101_oe,"public static <E> SortedBag<E> unmodifiableSortedBag(final SortedBag<E> bag) {
         return UnmodifiableSortedBag.unmodifiableSortedBag(bag);
     }","/**
      * Returns an unmodifiable view of the given sorted bag. Any modification
@@ -1543,10 +1446,8 @@ coll_186_101,"@Test
             BagUtils.predicatedSortedBag(null, truePredicate);
             fail(""Expecting NullPointerException for null bag."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testPredicatedSortedBag_oe_101_oe,"public static <E> SortedBag<E> predicatedSortedBag(final SortedBag<E> bag,
+    }",BagUtilsTest::testPredicatedSortedBag_oe_101_oe,"public static <E> SortedBag<E> predicatedSortedBag(final SortedBag<E> bag,
             final Predicate<? super E> predicate) {
         return PredicatedSortedBag.predicatedSortedBag(bag, predicate);
     }","/**
@@ -1572,10 +1473,8 @@ coll_186_102,"@Test
             BagUtils.predicatedSortedBag(new TreeBag<>(), null);
             fail(""Expecting NullPointerException for null predicate."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testPredicatedSortedBag_oe_102_oe,"public static <E> SortedBag<E> predicatedSortedBag(final SortedBag<E> bag,
+    }",BagUtilsTest::testPredicatedSortedBag_oe_102_oe,"public static <E> SortedBag<E> predicatedSortedBag(final SortedBag<E> bag,
             final Predicate<? super E> predicate) {
         return PredicatedSortedBag.predicatedSortedBag(bag, predicate);
     }","/**
@@ -1601,10 +1500,8 @@ coll_187_101,"@Test
             BagUtils.transformingSortedBag(null, nopTransformer);
             fail(""Expecting NullPointerException for null bag."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testTransformedSortedBag_oe_101_oe,"public static <E> SortedBag<E> transformingSortedBag(final SortedBag<E> bag,
+    }",BagUtilsTest::testTransformedSortedBag_oe_101_oe,"public static <E> SortedBag<E> transformingSortedBag(final SortedBag<E> bag,
                                                          final Transformer<? super E, ? extends E> transformer) {
         return TransformedSortedBag.transformingSortedBag(bag, transformer);
     }","/**
@@ -1632,10 +1529,8 @@ coll_187_102,"@Test
             BagUtils.transformingSortedBag(new TreeBag<>(), null);
             fail(""Expecting NullPointerException for null transformer."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",BagUtilsTest::testTransformedSortedBag_oe_102_oe,"public static <E> SortedBag<E> transformingSortedBag(final SortedBag<E> bag,
+    }",BagUtilsTest::testTransformedSortedBag_oe_102_oe,"public static <E> SortedBag<E> transformingSortedBag(final SortedBag<E> bag,
                                                          final Transformer<? super E, ? extends E> transformer) {
         return TransformedSortedBag.transformingSortedBag(bag, transformer);
     }","/**
@@ -1663,10 +1558,8 @@ coll_190_101,"@Test
             TrieUtils.unmodifiableTrie(null);
             fail(""Expecting NullPointerException for null trie."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",TrieUtilsTest::testUnmodifiableTrie_oe_101_oe,"public static <K, V> Trie<K, V> unmodifiableTrie(final Trie<K, ? extends V> trie) {
+    }",TrieUtilsTest::testUnmodifiableTrie_oe_101_oe,"public static <K, V> Trie<K, V> unmodifiableTrie(final Trie<K, ? extends V> trie) {
         return UnmodifiableTrie.unmodifiableTrie(trie);
     }","/**
      * Returns an unmodifiable instance of a {@link Trie}
@@ -1685,10 +1578,8 @@ coll_191_101,"@Test
             QueueUtils.synchronizedQueue(null);
             fail(""Expecting NullPointerException for null queue."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",QueueUtilsTest::testSynchronizedQueue_oe_101_oe,"public static <E> Queue<E> synchronizedQueue(final Queue<E> queue) {
+    }",QueueUtilsTest::testSynchronizedQueue_oe_101_oe,"public static <E> Queue<E> synchronizedQueue(final Queue<E> queue) {
         return SynchronizedQueue.synchronizedQueue(queue);
     }","/**
      * Returns a synchronized (thread-safe) queue backed by the given queue.
@@ -1723,10 +1614,8 @@ coll_192_101,"@Test
             QueueUtils.unmodifiableQueue(null);
             fail(""Expecting NullPointerException for null queue."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",QueueUtilsTest::testUnmodifiableQueue_oe_101_oe,"public static <E> Queue<E> unmodifiableQueue(final Queue<? extends E> queue) {
+    }",QueueUtilsTest::testUnmodifiableQueue_oe_101_oe,"public static <E> Queue<E> unmodifiableQueue(final Queue<? extends E> queue) {
         return UnmodifiableQueue.unmodifiableQueue(queue);
     }","/**
      * Returns an unmodifiable queue backed by the given queue.
@@ -1742,10 +1631,8 @@ coll_193_101,"@Test
             QueueUtils.predicatedQueue(null, truePredicate);
             fail(""Expecting NullPointerException for null queue."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",QueueUtilsTest::testPredicatedQueue_oe_101_oe,"public static <E> Queue<E> predicatedQueue(final Queue<E> queue, final Predicate<? super E> predicate) {
+    }",QueueUtilsTest::testPredicatedQueue_oe_101_oe,"public static <E> Queue<E> predicatedQueue(final Queue<E> queue, final Predicate<? super E> predicate) {
         return PredicatedQueue.predicatedQueue(queue, predicate);
     }","/**
      * Returns a predicated (validating) queue backed by the given queue.
@@ -1767,10 +1654,8 @@ coll_193_102,"@Test
             QueueUtils.predicatedQueue(new LinkedList<>(), null);
             fail(""Expecting NullPointerException for null predicate."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",QueueUtilsTest::testPredicatedQueue_oe_102_oe,"public static <E> Queue<E> predicatedQueue(final Queue<E> queue, final Predicate<? super E> predicate) {
+    }",QueueUtilsTest::testPredicatedQueue_oe_102_oe,"public static <E> Queue<E> predicatedQueue(final Queue<E> queue, final Predicate<? super E> predicate) {
         return PredicatedQueue.predicatedQueue(queue, predicate);
     }","/**
      * Returns a predicated (validating) queue backed by the given queue.
@@ -1792,10 +1677,8 @@ coll_194_101,"@Test
             QueueUtils.transformingQueue(null, nopTransformer);
             fail(""Expecting NullPointerException for null queue."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",QueueUtilsTest::testTransformedQueue_oe_101_oe,"public static <E> Queue<E> transformingQueue(final Queue<E> queue,
+    }",QueueUtilsTest::testTransformedQueue_oe_101_oe,"public static <E> Queue<E> transformingQueue(final Queue<E> queue,
                                                  final Transformer<? super E, ? extends E> transformer) {
         return TransformedQueue.transformingQueue(queue, transformer);
     }","/**
@@ -1820,10 +1703,8 @@ coll_194_102,"@Test
             QueueUtils.transformingQueue(new LinkedList<>(), null);
             fail(""Expecting NullPointerException for null transformer."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",QueueUtilsTest::testTransformedQueue_oe_102_oe,"public static <E> Queue<E> transformingQueue(final Queue<E> queue,
+    }",QueueUtilsTest::testTransformedQueue_oe_102_oe,"public static <E> Queue<E> transformingQueue(final Queue<E> queue,
                                                  final Transformer<? super E, ? extends E> transformer) {
         return TransformedQueue.transformingQueue(queue, transformer);
     }","/**
@@ -1848,8 +1729,7 @@ coll_200_101,"@Test
             ClosureUtils.whileClosure(null, ClosureUtils.nopClosure());
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",ClosureUtilsTest::testWhileClosure_oe_101_oe,"public static <E> Closure<E> nopClosure() {
+    }",ClosureUtilsTest::testWhileClosure_oe_101_oe,"public static <E> Closure<E> nopClosure() {
         return NOPClosure.<E>nopClosure();
     }","/**
      * Gets a Closure that will do nothing.
@@ -1866,8 +1746,7 @@ coll_200_102,"@Test
             ClosureUtils.whileClosure(FalsePredicate.falsePredicate(), null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",ClosureUtilsTest::testWhileClosure_oe_102_oe,"public static <T> Predicate<T> falsePredicate() {
+    }",ClosureUtilsTest::testWhileClosure_oe_102_oe,"public static <T> Predicate<T> falsePredicate() {
         return INSTANCE;
     }","/**
      * Get a typed instance.
@@ -1882,8 +1761,7 @@ coll_200_103,"@Test
             ClosureUtils.whileClosure(null, null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",ClosureUtilsTest::testWhileClosure_oe_103_oe,"public static <E> Closure<E> whileClosure(final Predicate<? super E> predicate, final Closure<? super E> closure) {
+    }",ClosureUtilsTest::testWhileClosure_oe_103_oe,"public static <E> Closure<E> whileClosure(final Predicate<? super E> predicate, final Closure<? super E> closure) {
         return WhileClosure.<E>whileClosure(predicate, closure, false);
     }","/**
      * Creates a Closure that will call the closure repeatedly until the
@@ -1903,8 +1781,7 @@ coll_201_101,"@Test
             ClosureUtils.doWhileClosure(null, null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",ClosureUtilsTest::testDoWhileClosure_oe_101_oe,"public static <E> Closure<E> doWhileClosure(final Closure<? super E> closure,
+    }",ClosureUtilsTest::testDoWhileClosure_oe_101_oe,"public static <E> Closure<E> doWhileClosure(final Closure<? super E> closure,
                                                 final Predicate<? super E> predicate) {
         return WhileClosure.<E>whileClosure(predicate, closure, true);
     }","/**
@@ -1925,8 +1802,7 @@ coll_205_101,"@Test
             ClosureUtils.switchMapClosure(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",ClosureUtilsTest::testSwitchMapClosure_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    }",ClosureUtilsTest::testSwitchMapClosure_oe_101_oe,"@SuppressWarnings(""unchecked"")
     public static <E> Closure<E> switchMapClosure(final Map<? extends E, Closure<E>> objectsAndClosures) {
         if (objectsAndClosures == null) {
             throw new NullPointerException(""The object and closure map must not be null"");
@@ -1966,8 +1842,7 @@ coll_250_101,"@Test
             PredicateUtils.transformedPredicate(null, null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",PredicateUtilsTest::testTransformedPredicate_oe_101_oe,"public static <T> Predicate<T> transformedPredicate(
+    }",PredicateUtilsTest::testTransformedPredicate_oe_101_oe,"public static <T> Predicate<T> transformedPredicate(
             final Transformer<? super T, ? extends T> transformer, final Predicate<? super T> predicate) {
         return TransformedPredicate.transformedPredicate(transformer, predicate);
     }","/**
@@ -1989,8 +1864,7 @@ coll_299_101,"@Test
             fail(""Expecting IllegalArgumentException"");
         } catch (final IllegalArgumentException ex) {
         }
-    }
-",CollectionUtilsTest::testSizeIsEmpty_Other_oe_101_oe,"public static boolean sizeIsEmpty(final Object object) {
+    }",CollectionUtilsTest::testSizeIsEmpty_Other_oe_101_oe,"public static boolean sizeIsEmpty(final Object object) {
         if (object == null) {
             return true;
         } else if (object instanceof Collection<?>) {
@@ -2040,10 +1914,8 @@ coll_319_101,"@Test
             CollectionUtils.predicatedCollection(new ArrayList<Number>(), null);
             fail(""Expecting NullPointerException for null predicate."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",CollectionUtilsTest::predicatedCollection_oe_101_oe,"public static <C> Collection<C> predicatedCollection(final Collection<C> collection,
+    }",CollectionUtilsTest::predicatedCollection_oe_101_oe,"public static <C> Collection<C> predicatedCollection(final Collection<C> collection,
                                                          final Predicate<? super C> predicate) {
         return PredicatedCollection.predicatedCollection(collection, predicate);
     }","/**
@@ -2068,8 +1940,7 @@ coll_320_101,"@Test
             fail();
         } catch (final NullPointerException ex) {
         }
-    }
-",CollectionUtilsTest::isFull_oe_101_oe,"public static boolean isFull(final Collection<? extends Object> coll) {
+    }",CollectionUtilsTest::isFull_oe_101_oe,"public static boolean isFull(final Collection<? extends Object> coll) {
         if (coll == null) {
             throw new NullPointerException(""The collection must not be null"");
         }
@@ -2107,8 +1978,7 @@ coll_322_101,"@Test
             fail();
         } catch (final NullPointerException ex) {
         }
-    }
-",CollectionUtilsTest::maxSize_oe_101_oe,"public static int maxSize(final Collection<? extends Object> coll) {
+    }",CollectionUtilsTest::maxSize_oe_101_oe,"public static int maxSize(final Collection<? extends Object> coll) {
         if (coll == null) {
             throw new NullPointerException(""The collection must not be null"");
         }
@@ -2146,8 +2016,7 @@ coll_324_101,"@Test
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
         } // this is what we want
-    }
-",CollectionUtilsTest::testRetainAll_oe_101_oe,"public static <C> Collection<C> retainAll(final Collection<C> collection, final Collection<?> retain) {
+    }",CollectionUtilsTest::testRetainAll_oe_101_oe,"public static <C> Collection<C> retainAll(final Collection<C> collection, final Collection<?> retain) {
         return ListUtils.retainAll(collection, retain);
     }","/**
      * Returns a collection containing all the elements in <code>collection</code>
@@ -2179,8 +2048,7 @@ coll_325_101,"@Test
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
         } // this is what we want
-    }
-",CollectionUtilsTest::testRemoveAll_oe_101_oe,"public static <E> Collection<E> removeAll(final Collection<E> collection, final Collection<?> remove) {
+    }",CollectionUtilsTest::testRemoveAll_oe_101_oe,"public static <E> Collection<E> removeAll(final Collection<E> collection, final Collection<?> remove) {
         return ListUtils.removeAll(collection, remove);
   }","/**
      * Removes the elements in <code>remove</code> from <code>collection</code>. That is, this
@@ -2212,10 +2080,8 @@ coll_326_101,"@Test
             CollectionUtils.transformingCollection(new ArrayList<>(), null);
             fail(""Expecting NullPointerException for null transformer."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",CollectionUtilsTest::testTransformedCollection_oe_101_oe,"public static <E> Collection<E> transformingCollection(final Collection<E> collection,
+    }",CollectionUtilsTest::testTransformedCollection_oe_101_oe,"public static <E> Collection<E> transformingCollection(final Collection<E> collection,
             final Transformer<? super E, ? extends E> transformer) {
         return TransformedCollection.transformingCollection(collection, transformer);
     }","/**
@@ -2243,10 +2109,8 @@ coll_328_101,"@Test
             CollectionUtils.synchronizedCollection(null);
             fail(""Expecting NullPointerException for null collection."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",CollectionUtilsTest::testSynchronizedCollection_oe_101_oe,"@Deprecated
+    }",CollectionUtilsTest::testSynchronizedCollection_oe_101_oe,"@Deprecated
     public static <C> Collection<C> synchronizedCollection(final Collection<C> collection) {
         return SynchronizedCollection.synchronizedCollection(collection);
     }","/**
@@ -2281,10 +2145,8 @@ coll_329_101,"@Test
             CollectionUtils.unmodifiableCollection(null);
             fail(""Expecting NullPointerException for null collection."");
         } catch (final NullPointerException ex) {
-            // expected
         }
-    }
-",CollectionUtilsTest::testUnmodifiableCollection_oe_101_oe,"@Deprecated
+    }",CollectionUtilsTest::testUnmodifiableCollection_oe_101_oe,"@Deprecated
     public static <C> Collection<C> unmodifiableCollection(final Collection<? extends C> collection) {
         return UnmodifiableCollection.unmodifiableCollection(collection);
     }","/**
@@ -2306,8 +2168,7 @@ coll_344_101,"@Test
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
         } // this is what we want
-    }
-",CollectionUtilsTest::testRemoveAllWithEquator_oe_101_oe,"public static <T> DefaultEquator<T> defaultEquator() {
+    }",CollectionUtilsTest::testRemoveAllWithEquator_oe_101_oe,"public static <T> DefaultEquator<T> defaultEquator() {
         return DefaultEquator.INSTANCE;
     }","/**
      * Factory returning the typed singleton instance.
@@ -2322,8 +2183,7 @@ coll_345_101,"@Test
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
         } // this is what we want
-    }
-",CollectionUtilsTest::testRetainAllWithEquator_oe_101_oe,"public static <C> Collection<C> retainAll(final Collection<C> collection, final Collection<?> retain) {
+    }",CollectionUtilsTest::testRetainAllWithEquator_oe_101_oe,"public static <C> Collection<C> retainAll(final Collection<C> collection, final Collection<?> retain) {
         return ListUtils.retainAll(collection, retain);
     }","/**
      * Returns a collection containing all the elements in <code>collection</code>
@@ -2354,10 +2214,8 @@ coll_349_101,"@Test
             IteratorUtils.asIterable(null);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException ex) {
-            // success
         }
-    }
-",IteratorUtilsTest::testAsIterableNull_oe_101_oe,"public static <E> Iterable<E> asIterable(final Iterator<? extends E> iterator) {
+    }",IteratorUtilsTest::testAsIterableNull_oe_101_oe,"public static <E> Iterable<E> asIterable(final Iterator<? extends E> iterator) {
         if (iterator == null) {
             throw new NullPointerException(""Iterator must not be null"");
         }
@@ -2377,10 +2235,8 @@ coll_351_101,"@Test
             IteratorUtils.asMultipleUseIterable(null);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException ex) {
-            // success
         }
-    }
-",IteratorUtilsTest::testAsMultipleIterableNull_oe_101_oe,"public static <E> Iterable<E> asMultipleUseIterable(final Iterator<? extends E> iterator) {
+    }",IteratorUtilsTest::testAsMultipleIterableNull_oe_101_oe,"public static <E> Iterable<E> asMultipleUseIterable(final Iterator<? extends E> iterator) {
         if (iterator == null) {
             throw new NullPointerException(""Iterator must not be null"");
         }
@@ -2400,10 +2256,8 @@ coll_352_101,"@Test
             IteratorUtils.collatedIterator(null, collectionOdd.iterator(), null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",IteratorUtilsTest::testCollatedIterator_oe_101_oe,"@Override
+    }",IteratorUtilsTest::testCollatedIterator_oe_101_oe,"@Override
         public Iterator<Object> iterator() {
             return IteratorUtils.emptyIterator();
         }",
@@ -2413,10 +2267,8 @@ coll_352_102,"@Test
             IteratorUtils.collatedIterator(null, null, collectionEven.iterator());
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",IteratorUtilsTest::testCollatedIterator_oe_102_oe,"@Override
+    }",IteratorUtilsTest::testCollatedIterator_oe_102_oe,"@Override
         public Iterator<Object> iterator() {
             return IteratorUtils.emptyIterator();
         }",
@@ -2426,8 +2278,7 @@ coll_353_101,"@Test
             IteratorUtils.EMPTY_ITERATOR.next();
             fail();
         } catch (final NoSuchElementException ex) {}
-    }
-",IteratorUtilsTest::testEmptyIterator_oe_101_oe,"@Override
+    }",IteratorUtilsTest::testEmptyIterator_oe_101_oe,"@Override
     public E next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
@@ -2444,8 +2295,7 @@ coll_353_102,"@Test
             IteratorUtils.EMPTY_ITERATOR.remove();
             fail();
         } catch (final IllegalStateException ex) {}
-    }
-",IteratorUtilsTest::testEmptyIterator_oe_102_oe,"@Override
+    }",IteratorUtilsTest::testEmptyIterator_oe_102_oe,"@Override
         public V remove(final Object key) {
             return get.remove(key);
         }",
@@ -2455,8 +2305,7 @@ coll_354_101,"@Test
             IteratorUtils.EMPTY_LIST_ITERATOR.next();
             fail();
         } catch (final NoSuchElementException ex) {}
-    }
-",IteratorUtilsTest::testEmptyListIterator_oe_101_oe,"@Override
+    }",IteratorUtilsTest::testEmptyListIterator_oe_101_oe,"@Override
     public E next() {
         if (!hasNext()) {
             throw new NoSuchElementException();
@@ -2473,8 +2322,7 @@ coll_354_102,"@Test
             IteratorUtils.EMPTY_LIST_ITERATOR.previous();
             fail();
         } catch (final NoSuchElementException ex) {}
-    }
-",IteratorUtilsTest::testEmptyListIterator_oe_102_oe,"@Override
+    }",IteratorUtilsTest::testEmptyListIterator_oe_102_oe,"@Override
     public E previous() throws NoSuchElementException {
         if (iterator instanceof ListIterator) {
             @SuppressWarnings(""unchecked"")
@@ -2499,8 +2347,7 @@ coll_354_103,"@Test
             IteratorUtils.EMPTY_LIST_ITERATOR.remove();
             fail();
         } catch (final IllegalStateException ex) {}
-    }
-",IteratorUtilsTest::testEmptyListIterator_oe_103_oe,"@Override
+    }",IteratorUtilsTest::testEmptyListIterator_oe_103_oe,"@Override
         public V remove(final Object key) {
             return get.remove(key);
         }",
@@ -2510,8 +2357,7 @@ coll_354_104,"@Test
             IteratorUtils.emptyListIterator().set(null);
             fail();
         } catch (final IllegalStateException ex) {}
-    }
-",IteratorUtilsTest::testEmptyListIterator_oe_104_oe,"@Override
+    }",IteratorUtilsTest::testEmptyListIterator_oe_104_oe,"@Override
     public void set(final E obj) throws UnsupportedOperationException {
         if (iterator instanceof ListIterator) {
             @SuppressWarnings(""unchecked"")
@@ -2534,8 +2380,7 @@ coll_354_105,"@Test
             IteratorUtils.emptyListIterator().add(null);
             fail();
         } catch (final UnsupportedOperationException ex) {}
-    }
-",IteratorUtilsTest::testEmptyListIterator_oe_105_oe,"@Override
+    }",IteratorUtilsTest::testEmptyListIterator_oe_105_oe,"@Override
     public void add(final E obj) throws UnsupportedOperationException {
         if (iterator instanceof ListIterator) {
             @SuppressWarnings(""unchecked"")
@@ -2558,10 +2403,8 @@ coll_364_101,"@Test
             IteratorUtils.indexOf(iterableA.iterator(), null);
             fail(""expecting NullPointerException"");
         } catch (final NullPointerException npe) {
-            // expected
         }
-    }
-",IteratorUtilsTest::testIndexOf_oe_101_oe,"@Override
+    }",IteratorUtilsTest::testIndexOf_oe_101_oe,"@Override
         public Iterator<Object> iterator() {
             return IteratorUtils.emptyIterator();
         }",
@@ -2571,10 +2414,8 @@ coll_367_101,"@Test
         	IteratorUtils.toArray(null);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException ex) {
-            // success
         }
-    }
-",IteratorUtilsTest::testToArray_oe_101_oe,"public static Object[] toArray(final Iterator<?> iterator) {
+    }",IteratorUtilsTest::testToArray_oe_101_oe,"public static Object[] toArray(final Iterator<?> iterator) {
         if (iterator == null) {
             throw new NullPointerException(""Iterator must not be null"");
         }
@@ -2596,10 +2437,8 @@ coll_368_102,"@Test
         	IteratorUtils.toArray(null, String.class);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException ex) {
-            // success
         }
-    }
-",IteratorUtilsTest::testToArray2_oe_102_oe,"public static Object[] toArray(final Iterator<?> iterator) {
+    }",IteratorUtilsTest::testToArray2_oe_102_oe,"public static Object[] toArray(final Iterator<?> iterator) {
         if (iterator == null) {
             throw new NullPointerException(""Iterator must not be null"");
         }
@@ -2621,10 +2460,8 @@ coll_371_101,"@Test
             IteratorUtils.toListIterator(null);
             fail(""Expecting NullPointerException"");
         } catch (final NullPointerException ex) {
-            // success
         }
-    }
-",IteratorUtilsTest::testToListIteratorNull_oe_101_oe,"public static <E> ListIterator<E> toListIterator(final Iterator<? extends E> iterator) {
+    }",IteratorUtilsTest::testToListIteratorNull_oe_101_oe,"public static <E> ListIterator<E> toListIterator(final Iterator<? extends E> iterator) {
         if (iterator == null) {
             throw new NullPointerException(""Iterator must not be null"");
         }
@@ -2647,8 +2484,7 @@ coll_377_102,"@Test
             fail(""Expecting NPE"");
         } catch (final NullPointerException e) {
         }
-    }
-",MultiSetUtilsTest::testUnmodifiableMultiSet_oe_102_oe,"public static <E> MultiSet<E> unmodifiableMultiSet(final MultiSet<? extends E> multiset) {
+    }",MultiSetUtilsTest::testUnmodifiableMultiSet_oe_102_oe,"public static <E> MultiSet<E> unmodifiableMultiSet(final MultiSet<? extends E> multiset) {
         return UnmodifiableMultiSet.unmodifiableMultiSet(multiset);
     }","/**
      * Returns an unmodifiable view of the given multiset. Any modification attempts
@@ -2666,8 +2502,7 @@ coll_379_102,"@Test
             fail(""Expecting NPE"");
         } catch (final NullPointerException e) {
         }
-    }
-",MultiSetUtilsTest::testPredicatedMultiSet_oe_102_oe,"public static <E> MultiSet<E> predicatedMultiSet(final MultiSet<E> multiset,
+    }",MultiSetUtilsTest::testPredicatedMultiSet_oe_102_oe,"public static <E> MultiSet<E> predicatedMultiSet(final MultiSet<E> multiset,
             final Predicate<? super E> predicate) {
         return PredicatedMultiSet.predicatedMultiSet(multiset, predicate);
     }","/**
@@ -2692,8 +2527,7 @@ coll_391_101,"@Test
             fail();
         } catch (final NullPointerException ex) {
         }
-    }
-",LoopingListIteratorTest::testConstructorEx_oe_101_oe,,
+    }",LoopingListIteratorTest::testConstructorEx_oe_101_oe,,
 coll_411_101,"@Test
     public void testNegativeOffset_oe_101_oe() {
         try {
@@ -2701,8 +2535,7 @@ coll_411_101,"@Test
             fail(""Expected IllegalArgumentException."");
         } catch (final IllegalArgumentException iae) { /* Success case */
         }
-    }
-",SkippingIteratorTest::testNegativeOffset_oe_101_oe,"@Override
+    }",SkippingIteratorTest::testNegativeOffset_oe_101_oe,"@Override
         public Iterator<Object> iterator() {
             return IteratorUtils.emptyIterator();
         }",
@@ -2711,8 +2544,7 @@ coll_426_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableMapIterator.unmodifiableMapIterator(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableMapIteratorTest::testDecorateFactory_oe_101_oe,"public static <K, V> MapIterator<K, V> unmodifiableMapIterator(
+    }",UnmodifiableMapIteratorTest::testDecorateFactory_oe_101_oe,"public static <K, V> MapIterator<K, V> unmodifiableMapIterator(
             final MapIterator<? extends K, ? extends V> iterator) {
         if (iterator == null) {
             throw new NullPointerException(""MapIterator must not be null"");
@@ -2737,8 +2569,7 @@ coll_442_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableListIterator.umodifiableListIterator(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableListIteratorTest::testDecorateFactory_oe_101_oe,"public static <E> ListIterator<E> umodifiableListIterator(final ListIterator<? extends E> iterator) {
+    }",UnmodifiableListIteratorTest::testDecorateFactory_oe_101_oe,"public static <E> ListIterator<E> umodifiableListIterator(final ListIterator<? extends E> iterator) {
         if (iterator == null) {
             throw new NullPointerException(""ListIterator must not be null"");
         }
@@ -2761,8 +2592,7 @@ coll_451_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableIterator.unmodifiableIterator(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableIteratorTest::testDecorateFactory_oe_101_oe,"public static <E> Iterator<E> unmodifiableIterator(final Iterator<? extends E> iterator) {
+    }",UnmodifiableIteratorTest::testDecorateFactory_oe_101_oe,"public static <E> Iterator<E> unmodifiableIterator(final Iterator<? extends E> iterator) {
         if (iterator == null) {
             throw new NullPointerException(""Iterator must not be null"");
         }
@@ -2788,28 +2618,22 @@ coll_459_101,"public void testNullArray_oe_101_oe() {
 
             fail(""Constructor should throw a NullPointerException when constructed with a null array"");
         } catch (final NullPointerException e) {
-            // expected
         }
-    }
-",ObjectArrayIteratorTest::testNullArray_oe_101_oe,,
+    }",ObjectArrayIteratorTest::testNullArray_oe_101_oe,,
 coll_462_101,"public void testNullArray_oe_101_oe() {
         try {
             new ArrayIterator<>(null);
             fail(""Constructor should throw a NullPointerException when constructed with a null array"");
         } catch (final NullPointerException e) {
-            // expected
         }
-    }
-",ArrayIteratorTest::testNullArray_oe_101_oe,,
+    }",ArrayIteratorTest::testNullArray_oe_101_oe,,
 coll_466_101,"public void testNullConstructor_oe_101_oe(){
         try{
             new NodeListIterator((Node) null);
             fail(""NullPointerException expected!"");
         }catch(final NullPointerException e){
-            // expected.
         }
-    }
-",NodeListIteratorTest::testNullConstructor_oe_101_oe,,
+    }",NodeListIteratorTest::testNullConstructor_oe_101_oe,,
 coll_513_101,"@Test
     public void testNegativeOffset_oe_101_oe() {
         try {
@@ -2817,8 +2641,7 @@ coll_513_101,"@Test
             fail(""Expected IllegalArgumentException."");
         } catch (final IllegalArgumentException iae) { /* Success case */
         }
-    }
-",BoundedIteratorTest::testNegativeOffset_oe_101_oe,"@Override
+    }",BoundedIteratorTest::testNegativeOffset_oe_101_oe,"@Override
         public Iterator<Object> iterator() {
             return IteratorUtils.emptyIterator();
         }",
@@ -2829,8 +2652,7 @@ coll_514_101,"@Test
             fail(""Expected IllegalArgumentException."");
         } catch (final IllegalArgumentException iae) { /* Success case */
         }
-    }
-",BoundedIteratorTest::testNegativeMax_oe_101_oe,"@Override
+    }",BoundedIteratorTest::testNegativeMax_oe_101_oe,"@Override
         public Iterator<Object> iterator() {
             return IteratorUtils.emptyIterator();
         }",
@@ -2841,15 +2663,13 @@ coll_528_101,"@Test
             fail();
         } catch (final NullPointerException ex) {
         }
-    }
-",LoopingIteratorTest::testConstructorEx_oe_101_oe,,
+    }",LoopingIteratorTest::testConstructorEx_oe_101_oe,,
 coll_537_101,"public void testDecorateFactory_oe_101_oe() {
         try {
             UnmodifiableOrderedMapIterator.unmodifiableOrderedMapIterator(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableOrderedMapIteratorTest::testDecorateFactory_oe_101_oe,"public static <K, V> OrderedMapIterator<K, V> unmodifiableOrderedMapIterator(
+    }",UnmodifiableOrderedMapIteratorTest::testDecorateFactory_oe_101_oe,"public static <K, V> OrderedMapIterator<K, V> unmodifiableOrderedMapIterator(
             final OrderedMapIterator<K, ? extends V> iterator) {
 
         if (iterator == null) {
@@ -2875,8 +2695,7 @@ coll_576_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableBoundedCollection.unmodifiableBoundedCollection(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableBoundedCollectionTest::testDecorateFactory_oe_101_oe,"public static <E> BoundedCollection<E> unmodifiableBoundedCollection(final BoundedCollection<? extends E> coll) {
+    }",UnmodifiableBoundedCollectionTest::testDecorateFactory_oe_101_oe,"public static <E> BoundedCollection<E> unmodifiableBoundedCollection(final BoundedCollection<? extends E> coll) {
         if (coll instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final BoundedCollection<E> tmpColl = (BoundedCollection<E>) coll;
@@ -2897,8 +2716,7 @@ coll_619_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableCollection.unmodifiableCollection(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableCollectionTest::testDecorateFactory_oe_101_oe,"public static <T> Collection<T> unmodifiableCollection(final Collection<? extends T> coll) {
+    }",UnmodifiableCollectionTest::testDecorateFactory_oe_101_oe,"public static <T> Collection<T> unmodifiableCollection(final Collection<? extends T> coll) {
         if (coll instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final Collection<T> tmpColl = (Collection<T>) coll;
@@ -2921,10 +2739,8 @@ coll_663_101,"public void testDecoratorFactoryNullMap_oe_101_oe() {
             UnmodifiableMultiValuedMap.unmodifiableMultiValuedMap(null);
             fail(""map must not be null"");
         } catch (final NullPointerException e) {
-            // expected
         }
-    }
-",UnmodifiableMultiValuedMapTest::testDecoratorFactoryNullMap_oe_101_oe,"@SuppressWarnings(""unchecked"")
+    }",UnmodifiableMultiValuedMapTest::testDecoratorFactoryNullMap_oe_101_oe,"@SuppressWarnings(""unchecked"")
     public static <K, V> UnmodifiableMultiValuedMap<K, V> unmodifiableMultiValuedMap(
             final MultiValuedMap<? extends K, ? extends V> map) {
         if (map instanceof Unmodifiable) {
@@ -2947,8 +2763,7 @@ coll_678_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableTrie.unmodifiableTrie(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableTrieTest::testDecorateFactory_oe_101_oe,"public static <K, V> Trie<K, V> unmodifiableTrie(final Trie<K, ? extends V> trie) {
+    }",UnmodifiableTrieTest::testDecorateFactory_oe_101_oe,"public static <K, V> Trie<K, V> unmodifiableTrie(final Trie<K, ? extends V> trie) {
         if (trie instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final Trie<K, V> tmpTrie = (Trie<K, V>) trie;
@@ -2969,8 +2784,7 @@ coll_699_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableQueue.unmodifiableQueue(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableQueueTest::testDecorateFactory_oe_101_oe,"public static <E> Queue<E> unmodifiableQueue(final Queue<? extends E> queue) {
+    }",UnmodifiableQueueTest::testDecorateFactory_oe_101_oe,"public static <E> Queue<E> unmodifiableQueue(final Queue<? extends E> queue) {
         if (queue instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final Queue<E> tmpQueue = (Queue<E>) queue;
@@ -2992,22 +2806,19 @@ coll_742_101,"public void testDecorate_oe_101_oe() {
             decorateBag(new TreeBag<T>(), null);
             fail(""Expecting NullPointerException for null predicate"");
         } catch (final NullPointerException e) {}
-    }
-",PredicatedSortedBagTest::testDecorate_oe_101_oe,,
+    }",PredicatedSortedBagTest::testDecorate_oe_101_oe,,
 coll_742_102,"public void testDecorate_oe_102_oe() {
         try {
             decorateBag(nullBag, stringPredicate());
             fail(""Expecting NullPointerException for null bag"");
         } catch (final NullPointerException e) {}
-    }
-",PredicatedSortedBagTest::testDecorate_oe_102_oe,,
+    }",PredicatedSortedBagTest::testDecorate_oe_102_oe,,
 coll_750_101,"public void testDecorateFactory_oe_101_oe() {
         try {
             UnmodifiableSortedBag.unmodifiableSortedBag(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableSortedBagTest::testDecorateFactory_oe_101_oe,"public static <E> SortedBag<E> unmodifiableSortedBag(final SortedBag<E> bag) {
+    }",UnmodifiableSortedBagTest::testDecorateFactory_oe_101_oe,"public static <E> SortedBag<E> unmodifiableSortedBag(final SortedBag<E> bag) {
         if (bag instanceof Unmodifiable) {
             return bag;
         }
@@ -3028,8 +2839,7 @@ coll_757_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableBag.unmodifiableBag(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableBagTest::testDecorateFactory_oe_101_oe,"public static <E> Bag<E> unmodifiableBag(final Bag<? extends E> bag) {
+    }",UnmodifiableBagTest::testDecorateFactory_oe_101_oe,"public static <E> Bag<E> unmodifiableBag(final Bag<? extends E> bag) {
         if (bag instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final Bag<E> tmpBag = (Bag<E>) bag;
@@ -3052,8 +2862,7 @@ coll_780_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableBidiMap.unmodifiableBidiMap(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableBidiMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> BidiMap<K, V> unmodifiableBidiMap(final BidiMap<? extends K, ? extends V> map) {
+    }",UnmodifiableBidiMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> BidiMap<K, V> unmodifiableBidiMap(final BidiMap<? extends K, ? extends V> map) {
         if (map instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final BidiMap<K, V> tmpMap = (BidiMap<K, V>) map;
@@ -3077,8 +2886,7 @@ coll_794_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableSortedBidiMap.unmodifiableSortedBidiMap(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableSortedBidiMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> SortedBidiMap<K, V> unmodifiableSortedBidiMap(final SortedBidiMap<K, ? extends V> map) {
+    }",UnmodifiableSortedBidiMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> SortedBidiMap<K, V> unmodifiableSortedBidiMap(final SortedBidiMap<K, ? extends V> map) {
         if (map instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final SortedBidiMap<K, V> tmpMap = (SortedBidiMap<K, V>) map;
@@ -3102,8 +2910,7 @@ coll_796_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableOrderedBidiMap.unmodifiableOrderedBidiMap(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableOrderedBidiMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> OrderedBidiMap<K, V> unmodifiableOrderedBidiMap(
+    }",UnmodifiableOrderedBidiMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> OrderedBidiMap<K, V> unmodifiableOrderedBidiMap(
             final OrderedBidiMap<? extends K, ? extends V> map) {
         if (map instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
@@ -3128,8 +2935,7 @@ coll_834_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableMultiSet.unmodifiableMultiSet(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableMultiSetTest::testDecorateFactory_oe_101_oe,"public static <E> MultiSet<E> unmodifiableMultiSet(final MultiSet<? extends E> multiset) {
+    }",UnmodifiableMultiSetTest::testDecorateFactory_oe_101_oe,"public static <E> MultiSet<E> unmodifiableMultiSet(final MultiSet<? extends E> multiset) {
         if (multiset instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final MultiSet<E> tmpMultiSet = (MultiSet<E>) multiset;
@@ -3151,8 +2957,7 @@ coll_1004_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableList.unmodifiableList(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableListTest::testDecorateFactory_oe_101_oe,"public static <E> List<E> unmodifiableList(final List<? extends E> list) {
+    }",UnmodifiableListTest::testDecorateFactory_oe_101_oe,"public static <E> List<E> unmodifiableList(final List<? extends E> list) {
         if (list instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final List<E> tmpList = (List<E>) list;
@@ -3173,8 +2978,7 @@ coll_1028_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableNavigableSet.unmodifiableNavigableSet(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableNavigableSetTest::testDecorateFactory_oe_101_oe,"public static <E> NavigableSet<E> unmodifiableNavigableSet(final NavigableSet<E> set) {
+    }",UnmodifiableNavigableSetTest::testDecorateFactory_oe_101_oe,"public static <E> NavigableSet<E> unmodifiableNavigableSet(final NavigableSet<E> set) {
         if (set instanceof Unmodifiable) {
             return set;
         }
@@ -3192,8 +2996,7 @@ coll_1034_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableSortedSet.unmodifiableSortedSet(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableSortedSetTest::testDecorateFactory_oe_101_oe,"public static <E> SortedSet<E> unmodifiableSortedSet(final SortedSet<E> set) {
+    }",UnmodifiableSortedSetTest::testDecorateFactory_oe_101_oe,"public static <E> SortedSet<E> unmodifiableSortedSet(final SortedSet<E> set) {
         if (set instanceof Unmodifiable) {
             return set;
         }
@@ -3213,8 +3016,7 @@ coll_1042_101,"public void testDecorator_oe_101_oe() {
             fail();
         } catch (final NullPointerException ex) {
         }
-    }
-",ListOrderedSetTest::testDecorator_oe_101_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+    }",ListOrderedSetTest::testDecorator_oe_101_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
         if (set == null) {
             throw new NullPointerException(""Set must not be null"");
         }
@@ -3244,8 +3046,7 @@ coll_1042_102,"public void testDecorator_oe_102_oe() {
             fail();
         } catch (final NullPointerException ex) {
         }
-    }
-",ListOrderedSetTest::testDecorator_oe_102_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+    }",ListOrderedSetTest::testDecorator_oe_102_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
         if (set == null) {
             throw new NullPointerException(""Set must not be null"");
         }
@@ -3275,8 +3076,7 @@ coll_1042_103,"public void testDecorator_oe_103_oe() {
             fail();
         } catch (final NullPointerException ex) {
         }
-    }
-",ListOrderedSetTest::testDecorator_oe_103_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+    }",ListOrderedSetTest::testDecorator_oe_103_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
         if (set == null) {
             throw new NullPointerException(""Set must not be null"");
         }
@@ -3306,8 +3106,7 @@ coll_1042_104,"public void testDecorator_oe_104_oe() {
             fail();
         } catch (final NullPointerException ex) {
         }
-    }
-",ListOrderedSetTest::testDecorator_oe_104_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+    }",ListOrderedSetTest::testDecorator_oe_104_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
         if (set == null) {
             throw new NullPointerException(""Set must not be null"");
         }
@@ -3337,8 +3136,7 @@ coll_1042_105,"public void testDecorator_oe_105_oe() {
             fail();
         } catch (final NullPointerException ex) {
         }
-    }
-",ListOrderedSetTest::testDecorator_oe_105_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
+    }",ListOrderedSetTest::testDecorator_oe_105_oe,"public static <E> ListOrderedSet<E> listOrderedSet(final Set<E> set, final List<E> list) {
         if (set == null) {
             throw new NullPointerException(""Set must not be null"");
         }
@@ -3367,8 +3165,7 @@ coll_1046_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableSet.unmodifiableSet(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableSetTest::testDecorateFactory_oe_101_oe,"public static <E> Set<E> unmodifiableSet(final Set<? extends E> set) {
+    }",UnmodifiableSetTest::testDecorateFactory_oe_101_oe,"public static <E> Set<E> unmodifiableSet(final Set<? extends E> set) {
         if (set instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final Set<E> tmpSet = (Set<E>) set;
@@ -3389,62 +3186,49 @@ coll_1094_101,"public void testCtors_oe_101_oe() {
             new LRUMap<K, V>(0);
             fail(""maxSize must be positive"");
         } catch(final IllegalArgumentException ex) {
-            // expected
         }
-    }
-",LRUMapTest::testCtors_oe_101_oe,,
+    }",LRUMapTest::testCtors_oe_101_oe,,
 coll_1094_102,"public void testCtors_oe_102_oe() {
         try {
             new LRUMap<K, V>(-1, 12, 0.75f, false);
             fail(""maxSize must be positive"");
         } catch(final IllegalArgumentException ex) {
-            // expected
         }
-    }
-",LRUMapTest::testCtors_oe_102_oe,,
+    }",LRUMapTest::testCtors_oe_102_oe,,
 coll_1094_103,"public void testCtors_oe_103_oe() {
         try {
             new LRUMap<K, V>(10, -1);
             fail(""initialSize must not be negative"");
         } catch(final IllegalArgumentException ex) {
-            // expected
         }
-    }
-",LRUMapTest::testCtors_oe_103_oe,,
+    }",LRUMapTest::testCtors_oe_103_oe,,
 coll_1094_104,"public void testCtors_oe_104_oe() {
         try {
             new LRUMap<K, V>(10, 12);
             fail(""initialSize must not be larger than maxSize"");
         } catch(final IllegalArgumentException ex) {
-            // expected
         }
-    }
-",LRUMapTest::testCtors_oe_104_oe,,
+    }",LRUMapTest::testCtors_oe_104_oe,,
 coll_1094_105,"public void testCtors_oe_105_oe() {
         try {
             new LRUMap<K, V>(10, -1, 0.75f, false);
             fail(""initialSize must not be negative"");
         } catch(final IllegalArgumentException ex) {
-            // expected
         }
-    }
-",LRUMapTest::testCtors_oe_105_oe,,
+    }",LRUMapTest::testCtors_oe_105_oe,,
 coll_1094_106,"public void testCtors_oe_106_oe() {
         try {
             new LRUMap<K, V>(10, 12, 0.75f, false);
             fail(""initialSize must not be larger than maxSize"");
         } catch(final IllegalArgumentException ex) {
-            // expected
         }
-    }
-",LRUMapTest::testCtors_oe_106_oe,,
+    }",LRUMapTest::testCtors_oe_106_oe,,
 coll_1205_101,"public void testDecorateFactory_oe_101_oe() {
         try {
             UnmodifiableOrderedMap.unmodifiableOrderedMap(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableOrderedMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> OrderedMap<K, V> unmodifiableOrderedMap(final OrderedMap<? extends K, ? extends V> map) {
+    }",UnmodifiableOrderedMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> OrderedMap<K, V> unmodifiableOrderedMap(final OrderedMap<? extends K, ? extends V> map) {
         if (map instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final OrderedMap<K, V> tmpMap = (OrderedMap<K, V>) map;
@@ -3466,8 +3250,7 @@ coll_1259_101,"public void testDecorateFactory_oe_101_oe() {
             UnmodifiableMap.unmodifiableMap(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> Map<K, V> unmodifiableMap(final Map<? extends K, ? extends V> map) {
+    }",UnmodifiableMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> Map<K, V> unmodifiableMap(final Map<? extends K, ? extends V> map) {
         if (map instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final Map<K, V> tmpMap = (Map<K, V>) map;
@@ -3490,37 +3273,30 @@ coll_1267_101,"public void testConstructors_oe_101_oe() {
             new PassiveExpiringMap<>(map);
             fail(""constructor - exception should have been thrown."");
         } catch (final NullPointerException ex) {
-            // success
         }
-    }
-",PassiveExpiringMapTest::testConstructors_oe_101_oe,,
+    }",PassiveExpiringMapTest::testConstructors_oe_101_oe,,
 coll_1267_102,"public void testConstructors_oe_102_oe() {
         try {
             final ExpirationPolicy<String, String> policy = null;
             new PassiveExpiringMap<>(policy);
             fail(""constructor - exception should have been thrown."");
         } catch (final NullPointerException ex) {
-            // success
         }
-    }
-",PassiveExpiringMapTest::testConstructors_oe_102_oe,,
+    }",PassiveExpiringMapTest::testConstructors_oe_102_oe,,
 coll_1267_103,"public void testConstructors_oe_103_oe() {
         try {
             final TimeUnit unit = null;
             new PassiveExpiringMap<String, String>(10L, unit);
             fail(""constructor - exception should have been thrown."");
         } catch (final NullPointerException ex) {
-            // success
         }
-    }
-",PassiveExpiringMapTest::testConstructors_oe_103_oe,,
+    }",PassiveExpiringMapTest::testConstructors_oe_103_oe,,
 coll_1293_101,"public void testDecorateFactory_oe_101_oe() {
         try {
             UnmodifiableSortedMap.unmodifiableSortedMap(null);
             fail();
         } catch (final NullPointerException ex) {}
-    }
-",UnmodifiableSortedMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> SortedMap<K, V> unmodifiableSortedMap(final SortedMap<K, ? extends V> map) {
+    }",UnmodifiableSortedMapTest::testDecorateFactory_oe_101_oe,"public static <K, V> SortedMap<K, V> unmodifiableSortedMap(final SortedMap<K, ? extends V> map) {
         if (map instanceof Unmodifiable) {
             @SuppressWarnings(""unchecked"") // safe to upcast
             final SortedMap<K, V> tmpMap = (SortedMap<K, V>) map;

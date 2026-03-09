@@ -6,8 +6,7 @@ commons-lang3_2741_101,"@Test
             fail(""Expected Exception"");
         } catch (final NullPointerException e) {
         }
-    }
-",ObjectsTest::testRequireNonNullObject_oe_101_oe
+    }",ObjectsTest::testRequireNonNullObject_oe_101_oe
 commons-lang3_2742_101,"@Test
     void testRequireNonNullObjectString_oe_101_oe() {
         try {
@@ -15,5 +14,4 @@ commons-lang3_2742_101,"@Test
             fail(""Expected Exception"");
         } catch (final NullPointerException e) {
         }
-    }
-",ObjectsTest::testRequireNonNullObjectString_oe_101_oe
+    }",ObjectsTest::testRequireNonNullObjectString_oe_101_oe

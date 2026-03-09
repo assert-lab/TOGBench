@@ -1,0 +1,11 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,dataset_type
+http-request_2,http-request,HttpRequestTest,malformedStringUrlCause_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed
+http-request_67,http-request,HttpRequestTest,postMultipart_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed
+http-request_69,http-request,HttpRequestTest,receiveAppendable_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed
+http-request_70,http-request,HttpRequestTest,receiveWriter_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed
+http-request_71,http-request,HttpRequestTest,receivePrintStream_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed
+http-request_72,http-request,HttpRequestTest,receiveFile_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed
+http-request_77,http-request,HttpRequestTest,sendErrorReadStream_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed
+http-request_78,http-request,HttpRequestTest,sendErrorCloseStream_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed
+http-request_80,http-request,HttpRequestTest,getToOutputBody_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed
+http-request_81,http-request,HttpRequestTest,getToOutputBodyWithCharset_oe,src/test/java/com/github/kevinsawicki/http/HttpRequestTest.java,,,,mixed

@@ -10,43 +10,35 @@
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ async-http-client-extras-simple ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/simple/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/async-http-client/extras/simple/src/main/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client-extras-simple ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/simple/target/classes
+[INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/async-http-client/extras/simple/target/classes
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-extras-simple ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/simple/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/async-http-client/extras/simple/src/test/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-simple ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/simple/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/simple/src/test/java/org/asynchttpclient/extras/simple/SimpleAsyncHttpClientTest_OE25Dev.java:[323,15] method testCloseMasterInvalidDerived() is already defined in class org.asynchttpclient.extras.simple.SimpleAsyncHttpClientTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/simple/src/test/java/org/asynchttpclient/extras/simple/SimpleAsyncHttpClientTest_OE25Dev.java:[322,2] cannot find symbol
-  symbol:   class Test_oe
-  location: class org.asynchttpclient.extras.simple.SimpleAsyncHttpClientTest_OE25Dev
-[INFO] 2 errors 
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/async-http-client/extras/simple/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-simple ---
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running TestSuite
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 7.415 sec - in TestSuite
+
+Results :
+
+Tests run: 37, Failures: 0, Errors: 0, Skipped: 0
+
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  5.886 s
-[INFO] Finished at: 2026-03-08T23:53:33-05:00
+[INFO] Total time:  14.461 s
+[INFO] Finished at: 2026-03-09T06:13:01-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client-extras-simple: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/simple/src/test/java/org/asynchttpclient/extras/simple/SimpleAsyncHttpClientTest_OE25Dev.java:[323,15] method testCloseMasterInvalidDerived() is already defined in class org.asynchttpclient.extras.simple.SimpleAsyncHttpClientTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/simple/src/test/java/org/asynchttpclient/extras/simple/SimpleAsyncHttpClientTest_OE25Dev.java:[322,2] cannot find symbol
-[ERROR]   symbol:   class Test_oe
-[ERROR]   location: class org.asynchttpclient.extras.simple.SimpleAsyncHttpClientTest_OE25Dev
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

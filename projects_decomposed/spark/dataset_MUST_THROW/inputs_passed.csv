@@ -6,8 +6,7 @@ spark_255_101,"@Test
             fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
         } catch(IllegalArgumentException ex) {
         }
-    }
-",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_oe_101_oe,"public static ServerConnector createSocketConnector(Server server, String host, int port) {
+    }",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_oe_101_oe,"public static ServerConnector createSocketConnector(Server server, String host, int port) {
         Assert.notNull(server, ""'server' must not be null"");
         Assert.notNull(host, ""'host' must not be null"");
 
@@ -30,8 +29,7 @@ spark_258_101,"@Test
             fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
         } catch(IllegalArgumentException ex) {
         }
-    }
-",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_oe_101_oe,"public static ServerConnector createSecureSocketConnector(Server server,
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_oe_101_oe,"public static ServerConnector createSecureSocketConnector(Server server,
                                                               String host,
                                                               int port,
                                                               SslStores sslStores) {
@@ -85,8 +83,7 @@ spark_268_101,"@Test
             fail(""Handler creation should have thrown an IllegalArgumentException"");
         } catch (IllegalArgumentException ex) {
         }
-    }
-",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_oe_101_oe,"public static WebSocketCreator create(WebSocketHandlerWrapper handlerWrapper) {
+    }",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_oe_101_oe,"public static WebSocketCreator create(WebSocketHandlerWrapper handlerWrapper) {
         return new SparkWebSocketCreator(handlerWrapper.getHandler());
     }","/**
      * Creates a {@link WebSocketCreator} that uses the given handler class/instance for
@@ -102,8 +99,7 @@ spark_269_101,"@Test
             fail(""Handler creation should have thrown a RunTimeException"");
         } catch(RuntimeException ex) {
         }
-    }
-",WebSocketCreatorFactoryTest::testCreate_whenInstantiationException_oe_101_oe,"public static WebSocketCreator create(WebSocketHandlerWrapper handlerWrapper) {
+    }",WebSocketCreatorFactoryTest::testCreate_whenInstantiationException_oe_101_oe,"public static WebSocketCreator create(WebSocketHandlerWrapper handlerWrapper) {
         return new SparkWebSocketCreator(handlerWrapper.getHandler());
     }","/**
      * Creates a {@link WebSocketCreator} that uses the given handler class/instance for

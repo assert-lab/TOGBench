@@ -12,7 +12,7 @@ for project_dir in root.iterdir():
     if not project_dir.is_dir():
         continue
 
-    inputs_path = project_dir / "dataset/inputs.csv"
+    inputs_path = project_dir / "dataset_MUST_THROW/inputs_passed.csv"
     if not inputs_path.exists():
         continue
 

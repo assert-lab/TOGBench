@@ -37,12 +37,17 @@ def main(args):
         for mrow in inputs_m:
             project = meta_m_by_id.get(mrow['id'], {}).get('project', '')
             matched = serial_index.get((project, mrow['test_name']), [])
+
+
+            focal_methods = list(dict.fromkeys(r['focal_method'] for r in matched))
+            docstrings = list(dict.fromkeys(r['docstring'] for r in matched))
+
             writer.writerow({
                 'id':            mrow['id'],
                 'test_prefix':   mrow['test_prefix'],
                 'test_name':     mrow['test_name'],
-                'focal_methods': '\n\n'.join(r['focal_method'] for r in matched),
-                'docstrings':    '\n\n'.join(r['docstring']    for r in matched),
+                'focal_methods': '\n\n'.join(focal_methods),
+                'docstrings':    '\n\n'.join(docstrings),
             })
 
     print(f"Written to {args.output}")

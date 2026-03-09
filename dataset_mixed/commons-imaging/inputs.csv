@@ -1,0 +1,1193 @@
+id,test_prefix,test_name,focal_methods,docstrings
+commons-imaging_75,"@Test
+    public void testGetColorBufferedImageThrowsIllegalArgumentException_oe() {
+        final RgbBufferedImageFactory rgbBufferedImageFactory = new RgbBufferedImageFactory();
+
+        try {
+            rgbBufferedImageFactory.getColorBufferedImage(0, 0, true);
+            fail(""Expecting exception: IllegalArgumentException"");
+        } catch(final IllegalArgumentException e) {
+            assertEquals(""Width (0) and height (0) cannot be <= 0"",e.getMessage());
+            assertEquals(DirectColorModel.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }",RgbBufferedImageFactoryTest::testGetColorBufferedImageThrowsIllegalArgumentException_oe,"@Override
+    public BufferedImage getColorBufferedImage(final int width, final int height,
+            final boolean hasAlpha) {
+        if (hasAlpha) {
+            return new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+        }
+        return new BufferedImage(width, height, BufferedImage.TYPE_INT_RGB);
+    }
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_77,"@Test
+    public void testSpecialRationalNumber_oe(){
+        RationalNumber test = new RationalNumber(0xF5937B1F, 70_000_000, true);
+        assertEquals(58.858331871428570, test.doubleValue(), 1.0e-14, ""Unsigned integer support failed for double conversion"");
+        assertEquals(58.858334f, test.floatValue(), 1.0e-6f, ""Float conversion failed"");
+        assertEquals(58L, test.longValue(), ""Long value conversion failed"");
+        assertEquals(58, test.intValue(), ""Int value conversion failed"");
+        assertThrows(NumberFormatException.class, () -> test.negate(), ""Failed to detect negation of large unsigned value"");
+
+    }",RationalNumberTest::testSpecialRationalNumber_oe,"@Override
+    public double doubleValue() {
+        return (double) numerator / (double) divisor;
+    }
+
+@Override
+    public float floatValue() {
+        // The computation uses double value in order to preserve
+        // as much of the precision of the source numerator and denominator
+        // as possible.  Note that the expression
+        //    return (float)numerator/(float) denominator
+        // could lose precision since a Java float only carries 24 bits
+        // of precision while an integer carries 32.
+        return (float) doubleValue();
+    }
+
+@Override
+    public long longValue() {
+        return numerator / divisor;
+    }
+
+@Override
+    public int intValue() {
+        return (int)(numerator / divisor);
+    }
+
+public RationalNumber negate() {
+        long n = numerator;
+        long d = divisor;
+        if (unsignedType) {
+            // An instance of an unsigned type can be negated if and only if
+            // its high-order bit (the sign bit) is clear. If the bit is set,
+            // the value will be too large to convert to a signed type.
+            // In such a case it is necessary to adjust the numerator and denominator
+            // by their greatest common divisor (gcd), if one exists.
+            // If no non-zero common divisor exists, an exception is thrown.
+            if ((n >> 31) == 1) {
+                // the unsigned value is so large that the high-order bit is set
+                // it cannot be converted to a negative number. Check to see
+                // whether there is an option to reduce its magnitude.
+                long g = gcd(numerator, divisor);
+                if (g != 0) {
+                    n /= g;
+                    d /= g;
+                }
+                if ((n >> 31) == 1) {
+                    throw new NumberFormatException(
+                            ""Unsigned numerator is too large to negate ""
+                            + numerator);
+                }
+            }
+        }
+        return new RationalNumber(-n, d, false);
+    }","
+
+/**
+     * Negates the value of the RationalNumber. If the numerator of this
+     * instance has its high-order bit set, then its value is too large
+     * to be treated as a Java 32-bit signed integer. In such a case, the
+     * only way that a RationalNumber instance can be negated is to
+     * divide both terms by a common divisor, if a non-zero common divisor exists.
+     * However, if no such divisor exists, there is no numerically correct
+     * way to perform the negation. When a negation cannot be performed correctly,
+     * this method throws an unchecked exception.
+     * @return a valid instance with a negated value.
+     */"
+commons-imaging_90,"@Test
+    public void testReadWithNonNull_oe() {
+        final RleReader rleReader = new RleReader(false);
+        final byte[] byteArray = new byte[1];
+        final ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArray, (byte) (-64), (byte) (-64));
+
+        try {
+            rleReader.read(byteArrayInputStream, byteArray);
+            fail(""Expecting exception: Exception"");
+        } catch(final Exception e) {
+            assertEquals(""Premature end of file reading image data"",e.getMessage());
+            assertEquals(RleReader.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }",RleReaderTest::testReadWithNonNull_oe,"void read(final InputStream is, final byte[] samples) throws IOException, ImageReadException {
+        if (isCompressed) {
+            final int prefill = Math.min(count, samples.length);
+            Arrays.fill(samples, 0, prefill, sample);
+            count -= prefill;
+
+            for (int bytesRead = prefill; bytesRead < samples.length;) {
+                final byte b = BinaryFunctions.readByte(""RleByte"", is, ""Error reading image data"");
+                if ((b & 0xc0) == 0xc0) {
+                    count = b & 0x3f;
+                    sample = BinaryFunctions.readByte(""RleValue"", is, ""Error reading image data"");
+                } else {
+                    count = 1;
+                    sample = b;
+                }
+                final int samplesToAdd = Math.min(count, samples.length - bytesRead);
+                Arrays.fill(samples, bytesRead, bytesRead + samplesToAdd, sample);
+                bytesRead += samplesToAdd;
+                count -= samplesToAdd;
+            }
+        } else {
+            int r;
+            for (int bytesRead = 0; bytesRead < samples.length; bytesRead += r) {
+                r = is.read(samples, bytesRead, samples.length - bytesRead);
+                if (r < 0) {
+                    throw new ImageReadException(
+                            ""Premature end of file reading image data"");
+                }
+            }
+        }
+    }
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_96,"@Test
+  public void testGetRGBThrowsIOException_oe() throws IOException {
+      final PbmFileInfo pbmFileInfo = new PbmFileInfo(2764, 354, true);
+      final byte[] byteArray = new byte[2];
+      final InputStream inputStream = new ByteArrayInputStream(byteArray);
+      inputStream.read(byteArray);
+
+      try {
+        pbmFileInfo.getRGB(inputStream);
+        fail(""Expecting exception: IOException"");
+      } catch(final IOException e) {
+         assertEquals(""PBM: Unexpected EOF"",e.getMessage());
+         assertEquals(PbmFileInfo.class.getName(), e.getStackTrace()[0].getClassName());
+      }
+  }",PbmFileInfoTest::testGetRGBThrowsIOException_oe,"@Override
+    public int getRGB(final InputStream is) throws IOException {
+        if (bitsInCache < 1) {
+            final int bits = is.read();
+            if (bits < 0) {
+                throw new IOException(""PBM: Unexpected EOF"");
+            }
+            bitCache = 0xff & bits;
+            bitsInCache += 8;
+        }
+
+        final int bit = 0x1 & (bitCache >> 7);
+        bitCache <<= 1;
+        bitsInCache--;
+
+        if (bit == 0) {
+            return 0xffffffff;
+        }
+        if (bit == 1) {
+            return 0xff000000;
+        }
+        throw new IOException(""PBM: bad bit: "" + bit);
+    }
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_116,"@Test
+    public void test_oe() {
+        try {
+            File target = getTiffFile(""Sample64BitFloatingPointPix451x337.tiff"");
+            PhotometricInterpreterFloat pInterp = readAndInterpretTIFF(target, 0f, 1f, 9999f);
+            if (pInterp == null) {
+                fail(""Failed to read image "" + target.getAbsolutePath());
+            }
+            float minVal = pInterp.getMinFound();
+            float maxVal = pInterp.getMaxFound();
+            boolean testCondition = 0.0 <= minVal && minVal <= 1.0 && 0.0 <= maxVal && maxVal <= 1.0;
+            assertTrue(testCondition, ""Min,Max values not in range 0 to 1: "" + minVal + "", "" + maxVal);
+            assertTrue(minVal <= maxVal, ""Min Value not <= maxVal: "" + minVal + "", "" + maxVal);
+
+            TiffRasterData fullRaster = readRasterFromTIFF(target, new TiffImagingParameters());
+            int height = fullRaster.getHeight();
+            int width  = fullRaster.getWidth();
+            checkSubImage(target, fullRaster, 17, 17, 200, 200);
+            checkSubImage(target, fullRaster, 1, 3, width-2, 1);
+            checkSubImage(target, fullRaster, 1, 3, width-2, 3);
+            checkSubImage(target, fullRaster, 1, 4, width-2, 1);
+            checkSubImage(target, fullRaster, 1, 4, width-2, 3);
+            checkSubImage(target, fullRaster, 0, 0, width, 1);         // bottom row
+            checkSubImage(target, fullRaster, 0, 0, 1, height);        // left column
+            checkSubImage(target, fullRaster, 0, height-1, width, 1);  // top row
+            checkSubImage(target, fullRaster, width-1, 0, 1, height);  // right column
+
+            final int s = width-height;
+            for(int i=0; i<height-8; i++){
+                checkSubImage(target, fullRaster, i, i, 8, 8);
+                checkSubImage(target, fullRaster, i+1, i, 8, 8);
+            }
+
+            checkSubImage(target, fullRaster, 0, 0, width, height);
+
+            target = getTiffFile(""USGS_13_n38w077_dir5.tiff"");
+            pInterp = readAndInterpretTIFF(target, -2f, 62f, -99999f);
+            if (pInterp == null) {
+                fail(""Failed to read image "" + target.getAbsolutePath());
+            }
+            minVal = pInterp.getMinFound();
+            maxVal = pInterp.getMaxFound();
+            testCondition = -2 <= minVal && minVal <= 62 && -2 <= maxVal && maxVal <= 62;
+            assertTrue(testCondition, ""Min,Max values not in range -2 to 62: "" + minVal + "", "" + maxVal);
+            assertTrue(minVal <= maxVal, ""Min Value not <= maxVal: "" + minVal + "", "" + maxVal);
+
+            fullRaster = readRasterFromTIFF(target, new TiffImagingParameters());
+            height = fullRaster.getHeight();
+            width  = fullRaster.getWidth();
+            checkSubImage(target, fullRaster, 126, 126, 132, 132);
+            checkSubImage(target, fullRaster, 128, 128, 128, 128);
+            checkSubImage(target, fullRaster, 1, 1, width-2, height-2);
+            checkSubImage(target, fullRaster, 0, 0, width, 1);         // bottom row
+            checkSubImage(target, fullRaster, 0, 0, 1, height);        // left column
+            checkSubImage(target, fullRaster, 0, height-1, width, 1);  // top row
+            checkSubImage(target, fullRaster, width-1, 0, 1, height);  // right column
+
+            for(int i=0; i<height-8; i++){
+                checkSubImage(target, fullRaster, i, i, 8, 8);
+            }
+
+            checkSubImage(target, fullRaster, 0, 0, width, height);
+        } catch (ImageReadException | IOException ex) {
+            fail(""Exception during test "" + ex.getMessage());
+        }
+    }",TiffFloatingPointReadTest::test_oe,"public final int getWidth() {
+        return width;
+    }","/**
+     * Gets the width (number of columns) of the raster.
+     *
+     * @return the width of the raster
+     */"
+commons-imaging_117,"@Test
+    public void test_oe() throws Exception {
+        final File[] testFile = new File[4];
+        testFile[0] = writeFile(32, ByteOrder.LITTLE_ENDIAN, false);
+        testFile[1] = writeFile(32, ByteOrder.BIG_ENDIAN, false);
+        testFile[2] = writeFile(32, ByteOrder.LITTLE_ENDIAN, true);
+        testFile[3] = writeFile(32, ByteOrder.BIG_ENDIAN, true);
+        for (int i = 0; i < testFile.length; i++) {
+            final String name = testFile[i].getName();
+            final ByteSourceFile byteSource = new ByteSourceFile(testFile[i]);
+            final TiffReader tiffReader = new TiffReader(true);
+            final TiffContents contents = tiffReader.readDirectories(
+                byteSource,
+                true, // indicates that application should read image data, if present
+                FormatCompliance.getDefault());
+            final TiffDirectory directory = contents.directories.get(0);
+            TiffRasterData rdInt = directory.getRasterData(null);
+            int []test = rdInt.getIntData();
+            for(int j=0; j<sample.length; j++){
+                  assertEquals(sample[j],test[j],""Extracted data does not match original,test ""+name+"": "" + i + "",index "" + j);
+            }
+            final TiffImagingParameters params = new TiffImagingParameters();
+            params.setSubImage(2, 2, width-4, height-4);
+            TiffRasterData rdSub = directory.getRasterData(params);
+            assertEquals(width-4, rdSub.getWidth(), ""Invalid sub-image width"");
+            assertEquals(height-4, rdSub.getHeight(), ""Invalid sub-image height"");
+            for(int x = 2; x<width-2; x++){
+                for(int y=2; y<height-2; y++){
+                    final int a = rdInt.getIntValue(x, y);
+                    final int b = rdSub.getIntValue(x-2, y-2);
+                    assertEquals(a, b, ""Sub Image test failed at ("" + x + "","" + y + "")"");
+                }
+            }
+            final TiffImagingParameters xparams = new TiffImagingParameters();
+            xparams.setSubImage(2, 2, width, height);
+            assertThrows(ImageReadException.class, ()->directory.getRasterData(xparams),
+                ""Failed to catch bad subimage for test ""+name);
+        }
+    }",TiffRoundTripInt32Test::test_oe,"@Override
+    public int[] getIntData() {
+        return data;
+    }
+
+public final int getWidth() {
+        return width;
+    }
+
+public final int getHeight() {
+        return height;
+    }
+
+public int getIntValue() throws ImageReadException {
+        final Object o = getValue();
+        if (o == null) {
+            throw new ImageReadException(""Missing value: ""
+                    + getTagInfo().getDescription());
+        }
+
+        return ((Number) o).intValue();
+    }
+
+public TiffRasterData getRasterData(
+            final TiffImagingParameters params)
+            throws ImageReadException, IOException {
+
+        final TiffImageParser parser = new TiffImageParser();
+        return parser.getRasterData(this, headerByteOrder, params);
+    }","/**
+     * Returns a reference to the data array stored in this instance. Note that
+     * the array returned is <strong>not</strong> a safe copy and that modifying
+     * it directly affects the content of the instance. While this design
+     * approach carries some risk in terms of data security, it was chosen for
+     * reasons of performance and memory conservation. TIFF images that contain
+     * floating-point data are often quite large. Sizes of 100 million raster
+     * cells are common. Making a redundant copy of such a large in-memory
+     * object might exceed the resources available to a Java application.
+     *
+     * @return a direct reference to the data array stored in this instance.
+     */
+
+/**
+     * Gets the width (number of columns) of the raster.
+     *
+     * @return the width of the raster
+     */
+
+/**
+     * Gets the height (number of rows) of the raster.
+     *
+     * @return the height of the raster.
+     */
+
+
+
+/**
+     * Reads the numerical data stored in this TIFF directory, if available.
+     * Note that this method is defined only for TIFF directories that contain
+     * floating-point data or two-byte signed integer data.
+     * <p>
+     * TIFF directories that provide numerical data do not directly specify
+     * images, though it is possible to interpret the data as an image using
+     * this library. TIFF files may contain multiple directories which are
+     * allowed to have different formats. Thus it is possible for a TIFF file to
+     * contain a mix of image and floating-point raster data.
+     * <p>
+     * If desired, sub-image data can be read from the file by using a Java Map
+     * instance to specify the subsection of the image that is required. The
+     * following code illustrates the approach:
+     * <pre>
+     *   int x; // coordinate (column) of corner of sub-image
+     *   int y; // coordinate (row) of corner of sub-image
+     *   int width; // width of sub-image
+     *   int height; // height of sub-image
+     *
+     *   Map&lt;String, Object&gt;params = new HashMap&lt;&gt;();
+     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_X, x);
+     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_Y, y);
+     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_WIDTH, width);
+     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_HEIGHT, height);
+     *   TiffRasterData raster =
+     *        directory.readFloatingPointRasterData(params);
+     * </pre>
+     *
+     * @param params an optional parameter map instance
+     * @return a valid instance
+     * @throws ImageReadException in the event of incompatible or malformed data
+     * @throws IOException in the event of an I/O error
+     */"
+commons-imaging_145,"@Test
+    public void test_oe() {
+        for (final String name : names) {
+            try {
+                final File subject = getTiffFile(name);
+                final BufferedImage overlay = Imaging.getBufferedImage(subject);
+                final BufferedImage composite = new BufferedImage(100, 100, BufferedImage.TYPE_INT_ARGB);
+                final Graphics2D g2d = composite.createGraphics();
+                g2d.setColor(Color.white);
+                g2d.fillRect(0, 0, 101, 101);
+                g2d.setColor(Color.black);
+                g2d.fillRect(0, 50, 101, 51);
+                g2d.drawImage(overlay, 0, 0, null);
+
+                for (final int[] element : testSite) {
+                    final int x = element[0];
+                    final int y = element[1];
+                    final int p = element[2];
+                    final int t = composite.getRGB(x, y);
+                    assertEquals(t, p, ""Error for "" + name + "" at position "" + x + "", "" + y);
+                }
+            } catch (ImageReadException | IOException ex) {
+                fail(""Exception reading "" + name + "", "" + ex.getMessage());
+            }
+        }
+    }",TiffReadAlphaTest::test_oe,"public int getRGB(final int x, final int y) {
+        final int rowOffset = y * width;
+        return data[rowOffset + x];
+    }","/**
+     * Get the RGB or ARGB value for the pixel at the position (x,y)
+     * within the image builder pixel field. For performance reasons
+     * no bounds checking is applied.
+     * @param x the X coordinate of the pixel to be read
+     * @param y the Y coordinate of the pixel to be read
+     * @return the RGB or ARGB pixel value
+     */"
+commons-imaging_162,"@Test
+    public void testAll5x2Compressions_oe() {
+        final byte[] uncompressed = new byte[2];
+        final int[] combinations = new int[10];
+        do {
+            for (int x = 0; x < 5; x++) {
+                if (combinations[x] != 0) {
+                    uncompressed[0] |= (0x80 >>> x);
+                }
+            }
+            for (int x = 0; x < 5; x++) {
+                if (combinations[5 + x] != 0) {
+                    uncompressed[1] |= (0x80 >>> x);
+                }
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressModifiedHuffman(
+                        uncompressed, 5, 2);
+                final byte[] result = T4AndT6Compression.decompressModifiedHuffman(
+                        compressed, 5, 2);
+                assertEquals(uncompressed.length, result.length);
+                for (int i = 0; i < uncompressed.length; i++) {
+                    assertEquals(uncompressed[i], result[i]);
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, true);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, true);
+                assertEquals(uncompressed.length, result.length);
+                for (int i = 0; i < uncompressed.length; i++) {
+                    assertEquals(uncompressed[i], result[i]);
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_1D(
+                        uncompressed, 5, 2, false);
+                final byte[] result = T4AndT6Compression.decompressT4_1D(compressed,
+                        5, 2, false);
+                assertEquals(uncompressed.length, result.length);
+                for (int i = 0; i < uncompressed.length; i++) {
+                    assertEquals(uncompressed[i], result[i]);
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_2D(
+                        uncompressed, 5, 2, true, 2);
+                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
+                        5, 2, true);
+                assertEquals(uncompressed.length, result.length);
+                for (int i = 0; i < uncompressed.length; i++) {
+                    assertEquals(uncompressed[i], result[i]);
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT4_2D(
+                        uncompressed, 5, 2, false, 2);
+                final byte[] result = T4AndT6Compression.decompressT4_2D(compressed,
+                        5, 2, false);
+                assertEquals(uncompressed.length, result.length);
+                for (int i = 0; i < uncompressed.length; i++) {
+                    assertEquals(uncompressed[i], result[i]);
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+            }
+
+            try {
+                final byte[] compressed = T4AndT6Compression.compressT6(uncompressed,
+                        5, 2);
+                final byte[] result = T4AndT6Compression.decompressT6(compressed, 5,
+                        2);
+                assertEquals(uncompressed.length, result.length);
+                for (int i = 0; i < uncompressed.length; i++) {
+                    assertEquals(uncompressed[i], result[i]);
+                }
+            } catch (final ImageWriteException | ImageReadException ex) {
+                Debug.debug(ex);
+                fail();
+            }
+        } while (nextCombination(combinations, 1));
+    }",TiffCcittTest::testAll5x2Compressions_oe,,
+commons-imaging_164,"@Test
+    public void test_oe() throws Exception {
+        final File[] testFile = new File[4];
+        testFile[0] = writeFile(16, ByteOrder.LITTLE_ENDIAN, false);
+        testFile[1] = writeFile(16, ByteOrder.BIG_ENDIAN, false);
+        testFile[2] = writeFile(16, ByteOrder.LITTLE_ENDIAN, true);
+        testFile[3] = writeFile(16, ByteOrder.BIG_ENDIAN, true);
+        for (int i = 0; i < testFile.length; i++) {
+            final String name = testFile[i].getName();
+            final ByteSourceFile byteSource = new ByteSourceFile(testFile[i]);
+            final TiffReader tiffReader = new TiffReader(true);
+            final TiffContents contents = tiffReader.readDirectories(
+                byteSource,
+                true, // indicates that application should read image data, if present
+                FormatCompliance.getDefault());
+            final TiffDirectory directory = contents.directories.get(0);
+            TiffRasterData rdInt = directory.getRasterData(null);
+            int []test = rdInt.getIntData();
+            for(int j=0; j<sample.length; j++){
+                  assertEquals(sample[j],test[j],""Extracted data does not match original,test ""+name+"": "" + i + "",index "" + j);
+            }
+            final TiffImagingParameters params = new TiffImagingParameters();
+            params.setSubImage(2, 2, width-4, height-4);
+            TiffRasterData rdSub = directory.getRasterData(params);
+            assertEquals(width-4, rdSub.getWidth(), ""Invalid sub-image width"");
+            assertEquals(height-4, rdSub.getHeight(), ""Invalid sub-image height"");
+            for(int x = 2; x<width-2; x++){
+                for(int y=2; y<height-2; y++){
+                    final int a = rdInt.getIntValue(x, y);
+                    final int b = rdSub.getIntValue(x-2, y-2);
+                    assertEquals(a, b, ""Sub Image test failed at ("" + x + "","" + y + "")"");
+                }
+            }
+            final TiffImagingParameters xparams = new TiffImagingParameters();
+            xparams.setSubImage(2, 2, width, height);
+            assertThrows(ImageReadException.class, ()->directory.getRasterData(xparams),
+                ""Failed to catch bad subimage for test ""+name);
+        }
+    }",TiffShortIntRoundTripTest::test_oe,"@Override
+    public int[] getIntData() {
+        return data;
+    }
+
+public final int getWidth() {
+        return width;
+    }
+
+public final int getHeight() {
+        return height;
+    }
+
+public int getIntValue() throws ImageReadException {
+        final Object o = getValue();
+        if (o == null) {
+            throw new ImageReadException(""Missing value: ""
+                    + getTagInfo().getDescription());
+        }
+
+        return ((Number) o).intValue();
+    }
+
+public TiffRasterData getRasterData(
+            final TiffImagingParameters params)
+            throws ImageReadException, IOException {
+
+        final TiffImageParser parser = new TiffImageParser();
+        return parser.getRasterData(this, headerByteOrder, params);
+    }","/**
+     * Returns a reference to the data array stored in this instance. Note that
+     * the array returned is <strong>not</strong> a safe copy and that modifying
+     * it directly affects the content of the instance. While this design
+     * approach carries some risk in terms of data security, it was chosen for
+     * reasons of performance and memory conservation. TIFF images that contain
+     * floating-point data are often quite large. Sizes of 100 million raster
+     * cells are common. Making a redundant copy of such a large in-memory
+     * object might exceed the resources available to a Java application.
+     *
+     * @return a direct reference to the data array stored in this instance.
+     */
+
+/**
+     * Gets the width (number of columns) of the raster.
+     *
+     * @return the width of the raster
+     */
+
+/**
+     * Gets the height (number of rows) of the raster.
+     *
+     * @return the height of the raster.
+     */
+
+
+
+/**
+     * Reads the numerical data stored in this TIFF directory, if available.
+     * Note that this method is defined only for TIFF directories that contain
+     * floating-point data or two-byte signed integer data.
+     * <p>
+     * TIFF directories that provide numerical data do not directly specify
+     * images, though it is possible to interpret the data as an image using
+     * this library. TIFF files may contain multiple directories which are
+     * allowed to have different formats. Thus it is possible for a TIFF file to
+     * contain a mix of image and floating-point raster data.
+     * <p>
+     * If desired, sub-image data can be read from the file by using a Java Map
+     * instance to specify the subsection of the image that is required. The
+     * following code illustrates the approach:
+     * <pre>
+     *   int x; // coordinate (column) of corner of sub-image
+     *   int y; // coordinate (row) of corner of sub-image
+     *   int width; // width of sub-image
+     *   int height; // height of sub-image
+     *
+     *   Map&lt;String, Object&gt;params = new HashMap&lt;&gt;();
+     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_X, x);
+     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_Y, y);
+     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_WIDTH, width);
+     *   params.put(TiffConstants.PARAM_KEY_SUBIMAGE_HEIGHT, height);
+     *   TiffRasterData raster =
+     *        directory.readFloatingPointRasterData(params);
+     * </pre>
+     *
+     * @param params an optional parameter map instance
+     * @return a valid instance
+     * @throws ImageReadException in the event of incompatible or malformed data
+     * @throws IOException in the event of an I/O error
+     */"
+commons-imaging_170,"@Test
+  void testWriteWithPredictor_oe() {
+    int[] argb = populateARGB();
+
+    BufferedImage bImage = new BufferedImage(256, 256, BufferedImage.TYPE_INT_RGB);
+    bImage.setRGB(0, 0, 256, 256, argb, 0, 256);
+
+    File tempFile = null;
+
+    try {
+      tempFile = File.createTempFile(""PngWritePredictorRGB"", "".png"");
+    } catch (IOException ioex) {
+      fail(""Failed to create temporary file, "" + ioex.getMessage());
+    }
+    PngImagingParameters params = new PngImagingParameters();
+    params.setPredictorEnabled(true);
+    PngImageParser parser = new PngImageParser();
+    try ( FileOutputStream fos = new FileOutputStream(tempFile);  BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+      parser.writeImage(bImage, bos, params);
+      bos.flush();
+    } catch (IOException | ImageWriteException ex) {
+      fail(""Failed writing RGB with exception "" + ex.getMessage());
+    }
+
+    try {
+      int[] brgb = new int[256 * 256];
+      bImage = ImageIO.read(tempFile);
+      bImage.getRGB(0, 0, 256, 256, brgb, 0, 256);
+      assertArrayEquals(argb, brgb, ""Round trip for RGB failed"");
+    } catch (IOException ex) {
+      fail(""Failed reading RGB with exception "" + ex.getMessage());
+    }
+
+    for (int i = 0; i < 256; i++) {
+      argb[i * 256 + i] &= 0x88ffffff;
+    }
+    bImage = new BufferedImage(256, 256, BufferedImage.TYPE_INT_ARGB);
+    bImage.setRGB(0, 0, 256, 256, argb, 0, 256);
+    try ( FileOutputStream fos = new FileOutputStream(tempFile);  BufferedOutputStream bos = new BufferedOutputStream(fos)) {
+      parser.writeImage(bImage, bos, params);
+      bos.flush();
+    } catch (IOException | ImageWriteException ex) {
+      fail(""Failed writing ARGB with exception "" + ex.getMessage());
+    }
+    try {
+      int[] brgb = new int[256 * 256];
+      bImage = ImageIO.read(tempFile);
+      bImage.getRGB(0, 0, 256, 256, brgb, 0, 256);
+      assertArrayEquals(argb, brgb, ""Round trip for ARGB failed"");
+    } catch (IOException ex) {
+      fail(""Failed reading ARGB with exception "" + ex.getMessage());
+    }
+
+  }",PngWritePredictorTest::testWriteWithPredictor_oe,"public void setRGB(final int x, final int y, final int argb) {
+        final int rowOffset = y * width;
+        data[rowOffset + x] = argb;
+    }
+
+@Override
+    public void flush() throws IOException {
+        os.flush();
+    }
+
+public int getRGB(final int x, final int y) {
+        final int rowOffset = y * width;
+        return data[rowOffset + x];
+    }","/**
+     * Set the RGB or ARGB value for the pixel at position (x,y)
+     * within the image builder pixel field. For performance reasons,
+     * no bounds checking is applied.
+     * @param x the X coordinate of the pixel to be set
+     * @param y the Y coordinate of the pixel to be set
+     * @param argb the RGB or ARGB value to be stored.
+     */
+
+
+
+/**
+     * Get the RGB or ARGB value for the pixel at the position (x,y)
+     * within the image builder pixel field. For performance reasons
+     * no bounds checking is applied.
+     * @param x the X coordinate of the pixel to be read
+     * @param y the Y coordinate of the pixel to be read
+     * @return the RGB or ARGB pixel value
+     */"
+commons-imaging_174,"@Test
+    public void test_oe() throws Exception {
+        Debug.debug(""start"");
+
+        final List<File> images = getPngImages();
+        for (final File imageFile : images) {
+
+            Debug.debug(""imageFile"", imageFile);
+            if (isInvalidPNGTestFile(imageFile)) {
+                assertThrows(
+                    Exception.class,
+                    () -> Imaging.getMetadata(imageFile),
+                    ""Image read should have failed.""
+                );
+
+                assertThrows(
+                        Exception.class,
+                        () -> Imaging.getImageInfo(imageFile),
+                        ""Image read should have failed.""
+                );
+
+                assertThrows(
+                        Exception.class,
+                        () -> Imaging.getBufferedImage(imageFile),
+                        ""Image read should have failed.""
+                );
+            } else {
+                final ImageMetadata metadata = Imaging.getMetadata(imageFile);
+                Assertions.assertFalse(metadata instanceof File);// Dummy check to avoid unused warning(it may be null)
+                final ImageInfo imageInfo = Imaging.getImageInfo(imageFile);
+                assertNotNull(imageInfo);
+
+                Debug.debug(""ICC profile"", Imaging.getICCProfile(imageFile));
+
+                final BufferedImage image = Imaging.getBufferedImage(imageFile);
+                assertNotNull(image);
+            }
+        }
+    }",PngReadTest::test_oe,"public static ImageMetadata getMetadata(final byte[] bytes) throws ImageReadException, IOException {
+        return getMetadata(new ByteSourceArray(bytes));
+    }
+
+public static ImageInfo getImageInfo(final String fileName, final byte[] bytes) throws ImageReadException, IOException {
+        return getImageInfo(new ByteSourceArray(fileName, bytes));
+    }
+
+public static BufferedImage getBufferedImage(final InputStream is) throws ImageReadException, IOException {
+        return getBufferedImage(is, null);
+    }","/**
+     * Parses the metadata of an image. This metadata depends on the format of the image.
+     *
+     * <p>JPEG/JFIF files may contain EXIF and/or IPTC metadata. PNG files may
+     * contain comments. TIFF files may contain metadata.</p>
+     *
+     * <p>The instance of IImageMetadata returned by getMetadata() should be upcast
+     * (depending on image format).</p>
+     *
+     * <p>Not to be confused with ""image info.""</p>
+     *
+     * @param bytes Byte array containing an image file.
+     * @return An instance of ImageMetadata.
+     * @see org.apache.commons.imaging.common.ImageMetadata
+     * @throws ImageReadException if it fails to read the image metadata
+     * @throws IOException if it fails to read the image data
+     */
+
+/**
+     * Parses the ""image info"" of an image.
+     *
+     * <p>""Image info"" is a summary of basic information about the image such as:
+     * width, height, file format, bit depth, color type, etc.</p>
+     *
+     * <p>Not to be confused with ""image metadata.""</p>
+     *
+     * @param fileName String.
+     * @param bytes Byte array containing an image file.
+     * @return An instance of ImageInfo.
+     * @see ImageInfo
+     * @throws ImageReadException if it fails to parse the image
+     * @throws IOException if it fails to read the image data
+     */
+
+/**
+     * Reads the first image from an InputStream.
+     *
+     * <p>For the most recent information on support for specific formats, refer to
+     * <a href=""https://commons.apache.org/imaging/formatsupport.html"">Format Support</a>
+     * at the main project development web site.   While the Apache Commons
+     * Imaging package does not fully support all formats, it  can read
+     * image info, metadata and ICC profiles from all image formats that
+     * provide this data.</p>
+     *
+     * @param is a valid ImageStream from which to read data.
+     * @return if successful, a valid buffered image
+     * @throws ImageReadException in the event of a processing errorfileName while reading an image (i.e. a format violation, etc.).
+     * @throws IOException  in the event of an unrecoverable I/O exception.
+     */"
+commons-imaging_178,"@Test
+    public void test_oe() throws Exception {
+        final int width = 1;
+        final int height = 1;
+        final BufferedImage srcImage = new BufferedImage(width, height,
+                BufferedImage.TYPE_INT_ARGB);
+        srcImage.setRGB(0, 0, Color.red.getRGB());
+
+        final PngImagingParameters writeParams = new PngImagingParameters();
+
+        final List<PngText> writeTexts = new ArrayList<>();
+        {
+            final String keyword = ""a"";
+            final String text = ""b"";
+            writeTexts.add(new PngText.Text(keyword, text));
+        }
+        {
+            final String keyword = ""c"";
+            final String text = ""d"";
+            writeTexts.add(new PngText.Ztxt(keyword, text));
+        }
+        {
+            final String keyword = ""e"";
+            final String text = ""f"";
+            final String languageTag = ""g"";
+            final String translatedKeyword = ""h"";
+            writeTexts.add(new PngText.Itxt(keyword, text, languageTag,
+                    translatedKeyword));
+        }
+
+        writeParams.setTextChunks(writeTexts);
+
+        final PngImageParser pngImageParser = new PngImageParser();
+        final byte[] bytes;
+        try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
+            pngImageParser.writeImage(srcImage, baos, writeParams);
+            bytes = baos.toByteArray();
+        }
+
+        final File tempFile = File.createTempFile(""temp"", "".png"");
+        FileUtils.writeByteArrayToFile(tempFile, bytes);
+
+        final PngImageInfo imageInfo = (PngImageInfo) Imaging.getImageInfo(bytes);
+        assertNotNull(imageInfo);
+
+        final List<PngText> readTexts = imageInfo.getTextChunks();
+        assertEquals(readTexts.size(), 3);
+        for (final PngText text : readTexts) {
+            if (text.keyword.equals(""a"")) {
+                assertEquals(text.text, ""b"");
+            } else if (text.keyword.equals(""c"")) {
+                assertEquals(text.text, ""d"");
+            } else if (text.keyword.equals(""e"")) {
+                assertEquals(text.text, ""f"");
+            } else {
+                fail(""unknown text chunk."");
+            }
+        }
+    }",PngTextTest::test_oe,"public static ImageInfo getImageInfo(final String fileName, final byte[] bytes) throws ImageReadException, IOException {
+        return getImageInfo(new ByteSourceArray(fileName, bytes));
+    }
+
+public int size() {
+        return value.length;
+    }
+
+public List<PngText> getTextChunks() {
+        return new ArrayList<>(textChunks);
+    }","/**
+     * Parses the ""image info"" of an image.
+     *
+     * <p>""Image info"" is a summary of basic information about the image such as:
+     * width, height, file format, bit depth, color type, etc.</p>
+     *
+     * <p>Not to be confused with ""image metadata.""</p>
+     *
+     * @param fileName String.
+     * @param bytes Byte array containing an image file.
+     * @return An instance of ImageInfo.
+     * @see ImageInfo
+     * @throws ImageReadException if it fails to parse the image
+     * @throws IOException if it fails to read the image data
+     */
+
+"
+commons-imaging_215,"@Test
+    public void testCreatesNegSizeSegment_oe() throws IOException {
+        final byte[] bytes = new byte[8];
+        bytes[0] = (byte) 0xff;
+        bytes[1] = (byte) 0xd8;
+        bytes[2] = (byte) 0xe1;
+        bytes[3] = (byte) 0xff;
+        bytes[4] = (byte) 0x01;
+        bytes[5] = (byte) 0x00;
+        bytes[6] = (byte) 0x00;
+        bytes[7] = (byte) 0x00;
+
+        try {
+            final InputStream inputStream = new ByteArrayInputStream(bytes);
+            final ByteSource bs = new ByteSourceInputStream(inputStream, ""NegSizeSegment"");
+            final JpegImageParser p = new JpegImageParser();
+            p.getBufferedImage(bs, new JpegImagingParameters());
+            fail(""Expecting exception: ImageReadException"");
+        } catch (final ImageReadException e) {
+            assertEquals(""Invalid segment size"", e.getMessage());
+            assertEquals(JpegUtils.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+
+    }",NegSizeSegmentTest::testCreatesNegSizeSegment_oe,"@Override
+    public final BufferedImage getBufferedImage(final ByteSource byteSource,
+            final JpegImagingParameters params) throws ImageReadException, IOException {
+        final JpegDecoder jpegDecoder = new JpegDecoder();
+        return jpegDecoder.decode(byteSource);
+    }
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_221,"@Test
+  public void testCreatesJfifSegment_oe() throws IOException {
+      final byte[] byteArray = new byte[25];
+
+      try {
+        new JfifSegment((-2275), byteArray);
+        fail(""Expecting exception: Exception"");
+      } catch(final ImageReadException e) {
+         assertEquals(""Not a Valid JPEG File: missing JFIF string"",e.getMessage());
+         assertEquals(JfifSegment.class.getName(), e.getStackTrace()[0].getClassName());
+      }
+
+  }",JfifSegmentTest::testCreatesJfifSegment_oe,"
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_237,"@Test
+    public void testSkipBlockTypes_oe() throws ImageReadException, IOException {
+        final String location = IptcParserTest.class
+                .getResource(""/images/jpeg/photoshop/IMAGING-246/FallHarvestKitKat_07610.jpg"")
+                .getFile();
+        final File imageFile = new File(location);
+        final JpegImageMetadata metadata = (JpegImageMetadata) new JpegImageParser()
+                .getMetadata(new ByteSourceFile(imageFile), new JpegImagingParameters());
+        final JpegPhotoshopMetadata photoshopMetadata = metadata.getPhotoshop();
+        final PhotoshopApp13Data photoshopApp13Data = photoshopMetadata.photoshopApp13Data;
+        final List<IptcBlock> blocks = photoshopApp13Data.getRawBlocks();
+        assertEquals(2, blocks.size());
+        for (final IptcBlock block : blocks) {
+            if (block.getBlockType() == 1028) {
+                final byte[] data = block.getBlockData();
+                assertTrue(data.length > 0);
+            } else if (block.getBlockType() == 1061) {
+                final byte[] data = block.getBlockData();
+                assertTrue(data.length > 0);
+            } else {
+                fail(""Unexpected block type found: "" + block.getBlockType());
+            }
+        }
+    }",IptcParserTest::testSkipBlockTypes_oe,"public int size() {
+        return value.length;
+    }
+
+public byte[] getBlockData() {
+        return blockData.clone();
+    }
+
+public int getBlockType() {
+        return blockType;
+    }",
+commons-imaging_245,"@Test
+    public void testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_oe() {
+        final JpegXmpParser jpegXmpParser = new JpegXmpParser();
+        final byte[] byteArray = new byte[1];
+
+        try {
+            jpegXmpParser.parseXmpJpegSegment(byteArray);
+            fail(""Expecting exception: Exception"");
+        } catch(final Exception e) {
+            assertEquals(""Invalid JPEG XMP Segment."",e.getMessage());
+            assertEquals(JpegXmpParser.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }",JpegXmpParserTest::testCreatesJpegXmpParserAndCallsParseXmpJpegSegment_oe,"public String parseXmpJpegSegment(final byte[] segmentData)
+            throws ImageReadException {
+        if (!isXmpJpegSegment(segmentData)) {
+            throw new ImageReadException(""Invalid JPEG XMP Segment."");
+        }
+        final int index = JpegConstants.XMP_IDENTIFIER.size();
+
+        // segment data is UTF-8 encoded xml.
+        return new String(segmentData, index, segmentData.length - index, StandardCharsets.UTF_8);
+    }
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_259,"@Test
+  public void testGetFieldTypeWithNegative_oe() {
+      try {
+        FieldType.getFieldType((-748));
+        fail(""Expecting exception: Exception"");
+      } catch(final Exception e) {
+         assertEquals(""Field type -748 is unsupported"",e.getMessage());
+         assertEquals(FieldType.class.getName(), e.getStackTrace()[0].getClassName());
+      }
+  }",FieldTypeTest::testGetFieldTypeWithNegative_oe,"public static FieldType getFieldType(final int type) throws ImageReadException {
+        for (final FieldType fieldType : ANY) {
+            if (fieldType.getType() == type) {
+                return fieldType;
+            }
+        }
+        throw new ImageReadException(""Field type "" + type + "" is unsupported"");
+    }
+
+public String getName() {
+        return name;
+    }",
+commons-imaging_260,"@Test
+    public void testWriteDataWithNonNull_oe() {
+        final FieldTypeLong fieldTypeLong = FieldType.IFD;
+        final ByteOrder byteOrder = ByteOrder.BIG_ENDIAN;
+
+        try {
+            fieldTypeLong.writeData(byteOrder, byteOrder);
+            fail(""Expecting exception: Exception"");
+        } catch (final Exception e) {
+            assertEquals(""Invalid data: BIG_ENDIAN (java.nio.ByteOrder)"", e.getMessage());
+            assertEquals(FieldTypeLong.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }",FieldTypeLongTest::testWriteDataWithNonNull_oe,"@Override
+    public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
+        if (o instanceof Integer) {
+            return ByteConversions.toBytes((Integer) o, byteOrder);
+        }
+        if (o instanceof int[]) {
+            final int[] numbers = (int[]) o;
+            return ByteConversions.toBytes(numbers, byteOrder);
+        }
+        if (!(o instanceof Integer[])) {
+            throw new ImageWriteException(""Invalid data"", o);
+        }
+        final Integer[] numbers = (Integer[]) o;
+        final int[] values = new int[numbers.length];
+        for (int i = 0; i < values.length; i++) {
+            values[i] = numbers[i];
+        }
+        return ByteConversions.toBytes(values, byteOrder);
+    }
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_263,"@Test
+    public void testCreatesFieldTypeShortAndCallsWriteData_oe() {
+        final FieldTypeShort fieldTypeShort = new FieldTypeShort(1234, """");
+        final ByteOrder byteOrder = ByteOrder.LITTLE_ENDIAN;
+
+        try {
+            fieldTypeShort.writeData("""", byteOrder);
+            fail(""Expecting exception: Exception"");
+        } catch (final Exception e) {
+            assertEquals(""Invalid data:  (java.lang.String)"", e.getMessage());
+            assertEquals(FieldTypeShort.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }",FieldTypeShortTest::testCreatesFieldTypeShortAndCallsWriteData_oe,"@Override
+    public byte[] writeData(final Object o, final ByteOrder byteOrder) throws ImageWriteException {
+        if (o instanceof Short) {
+            return ByteConversions.toBytes(((Short) o).shortValue(), byteOrder);
+        }
+        if (o instanceof short[]) {
+            final short[] numbers = (short[]) o;
+            return ByteConversions.toBytes(numbers, byteOrder);
+        }
+        if (!(o instanceof Short[])) {
+            throw new ImageWriteException(""Invalid data"", o);
+        }
+        final Short[] numbers = (Short[]) o;
+        final short[] values = new short[numbers.length];
+        for (int i = 0; i < values.length; i++) {
+            values[i] = numbers[i].shortValue();
+        }
+        return ByteConversions.toBytes(values, byteOrder);
+    }
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_305,"@Test
+    public void testCreatesPngChunkText_oe() {
+        final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
+        try {
+            new PngChunkText(1214, 1214, 0, byteArray);
+            fail(""Expecting exception: Exception"");
+        } catch(final Throwable e) {
+            assertEquals(""PNG tEXt chunk keyword is not terminated."",e.getMessage());
+            assertEquals(PngChunkText.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }",PngChunkTextTest::testCreatesPngChunkText_oe,"
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_306,"@Test
+    public void testFilterWithNegativeAndNegative_oe() {
+        final byte[] byteArray = ImagingConstants.EMPTY_BYTE_ARRAY;
+        final TransparencyFilterIndexedColor transparencyFilterIndexedColor = new TransparencyFilterIndexedColor(byteArray);
+
+        try {
+            transparencyFilterIndexedColor.filter((-416), (-398));
+            fail(""Expecting exception: Exception"");
+        } catch(final Exception e) {
+            assertEquals(""TransparencyFilterIndexedColor index: -398, bytes.length: 0"",e.getMessage());
+            assertEquals(TransparencyFilterIndexedColor.class.getName(), e.getStackTrace()[0].getClassName());
+        }
+    }",TransparencyFilterIndexedColorTest::testFilterWithNegativeAndNegative_oe,"@Override
+    public int filter(final int rgb, final int index) throws ImageReadException, IOException {
+        final int length = getLength();
+        if (index >= length) { // TODO see below - is this check correct?
+            return rgb;
+        }
+
+        if ((index < 0) || (index > length)) { // TODO check for > length cannot be true because of check above
+            throw new ImageReadException(
+                    ""TransparencyFilterIndexedColor index: "" + index + "", bytes.length: "" + length);
+        }
+
+        final int alpha = getByte(index);
+        return ((0xff & alpha) << 24) | (0x00ffffff & rgb);
+    }
+
+@Override
+    public String getName() {
+        return name();
+    }",
+commons-imaging_313,"@Test
+  public void testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_oe() {
+      final byte[] byteArray = new byte[24];
+      try {
+        new DataParserIndexed(byteArray);
+        fail(""Expecting exception: ArrayIndexOutOfBoundsException"");
+      } catch(final ArrayIndexOutOfBoundsException e) {
+         assertTrue(e.getMessage().contains(""256""));
+         assertEquals(DataParserIndexed.class.getName(), e.getStackTrace()[0].getClassName());
+      }
+  }",DataParserIndexedTest::testFailsToCreateDataParserIndexedThrowsArrayIndexOutOfBoundsException_oe,"
+
+@Override
+    public String getName() {
+        return name();
+    }",

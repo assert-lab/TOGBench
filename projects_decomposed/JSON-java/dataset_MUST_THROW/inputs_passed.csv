@@ -85,8 +85,7 @@ JSON-java_284_101,"@Test
             fail(""Expected an exception message"");
         } catch (JSONException e) {
         }
-    }
-",JSONStringerTest::exceedNestDepthException_oe_101_oe,"public JSONWriter object() throws JSONException {
+    }",JSONStringerTest::exceedNestDepthException_oe_101_oe,"public JSONWriter object() throws JSONException {
         if (this.mode == 'i') {
             this.mode = 'o';
         }

@@ -1,7 +1,7 @@
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for com.github.scribejava:scribejava-core:jar:8.3.1
-[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs 4.13.2 @ com.github.scribejava:scribejava:8.3.1, /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/pom.xml, line 61, column 21
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.12 vs 4.13.2 @ com.github.scribejava:scribejava:8.3.1, /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/scribejava/pom.xml, line 61, column 21
 [WARNING] 
 [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
 [WARNING] 
@@ -23,64 +23,68 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ scribejava-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 86 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/target/classes
+[INFO] Compiling 86 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/scribejava/scribejava-core/target/classes
 [INFO] 
 [INFO] --- maven-bundle-plugin:5.1.2:manifest (bundle-manifest) @ scribejava-core ---
 [INFO] 
 [INFO] --- maven-resources-plugin:3.2.0:testResources (default-testResources) @ scribejava-core ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
 [INFO] Using 'UTF-8' encoding to copy filtered properties files.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/scribejava/scribejava-core/src/test/resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ scribejava-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 44 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[27,9] cannot find symbol
-  symbol:   method testNotValidBoundary(java.lang.String)
-  location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[32,9] cannot find symbol
-  symbol:   method testNotValidBoundary(java.lang.String)
-  location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[37,9] cannot find symbol
-  symbol:   method testNotValidBoundary(java.lang.String)
-  location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[42,9] cannot find symbol
-  symbol:   method testNotValidBoundary(java.lang.String)
-  location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[47,9] cannot find symbol
-  symbol:   method testNotValidBoundary(<nulltype>)
-  location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[INFO] 5 errors 
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 44 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/scribejava/scribejava-core/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.2:test (default-test) @ scribejava-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in com.github.scribejava.core.utils.OAuthEncoderTest_OE25Dev
+[INFO] Running com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in com.github.scribejava.core.utils.StreamUtilsTest_OE25Dev
+[INFO] Running com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in com.github.scribejava.core.pkce.PKCECodeChallengeMethodTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in com.github.scribejava.core.extractors.OAuth1AccessTokenExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in com.github.scribejava.core.extractors.HeaderExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in com.github.scribejava.core.extractors.BaseStringExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.218 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenJsonExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in com.github.scribejava.core.extractors.OAuth2AccessTokenExtractorTest_OE25Dev
+[INFO] Running com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
+[INFO] Running com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in com.github.scribejava.core.oauth.OAuth20ServiceTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.TokenTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in com.github.scribejava.core.model.TokenTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.ParameterListTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in com.github.scribejava.core.model.ParameterListTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in com.github.scribejava.core.model.OAuthRequestTest_OE25Dev
+[INFO] Running com.github.scribejava.core.model.RequestTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in com.github.scribejava.core.model.RequestTest_OE25Dev
+[INFO] Running com.github.scribejava.core.base64.Base64Test_OE25Dev
+[INFO] Tests run: 52, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in com.github.scribejava.core.base64.Base64Test_OE25Dev
+[INFO] Running com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in com.github.scribejava.core.services.RSASha1SignatureServiceTest_OE25Dev
+[INFO] Running com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in com.github.scribejava.core.services.HMACSha1SignatureServiceTest_OE25Dev
+[INFO] Running com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in com.github.scribejava.core.services.TimestampServiceTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 190, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.468 s
-[INFO] Finished at: 2026-03-08T23:54:53-05:00
+[INFO] Total time:  7.716 s
+[INFO] Finished at: 2026-03-09T06:13:48-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project scribejava-core: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[27,9] cannot find symbol
-[ERROR]   symbol:   method testNotValidBoundary(java.lang.String)
-[ERROR]   location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[32,9] cannot find symbol
-[ERROR]   symbol:   method testNotValidBoundary(java.lang.String)
-[ERROR]   location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[37,9] cannot find symbol
-[ERROR]   symbol:   method testNotValidBoundary(java.lang.String)
-[ERROR]   location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[42,9] cannot find symbol
-[ERROR]   symbol:   method testNotValidBoundary(java.lang.String)
-[ERROR]   location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/scribejava/scribejava-core/src/test/java/com/github/scribejava/core/httpclient/multipart/MultipartUtilsTest_OE25Dev.java:[47,9] cannot find symbol
-[ERROR]   symbol:   method testNotValidBoundary(<nulltype>)
-[ERROR]   location: class com.github.scribejava.core.httpclient.multipart.MultipartUtilsTest_OE25Dev
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

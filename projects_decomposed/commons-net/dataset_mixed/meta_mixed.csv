@@ -1,0 +1,14 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,dataset_type
+commons-net_14,commons-net,SubnetUtilsTest,testNET521_oe,src/test/java/org/apache/commons/net/SubnetUtilsTest.java,,,,mixed
+commons-net_63,commons-net,TestConnectTimeout,testConnectTimeout_oe,src/test/java/org/apache/commons/net/ftp/TestConnectTimeout.java,,,,mixed
+commons-net_85,commons-net,FTPClientConfigTest,testLookupDateFormatSymbols_oe,src/test/java/org/apache/commons/net/ftp/FTPClientConfigTest.java,,,,mixed
+commons-net_86,commons-net,FTPClientConfigTest,testGetDateFormatSymbols_oe,src/test/java/org/apache/commons/net/ftp/FTPClientConfigTest.java,,,,mixed
+commons-net_105,commons-net,TimeTCPClientTest,testCompareTimes_oe,src/test/java/org/apache/commons/net/time/TimeTCPClientTest.java,,,,mixed
+commons-net_125,commons-net,Base64Test,testEncodeBase64ByteArrayBooleanBooleanInt_oe,src/test/java/org/apache/commons/net/util/Base64Test.java,,,,mixed
+commons-net_166,commons-net,TFTPServerPathTest,testReadOnly_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,mixed
+commons-net_167,commons-net,TFTPServerPathTest,testWriteOnly_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,mixed
+commons-net_168,commons-net,TFTPServerPathTest,testWriteOutsideHome_oe,src/test/java/org/apache/commons/net/tftp/TFTPServerPathTest.java,,,,mixed
+commons-net_197,commons-net,FTPTimestampParserImplTest,testParseTimestamp_oe,src/test/java/org/apache/commons/net/ftp/parser/FTPTimestampParserImplTest.java,,,,mixed
+commons-net_198,commons-net,FTPTimestampParserImplTest,testParseTimestampWithSlop_oe,src/test/java/org/apache/commons/net/ftp/parser/FTPTimestampParserImplTest.java,,,,mixed
+commons-net_200,commons-net,FTPTimestampParserImplTest,testParseTimestampAcrossTimeZones_oe,src/test/java/org/apache/commons/net/ftp/parser/FTPTimestampParserImplTest.java,,,,mixed
+commons-net_225,commons-net,DefaultFTPFileEntryParserFactoryTest,testDefaultParserFactory_oe,src/test/java/org/apache/commons/net/ftp/parser/DefaultFTPFileEntryParserFactoryTest.java,,,,mixed

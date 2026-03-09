@@ -1,0 +1,8 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,dataset_type
+commons-jcs3_22,commons-jcs3,CacheAccessUnitTest,testPutSafe_oe,commons-jcs-core/src/test/java/org/apache/commons/jcs3/access/CacheAccessUnitTest.java,,,,mixed
+commons-jcs3_23,commons-jcs3,CacheAccessUnitTest,testPutNullKey_oe,commons-jcs-core/src/test/java/org/apache/commons/jcs3/access/CacheAccessUnitTest.java,,,,mixed
+commons-jcs3_24,commons-jcs3,CacheAccessUnitTest,testPutNullValue_oe,commons-jcs-core/src/test/java/org/apache/commons/jcs3/access/CacheAccessUnitTest.java,,,,mixed
+commons-jcs3_35,commons-jcs3,GroupCacheAccessUnitTest,testPutNullKey_oe,commons-jcs-core/src/test/java/org/apache/commons/jcs3/access/GroupCacheAccessUnitTest.java,,,,mixed
+commons-jcs3_36,commons-jcs3,GroupCacheAccessUnitTest,testPutNullValue_oe,commons-jcs-core/src/test/java/org/apache/commons/jcs3/access/GroupCacheAccessUnitTest.java,,,,mixed
+commons-jcs3_253,commons-jcs3,IndexDiskCacheCountUnitTest,testRecycleBin_oe,commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/disk/indexed/IndexDiskCacheCountUnitTest.java,,,,mixed
+commons-jcs3_256,commons-jcs3,IndexDiskCacheSizeUnitTest,testRecycleBin_oe,commons-jcs-core/src/test/java/org/apache/commons/jcs3/auxiliary/disk/indexed/IndexDiskCacheSizeUnitTest.java,,,,mixed

@@ -6,8 +6,7 @@ http-request_2_101,"@Test
       fail(""Exception not thrown"");
     } catch (HttpRequestException e) {
     }
-    }
-",HttpRequestTest::malformedStringUrlCause_oe_101_oe,"public static HttpRequest delete(final CharSequence url)
+    }",HttpRequestTest::malformedStringUrlCause_oe_101_oe,"public static HttpRequest delete(final CharSequence url)
       throws HttpRequestException {
     return new HttpRequest(url, METHOD_DELETE);
   }","/**

@@ -1,0 +1,308 @@
+id,test_prefix,test_name,focal_methods,docstrings
+http-request_2,"@Test
+  public void malformedStringUrlCause_oe() {
+    try {
+      delete(""\\m/"");
+      fail(""Exception not thrown"");
+    } catch (HttpRequestException e) {
+      assertNotNull(e.getCause());
+    }
+  }",HttpRequestTest::malformedStringUrlCause_oe,"@Override
+    public IOException getCause() {
+      return (IOException) super.getCause();
+    }","/**
+     * Get {@link IOException} that triggered this request exception
+     *
+     * @return {@link IOException} cause
+     */"
+http-request_67,"@Test
+  public void postMultipart_oe() throws Exception {
+    final StringBuilder body = new StringBuilder();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        char[] buffer = new char[8192];
+        int read;
+        try {
+          while ((read = request.getReader().read(buffer)) != -1)
+            body.append(buffer, 0, read);
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    File file = File.createTempFile(""body"", "".txt"");
+    File file2 = File.createTempFile(""body"", "".txt"");
+    new FileWriter(file).append(""content1"").close();
+    new FileWriter(file2).append(""content4"").close();
+    HttpRequest request = post(url);
+    request.part(""description"", ""content2"");
+    request.part(""size"", file.length());
+    request.part(""body"", file.getName(), file);
+    request.part(""file"", file2);
+    request.part(""stream"", new ByteArrayInputStream(""content3"".getBytes()));
+    assertTrue(request.ok());
+    assertTrue(body.toString().contains(""content1\r\n""));
+    assertTrue(body.toString().contains(""content2\r\n""));
+    assertTrue(body.toString().contains(""content3\r\n""));
+    assertTrue(body.toString().contains(""content4\r\n""));
+    assertTrue(body.toString().contains(Long.toString(file.length()) + ""\r\n""));
+  }",HttpRequestTest::postMultipart_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_69,"@Test
+  public void receiveAppendable_oe() throws Exception {
+    final StringBuilder body = new StringBuilder();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    assertTrue(post(url).receive(body).ok());
+    assertEquals(""content"", body.toString());
+  }",HttpRequestTest::receiveAppendable_oe,"public static HttpRequest post(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_POST);
+  }","/**
+   * Start a 'POST' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_70,"@Test
+  public void receiveWriter_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    StringWriter writer = new StringWriter();
+    assertTrue(post(url).receive(writer).ok());
+    assertEquals(""content"", writer.toString());
+  }",HttpRequestTest::receiveWriter_oe,"public static HttpRequest post(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_POST);
+  }","/**
+   * Start a 'POST' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_71,"@Test
+  public void receivePrintStream_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    ByteArrayOutputStream output = new ByteArrayOutputStream();
+    PrintStream stream = new PrintStream(output, true, CHARSET_UTF8);
+    assertTrue(post(url).receive(stream).ok());
+    stream.close();
+    assertEquals(""content"", output.toString(CHARSET_UTF8));
+  }",HttpRequestTest::receivePrintStream_oe,"public static HttpRequest post(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_POST);
+  }","/**
+   * Start a 'POST' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_72,"@Test
+  public void receiveFile_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    File output = File.createTempFile(""output"", "".txt"");
+    assertTrue(post(url).receive(output).ok());
+    StringBuilder buffer = new StringBuilder();
+    BufferedReader reader = new BufferedReader(new FileReader(output));
+    int read;
+    while ((read = reader.read()) != -1)
+      buffer.append((char) read);
+    reader.close();
+    assertEquals(""content"", buffer.toString());
+  }",HttpRequestTest::receiveFile_oe,"public static HttpRequest post(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_POST);
+  }","/**
+   * Start a 'POST' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_77,"@Test
+  public void sendErrorReadStream_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    final IOException readCause = new IOException();
+    final IOException closeCause = new IOException();
+    InputStream stream = new InputStream() {
+
+      public int read() throws IOException {
+        throw readCause;
+      }
+
+      public void close() throws IOException {
+        throw closeCause;
+      }
+    };
+    try {
+      post(url).send(stream);
+      fail(""Exception not thrown"");
+    } catch (HttpRequestException e) {
+      assertEquals(readCause, e.getCause());
+    }
+  }",HttpRequestTest::sendErrorReadStream_oe,"@Override
+    public IOException getCause() {
+      return (IOException) super.getCause();
+    }","/**
+     * Get {@link IOException} that triggered this request exception
+     *
+     * @return {@link IOException} cause
+     */"
+http-request_78,"@Test
+  public void sendErrorCloseStream_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""content"");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    final IOException closeCause = new IOException();
+    InputStream stream = new InputStream() {
+
+      public int read() throws IOException {
+        return -1;
+      }
+
+      public void close() throws IOException {
+        throw closeCause;
+      }
+    };
+    try {
+      post(url).ignoreCloseExceptions(false).send(stream);
+      fail(""Exception not thrown"");
+    } catch (HttpRequestException e) {
+      assertEquals(closeCause, e.getCause());
+    }
+  }",HttpRequestTest::sendErrorCloseStream_oe,"@Override
+    public IOException getCause() {
+      return (IOException) super.getCause();
+    }","/**
+     * Get {@link IOException} that triggered this request exception
+     *
+     * @return {@link IOException} cause
+     */"
+http-request_80,"@Test
+  public void getToOutputBody_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""hello world"");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    AtomicReference<String> body = new AtomicReference<String>(null);
+    get(url).body(body);
+    assertEquals(""hello world"", body.get());
+  }",HttpRequestTest::getToOutputBody_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_81,"@Test
+  public void getToOutputBodyWithCharset_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        try {
+          response.getWriter().print(""hello world"");
+        } catch (IOException e) {
+          fail();
+        }
+      }
+    };
+    AtomicReference<String> body = new AtomicReference<String>(null);
+    get(url).body(body, CHARSET_UTF8);
+    assertEquals(""hello world"", body.get());
+  }",HttpRequestTest::getToOutputBodyWithCharset_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"

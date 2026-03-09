@@ -1,10 +1,12 @@
+# python3 scripts/data_csv/test_count.py
+
 #!/usr/bin/env python3
 import re
 import csv
 from pathlib import Path
 from typing import Optional, Dict, Tuple, List
 
-ROOT = Path(__file__).resolve().parents[1]
+ROOT = Path(__file__).resolve().parents[2]
 LOGS_DIR = ROOT / "logs"
 OUT_DIR = ROOT / "scripts"
 OUT_DIR.mkdir(parents=True, exist_ok=True)

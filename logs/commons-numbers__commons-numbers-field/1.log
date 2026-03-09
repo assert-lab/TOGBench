@@ -19,26 +19,26 @@
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/target/apidocs/META-INF
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-field/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
 [INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-numbers-field ---
 [INFO] Skipping remote resources execution.
 [INFO] 
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-field ---
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field
-[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773032086547
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-field' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-field
+[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054822545
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-field ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-field/src/main/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-numbers-field ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 7 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/target/classes
+[INFO] Compiling 7 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-field/target/classes
 [INFO] 
 [INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-numbers-field ---
 [INFO] 
@@ -47,156 +47,33 @@ main:
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-numbers-field ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-field/src/test/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-field ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/target/test-classes
-[INFO] -------------------------------------------------------------
-[ERROR] COMPILATION ERROR : 
-[INFO] -------------------------------------------------------------
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[233,14] method <T>testAdditionAssociativity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[245,14] method <T>testAdditionCommutativity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[256,14] method <T>testAdditiveIdentity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[266,14] method <T>testAdditiveInverse(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[276,14] method <T>testMultiplicationAssociativity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[288,14] method <T>testMultiplicationCommutativity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[299,14] method <T>testMultiplicativeIdentity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[309,14] method <T>testMultiplicativeInverse(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[319,14] method <T>testDistributivity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[331,34] method <T>testAdd(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[343,34] method <T>testSubtract(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[355,34] method <T>testMultiplyInt(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[372,34] method <T>testZero(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[383,40] method <T>testMultiply(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[395,40] method <T>testDivide(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[407,40] method <T>testOne(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[232,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[244,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[255,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[265,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[275,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[287,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[298,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[308,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[318,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[330,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[342,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[354,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[371,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[382,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[394,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[406,6] cannot find symbol
-  symbol:   class MethodSource_oe
-  location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[INFO] 32 errors 
-[INFO] -------------------------------------------------------------
+[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-field/target/test-classes
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-field ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-field/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-field ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.numbers.field.FP64Test_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in org.apache.commons.numbers.field.FP64Test_OE25Dev
+[INFO] Running org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
+[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.18 s - in org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[INFO] Tests run: 69, Failures: 0, Errors: 0, Skipped: 0
+[INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  5.763 s
-[INFO] Finished at: 2026-03-08T23:54:49-05:00
+[INFO] Total time:  8.323 s
+[INFO] Finished at: 2026-03-09T06:13:47-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-numbers-field: Compilation failure: Compilation failure: 
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[233,14] method <T>testAdditionAssociativity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[245,14] method <T>testAdditionCommutativity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[256,14] method <T>testAdditiveIdentity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[266,14] method <T>testAdditiveInverse(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[276,14] method <T>testMultiplicationAssociativity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[288,14] method <T>testMultiplicationCommutativity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[299,14] method <T>testMultiplicativeIdentity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[309,14] method <T>testMultiplicativeInverse(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[319,14] method <T>testDistributivity(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[331,34] method <T>testAdd(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[343,34] method <T>testSubtract(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[355,34] method <T>testMultiplyInt(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[372,34] method <T>testZero(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[383,40] method <T>testMultiply(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[395,40] method <T>testDivide(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[407,40] method <T>testOne(org.apache.commons.numbers.field.FieldTestData<T>) is already defined in class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[232,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[244,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[255,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[265,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[275,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[287,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[298,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[308,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[318,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[330,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[342,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[354,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[371,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[382,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[394,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-field/src/test/java/org/apache/commons/numbers/field/FieldParametricTest_OE25Dev.java:[406,6] cannot find symbol
-[ERROR]   symbol:   class MethodSource_oe
-[ERROR]   location: class org.apache.commons.numbers.field.FieldParametricTest_OE25Dev
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

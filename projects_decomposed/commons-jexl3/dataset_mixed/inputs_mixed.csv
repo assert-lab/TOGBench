@@ -1,0 +1,4001 @@
+id,test_prefix,test_name,focal_methods,docstrings
+commons-jexl3_6,"@Test
+    public void test250_oe() throws Exception {
+        final MapContext ctx = new MapContext();
+        final HashMap<Object, Object> x = new HashMap<Object, Object>();
+        x.put(2, ""123456789"");
+        ctx.set(""x"", x);
+        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
+        String stmt = ""x.2.class.name"";
+        JexlScript script = engine.createScript(stmt);
+        Object result = script.execute(ctx);
+        Assert.assertEquals(""java.lang.String"", result);
+
+        try {
+            stmt = ""x.3?.class.name"";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail(""Should have evaluated to null"");
+        }
+        try {
+            stmt = ""x?.3.class.name"";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.fail(""Should have thrown, fail on 3"");
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.assertTrue(xany.detailedMessage().contains(""3""));
+        }
+        try {
+            stmt = ""x?.3?.class.name"";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail(""Should have evaluated to null"");
+        }
+        try {
+            stmt = ""y?.3.class.name"";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail(""Should have evaluated to null"");
+        }
+        try {
+            stmt = ""x?.y?.z"";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail(""Should have evaluated to null"");
+        }
+        try {
+            stmt = ""x? (x.y? (x.y.z ?: null) :null) : null"";
+            script = engine.createScript(stmt);
+            result = script.execute(ctx);
+            Assert.assertNull(result);
+        } catch (final JexlException xany) {
+            Assert.fail(""Should have evaluated to null"");
+        }
+    }",PropertyAccessTest::test250_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }
+
+protected String detailedMessage() {
+        Class<? extends JexlException> clazz = getClass();
+        String name = clazz == JexlException.class? ""JEXL"" : clazz.getSimpleName().toLowerCase();
+        return name + "" error : "" + getDetail();
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */
+
+/**
+     * Accesses detailed message.
+     *
+     * @return the message
+     */"
+commons-jexl3_7,"@Test
+    public void test275a_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().strict(true).safe(false).create();
+        final JexlContext ctxt = new MapContext();
+        JexlScript script;
+        Object result = null;
+        final Prompt p0 = new Prompt();
+        p0.set(""stuff"", 42);
+        ctxt.set(""$in"", p0);
+
+        script = jexl.createScript(""$in[p].intValue()"", ""p"");
+        try {
+            result = script.execute(ctxt, ""fail"");
+            Assert.fail(""should have thrown a "" + JexlException.Property.class);
+        } catch (final JexlException xany) {
+            Assert.assertEquals(JexlException.Property.class, xany.getClass());
+        }
+        Assert.assertNull(result);
+        result = script.execute(ctxt, ""stuff"");
+        Assert.assertEquals(42, result);
+
+        script = jexl.createScript(""$in[p]?.intValue()"", ""p"");
+        result = script.execute(ctxt, ""fail"");
+        Assert.assertNull(result);
+        result = script.execute(ctxt, ""stuff"");
+        Assert.assertEquals(42, result);
+
+        script = jexl.createScript(""$in.`${p}`.intValue()"", ""p"");
+        try {
+            result = script.execute(ctxt, ""fail"");
+            Assert.fail(""should have thrown a "" + JexlException.Property.class);
+        } catch (final JexlException xany) {
+            Assert.assertEquals(JexlException.Property.class, xany.getClass());
+        }
+        result = script.execute(ctxt, ""stuff"");
+        Assert.assertEquals(42, result);
+
+        script = jexl.createScript(""$in.`${p}`?.intValue()"", ""p"");
+        result = script.execute(ctxt, ""fail"");
+        Assert.assertNull(result);
+        result = script.execute(ctxt, ""stuff"");
+        Assert.assertEquals(42, result);
+
+    }",PropertyAccessTest::test275a_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_13,"@Test
+    public void test210_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        jc.set(""v210"", new T210());
+        final JexlEngine jexl = new JexlBuilder().strict(false).silent(false).create();
+        final JexlScript e = jexl.createScript(""v210.npe()"");
+        try {
+            e.execute(jc);
+            Assert.fail(""should have thrown an exception"");
+        } catch(final JexlException xjexl) {
+            final Throwable th = xjexl.getCause();
+            Assert.assertEquals(""NPE210"", th.getMessage());
+        }
+    }",Issues200Test::test210_oe,"@Override
+    public String getMessage() {
+        final StringBuilder msg = new StringBuilder();
+        if (info != null) {
+            msg.append(info.toString());
+        } else {
+            msg.append(""?:"");
+        }
+        msg.append(' ');
+        msg.append(detailedMessage());
+        final Throwable cause = getCause();
+        if (cause instanceof JexlArithmetic.NullOperand) {
+            msg.append("" caused by null operand"");
+        }
+        return msg.toString();
+    }","/**
+     * Detailed info message about this error.
+     * Format is ""debug![begin,end]: string \n msg"" where:
+     *
+     * - debug is the debugging information if it exists (@link JexlEngine.setDebug)
+     * - begin, end are character offsets in the string for the precise location of the error
+     * - string is the string representation of the offending expression
+     * - msg is the actual explanation message for this error
+     *
+     * @return this error as a string
+     */"
+commons-jexl3_14,"@Test
+    public void test217_oe() throws Exception {
+        final JexlEvalContext jc = new JexlEvalContext();
+        final JexlOptions options = jc.getEngineOptions();
+        jc.set(""foo"", new int[]{0, 1, 2, 42});
+        JexlEngine jexl;
+        JexlScript e;
+        Object r;
+        jexl = new JexlBuilder().strict(false).silent(false).create();
+        e = jexl.createScript(""foo[3]"");
+        r = e.execute(jc);
+        Assert.assertEquals(42, r);
+
+        jc.set(""foo"", new int[]{0, 1});
+        options.setStrict(true);
+        Assert.assertTrue(options.isStrict());
+        try {
+            r = e.execute(jc);
+            Assert.fail(""should have thrown an exception"");
+        } catch(final JexlException xjexl) {
+            final Throwable th = xjexl.getCause();
+            Assert.assertEquals(ArrayIndexOutOfBoundsException.class, th.getClass());
+        }
+        options.setStrict(false);
+        r = e.execute(jc);
+        Assert.assertNull(""oob adverted"", r);
+    }",Issues200Test::test217_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }
+
+public boolean isStrict() {
+        return isSet(STRICT, flags);
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */
+
+/**
+     * Checks whether the engine considers unknown variables, methods and
+     * constructors as errors during evaluation.
+     * @return true if strict, false otherwise
+     */"
+commons-jexl3_20,"@Test
+    public void test245_oe() throws Exception {
+        final MapContext ctx = new MapContext();
+        final Foo245 foo245 = new Foo245();
+        ctx.set(""foo"", foo245);
+
+        final JexlEngine engine = new JexlBuilder().strict(true).safe(false).silent(false).create();
+        final JexlExpression foobar = engine.createExpression(""foo.bar"");
+        final JexlExpression foobaz = engine.createExpression(""foo.baz"");
+        final JexlExpression foobarbaz = engine.createExpression(""foo.bar.baz"");
+        final Object[] args = { null, 245 };
+        for(final Object arg : args ){
+            foo245.setBar(arg);
+            Assert.assertEquals(foo245.getBar(), foobar.evaluate(ctx));
+            try {
+                foobaz.evaluate(ctx);
+                Assert.fail(""foo.baz is not solvable, exception expected"");
+            } catch(final JexlException xp) {
+                Assert.assertTrue(xp instanceof JexlException.Property);
+            }
+            try {
+                foobarbaz.evaluate(ctx);
+                Assert.fail(""foo.bar.baz is not solvable, exception expected"");
+            } catch(final JexlException xp) {
+                Assert.assertTrue(xp instanceof JexlException.Property);
+            }
+        }
+    }",Issues200Test::test245_oe,"public final JexlExpression createExpression(final String expression) {
+        return createExpression(null, expression);
+    }
+
+@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }","/**
+     * Creates a JexlExpression from a String containing valid JEXL syntax.
+     * This method parses the expression which must contain either a reference or an expression.
+     *
+     * @param expression A String containing valid JEXL syntax
+     * @return An {@link JexlExpression} which can be evaluated using a {@link JexlContext}
+     * @throws JexlException if there is a problem parsing the script
+     */
+
+"
+commons-jexl3_21,"@Test
+    public void test256_oe() throws Exception {
+        final MapContext ctx = new MapContext() {
+            @Override public void set(final String name, final Object value) {
+                if (""java"".equals(name)) {
+                    throw new JexlException(null, ""can not set "" + name);
+                }
+                super.set(name, value);
+            }
+            @Override public Object get(final String name) {
+                if (""java"".equals(name)) {
+                    return null;
+                }
+                return super.get(name);
+            }
+            @Override public boolean has(final String name) {
+                if (""java"".equals(name)) {
+                    return false;
+                }
+                return super.has(name);
+            }
+        };
+        ctx.set(""java.version"", 10);
+        final JexlEngine engine = new JexlBuilder().strict(true).silent(false).create();
+        JexlScript script;
+        script = engine.createScript(""java = 3"");
+        try {
+             script.execute(ctx);
+             Assert.fail(""should have failed!"");
+        } catch(final JexlException xjexl) {
+        }
+        script = engine.createScript(""java.version"");
+        Assert.assertEquals(10, script.execute(ctx));
+    }",Issues200Test::test256_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_26,"@Test
+    public void test274_oe() throws Exception {
+        JexlEngine jexl = new JexlBuilder().strict(true).safe(true).stackOverflow(5).create();
+        final JexlContext ctxt = new MapContext();
+        JexlScript script= jexl.createScript(""var f = (x)->{ x > 1? x * f(x - 1) : x }; f(a)"", ""a"");
+        Object result = script.execute(ctxt, 3);
+        Assert.assertEquals(6, result);
+        try {
+            result = script.execute(ctxt, 32);
+            Assert.fail(""should have overflown"");
+        } catch(final JexlException.StackOverflow xstack) {
+            final String sxs = xstack.toString();
+            Assert.assertTrue(sxs.contains(""jexl""));
+        }
+        jexl = new JexlBuilder().strict(true).create();
+        script= jexl.createScript(""var f = (x)->{ x * f(x - 1) }; f(a)"", ""a"");
+        try {
+            result = script.execute(ctxt, 32);
+            Assert.fail(""should have overflown"");
+        } catch(final JexlException.StackOverflow xstack) {
+            final String sxs = xstack.toString();
+            Assert.assertTrue(sxs.contains(""jvm""));
+        }
+    }",Issues200Test::test274_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }
+
+public Boolean contains(final Object container, final Object value) {
+        if (value == null && container == null) {
+            //if both are null L == R
+            return true;
+        }
+        if (value == null || container == null) {
+            // we know both aren't null, therefore L != R
+            return false;
+        }
+        // use arithmetic / pattern matching ?
+        if (container instanceof java.util.regex.Pattern) {
+            return ((java.util.regex.Pattern) container).matcher(value.toString()).matches();
+        }
+        if (container instanceof CharSequence) {
+            return value.toString().matches(container.toString());
+        }
+        // try contains on map key
+        if (container instanceof Map<?, ?>) {
+            if (value instanceof Map<?, ?>) {
+                return ((Map<?, ?>) container).keySet().containsAll(((Map<?, ?>) value).keySet());
+            }
+            return ((Map<?, ?>) container).containsKey(value);
+        }
+        // try contains on collection
+        if (container instanceof Collection<?>) {
+            if (value instanceof Collection<?>) {
+                return ((Collection<?>) container).containsAll((Collection<?>) value);
+            }
+            // left in right ? <=> right.contains(left) ?
+            return ((Collection<?>) container).contains(value);
+        }
+        return null;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */
+
+/**
+     * Test if left contains right (right matches/in left).
+     * <p>Beware that this method arguments are the opposite of the operator arguments.
+     * 'x in y' means 'y contains x'.</p>
+     *
+     * @param container the container
+     * @param value the value
+     * @return test result or null if there is no arithmetic solution
+     */"
+commons-jexl3_27,"@Test
+    public void test275a_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""out"", System.out);
+        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
+
+        final JexlScript e = jexl.createScript(""out.println(xyz)"");
+        try {
+            final Object o = e.execute(ctxt);
+            Assert.fail(""should have thrown"");
+        } catch (final JexlException.Variable xvar) {
+            Assert.assertEquals(""xyz"", xvar.getVariable());
+        }
+    }",Issues200Test::test275a_oe,"public String getVariable() {
+            return getDetail();
+        }","/**
+         * @return the variable name
+         */"
+commons-jexl3_28,"@Test
+    public void test275b_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
+        final JexlScript e = jexl.createScript(""var xyz = xyz"");
+        try {
+            final Object o = e.execute(ctxt);
+            Assert.assertNull(o);
+        } catch (final JexlException.Variable xvar) {
+            Assert.fail(""should not have thrown"");
+        }
+    }",Issues200Test::test275b_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_29,"@Test
+    public void test275c_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).silent(true).create();
+        JexlScript e;
+        Object r;
+        e = jexl.createScript(""(s, v)->{  var x = y ; 42; }"");
+        try {
+            r = e.execute(ctxt, false, true);
+            Assert.assertEquals(42, r);
+        } catch (final JexlException.Variable xjexl) {
+            Assert.fail(""should not have thrown"");
+        }
+    }",Issues200Test::test275c_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_30,"@Test
+    public void test275d_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""out"", System.out);
+        final JexlEngine jexl = new JexlBuilder().strict(true).safe(true).create();
+
+        final JexlScript e = jexl.createScript(""{ var xyz = 42 } out.println(xyz)"");
+        try {
+            final Object o = e.execute(ctxt);
+            Assert.assertNull(o);
+        } catch (final JexlException.Variable xvar) {
+            Assert.fail(""should not have thrown"" + xvar);
+        }
+    }",Issues200Test::test275d_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_31,"@Test
+    public void test278_oe() throws Exception {
+        final String[] srcs = new String[]{
+            ""return union x143('arg',5,6) "",
+            ""return union y143('arg',5,6)   ;"",
+            ""return union\n z143('arg',5,6)   ;"",
+            ""var f =()->{ return union 143 } foo[0]""
+        };
+        final Object[] ctls = new Object[]{
+            ""42"",""42"",""42"", 42
+        };
+        final JexlEngine jexl = new JexlBuilder().cache(4).create();
+        final JexlContext ctxt = new MapContext();
+        final int[] foo = {42};
+        ctxt.set(""foo"", foo);
+        ctxt.set(""union"", ""42"");
+        Object value;
+        JexlScript jc;
+        for(int i = 0; i < srcs.length; ++i) {
+            String src = srcs[i];
+            try {
+                jc = jexl.createScript(src);
+                Assert.fail(""should have failed, "" + (jc != null));
+            } catch(final JexlException.Ambiguous xa) {
+                final String str = xa.toString();
+                Assert.assertTrue(str.contains(""143""));
+                src = xa.tryCleanSource(src);
+            }
+            jc = jexl.createScript(src);
+            value = jc.execute(ctxt);
+            Assert.assertEquals(src, ctls[i], value);
+        }
+    }",Issues200Test::test278_oe,"public Boolean contains(final Object container, final Object value) {
+        if (value == null && container == null) {
+            //if both are null L == R
+            return true;
+        }
+        if (value == null || container == null) {
+            // we know both aren't null, therefore L != R
+            return false;
+        }
+        // use arithmetic / pattern matching ?
+        if (container instanceof java.util.regex.Pattern) {
+            return ((java.util.regex.Pattern) container).matcher(value.toString()).matches();
+        }
+        if (container instanceof CharSequence) {
+            return value.toString().matches(container.toString());
+        }
+        // try contains on map key
+        if (container instanceof Map<?, ?>) {
+            if (value instanceof Map<?, ?>) {
+                return ((Map<?, ?>) container).keySet().containsAll(((Map<?, ?>) value).keySet());
+            }
+            return ((Map<?, ?>) container).containsKey(value);
+        }
+        // try contains on collection
+        if (container instanceof Collection<?>) {
+            if (value instanceof Collection<?>) {
+                return ((Collection<?>) container).containsAll((Collection<?>) value);
+            }
+            // left in right ? <=> right.contains(left) ?
+            return ((Collection<?>) container).contains(value);
+        }
+        return null;
+    }
+
+public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Test if left contains right (right matches/in left).
+     * <p>Beware that this method arguments are the opposite of the operator arguments.
+     * 'x in y' means 'y contains x'.</p>
+     *
+     * @param container the container
+     * @param value the value
+     * @return test result or null if there is no arithmetic solution
+     */
+
+/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_32,"@Test
+    public void test279_oe() throws Exception {
+        final Log logger = null;//LogFactory.getLog(Issues200Test.class);
+        Object result;
+        JexlScript script;
+        final JexlContext ctxt = new Context279();
+        final String[] srcs = new String[]{
+            ""var z = null; identity(z[0]);"",
+             ""var z = null; z.0;"",
+             ""var z = null; z.foo();"",
+            ""z['y']['z']"",
+            ""z.y.any()"",
+             ""identity(z.any())"",
+             ""z[0]"",
+             ""z.0"",
+             ""z.foo()"",
+             ""z.y[0]"",
+             ""z.y[0].foo()"",
+             ""z.y.0"",
+             ""z.y.foo()"",
+             ""var z = { 'y' : [42] }; z.y[1]"",
+             ""var z = { 'y' : [42] }; z.y.1"",
+             ""var z = { 'y' : [-42] }; z.y[1].foo()"",
+             ""var z = { 'y' : [42] }; z.y.1.foo()"",
+             ""var z = { 'y' : [null, null] }; z.y[1].foo()"",
+             ""var z = { 'y' : [null, null] }; z.y.1.foo()""
+        };
+        for (int i = 0; i < 2; ++i) {
+            for (final boolean strict : new boolean[]{true, false}) {
+                final JexlEngine jexl = new JexlBuilder().safe(false).strict(strict).create();
+                for (final String src : srcs) {
+                    script = jexl.createScript(src);
+                    try {
+                        result = script.execute(ctxt);
+                        if (strict) {
+                            if (logger != null) {
+                                logger.warn(ctxt.has(""z"") + "": "" + src + "": no fail, "" + result);
+                            }
+                            Assert.fail(""should have failed: "" + src);
+                        }
+                        Assert.assertNull(""non-null result ?!"", result);
+                    } catch (final JexlException.Variable xvar) {
+                        if (logger != null) {
+                            logger.warn(ctxt.has(""z"") + "": "" + src + "": fail, "" + xvar);
+                        }
+                        if (!strict) {
+                            Assert.fail(src + "", should not have thrown "" + xvar);
+                        } else {
+                            Assert.assertTrue(src + "": "" + xvar.toString(), xvar.toString().contains(""z""));
+                        }
+                    } catch (final JexlException.Property xprop) {
+                        if (logger != null) {
+                            logger.warn(ctxt.has(""z"") + "": "" + src + "": fail, "" + xprop);
+                        }
+                        if (!strict) {
+                            Assert.fail(src + "", should not have thrown "" + xprop);
+                        } else {
+                            Assert.assertTrue(src + "": "" + xprop.toString(), xprop.toString().contains(""1""));
+                        }
+                    }
+                }
+            }
+            ctxt.set(""z.y"", null);
+        }
+    }",Issues200Test::test279_oe,"@Override
+        public boolean has(final String name) {
+            return false;
+        }
+
+public Boolean contains(final Object container, final Object value) {
+        if (value == null && container == null) {
+            //if both are null L == R
+            return true;
+        }
+        if (value == null || container == null) {
+            // we know both aren't null, therefore L != R
+            return false;
+        }
+        // use arithmetic / pattern matching ?
+        if (container instanceof java.util.regex.Pattern) {
+            return ((java.util.regex.Pattern) container).matcher(value.toString()).matches();
+        }
+        if (container instanceof CharSequence) {
+            return value.toString().matches(container.toString());
+        }
+        // try contains on map key
+        if (container instanceof Map<?, ?>) {
+            if (value instanceof Map<?, ?>) {
+                return ((Map<?, ?>) container).keySet().containsAll(((Map<?, ?>) value).keySet());
+            }
+            return ((Map<?, ?>) container).containsKey(value);
+        }
+        // try contains on collection
+        if (container instanceof Collection<?>) {
+            if (value instanceof Collection<?>) {
+                return ((Collection<?>) container).containsAll((Collection<?>) value);
+            }
+            // left in right ? <=> right.contains(left) ?
+            return ((Collection<?>) container).contains(value);
+        }
+        return null;
+    }","
+
+/**
+     * Test if left contains right (right matches/in left).
+     * <p>Beware that this method arguments are the opposite of the operator arguments.
+     * 'x in y' means 'y contains x'.</p>
+     *
+     * @param container the container
+     * @param value the value
+     * @return test result or null if there is no arithmetic solution
+     */"
+commons-jexl3_38,"@Test
+    public void test287_oe() {
+        final JexlEvalContext ctxt = new JexlEvalContext();
+        final JexlOptions options = ctxt.getEngineOptions();
+        final JexlEngine jexl = new JexlBuilder().strict(true).create();
+        String src;
+        JexlScript script;
+        Object result;
+        src = ""x = 1; if (false) var x = 2; x"";
+        script = jexl.createScript(src);
+        result = script.execute(ctxt);
+        Assert.assertEquals(1, result);
+        src = ""x = 1; if (true) var x = 2; x"";
+        script = jexl.createScript(src);
+        result = script.execute(ctxt);
+        Assert.assertEquals(2, result);
+        src = ""x = 1; var x = x + 41; x"";
+        script = jexl.createScript(src);
+        result = script.execute(ctxt);
+        Assert.assertEquals(42, result);
+        options.setLexical(false);
+        src = ""(x)->{ if (x==1) { var y = 2; } else if (x==2) { var y = 3; }; y }"";
+        script = jexl.createScript(src);
+        result = script.execute(ctxt, 1);
+        Assert.assertEquals(2, result);
+        result = script.execute(ctxt, 2);
+        Assert.assertEquals(3, result);
+        options.setStrict(true);
+        try {
+            result = script.execute(ctxt, 0);
+            Assert.fail(""should have failed!"");
+        } catch (final JexlException.Variable xvar) {
+            Assert.assertTrue(xvar.getMessage().contains(""y""));
+        }
+        options.setStrict(false);
+        try {
+            result = script.execute(ctxt, 0);
+        } catch (final JexlException xvar) {
+            Assert.fail(""should not have failed!"");
+        }
+        Assert.assertNull(result);
+    }",Issues200Test::test287_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }
+
+@Override
+    public String getMessage() {
+        final StringBuilder msg = new StringBuilder();
+        if (info != null) {
+            msg.append(info.toString());
+        } else {
+            msg.append(""?:"");
+        }
+        msg.append(' ');
+        msg.append(detailedMessage());
+        final Throwable cause = getCause();
+        if (cause instanceof JexlArithmetic.NullOperand) {
+            msg.append("" caused by null operand"");
+        }
+        return msg.toString();
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */
+
+/**
+     * Detailed info message about this error.
+     * Format is ""debug![begin,end]: string \n msg"" where:
+     *
+     * - debug is the debugging information if it exists (@link JexlEngine.setDebug)
+     * - begin, end are character offsets in the string for the precise location of the error
+     * - string is the string representation of the offending expression
+     * - msg is the actual explanation message for this error
+     *
+     * @return this error as a string
+     */"
+commons-jexl3_40,"@Test
+    public void test290a_oe() throws Exception {
+        Object result;
+        JexlScript script;
+        final String[] srcs = new String[]{
+            ""(x)->{ x.nothing().toString() }"",
+            ""(x)->{ x.toString().nothing() }"",
+            ""(x)->{ x.nothing().nothing() }"",
+        };
+        for (final boolean safe : new boolean[]{true, false}) {
+            final JexlEngine jexl = new JexlBuilder().safe(safe).strict(true).create();
+            for (final String src : srcs) {
+                script = jexl.createScript(src);
+                try {
+                    result = script.execute(null, ""abc"");
+                    if (!safe) {
+                        Assert.fail(""should have failed: "" + src);
+                    } else {
+                        Assert.assertNull(""non-null result ?!"", result);
+                    }
+                } catch (final JexlException.Method xmethod) {
+                    if (safe) {
+                        Assert.fail(src + "", should not have thrown "" + xmethod);
+                    } else {
+                        Assert.assertTrue(src + "": "" + xmethod.toString(), xmethod.toString().contains(""nothing""));
+                    }
+                }
+            }
+        }
+    }",Issues200Test::test290a_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }
+
+public Boolean contains(final Object container, final Object value) {
+        if (value == null && container == null) {
+            //if both are null L == R
+            return true;
+        }
+        if (value == null || container == null) {
+            // we know both aren't null, therefore L != R
+            return false;
+        }
+        // use arithmetic / pattern matching ?
+        if (container instanceof java.util.regex.Pattern) {
+            return ((java.util.regex.Pattern) container).matcher(value.toString()).matches();
+        }
+        if (container instanceof CharSequence) {
+            return value.toString().matches(container.toString());
+        }
+        // try contains on map key
+        if (container instanceof Map<?, ?>) {
+            if (value instanceof Map<?, ?>) {
+                return ((Map<?, ?>) container).keySet().containsAll(((Map<?, ?>) value).keySet());
+            }
+            return ((Map<?, ?>) container).containsKey(value);
+        }
+        // try contains on collection
+        if (container instanceof Collection<?>) {
+            if (value instanceof Collection<?>) {
+                return ((Collection<?>) container).containsAll((Collection<?>) value);
+            }
+            // left in right ? <=> right.contains(left) ?
+            return ((Collection<?>) container).contains(value);
+        }
+        return null;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */
+
+/**
+     * Test if left contains right (right matches/in left).
+     * <p>Beware that this method arguments are the opposite of the operator arguments.
+     * 'x in y' means 'y contains x'.</p>
+     *
+     * @param container the container
+     * @param value the value
+     * @return test result or null if there is no arithmetic solution
+     */"
+commons-jexl3_48,"@Test
+    public void test106_oe() throws Exception {
+        final JexlEvalContext context = new JexlEvalContext();
+        final JexlOptions options = context.getEngineOptions();
+        options.setStrict(true);
+        options.setStrictArithmetic(true);
+        context.set(""a"", new BigDecimal(1));
+        context.set(""b"", new BigDecimal(3));
+        final JexlEngine jexl = new Engine();
+        try {
+            final Object value = jexl.createExpression(""a / b"").evaluate(context);
+            Assert.assertNotNull(value);
+        } catch (final JexlException xjexl) {
+            Assert.fail(""should not occur"");
+        }
+        options.setMathContext(MathContext.UNLIMITED);
+        options.setMathScale(2);
+        try {
+            jexl.createExpression(""a / b"").evaluate(context);
+            Assert.fail(""should fail"");
+        } catch (final JexlException xjexl) {
+        }
+    }",Issues100Test::test106_oe,"@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }",
+commons-jexl3_64,"@Test
+    public void test144_oe() throws Exception {
+        final JexlEngine jexl = new Engine();
+        final JexlContext jc = new MapContext();
+        JexlScript script;
+        Object result;
+        script = jexl.createScript(""var total = 10; total('tt')"");
+        try {
+            result = script.execute(jc);
+            Assert.fail(""total() is not solvable"");
+        } catch (final JexlException.Method ambiguous) {
+            Assert.assertEquals(""total"", ambiguous.getMethod());
+        }
+    }",Issues100Test::test144_oe,"public String getMethod() {
+            final String signature = getMethodSignature();
+            final int lparen = signature.indexOf('(');
+            return lparen > 0? signature.substring(0, lparen) : signature;
+        }","/**
+         * @return the method name
+         */"
+commons-jexl3_65,"@Test
+    public void test144a_oe() throws Exception {
+        final JexlEngine jexl = new Engine();
+        final JexlContext jc = new MapContext();
+        jc.set(""quuxClass"", Quux144.class);
+        final JexlExpression create = jexl.createExpression(""quux = new(quuxClass)"");
+        JexlExpression assignArray = jexl.createExpression(""quux.arr = [ 'hello', 'world' ]"");
+        final JexlExpression checkArray = jexl.createExpression(""quux.arr"");
+
+        final Quux144 quux = (Quux144) create.evaluate(jc);
+        Assert.assertNotNull(""quux is null"", quux);
+
+        Object o = assignArray.evaluate(jc);
+        Assert.assertEquals(""Result is not a string array"", String[].class, o.getClass());
+        o = checkArray.evaluate(jc);
+        Assert.assertEquals(""The array elements are equal"", Arrays.asList(""hello"", ""world""), Arrays.asList((String[]) o));
+
+        assignArray = jexl.createExpression(""quux.arr = null"");
+        o = assignArray.evaluate(jc);
+        Assert.assertNull(""Result is not null"", o);
+        o = checkArray.evaluate(jc);
+        Assert.assertNull(""Result is not null"", o);
+
+        assignArray = jexl.createExpression(""quux.arr = [ ]"");
+        o = assignArray.evaluate(jc);
+        Assert.assertNotNull(""Result is null"", o);
+        o = checkArray.evaluate(jc);
+        Assert.assertEquals(""The array elements are not equal"", Collections.emptyList(), Arrays.asList((String[]) o));
+        Assert.assertEquals(""The array size is not zero"", 0, ((String[]) o).length);
+
+        try {
+            assignArray = jexl.createExpression(""quux.arr2 = [ ]"");
+            o = assignArray.evaluate(jc);
+            Assert.fail(""The arr2 property shouldn't be set due to its ambiguity (overloaded setters with different types)."");
+        } catch (final JexlException.Property e) {
+        }
+        Assert.assertNull(""The arr2 property value should remain as null, not an empty array."", quux.arr2);
+    }",Issues100Test::test144a_oe,"@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }",
+commons-jexl3_135,"@Test
+    public void testForEachBreakInsideFunction_oe() throws Exception {
+        try {
+            final JexlScript e = JEXL.createScript(""for (i : 1..2) {  y = function() { break; } }"");
+            Assert.fail(""break is out of loop!"");
+        } catch (final JexlException.Parsing xparse) {
+            final String str = xparse.detailedMessage();
+            Assert.assertTrue(str.contains(""break""));
+        }
+    }",DoWhileTest::testForEachBreakInsideFunction_oe,"public Boolean contains(final Object container, final Object value) {
+        if (value == null && container == null) {
+            //if both are null L == R
+            return true;
+        }
+        if (value == null || container == null) {
+            // we know both aren't null, therefore L != R
+            return false;
+        }
+        // use arithmetic / pattern matching ?
+        if (container instanceof java.util.regex.Pattern) {
+            return ((java.util.regex.Pattern) container).matcher(value.toString()).matches();
+        }
+        if (container instanceof CharSequence) {
+            return value.toString().matches(container.toString());
+        }
+        // try contains on map key
+        if (container instanceof Map<?, ?>) {
+            if (value instanceof Map<?, ?>) {
+                return ((Map<?, ?>) container).keySet().containsAll(((Map<?, ?>) value).keySet());
+            }
+            return ((Map<?, ?>) container).containsKey(value);
+        }
+        // try contains on collection
+        if (container instanceof Collection<?>) {
+            if (value instanceof Collection<?>) {
+                return ((Collection<?>) container).containsAll((Collection<?>) value);
+            }
+            // left in right ? <=> right.contains(left) ?
+            return ((Collection<?>) container).contains(value);
+        }
+        return null;
+    }","/**
+     * Test if left contains right (right matches/in left).
+     * <p>Beware that this method arguments are the opposite of the operator arguments.
+     * 'x in y' means 'y contains x'.</p>
+     *
+     * @param container the container
+     * @param value the value
+     * @return test result or null if there is no arithmetic solution
+     */"
+commons-jexl3_136,"@Test
+    public void testForEachContinueInsideFunction_oe() throws Exception {
+        try {
+            final JexlScript e = JEXL.createScript(""for (i : 1..2) {  y = function() { continue; } }"");
+            Assert.fail(""continue is out of loop!"");
+        } catch (final JexlException.Parsing xparse) {
+            final String str = xparse.detailedMessage();
+            Assert.assertTrue(str.contains(""continue""));
+        }
+    }",DoWhileTest::testForEachContinueInsideFunction_oe,"public Boolean contains(final Object container, final Object value) {
+        if (value == null && container == null) {
+            //if both are null L == R
+            return true;
+        }
+        if (value == null || container == null) {
+            // we know both aren't null, therefore L != R
+            return false;
+        }
+        // use arithmetic / pattern matching ?
+        if (container instanceof java.util.regex.Pattern) {
+            return ((java.util.regex.Pattern) container).matcher(value.toString()).matches();
+        }
+        if (container instanceof CharSequence) {
+            return value.toString().matches(container.toString());
+        }
+        // try contains on map key
+        if (container instanceof Map<?, ?>) {
+            if (value instanceof Map<?, ?>) {
+                return ((Map<?, ?>) container).keySet().containsAll(((Map<?, ?>) value).keySet());
+            }
+            return ((Map<?, ?>) container).containsKey(value);
+        }
+        // try contains on collection
+        if (container instanceof Collection<?>) {
+            if (value instanceof Collection<?>) {
+                return ((Collection<?>) container).containsAll((Collection<?>) value);
+            }
+            // left in right ? <=> right.contains(left) ?
+            return ((Collection<?>) container).contains(value);
+        }
+        return null;
+    }","/**
+     * Test if left contains right (right matches/in left).
+     * <p>Beware that this method arguments are the opposite of the operator arguments.
+     * 'x in y' means 'y contains x'.</p>
+     *
+     * @param container the container
+     * @param value the value
+     * @return test result or null if there is no arithmetic solution
+     */"
+commons-jexl3_143,"@Test
+    public void testSafeAnt_oe() throws Exception {
+        final JexlEvalContext ctxt = new JexlEvalContext();
+        final JexlOptions options = ctxt.getEngineOptions();
+        ctxt.set(""x.y.z"", 42);
+        JexlScript script;
+        Object result;
+
+        script = JEXL.createScript(""x.y.z"");
+        result = script.execute(ctxt);
+        Assert.assertEquals(42, result);
+        Assert.assertEquals(42, ctxt.get(""x.y.z""));
+
+        options.setAntish(false);
+        try {
+            result = script.execute(ctxt);
+            Assert.fail(""antish var shall not be resolved"");
+        } catch(final JexlException.Variable xvar) {
+            Assert.assertEquals(""x"", xvar.getVariable());
+        } catch(final JexlException xother) {
+            Assert.assertNotNull(xother);
+        } finally {
+            options.setAntish(true);
+        }
+
+        result = null;
+        script = JEXL.createScript(""x?.y?.z"");
+        result = script.execute(ctxt);
+        Assert.assertNull(result);// safe navigation,null result = null;
+        script = JEXL.createScript(""x?.y?.z = 3"");
+        try {
+             result = script.execute(ctxt);
+             Assert.fail(""not antish assign"");
+        } catch(final JexlException xjexl) {
+            Assert.assertNull(result);
+        }
+
+        result = null;
+        script = JEXL.createScript(""x.y?.z"");
+        try {
+             result = script.execute(ctxt);
+             Assert.fail(""x not defined"");
+        } catch(final JexlException xjexl) {
+            Assert.assertNull(result);
+        }
+
+        result = null;
+        script = JEXL.createScript(""x.y?.z = 3"");
+        try {
+             result = script.execute(ctxt);
+             Assert.fail(""not antish assign"");
+        } catch(final JexlException xjexl) {
+            Assert.assertNull(result);
+        }
+
+        result = null;
+        script = JEXL.createScript(""x.`'y'`.z = 3"");
+        try {
+             result = script.execute(ctxt);
+             Assert.fail(""not antish assign"");
+        } catch(final JexlException xjexl) {
+            Assert.assertNull(result);
+        }
+    }",AntishCallTest::testSafeAnt_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }
+
+@Override
+        public Object get(final String name) {
+            return null;
+        }
+
+public String getVariable() {
+            return getDetail();
+        }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */
+
+
+
+/**
+         * @return the variable name
+         */"
+commons-jexl3_153,"@Test
+    public void test90_oe() throws Exception {
+        final JexlEngine jexl = createEngine(false);
+        final JexlEvalContext ctxt = new JexlEvalContext();
+        final JexlOptions options = ctxt.getEngineOptions();
+        options.setSilent(false);
+        final String[] fexprs = {
+            ""a=3 b=4"",
+            ""while(a) while(a)"",
+            ""1 2"",
+            ""if (true) 2; 3 {}"",
+            ""while (x) 1 if (y) 2 3""
+        };
+        for (final String fexpr : fexprs) {
+            try {
+                jexl.createScript(fexpr);
+                Assert.fail(fexpr + "": Should have failed in parse"");
+            } catch (final JexlException xany) {
+            }
+        }
+        final String[] exprs = {
+            ""if (x) {1} if (y) {2}"",
+            ""if (x) 1 if (y) 2"",
+            ""while (x) 1 if (y) 2 else 3"",
+            ""for(z : [3, 4, 5]) { z } y ? 2 : 1"",
+            ""for(z : [3, 4, 5]) { z } if (y) 2 else 1""
+        };
+        ctxt.set(""x"", Boolean.FALSE);
+        ctxt.set(""y"", Boolean.TRUE);
+        for (final String expr : exprs) {
+            final JexlScript s = jexl.createScript(expr);
+            Assert.assertEquals(Integer.valueOf(2), s.execute(ctxt));
+        }
+        debuggerCheck(jexl);
+    }",IssuesTest::test90_oe,"public final JexlScript createScript(final JexlInfo info, final String source, final String... names) {
+        return createScript(null, info, source, names);
+    }","/**
+     * Creates a JexlScript from a String containing valid JEXL syntax.
+     * This method parses the script and validates the syntax.
+     *
+     * @param info   An info structure to carry debugging information if needed
+     * @param source A string containing valid JEXL syntax
+     * @param names  The script parameter names used during parsing; a corresponding array of arguments containing
+     * values should be used during evaluation
+     * @return A {@link JexlScript} which can be executed using a {@link JexlContext}
+     * @throws JexlException if there is a problem parsing the script
+     */"
+commons-jexl3_165,"@Test
+    public void testRejectLocal_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        JexlScript assign = JEXL.createScript(""var quux = null; quux.froboz.value = 10"");
+        try {
+            final Object o = assign.execute(jc);
+            Assert.fail(""quux is local and null, should fail"");
+        } catch (final JexlException xjexl) {
+            final String x = xjexl.toString();
+            final String y = x;
+        }
+        assign = JEXL.createScript(""quux.froboz.value = 10"");
+        final Object o = assign.execute(jc);
+        Assert.assertEquals(10, o);
+    }",AssignTest::testRejectLocal_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_259,"@Test
+    public void testObjectContext_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().strict(true).silent(false).create();
+        final Vat vat = new Vat(18.6);
+        final ObjectContext<Vat> ctxt = new ObjectContext<Vat>(jexl, vat);
+        Assert.assertEquals(18.6d, (Double) ctxt.get(""VAT""), 0.0001d);
+        ctxt.set(""VAT"", 20.0d);
+        Assert.assertEquals(20.0d, (Double) ctxt.get(""VAT""), 0.0001d);
+
+        try {
+            ctxt.get(""vat"");
+            Assert.fail(""should have failed"");
+        } catch(final JexlException.Property xprop) {
+        }
+
+        try {
+            ctxt.set(""vat"", 33.0d);
+            Assert.fail(""should have failed"");
+        } catch(final JexlException.Property xprop) {
+        }
+    }",ContextNamespaceTest::testObjectContext_oe,"@Override
+    public Object get(final String name) {
+        final JexlPropertyGet jget = jexl.getUberspect().getPropertyGet(object, name);
+        if (jget != null) {
+            try {
+                return jget.invoke(object);
+            } catch (final Exception xany) {
+                if (jexl.isStrict()) {
+                    throw new JexlException.Property(null, name, true, xany);
+                }
+            }
+        }
+        return null;
+    }",
+commons-jexl3_271,"@Test
+    public void testVarStmt_oe() throws Exception {
+        final OptAnnotationContext jc = new OptAnnotationContext();
+        final JexlOptions options = jc.getEngineOptions();
+        jc.getEngineOptions().set(JEXL);
+        options.setSharedInstance(true);
+        JexlScript e;
+        Object r;
+        e = JEXL.createScript(""(s, v)->{ @strict(s) @silent(v) var x = y ; 42; }"");
+
+        try {
+            r = e.execute(jc, false, true);
+            Assert.assertEquals(42, r);
+        } catch (final JexlException.Variable xjexl) {
+            Assert.fail(""should not have thrown"");
+        }
+
+        r = null;
+        options.setSafe(false);
+        try {
+            r = e.execute(jc, true, false);
+            Assert.fail(""should have thrown"");
+        } catch (final JexlException.Variable xjexl) {
+            Assert.assertNull(r);
+        }
+
+        r = null;
+        try {
+            r = e.execute(jc, true, true);
+            Assert.assertNull(r);
+        } catch (final JexlException.Variable xjexl) {
+            Assert.fail(""should not have thrown"");
+        }
+        options.setSafe(true);
+
+        r = null;
+        try {
+            r = e.execute(jc, false, false);
+            Assert.assertEquals(42, r);
+        } catch (final JexlException.Variable xjexl) {
+            Assert.fail(""should not have thrown"");
+        }
+        Assert.assertTrue(options.isStrict());
+        e = JEXL.createScript(""@scale(5) 42;"");
+        r = e.execute(jc);
+        Assert.assertEquals(42, r);
+        Assert.assertTrue(options.isStrict());
+        Assert.assertEquals(5, options.getMathScale());
+    }",AnnotationTest::testVarStmt_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }
+
+public boolean isStrict() {
+        return isSet(STRICT, flags);
+    }
+
+public int getMathScale() {
+        return mathScale;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */
+
+/**
+     * Checks whether the engine considers unknown variables, methods and
+     * constructors as errors during evaluation.
+     * @return true if strict, false otherwise
+     */
+
+/**
+     * The BigDecimal scale used for comparison and coercion operations.
+     * @return the scale
+     */"
+commons-jexl3_280,"@Test
+    public void testWrappedEx_oe() throws Exception {
+        final JexlEngine jexl = new Engine();
+        final JexlExpression e = jexl.createExpression(""npe()"");
+        final JexlContext jc = new ObjectContext<ThrowNPE>(jexl, new ThrowNPE());
+        try {
+            e.evaluate(jc);
+            Assert.fail(""Should have thrown NPE"");
+        } catch (final JexlException xany) {
+            final Throwable xth = xany.getCause();
+            Assert.assertEquals(NullPointerException.class, xth.getClass());
+        }
+    }",ExceptionTest::testWrappedEx_oe,"@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }",
+commons-jexl3_281,"@Test
+    public void testWrappedExmore_oe() throws Exception {
+        final JexlEngine jexl = new Engine();
+        final ThrowNPE npe = new ThrowNPE();
+        try {
+            final Object r = jexl.getProperty(npe, ""foo"");
+            Assert.fail(""Should have thrown JexlException.Property"");
+        } catch (final JexlException.Property xany) {
+            final Throwable xth = xany.getCause();
+            Assert.assertNull(xth);
+        }
+        try {
+            jexl.setProperty(npe, ""foo"", 42);
+            Assert.fail(""Should have thrown JexlException.Property"");
+        } catch (final JexlException.Property xany) {
+            final Throwable xth = xany.getCause();
+            Assert.assertNull(xth);
+        }
+
+        final boolean b = (Boolean) jexl.getProperty(npe, ""fail"");
+        Assert.assertFalse(b);
+        try {
+            jexl.setProperty(npe, ""fail"", false);
+            jexl.setProperty(npe, ""fail"", true);
+            Assert.fail(""Should have thrown JexlException.Property"");
+        } catch (final JexlException.Property xany) {
+            final Throwable xth = xany.getCause();
+            Assert.assertEquals(NullPointerException.class, xth.getClass());
+        }
+        try {
+            jexl.getProperty(npe, ""fail"");
+            Assert.fail(""Should have thrown JexlException.Property"");
+        } catch (final JexlException.Property xany) {
+            final Throwable xth = xany.getCause();
+            Assert.assertEquals(NullPointerException.class, xth.getClass());
+        }
+
+        try {
+            jexl.invokeMethod(npe, ""foo"", 42);
+            Assert.fail(""Should have thrown JexlException.Method"");
+        } catch (final JexlException.Method xany) {
+            final Throwable xth = xany.getCause();
+            Assert.assertNull(xth);
+        }
+        try {
+            jexl.invokeMethod(npe, ""npe"");
+            Assert.fail(""Should have thrown NullPointerException"");
+        } catch (final JexlException.Method xany) {
+            final Throwable xth = xany.getCause();
+            Assert.assertEquals(NullPointerException.class, xth.getClass());
+        }
+    }",ExceptionTest::testWrappedExmore_oe,"@Override
+    public Object invokeMethod(final Object obj, final String meth, final Object... args) {
+        JexlException xjexl = null;
+        Object result = null;
+        final JexlInfo info = debug ? createInfo() : null;
+        try {
+            JexlMethod method = uberspect.getMethod(obj, meth, args);
+            if (method == null && arithmetic.narrowArguments(args)) {
+                method = uberspect.getMethod(obj, meth, args);
+            }
+            if (method != null) {
+                result = method.invoke(obj, args);
+            } else {
+                xjexl = new JexlException.Method(info, meth, args);
+            }
+        } catch (final JexlException xany) {
+            xjexl = xany;
+        } catch (final Exception xany) {
+            xjexl = new JexlException.Method(info, meth, args, xany);
+        }
+        if (xjexl != null) {
+            if (!silent) {
+                throw xjexl.clean();
+            }
+            logger.warn(xjexl.getMessage(), xjexl.getCause());
+            result = null;
+        }
+        return result;
+    }
+
+public String getProperty() {
+            return getDetail();
+        }
+
+@Override
+    public void setProperty(final Object bean, final String expr, final Object value) {
+        setProperty(null, bean, expr, value);
+    }","
+
+/**
+         * @return the property name
+         */"
+commons-jexl3_282,"@Test
+    public void testEx_oe() throws Exception {
+        final JexlEngine jexl = createEngine(false);
+        final JexlExpression e = jexl.createExpression(""c.e * 6"");
+        final JexlEvalContext ctxt = new JexlEvalContext();
+        final JexlOptions options = ctxt.getEngineOptions();
+        options.setSilent(false);
+        options.setStrict(true);
+        try {
+            /* Object o = */ e.evaluate(ctxt);
+            Assert.fail(""c not defined as variable should throw"");
+        } catch (final JexlException.Variable xjexl) {
+            final String msg = xjexl.getMessage();
+            Assert.assertTrue(msg.indexOf(""variable 'c.e'"") > 0);
+        }
+
+        options.setStrictArithmetic(true);
+        ctxt.set(""c.e"", null);
+        try {
+            /* Object o = */ e.evaluate(ctxt);
+            Assert.fail(""c.e as null operand should throw"");
+        } catch (final JexlException.Variable xjexl) {
+            final String msg = xjexl.getMessage();
+            Assert.assertTrue(msg.indexOf(""variable 'c.e'"") > 0);
+        }
+
+        options.setStrictArithmetic(false);
+        try {
+            /* Object o = */ e.evaluate(ctxt);
+
+        } catch (final JexlException xjexl) {
+            Assert.fail(""c.e in expr should not throw"");
+        }
+
+        ctxt.set(""c"", ""{ 'a' : 3, 'b' : 5}"");
+        ctxt.set(""e"", Integer.valueOf(2));
+        try {
+            /* Object o = */ e.evaluate(ctxt);
+            Assert.fail(""c.e not accessible as property should throw"");
+        } catch (final JexlException.Property xjexl) {
+            final String msg = xjexl.getMessage();
+            Assert.assertTrue(msg.indexOf(""property 'e"") > 0);
+        }
+    }",ExceptionTest::testEx_oe,"@Override
+    public int indexOf(final Object o) {
+        final int size = size();
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (get(i) == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(get(i))) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+public void setStrictArithmetic(final boolean stricta) {
+        this.strictArithmetic = stricta;
+    }","
+
+/**
+     * Sets the strict arithmetic flag.
+     * @param stricta true or false
+     */"
+commons-jexl3_283,"@Test
+    public void testExVar_oe() throws Exception {
+        final JexlEngine jexl = createEngine(false);
+        final JexlScript e = jexl.createScript(""(x)->{ x * 6 }"");
+        final JexlEvalContext ctxt = new JexlEvalContext();
+        final JexlOptions options = ctxt.getEngineOptions();
+        options.setSilent(false);
+        options.setStrict(true);
+        options.setStrictArithmetic(true);
+        try {
+            /* Object o = */ e.execute(ctxt);
+            Assert.fail(""x is null, should throw"");
+        } catch (final JexlException xjexl) {
+            final String msg = xjexl.getMessage();
+            Assert.assertTrue(msg.indexOf(""null"") > 0);
+        }
+
+        options.setStrictArithmetic(false);
+        try {
+            final Object o = e.execute(ctxt, (Object) null);
+        } catch (final JexlException.Variable xjexl) {
+            Assert.fail(""arithmetic allows null operands, should not throw"");
+        }
+    }",ExceptionTest::testExVar_oe,"@Override
+    public int indexOf(final Object o) {
+        final int size = size();
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (get(i) == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(get(i))) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }
+
+public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","
+
+/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_284,"@Test
+    public void testExMethod_oe() throws Exception {
+        final JexlEngine jexl = createEngine(false);
+        final JexlExpression e = jexl.createExpression(""c.e.foo()"");
+        final JexlEvalContext ctxt = new JexlEvalContext();
+        final JexlOptions options = ctxt.getEngineOptions();
+        options.setSilent(false);
+        options.setStrict(true);
+        try {
+            /* Object o = */ e.evaluate(ctxt);
+            Assert.fail(""c not declared as variable should throw"");
+        } catch (final JexlException.Variable xjexl) {
+            final String msg = xjexl.getMessage();
+            Assert.assertTrue(msg.indexOf(""variable 'c.e'"") > 0);
+        }
+
+        options.setStrictArithmetic(true);
+        ctxt.set(""c.e"", null);
+        try {
+            /* Object o = */ e.evaluate(ctxt);
+            Assert.fail(""c.e as null operand should throw"");
+        } catch (final JexlException xjexl) {
+            final String msg = xjexl.getMessage();
+            Assert.assertTrue(msg.indexOf(""variable 'c.e'"") > 0);
+        }
+    }",ExceptionTest::testExMethod_oe,"@Override
+    public int indexOf(final Object o) {
+        final int size = size();
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (get(i) == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(get(i))) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }",
+commons-jexl3_285,"@Test
+    public void testFuture_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""while(true);"");
+        final FutureTask<Object> future = new FutureTask<Object>(e.callable(null));
+
+        final ExecutorService executor = Executors.newFixedThreadPool(1);
+        executor.submit(future);
+        Object t = 42;
+        try {
+            t = future.get(100, TimeUnit.MILLISECONDS);
+            Assert.fail(""should have timed out"");
+        } catch (final TimeoutException xtimeout) {
+            future.cancel(true);
+        } finally {
+            executor.shutdown();
+        }
+
+        Assert.assertTrue(future.isCancelled());
+        Assert.assertEquals(42, t);
+    }",ScriptCallableTest::testFuture_oe,"protected boolean isCancelled() {
+        return cancelled.get() | Thread.currentThread().isInterrupted();
+    }
+
+protected  boolean cancel() {
+        return cancelled.compareAndSet(false, true);
+    }","/**
+     * Checks whether this interpreter execution was cancelled due to thread interruption.
+     * @return true if cancelled, false otherwise
+     */
+
+/**
+     * Cancels this evaluation, setting the cancel flag that will result in a JexlException.Cancel to be thrown.
+     * @return false if already cancelled, true otherwise
+     */"
+commons-jexl3_286,"@Test
+    public void testCallableCancel_oe() throws Exception {
+        final Semaphore latch = new Semaphore(0);
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""latch"", latch);
+
+        final JexlScript e = JEXL.createScript(""latch.release(); while(true);"");
+        final Script.Callable c = (Script.Callable) e.callable(ctxt);
+        Object t = 42;
+        final Callable<Object> kc = () -> {
+            latch.acquire();
+            return c.cancel();
+        };
+        final ExecutorService executor = Executors.newFixedThreadPool(2);
+        final Future<?> future = executor.submit(c);
+        final Future<?> kfc = executor.submit(kc);
+        List<Runnable> lr;
+        try {
+            Assert.assertTrue((Boolean) kfc.get());
+            t = future.get();
+            Assert.fail(""should have been cancelled"");
+        } catch (final ExecutionException xexec) {
+            Assert.assertTrue(xexec.getCause() instanceof JexlException.Cancel);
+        } finally {
+            lr = executor.shutdownNow();
+        }
+        Assert.assertTrue(c.isCancelled());
+        Assert.assertTrue(lr == null || lr.isEmpty());
+    }",ScriptCallableTest::testCallableCancel_oe,"@Override
+        public Object get(final String name) {
+            return null;
+        }
+
+public boolean isCancelled() {
+            return interpreter.isCancelled();
+        }
+
+public Boolean isEmpty(final Object object) {
+        return isEmpty(object, object == null);
+    }","
+
+/**
+         * @return true if evaluation was cancelled, false otherwise
+         */
+
+/**
+     * Check for emptiness of various types: Number, Collection, Array, Map, String.
+     *
+     * @param object the object to check the emptiness of
+     * @return the boolean or null if there is no arithmetic solution
+     */"
+commons-jexl3_287,"@Test
+    public void testCallableCancellation_oe() throws Exception {
+        final Semaphore latch = new Semaphore(0);
+        final AtomicBoolean cancel = new AtomicBoolean(false);
+        final JexlContext ctxt = new CancellationContext(cancel);
+        ctxt.set(""latch"", latch);
+
+        final JexlScript e = JEXL.createScript(""latch.release(); while(true);"");
+        final Script.Callable c = (Script.Callable) e.callable(ctxt);
+        Object t = 42;
+        final Callable<Object> kc = () -> {
+            latch.acquire();
+            return cancel.compareAndSet(false, true);
+        };
+        final ExecutorService executor = Executors.newFixedThreadPool(2);
+        final Future<?> future = executor.submit(c);
+        final Future<?> kfc = executor.submit(kc);
+        List<Runnable> lr;
+        try {
+            Assert.assertTrue((Boolean) kfc.get());
+            t = future.get();
+            Assert.fail(""should have been cancelled"");
+        } catch (final ExecutionException xexec) {
+            Assert.assertTrue(xexec.getCause() instanceof JexlException.Cancel);
+        } finally {
+            lr = executor.shutdownNow();
+        }
+        Assert.assertTrue(c.isCancelled());
+        Assert.assertTrue(lr == null || lr.isEmpty());
+    }",ScriptCallableTest::testCallableCancellation_oe,"@Override
+        public Object get(final String name) {
+            return null;
+        }
+
+public boolean isCancelled() {
+            return interpreter.isCancelled();
+        }
+
+public Boolean isEmpty(final Object object) {
+        return isEmpty(object, object == null);
+    }","
+
+/**
+         * @return true if evaluation was cancelled, false otherwise
+         */
+
+/**
+     * Check for emptiness of various types: Number, Collection, Array, Map, String.
+     *
+     * @param object the object to check the emptiness of
+     * @return the boolean or null if there is no arithmetic solution
+     */"
+commons-jexl3_288,"@Test
+    public void testCallableTimeout_oe() throws Exception {
+        List<Runnable> lr = null;
+        final Semaphore latch = new Semaphore(0);
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""latch"", latch);
+
+        final JexlScript e = JEXL.createScript(""latch.release(); while(true);"");
+        final Callable<Object> c = e.callable(ctxt);
+        Object t = 42;
+
+        final ExecutorService executor = Executors.newFixedThreadPool(1);
+        final Future<?> future = executor.submit(c);
+        try {
+            latch.acquire();
+            t = future.get(100, TimeUnit.MILLISECONDS);
+            Assert.fail(""should have timed out"");
+        } catch (final TimeoutException xtimeout) {
+            future.cancel(true);
+        } finally {
+            lr = executor.shutdownNow();
+        }
+        Assert.assertTrue(future.isCancelled());
+        Assert.assertEquals(42, t);
+        Assert.assertTrue(lr.isEmpty());
+    }",ScriptCallableTest::testCallableTimeout_oe,"protected boolean isCancelled() {
+        return cancelled.get() | Thread.currentThread().isInterrupted();
+    }
+
+protected  boolean cancel() {
+        return cancelled.compareAndSet(false, true);
+    }
+
+public Boolean isEmpty(final Object object) {
+        return isEmpty(object, object == null);
+    }","/**
+     * Checks whether this interpreter execution was cancelled due to thread interruption.
+     * @return true if cancelled, false otherwise
+     */
+
+/**
+     * Cancels this evaluation, setting the cancel flag that will result in a JexlException.Cancel to be thrown.
+     * @return false if already cancelled, true otherwise
+     */
+
+/**
+     * Check for emptiness of various types: Number, Collection, Array, Map, String.
+     *
+     * @param object the object to check the emptiness of
+     * @return the boolean or null if there is no arithmetic solution
+     */"
+commons-jexl3_289,"@Test
+    public void testCallableClosure_oe() throws Exception {
+        List<Runnable> lr = null;
+        final JexlScript e = JEXL.createScript(""function(t) {while(t);}"");
+        final Callable<Object> c = e.callable(null, Boolean.TRUE);
+        Object t = 42;
+
+        final ExecutorService executor = Executors.newFixedThreadPool(1);
+        final Future<?> future = executor.submit(c);
+        try {
+            t = future.get(100, TimeUnit.MILLISECONDS);
+            Assert.fail(""should have timed out"");
+        } catch (final TimeoutException xtimeout) {
+            future.cancel(true);
+        } finally {
+            lr = executor.shutdownNow();
+        }
+        Assert.assertTrue(future.isCancelled());
+        Assert.assertEquals(42, t);
+        Assert.assertTrue(lr.isEmpty());
+    }",ScriptCallableTest::testCallableClosure_oe,"protected boolean isCancelled() {
+        return cancelled.get() | Thread.currentThread().isInterrupted();
+    }
+
+protected  boolean cancel() {
+        return cancelled.compareAndSet(false, true);
+    }
+
+public Boolean isEmpty(final Object object) {
+        return isEmpty(object, object == null);
+    }","/**
+     * Checks whether this interpreter execution was cancelled due to thread interruption.
+     * @return true if cancelled, false otherwise
+     */
+
+/**
+     * Cancels this evaluation, setting the cancel flag that will result in a JexlException.Cancel to be thrown.
+     * @return false if already cancelled, true otherwise
+     */
+
+/**
+     * Check for emptiness of various types: Number, Collection, Array, Map, String.
+     *
+     * @param object the object to check the emptiness of
+     * @return the boolean or null if there is no arithmetic solution
+     */"
+commons-jexl3_292,"@Test
+    public void testCancelWait_oe() throws Exception {
+        List<Runnable> lr = null;
+        final JexlScript e = JEXL.createScript(""wait(10)"");
+        final Callable<Object> c = e.callable(new TestContext());
+
+        final ExecutorService executor = Executors.newFixedThreadPool(1);
+        try {
+            final Future<?> future = executor.submit(c);
+            Object t = 42;
+            try {
+                t = future.get(100, TimeUnit.MILLISECONDS);
+                Assert.fail(""should have timed out"");
+            } catch (final TimeoutException xtimeout) {
+                future.cancel(true);
+            }
+            Assert.assertTrue(future.isCancelled());
+            Assert.assertEquals(42, t);
+        } finally {
+            lr = executor.shutdownNow();
+        }
+        Assert.assertTrue(lr.isEmpty());
+    }",ScriptCallableTest::testCancelWait_oe,"public Boolean isEmpty(final Object object) {
+        return isEmpty(object, object == null);
+    }","/**
+     * Check for emptiness of various types: Number, Collection, Array, Map, String.
+     *
+     * @param object the object to check the emptiness of
+     * @return the boolean or null if there is no arithmetic solution
+     */"
+commons-jexl3_293,"@Test
+    public void testCancelWaitInterrupt_oe() throws Exception {
+        List<Runnable> lr = null;
+        final JexlScript e = JEXL.createScript(""waitInterrupt(42)"");
+        final Callable<Object> c = e.callable(new TestContext());
+
+        final ExecutorService executor = Executors.newFixedThreadPool(1);
+        final Future<?> future = executor.submit(c);
+        Object t = 42;
+
+        try {
+            t = future.get(100, TimeUnit.MILLISECONDS);
+            Assert.fail(""should have timed out"");
+        } catch (final TimeoutException xtimeout) {
+            future.cancel(true);
+        } finally {
+            lr = executor.shutdownNow();
+        }
+        Assert.assertTrue(future.isCancelled());
+        Assert.assertEquals(42, t);
+        Assert.assertTrue(lr.isEmpty());
+    }",ScriptCallableTest::testCancelWaitInterrupt_oe,"protected boolean isCancelled() {
+        return cancelled.get() | Thread.currentThread().isInterrupted();
+    }
+
+protected  boolean cancel() {
+        return cancelled.compareAndSet(false, true);
+    }
+
+public Boolean isEmpty(final Object object) {
+        return isEmpty(object, object == null);
+    }","/**
+     * Checks whether this interpreter execution was cancelled due to thread interruption.
+     * @return true if cancelled, false otherwise
+     */
+
+/**
+     * Cancels this evaluation, setting the cancel flag that will result in a JexlException.Cancel to be thrown.
+     * @return false if already cancelled, true otherwise
+     */
+
+/**
+     * Check for emptiness of various types: Number, Collection, Array, Map, String.
+     *
+     * @param object the object to check the emptiness of
+     * @return the boolean or null if there is no arithmetic solution
+     */"
+commons-jexl3_294,"@Test
+    public void testCancelForever_oe() throws Exception {
+        List<Runnable> lr = null;
+        final Semaphore latch = new Semaphore(0);
+        final JexlContext ctxt = new TestContext();
+        ctxt.set(""latch"", latch);
+
+        final JexlScript e = JEXL.createScript(""latch.release(); runForever()"");
+        final Callable<Object> c = e.callable(ctxt);
+
+        final ExecutorService executor = Executors.newFixedThreadPool(1);
+        final Future<?> future = executor.submit(c);
+        Object t = 42;
+
+        try {
+            latch.acquire();
+            t = future.get(100, TimeUnit.MILLISECONDS);
+            Assert.fail(""should have timed out"");
+        } catch (final TimeoutException xtimeout) {
+            future.cancel(true);
+        } finally {
+            lr = executor.shutdownNow();
+        }
+        Assert.assertTrue(future.isCancelled());
+        Assert.assertEquals(42, t);
+        Assert.assertTrue(lr.isEmpty());
+    }",ScriptCallableTest::testCancelForever_oe,"protected boolean isCancelled() {
+        return cancelled.get() | Thread.currentThread().isInterrupted();
+    }
+
+protected  boolean cancel() {
+        return cancelled.compareAndSet(false, true);
+    }
+
+public Boolean isEmpty(final Object object) {
+        return isEmpty(object, object == null);
+    }","/**
+     * Checks whether this interpreter execution was cancelled due to thread interruption.
+     * @return true if cancelled, false otherwise
+     */
+
+/**
+     * Cancels this evaluation, setting the cancel flag that will result in a JexlException.Cancel to be thrown.
+     * @return false if already cancelled, true otherwise
+     */
+
+/**
+     * Check for emptiness of various types: Number, Collection, Array, Map, String.
+     *
+     * @param object the object to check the emptiness of
+     * @return the boolean or null if there is no arithmetic solution
+     */"
+commons-jexl3_295,"@Test
+    public void testCancelLoopWait_oe() throws Exception {
+        List<Runnable> lr = null;
+        final JexlScript e = JEXL.createScript(""while (true) { wait(10) }"");
+        final Callable<Object> c = e.callable(new TestContext());
+
+        final ExecutorService executor = Executors.newFixedThreadPool(1);
+        final Future<?> future = executor.submit(c);
+        Object t = 42;
+
+        try {
+            t = future.get(100, TimeUnit.MILLISECONDS);
+            Assert.fail(""should have timed out"");
+        } catch (final TimeoutException xtimeout) {
+            future.cancel(true);
+        } finally {
+            lr = executor.shutdownNow();
+        }
+        Assert.assertTrue(future.isCancelled());
+        Assert.assertEquals(42, t);
+        Assert.assertTrue(lr.isEmpty());
+    }",ScriptCallableTest::testCancelLoopWait_oe,"protected boolean isCancelled() {
+        return cancelled.get() | Thread.currentThread().isInterrupted();
+    }
+
+protected  boolean cancel() {
+        return cancelled.compareAndSet(false, true);
+    }
+
+public Boolean isEmpty(final Object object) {
+        return isEmpty(object, object == null);
+    }","/**
+     * Checks whether this interpreter execution was cancelled due to thread interruption.
+     * @return true if cancelled, false otherwise
+     */
+
+/**
+     * Cancels this evaluation, setting the cancel flag that will result in a JexlException.Cancel to be thrown.
+     * @return false if already cancelled, true otherwise
+     */
+
+/**
+     * Check for emptiness of various types: Number, Collection, Array, Map, String.
+     *
+     * @param object the object to check the emptiness of
+     * @return the boolean or null if there is no arithmetic solution
+     */"
+commons-jexl3_296,"@Test
+    public void testHangs_oe() throws Exception {
+        final JexlScript e = JEXL.createScript(""hangs()"");
+        final Callable<Object> c = e.callable(new TestContext());
+
+        final ExecutorService executor = Executors.newFixedThreadPool(1);
+        try {
+            final Future<?> future = executor.submit(c);
+            final Object t = future.get(1, TimeUnit.SECONDS);
+            Assert.fail(""hangs should not be solved"");
+        } catch(final ExecutionException xexec) {
+            Assert.assertTrue(xexec.getCause() instanceof JexlException.Method);
+        } finally {
+            executor.shutdown();
+        }
+    }",ScriptCallableTest::testHangs_oe,"@Override
+        public Object get(final String name) {
+            return null;
+        }",
+commons-jexl3_297,"@Test
+    public void testTimeout_oe() throws Exception {
+        JexlScript script = JEXL.createScript(""(flag)->{ @timeout(100) { while(flag); return 42 }; 'cancelled' }"");
+        final JexlContext ctxt = new AnnotationContext();
+        Object result = null;
+        try {
+            result = script.execute(ctxt, true);
+        } catch (final Exception xany) {
+            Assert.fail(xany.toString());
+        }
+        Assert.assertEquals(""cancelled"", result);
+
+        result = script.execute(ctxt, false);
+        Assert.assertEquals(42, result);
+        script = JEXL.createScript(""(flag)->{ @timeout(100, 'cancelled') { while(flag); 42; } }"");
+        try {
+            result = script.execute(ctxt, true);
+        } catch (final Exception xany) {
+            Assert.fail(xany.toString());
+        }
+        Assert.assertEquals(""cancelled"", result);
+
+        result = script.execute(ctxt, false);
+        Assert.assertEquals(42, result);
+        script = JEXL.createScript(""@timeout(100) {sleep(1000); 42; } -42;"");
+        try {
+            result = script.execute(ctxt);
+        } catch (final Exception xany) {
+            Assert.fail(xany.toString());
+        }
+        Assert.assertEquals(-42, result);
+
+        script = JEXL.createScript(""@timeout(100) {sleep(1000); return 42; } return -42;"");
+        try {
+            result = script.execute(ctxt);
+        } catch (final Exception xany) {
+            Assert.fail(xany.toString());
+        }
+        Assert.assertEquals(-42, result);
+        script = JEXL.createScript(""@timeout(1000) {sleep(100); return 42; } return -42;"");
+        try {
+            result = script.execute(ctxt);
+        } catch (final Exception xany) {
+            Assert.fail(xany.toString());
+        }
+        Assert.assertEquals(42, result);
+    }",ScriptCallableTest::testTimeout_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_312,"@Test
+    public void testInvoke_oe() throws Exception {
+        Functor func = new Functor();
+        Assert.assertEquals(Integer.valueOf(10), JEXL.invokeMethod(func, ""ten""));
+        Assert.assertEquals(Integer.valueOf(42), JEXL.invokeMethod(func, ""PLUS20"", Integer.valueOf(22)));
+        try {
+            JEXL.invokeMethod(func, ""nonExistentMethod"");
+            Assert.fail(""method does not exist!"");
+        } catch (final Exception xj0) {
+        }
+        try {
+            JEXL.invokeMethod(func, ""NPEIfNull"", (Object[]) null);
+            Assert.fail(""method should have thrown!"");
+        } catch (final Exception xj0) {
+        }
+
+        Object result;
+        try {
+            result = JEXL.invokeMethod(func, ""over"", ""foo"", 42);
+            Assert.assertEquals(""foo + 42"", result);
+        } catch (final Exception xj0) {
+            result = xj0;
+        }
+
+        try {
+            result = JEXL.invokeMethod(func, ""over"", null, null);
+            Assert.fail(""method should have thrown!"");
+        } catch (final Exception xj0) {
+            result = xj0;
+        }
+
+        func = new FunctorOver();
+        try {
+            result = JEXL.invokeMethod(func, ""over"", null, null);
+            Assert.assertEquals(""null + null"", result);
+        } catch (final Exception xj0) {
+            Assert.fail(""method should not have thrown!"");
+        }
+    }",MethodTest::testInvoke_oe,"
+
+@Override
+    public Object invokeMethod(final Object obj, final String meth, final Object... args) {
+        JexlException xjexl = null;
+        Object result = null;
+        final JexlInfo info = debug ? createInfo() : null;
+        try {
+            JexlMethod method = uberspect.getMethod(obj, meth, args);
+            if (method == null && arithmetic.narrowArguments(args)) {
+                method = uberspect.getMethod(obj, meth, args);
+            }
+            if (method != null) {
+                result = method.invoke(obj, args);
+            } else {
+                xjexl = new JexlException.Method(info, meth, args);
+            }
+        } catch (final JexlException xany) {
+            xjexl = xany;
+        } catch (final Exception xany) {
+            xjexl = new JexlException.Method(info, meth, args, xany);
+        }
+        if (xjexl != null) {
+            if (!silent) {
+                throw xjexl.clean();
+            }
+            logger.warn(xjexl.getMessage(), xjexl.getCause());
+            result = null;
+        }
+        return result;
+    }",
+commons-jexl3_313,"@Test
+    public void testAmbiguousInvoke_oe() throws Exception {
+        final Functor func = new Functor();
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""func"", func);
+        Object result;
+        result = JEXL.invokeMethod(func, ""over"", ""foo"", 42);
+        Assert.assertEquals(""foo + 42"", result);
+        try {
+            JEXL.invokeMethod(func, ""over"", ""not null"", null);
+            Assert.fail(""should be ambiguous"");
+        } catch (final JexlException.Method xinvoke) {
+            Assert.assertEquals(""over(String, Object)"", xinvoke.getMethodSignature());
+        }
+
+        try {
+            final String[] arg2 = new String[]{""more"", ""than"", ""one""};
+            JEXL.invokeMethod(func, ""over"", ""not null"", arg2);
+            Assert.fail(""should be ambiguous"");
+        } catch (final JexlException.Method xinvoke) {
+            Assert.assertEquals(""over(String, String[])"", xinvoke.getMethodSignature());
+        }
+    }",MethodTest::testAmbiguousInvoke_oe,"@Override
+    public Object invokeMethod(final Object obj, final String meth, final Object... args) {
+        JexlException xjexl = null;
+        Object result = null;
+        final JexlInfo info = debug ? createInfo() : null;
+        try {
+            JexlMethod method = uberspect.getMethod(obj, meth, args);
+            if (method == null && arithmetic.narrowArguments(args)) {
+                method = uberspect.getMethod(obj, meth, args);
+            }
+            if (method != null) {
+                result = method.invoke(obj, args);
+            } else {
+                xjexl = new JexlException.Method(info, meth, args);
+            }
+        } catch (final JexlException xany) {
+            xjexl = xany;
+        } catch (final Exception xany) {
+            xjexl = new JexlException.Method(info, meth, args, xany);
+        }
+        if (xjexl != null) {
+            if (!silent) {
+                throw xjexl.clean();
+            }
+            logger.warn(xjexl.getMessage(), xjexl.getCause());
+            result = null;
+        }
+        return result;
+    }
+
+public String getMethodSignature() {
+            return getDetail();
+        }","
+
+/**
+         * @return the method signature
+         * @since 3.2
+         */"
+commons-jexl3_314,"@Test
+    public void testTryFailed_oe() throws Exception {
+        final Functor func = new Functor();
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""func"", func);
+        Object result;
+        final JexlUberspect uber = JEXL.getUberspect();
+        final JexlMethod method = uber.getMethod(func, ""over"", ""foo"", 42);
+        Assert.assertNotNull(method);
+        result = method.tryInvoke(""over"", func, ""foo"", 42);
+        Assert.assertEquals(""foo + 42"", result);
+        func.setKill(true);
+        try {
+            /*result = */method.tryInvoke(""over"", func, ""foo"", 42);
+            Assert.fail(""should throw TryFailed"");
+        } catch (final JexlException.TryFailed xfail) {
+            Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
+        }
+
+        func.setKill(false);
+        final JexlPropertySet setter = uber.getPropertySet(func, ""under"", ""42"");
+        result = setter.tryInvoke(func, ""under"", ""42"");
+        Assert.assertFalse(setter.tryFailed(result));
+        Assert.assertEquals(""42"", result);
+
+        final JexlPropertyGet getter = uber.getPropertyGet(func, ""under"");
+        result = getter.tryInvoke(func, ""under"");
+        Assert.assertFalse(getter.tryFailed(result));
+        Assert.assertEquals(""42"", result);
+
+        func.setKill(true);
+        try {
+            /*result = */setter.tryInvoke(func, ""under"", ""42"");
+            Assert.fail(""should throw TryFailed"");
+        } catch (final JexlException.TryFailed xfail) {
+            Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
+        }
+        func.setKill(false);
+        result = setter.tryInvoke(func, ""under"", ""-42"");
+        Assert.assertEquals(""-42"", result);
+
+        func.setKill(true);
+        try {
+            /*result = */getter.tryInvoke(func, ""under"");
+            Assert.fail(""should throw TryFailed"");
+        } catch (final JexlException.TryFailed xfail) {
+            Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
+        }
+
+        func.setKill(false);
+        result = getter.tryInvoke(func, ""under"");
+        Assert.assertFalse(getter.tryFailed(result));
+        Assert.assertEquals(""-42"", result);
+    }",MethodTest::testTryFailed_oe,"public String getMethod() {
+            final String signature = getMethodSignature();
+            final int lparen = signature.indexOf('(');
+            return lparen > 0? signature.substring(0, lparen) : signature;
+        }
+
+@Override
+    public Object tryInvoke(final String name, final Object obj, final Object... args) {
+        final MethodKey tkey = new MethodKey(name, args);
+        // let's assume that invocation will fly if the declaring class is the
+        // same and arguments have the same type
+        if (objectClass.equals(obj.getClass()) && tkey.equals(key)) {
+            try {
+                return invoke(obj, args);
+            } catch (IllegalAccessException | IllegalArgumentException xill) {
+                return TRY_FAILED;// fail
+            } catch (final InvocationTargetException xinvoke) {
+                throw JexlException.tryFailed(xinvoke); // throw
+            }
+        }
+        return JexlEngine.TRY_FAILED;
+    }
+
+@Override
+    public boolean tryFailed(final Object rval) {
+        return rval == Uberspect.TRY_FAILED;
+    }","/**
+         * @return the method name
+         */
+
+"
+commons-jexl3_315,"@Test
+    public void testTryFailedScript_oe() throws Exception {
+        final Functor func = new Functor();
+        final JexlContext ctxt = new MapContext();
+        ctxt.set(""func"", func);
+        Object result;
+        final JexlUberspect uber = JEXL.getUberspect();
+        final JexlScript method = JEXL.createScript(""(x, y)->{ func.over(x, y) }"");
+        Assert.assertNotNull(method);
+        result = method.execute(ctxt, ""foo"", 42);
+        Assert.assertEquals(""foo + 42"", result);
+        func.setKill(true);
+        try {
+            /*result = */method.execute(ctxt, ""foo"", 42);
+            Assert.fail(""should throw TryFailed"");
+        } catch (final JexlException xfail) {
+            Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
+        }
+
+        func.setKill(false);
+        final JexlScript setter = JEXL.createScript(""(x)->{ func.under = x }"");
+        result = setter.execute(ctxt, ""42"");
+        Assert.assertEquals(""42"", result);
+
+        final JexlScript getter = JEXL.createScript(""func.under"");
+        Assert.assertEquals(""42"", result);
+
+        func.setKill(true);
+        try {
+            /*result = */setter.execute(ctxt, ""42"");
+            Assert.fail(""should throw TryFailed"");
+        } catch (final JexlException xfail) {
+            Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
+        }
+        func.setKill(false);
+        result = setter.execute(ctxt, ""-42"");
+        Assert.assertEquals(""-42"", result);
+
+        func.setKill(true);
+        try {
+            /*result = */getter.execute(ctxt);
+            Assert.fail(""should throw TryFailed"");
+        } catch (final JexlException xfail) {
+            Assert.assertEquals(UnsupportedOperationException.class, xfail.getCause().getClass());
+        }
+
+        func.setKill(false);
+        result = getter.execute(ctxt);
+        Assert.assertEquals(""-42"", result);
+    }",MethodTest::testTryFailedScript_oe,"public final JexlScript createScript(final JexlInfo info, final String source, final String... names) {
+        return createScript(null, info, source, names);
+    }
+
+public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Creates a JexlScript from a String containing valid JEXL syntax.
+     * This method parses the script and validates the syntax.
+     *
+     * @param info   An info structure to carry debugging information if needed
+     * @param source A string containing valid JEXL syntax
+     * @param names  The script parameter names used during parsing; a corresponding array of arguments containing
+     * values should be used during evaluation
+     * @return A {@link JexlScript} which can be executed using a {@link JexlContext}
+     * @throws JexlException if there is a problem parsing the script
+     */
+
+/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_323,"@Test
+    public void testNamespaceCallEdge_oe() throws Exception {
+        final java.util.Map<String, Object> funcs = new java.util.HashMap<String, Object>();
+        final Edge func = new Edge();
+        funcs.put(""func"", func);
+
+        Object o;
+        Object c;
+        JexlExpression e;
+        final JexlEvalContext jc = new EnhancedContext(funcs);
+        try {
+            for (int i = 0; i < 2; ++i) {
+                e = JEXL.createExpression(""func:exec([1, 2])"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(int[] arg): "" + i, 20, o);
+
+                e = JEXL.createExpression(""func:exec(1, 2)"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(Object... args): "" + i, 4, o);
+
+                e = JEXL.createExpression(""func:exec([10.0, 20.0])"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(Object args): "" + i, 3, o);
+
+                e = JEXL.createExpression(""func:exec('1', 2)"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(Object... args): "" + i, 4, o);
+
+                Assert.assertEquals(""exec(String... args): "" + i, func.exec(""1"", ""2""), func.exec(new String[]{""1"", ""2""}));
+                e = JEXL.createExpression(""func:exec(['1', '2'])"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(String... args): "" + i, func.exec(new String[]{""1"", ""2""}), o);
+                e = JEXL.createExpression(""func:exec('1', '2')"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(String... args): "" + i, func.exec(""1"", ""2""), o);
+
+                e = JEXL.createExpression(""func:exec(true, [1, 2])"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(int[] arg): "" + i, 20, o);
+
+                e = JEXL.createExpression(""func:exec(true, 1, 2)"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(Object... args): "" + i, 4, o);
+
+                e = JEXL.createExpression(""func:exec(true, ['1', '2'])"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(Object args): "" + i, 3, o);
+
+                e = JEXL.createExpression(""func:exec(true, '1', '2')"");
+                o = e.evaluate(jc);
+                Assert.assertEquals(""exec(Object... args): "" + i, 4, o);
+
+                e = JEXL.createExpression(""func:execute(true, '1', '2')"");
+                o = e.evaluate(jc);
+                c = func.execute(Boolean.TRUE, ""1"", ""2"");
+                Assert.assertTrue(""execute(Object... args): "" + i, eqExecute(o, c));
+
+                e = JEXL.createExpression(""func:execute([true])"");
+                o = e.evaluate(jc);
+                c = func.execute(new boolean[]{true});
+                Assert.assertTrue(""execute(Object... args): "" + i, eqExecute(o, c));
+            }
+        } catch (final JexlException xjexl) {
+            Assert.fail(xjexl.toString());
+        }
+    }",MethodTest::testNamespaceCallEdge_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_346,"@Test
+    public void testIssue301a_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).arithmetic(new JexlArithmetic(false)).create();
+        final String[] srcs = new String[]{
+                ""var x = null; x.0"", ""var x = null; x[0]"", ""var x = [null,1]; x[0][0]""
+        };
+        for (int i = 0; i < srcs.length; ++i) {
+            final String src = srcs[i];
+            final JexlScript s = jexl.createScript(src);
+            try {
+                final Object o = s.execute(null);
+                if (i > 0) {
+                    Assert.fail(src + "": Should have failed"");
+                }
+            } catch (final Exception ex) {
+                Assert.assertTrue(ex.getMessage().contains(""x""));
+            }
+        }
+    }",Issues300Test::testIssue301a_oe,"@Override
+    public String getMessage() {
+        final StringBuilder msg = new StringBuilder();
+        if (info != null) {
+            msg.append(info.toString());
+        } else {
+            msg.append(""?:"");
+        }
+        msg.append(' ');
+        msg.append(detailedMessage());
+        final Throwable cause = getCause();
+        if (cause instanceof JexlArithmetic.NullOperand) {
+            msg.append("" caused by null operand"");
+        }
+        return msg.toString();
+    }","/**
+     * Detailed info message about this error.
+     * Format is ""debug![begin,end]: string \n msg"" where:
+     *
+     * - debug is the debugging information if it exists (@link JexlEngine.setDebug)
+     * - begin, end are character offsets in the string for the precise location of the error
+     * - string is the string representation of the offending expression
+     * - msg is the actual explanation message for this error
+     *
+     * @return this error as a string
+     */"
+commons-jexl3_356,"@Test
+    public void testIssue309a_oe() throws Exception {
+        final String src = ""<html lang=\""en\"">\n""
+                + ""  <body>\n""
+                + ""    <h1>Hello World!</h1>\n""
+                + ""$$ var i = 12++;\n""
+                + ""  </body>\n""
+                + ""</html>"";
+        final JexlEngine jexl = new JexlBuilder().safe(true).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+        final JexlInfo info = new JexlInfo(""template"", 1, 1);
+        try {
+            final JxltEngine.Template tmplt = jxlt.createTemplate(info, src);
+            Assert.fail(""shoud have thrown exception"");
+        } catch (final JexlException.Parsing xerror) {
+            Assert.assertEquals(4, xerror.getInfo().getLine());
+        }
+    }",Issues300Test::testIssue309a_oe,"public JexlInfo getInfo() {
+        return detailedInfo(mark, info);
+    }","/**
+     * Gets the specific information for this exception.
+     *
+     * @return the information
+     */"
+commons-jexl3_357,"@Test
+    public void testIssue309b_oe() throws Exception {
+        final String src = ""<html lang=\""en\"">\n""
+                + ""  <body>\n""
+                + ""    <h1>Hello World!</h1>\n""
+                + ""$$ var i = a b c;\n""
+                + ""  </body>\n""
+                + ""</html>"";
+        final JexlEngine jexl = new JexlBuilder().safe(true).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+        final JexlInfo info = new JexlInfo(""template"", 1, 1);
+        try {
+            final JxltEngine.Template tmplt = jxlt.createTemplate(info, src);
+            Assert.fail(""shoud have thrown exception"");
+        } catch (final JexlException.Parsing xerror) {
+            Assert.assertEquals(4, xerror.getInfo().getLine());
+        }
+    }",Issues300Test::testIssue309b_oe,"public JexlInfo getInfo() {
+        return detailedInfo(mark, info);
+    }","/**
+     * Gets the specific information for this exception.
+     *
+     * @return the information
+     */"
+commons-jexl3_362,"@Test
+    public void test322a_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().strict(true).create();
+        final JxltEngine jxlt = jexl.createJxltEngine();
+        final JexlContext context = new MapContext();
+
+        final String[] ins = new String[]{
+                ""${'{'}"", ""${\""{\""}"", ""${\""{}\""}"", ""${'{42}'}"", ""${\""{\\\""\\\""}\""}""
+        };
+        final String[] ctls = new String[]{
+                ""{"", ""{"", ""{}"", ""{42}"", ""{\""\""}""
+        };
+        StringWriter strw;
+        JxltEngine.Template template;
+        String output;
+
+        for (int i = 0; i < ins.length; ++i) {
+            final String src = ins[i];
+            try {
+                template = jxlt.createTemplate(""$$"", new StringReader(src));
+            } catch (final JexlException xany) {
+                Assert.fail(src);
+                throw xany;
+            }
+            strw = new StringWriter();
+            template.evaluate(context, strw);
+            output = strw.toString();
+            Assert.assertEquals(ctls[i], output);
+        }
+    }",Issues300Test::test322a_oe,,
+commons-jexl3_364,"@Test
+    public void test323_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().safe(false).create();
+        final Map<String, Object> vars = new HashMap<String, Object>();
+        final JexlContext jc = new MapContext(vars);
+        JexlScript script;
+        Object result;
+
+        try {
+            script = jexl.createScript(""a.n.t.variable"");
+            result = script.execute(jc);
+            Assert.fail(""a.n.t.variable is undefined!"");
+        } catch (final JexlException.Variable xvar) {
+            Assert.assertTrue(xvar.toString().contains(""a.n.t""));
+        }
+
+        jc.set(""a.n.t.variable"", null);
+        script = jexl.createScript(""a.n.t.variable"");
+        result = script.execute(jc);
+        Assert.assertNull(result);
+
+        jc.set(""a.n.t"", null);
+        try {
+            script = jexl.createScript(""a.n.t[0].variable"");
+            result = script.execute(jc);
+            Assert.fail(""a.n.t is null!"");
+        } catch (final JexlException.Variable xvar) {
+            Assert.assertTrue(xvar.toString().contains(""a.n.t""));
+        }
+
+        vars.remove(""a.n.t"");
+        try {
+            script = jexl.createScript(""a.n.t[0].variable"");
+            result = script.execute(jc);
+            Assert.fail(""a.n.t is undefined!"");
+        } catch (final JexlException.Variable xvar) {
+            Assert.assertTrue(xvar.toString().contains(""a.n.t""));
+        }
+        final List<Object> inner = new ArrayList<Object>();
+        vars.put(""a.n.t"", inner);
+        try {
+            script = jexl.createScript(""a.n.t[0].variable"");
+            result = script.execute(jc);
+            Assert.fail(""a.n.t is null!"");
+        } catch (final JexlException.Property xprop) {
+            Assert.assertTrue(xprop.toString().contains(""0""));
+        }
+        inner.add(42);
+        try {
+            script = jexl.createScript(""a.n.t[0].variable"");
+            result = script.execute(jc);
+            Assert.fail(""a.n.t is null!"");
+        } catch (final JexlException.Property xprop) {
+            Assert.assertTrue(xprop.toString().contains(""variable""));
+        }
+
+    }",Issues300Test::test323_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_365,"@Test
+    public void test324_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().create();
+        final String src42 = ""new('java.lang.Integer', 42)"";
+        final JexlExpression expr0 = jexl.createExpression(src42);
+        Assert.assertEquals(42, expr0.evaluate(null));
+        final String parsed = expr0.getParsedText();
+        Assert.assertEquals(src42, parsed);
+        try {
+            final JexlExpression expr = jexl.createExpression(""new()"");
+            Assert.fail(""should not parse"");
+        } catch (final JexlException.Parsing xparse) {
+            Assert.assertTrue(xparse.toString().contains("")""));
+        }
+    }",Issues300Test::test324_oe,"@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }
+
+@Override
+    public String getParsedText() {
+        return getParsedText(2);
+    }
+
+public final JexlExpression createExpression(final String expression) {
+        return createExpression(null, expression);
+    }","
+
+/**
+     * Creates a JexlExpression from a String containing valid JEXL syntax.
+     * This method parses the expression which must contain either a reference or an expression.
+     *
+     * @param expression A String containing valid JEXL syntax
+     * @return An {@link JexlExpression} which can be evaluated using a {@link JexlContext}
+     * @throws JexlException if there is a problem parsing the script
+     */"
+commons-jexl3_367,"@Test
+    public void test330_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().create();
+        final String longExpression = """"
+                + //
+                ""'THIS IS A VERY VERY VERY VERY VERY VERY VERY ""
+                + //
+                ""VERY VERY LONG STRING CONCATENATION ' + VARIABLE ' <--- ""
+                + //
+                ""error: missing + between VARIABLE and literal'"";
+        try {
+            jexl.createExpression(longExpression);
+            Assert.fail(""parsing malformed expression did not throw exception"");
+        } catch (final JexlException.Parsing exception) {
+            Assert.assertTrue(exception.getMessage().contains(""VARIABLE""));
+        }
+    }",Issues300Test::test330_oe,"@Override
+    public String getMessage() {
+        final StringBuilder msg = new StringBuilder();
+        if (info != null) {
+            msg.append(info.toString());
+        } else {
+            msg.append(""?:"");
+        }
+        msg.append(' ');
+        msg.append(detailedMessage());
+        final Throwable cause = getCause();
+        if (cause instanceof JexlArithmetic.NullOperand) {
+            msg.append("" caused by null operand"");
+        }
+        return msg.toString();
+    }","/**
+     * Detailed info message about this error.
+     * Format is ""debug![begin,end]: string \n msg"" where:
+     *
+     * - debug is the debugging information if it exists (@link JexlEngine.setDebug)
+     * - begin, end are character offsets in the string for the precise location of the error
+     * - string is the string representation of the offending expression
+     * - msg is the actual explanation message for this error
+     *
+     * @return this error as a string
+     */"
+commons-jexl3_369,"@Test
+    public void test347_oe() throws Exception {
+        final String src = ""A.B == 5"";
+        JexlEngine jexl = new JexlBuilder().safe(true).create();
+        JexlScript script = jexl.createScript(src);
+        Object result = script.execute(null);
+        Assert.assertFalse((Boolean) result);
+
+        jexl = new JexlBuilder().strict(true).safe(false).create();
+        JexlContext ctxt = new MapContext();
+        script = jexl.createScript(src);
+        try {
+            result = script.execute(ctxt);
+            Assert.fail(""should only succeed with safe navigation"");
+        } catch (JexlException xany) {
+            Assert.assertNotNull(xany);
+        }
+        ctxt.set(""A"", null);
+        try {
+            result = script.execute(ctxt);
+            Assert.fail(""should only succeed with safe navigation"");
+        } catch (JexlException xany) {
+            Assert.assertNotNull(xany);
+        }
+        ctxt.set(""A.B"", null);
+        result = script.execute(ctxt);
+        Assert.assertFalse((Boolean) result);
+    }",Issues300Test::test347_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_406,"@Test
+    public void testForEachContinueBroken_oe() throws Exception {
+        try {
+            final JexlScript e = JEXL.createScript(""var rr = 0; continue;"");
+            Assert.fail(""continue is out of loop!"");
+        } catch (final JexlException.Parsing xparse) {
+            final String str = xparse.detailedMessage();
+            Assert.assertTrue(str.contains(""continue""));
+        }
+    }",ForEachTest::testForEachContinueBroken_oe,"public Boolean contains(final Object container, final Object value) {
+        if (value == null && container == null) {
+            //if both are null L == R
+            return true;
+        }
+        if (value == null || container == null) {
+            // we know both aren't null, therefore L != R
+            return false;
+        }
+        // use arithmetic / pattern matching ?
+        if (container instanceof java.util.regex.Pattern) {
+            return ((java.util.regex.Pattern) container).matcher(value.toString()).matches();
+        }
+        if (container instanceof CharSequence) {
+            return value.toString().matches(container.toString());
+        }
+        // try contains on map key
+        if (container instanceof Map<?, ?>) {
+            if (value instanceof Map<?, ?>) {
+                return ((Map<?, ?>) container).keySet().containsAll(((Map<?, ?>) value).keySet());
+            }
+            return ((Map<?, ?>) container).containsKey(value);
+        }
+        // try contains on collection
+        if (container instanceof Collection<?>) {
+            if (value instanceof Collection<?>) {
+                return ((Collection<?>) container).containsAll((Collection<?>) value);
+            }
+            // left in right ? <=> right.contains(left) ?
+            return ((Collection<?>) container).contains(value);
+        }
+        return null;
+    }","/**
+     * Test if left contains right (right matches/in left).
+     * <p>Beware that this method arguments are the opposite of the operator arguments.
+     * 'x in y' means 'y contains x'.</p>
+     *
+     * @param container the container
+     * @param value the value
+     * @return test result or null if there is no arithmetic solution
+     */"
+commons-jexl3_407,"@Test
+    public void testForEachBreakBroken_oe() throws Exception {
+        try {
+            final JexlScript e = JEXL.createScript(""if (true) { break; }"");
+            Assert.fail(""break is out of loop!"");
+        } catch (final JexlException.Parsing xparse) {
+            final String str = xparse.detailedMessage();
+            Assert.assertTrue(str.contains(""break""));
+        }
+    }",ForEachTest::testForEachBreakBroken_oe,"public Boolean contains(final Object container, final Object value) {
+        if (value == null && container == null) {
+            //if both are null L == R
+            return true;
+        }
+        if (value == null || container == null) {
+            // we know both aren't null, therefore L != R
+            return false;
+        }
+        // use arithmetic / pattern matching ?
+        if (container instanceof java.util.regex.Pattern) {
+            return ((java.util.regex.Pattern) container).matcher(value.toString()).matches();
+        }
+        if (container instanceof CharSequence) {
+            return value.toString().matches(container.toString());
+        }
+        // try contains on map key
+        if (container instanceof Map<?, ?>) {
+            if (value instanceof Map<?, ?>) {
+                return ((Map<?, ?>) container).keySet().containsAll(((Map<?, ?>) value).keySet());
+            }
+            return ((Map<?, ?>) container).containsKey(value);
+        }
+        // try contains on collection
+        if (container instanceof Collection<?>) {
+            if (value instanceof Collection<?>) {
+                return ((Collection<?>) container).containsAll((Collection<?>) value);
+            }
+            // left in right ? <=> right.contains(left) ?
+            return ((Collection<?>) container).contains(value);
+        }
+        return null;
+    }","/**
+     * Test if left contains right (right matches/in left).
+     * <p>Beware that this method arguments are the opposite of the operator arguments.
+     * 'x in y' means 'y contains x'.</p>
+     *
+     * @param container the container
+     * @param value the value
+     * @return test result or null if there is no arithmetic solution
+     */"
+commons-jexl3_443,"@Test
+    public void testTernaryFail_oe() throws Exception {
+        final JexlEvalContext jc = new JexlEvalContext();
+        final JexlOptions options = jc.getEngineOptions();
+        final JexlExpression e = JEXL.createExpression(""false ? bar : quux"");
+        Object o;
+        options.setStrict(true);
+        options.setSilent(false);
+        try {
+           o = e.evaluate(jc);
+           Assert.fail(""Should have failed"");
+        } catch (final JexlException xjexl) {
+           Assert.assertTrue(xjexl.toString().contains(""quux""));
+        }
+    }",IfTest::testTernaryFail_oe,"@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }",
+commons-jexl3_465,"@Test
+    public void testObjectContext_oe() throws Exception {
+        final TheVarContext vars = new TheVarContext();
+        final JexlContext jc = new ObjectContext<TheVarContext>(JEXL, vars);
+        try {
+            JexlScript script;
+            Object result;
+            script = JEXL.createScript(""x = 3"");
+            result = script.execute(jc);
+            Assert.assertEquals(3, vars.getX());
+            Assert.assertEquals(3, result);
+            script = JEXL.createScript(""x == 3"");
+            result = script.execute(jc);
+            Assert.assertTrue((Boolean) result);
+            Assert.assertTrue(jc.has(""x""));
+
+            script = JEXL.createScript(""color = 'blue'"");
+            result = script.execute(jc);
+            Assert.assertEquals(""blue"", vars.getColor());
+            Assert.assertEquals(""blue"", result);
+            script = JEXL.createScript(""color == 'blue'"");
+            result = script.execute(jc);
+            Assert.assertTrue((Boolean) result);
+            Assert.assertTrue(jc.has(""color""));
+        } catch (final JexlException.Method ambiguous) {
+            Assert.fail(""total() is solvable"");
+        }
+    }",VarTest::testObjectContext_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_467,"@Test
+    public void testSetInt_oe() throws Exception {
+        final JexlExpression set = JEXL.createExpression(""pub.anInt = value"");
+        ctxt.set(""value"", -42);
+        Assert.assertEquals(-42, set.evaluate(ctxt));
+        Assert.assertEquals(-42, JEXL.getProperty(pub, ""anInt""));
+        ctxt.set(""value"", 42);
+        Assert.assertEquals(42, set.evaluate(ctxt));
+        Assert.assertEquals(42, JEXL.getProperty(pub, ""anInt""));
+        try {
+            ctxt.set(""value"", UPPER42);
+            Assert.assertNull(set.evaluate(ctxt));
+            Assert.fail(""should have thrown"");
+        } catch(final JexlException xjexl) {}
+    }",PublicFieldsTest::testSetInt_oe,"@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }
+
+public String getProperty() {
+            return getDetail();
+        }","
+
+/**
+         * @return the property name
+         */"
+commons-jexl3_471,"@Test
+    public void testSetInnerDouble_oe() throws Exception {
+        final JexlExpression set = JEXL.createExpression(""pub.inner.aDouble = value"");
+        ctxt.set(""value"", -42.0);
+        Assert.assertEquals(-42.0, set.evaluate(ctxt));
+        Assert.assertEquals(-42.0, JEXL.getProperty(pub, ""inner.aDouble""));
+        ctxt.set(""value"", 42.0);
+        Assert.assertEquals(42.0, set.evaluate(ctxt));
+        Assert.assertEquals(42.0, JEXL.getProperty(pub, ""inner.aDouble""));
+        try {
+            ctxt.set(""value"", UPPER42);
+            Assert.assertNull(set.evaluate(ctxt));
+            Assert.fail(""should have thrown"");
+        } catch(final JexlException xjexl) {}
+    }",PublicFieldsTest::testSetInnerDouble_oe,"@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }
+
+public String getProperty() {
+            return getDetail();
+        }","
+
+/**
+         * @return the property name
+         */"
+commons-jexl3_529,"@Test
+    public void testLexical1_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().strict(true).create();
+        final JexlEvalContext ctxt = new JexlEvalContext();
+        final JexlOptions options = ctxt.getEngineOptions();
+        options.setLexical(true);
+        JexlScript script;
+        Object result;
+
+        script = jexl.createScript(""var x = 0; for(var y : [1]) { var x = 42; return x; };"");
+        try {
+        result = script.execute(ctxt);
+            Assert.fail();
+        } catch (final JexlException xany) {
+            final String ww = xany.toString();
+        }
+
+        try {
+            script = jexl.createScript(""(x)->{ if (x) { var x = 7 * (x + x); x; } }"");
+            result = script.execute(ctxt, 3);
+            Assert.fail();
+        } catch (final JexlException xany) {
+            final String ww = xany.toString();
+        }
+
+        script = jexl.createScript(""{ var x = 0; } var x = 42; x"");
+        result = script.execute(ctxt, 21);
+        Assert.assertEquals(42, result);
+    }",LexicalTest::testLexical1_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_532,"@Test
+    public void testLexical5_oe() throws Exception {
+        final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).create();
+        final JexlContext ctxt = new DebugContext();
+        JexlScript script;
+        Object result;
+            script = jexl.createScript(""var x = 42; var y = () -> { {var x = debug(-42); }; return x; }; y()"");
+        try {
+            result = script.execute(ctxt);
+            Assert.assertEquals(42, result);
+        } catch (final JexlException xany) {
+            final String ww = xany.toString();
+            Assert.fail(ww);
+        }
+    }",LexicalTest::testLexical5_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_534,"@Test
+    public void testLexical6b_oe() throws Exception {
+        final String str = ""i = 0; { var i = 32; }; i"";
+        final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).lexicalShade(true).create();
+        final JexlScript e = jexl.createScript(str);
+        final JexlContext ctxt = new MapContext();
+        try {
+            final Object o = e.execute(ctxt);
+            Assert.fail(""i should be shaded"");
+        } catch (final JexlException xany) {
+            Assert.assertNotNull(xany);
+        }
+    }",LexicalTest::testLexical6b_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_536,"@Test
+    public void testLexical6d_oe() throws Exception {
+        final String str = ""i = 0; for (var i : [42]) i; i"";
+        final JexlEngine jexl = new JexlBuilder().strict(true).lexical(true).lexicalShade(true).create();
+        final JexlScript e = jexl.createScript(str);
+        final JexlContext ctxt = new MapContext();
+        try {
+            final Object o = e.execute(ctxt);
+            Assert.fail(""i should be shaded"");
+        } catch (final JexlException xany) {
+            Assert.assertNotNull(xany);
+        }
+    }",LexicalTest::testLexical6d_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_537,"@Test
+    public void testPragmaOptions_oe() throws Exception {
+        final String str = ""#pragma jexl.options '+strict +lexical +lexicalShade -safe'\n""
+                + ""i = 0; for (var i : [42]) i; i"";
+        final JexlEngine jexl = new JexlBuilder().strict(false).create();
+        final JexlScript e = jexl.createScript(str);
+        final JexlContext ctxt = new MapContext();
+        try {
+            final Object o = e.execute(ctxt);
+            Assert.fail(""i should be shaded"");
+        } catch (final JexlException xany) {
+            Assert.assertNotNull(xany);
+        }
+    }",LexicalTest::testPragmaOptions_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_540,"@Test
+    public void testContextualOptions0_oe() throws Exception {
+        final JexlFeatures f= new JexlFeatures();
+        final JexlEngine jexl = new JexlBuilder().features(f).strict(true).create();
+        final JexlEvalContext ctxt = new JexlEvalContext();
+        final JexlOptions options = ctxt.getEngineOptions();
+        options.setSharedInstance(false);
+        options.setLexical(true);
+        options.setLexicalShade(true);
+        ctxt.set(""options"", options);
+        final JexlScript script = jexl.createScript(""{var x = 42;} options.lexical = false; options.lexicalShade=false; x"");
+        try {
+        final Object result = script.execute(ctxt);
+        Assert.fail(""setting options.lexical should have no effect during execution"");
+        } catch(final JexlException xf) {
+            Assert.assertNotNull(xf);
+        }
+    }",LexicalTest::testContextualOptions0_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_546,"@Test
+    public void testForVariable1_oe() throws Exception {
+        final JexlFeatures f = new JexlFeatures();
+        f.lexical(true);
+        f.lexicalShade(true);
+        final JexlEngine jexl = new JexlBuilder().strict(true).features(f).create();
+        try {
+            final JexlScript script = jexl.createScript(""for(var x : 1..3) { var c = 0} for(var x : 1..3) { var c = 0}; return x"");
+            Assert.fail(""Should not have been parsed"");
+        } catch (final JexlException ex) {
+           Assert.assertTrue(ex instanceof JexlException);
+        }
+    }",LexicalTest::testForVariable1_oe,"public final JexlScript createScript(final JexlInfo info, final String source, final String... names) {
+        return createScript(null, info, source, names);
+    }","/**
+     * Creates a JexlScript from a String containing valid JEXL syntax.
+     * This method parses the script and validates the syntax.
+     *
+     * @param info   An info structure to carry debugging information if needed
+     * @param source A string containing valid JEXL syntax
+     * @param names  The script parameter names used during parsing; a corresponding array of arguments containing
+     * values should be used during evaluation
+     * @return A {@link JexlScript} which can be executed using a {@link JexlContext}
+     * @throws JexlException if there is a problem parsing the script
+     */"
+commons-jexl3_547,"@Test
+    public void testUndeclaredVariable_oe() throws Exception {
+        final JexlFeatures f = new JexlFeatures();
+        f.lexical(true);
+        f.lexicalShade(true);
+        final JexlEngine jexl = new JexlBuilder().strict(true).features(f).create();
+        try {
+            final JexlScript script = jexl.createScript(""{var x = 0}; return x"");
+            Assert.fail(""Should not have been parsed"");
+        } catch (final Exception ex) {
+           Assert.assertTrue(ex instanceof JexlException);
+        }
+    }",LexicalTest::testUndeclaredVariable_oe,"public final JexlScript createScript(final JexlInfo info, final String source, final String... names) {
+        return createScript(null, info, source, names);
+    }","/**
+     * Creates a JexlScript from a String containing valid JEXL syntax.
+     * This method parses the script and validates the syntax.
+     *
+     * @param info   An info structure to carry debugging information if needed
+     * @param source A string containing valid JEXL syntax
+     * @param names  The script parameter names used during parsing; a corresponding array of arguments containing
+     * values should be used during evaluation
+     * @return A {@link JexlScript} which can be executed using a {@link JexlContext}
+     * @throws JexlException if there is a problem parsing the script
+     */"
+commons-jexl3_556,"@Test
+    public void testCtorBlock_oe() throws Exception {
+        final String expr = ""new('"" + Foo.class.getName() + ""', '42')"";
+        JexlScript script = JEXL.createScript(expr);
+        Object result;
+        result = script.execute(null);
+        Assert.assertEquals(""42"", ((Foo) result).getName());
+
+        final JexlSandbox sandbox = new JexlSandbox();
+        sandbox.block(Foo.class.getName()).execute("""");
+        final JexlEngine sjexl = new JexlBuilder().sandbox(sandbox).strict(true).safe(false).create();
+
+        script = sjexl.createScript(expr);
+        try {
+            result = script.execute(null);
+            Assert.fail(""ctor should not be accessible"");
+        } catch (final JexlException.Method xmethod) {
+            LOGGER.debug(xmethod.toString());
+        }
+    }",SandboxTest::testCtorBlock_oe,"public final String getName() {
+        return name;
+    }","/**
+     * Gets the file/script/url name.
+     *
+     * @return template name
+     */"
+commons-jexl3_557,"@Test
+    public void testMethodBlock_oe() throws Exception {
+        final String expr = ""foo.Quux()"";
+        JexlScript script = JEXL.createScript(expr, ""foo"");
+        final Foo foo = new Foo(""42"");
+        Object result;
+        result = script.execute(null, foo);
+        Assert.assertEquals(foo.Quux(), result);
+
+        final JexlSandbox sandbox = new JexlSandbox();
+        sandbox.block(Foo.class.getName()).execute(""Quux"");
+        final JexlEngine sjexl = new JexlBuilder().sandbox(sandbox).strict(true).safe(false).create();
+
+        script = sjexl.createScript(expr, ""foo"");
+        try {
+            result = script.execute(null, foo);
+            Assert.fail(""Quux should not be accessible"");
+        } catch (final JexlException.Method xmethod) {
+            LOGGER.debug(xmethod.toString());
+        }
+    }",SandboxTest::testMethodBlock_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_558,"@Test
+    public void testGetBlock_oe() throws Exception {
+        final String expr = ""foo.alias"";
+        JexlScript script = JEXL.createScript(expr, ""foo"");
+        final Foo foo = new Foo(""42"");
+        Object result;
+        result = script.execute(null, foo);
+        Assert.assertEquals(foo.alias, result);
+
+        final JexlSandbox sandbox = new JexlSandbox();
+        sandbox.block(Foo.class.getName()).read(""alias"");
+        final JexlEngine sjexl = new JexlBuilder().sandbox(sandbox).strict(true).safe(false).create();
+
+        script = sjexl.createScript(expr, ""foo"");
+        try {
+            result = script.execute(null, foo);
+            Assert.fail(""alias should not be accessible"");
+        } catch (final JexlException.Property xvar) {
+            LOGGER.debug(xvar.toString());
+        }
+    }",SandboxTest::testGetBlock_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_559,"@Test
+    public void testSetBlock_oe() throws Exception {
+        final String expr = ""foo.alias = $0"";
+        JexlScript script = JEXL.createScript(expr, ""foo"", ""$0"");
+        final Foo foo = new Foo(""42"");
+        Object result;
+        result = script.execute(null, foo, ""43"");
+        Assert.assertEquals(""43"", result);
+
+        final JexlSandbox sandbox = new JexlSandbox();
+        sandbox.block(Foo.class.getName()).write(""alias"");
+        final JexlEngine sjexl = new JexlBuilder().sandbox(sandbox).strict(true).safe(false).create();
+
+        script = sjexl.createScript(expr, ""foo"", ""$0"");
+        try {
+            result = script.execute(null, foo, ""43"");
+            Assert.fail(""alias should not be accessible"");
+        } catch (final JexlException.Property xvar) {
+            LOGGER.debug(xvar.toString());
+        }
+    }",SandboxTest::testSetBlock_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_560,"@Test
+    public void testCantSeeMe_oe() throws Exception {
+        final JexlContext jc = new MapContext();
+        final String expr = ""foo.doIt()"";
+        JexlScript script;
+        Object result;
+
+        final JexlSandbox sandbox = new JexlSandbox(false);
+        sandbox.allow(Foo.class.getName());
+        final JexlEngine sjexl = new JexlBuilder().sandbox(sandbox).strict(true).safe(false).create();
+
+        jc.set(""foo"", new CantSeeMe());
+        script = sjexl.createScript(expr);
+        try {
+            result = script.execute(jc);
+            Assert.fail(""should have failed, doIt()"");
+        } catch (final JexlException xany) {
+        }
+        jc.set(""foo"", new Foo(""42""));
+            result = script.execute(jc);
+        Assert.assertEquals(42, ((Integer) result).intValue());
+    }",SandboxTest::testCantSeeMe_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_566,"@Test
+    public void testRestrict_oe() throws Exception {
+        final JexlContext context = new MapContext();
+        context.set(""System"", System.class);
+        final JexlSandbox sandbox = new JexlSandbox();
+        sandbox.allow(System.class.getName()).execute(""currentTimeMillis"");
+        sandbox.block(java.io.File.class.getName()).execute("""");
+
+        final JexlEngine sjexl = new JexlBuilder().sandbox(sandbox).safe(false).strict(true).create();
+
+        String expr;
+        JexlScript script;
+        Object result;
+
+        script = sjexl.createScript(""System.exit()"");
+        try {
+            result = script.execute(context);
+            Assert.fail(""should not allow calling exit!"");
+        } catch (final JexlException xjexl) {
+            LOGGER.debug(xjexl.toString());
+        }
+
+        script = sjexl.createScript(""System.exit(1)"");
+        try {
+            result = script.execute(context);
+            Assert.fail(""should not allow calling exit!"");
+        } catch (final JexlException xjexl) {
+            LOGGER.debug(xjexl.toString());
+        }
+
+        script = sjexl.createScript(""new('java.io.File', '/tmp/should-not-be-created')"");
+        try {
+            result = script.execute(context);
+            Assert.fail(""should not allow creating a file"");
+        } catch (final JexlException xjexl) {
+            LOGGER.debug(xjexl.toString());
+        }
+
+        expr = ""System.currentTimeMillis()"";
+        script = sjexl.createScript(""System.currentTimeMillis()"");
+        result = script.execute(context);
+        Assert.assertNotNull(result);
+    }",SandboxTest::testRestrict_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_568,"@Test
+    public void testSandboxInherit1_oe() throws Exception {
+        Object result;
+        final JexlContext ctxt = null;
+        final Operation2 foo = new Operation2(12);
+        final JexlSandbox sandbox = new JexlSandbox(false, true);
+        sandbox.allow(Operation.class.getName());
+        sandbox.block(Operation.class.getName()).execute(""nonCallable"");
+        final JexlEngine sjexl = new JexlBuilder().sandbox(sandbox).safe(false).strict(true).create();
+        final JexlScript someOp = sjexl.createScript(""foo.someOp(y)"", ""foo"", ""y"");
+        result = someOp.execute(ctxt, foo, 30);
+        Assert.assertEquals(42, result);
+        final JexlScript nonCallable = sjexl.createScript(""foo.nonCallable(y)"", ""foo"", ""y"");
+        try {
+            result = nonCallable.execute(null, foo, 0);
+            Assert.fail(""should not be possible"");
+        } catch (final JexlException xjm) {
+            LOGGER.debug(xjm.toString());
+        }
+    }",SandboxTest::testSandboxInherit1_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_569,"@Test
+    public void testNoJexl312_oe() throws Exception {
+        final JexlContext ctxt = new MapContext();
+
+        final JexlEngine sjexl = new JexlBuilder().safe(false).strict(true).create();
+        final JexlScript foo = sjexl.createScript(""x.getFoo()"", ""x"");
+        try {
+            foo.execute(ctxt, new Foo44());
+            Assert.fail(""should have thrown"");
+        } catch (final JexlException xany) {
+            Assert.assertNotNull(xany);
+        }
+    }",SandboxTest::testNoJexl312_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */"
+commons-jexl3_571,"@Test
+    public void testGetNullKeyAllowed1_oe() throws Exception {
+        JexlSandbox sandbox = new JexlSandbox(true, true);
+        JexlSandbox.Permissions p = sandbox.permissions(""java.util.Map"", false, true, true);
+        p.read().add(""quux"");
+        JexlEngine jexl = new JexlBuilder().sandbox(sandbox).create();
+        String q = ""'quux'""; //quotes are important!
+        JexlExpression expression = jexl.createExpression(""{""+q+"" : 'foo'}[""+q+""]"");
+        try {
+            Object o = expression.evaluate(null);
+            Assert.fail(""should have blocked "" + q);
+        } catch (JexlException.Property xp) {
+            Assert.assertTrue(xp.getMessage().contains(""undefined""));
+        }
+        for(String k : Arrays.asList(""'foo'"", ""null"")) {
+            expression = jexl.createExpression(""{""+k+"" : 'foo'}[""+k+""]"");
+            Object o = expression.evaluate(null);
+            Assert.assertEquals(""foo"", o);
+        }
+    }",SandboxTest::testGetNullKeyAllowed1_oe,"@Override
+    public String getMessage() {
+        final StringBuilder msg = new StringBuilder();
+        if (info != null) {
+            msg.append(info.toString());
+        } else {
+            msg.append(""?:"");
+        }
+        msg.append(' ');
+        msg.append(detailedMessage());
+        final Throwable cause = getCause();
+        if (cause instanceof JexlArithmetic.NullOperand) {
+            msg.append("" caused by null operand"");
+        }
+        return msg.toString();
+    }
+
+@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }","/**
+     * Detailed info message about this error.
+     * Format is ""debug![begin,end]: string \n msg"" where:
+     *
+     * - debug is the debugging information if it exists (@link JexlEngine.setDebug)
+     * - begin, end are character offsets in the string for the precise location of the error
+     * - string is the string representation of the offending expression
+     * - msg is the actual explanation message for this error
+     *
+     * @return this error as a string
+     */
+
+"
+commons-jexl3_572,"@Test
+    public void testGetNullKeyBlocked_oe() throws Exception {
+        JexlSandbox sandbox = new JexlSandbox(true, true);
+        JexlSandbox.Permissions p = sandbox.permissions(""java.util.Map"", false, true, true);
+        p.read().add(null);
+        p.read().add(""quux"");
+        JexlEngine jexl = new JexlBuilder().sandbox(sandbox).create();
+        JexlExpression e0 = jexl.createExpression(""{'bar' : 'foo'}['bar']"");
+        Object r0 = e0.evaluate(null);
+        Assert.assertEquals(""foo"", r0);
+        for(String k : Arrays.asList(""'quux'"", ""null"")) {
+            JexlExpression expression = jexl.createExpression(""{""+k+"" : 'foo'}[""+k+""]"");
+            try {
+                Object o = expression.evaluate(null);
+                Assert.fail(""should have blocked "" + k);
+            } catch (JexlException.Property xp) {
+                Assert.assertTrue(xp.getMessage().contains(""undefined""));
+            }
+        }
+    }",SandboxTest::testGetNullKeyBlocked_oe,"@Override
+    public Object evaluate(final JexlContext context) {
+        return execute(context);
+    }
+
+@Override
+    public String getMessage() {
+        final StringBuilder msg = new StringBuilder();
+        if (info != null) {
+            msg.append(info.toString());
+        } else {
+            msg.append(""?:"");
+        }
+        msg.append(' ');
+        msg.append(detailedMessage());
+        final Throwable cause = getCause();
+        if (cause instanceof JexlArithmetic.NullOperand) {
+            msg.append("" caused by null operand"");
+        }
+        return msg.toString();
+    }","
+
+/**
+     * Detailed info message about this error.
+     * Format is ""debug![begin,end]: string \n msg"" where:
+     *
+     * - debug is the debugging information if it exists (@link JexlEngine.setDebug)
+     * - begin, end are character offsets in the string for the precise location of the error
+     * - string is the string representation of the offending expression
+     * - msg is the actual explanation message for this error
+     *
+     * @return this error as a string
+     */"
+commons-jexl3_574,"@Test
+    public void testSetNullKeyAllowed1_oe() throws Exception {
+        Arithmetic350 a350 = new Arithmetic350(true);
+        JexlSandbox sandbox = new JexlSandbox(true, true);
+        JexlSandbox.Permissions p = sandbox.permissions(""java.util.Map"", true, false, true);
+        p.write().add(""quux"");
+        JexlEngine jexl = new JexlBuilder().arithmetic(a350).sandbox(sandbox).create();
+        String q = ""'quux'""; //quotes are important!
+        JexlExpression expression = jexl.createExpression(""{""+q+"" : 'foo'}[""+q+""] = '42'"");
+        try {
+            Object o = expression.evaluate(null);
+            Assert.fail(""should have blocked "" + q);
+        } catch (JexlException.Property xp) {
+            Assert.assertTrue(xp.getMessage().contains(""undefined""));
+        }
+        expression = jexl.createExpression(""{'bar' : 'foo'}['bar'] = '42'"");
+        expression.evaluate(null);
+        Map<?, ?> map = a350.getLastMap();
+        Assert.assertEquals(""42"", map.get(""bar""));
+        map.clear();
+        expression = jexl.createExpression(""{null : 'foo'}[null] = '42'"");
+        expression.evaluate(null);
+        map = a350.getLastMap();
+        Assert.assertEquals(""42"", map.get(null));
+    }",SandboxTest::testSetNullKeyAllowed1_oe,"@Override
+    public String getMessage() {
+        final StringBuilder msg = new StringBuilder();
+        if (info != null) {
+            msg.append(info.toString());
+        } else {
+            msg.append(""?:"");
+        }
+        msg.append(' ');
+        msg.append(detailedMessage());
+        final Throwable cause = getCause();
+        if (cause instanceof JexlArithmetic.NullOperand) {
+            msg.append("" caused by null operand"");
+        }
+        return msg.toString();
+    }
+
+public String get(final String name) {
+            return name;
+        }","/**
+     * Detailed info message about this error.
+     * Format is ""debug![begin,end]: string \n msg"" where:
+     *
+     * - debug is the debugging information if it exists (@link JexlEngine.setDebug)
+     * - begin, end are character offsets in the string for the precise location of the error
+     * - string is the string representation of the offending expression
+     * - msg is the actual explanation message for this error
+     *
+     * @return this error as a string
+     */
+
+/**
+         * Whether a given name is allowed or not.
+         *
+         * @param name the method/property name to check
+         * @return null (or NULL if name is null) if not allowed, the actual name to use otherwise
+         */"
+commons-jexl3_575,"@Test
+    public void testSetNullKeyBlocked_oe() throws Exception {
+        Arithmetic350 a350 = new Arithmetic350(true);
+        JexlSandbox sandbox = new JexlSandbox(true, true);
+        JexlSandbox.Permissions p = sandbox.permissions(""java.util.Map"", true, false, true);
+        p.write().add(null);
+        p.write().add(""quux"");
+        JexlEngine jexl = new JexlBuilder().arithmetic(a350).sandbox(sandbox).create();
+        JexlExpression expression = jexl.createExpression(""{'bar' : 'foo'}['bar'] = '42'"");
+        expression.evaluate(null);
+        Map<?,?> map = a350.getLastMap();
+        Assert.assertEquals(""42"", map.get(""bar""));
+        for(String k : Arrays.asList(""'quux'"", ""null"")) {
+            expression = jexl.createExpression(""{""+k+"" : 'foo'}[""+k+""] = '42'"");
+            try {
+                Object o = expression.evaluate(null);
+                Assert.fail(""should have blocked "" + k);
+            } catch (JexlException.Property xp) {
+                Assert.assertTrue(xp.getMessage().contains(""undefined""));
+            }
+        }
+    }",SandboxTest::testSetNullKeyBlocked_oe,"public String get(final String name) {
+            return name;
+        }
+
+@Override
+    public String getMessage() {
+        final StringBuilder msg = new StringBuilder();
+        if (info != null) {
+            msg.append(info.toString());
+        } else {
+            msg.append(""?:"");
+        }
+        msg.append(' ');
+        msg.append(detailedMessage());
+        final Throwable cause = getCause();
+        if (cause instanceof JexlArithmetic.NullOperand) {
+            msg.append("" caused by null operand"");
+        }
+        return msg.toString();
+    }","/**
+         * Whether a given name is allowed or not.
+         *
+         * @param name the method/property name to check
+         * @return null (or NULL if name is null) if not allowed, the actual name to use otherwise
+         */
+
+/**
+     * Detailed info message about this error.
+     * Format is ""debug![begin,end]: string \n msg"" where:
+     *
+     * - debug is the debugging information if it exists (@link JexlEngine.setDebug)
+     * - begin, end are character offsets in the string for the precise location of the error
+     * - string is the string representation of the offending expression
+     * - msg is the actual explanation message for this error
+     *
+     * @return this error as a string
+     */"
+commons-jexl3_576,"@Test
+    public void test342_oe() {
+        JexlBuilder builder = new JexlBuilder();
+        JexlUberspect uber = builder.create().getUberspect();
+        JexlEngine jexl = builder.uberspect(new ReferenceUberspect(uber)).safe(false).create();
+        JexlInfo info = new JexlInfo(""test352"", 1, 1);
+        Thing thing = new Thing();
+        JexlScript script;
+
+        script = jexl.createScript(info.at(53, 1),""thing.name.length()"", ""thing"");
+        Object result = script.execute(null, thing);
+        Assert.assertNull(result);
+
+        thing.name = ""foo"";
+        result = script.execute(null, thing);
+        Assert.assertEquals(3, result);
+
+        try {
+            script = jexl.createScript(info.at(62, 1), ""thing.name.size()"", ""thing"");
+            result = script.execute(null, thing);
+            Assert.fail(""should have thrown"");
+        } catch(JexlException.Method xmethod) {
+            Assert.assertEquals(""size"", xmethod.getDetail());
+            Assert.assertEquals(""test352@62:11 unsolvable function/method 'size'"", xmethod.getMessage());
+        }
+
+        try {
+            script = jexl.createScript(info.at(71, 1), ""thing.name?.size()"", ""thing"");
+            result = script.execute(null, thing);
+        } catch(JexlException.Method xmethod) {
+            Assert.fail(""should not have thrown"");
+        }
+
+        thing.name = null;
+        script = jexl.createScript(info,""thing.names.size()"", ""thing"");
+        result = script.execute(null, thing);
+        Assert.assertNull(result);
+        thing.name = ""froboz"";
+        result = script.execute(null, thing);
+        Assert.assertEquals(1, result);
+    }",OptionalTest::test342_oe,"public String execute(final Class<?> clazz, final String name) {
+        final String m = get(clazz).execute().get(name);
+        return """".equals(name) && m != null? clazz.getName() : m;
+    }
+
+@Override
+                    public JexlInfo.Detail getDetail() {
+                        return dbg;
+                    }
+
+@Override
+    public String getMessage() {
+        final StringBuilder msg = new StringBuilder();
+        if (info != null) {
+            msg.append(info.toString());
+        } else {
+            msg.append(""?:"");
+        }
+        msg.append(' ');
+        msg.append(detailedMessage());
+        final Throwable cause = getCause();
+        if (cause instanceof JexlArithmetic.NullOperand) {
+            msg.append("" caused by null operand"");
+        }
+        return msg.toString();
+    }","/**
+     * Gets the execute permission value for a given method of a class.
+     *
+     * @param clazz the class
+     * @param name the method name
+     * @return null if not allowed, the name of the method to use otherwise
+     */
+
+
+
+/**
+     * Detailed info message about this error.
+     * Format is ""debug![begin,end]: string \n msg"" where:
+     *
+     * - debug is the debugging information if it exists (@link JexlEngine.setDebug)
+     * - begin, end are character offsets in the string for the precise location of the error
+     * - string is the string representation of the offending expression
+     * - msg is the actual explanation message for this error
+     *
+     * @return this error as a string
+     */"
+commons-jexl3_590,"@Test
+    public void testNulls_oe() throws Exception {
+        final ScriptEngineManager manager = new ScriptEngineManager();
+        Assert.assertNotNull(""Manager should not be null"", manager);
+        final ScriptEngine engine = manager.getEngineByName(""jexl3"");
+        Assert.assertNotNull(""Engine should not be null (name)"", engine);
+        try {
+            engine.eval((String)null);
+            Assert.fail(""Should have caused NPE"");
+        } catch (final NullPointerException e) {
+        }
+        try {
+            engine.eval((Reader)null);
+            Assert.fail(""Should have caused NPE"");
+        } catch (final NullPointerException e) {
+        }
+    }",JexlScriptEngineTest::testNulls_oe,,
+commons-jexl3_594,"@Test
+    public void testRanges_oe() throws Exception {
+        final LongRange lr0 = LongRange.create(20,10);
+        Assert.assertEquals(10L, lr0.getMin());
+        Assert.assertEquals(20L, lr0.getMax());
+        Assert.assertFalse(lr0.isEmpty());
+        Assert.assertTrue(lr0.contains(10L));
+        Assert.assertTrue(lr0.contains(20L));
+        Assert.assertFalse(lr0.contains(30L));
+        Assert.assertFalse(lr0.contains(5L));
+        Assert.assertFalse(lr0.contains(null));
+        checkIteration(lr0, 20L, 10L);
+        final LongRange lr1 = LongRange.create(10,20);
+        checkIteration(lr1, 10L, 20L);
+        Assert.assertTrue(lr0.containsAll(lr1));
+        final LongRange lr2 = LongRange.create(10,15);
+        Assert.assertNotEquals(lr0, lr2);
+        Assert.assertTrue(lr0.containsAll(lr2));
+        Assert.assertFalse(lr2.containsAll(lr1));
+        final IntegerRange ir0 = IntegerRange.create(20,10);
+        checkIteration(ir0, 20, 10);
+        Assert.assertEquals(10, ir0.getMin());
+        Assert.assertEquals(20, ir0.getMax());
+        Assert.assertFalse(ir0.isEmpty());
+        Assert.assertTrue(ir0.contains(10));
+        Assert.assertTrue(ir0.contains(20));
+        Assert.assertFalse(ir0.contains(30));
+        Assert.assertFalse(ir0.contains(5));
+        Assert.assertFalse(ir0.contains(null));
+        final IntegerRange ir1 = IntegerRange.create(10,20);
+        checkIteration(ir1, 10, 20);
+        Assert.assertTrue(ir0.containsAll(ir1));
+        Assert.assertNotEquals(ir0, lr0);
+        Assert.assertNotEquals(ir1, lr1);
+        final IntegerRange ir2 = IntegerRange.create(10,15);
+        Assert.assertNotEquals(ir0, ir2);
+        Assert.assertTrue(ir0.containsAll(ir2));
+        Assert.assertFalse(ir2.containsAll(ir1));
+
+        long lc0 = 20;
+        final Iterator<Long> il0 = lr0.iterator();
+        while(il0.hasNext()) {
+            final long v0 = il0.next();
+            Assert.assertEquals(lc0, v0);
+            try {
+                switch((int)v0) {
+                    case 10:  il0.remove(); Assert.fail(); break;
+                    case 11: lr1.add(v0); Assert.fail(); break;
+                    case 12: lr1.remove(v0); Assert.fail(); break;
+                    case 13: lr1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 14: lr1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 15: lr1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
+                }
+            } catch(final UnsupportedOperationException xuo) {
+            }
+            lc0 -= 1;
+        }
+        Assert.assertEquals(9L, lc0);
+        try {
+            il0.next();
+            Assert.fail();
+        } catch(final NoSuchElementException xns) {
+        }
+
+        int ic0 = 20;
+        final Iterator<Integer> ii0 = ir0.iterator();
+        while(ii0.hasNext()) {
+            final int v0 = ii0.next();
+            Assert.assertEquals(ic0, v0);
+            try {
+                switch(v0) {
+                    case 10: ii0.remove(); Assert.fail(); break;
+                    case 11: ir1.add(v0); Assert.fail(); break;
+                    case 12: ir1.remove(v0); Assert.fail(); break;
+                    case 13: ir1.addAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 14: ir1.removeAll(Collections.singletonList(v0)); Assert.fail(); break;
+                    case 15: ir1.retainAll(Collections.singletonList(v0)); Assert.fail(); break;
+                }
+            } catch(final UnsupportedOperationException xuo) {
+            }
+            ic0 -= 1;
+        }
+        Assert.assertEquals(9, ic0);
+        try {
+            ii0.next();
+            Assert.fail();
+        } catch(final NoSuchElementException xns) {
+        }
+
+    }",RangeTest::testRanges_oe,"public long getMin() {
+        return min;
+    }
+
+public static LongRange create(final long from, final long to) {
+        if (from <= to) {
+            return new LongRange.Ascending(from, to);
+        }
+        return new LongRange.Descending(to, from);
+    }
+
+@Override
+    public boolean containsAll(final Collection<?> c) {
+        for (final Object cc : c) {
+            if (!contains(cc)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+public int getMin() {
+        return min;
+    }
+
+public int getMax() {
+        return max;
+    }
+
+@Override
+    public boolean isEmpty() {
+        return false;
+    }
+
+@Override
+    public boolean contains(final Object o) {
+        if (o instanceof Number) {
+            final long v = ((Number) o).intValue();
+            return min <= v && v <= max;
+        }
+        return false;
+    }
+
+public long getMax() {
+        return max;
+    }
+
+@Override
+    public boolean containsAll(final Collection<?> c) {
+        for(final Object cc : c) {
+            if (!contains(cc)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+public static IntegerRange create(final int from, final int to) {
+        if (from <= to) {
+            return new IntegerRange.Ascending(from, to);
+        }
+        return new IntegerRange.Descending(to, from);
+    }
+
+@Override
+    public boolean retainAll(final Collection<?> c) {
+        throw new UnsupportedOperationException();
+    }
+
+@Override
+    public boolean contains(final Object o) {
+        if (o instanceof Number) {
+            final long v = ((Number) o).longValue();
+            return min <= v && v <= max;
+        }
+        return false;
+    }","/**
+     * Gets the interval minimum value.
+     * @return the low boundary
+     */
+
+/**
+     * Creates a range, ascending or descending depending on boundaries order.
+     * @param from the lower inclusive boundary
+     * @param to   the higher inclusive boundary
+     * @return a range
+     */
+
+
+
+/**
+     * Gets the interval maximum value.
+     * @return the high boundary
+     */"
+commons-jexl3_595,"@Test
+    public void testEmptyContext_oe() {
+        try {
+            JexlEngine.EMPTY_CONTEXT.set(""nope"", 42);
+            Assert.fail(""empty context should be readonly"");
+        } catch(UnsupportedOperationException xun) {
+            Assert.assertNotNull(xun);
+        }
+    }",MiscIntrospectionTest::testEmptyContext_oe,"@Override
+        public void set(final String name, final Object value) {
+            throw new UnsupportedOperationException(""Not supported in void context."");
+        }",
+commons-jexl3_596,"@Test
+    public void testArrayIterator_oe() {
+        try {
+            new ArrayIterator(new ArrayList<>());
+        } catch(IllegalArgumentException xill) {
+            Assert.assertNotNull(xill);
+        }
+        ArrayIterator ai0 = new ArrayIterator(null);
+        Assert.assertFalse(ai0.hasNext());
+        try {
+            ai0.next();
+            Assert.fail(""should have failed"");
+        } catch(NoSuchElementException no) {
+            Assert.assertNotNull(no);
+        }
+        ai0 = new ArrayIterator(new int[]{42});
+        Assert.assertTrue(ai0.hasNext());
+        Assert.assertEquals(42, ai0.next());
+        Assert.assertFalse(ai0.hasNext());
+        try {
+            ai0.next();
+            Assert.fail(""iterator on null?"");
+        } catch(NoSuchElementException no) {
+            Assert.assertNotNull(no);
+        }
+        try {
+            ai0.remove();
+            Assert.fail(""should have failed"");
+        } catch(UnsupportedOperationException no) {
+            Assert.assertNotNull(no);
+        }
+    }",MiscIntrospectionTest::testArrayIterator_oe,"
+
+@Override
+    public void remove() {
+        throw new UnsupportedOperationException();
+    }
+
+@Override
+    public boolean hasNext() {
+        return (pos < size);
+    }
+
+@Override
+    public Object next() {
+        if (pos < size) {
+            return Array.get(array, pos++);
+        }
+        // we screwed up...
+        throw new NoSuchElementException(""No more elements: "" + pos
+                                         + "" / "" + size);
+    }","
+
+/**
+     * No op--merely added to satify the <code>Iterator</code> interface.
+     */
+
+/**
+     * Check to see if there is another element in the array.
+     *
+     * @return Whether there is another element.
+     */
+
+/**
+     * Move to next element in the array.
+     *
+     * @return The next object in the array.
+     */"
+commons-jexl3_597,"@Test
+    public void testArrayListWrapper_oe() {
+        ArrayListWrapper alw ;
+        try {
+            new ArrayListWrapper(1);
+            Assert.fail(""non-array wrap?"");
+        } catch(IllegalArgumentException xil) {
+            Assert.assertNotNull(xil);
+        }
+        Integer[] ai = new Integer[]{1, 2};
+        alw = new ArrayListWrapper(ai);
+        Assert.assertEquals(1, alw.indexOf(2));
+        Assert.assertEquals(-1, alw.indexOf(null));
+    }",MiscIntrospectionTest::testArrayListWrapper_oe,"
+
+@Override
+    public int indexOf(final Object o) {
+        final int size = size();
+        if (o == null) {
+            for (int i = 0; i < size; i++) {
+                if (get(i) == null) {
+                    return i;
+                }
+            }
+        } else {
+            for (int i = 0; i < size; i++) {
+                if (o.equals(get(i))) {
+                    return i;
+                }
+            }
+        }
+        return -1;
+    }",

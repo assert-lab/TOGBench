@@ -8,8 +8,7 @@ jsoup_398_101,"@Test
             fail(""should have thrown IllegalArgumentException"");
         } catch (IllegalArgumentException expected) {
         }
-    }
-",TokenQueueTest::chompBalancedThrowIllegalArgumentException_oe_101_oe,"public String chompBalanced(char open, char close) {
+    }",TokenQueueTest::chompBalancedThrowIllegalArgumentException_oe_101_oe,"public String chompBalanced(char open, char close) {
         int start = -1;
         int end = -1;
         int depth = 0;

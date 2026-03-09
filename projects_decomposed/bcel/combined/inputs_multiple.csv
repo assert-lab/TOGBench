@@ -1,0 +1,83 @@
+id,test_prefix,test_name
+bcel_65,"@Test_oe(expected=ClassGenException.class)
+    public void testsetInstructionNull() {
+        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);
+        ih.setInstruction(null);
+        Assert.assertNotNull(ih);
+    }",InstructionHandleTestCase::Test_oe
+bcel_67,"@Test_oe(expected=ClassGenException.class)
+    public void testsetInstructionnotI() {
+        final InstructionHandle ih = InstructionHandle.getInstructionHandle(new NOP());// have to start with a valid non BI
+        Assert.assertNotNull(ih);
+        ih.setInstruction(new GOTO(null));
+        Assert.assertNotNull(ih);
+    }",InstructionHandleTestCase::Test_oe
+bcel_81,"@Test_oe(expected=ClassGenException.class)
+    public void testsetInstructionNull() {
+        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);
+        bh.setInstruction(null);
+        Assert.assertNotNull(bh);
+    }",BranchHandleTestCase::Test_oe
+bcel_83,"@Test_oe(expected=ClassGenException.class)
+    public void testsetInstructionnotBI() {
+        final BranchHandle bh = BranchHandle.getBranchHandle(new GOTO(null));// have to start with a valid BI
+        Assert.assertNotNull(bh);
+        bh.setInstruction(new NOP());
+        Assert.assertNotNull(bh);
+    }",BranchHandleTestCase::Test_oe
+bcel_87,"@Test
+    public void testJreModules_oe() throws Exception {
+        Assume.assumeTrue(SystemUtils.isJavaVersionAtLeast(JavaVersion.JAVA_9));
+        try (final ModularRuntimeImage mri = new ModularRuntimeImage(javaHome)) {
+            final List<Path> modules = mri.modules();
+            Assert.assertFalse(modules.isEmpty());
+            for (final Path path : modules) {
+                Files.walkFileTree(path, new ClassParserFilesVisitor(""*.class""));
+            }
+        }
+    }",JdkGenericDumpTestCase::testJreModules_oe
+bcel_91,"private void testClassOnPath_oe(final String javaClass) throws Exception {
+        // Get javap of the input class
+        final String initial = exec(null, ""javap"", ""-p"", ""-c"", javaClass);
+
+        final File workDir = new File(""target"");
+        final File infile = new File(javaClass);
+        final JavaClass java_class = BCELifier.getJavaClass(infile.getName().replace("".class"", """"));
+        assertNotNull(java_class);
+        final File outfile = new File(workDir, infile.getName().replace("".class"", ""Creator.java""));
+        try (FileOutputStream fos = new FileOutputStream(outfile)) {
+            final BCELifier bcelifier = new BCELifier(java_class, fos);
+            bcelifier.start();
+        }
+        exec(workDir, ""javac"", ""-cp"", ""classes"", outfile.getName(), ""-source"", ""1.8"", ""-target"", ""1.8"");
+        exec(workDir, ""java"", ""-cp"", ""."" + File.pathSeparator + ""classes"", outfile.getName().replace("".java"", """"));
+        final String output = exec(workDir, ""javap"", ""-p"", ""-c"", infile.getName());
+        assertEquals(canonHashRef(initial), canonHashRef(output));
+    }",BCELifierTestCase::testClassOnPath_oe
+bcel_97,"@Test
+    public void testListJreModules_oe() throws IOException {
+        final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH);
+        Assert.assertFalse(listEntries.isEmpty());
+        Assert.assertTrue(listEntries.toString().indexOf(""/java.base"") > -1);
+    }",ModularRuntimeImageTestCase::testListJreModules_oe
+bcel_98,"@Test
+    public void testListJreModule_oe() throws IOException {
+        final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.MODULES_PATH + ""/java.base"");
+        Assert.assertFalse(listEntries.isEmpty());
+        Assert.assertTrue(listEntries.toString().indexOf(""/java.base"") > -1);
+    }",ModularRuntimeImageTestCase::testListJreModule_oe
+bcel_99,"@Test
+    public void testListJreModulePackageDir_oe() throws IOException {
+        final List<Path> listEntries = modularRuntimeImage
+                .list(ModularRuntimeImage.MODULES_PATH + ""/java.base/java/lang"");
+        Assert.assertFalse(listEntries.isEmpty());
+        Assert.assertTrue(listEntries.toString().indexOf(""/java.base/java/lang/String.class"") > -1);
+    }",ModularRuntimeImageTestCase::testListJreModulePackageDir_oe
+bcel_100,"@Test
+    public void testListJrePackages_oe() throws IOException {
+        final List<Path> listEntries = modularRuntimeImage.list(ModularRuntimeImage.PACKAGES_PATH);
+        Assert.assertFalse(listEntries.isEmpty());
+        Assert.assertTrue(listEntries.toString().indexOf(""java.lang"") > -1);
+    }",ModularRuntimeImageTestCase::testListJrePackages_oe

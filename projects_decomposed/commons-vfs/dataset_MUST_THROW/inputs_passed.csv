@@ -6,8 +6,7 @@ commons-vfs_141_101,"@Test
             fail();
         } catch (final IllegalArgumentException ex) {
         }
-    }
-",RegexFileFilterTestCase::testPatternNullArgConstruction_oe_101_oe
+    }",RegexFileFilterTestCase::testPatternNullArgConstruction_oe_101_oe
 commons-vfs_143_101,"@Test
     public void testStringIOCaseNullArgConstruction_oe_101_oe() {
         try {
@@ -15,8 +14,7 @@ commons-vfs_143_101,"@Test
             fail();
         } catch (final IllegalArgumentException ex) {
         }
-    }
-",RegexFileFilterTestCase::testStringIOCaseNullArgConstruction_oe_101_oe
+    }",RegexFileFilterTestCase::testStringIOCaseNullArgConstruction_oe_101_oe
 commons-vfs_144_101,"@Test
     public void testStringNullArgConstruction_oe_101_oe() {
         try {
@@ -24,8 +22,7 @@ commons-vfs_144_101,"@Test
             fail();
         } catch (final IllegalArgumentException ex) {
         }
-    }
-",RegexFileFilterTestCase::testStringNullArgConstruction_oe_101_oe
+    }",RegexFileFilterTestCase::testStringNullArgConstruction_oe_101_oe
 commons-vfs_145_101,"@Test
     public void testStringPatternNullArgConstruction_oe_101_oe() {
         try {
@@ -33,5 +30,4 @@ commons-vfs_145_101,"@Test
             fail();
         } catch (final IllegalArgumentException ex) {
         }
-    }
-",RegexFileFilterTestCase::testStringPatternNullArgConstruction_oe_101_oe
+    }",RegexFileFilterTestCase::testStringPatternNullArgConstruction_oe_101_oe

@@ -1,0 +1,11 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,dataset_type
+bcel_65,bcel,InstructionHandleTestCase,Test_oe,src/test/java/org/apache/bcel/generic/InstructionHandleTestCase.java,,,,multiple
+bcel_67,bcel,InstructionHandleTestCase,Test_oe,src/test/java/org/apache/bcel/generic/InstructionHandleTestCase.java,,,,multiple
+bcel_81,bcel,BranchHandleTestCase,Test_oe,src/test/java/org/apache/bcel/generic/BranchHandleTestCase.java,,,,multiple
+bcel_83,bcel,BranchHandleTestCase,Test_oe,src/test/java/org/apache/bcel/generic/BranchHandleTestCase.java,,,,multiple
+bcel_87,bcel,JdkGenericDumpTestCase,testJreModules_oe,src/test/java/org/apache/bcel/generic/JdkGenericDumpTestCase.java,,,,multiple
+bcel_91,bcel,BCELifierTestCase,testClassOnPath_oe,src/test/java/org/apache/bcel/util/BCELifierTestCase.java,,,,multiple
+bcel_97,bcel,ModularRuntimeImageTestCase,testListJreModules_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,multiple
+bcel_98,bcel,ModularRuntimeImageTestCase,testListJreModule_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,multiple
+bcel_99,bcel,ModularRuntimeImageTestCase,testListJreModulePackageDir_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,multiple
+bcel_100,bcel,ModularRuntimeImageTestCase,testListJrePackages_oe,src/test/java/org/apache/bcel/util/ModularRuntimeImageTestCase.java,,,,multiple

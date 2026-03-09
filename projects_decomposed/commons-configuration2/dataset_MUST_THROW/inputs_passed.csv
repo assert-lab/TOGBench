@@ -6,8 +6,7 @@ commons-configuration2_94_101,"@Test
             fail(""No conversion exception thrown!"");
         } catch (final ConversionException cex) {
         }
-    }
-",TestDataConfiguration::testConversionExceptionCause_oe_101_oe,"@Override
+    }",TestDataConfiguration::testConversionExceptionCause_oe_101_oe,"@Override
     public Object get(final Object key) {
         return configuration.getProperty(String.valueOf(key));
     }","/**
@@ -24,10 +23,8 @@ commons-configuration2_1499_101,"@Test
             model.getTrackedNode(selector);
             fail(""Could get untracked node!"");
         } catch (final ConfigurationRuntimeException crex) {
-            // expected
         }
-    }
-",TestInMemoryNodeModelTrackedNodes::testUntrackNode_oe_101_oe,"public ImmutableNode getTrackedNode(final NodeSelector selector) {
+    }",TestInMemoryNodeModelTrackedNodes::testUntrackNode_oe_101_oe,"public ImmutableNode getTrackedNode(final NodeSelector selector) {
         return getTrackedNodeData(selector).getNode();
     }","/**
      * Returns the current {@code ImmutableNode} instance associated with the given selector.
@@ -42,10 +39,8 @@ commons-configuration2_1510_101,"@Test
             new FileHandler(config).load(new StringReader(""""));
             fail(""No exception thrown on loading an empty file"");
         } catch (final ConfigurationException e) {
-            // expected
         }
-    }
-",TestPropertyListConfiguration::testLoadWithError_oe_101_oe,"protected void load(final Map<String, Object> map) {
+    }",TestPropertyListConfiguration::testLoadWithError_oe_101_oe,"protected void load(final Map<String, Object> map) {
         final List<ImmutableNode> roots = constructHierarchy("""", map);
         getNodeModel().setRootNode(roots.get(0));
     }","/**

@@ -5,7 +5,7 @@
 [INFO] --------------------------------[ jar ]---------------------------------
 [INFO] 
 [INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ commons-weaver-normalizer ---
-[INFO] Deleting /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer (includes = [dependency-reduced-pom.xml], excludes = [])
+[INFO] Deleting /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer (includes = [dependency-reduced-pom.xml], excludes = [])
 [INFO] 
 [INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-normalizer ---
 [INFO] 
@@ -23,21 +23,21 @@ main:
 [INFO] Executing tasks
 
 main:
-    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF
-     [copy] Copying 3 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF
-     [copy] Copying /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/LICENSE.txt to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF/LICENSE.txt
-     [copy] Copying /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/NOTICE.txt to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF/NOTICE.txt
-     [copy] Copying /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/LICENSE-asm6.2.1.txt to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
-    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF
-     [copy] Copying 3 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF
-     [copy] Copying /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/LICENSE.txt to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF/LICENSE.txt
-     [copy] Copying /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/NOTICE.txt to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF/NOTICE.txt
-     [copy] Copying /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/LICENSE-asm6.2.1.txt to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
-    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF
-     [copy] Copying 3 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF
-     [copy] Copying /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/LICENSE.txt to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF/LICENSE.txt
-     [copy] Copying /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/NOTICE.txt to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF/NOTICE.txt
-     [copy] Copying /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/LICENSE-asm6.2.1.txt to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF
+     [copy] Copying 3 files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF
+     [copy] Copying /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/LICENSE.txt to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/NOTICE.txt to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/LICENSE-asm6.2.1.txt to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF
+     [copy] Copying 3 files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF
+     [copy] Copying /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/LICENSE.txt to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF/LICENSE.txt
+     [copy] Copying /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/NOTICE.txt to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF/NOTICE.txt
+     [copy] Copying /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/LICENSE-asm6.2.1.txt to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
+    [mkdir] Created dir: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF
+     [copy] Copying 3 files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF
+     [copy] Copying /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/LICENSE.txt to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF/LICENSE.txt
+     [copy] Copying /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/NOTICE.txt to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF/NOTICE.txt
+     [copy] Copying /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/LICENSE-asm6.2.1.txt to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
 [INFO] Executed tasks
 [INFO] 
 [INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-weaver-normalizer ---
@@ -45,9 +45,9 @@ main:
 [INFO] --- build-helper-maven-plugin:1.9:add-resource (add-source-notices) @ commons-weaver-normalizer ---
 [INFO] 
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-weaver-normalizer ---
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer
-[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773032034740
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer
+[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054788300
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ commons-weaver-normalizer ---
@@ -58,7 +58,7 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ commons-weaver-normalizer ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/classes
+[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/classes
 [INFO] 
 [INFO] --- maven-bundle-plugin:3.5.0:manifest (bundle-manifest) @ commons-weaver-normalizer ---
 [INFO] 
@@ -69,15 +69,15 @@ main:
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ commons-weaver-normalizer ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/src/test/resources
 [INFO] Copying 0 resource to META-INF
 [INFO] Copying 3 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ commons-weaver-normalizer ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-weaver/modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
+[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/modules/normalizer/src/test/java/org/apache/commons/weaver/normalizer/UtilsTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-weaver-normalizer ---
 [INFO] 
@@ -85,15 +85,15 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.137 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.weaver.normalizer.UtilsTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.888 s
-[INFO] Finished at: 2026-03-08T23:53:59-05:00
+[INFO] Total time:  6.477 s
+[INFO] Finished at: 2026-03-09T06:13:11-05:00
 [INFO] ------------------------------------------------------------------------

@@ -1,0 +1,399 @@
+id,test_prefix,test_name
+springside4_1,"@Test
+	public void applyBorrowRequestWithError_oe() {
+
+		// 自己借自己的书
+		Book book = new Book(1L);
+		book.status = Book.STATUS_IDLE;
+		book.owner = new Account(1L);
+
+		Mockito.when(mockBookDao.findOne(1L)).thenReturn(book);
+		try {
+			service.applyBorrowRequest(1L, new Account(1L));
+			fail(""should fail here"");
+		} catch (Exception e) {
+			assertThat(e).hasMessageContaining(""User shouldn't borrower the book which is himeself"");
+			assertThat(appender.getLastMessage()).contains(""user id:1,book id:1"");
+		}
+		// 保证BookDao没被调用
+		Mockito.verify(mockBookDao, Mockito.never()).save(Mockito.any(Book.class));
+
+		// 借已借出的书
+		book.status = Book.STATUS_REQUEST;
+
+		try {
+			service.applyBorrowRequest(1L, new Account(3L));
+			fail(""should fail here"");
+		} catch (Exception e) {
+			assertThat(e).hasMessageContaining(""The book is not idle"");
+			assertThat(appender.getLastMessage()).contains(""user id:3,book id:1,status:request"");
+		}
+		Mockito.verify(mockBookDao, Mockito.never()).save(Mockito.any(Book.class));
+	}",BookBorrowServiceTest::applyBorrowRequestWithError_oe
+springside4_2,"@Test
+	public void listBook_oe() {
+		BookList tasks = restTemplate.getForObject(resourceUrl, BookList.class);
+		assertThat(tasks).hasSize(3);
+		BookDto firstBook = tasks.get(0);
+
+		assertThat(firstBook.title).isEqualTo(""Big Data日知录"");
+		assertThat(firstBook.owner.name).isEqualTo(""Calvin"");
+
+		BookDto book = restTemplate.getForObject(resourceUrl + ""/{id}"", BookDto.class, 1L);
+		assertThat(book.title).isEqualTo(""Big Data日知录"");
+		assertThat(book.owner.name).isEqualTo(""Calvin"");
+	}",BookEndpointTest::listBook_oe
+springside4_3,"@Test
+	public void applyRequest_oe() {
+		String token = login(""calvin.xiao@springside.io"");
+
+		ResponseEntity<String> response = restTemplate.getForEntity(resourceUrl + ""/{id}/request?token={token}"",
+				String.class, 3L, token);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+		// 查询数据库状态
+		Book book = bookDao.findOne(3L);
+		assertThat(book.borrower.id).isEqualTo(1L);
+		assertThat(book.status).isEqualTo(Book.STATUS_REQUEST);
+
+		// 回退操作
+		response = restTemplate.getForEntity(resourceUrl + ""/{id}/cancel?token={token}"", String.class, 3L, token);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+		logout(token);
+	}",BookEndpointTest::applyRequest_oe
+springside4_4,"@Test
+	public void applyRequestWithError_oe() {
+		// 未设置token
+		ResponseEntity<String> response = restTemplate.getForEntity(resourceUrl + ""/{id}/request"", String.class, 1L);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+		ErrorResult errorResult = jsonMapper.fromJson(response.getBody(), ErrorResult.class);
+		assertThat(errorResult.code).isEqualTo(ErrorCode.NO_TOKEN.code);
+
+		Book book = bookDao.findOne(1L);
+		assertThat(book.borrower).isNull();
+
+		// 设置错误token
+		response = restTemplate.getForEntity(resourceUrl + ""/{id}/request?token={token}"", String.class, 1L, ""abc"");
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.UNAUTHORIZED);
+		errorResult = jsonMapper.fromJson(response.getBody(), ErrorResult.class);
+		assertThat(errorResult.code).isEqualTo(ErrorCode.UNAUTHORIZED.code);
+
+		book = bookDao.findOne(1L);
+		assertThat(book.borrower).isNull();
+
+		// 自己借自己的书
+		String token = login(""calvin.xiao@springside.io"");
+
+		response = restTemplate.getForEntity(resourceUrl + ""/{id}/request?token={token}"", String.class, 1L, token);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.FORBIDDEN);
+		errorResult = jsonMapper.fromJson(response.getBody(), ErrorResult.class);
+		assertThat(errorResult.code).isEqualTo(ErrorCode.BOOK_OWNERSHIP_WRONG.code);
+
+		book = bookDao.findOne(1L);
+		assertThat(book.borrower).isNull();
+
+		logout(token);
+
+		// 借一本已被申请借出的书
+		token = login(""calvin.xiao@springside.io"");
+
+		response = restTemplate.getForEntity(resourceUrl + ""/{id}/request?token={token}"", String.class, 3L, token);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+		response = restTemplate.getForEntity(resourceUrl + ""/{id}/request?token={token}"", String.class, 3L, token);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+		errorResult = jsonMapper.fromJson(response.getBody(), ErrorResult.class);
+		assertThat(errorResult.code).isEqualTo(ErrorCode.BOOK_STATUS_WRONG.code);
+
+		// 回退操作
+		response = restTemplate.getForEntity(resourceUrl + ""/{id}/cancel?token={token}"", String.class, 3L, token);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+		logout(token);
+	}",BookEndpointTest::applyRequestWithError_oe
+springside4_5,"@Test
+	public void fullBorrowProcess_oe() {
+		// 发起请求
+		String token = login(""david.wang@springside.io"");
+
+		ResponseEntity<String> response = restTemplate.getForEntity(resourceUrl + ""/{id}/request?token={token}"",
+				String.class, 1L, token);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+		logout(token);
+
+		// 确认借出
+		token = login(""calvin.xiao@springside.io"");
+
+		response = restTemplate.getForEntity(resourceUrl + ""/{id}/confirm?token={token}"", String.class, 1L, token);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+		// 确认归还
+		response = restTemplate.getForEntity(resourceUrl + ""/{id}/return?token={token}"", String.class, 1L, token);
+		assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+
+		logout(token);
+	}",BookEndpointTest::fullBorrowProcess_oe
+springside4_6,"@Test
+	public void findByOwnerId_oe() {
+		List<Book> books = bookDao.findByOwnerId(1L, new PageRequest(0, 10));
+		assertThat(books).hasSize(2);
+		assertThat(books.get(0).title).isEqualTo(""Big Data日知录"");
+	}",BookDaoTest::findByOwnerId_oe
+springside4_7,"@Test
+	public void findByBorrowerId_oe() {
+		List<Book> books = bookDao.findByBorrowerId(1L, new PageRequest(0, 10));
+		assertThat(books).hasSize(0);
+	}",BookDaoTest::findByBorrowerId_oe
+springside4_12,"@Test
+	public void testCaller_oe(){
+		hello();
+		new MyClass().hello();
+		assertThat(ThreadUtil.getCurrentClass()).isEqualTo(""org.springside.modules.utils.concurrent.ThreadUtilTest"");
+		assertThat(ThreadUtil.getCurrentMethod()).isEqualTo(""org.springside.modules.utils.concurrent.ThreadUtilTest.testCaller()"");
+		
+	}",ThreadUtilTest::testCaller_oe
+springside4_30,"@Test
+	public void general_oe() {
+		List<String> list1 = ListUtil.newArrayList();
+
+		List<String> list2 = ListUtil.newArrayList(""a"", ""b"", ""c"");
+		List<String> list3 = ListUtil.newArrayList(""a"");
+
+		assertThat(ListUtil.isEmpty(list1)).isTrue();
+		assertThat(ListUtil.isEmpty(null)).isTrue();
+		assertThat(ListUtil.isEmpty(list2)).isFalse();
+
+		assertThat(ListUtil.isNotEmpty(list1)).isFalse();
+		assertThat(ListUtil.isNotEmpty(null)).isFalse();
+		assertThat(ListUtil.isNotEmpty(list2)).isTrue();
+
+		assertThat(ListUtil.getFirst(list2)).isEqualTo(""a"");
+		assertThat(ListUtil.getLast(list2)).isEqualTo(""c"");
+
+		assertThat(ListUtil.getFirst(list3)).isEqualTo(""a"");
+		assertThat(ListUtil.getLast(list3)).isEqualTo(""a"");
+
+		assertThat(ListUtil.getFirst(list1)).isNull();
+		assertThat(ListUtil.getFirst(null)).isNull();
+	}",ListUtilTest::general_oe
+springside4_41,"@Test
+	public void test_oe() {
+		List<String> list1 = ListUtil.newArrayList();
+
+		List<String> list2 = ListUtil.newArrayList(""a"", ""b"", ""c"");
+		List<String> list3 = ListUtil.newArrayList(""a"");
+
+		Set<String> set1 = SetUtil.newSortedSet();
+		set1.add(""a"");
+		set1.add(""b"");
+		set1.add(""c"");
+
+		Set<String> set2 = SetUtil.newSortedSet();
+		set2.add(""a"");
+
+		assertThat(CollectionUtil.isEmpty(list1)).isTrue();
+		assertThat(CollectionUtil.isEmpty(null)).isTrue();
+		assertThat(CollectionUtil.isEmpty(list2)).isFalse();
+
+		assertThat(CollectionUtil.isNotEmpty(list1)).isFalse();
+		assertThat(CollectionUtil.isNotEmpty(null)).isFalse();
+		assertThat(CollectionUtil.isNotEmpty(list2)).isTrue();
+
+		assertThat(CollectionUtil.getFirst(list2)).isEqualTo(""a"");
+		assertThat(CollectionUtil.getLast(list2)).isEqualTo(""c"");
+
+		assertThat(CollectionUtil.getFirst(set1)).isEqualTo(""a"");
+		assertThat(CollectionUtil.getLast(set1)).isEqualTo(""c"");
+
+		assertThat(CollectionUtil.getFirst(list3)).isEqualTo(""a"");
+		assertThat(CollectionUtil.getLast(list3)).isEqualTo(""a"");
+
+		assertThat(CollectionUtil.getFirst(set2)).isEqualTo(""a"");
+		assertThat(CollectionUtil.getLast(set2)).isEqualTo(""a"");
+
+		assertThat(CollectionUtil.getFirst(list1)).isNull();
+		assertThat(CollectionUtil.getFirst(null)).isNull();
+		assertThat(CollectionUtil.getLast(list1)).isNull();
+		assertThat(CollectionUtil.getLast(null)).isNull();
+	}",CollectionUtilTest::test_oe
+springside4_74,"@Test
+	public void localhost_oe() {
+		assertThat(NetUtil.getLocalHost()).isNotEqualTo(""127.0.0.1"");
+		assertThat(NetUtil.getLocalAddress().getHostAddress()).isNotEqualTo(""127.0.0.1"");
+	}",NetUtilTest::localhost_oe
+springside4_93,"@Test
+	public void buildMessage_oe() {
+		IOException ioexception = new IOException(""my exception"");
+		assertThat(ExceptionUtil.toStringWithShortName(ioexception)).isEqualTo(""IOException: my exception"");
+		assertThat(ExceptionUtil.toStringWithShortName(null)).isEqualTo("""");
+
+		RuntimeException runtimeExcetpion = new RuntimeException(""my runtimeException"", ioexception);
+		assertThat(ExceptionUtil.toStringWithRootCause(runtimeExcetpion)).isEqualTo(""RuntimeException: my runtimeException;<---IOException: my exception"");
+
+		assertThat(ExceptionUtil.toStringWithRootCause(null)).isEqualTo("""");
+		// 无cause
+		assertThat(ExceptionUtil.toStringWithRootCause(ioexception)).isEqualTo(""IOException: my exception"");
+	}",ExceptionUtilTest::buildMessage_oe
+springside4_94,"@Test
+	public void staticException_oe() {
+		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION)).hasLineCount(2).contains(""java.lang.RuntimeException: Timeout"").contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
+
+		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION2)).hasLineCount(2).contains(""org.springside.modules.utils.base.ExceptionUtil$CloneableException: Timeout"").contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
+
+		CloneableException timeoutException = TIMEOUT_EXCEPTION2.clone(""Timeout for 30ms"");
+		assertThat(ExceptionUtil.stackTraceText(timeoutException)).hasLineCount(2).contains(""org.springside.modules.utils.base.ExceptionUtil$CloneableException: Timeout for 30ms"").contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
+
+		assertThat(ExceptionUtil.stackTraceText(TIMEOUT_EXCEPTION3)).hasLineCount(2).contains(""org.springside.modules.utils.base.ExceptionUtil$CloneableRuntimeException: Timeout"").contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
+
+		CloneableRuntimeException timeoutRuntimeException = TIMEOUT_EXCEPTION3.clone(""Timeout for 40ms"");
+		assertThat(ExceptionUtil.stackTraceText(timeoutRuntimeException)).hasLineCount(2).contains(""org.springside.modules.utils.base.ExceptionUtil$CloneableRuntimeException: Timeout for 40ms"").contains(""at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)"");
+
+	}",ExceptionUtilTest::staticException_oe
+springside4_141,"@Test
+	public void getAndSetFieldValue_oe() {
+		TestBean bean = new TestBean();
+		// 无需getter函数, 直接读取privateField
+		assertThat(ReflectionUtil.getFieldValue(bean, ""privateField"")).isEqualTo(1);
+
+		// 先尝试getter函数, 然后直接读取privateField
+		assertThat(ReflectionUtil.getProperty(bean, ""privateField"")).isEqualTo(1);
+
+		// 绕过将publicField+1的getter函数,直接读取publicField的原始值
+		assertThat(ReflectionUtil.getFieldValue(bean, ""publicField"")).isEqualTo(1);
+		// 先尝试getter函数, 成功则补不直接读取publicField
+		assertThat(ReflectionUtil.getProperty(bean, ""publicField"")).isEqualTo(2);
+
+		bean = new TestBean();
+		// 无需setter函数, 直接设置privateField
+		ReflectionUtil.setFieldValue(bean, ""privateField"", 2);
+		assertThat(bean.inspectPrivateField()).isEqualTo(2);
+		ReflectionUtil.setProperty(bean, ""privateField"", 3);
+		assertThat(bean.inspectPrivateField()).isEqualTo(3);
+
+		// 绕过将publicField+1的setter函数,直接设置publicField的原始值
+		ReflectionUtil.setFieldValue(bean, ""publicField"", 2);
+		assertThat(bean.inspectPublicField()).isEqualTo(2);
+
+		// 没有绕过将publicField+1的setter函数
+		ReflectionUtil.setProperty(bean, ""publicField"", 3);
+		assertThat(bean.inspectPublicField()).isEqualTo(4);
+
+		try {
+			ReflectionUtil.getFieldValue(bean, ""notExist"");
+			failBecauseExceptionWasNotThrown(IllegalArgumentException.class);
+		} catch (IllegalArgumentException e) {
+
+		}
+
+		try {
+			ReflectionUtil.setFieldValue(bean, ""notExist"", 2);
+			failBecauseExceptionWasNotThrown(IllegalArgumentException.class);
+		} catch (IllegalArgumentException e) {
+
+		}
+	}",ReflectionUtilTest::getAndSetFieldValue_oe
+springside4_142,"@Test
+	public void invokeGetterAndSetter_oe() {
+		TestBean bean = new TestBean();
+		assertThat(ReflectionUtil.invokeGetter(bean, ""publicField"")).isEqualTo(bean.inspectPublicField() + 1);
+
+		MethodInvoker invoker = MethodInvoker.createGetter(TestBean.class, ""publicField"");
+		assertThat(invoker.invoke(bean)).isEqualTo(bean.inspectPublicField() + 1);
+
+		bean = new TestBean();
+		// 通过setter的函数将+1
+		ReflectionUtil.invokeSetter(bean, ""publicField"", 10);
+		assertThat(bean.inspectPublicField()).isEqualTo(10 + 1);
+
+		MethodInvoker invoker2 = MethodInvoker.createSetter(TestBean.class, ""publicField"", Integer.class);
+		invoker2.invoke(bean, 12);
+		assertThat(bean.inspectPublicField()).isEqualTo(12 + 1);
+	}",ReflectionUtilTest::invokeGetterAndSetter_oe
+springside4_143,"@Test
+	public void invokeConstructor_oe() {
+		TestBean bean = ReflectionUtil.invokeConstructor(TestBean.class);
+		assertThat(bean.getPublicField()).isEqualTo(2);
+
+		TestBean3 bean3 = ReflectionUtil.invokeConstructor(TestBean3.class, 4);
+		assertThat(bean3.getId()).isEqualTo(4);
+	}",ReflectionUtilTest::invokeConstructor_oe
+springside4_144,"@Test
+	public void convertReflectionExceptionToUnchecked_oe() {
+		IllegalArgumentException iae = new IllegalArgumentException();
+		// ReflectionException,normal
+		RuntimeException e = ReflectionUtil.convertReflectionExceptionToUnchecked(iae);
+		assertThat(e).isEqualTo(iae);
+
+		// InvocationTargetException,extract it's target exception.
+		Exception ex = new Exception();
+		e = ReflectionUtil.convertReflectionExceptionToUnchecked(new InvocationTargetException(ex));
+		assertThat(e.getCause()).isEqualTo(ex);
+
+		// UncheckedException, ignore it.
+		RuntimeException re = new RuntimeException(""abc"");
+		e = ReflectionUtil.convertReflectionExceptionToUnchecked(re);
+		assertThat(e).hasMessage(""abc"");
+
+		// Unexcepted Checked exception.
+		e = ReflectionUtil.convertReflectionExceptionToUnchecked(ex);
+		assertThat(e).isInstanceOf(UncheckedException.class);
+	}",ReflectionUtilTest::convertReflectionExceptionToUnchecked_oe
+springside4_145,"@Test
+	public void getMessage_oe() {
+		assertThat(ClassUtil.getShortClassName(ClassUtilTest.class)).isEqualTo(""ClassUtilTest"");
+		assertThat(ClassUtil.getShortClassName(BClass.class)).isEqualTo(""ClassUtilTest.BClass"");
+
+		assertThat(ClassUtil.getShortClassName(ClassUtilTest.class.getName())).isEqualTo(""ClassUtilTest"");
+		assertThat(ClassUtil.getShortClassName(BClass.class.getName())).isEqualTo(""ClassUtilTest.BClass"");
+
+		assertThat(ClassUtil.getPackageName(ClassUtilTest.class)).isEqualTo(""org.springside.modules.utils.reflect"");
+		assertThat(ClassUtil.getPackageName(BClass.class)).isEqualTo(""org.springside.modules.utils.reflect"");
+		assertThat(ClassUtil.getPackageName(ClassUtilTest.class.getName())).isEqualTo(""org.springside.modules.utils.reflect"");
+		assertThat(ClassUtil.getPackageName(BClass.class.getName())).isEqualTo(""org.springside.modules.utils.reflect"");
+
+	}",ClassUtilTest::getMessage_oe
+springside4_169,"@Test_oe()
+	public void emptyPcts() {
+		Histogram histogram = new Histogram();
+		for (int i = 1; i <= 3; i++) {
+			histogram.update(i);
+		}
+
+		HistogramMetric metric = histogram.calculateMetric();
+		assertThat(metric.max).isEqualTo(3);
+		assertThat(metric.pcts).isEmpty();
+		assertThat(metric.pcts.get(90d)).isNull();
+	}",HistogramTest::Test_oe
+springside4_173,"@Test
+	public void convertElementPropertyToString_oe() {
+		TestBean3 bean1 = new TestBean3();
+		bean1.setId(1);
+		TestBean3 bean2 = new TestBean3();
+		bean2.setId(2);
+
+		List list = Lists.newArrayList(bean1, bean2);
+
+		assertThat(CollectionExtractor.extractToString(list, ""id"", "","")).isEqualTo(""1,2"");
+	}",CollectionExtractorTest::convertElementPropertyToString_oe
+springside4_174,"@Test
+	public void convertElementPropertyToList_oe() {
+		TestBean3 bean1 = new TestBean3();
+		bean1.setId(1);
+		TestBean3 bean2 = new TestBean3();
+		bean2.setId(2);
+
+		List list = Lists.newArrayList(bean1, bean2);
+		List result = CollectionExtractor.extractToList(list, ""id"");
+		assertThat(result).containsOnly(1, 2);
+	}",CollectionExtractorTest::convertElementPropertyToList_oe
+springside4_175,"@Test
+	public void convertCollectionToString_oe() {
+		List<String> list = Lists.newArrayList(""aa"", ""bb"");
+		String result = CollectionExtractor.convertToString(list, "","");
+		assertThat(result).isEqualTo(""aa,bb"");
+
+		result = CollectionExtractor.convertToString(list, ""<li>"", ""</li>"");
+		assertThat(result).isEqualTo(""<li>aa</li><li>bb</li>"");
+	}",CollectionExtractorTest::convertCollectionToString_oe

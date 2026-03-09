@@ -1,0 +1,949 @@
+id,test_prefix,test_name
+asyn_35,"@Test(enabled = false)
+  public void httpToHttpsRedirect_oe() throws Exception {
+    redirectDone.getAndSet(false);
+
+    AsyncHttpClientConfig cg = config()
+            .setMaxRedirects(5)
+            .setFollowRedirect(true)
+            .setUseInsecureTrustManager(true)
+            .build();
+    try (AsyncHttpClient c = asyncHttpClient(cg)) {
+      Response response = c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", getTargetUrl2()).execute().get();
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertEquals(response.getHeader(""X-httpToHttps""), ""PASS"");
+    }
+  }",HttpToHttpsRedirectTest::httpToHttpsRedirect_oe
+asyn_36,"@Test(enabled = false)
+  public void httpToHttpsProperConfig_oe() throws Exception {
+    redirectDone.getAndSet(false);
+
+    AsyncHttpClientConfig cg = config()
+            .setMaxRedirects(5)
+            .setFollowRedirect(true)
+            .setUseInsecureTrustManager(true)
+            .build();
+    try (AsyncHttpClient c = asyncHttpClient(cg)) {
+      Response response = c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", getTargetUrl2() + ""/test2"").execute().get();
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertEquals(response.getHeader(""X-httpToHttps""), ""PASS"");
+
+      // Test if the internal channel is downgraded to clean http.
+      response = c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", getTargetUrl2() + ""/foo2"").execute().get();
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertEquals(response.getHeader(""X-httpToHttps""), ""PASS"");
+    }
+  }",HttpToHttpsRedirectTest::httpToHttpsProperConfig_oe
+asyn_37,"@Test(enabled = false)
+  public void relativeLocationUrl_oe() throws Exception {
+    redirectDone.getAndSet(false);
+
+    AsyncHttpClientConfig cg = config()
+            .setMaxRedirects(5)
+            .setFollowRedirect(true)
+            .setUseInsecureTrustManager(true)
+            .build();
+    try (AsyncHttpClient c = asyncHttpClient(cg)) {
+      Response response = c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", ""/foo/test"").execute().get();
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertEquals(response.getUri().toString(), getTargetUrl());
+    }
+  }",HttpToHttpsRedirectTest::relativeLocationUrl_oe
+asyn_55,"@Test(groups = ""online"")
+  public void asyncOptionsTest_oe() throws Throwable {
+
+    withClient().run(client ->
+      withServer(server).run(server -> {
+
+        final AtomicReference<HttpHeaders> responseHeaders = new AtomicReference<>();
+
+        // Some responses contain the TRACE method, some do not - account for both
+          // FIXME: Actually refactor this test to account for both cases
+        final String[] expected = {""GET"", ""HEAD"", ""OPTIONS"", ""POST""};
+        final String[] expectedWithTrace = {""GET"", ""HEAD"", ""OPTIONS"", ""POST"", ""TRACE""};
+        Future<String> f = client.prepareOptions(""http://www.apache.org/"").execute(new AsyncHandlerAdapter() {
+
+          @Override
+          public State onHeadersReceived(HttpHeaders headers) {
+            responseHeaders.set(headers);
+            return State.ABORT;
+          }
+
+          @Override
+          public String onCompleted() {
+            return ""OK"";
+          }
+        });
+
+        f.get(20, TimeUnit.SECONDS);
+        HttpHeaders h = responseHeaders.get();
+        assertNotNull(h);
+        String[] values = h.get(ALLOW).split("",|, "");
+          assertNotNull(values);
+        // Some responses contain the TRACE method, some do not - account for both
+        assert(values.length == expected.length || values.length == expectedWithTrace.length);
+        Arrays.sort(values);
+        // Some responses contain the TRACE method, some do not - account for both
+          if(values.length == expected.length) {
+              assertEquals(values, expected);
+          } else {
+              assertEquals(values, expectedWithTrace);
+          }
+      }));
+  }",AsyncStreamHandlerTest::asyncOptionsTest_oe
+asyn_62,"@Test(groups = ""online"", enabled = false)
+  public void redirected302Test_oe() throws Exception {
+    isSet.getAndSet(false);
+
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      Response response = c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", ""http://www.google.com/"").execute().get();
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+
+      String baseUrl = getBaseUrl(response.getUri());
+      assertTrue(baseUrl.startsWith(""http://www.google.""), ""response does not show redirection to a google subdomain, got "" + baseUrl);
+    }
+  }",Relative302Test::redirected302Test_oe
+asyn_63,"@Test(enabled = false)
+  public void redirected302InvalidTest_oe() throws Exception {
+    isSet.getAndSet(false);
+
+    Exception e = null;
+
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
+    } catch (ExecutionException ex) {
+      e = ex;
+    }
+
+    assertNotNull(e);
+    Throwable cause = e.getCause();
+    assertTrue(cause instanceof ConnectException);
+    assertTrue(cause.getMessage().contains("":"" + port2));
+  }",Relative302Test::redirected302InvalidTest_oe
+asyn_64,"@Test(enabled = false)
+  public void absolutePathRedirectTest_oe() throws Exception {
+    isSet.getAndSet(false);
+
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      String redirectTarget = ""/bar/test"";
+      String destinationUrl = new URI(getTargetUrl()).resolve(redirectTarget).toString();
+
+      Response response = c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", redirectTarget).execute().get();
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertEquals(response.getUri().toString(), destinationUrl);
+
+      logger.debug(""{} was redirected to {}"", redirectTarget, destinationUrl);
+    }
+  }",Relative302Test::absolutePathRedirectTest_oe
+asyn_65,"@Test(enabled = false)
+  public void relativePathRedirectTest_oe() throws Exception {
+    isSet.getAndSet(false);
+
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      String redirectTarget = ""bar/test1"";
+      String destinationUrl = new URI(getTargetUrl()).resolve(redirectTarget).toString();
+
+      Response response = c.prepareGet(getTargetUrl()).setHeader(""X-redirect"", redirectTarget).execute().get();
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertEquals(response.getUri().toString(), destinationUrl);
+
+      logger.debug(""{} was redirected to {}"", redirectTarget, destinationUrl);
+    }
+  }",Relative302Test::relativePathRedirectTest_oe
+asyn_87,"@Test(groups = ""online"", enabled = false)
+  public void redirected302Test_oe() throws Exception {
+    isSet.getAndSet(false);
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      Response response = c.prepareGet(getTargetUrl()).setFollowRedirect(true).setHeader(""X-redirect"", ""https://www.microsoft.com/"").execute().get();
+
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+
+      String anyMicrosoftPage = ""https://www.microsoft.com[^:]*:443"";
+      String baseUrl = getBaseUrl(response.getUri());
+
+      assertTrue(baseUrl.matches(anyMicrosoftPage), ""response does not show redirection to "" + anyMicrosoftPage);
+    }
+  }",PerRequestRelative302Test::redirected302Test_oe
+asyn_88,"@Test(groups = ""online"", enabled = false)
+  public void notRedirected302Test_oe() throws Exception {
+    isSet.getAndSet(false);
+    try (AsyncHttpClient c = asyncHttpClient(config().setFollowRedirect(true))) {
+      Response response = c.prepareGet(getTargetUrl()).setFollowRedirect(false).setHeader(""X-redirect"", ""http://www.microsoft.com/"").execute().get();
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 302);
+    }
+  }",PerRequestRelative302Test::notRedirected302Test_oe
+asyn_89,"@Test(groups = ""online"", enabled = false)
+  public void redirected302InvalidTest_oe() throws Exception {
+    isSet.getAndSet(false);
+    Exception e = null;
+
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      c.preparePost(getTargetUrl()).setFollowRedirect(true).setHeader(""X-redirect"", String.format(""http://localhost:%d/"", port2)).execute().get();
+    } catch (ExecutionException ex) {
+      e = ex;
+    }
+
+    assertNotNull(e);
+    Throwable cause = e.getCause();
+    assertTrue(cause instanceof ConnectException);
+    assertTrue(cause.getMessage().contains("":"" + port2));
+  }",PerRequestRelative302Test::redirected302InvalidTest_oe
+asyn_90,"@Test(enabled = false)
+  public void relativeLocationUrl_oe() throws Exception {
+    isSet.getAndSet(false);
+
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      Response response = c.preparePost(getTargetUrl()).setFollowRedirect(true).setHeader(""X-redirect"", ""/foo/test"").execute().get();
+      assertNotNull(response);
+      assertEquals(response.getStatusCode(), 200);
+      assertEquals(response.getUri().toString(), getTargetUrl());
+    }
+  }",PerRequestRelative302Test::relativeLocationUrl_oe
+asyn_91,"public void testDefaultMaxTotalConnections_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultMaxConnections(), -1);
+    testIntegerSystemProperty(""maxConnections"", ""defaultMaxConnections"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultMaxTotalConnections_oe
+asyn_92,"public void testDefaultMaxConnectionPerHost_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultMaxConnectionsPerHost(), -1);
+    testIntegerSystemProperty(""maxConnectionsPerHost"", ""defaultMaxConnectionsPerHost"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultMaxConnectionPerHost_oe
+asyn_93,"public void testDefaultConnectTimeOut_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultConnectTimeout(), 5 * 1000);
+    testIntegerSystemProperty(""connectTimeout"", ""defaultConnectTimeout"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultConnectTimeOut_oe
+asyn_94,"public void testDefaultPooledConnectionIdleTimeout_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultPooledConnectionIdleTimeout(), 60 * 1000);
+    testIntegerSystemProperty(""pooledConnectionIdleTimeout"", ""defaultPooledConnectionIdleTimeout"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultPooledConnectionIdleTimeout_oe
+asyn_95,"public void testDefaultReadTimeout_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultReadTimeout(), 60 * 1000);
+    testIntegerSystemProperty(""readTimeout"", ""defaultReadTimeout"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultReadTimeout_oe
+asyn_96,"public void testDefaultRequestTimeout_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultRequestTimeout(), 60 * 1000);
+    testIntegerSystemProperty(""requestTimeout"", ""defaultRequestTimeout"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultRequestTimeout_oe
+asyn_97,"public void testDefaultConnectionTtl_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultConnectionTtl(), -1);
+    testIntegerSystemProperty(""connectionTtl"", ""defaultConnectionTtl"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultConnectionTtl_oe
+asyn_98,"public void testDefaultFollowRedirect_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultFollowRedirect());
+    testBooleanSystemProperty(""followRedirect"", ""defaultFollowRedirect"", ""true"");
+  }",AsyncHttpClientDefaultsTest::testDefaultFollowRedirect_oe
+asyn_99,"public void testDefaultMaxRedirects_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultMaxRedirects(), 5);
+    testIntegerSystemProperty(""maxRedirects"", ""defaultMaxRedirects"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultMaxRedirects_oe
+asyn_100,"public void testDefaultCompressionEnforced_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultCompressionEnforced());
+    testBooleanSystemProperty(""compressionEnforced"", ""defaultCompressionEnforced"", ""true"");
+  }",AsyncHttpClientDefaultsTest::testDefaultCompressionEnforced_oe
+asyn_101,"public void testDefaultUserAgent_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultUserAgent(), ""AHC/2.1"");
+    testStringSystemProperty(""userAgent"", ""defaultUserAgent"", ""MyAHC"");
+  }",AsyncHttpClientDefaultsTest::testDefaultUserAgent_oe
+asyn_102,"public void testDefaultUseProxySelector_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultUseProxySelector());
+    testBooleanSystemProperty(""useProxySelector"", ""defaultUseProxySelector"", ""true"");
+  }",AsyncHttpClientDefaultsTest::testDefaultUseProxySelector_oe
+asyn_103,"public void testDefaultUseProxyProperties_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultUseProxyProperties());
+    testBooleanSystemProperty(""useProxyProperties"", ""defaultUseProxyProperties"", ""true"");
+  }",AsyncHttpClientDefaultsTest::testDefaultUseProxyProperties_oe
+asyn_104,"public void testDefaultStrict302Handling_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultStrict302Handling());
+    testBooleanSystemProperty(""strict302Handling"", ""defaultStrict302Handling"", ""true"");
+  }",AsyncHttpClientDefaultsTest::testDefaultStrict302Handling_oe
+asyn_105,"public void testDefaultAllowPoolingConnection_oe() {
+    Assert.assertTrue(AsyncHttpClientConfigDefaults.defaultKeepAlive());
+    testBooleanSystemProperty(""keepAlive"", ""defaultKeepAlive"", ""false"");
+  }",AsyncHttpClientDefaultsTest::testDefaultAllowPoolingConnection_oe
+asyn_106,"public void testDefaultMaxRequestRetry_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultMaxRequestRetry(), 5);
+    testIntegerSystemProperty(""maxRequestRetry"", ""defaultMaxRequestRetry"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultMaxRequestRetry_oe
+asyn_107,"public void testDefaultDisableUrlEncodingForBoundRequests_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultDisableUrlEncodingForBoundRequests());
+    testBooleanSystemProperty(""disableUrlEncodingForBoundRequests"", ""defaultDisableUrlEncodingForBoundRequests"", ""true"");
+  }",AsyncHttpClientDefaultsTest::testDefaultDisableUrlEncodingForBoundRequests_oe
+asyn_108,"public void testDefaultUseInsecureTrustManager_oe() {
+    Assert.assertFalse(AsyncHttpClientConfigDefaults.defaultUseInsecureTrustManager());
+    testBooleanSystemProperty(""useInsecureTrustManager"", ""defaultUseInsecureTrustManager"", ""false"");
+  }",AsyncHttpClientDefaultsTest::testDefaultUseInsecureTrustManager_oe
+asyn_109,"public void testDefaultHashedWheelTimerTickDuration_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultHashedWheelTimerTickDuration(), 100);
+    testIntegerSystemProperty(""hashedWheelTimerTickDuration"", ""defaultHashedWheelTimerTickDuration"", ""100"");
+  }",AsyncHttpClientDefaultsTest::testDefaultHashedWheelTimerTickDuration_oe
+asyn_110,"public void testDefaultHashedWheelTimerSize_oe() {
+    Assert.assertEquals(AsyncHttpClientConfigDefaults.defaultHashedWheelTimerSize(), 512);
+    testIntegerSystemProperty(""hashedWheelTimerSize"", ""defaultHashedWheelTimerSize"", ""512"");
+  }",AsyncHttpClientDefaultsTest::testDefaultHashedWheelTimerSize_oe
+asyn_111,"private void testIntegerSystemProperty_oe(String propertyName, String methodName, String value) {
+    String previous = System.getProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName);
+    System.setProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName, value);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try {
+      Method method = AsyncHttpClientConfigDefaults.class.getMethod(methodName);
+      Assert.assertEquals(method.invoke(null), Integer.parseInt(value));
+    } catch (Exception e) {
+      Assert.fail(""Couldn't find or execute method : "" + methodName, e);
+    }
+    if (previous != null)
+      System.setProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName, previous);
+    else
+      System.clearProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName);
+  }",AsyncHttpClientDefaultsTest::testIntegerSystemProperty_oe
+asyn_112,"private void testBooleanSystemProperty_oe(String propertyName, String methodName, String value) {
+    String previous = System.getProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName);
+    System.setProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName, value);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try {
+      Method method = AsyncHttpClientConfigDefaults.class.getMethod(methodName);
+      Assert.assertEquals(method.invoke(null), Boolean.parseBoolean(value));
+    } catch (Exception e) {
+      Assert.fail(""Couldn't find or execute method : "" + methodName, e);
+    }
+    if (previous != null)
+      System.setProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName, previous);
+    else
+      System.clearProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName);
+  }",AsyncHttpClientDefaultsTest::testBooleanSystemProperty_oe
+asyn_113,"private void testStringSystemProperty_oe(String propertyName, String methodName, String value) {
+    String previous = System.getProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName);
+    System.setProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName, value);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try {
+      Method method = AsyncHttpClientConfigDefaults.class.getMethod(methodName);
+      Assert.assertEquals(method.invoke(null), value);
+    } catch (Exception e) {
+      Assert.fail(""Couldn't find or execute method : "" + methodName, e);
+    }
+    if (previous != null)
+      System.setProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName, previous);
+    else
+      System.clearProperty(ASYNC_CLIENT_CONFIG_ROOT + propertyName);
+  }",AsyncHttpClientDefaultsTest::testStringSystemProperty_oe
+asyn_115,"private void testOldDigest_oe(String qop) throws Exception {
+    String user = ""user"";
+    String pass = ""pass"";
+    String realm = ""realm"";
+    String nonce = ""nonce"";
+    String method = ""GET"";
+    Uri uri = Uri.create(""http://ahc.io/foo"");
+    Realm orig = digestAuthRealm(user, pass)
+            .setNonce(nonce)
+            .setUri(uri)
+            .setMethodName(method)
+            .setRealmName(realm)
+            .setQop(qop)
+            .build();
+
+    String ha1 = getMd5(user + "":"" + realm + "":"" + pass);
+    String ha2 = getMd5(method + "":"" + uri.getPath());
+    String expectedResponse = getMd5(ha1 + "":"" + nonce + "":"" + ha2);
+
+    assertEquals(orig.getResponse(), expectedResponse);
+  }",RealmTest::testOldDigest_oe
+asyn_201,"@Test(enabled = false)
+  public void testProxyProperties_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    // FIXME not threadsafe!
+    Properties originalProps = new Properties();
+    originalProps.putAll(System.getProperties());
+    System.setProperty(ProxyUtils.PROXY_HOST, ""127.0.0.1"");
+    System.setProperty(ProxyUtils.PROXY_PORT, String.valueOf(port1));
+    System.setProperty(ProxyUtils.PROXY_NONPROXYHOSTS, ""localhost"");
+    AsyncHttpClientConfigHelper.reloadProperties();
+
+    try (AsyncHttpClient client = asyncHttpClient(config().setUseProxyProperties(true))) {
+      String proxifiedtarget = ""http://127.0.0.1:1234/"";
+      Future<Response> f = client.prepareGet(proxifiedtarget).execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getHeader(""target""), ""/"");
+
+      String nonProxifiedtarget = ""http://localhost:1234/"";
+      f = client.prepareGet(nonProxifiedtarget).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      System.setProperties(originalProps);
+    }
+  }",ProxyTest::testProxyProperties_oe
+asyn_202,"@Test(enabled = false)
+  public void testIgnoreProxyPropertiesByDefault_oe() throws IOException, TimeoutException, InterruptedException {
+    // FIXME not threadsafe!
+    Properties originalProps = new Properties();
+    originalProps.putAll(System.getProperties());
+    System.setProperty(ProxyUtils.PROXY_HOST, ""localhost"");
+    System.setProperty(ProxyUtils.PROXY_PORT, String.valueOf(port1));
+    System.setProperty(ProxyUtils.PROXY_NONPROXYHOSTS, ""localhost"");
+    AsyncHttpClientConfigHelper.reloadProperties();
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      String target = ""http://localhost:1234/"";
+      Future<Response> f = client.prepareGet(target).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      System.setProperties(originalProps);
+    }
+  }",ProxyTest::testIgnoreProxyPropertiesByDefault_oe
+asyn_203,"@Test(enabled = false)
+  public void testProxyActivationProperty_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    // FIXME not threadsafe!
+    Properties originalProps = new Properties();
+    originalProps.putAll(System.getProperties());
+    System.setProperty(ProxyUtils.PROXY_HOST, ""127.0.0.1"");
+    System.setProperty(ProxyUtils.PROXY_PORT, String.valueOf(port1));
+    System.setProperty(ProxyUtils.PROXY_NONPROXYHOSTS, ""localhost"");
+    System.setProperty(AsyncHttpClientConfigDefaults.ASYNC_CLIENT_CONFIG_ROOT + ""useProxyProperties"", ""true"");
+    AsyncHttpClientConfigHelper.reloadProperties();
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      String proxifiedTarget = ""http://127.0.0.1:1234/"";
+      Future<Response> f = client.prepareGet(proxifiedTarget).execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getHeader(""target""), ""/"");
+
+      String nonProxifiedTarget = ""http://localhost:1234/"";
+      f = client.prepareGet(nonProxifiedTarget).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      System.setProperties(originalProps);
+    }
+  }",ProxyTest::testProxyActivationProperty_oe
+asyn_204,"@Test(enabled = false)
+  public void testWildcardNonProxyHosts_oe() throws IOException, TimeoutException, InterruptedException {
+    // FIXME not threadsafe!
+    Properties originalProps = new Properties();
+    originalProps.putAll(System.getProperties());
+    System.setProperty(ProxyUtils.PROXY_HOST, ""127.0.0.1"");
+    System.setProperty(ProxyUtils.PROXY_PORT, String.valueOf(port1));
+    System.setProperty(ProxyUtils.PROXY_NONPROXYHOSTS, ""127.*"");
+    AsyncHttpClientConfigHelper.reloadProperties();
+
+    try (AsyncHttpClient client = asyncHttpClient(config().setUseProxyProperties(true))) {
+      String nonProxifiedTarget = ""http://127.0.0.1:1234/"";
+      Future<Response> f = client.prepareGet(nonProxifiedTarget).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      System.setProperties(originalProps);
+    }
+  }",ProxyTest::testWildcardNonProxyHosts_oe
+asyn_205,"@Test(enabled = false)
+  public void testUseProxySelector_oe() throws IOException, ExecutionException, TimeoutException, InterruptedException {
+    ProxySelector originalProxySelector = ProxySelector.getDefault();
+    ProxySelector.setDefault(new ProxySelector() {
+      public List<Proxy> select(URI uri) {
+        if (uri.getHost().equals(""127.0.0.1"")) {
+          return Arrays.asList(new Proxy(Proxy.Type.HTTP, new InetSocketAddress(""127.0.0.1"", port1)));
+        } else {
+          return Collections.singletonList(Proxy.NO_PROXY);
+        }
+      }
+
+      public void connectFailed(URI uri, SocketAddress sa, IOException ioe) {
+      }
+    });
+
+    try (AsyncHttpClient client = asyncHttpClient(config().setUseProxySelector(true))) {
+      String proxifiedTarget = ""http://127.0.0.1:1234/"";
+      Future<Response> f = client.prepareGet(proxifiedTarget).execute();
+      Response resp = f.get(3, TimeUnit.SECONDS);
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getHeader(""target""), ""/"");
+
+      String nonProxifiedTarget = ""http://localhost:1234/"";
+      f = client.prepareGet(nonProxifiedTarget).execute();
+      try {
+        f.get(3, TimeUnit.SECONDS);
+        fail(""should not be able to connect"");
+      } catch (ExecutionException e) {
+        // ok, no proxy used
+      }
+    } finally {
+      // FIXME not threadsafe
+      ProxySelector.setDefault(originalProxySelector);
+    }
+  }",ProxyTest::testUseProxySelector_oe
+asyn_206,"@Test
+  public void runSocksProxy_oe() throws Exception {
+    new Thread(() -> {
+      try {
+        new SocksProxy(60000);
+      } catch (IOException e) {
+        e.printStackTrace();
+      }
+    }).start();
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      String target = ""http://localhost:"" + port1 + ""/"";
+      Future<Response> f = client.prepareGet(target).setProxyServer(new ProxyServer.Builder(""localhost"", 8000).setProxyType(ProxyType.SOCKS_V4)).execute();
+
+      assertEquals(200, f.get(60, TimeUnit.SECONDS).getStatusCode());
+    }
+  }",ProxyTest::runSocksProxy_oe
+asyn_231,"private void testSignatureBaseString_oe(Request request) throws NoSuchAlgorithmException {
+    String signatureBaseString = new OAuthSignatureCalculatorInstance()
+            .signatureBaseString(//
+                    new ConsumerKey(""9djdj82h48djs9d2"", CONSUMER_SECRET),
+                    new RequestToken(""kkk9d7dh3k39sjv7"", TOKEN_SECRET),
+                    request.getUri(),
+                    request.getMethod(),
+                    request.getFormParams(),
+                    request.getQueryParams(),
+                    137131201,
+                    ""7d8f3e4a"").toString();
+
+    assertEquals(signatureBaseString,""POST&"" + ""http%3A%2F%2Fexample.com%2Frequest"" + ""&a2%3Dr%2520b%26"" + ""a3%3D2%2520q%26"" + ""a3%3Da%26"" + ""b5%3D%253D%25253D%26"" + ""c%2540%3D%26"" + ""c2%3D%26"" + ""oauth_consumer_key%3D9djdj82h48djs9d2%26"" + ""oauth_nonce%3D7d8f3e4a%26"" + ""oauth_signature_method%3DHMAC-SHA1%26"" + ""oauth_timestamp%3D137131201%26"" + ""oauth_token%3Dkkk9d7dh3k39sjv7%26"" + ""oauth_version%3D1.0"");
+  }",OAuthSignatureCalculatorTest::testSignatureBaseString_oe
+asyn_232,"private void testSignatureBaseStringWithEncodableOAuthToken_oe(Request request) throws NoSuchAlgorithmException {
+    String signatureBaseString = new OAuthSignatureCalculatorInstance()
+            .signatureBaseString(//
+                    new ConsumerKey(""9djdj82h48djs9d2"", CONSUMER_SECRET),
+                    new RequestToken(""kkk9d7dh3k39sjv7"", TOKEN_SECRET),
+                    request.getUri(),
+                    request.getMethod(),
+                    request.getFormParams(),
+                    request.getQueryParams(),
+                    137131201,
+                    Utf8UrlEncoder.percentEncodeQueryElement(""ZLc92RAkooZcIO/0cctl0Q=="")).toString();
+
+    assertEquals(signatureBaseString,""POST&"" + ""http%3A%2F%2Fexample.com%2Frequest"" + ""&a2%3Dr%2520b%26"" + ""a3%3D2%2520q%26"" + ""a3%3Da%26"" + ""b5%3D%253D%25253D%26"" + ""c%2540%3D%26"" + ""c2%3D%26"" + ""oauth_consumer_key%3D9djdj82h48djs9d2%26"" + ""oauth_nonce%3DZLc92RAkooZcIO%252F0cctl0Q%253D%253D%26"" + ""oauth_signature_method%3DHMAC-SHA1%26"" + ""oauth_timestamp%3D137131201%26"" + ""oauth_token%3Dkkk9d7dh3k39sjv7%26"" + ""oauth_version%3D1.0"");
+  }",OAuthSignatureCalculatorTest::testSignatureBaseStringWithEncodableOAuthToken_oe
+asyn_236,"@Test
+  public void testGetWithRequestBuilderAndQuery_oe() throws UnsupportedEncodingException {
+    StaticOAuthSignatureCalculator calc = //
+            new StaticOAuthSignatureCalculator(//
+                    new ConsumerKey(CONSUMER_KEY, CONSUMER_SECRET),
+                    new RequestToken(TOKEN_KEY, TOKEN_SECRET),
+                    NONCE,
+                    TIMESTAMP);
+
+    final Request req = get(""http://photos.example.net/photos?file=vacation.jpg&size=original"")
+            .setSignatureCalculator(calc)
+            .build();
+
+    final List<Param> params = req.getQueryParams();
+    assertEquals(params.size(), 2);
+
+    // From the signature tester, the URL should look like:
+    // normalized parameters:
+    // file=vacation.jpg&oauth_consumer_key=dpf43f3p2l4k3l03&oauth_nonce=kllo9940pd9333jh&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1191242096&oauth_token=nnch734d00sl2jdk&oauth_version=1.0&size=original
+    // signature base string:
+    // GET&http%3A%2F%2Fphotos.example.net%2Fphotos&file%3Dvacation.jpg%26oauth_consumer_key%3Ddpf43f3p2l4k3l03%26oauth_nonce%3Dkllo9940pd9333jh%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1191242096%26oauth_token%3Dnnch734d00sl2jdk%26oauth_version%3D1.0%26size%3Doriginal
+    // signature: tR3+Ty81lMeYAr/Fid0kMTYa/WM=
+    // Authorization header: OAuth
+    // realm="""",oauth_version=""1.0"",oauth_consumer_key=""dpf43f3p2l4k3l03"",oauth_token=""nnch734d00sl2jdk"",oauth_timestamp=""1191242096"",oauth_nonce=""kllo9940pd9333jh"",oauth_signature_method=""HMAC-SHA1"",oauth_signature=""tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D""
+
+    String authHeader = req.getHeaders().get(AUTHORIZATION);
+    Matcher m = Pattern.compile(""oauth_signature=\""(.+?)\"""").matcher(authHeader);
+    assertTrue(m.find());
+    String encodedSig = m.group(1);
+    String sig = URLDecoder.decode(encodedSig, ""UTF-8"");
+
+    assertEquals(sig, ""tR3+Ty81lMeYAr/Fid0kMTYa/WM="");
+    assertEquals(req.getUrl(), ""http://photos.example.net/photos?file=vacation.jpg&size=original"");
+    assertEquals(authHeader,""OAuth oauth_consumer_key=\""dpf43f3p2l4k3l03\"",oauth_token=\""nnch734d00sl2jdk\"",oauth_signature_method=\""HMAC-SHA1\"",oauth_signature=\""tR3%2BTy81lMeYAr%2FFid0kMTYa%2FWM%3D\"",oauth_timestamp=\""1191242096\"",oauth_nonce=\""kllo9940pd9333jh\"",oauth_version=\""1.0\"""");
+  }",OAuthSignatureCalculatorTest::testGetWithRequestBuilderAndQuery_oe
+asyn_247,"@Test(timeOut = 60000)
+  public void onOpen_oe() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      final CountDownLatch latch = new CountDownLatch(1);
+      final AtomicReference<String> text = new AtomicReference<>("""");
+
+      c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().addWebSocketListener(new WebSocketListener() {
+
+        @Override
+        public void onOpen(WebSocket websocket) {
+          text.set(""OnOpen"");
+          latch.countDown();
+        }
+
+        @Override
+        public void onClose(WebSocket websocket, int code, String reason) {
+        }
+
+        @Override
+        public void onError(Throwable t) {
+          t.printStackTrace();
+          latch.countDown();
+        }
+      }).build()).get();
+
+      latch.await();
+      assertEquals(text.get(), ""OnOpen"");
+    }
+  }",TextMessageTest::onOpen_oe
+asyn_251,"@Test(timeOut = 60000)
+  public void onClose_oe() throws Exception {
+    try (AsyncHttpClient c = asyncHttpClient()) {
+      final CountDownLatch latch = new CountDownLatch(1);
+      final AtomicReference<String> text = new AtomicReference<>("""");
+
+      WebSocket websocket = c.prepareGet(getTargetUrl()).execute(new WebSocketUpgradeHandler.Builder().addWebSocketListener(new WebSocketListener() {
+
+        @Override
+        public void onOpen(WebSocket websocket) {
+        }
+
+        @Override
+        public void onClose(WebSocket websocket, int code, String reason) {
+          text.set(""OnClose"");
+          latch.countDown();
+        }
+
+        @Override
+        public void onError(Throwable t) {
+          t.printStackTrace();
+          latch.countDown();
+        }
+      }).build()).get();
+
+      websocket.sendCloseFrame();
+
+      latch.await();
+      assertEquals(text.get(), ""OnClose"");
+    }
+  }",TextMessageTest::onClose_oe
+asyn_277,"@Test(expectedExceptions = RemotelyClosedException.class, enabled = false)
+  public void deferredSimpleWithFailure_oe() throws Throwable {
+    try (AsyncHttpClient client = asyncHttpClient(getAsyncHttpClientConfig())) {
+      BoundRequestBuilder r = client.prepareGet(getTargetUrl()).addHeader(""X-FAIL-TRANSFER"", Boolean.TRUE.toString());
+
+      CountingOutputStream cos = new CountingOutputStream();
+      BodyDeferringAsyncHandler bdah = new BodyDeferringAsyncHandler(cos);
+      Future<Response> f = r.execute(bdah);
+      Response resp = bdah.getResponse();
+      assertNotNull(resp);
+      assertEquals(resp.getStatusCode(), HttpServletResponse.SC_OK);
+      assertEquals(resp.getHeader(CONTENT_LENGTH), String.valueOf(CONTENT_LENGTH_VALUE));
+      // we got headers only, it's probably not all yet here (we have BIG file
+      // downloading)
+      assertTrue(cos.getByteCount() <= CONTENT_LENGTH_VALUE);
+
+      // now be polite and wait for body arrival too (otherwise we would be
+      // dropping the ""line"" on server)
+      try {
+        f.get();
+      } catch (ExecutionException e) {
+        // good
+        // it's incomplete, there was an error
+        assertNotEquals(cos.getByteCount(), CONTENT_LENGTH_VALUE);
+        throw e.getCause();
+      }
+    }
+  }",BodyDeferringAsyncHandlerTest::deferredSimpleWithFailure_oe
+asyn_350,"private void testSentFile_oe(List<String> expectedContents, List<File> sourceFiles, Response r,
+                            List<Boolean> deflate) {
+    String content = r.getResponseBody();
+    assertNotNull(content);
+    logger.debug(content);
+
+    String[] contentArray = content.split(""\\|\\|"");
+    // TODO: this fail on win32
+    assertEquals(contentArray.length, 2);
+
+    String tmpFiles = contentArray[1];
+    assertNotNull(tmpFiles);
+    assertTrue(tmpFiles.trim().length() > 2);
+    tmpFiles = tmpFiles.substring(1, tmpFiles.length() - 1);
+
+    String[] responseFiles = tmpFiles.split("","");
+    assertNotNull(responseFiles);
+    assertEquals(responseFiles.length, sourceFiles.size());
+
+    logger.debug(Arrays.toString(responseFiles));
+
+    int i = 0;
+    for (File sourceFile : sourceFiles) {
+
+      File tmp = null;
+      try {
+
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        byte[] sourceBytes;
+        try (InputStream instream = Files.newInputStream(sourceFile.toPath())) {
+          byte[] buf = new byte[8092];
+          int len;
+          while ((len = instream.read(buf)) > 0) {
+            baos.write(buf, 0, len);
+          }
+          logger.debug(""================"");
+          logger.debug(""Length of file: "" + baos.toByteArray().length);
+          logger.debug(""Contents: "" + Arrays.toString(baos.toByteArray()));
+          logger.debug(""================"");
+          System.out.flush();
+          sourceBytes = baos.toByteArray();
+        }
+
+        tmp = new File(responseFiles[i].trim());
+        logger.debug(""=============================="");
+        logger.debug(tmp.getAbsolutePath());
+        logger.debug(""=============================="");
+        System.out.flush();
+        assertTrue(tmp.exists());
+
+        byte[] bytes;
+        try (InputStream instream = Files.newInputStream(tmp.toPath())) {
+          ByteArrayOutputStream baos2 = new ByteArrayOutputStream();
+          byte[] buf = new byte[8092];
+          int len;
+          while ((len = instream.read(buf)) > 0) {
+            baos2.write(buf, 0, len);
+          }
+          bytes = baos2.toByteArray();
+          assertEquals(bytes, sourceBytes);
+        }
+
+        if (!deflate.get(i)) {
+          String helloString = new String(bytes);
+          assertEquals(helloString, expectedContents.get(i));
+        } else {
+          try (InputStream instream = Files.newInputStream(tmp.toPath())) {
+            ByteArrayOutputStream baos3 = new ByteArrayOutputStream();
+            GZIPInputStream deflater = new GZIPInputStream(instream);
+            try {
+              byte[] buf3 = new byte[8092];
+              int len3;
+              while ((len3 = deflater.read(buf3)) > 0) {
+                baos3.write(buf3, 0, len3);
+              }
+            } finally {
+              deflater.close();
+            }
+
+            String helloString = new String(baos3.toByteArray());
+
+            assertEquals(expectedContents.get(i), helloString);
+          }
+        }
+      } catch (Exception e) {
+        e.printStackTrace();
+        fail(""Download Exception"");
+      } finally {
+        if (tmp != null)
+          FileUtils.deleteQuietly(tmp);
+        i++;
+      }
+    }
+  }",MultipartUploadTest::testSentFile_oe
+asyn_382,"@Test
+  public void testObserveMultiple_oe() {
+    final TestSubscriber<Response> tester = new TestSubscriber<>();
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Observable<Response> o1 = AsyncHttpObservable.observe(() -> client.prepareGet(""https://gatling.io""));
+      Observable<Response> o2 = AsyncHttpObservable.observe(() -> client.prepareGet(""http://www.wisc.edu"").setFollowRedirect(true));
+      Observable<Response> o3 = AsyncHttpObservable.observe(() -> client.prepareGet(""http://www.umn.edu"").setFollowRedirect(true));
+      Observable<Response> all = Observable.merge(o1, o2, o3);
+      all.subscribe(tester);
+      tester.awaitTerminalEvent();
+      tester.assertTerminalEvent();
+      tester.assertNoErrors();
+      tester.assertCompleted();
+      List<Response> responses = tester.getOnNextEvents();
+      assertNotNull(responses);
+      assertEquals(responses.size(), 3);
+      for (Response response : responses) {
+        assertEquals(response.getStatusCode(), 200);
+      }
+    } catch (Exception e) {
+      Thread.currentThread().interrupt();
+    }
+  }",AsyncHttpObservableTest::testObserveMultiple_oe
+asyn_390,"public void testPromiseAdapter_oe() throws IOException {
+    final CountDownLatch latch = new CountDownLatch(1);
+    final AtomicInteger successCount = new AtomicInteger();
+    final AtomicInteger progressCount = new AtomicInteger();
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Promise<Response, Throwable, HttpProgress> p1 = AsyncHttpDeferredObject.promise(client.prepareGet(""http://gatling.io""));
+      p1.done(new DoneCallback<Response>() {
+        @Override
+        public void onDone(Response response) {
+          try {
+            assertEquals(response.getStatusCode(), 200);
+            successCount.incrementAndGet();
+          } finally {
+            latch.countDown();
+          }
+        }
+      }).progress(new ProgressCallback<HttpProgress>() {
+
+        @Override
+        public void onProgress(HttpProgress progress) {
+          progressCount.incrementAndGet();
+        }
+      });
+
+      latch.await();
+      assertTrue(progressCount.get() > 0);
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
+  }",AsyncHttpTest::testPromiseAdapter_oe
+asyn_391,"public void testMultiplePromiseAdapter_oe() throws IOException {
+    final CountDownLatch latch = new CountDownLatch(1);
+    final AtomicInteger successCount = new AtomicInteger();
+
+    try (AsyncHttpClient client = asyncHttpClient()) {
+      Promise<Response, Throwable, HttpProgress> p1 = AsyncHttpDeferredObject.promise(client.prepareGet(""http://gatling.io""));
+      Promise<Response, Throwable, HttpProgress> p2 = AsyncHttpDeferredObject.promise(client.prepareGet(""http://www.google.com""));
+      AsyncHttpDeferredObject deferredRequest = new AsyncHttpDeferredObject(client.prepareGet(""http://jdeferred.org""));
+
+      deferredManager.when(p1, p2, deferredRequest).then(new DoneCallback<MultipleResults>() {
+        @Override
+        public void onDone(MultipleResults result) {
+          try {
+            assertEquals(result.size(), 3);
+            assertEquals(Response.class.cast(result.get(0).getResult()).getStatusCode(), 200);
+            assertEquals(Response.class.cast(result.get(1).getResult()).getStatusCode(), 200);
+            assertEquals(Response.class.cast(result.get(2).getResult()).getStatusCode(), 200);
+            successCount.incrementAndGet();
+          } finally {
+            latch.countDown();
+          }
+        }
+      });
+      latch.await();
+
+    } catch (InterruptedException e) {
+      Thread.currentThread().interrupt();
+    }
+  }",AsyncHttpTest::testMultiplePromiseAdapter_oe
+asyn_407,"@Test
+  public void testGetAsyncHttpClient_oe() throws Exception {
+    try (AsyncHttpClient asyncHttpClient = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.assertTrue(asyncHttpClient.getClass().equals(DefaultAsyncHttpClient.class));
+      assertClientWorks(asyncHttpClient);
+    }
+  }",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClient_oe
+asyn_408,"@Test
+  public void testGetAsyncHttpClientConfig_oe() throws Exception {
+    try (AsyncHttpClient asyncHttpClient = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.assertTrue(asyncHttpClient.getClass().equals(DefaultAsyncHttpClient.class));
+      assertClientWorks(asyncHttpClient);
+    }
+  }",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientConfig_oe
+asyn_409,"@Test
+  public void testGetAsyncHttpClientProvider_oe() throws Exception {
+    try (AsyncHttpClient asyncHttpClient = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.assertTrue(asyncHttpClient.getClass().equals(DefaultAsyncHttpClient.class));
+      assertClientWorks(asyncHttpClient);
+    }
+  }",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientProvider_oe
+asyn_410,"@Test
+  public void testFactoryWithSystemProperty_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, TEST_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.assertTrue(ahc.getClass().equals(TestAsyncHttpClient.class));
+    }
+  }",AbstractAsyncHttpClientFactoryTest::testFactoryWithSystemProperty_oe
+asyn_411,"@Test
+  public void testGetAsyncHttpClientConfigWithSystemProperty_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, TEST_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.assertTrue(ahc.getClass().equals(TestAsyncHttpClient.class));
+    }
+  }",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientConfigWithSystemProperty_oe
+asyn_412,"@Test
+  public void testGetAsyncHttpClientProviderWithSystemProperty_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, TEST_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.assertTrue(ahc.getClass().equals(TestAsyncHttpClient.class));
+    }
+  }",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientProviderWithSystemProperty_oe
+asyn_413,"@Test(expectedExceptions = BadAsyncHttpClientException.class)
+  public void testFactoryWithBadAsyncHttpClient_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      Assert.fail(""BadAsyncHttpClientException should have been thrown before this point"");
+    }
+  }",AbstractAsyncHttpClientFactoryTest::testFactoryWithBadAsyncHttpClient_oe
+asyn_414,"@Test
+  public void testGetAsyncHttpClientConfigWithBadAsyncHttpClient_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+      assertException(e);
+    }
+    // Assert.fail(""AsyncHttpClientImplException should have been thrown before this point"");
+  }",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientConfigWithBadAsyncHttpClient_oe
+asyn_415,"@Test
+  public void testGetAsyncHttpClientProviderWithBadAsyncHttpClient_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, BAD_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+      assertException(e);
+    }
+    // Assert.fail(""AsyncHttpClientImplException should have been thrown before this point"");
+  }",AbstractAsyncHttpClientFactoryTest::testGetAsyncHttpClientProviderWithBadAsyncHttpClient_oe
+asyn_416,"@Test(expectedExceptions = AsyncHttpClientImplException.class)
+  public void testFactoryWithNonExistentAsyncHttpClient_oe() throws IOException {
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    }
+    Assert.fail(""AsyncHttpClientImplException should have been thrown before this point"");
+  }",AbstractAsyncHttpClientFactoryTest::testFactoryWithNonExistentAsyncHttpClient_oe
+asyn_417,"@Test(expectedExceptions = AsyncHttpClientImplException.class)
+  public void testRepeatedCallsToBadAsyncHttpClient_oe() throws IOException {
+    boolean exceptionCaught = false;
+    System.setProperty(AsyncImplHelper.ASYNC_HTTP_CLIENT_IMPL_SYSTEM_PROPERTY, NON_EXISTENT_CLIENT_CLASS_NAME);
+    AsyncHttpClientConfigHelper.reloadProperties();
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+      exceptionCaught = true;
+    }
+    Assert.assertTrue(exceptionCaught, ""Didn't catch exception the first time"");
+    exceptionCaught = false;
+    try (AsyncHttpClient ahc = AsyncHttpClientFactory.getAsyncHttpClient()) {
+      //
+    } catch (AsyncHttpClientImplException e) {
+      exceptionCaught = true;
+    }
+    Assert.assertTrue(exceptionCaught, ""Didn't catch exception the second time"");
+  }",AbstractAsyncHttpClientFactoryTest::testRepeatedCallsToBadAsyncHttpClient_oe

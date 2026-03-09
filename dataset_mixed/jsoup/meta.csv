@@ -1,0 +1,5 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,dataset_type
+jsou_398,jsoup,TokenQueueTest,chompBalancedThrowIllegalArgumentException_oe,src/test/java/org/jsoup/parser/TokenQueueTest.java,,,,mixed
+jsou_657,jsoup,ElementTest,testChildThrowsIndexOutOfBoundsOnMissing_oe,src/test/java/org/jsoup/nodes/ElementTest.java,,,,mixed
+jsou_934,jsoup,FuzzFixesIT,testHtmlParse_oe,src/test/java/org/jsoup/integration/FuzzFixesIT.java,,,,mixed
+jsou_935,jsoup,FuzzFixesIT,testXmlParse_oe,src/test/java/org/jsoup/integration/FuzzFixesIT.java,,,,mixed

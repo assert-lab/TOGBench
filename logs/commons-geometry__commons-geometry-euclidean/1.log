@@ -1,7 +1,7 @@
 [INFO] Scanning for projects...
 [WARNING] 
 [WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-geometry-euclidean:jar:1.0
-[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-geometry-parent:1.0, /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/pom.xml, line 232, column 15
+[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-geometry-parent:1.0, /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/pom.xml, line 232, column 15
 [WARNING] 
 [WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
 [WARNING] 
@@ -27,43 +27,43 @@
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/target/apidocs/META-INF
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-euclidean/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
 [INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-geometry-euclidean ---
 [INFO] Skipping remote resources execution.
 [INFO] 
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-euclidean ---
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean
-[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773031992744
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-euclidean
+[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054750239
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-euclidean ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/main/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-geometry-euclidean ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 103 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/target/classes
+[INFO] Compiling 103 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-euclidean/target/classes
 [INFO] 
 [INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-geometry-euclidean ---
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-geometry-euclidean ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-euclidean/src/test/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-geometry-euclidean ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 131 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/target/test-classes
+[INFO] Compiling 131 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-euclidean/target/test-classes
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-geometry-euclidean ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
 [INFO] 
 [INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-geometry-euclidean ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/target/jacoco.exec
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-euclidean/target/jacoco.exec
 [INFO] 
 [INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ commons-geometry-euclidean ---
 [INFO] Using auto detected provider org.apache.maven.surefire.junitplatform.JUnitPlatformProvider
@@ -72,310 +72,135 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.geometry.euclidean.DocumentationExamplesTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.525 s - in org.apache.commons.geometry.euclidean.DocumentationExamplesTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.756 s - in org.apache.commons.geometry.euclidean.DocumentationExamplesTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.SegmentTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in org.apache.commons.geometry.euclidean.twod.SegmentTest_OE25Dev
+[INFO] Tests run: 64, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.195 s - in org.apache.commons.geometry.euclidean.twod.SegmentTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.LineTest_OE25Dev
-[INFO] Tests run: 57, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.246 s - in org.apache.commons.geometry.euclidean.twod.LineTest_OE25Dev
-[INFO] Running org.apache.commons.geometry.euclidean.twod.LineSubsetTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.euclidean.twod.LineSubsetTest_OE25Dev
+[INFO] Tests run: 212, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.412 s - in org.apache.commons.geometry.euclidean.twod.LineTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.BoundarySourceBoundsBuilder2DTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in org.apache.commons.geometry.euclidean.twod.BoundarySourceBoundsBuilder2DTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.geometry.euclidean.twod.BoundarySourceBoundsBuilder2DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.Vector2DTest_OE25Dev
-[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in org.apache.commons.geometry.euclidean.twod.Vector2DTest_OE25Dev
+[INFO] Tests run: 213, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.188 s - in org.apache.commons.geometry.euclidean.twod.Vector2DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev
+[INFO] Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s - in org.apache.commons.geometry.euclidean.twod.PolarCoordinatesTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.shape.ParallelogramTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.049 s - in org.apache.commons.geometry.euclidean.twod.shape.ParallelogramTest_OE25Dev
+[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in org.apache.commons.geometry.euclidean.twod.shape.ParallelogramTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.shape.CircleTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.376 s - in org.apache.commons.geometry.euclidean.twod.shape.CircleTest_OE25Dev
+[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.387 s - in org.apache.commons.geometry.euclidean.twod.shape.CircleTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.038 s - in org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev
+[INFO] Tests run: 68, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.geometry.euclidean.twod.LineConvexSubsetTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.AffineTransformMatrix2DTest_OE25Dev
-[ERROR] Tests run: 71, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.393 s <<< FAILURE! - in org.apache.commons.geometry.euclidean.twod.AffineTransformMatrix2DTest_OE25Dev
-[ERROR] org.apache.commons.geometry.euclidean.twod.AffineTransformMatrix2DTest_OE25Dev.testToString_oe  Time elapsed: 0.002 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <[ 1.0,2.0,3.0;5.0,6.0,7.0 ]> but was: <[ 1.0, 2.0, 3.0; 5.0, 6.0, 7.0 ]>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1125)
-	at org.apache.commons.geometry.euclidean.twod.AffineTransformMatrix2DTest_OE25Dev.testToString_oe(AffineTransformMatrix2DTest_OE25Dev.java:1379)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
-	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:210)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:206)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:131)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:65)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
-
+[INFO] Tests run: 70, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in org.apache.commons.geometry.euclidean.twod.AffineTransformMatrix2DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubsetTest_OE25Dev
-[INFO] Tests run: 25, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubsetTest_OE25Dev
+[INFO] Tests run: 82, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.geometry.euclidean.twod.EmbeddedTreeLineSubsetTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.BoundarySource2DTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.apache.commons.geometry.euclidean.twod.BoundarySource2DTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.geometry.euclidean.twod.BoundarySource2DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.LineSpanningSubsetTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.euclidean.twod.LineSpanningSubsetTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.geometry.euclidean.twod.LineSpanningSubsetTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.BoundaryList2DTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.geometry.euclidean.twod.BoundaryList2DTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.euclidean.twod.BoundaryList2DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.path.LinePathTest_OE25Dev
-[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.geometry.euclidean.twod.path.LinePathTest_OE25Dev
+[INFO] Tests run: 495, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.213 s - in org.apache.commons.geometry.euclidean.twod.path.LinePathTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.path.InteriorAngleLinePathConnectorTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.geometry.euclidean.twod.path.InteriorAngleLinePathConnectorTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.geometry.euclidean.twod.path.InteriorAngleLinePathConnectorTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.path.AbstractLinePathConnectorTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.031 s - in org.apache.commons.geometry.euclidean.twod.path.AbstractLinePathConnectorTest_OE25Dev
+[INFO] Tests run: 75, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in org.apache.commons.geometry.euclidean.twod.path.AbstractLinePathConnectorTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.RegionBSPTree2DTest_OE25Dev
-[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.126 s - in org.apache.commons.geometry.euclidean.twod.RegionBSPTree2DTest_OE25Dev
+[INFO] Tests run: 196, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.263 s - in org.apache.commons.geometry.euclidean.twod.RegionBSPTree2DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.LinecastPoint2DTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.geometry.euclidean.twod.LinecastPoint2DTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.036 s - in org.apache.commons.geometry.euclidean.twod.LinecastPoint2DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.RayTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.geometry.euclidean.twod.RayTest_OE25Dev
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.euclidean.twod.RayTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.ConvexAreaTest_OE25Dev
-[INFO] Tests run: 59, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.099 s - in org.apache.commons.geometry.euclidean.twod.ConvexAreaTest_OE25Dev
+[INFO] Tests run: 221, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in org.apache.commons.geometry.euclidean.twod.ConvexAreaTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.rotation.Rotation2DTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.587 s - in org.apache.commons.geometry.euclidean.twod.rotation.Rotation2DTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.geometry.euclidean.twod.rotation.Rotation2DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.Bounds2DTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.geometry.euclidean.twod.Bounds2DTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.geometry.euclidean.twod.Bounds2DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.twod.ReverseRayTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.geometry.euclidean.twod.ReverseRayTest_OE25Dev
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.apache.commons.geometry.euclidean.twod.ReverseRayTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.PlaneConvexSubsetTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.euclidean.threed.PlaneConvexSubsetTest_OE25Dev
+[INFO] Tests run: 49, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.042 s - in org.apache.commons.geometry.euclidean.threed.PlaneConvexSubsetTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.EmbeddedTreePlaneSubsetTest_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in org.apache.commons.geometry.euclidean.threed.EmbeddedTreePlaneSubsetTest_OE25Dev
+[INFO] Tests run: 61, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.geometry.euclidean.threed.EmbeddedTreePlaneSubsetTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.PlanesTest_OE25Dev
-[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.852 s - in org.apache.commons.geometry.euclidean.threed.PlanesTest_OE25Dev
+[INFO] Tests run: 168, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.303 s - in org.apache.commons.geometry.euclidean.threed.PlanesTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.BoundarySourceBoundsBuilder3DTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.geometry.euclidean.threed.BoundarySourceBoundsBuilder3DTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.geometry.euclidean.threed.BoundarySourceBoundsBuilder3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.VertexListConvexPolygon3DTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.geometry.euclidean.threed.VertexListConvexPolygon3DTest_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.geometry.euclidean.threed.VertexListConvexPolygon3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.EmbeddingPlaneTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.6 s - in org.apache.commons.geometry.euclidean.threed.EmbeddingPlaneTest_OE25Dev
+[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.geometry.euclidean.threed.EmbeddingPlaneTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev
-[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.265 s - in org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev
+[INFO] Tests run: 133, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.geometry.euclidean.threed.PlaneTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.SimpleTriangle3DTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.geometry.euclidean.threed.SimpleTriangle3DTest_OE25Dev
+[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.geometry.euclidean.threed.SimpleTriangle3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.mesh.SimpleTriangleMeshTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.055 s - in org.apache.commons.geometry.euclidean.threed.mesh.SimpleTriangleMeshTest_OE25Dev
+[INFO] Tests run: 136, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.166 s - in org.apache.commons.geometry.euclidean.threed.mesh.SimpleTriangleMeshTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.shape.ParallelepipedTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.geometry.euclidean.threed.shape.ParallelepipedTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in org.apache.commons.geometry.euclidean.threed.shape.ParallelepipedTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 46.109 s - in org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 84.032 s - in org.apache.commons.geometry.euclidean.threed.shape.SphereTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.EmbeddedAreaPlaneConvexSubsetTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.geometry.euclidean.threed.EmbeddedAreaPlaneConvexSubsetTest_OE25Dev
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.geometry.euclidean.threed.EmbeddedAreaPlaneConvexSubsetTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.BoundarySource3DTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.euclidean.threed.BoundarySource3DTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.euclidean.threed.BoundarySource3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.line.EmbeddedTreeLineSubset3DTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.geometry.euclidean.threed.line.EmbeddedTreeLineSubset3DTest_OE25Dev
+[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.geometry.euclidean.threed.line.EmbeddedTreeLineSubset3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.line.Ray3DTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.geometry.euclidean.threed.line.Ray3DTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.euclidean.threed.line.Ray3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.line.LinecastPoint3DTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.geometry.euclidean.threed.line.LinecastPoint3DTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.euclidean.threed.line.LinecastPoint3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.line.Line3DTest_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.geometry.euclidean.threed.line.Line3DTest_OE25Dev
+[INFO] Tests run: 100, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.geometry.euclidean.threed.line.Line3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.line.ReverseRay3DTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.euclidean.threed.line.ReverseRay3DTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.euclidean.threed.line.ReverseRay3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.line.Segment3DTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.geometry.euclidean.threed.line.Segment3DTest_OE25Dev
+[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.geometry.euclidean.threed.line.Segment3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.line.LineConvexSubset3DTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.geometry.euclidean.threed.line.LineConvexSubset3DTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.euclidean.threed.line.LineConvexSubset3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.Bounds3DTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.geometry.euclidean.threed.Bounds3DTest_OE25Dev
+[INFO] Tests run: 58, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.geometry.euclidean.threed.Bounds3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev
+[INFO] Tests run: 77, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.geometry.euclidean.threed.SphericalCoordinatesTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.AffineTransformMatrix3DTest_OE25Dev
-[ERROR] Tests run: 58, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 1.258 s <<< FAILURE! - in org.apache.commons.geometry.euclidean.threed.AffineTransformMatrix3DTest_OE25Dev
-[ERROR] org.apache.commons.geometry.euclidean.threed.AffineTransformMatrix3DTest_OE25Dev.testToString_oe  Time elapsed: 0 s  <<< FAILURE!
-org.opentest4j.AssertionFailedError: expected: <[ 1.0,2.0,3.0,4.0;5.0,6.0,7.0,8.0;9.0,10.0,11.0,12.0 ]> but was: <[ 1.0, 2.0, 3.0, 4.0; 5.0, 6.0, 7.0, 8.0; 9.0, 10.0, 11.0, 12.0 ]>
-	at org.junit.jupiter.api.AssertionUtils.fail(AssertionUtils.java:55)
-	at org.junit.jupiter.api.AssertionUtils.failNotEqual(AssertionUtils.java:62)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:182)
-	at org.junit.jupiter.api.AssertEquals.assertEquals(AssertEquals.java:177)
-	at org.junit.jupiter.api.Assertions.assertEquals(Assertions.java:1125)
-	at org.apache.commons.geometry.euclidean.threed.AffineTransformMatrix3DTest_OE25Dev.testToString_oe(AffineTransformMatrix3DTest_OE25Dev.java:1206)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.junit.platform.commons.util.ReflectionUtils.invokeMethod(ReflectionUtils.java:688)
-	at org.junit.jupiter.engine.execution.MethodInvocation.proceed(MethodInvocation.java:60)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$ValidatingInvocation.proceed(InvocationInterceptorChain.java:131)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.intercept(TimeoutExtension.java:149)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestableMethod(TimeoutExtension.java:140)
-	at org.junit.jupiter.engine.extension.TimeoutExtension.interceptTestMethod(TimeoutExtension.java:84)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker$ReflectiveInterceptorCall.lambda$ofVoidMethod$0(ExecutableInvoker.java:115)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.lambda$invoke$0(ExecutableInvoker.java:105)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain$InterceptedInvocation.proceed(InvocationInterceptorChain.java:106)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.proceed(InvocationInterceptorChain.java:64)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.chainAndInvoke(InvocationInterceptorChain.java:45)
-	at org.junit.jupiter.engine.execution.InvocationInterceptorChain.invoke(InvocationInterceptorChain.java:37)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:104)
-	at org.junit.jupiter.engine.execution.ExecutableInvoker.invoke(ExecutableInvoker.java:98)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$invokeTestMethod$6(TestMethodTestDescriptor.java:210)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.invokeTestMethod(TestMethodTestDescriptor.java:206)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:131)
-	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.execute(TestMethodTestDescriptor.java:65)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:151)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at java.util.ArrayList.forEach(ArrayList.java:1259)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:155)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:141)
-	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:139)
-	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:138)
-	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95)
-	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57)
-	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:107)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:88)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:54)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:67)
-	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:52)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:114)
-	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:86)
-	at org.junit.platform.launcher.core.DefaultLauncherSession$DelegatingLauncher.execute(DefaultLauncherSession.java:86)
-	at org.apache.maven.surefire.junitplatform.LazyLauncher.execute(LazyLauncher.java:55)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.execute(JUnitPlatformProvider.java:223)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invokeAllTests(JUnitPlatformProvider.java:175)
-	at org.apache.maven.surefire.junitplatform.JUnitPlatformProvider.invoke(JUnitPlatformProvider.java:139)
-	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:456)
-	at org.apache.maven.surefire.booter.ForkedBooter.execute(ForkedBooter.java:169)
-	at org.apache.maven.surefire.booter.ForkedBooter.run(ForkedBooter.java:595)
-	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:581)
-
+[INFO] Tests run: 66, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.geometry.euclidean.threed.AffineTransformMatrix3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.rotation.AxisAngleSequenceTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.geometry.euclidean.threed.rotation.AxisAngleSequenceTest_OE25Dev
+[INFO] Tests run: 39, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.euclidean.threed.rotation.AxisAngleSequenceTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev
-[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.98 s - in org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev
+[INFO] Tests run: 196, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.494 s - in org.apache.commons.geometry.euclidean.threed.rotation.QuaternionRotationTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.BoundaryList3DTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.euclidean.threed.BoundaryList3DTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.geometry.euclidean.threed.BoundaryList3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev
-[INFO] Tests run: 62, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.718 s - in org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev
+[INFO] Tests run: 224, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.515 s - in org.apache.commons.geometry.euclidean.threed.RegionBSPTree3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.ConvexVolumeTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.geometry.euclidean.threed.ConvexVolumeTest_OE25Dev
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.geometry.euclidean.threed.ConvexVolumeTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev
-[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.236 s - in org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev
+[INFO] Tests run: 228, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.geometry.euclidean.threed.Vector3DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.internal.MatricesTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.geometry.euclidean.internal.MatricesTest_OE25Dev
+[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.euclidean.internal.MatricesTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.internal.VectorsTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.geometry.euclidean.internal.VectorsTest_OE25Dev
+[INFO] Tests run: 67, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.geometry.euclidean.internal.VectorsTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.internal.EuclideanUtilsTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.geometry.euclidean.internal.EuclideanUtilsTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.euclidean.internal.EuclideanUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev
-[INFO] Tests run: 55, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev
+[INFO] Tests run: 91, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.geometry.euclidean.oned.RegionBSPTree1DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev
-[INFO] Tests run: 48, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.064 s - in org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev
+[INFO] Tests run: 61, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.geometry.euclidean.oned.AffineTransformMatrix1DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev
-[INFO] Tests run: 33, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev
+[INFO] Tests run: 135, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.geometry.euclidean.oned.Vector1DTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev
-[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev
+[INFO] Tests run: 231, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.geometry.euclidean.oned.OrientedPointTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev
+[INFO] Tests run: 84, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.geometry.euclidean.oned.IntervalTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Failures: 
-[ERROR]   AffineTransformMatrix3DTest_OE25Dev.testToString_oe:1206 expected: <[ 1.0,2.0,3.0,4.0;5.0,6.0,7.0,8.0;9.0,10.0,11.0,12.0 ]> but was: <[ 1.0, 2.0, 3.0, 4.0; 5.0, 6.0, 7.0, 8.0; 9.0, 10.0, 11.0, 12.0 ]>
-[ERROR]   AffineTransformMatrix2DTest_OE25Dev.testToString_oe:1379 expected: <[ 1.0,2.0,3.0;5.0,6.0,7.0 ]> but was: <[ 1.0, 2.0, 3.0; 5.0, 6.0, 7.0 ]>
-[INFO] 
-[ERROR] Tests run: 1438, Failures: 2, Errors: 0, Skipped: 0
+[INFO] Tests run: 4912, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  01:21 min
-[INFO] Finished at: 2026-03-08T23:54:29-05:00
+[INFO] Total time:  01:58 min
+[INFO] Finished at: 2026-03-09T06:14:24-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project commons-geometry-euclidean: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-euclidean/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -1,3 +1,4 @@
+# python3 scripts/map_oracles_multiple.py
 import os
 import re
 import pandas as pd
@@ -18,18 +19,17 @@ ASSERT_EXCEPTION = re.compile(
 )
 
 
-def classify_test(test_prefix: str) -> str:
+def classify(test_prefix: str) -> str:
     has_standard = bool(ASSERT_STANDARD.search(test_prefix))
     has_exception = bool(ASSERT_EXCEPTION.search(test_prefix))
-    if has_standard and has_exception:
-        return "mixed"
-    return "multiple"
+    return "mixed" if (has_standard and has_exception) else "multiple"
 
 
 def process_project(project_path: str, project_name: str):
-    for dtype in TYPES:
-        meta_path = os.path.join(project_path, f"meta_{dtype}.csv")
-        inputs_path = os.path.join(project_path, f"inputs_{dtype}.csv")
+    for dtype in ["multiple"]:
+        dataset_path = os.path.join(project_path, f"dataset_{dtype}")
+        meta_path = os.path.join(dataset_path, f"meta_passed.csv")
+        inputs_path = os.path.join(dataset_path, f"inputs_passed.csv")
 
         if not os.path.exists(meta_path):
             continue
@@ -50,15 +50,9 @@ def process_project(project_path: str, project_name: str):
         if drop_cols:
             meta_df.drop(columns=list(drop_cols), inplace=True)
 
-        if "id" not in inputs_df.columns or "test_prefix" not in inputs_df.columns:
-            print(f"[WARN] {project_name}/{dtype}: inputs missing id or test_prefix, skipping")
-            continue
-
         id_to_prefix = inputs_df.set_index("id")["test_prefix"].to_dict()
-
         meta_df["dataset_type"] = meta_df["id"].map(
-            lambda row_id: classify_test(id_to_prefix[row_id])
-            if row_id in id_to_prefix else None
+            lambda i: classify(id_to_prefix[i]) if i in id_to_prefix else None
         )
 
         meta_df.to_csv(meta_path, index=False)
@@ -70,12 +64,10 @@ def main():
         print(f"Directory not found: {PROJECTS_DIR}")
         return
 
-    projects = sorted(os.listdir(PROJECTS_DIR))
-    for project_name in projects:
+    for project_name in sorted(os.listdir(PROJECTS_DIR)):
         project_path = os.path.join(PROJECTS_DIR, project_name)
-        if not os.path.isdir(project_path):
-            continue
-        process_project(project_path, project_name)
+        if os.path.isdir(project_path):
+            process_project(project_path, project_name)
 
 
 if __name__ == "__main__":

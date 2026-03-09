@@ -1,0 +1,781 @@
+id,test_prefix,test_name,focal_methods,docstrings
+JSON-java_6,"@Test
+    public void malFormedNameValueException_oe() {
+        String cookieStr = ""thisCookieHasNoEqualsChar"";
+        try {
+            Cookie.toJSONObject(cookieStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Expected '=' and instead saw '' at 25 [character 26 line 1]"",e.getMessage());
+        }
+    }",CookieTest::malFormedNameValueException_oe,,
+JSON-java_8,"@Test
+    public void emptyStringCookieException_oe() {
+        String cookieStr = """";
+        try {
+            Cookie.toJSONObject(cookieStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Cookies must have a 'name'"",e.getMessage());
+        }
+    }",CookieTest::emptyStringCookieException_oe,,
+JSON-java_9,"@Test
+    public void emptyNameCookieException_oe() {
+        String cookieStr = "" = value "";
+        try {
+            Cookie.toJSONObject(cookieStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Cookies must have a 'name'"",e.getMessage());
+        }
+    }",CookieTest::emptyNameCookieException_oe,,
+JSON-java_13,"@Test
+    public void emptyXMLException_oe() {
+        String xmlStr = """";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Bad XML at 0 [character 1 line 1]"",e.getMessage());
+        }
+    }",JSONMLTest::emptyXMLException_oe,,
+JSON-java_15,"@Test
+    public void nonXMLException_oe() {
+        /**
+         * Attempts to transform a nonXML string to JSON
+         */
+        String xmlStr = ""{ \""this is\"": \""not xml\""}"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Bad XML at 23 [character 24 line 1]"",e.getMessage());
+        }
+    }",JSONMLTest::nonXMLException_oe,,
+JSON-java_18,"@Test
+    public void invalidSlashInTagException_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because the 'name' element
+         * contains an invalid frontslash.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/x>\n""+
+            ""       <street>abc street</street>\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped tag at 176 [character 14 line 4]"",e.getMessage());
+        }
+    }",JSONMLTest::invalidSlashInTagException_oe,,
+JSON-java_19,"@Test
+    public void invalidBangInTagException_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!>\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 215 [character 12 line 7]"",e.getMessage());
+        }
+    }",JSONMLTest::invalidBangInTagException_oe,,
+JSON-java_20,"@Test
+    public void invalidBangNoCloseInTagException_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * starts with '!' and has no closing tag
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 214 [character 12 line 7]"",e.getMessage());
+        }
+    }",JSONMLTest::invalidBangNoCloseInTagException_oe,,
+JSON-java_21,"@Test
+    public void noCloseStartTagException_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * has no closing '>'.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc\n""+
+            ""    </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 194 [character 5 line 6]"",e.getMessage());
+        }
+    }",JSONMLTest::noCloseStartTagException_oe,,
+JSON-java_23,"@Test
+    public void noCloseEndBraceException_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * has '>' after the closing tag '</' and name.
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation=\""test.xsd\"">\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc/>\n""+
+            ""    </address\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 206 [character 1 line 7]"",e.getMessage());
+        }
+    }",JSONMLTest::noCloseEndBraceException_oe,,
+JSON-java_24,"@Test
+    public void invalidCDATABangInTagException_oe() {
+        /**
+         * xmlStr contains XML text which is transformed into a JSONArray.
+         * In this case, the XML is invalid because an element
+         * does not have a complete CDATA string. 
+         */
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name>Joe Tester</name>\n""+
+            ""       <![[]>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            JSONML.toJSONArray(xmlStr);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Expected 'CDATA[' at 204 [character 11 line 5]"",e.getMessage());
+        }
+    }",JSONMLTest::invalidCDATABangInTagException_oe,,
+JSON-java_61,"@Test
+    public void shouldHandleInvalidSlashInTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/x>\n""+
+            ""       <street>abc street</street>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped tag at 176 [character 14 line 4]"",e.getMessage());
+        }
+    }",XMLTest::shouldHandleInvalidSlashInTag_oe,,
+JSON-java_62,"@Test
+    public void shouldHandleInvalidBangInTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 214 [character 12 line 7]"",e.getMessage());
+        }
+    }",XMLTest::shouldHandleInvalidBangInTag_oe,,
+JSON-java_63,"@Test
+    public void shouldHandleInvalidBangNoCloseInTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 213 [character 12 line 7]"",e.getMessage());
+        }
+    }",XMLTest::shouldHandleInvalidBangNoCloseInTag_oe,,
+JSON-java_64,"@Test
+    public void shouldHandleNoCloseStartTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 193 [character 4 line 6]"",e.getMessage());
+        }
+    }",XMLTest::shouldHandleNoCloseStartTag_oe,,
+JSON-java_65,"@Test
+    public void shouldHandleInvalidCDATABangInTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name>Joe Tester</name>\n""+
+            ""       <![[]>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Expected 'CDATA[' at 204 [character 11 line 5]"",e.getMessage());
+        }
+    }",XMLTest::shouldHandleInvalidCDATABangInTag_oe,,
+JSON-java_86,"@Test
+    public void testXSITypeMapNotModifiable_oe() {
+        Map<String, XMLXsiTypeConverter<?>> xsiTypeMap = new HashMap<String, XMLXsiTypeConverter<?>>();
+        XMLParserConfiguration config = new XMLParserConfiguration().withXsiTypeMap(xsiTypeMap);
+        xsiTypeMap.put(""string"", new XMLXsiTypeConverter<String>() {
+            @Override public String convert(final String value) {
+                return value;
+            }
+        });
+        assertEquals(""Config Conversion Map size is expected to be 0"", 0, config.getXsiTypeMap().size());
+
+        try {
+            config.getXsiTypeMap().put(""boolean"", new XMLXsiTypeConverter<Boolean>() {
+                @Override public Boolean convert(final String value) {
+                    return Boolean.valueOf(value);
+                }
+            });
+            fail(""Expected to be unable to modify the config"");
+        } catch (Exception ignored) { }
+    }",XMLTest::testXSITypeMapNotModifiable_oe,,
+JSON-java_90,"@Test
+    public void shouldHandleInvalidSlashInTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/x>\n""+
+            ""       <street>abc street</street>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped tag at 176 [character 14 line 4]"",e.getMessage());
+        }
+    }",XMLConfigurationTest::shouldHandleInvalidSlashInTag_oe,,
+JSON-java_91,"@Test
+    public void shouldHandleInvalidBangInTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 214 [character 12 line 7]"",e.getMessage());
+        }
+    }",XMLConfigurationTest::shouldHandleInvalidBangInTag_oe,,
+JSON-java_92,"@Test
+    public void shouldHandleInvalidBangNoCloseInTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <!\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misshaped meta tag at 213 [character 12 line 7]"",e.getMessage());
+        }
+    }",XMLConfigurationTest::shouldHandleInvalidBangNoCloseInTag_oe,,
+JSON-java_93,"@Test
+    public void shouldHandleNoCloseStartTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name/>\n""+
+            ""       <abc\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XML.toJSONObject(xmlStr, XMLParserConfiguration.KEEP_STRINGS);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Misplaced '<' at 193 [character 4 line 6]"",e.getMessage());
+        }
+    }",XMLConfigurationTest::shouldHandleNoCloseStartTag_oe,,
+JSON-java_94,"@Test
+    public void shouldHandleInvalidCDATABangInTag_oe() {
+        String xmlStr = 
+            ""<?xml version=\""1.0\"" encoding=\""UTF-8\""?>\n""+
+            ""<addresses xmlns:xsi=\""http://www.w3.org/2001/XMLSchema-instance\""""+
+            ""   xsi:noNamespaceSchemaLocation='test.xsd'>\n""+
+            ""    <address>\n""+
+            ""       <name>Joe Tester</name>\n""+
+            ""       <![[]>\n""+
+            ""   </address>\n""+
+            ""</addresses>"";
+        try {
+            XMLParserConfiguration config = 
+                    new XMLParserConfiguration().withcDataTagName(""altContent"");
+            XML.toJSONObject(xmlStr, config);
+            fail(""Expecting a JSONException"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Expected 'CDATA[' at 204 [character 11 line 5]"",e.getMessage());
+        }
+    }",XMLConfigurationTest::shouldHandleInvalidCDATABangInTag_oe,,
+JSON-java_167,"@Test
+    public void testJSONWriterException_oe() {
+        final JSONObject jsonObject = new JSONObject();
+
+        jsonObject.put(""someKey"",new BrokenToString());
+
+        StringWriter writer = new StringWriter();
+        try {
+            jsonObject.write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONObject value for key: someKey"", e.getMessage());
+        } catch(Exception e) {
+            fail(""Expected JSONException"");
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+
+        jsonObject.put(""somethingElse"", ""a value"");
+        
+        writer = new StringWriter();
+        try {
+            jsonObject.write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONObject value for key: someKey"", e.getMessage());
+        } catch(Exception e) {
+            fail(""Expected JSONException"");
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+        
+        writer = new StringWriter();
+        try {
+            new JSONObject()
+                .put(""somethingElse"", ""a value"")
+                .put(""someKey"", new JSONArray()
+                        .put(new JSONObject().put(""key1"", new BrokenToString())))
+                .write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONObject value for key: someKey"", e.getMessage());
+        } catch(Exception e) {
+            fail(""Expected JSONException"");
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+       
+        writer = new StringWriter();
+        try {
+            new JSONObject()
+                .put(""somethingElse"", ""a value"")
+                .put(""someKey"", new JSONArray()
+                        .put(new JSONObject().put(""key1"", new BrokenToString()))
+                        .put(12345)
+                 )
+                .write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONObject value for key: someKey"", e.getMessage());
+        } catch(Exception e) {
+            fail(""Expected JSONException"");
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e) {}
+        }
+        Util.checkJSONObjectMaps(jsonObject);
+    }",JSONObjectTest::testJSONWriterException_oe,,
+JSON-java_170,"@Test
+    public void jsonObjectNullOperations_oe() {
+        /**
+         * The Javadoc for JSONObject.NULL states:
+         *      ""JSONObject.NULL is equivalent to the value that JavaScript calls null,
+         *      whilst Java's null is equivalent to the value that JavaScript calls
+         *      undefined.""
+         * 
+         * Standard ECMA-262 6th Edition / June 2015 (included to help explain the javadoc):
+         *      undefined value: primitive value used when a variable has not been assigned a value
+         *      Undefined type:  type whose sole value is the undefined value
+         *      null value:      primitive value that represents the intentional absence of any object value
+         *      Null type:       type whose sole value is the null value
+         * Java SE8 language spec (included to help explain the javadoc):
+         *      The Kinds of Types and Values ...
+         *      There is also a special null type, the type of the expression null, which has no name.
+         *      Because the null type has no name, it is impossible to declare a variable of the null 
+         *      type or to cast to the null type. The null reference is the only possible value of an 
+         *      expression of null type. The null reference can always be assigned or cast to any reference type.
+         *      In practice, the programmer can ignore the null type and just pretend that null is merely 
+         *      a special literal that can be of any reference type.
+         * Extensible Markup Language (XML) 1.0 Fifth Edition / 26 November 2008
+         *      No mention of null
+         * ECMA-404 1st Edition / October 2013:
+         *      JSON Text  ...
+         *      These are three literal name tokens: ...
+         *      null 
+         * 
+         * There seems to be no best practice to follow, it's all about what we
+         * want the code to do.
+         */
+
+        JSONObject jsonObjectJONull = new JSONObject();
+        Object obj = JSONObject.NULL;
+        jsonObjectJONull.put(""key"", obj);
+        Object value = jsonObjectJONull.opt(""key"");
+        assertTrue(""opt()JSONObject.NULL should find JSONObject.NULL"",obj.equals(value));
+        value = jsonObjectJONull.get(""key"");
+        assertTrue(""get()JSONObject.NULL should find JSONObject.NULL"",obj.equals(value));
+        if (value == null) {
+            value = """";
+        }
+        String string = value instanceof String ? (String)value : null;
+        assertTrue(""XML toString()should convert JSONObject.NULL to null"",string == null);
+
+        JSONObject jsonObjectNull = new JSONObject();
+        obj = null;
+        jsonObjectNull.put(""key"", obj);
+        value = jsonObjectNull.opt(""key"");
+        assertNull(""opt() null should find null"", value);
+        try {
+            value = jsonObjectNull.get(""key"");
+            fail(""get() null should throw exception"");
+        } catch (Exception ignored) {}
+
+        /**
+         * XML.toString() then goes on to do something with the value
+         * if the key val is ""content"", then value.toString() will be 
+         * called. This will evaluate to ""null"" for JSONObject.NULL,
+         * and the empty string for null.
+         * But if the key is anything else, then JSONObject.NULL will be emitted
+         * as <key>null</key> and null will be emitted as """"
+         */
+        String sJONull = XML.toString(jsonObjectJONull);
+        assertTrue(""JSONObject.NULL should emit a null value"",""<key>null</key>"".equals(sJONull));
+        String sNull = XML.toString(jsonObjectNull);
+        assertTrue(""null should emit an empty string"", """".equals(sNull));
+        Util.checkJSONObjectsMaps(new ArrayList<JSONObject>(Arrays.asList(
+                jsonObjectJONull, jsonObjectNull
+        )));
+    }",JSONObjectTest::jsonObjectNullOperations_oe,,
+JSON-java_201,"@Test
+    public void verifyBackFailureZeroIndex_oe() throws IOException {
+        Reader reader = new StringReader(""some test string""); 
+        try {
+            final JSONTokener tokener = new JSONTokener(reader);
+            try {
+                tokener.back();
+                fail(""Expected an exception"");
+            } catch (JSONException e) {
+                assertEquals(""Stepping back two steps is not supported"", e.getMessage());
+            } catch (Exception e) {
+                fail(""Unknown Exception type "" + e.getClass().getCanonicalName()+"" with message ""+e.getMessage());
+            }
+            
+        } finally {
+            reader.close();
+        }
+    }",JSONTokenerTest::verifyBackFailureZeroIndex_oe,,
+JSON-java_202,"@Test
+    public void verifyBackFailureDoubleBack_oe() throws IOException {
+        Reader reader = new StringReader(""some test string"");
+        try {
+            final JSONTokener tokener = new JSONTokener(reader);
+            tokener.next();
+            tokener.back();
+            try {
+                tokener.back();
+                fail(""Expected an exception"");
+            } catch (JSONException e) {
+                assertEquals(""Stepping back two steps is not supported"", e.getMessage());
+            } catch (Exception e) {
+                fail(""Unknown Exception type "" + e.getClass().getCanonicalName()+"" with message ""+e.getMessage());
+            }
+       } finally {
+           reader.close();
+       }
+    }",JSONTokenerTest::verifyBackFailureDoubleBack_oe,,
+JSON-java_203,"@Test
+    public void testSkipToFailureWithBufferedReader_oe() throws IOException {
+        final byte[] superLongBuffer = new byte[1000001];
+        for(int i=0;i<superLongBuffer.length;i++) {
+            superLongBuffer[i] = 'A';
+        }
+        
+        Reader reader = new BufferedReader(new InputStreamReader(
+                new ByteArrayInputStream(superLongBuffer)));
+        try {
+            final JSONTokener tokener = new JSONTokener(reader);
+            try {
+                tokener.skipTo('B');
+                fail(""Expected exception"");
+            } catch (JSONException e) {
+                assertEquals(""Mark invalid"", e.getMessage());
+            } catch (Exception e) {
+                fail(""Unknown Exception type "" + e.getClass().getCanonicalName()+"" with message ""+e.getMessage());
+            }
+        } finally {
+            reader.close();
+        }
+    }",JSONTokenerTest::testSkipToFailureWithBufferedReader_oe,,
+JSON-java_250,"@Test
+    public void malFormedCookieListException_oe() {
+        String cookieStr = ""thisCookieHasNoEqualsChar"";
+        try {
+            CookieList.toJSONObject(cookieStr);
+            fail(""should throw an exception"");
+        } catch (JSONException e) {
+            /**
+             * Not sure of the missing char, but full string compare fails 
+             */
+            assertEquals(""Expecting an exception message"",""Expected '=' and instead saw '' at 25 [character 26 line 1]"",e.getMessage());
+        }
+    }",CookieListTest::malFormedCookieListException_oe,,
+JSON-java_258,"@Test
+    public void unbalancedQuoteInName_oe() {
+        String badLine = ""Col1, \""Col2\nVal1, Val2"";
+        try {
+            CDL.toJSONArray(badLine);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Missing close quote '\""'. at 12 [character 0 line 2]"",e.getMessage());
+        }
+    }",CDLTest::unbalancedQuoteInName_oe,,
+JSON-java_259,"@Test
+    public void unbalancedQuoteInValue_oe() {
+        String badLine = ""Col1, Col2\n\""Val1, Val2"";
+        try {
+            CDL.toJSONArray(badLine);
+            fail(""Expecting an exception"");
+        } catch (JSONException e) {
+            assertEquals(""Expecting an exception message"",""Missing close quote '\""'. at 22 [character 11 line 2]"",e.getMessage());
+            
+        }
+    }",CDLTest::unbalancedQuoteInValue_oe,,
+JSON-java_261,"@Test
+    public void unbalancedEscapedQuote_oe(){
+    	   String badLine = ""Col1, Col2\n\""Val1, \""\""Val2\""\"""";
+           try {
+               CDL.toJSONArray(badLine);
+               fail(""Expecting an exception"");
+           } catch (JSONException e) {
+               assertEquals(""Expecting an exception message"",""Missing close quote '\""'. at 26 [character 15 line 2]"",e.getMessage());
+               
+           }
+    }",CDLTest::unbalancedEscapedQuote_oe,,
+JSON-java_274,"@Test
+    public void testJSONNullStringValue_oe() throws Exception {
+        JSONNullStringValue jsonString = new JSONNullStringValue();
+        JSONArray jsonArray = new JSONArray();
+
+        jsonArray.put(jsonString);
+
+        StringWriter writer = new StringWriter(); 
+        try {
+            String output = jsonArray.write(writer).toString();
+            assertTrue(""String values should be equal"", ""[\""the toString value\""]"".equals(output));
+    
+            try {
+                output = JSONObject.valueToString(jsonString);
+                fail(""Expected an exception, got a String value"");
+            } catch (Exception e) {
+                assertTrue(""Expected JSONException"", e instanceof JSONException);
+                assertTrue(""Exception message does not match"", ""Bad value from toJSONString: null"".equals(e.getMessage()));
+            }
+        } finally {
+            writer.close();
+        }
+    }",JSONStringTest::testJSONNullStringValue_oe,,
+JSON-java_275,"@Test
+    public void testJSONStringExceptionValue_oe() {
+        JSONStringExceptionValue jsonString = new JSONStringExceptionValue();
+        JSONArray jsonArray = new JSONArray();
+
+        jsonArray.put(jsonString);
+
+        StringWriter writer = new StringWriter(); 
+        try {
+            jsonArray.write(writer).toString();
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertEquals(""Unable to write JSONArray value at index: 0"", e.getMessage());
+        } catch(Exception e) {
+            fail(""Expected JSONException"");
+        } finally {
+            try {
+                writer.close();
+            } catch (Exception e){}
+        }
+
+        try {
+            JSONObject.valueToString(jsonString);
+            fail(""Expected an exception, got a String value"");
+        } catch (JSONException e) {
+            assertTrue(""Exception message does not match"", ""the exception value"".equals(e.getMessage()));
+        } catch(Exception e) {
+            fail(""Expected JSONException"");
+        }
+    }",JSONStringTest::testJSONStringExceptionValue_oe,,
+JSON-java_284,"@Test
+    public void exceedNestDepthException_oe() {
+        try {
+            JSONStringer s = new JSONStringer();
+            s.object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object();
+            s.key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().
+            key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object().key(""k"").object();
+            fail(""Expected an exception message"");
+        } catch (JSONException e) {
+            assertTrue(""Expected an exception message"",""Nesting too deep."". equals(e.getMessage()));
+        }
+    }",JSONStringerTest::exceedNestDepthException_oe,,

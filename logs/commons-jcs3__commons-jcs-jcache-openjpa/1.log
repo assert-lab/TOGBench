@@ -31,9 +31,9 @@
 [INFO] Copying 3 resources from 1 bundle.
 [INFO] 
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache-openjpa ---
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa
-[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773031992961
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa
+[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054752059
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-jcache-openjpa ---
@@ -44,21 +44,21 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-jcs3-jcache-openjpa ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/target/classes
+[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/target/classes
 [INFO] 
 [INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-jcs3-jcache-openjpa ---
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-jcs3-jcache-openjpa ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/src/test/resources
 [INFO] Copying 0 resource to META-INF
 [INFO] Copying 3 resources
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-jcache-openjpa ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/target/test-classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/src/test/java/org/apache/commons/jcs3/jcache/openjpa/OpenJPAJCacheDataCacheTest_OE25Dev.java: Some input files use or override a deprecated API.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/src/test/java/org/apache/commons/jcs3/jcache/openjpa/OpenJPAJCacheDataCacheTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/src/test/java/org/apache/commons/jcs3/jcache/openjpa/OpenJPAJCacheDataCacheTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/src/test/java/org/apache/commons/jcs3/jcache/openjpa/OpenJPAJCacheDataCacheTest.java: Recompile with -Xlint:deprecation for details.
 [INFO] 
 [INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-jcs3-jcache-openjpa ---
 [INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
@@ -69,33 +69,15 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev
-[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 4.188 s <<< FAILURE! - in org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev
-[ERROR] query_oe(org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev)  Time elapsed: 3.735 s  <<< ERROR!
-org.apache.openjpa.persistence.ArgumentException: An error occurred while parsing the query filter "select e from OpenJPAJCacheDataCacheTest$MyEntity e where e.id = :id". Error message: The name "OpenJPAJCacheDataCacheTest$MyEntity" is not a recognized entity or identifier. Perhaps you meant OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity, which is a close match. Known entity names: [OpenJPAJCacheDataCacheTest_OE25Dev$MyEntity]
-	at org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev.query_oe(OpenJPAJCacheDataCacheTest_OE25Dev.java:122)
-
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.351 s - in org.apache.commons.jcs3.jcache.openjpa.OpenJPAJCacheDataCacheTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[ERROR] Errors: 
-[ERROR]   OpenJPAJCacheDataCacheTest_OE25Dev.query_oe:122 » Argument An error occurred w...
-[INFO] 
-[ERROR] Tests run: 2, Failures: 0, Errors: 1, Skipped: 0
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
+[INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.467 s
-[INFO] Finished at: 2026-03-08T23:53:25-05:00
+[INFO] Total time:  18.452 s
+[INFO] Finished at: 2026-03-09T06:12:44-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.2:test (default-test) on project commons-jcs3-jcache-openjpa: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-jcache-openjpa/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
-[ERROR] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

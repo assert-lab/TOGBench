@@ -92,7 +92,7 @@ python3 scripts/3_rebuild_decomposed.py
 mvn test -Dtest="*_OE25Dev#*_oe"
 
 
-./scripts/clean_loop.sh > clran_loop_mvn.log
+./scripts/clean_loop.sh > clean_loop_mvn.log
 
 # ======== map muts ========
 python3 scripts/collect_methods.py

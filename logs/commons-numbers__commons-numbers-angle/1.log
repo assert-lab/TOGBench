@@ -27,26 +27,26 @@
 [INFO] Executing tasks
 
 main:
-     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle/target/apidocs/META-INF
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-angle/target/apidocs/META-INF
 [INFO] Executed tasks
 [INFO] 
 [INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-numbers-angle ---
 [INFO] Skipping remote resources execution.
 [INFO] 
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-angle ---
-[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle
-[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773032073485
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-angle' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-angle
+[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054809276
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-angle ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle/src/main/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-angle/src/main/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-numbers-angle ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle/target/classes
+[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-angle/target/classes
 [INFO] 
 [INFO] --- maven-bundle-plugin:4.2.1:manifest (bundle-manifest) @ commons-numbers-angle ---
 [INFO] 
@@ -55,15 +55,15 @@ main:
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-numbers-angle ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle/src/test/resources
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-angle/src/test/resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-angle ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle/target/test-classes
+[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-angle/target/test-classes
 [INFO] 
 [INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-numbers-angle ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-numbers/commons-numbers-angle/target/jacoco.exec
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-angle/target/jacoco.exec
 [INFO] 
 [INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-numbers-angle ---
 [INFO] 
@@ -71,19 +71,19 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.angle.CosAngleTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in org.apache.commons.numbers.angle.CosAngleTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in org.apache.commons.numbers.angle.CosAngleTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.angle.ReduceTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.numbers.angle.ReduceTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.numbers.angle.ReduceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.angle.AngleTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in org.apache.commons.numbers.angle.AngleTest_OE25Dev
+[INFO] Tests run: 53, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in org.apache.commons.numbers.angle.AngleTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0
+[INFO] Tests run: 72, Failures: 0, Errors: 0, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.223 s
-[INFO] Finished at: 2026-03-08T23:54:38-05:00
+[INFO] Total time:  8.416 s
+[INFO] Finished at: 2026-03-09T06:13:34-05:00
 [INFO] ------------------------------------------------------------------------

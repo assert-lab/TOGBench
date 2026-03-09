@@ -7,8 +7,7 @@ springside4_10_101,"@Test
 			fail(""should fail before"");
 		} catch (TimeoutException e) {
 		}
-    }
-",BasicFutureTest::test_oe_101_oe,"@Override
+    }",BasicFutureTest::test_oe_101_oe,"@Override
 	public synchronized T get() throws InterruptedException, ExecutionException {
 		while (!this.completed) {
 			wait();
@@ -23,8 +22,7 @@ springside4_10_102,"@Test
 			future3.get();
 		} catch (Throwable t) {
 		}
-    }
-",BasicFutureTest::test_oe_102_oe,"@Override
+    }",BasicFutureTest::test_oe_102_oe,"@Override
 	public synchronized T get() throws InterruptedException, ExecutionException {
 		while (!this.completed) {
 			wait();
@@ -38,8 +36,7 @@ springside4_19_101,"@Test
 			fail(""should fail"");
 		} catch (Throwable t) {
 		}
-    }
-",URLResourceTest::resource_oe_101_oe,"public static File asFile(String generalPath) throws IOException {
+    }",URLResourceTest::resource_oe_101_oe,"public static File asFile(String generalPath) throws IOException {
 		if (StringUtils.startsWith(generalPath, CLASSPATH_PREFIX)) {
 			String resourceName = StringUtils.substringAfter(generalPath, CLASSPATH_PREFIX);
 			return getFileByURL(ResourceUtil.asUrl(resourceName));
@@ -63,8 +60,7 @@ springside4_19_102,"@Test
 			fail(""should fail"");
 		} catch (Throwable t) {
 		}
-    }
-",URLResourceTest::resource_oe_102_oe,"public static InputStream asStream(String generalPath) throws IOException {
+    }",URLResourceTest::resource_oe_102_oe,"public static InputStream asStream(String generalPath) throws IOException {
 		if (StringUtils.startsWith(generalPath, CLASSPATH_PREFIX)) {
 			String resourceName = StringUtils.substringAfter(generalPath, CLASSPATH_PREFIX);
 			return ResourceUtil.asStream(resourceName);
@@ -86,8 +82,7 @@ springside4_52_101,"@Test
 			fail(""should throw exception before"");
 		} catch (Throwable t) {
 		}
-    }
-",EncodeUtilTest::base64UrlSafeEncode_oe_101_oe,,
+    }",EncodeUtilTest::base64UrlSafeEncode_oe_101_oe,,
 springside4_97_101,"@Test
 	public void test_oe_101_oe() {
 		try {
@@ -95,8 +90,7 @@ springside4_97_101,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_101_oe,"public static int nonNegative(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_101_oe,"public static int nonNegative(@Nullable String role, int x) {
 		if (x < 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
 		}
@@ -111,8 +105,7 @@ springside4_97_102,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_102_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_102_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -127,8 +120,7 @@ springside4_97_103,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_103_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_103_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -143,8 +135,7 @@ springside4_97_104,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_104_oe,"public static int nonNegative(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_104_oe,"public static int nonNegative(@Nullable String role, int x) {
 		if (x < 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
 		}
@@ -159,8 +150,7 @@ springside4_97_105,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_105_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_105_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -175,8 +165,7 @@ springside4_97_106,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_106_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_106_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -191,8 +180,7 @@ springside4_97_107,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_107_oe,"public static int nonNegative(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_107_oe,"public static int nonNegative(@Nullable String role, int x) {
 		if (x < 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
 		}
@@ -207,8 +195,7 @@ springside4_97_108,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_108_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_108_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -223,8 +210,7 @@ springside4_97_109,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_109_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_109_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -239,8 +225,7 @@ springside4_97_110,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_110_oe,"public static int nonNegative(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_110_oe,"public static int nonNegative(@Nullable String role, int x) {
 		if (x < 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
 		}
@@ -255,8 +240,7 @@ springside4_97_111,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_111_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_111_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -271,8 +255,7 @@ springside4_97_112,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_112_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_112_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -287,8 +270,7 @@ springside4_97_113,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_113_oe,"public static int nonNegative(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_113_oe,"public static int nonNegative(@Nullable String role, int x) {
 		if (x < 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be >= 0"");
 		}
@@ -303,8 +285,7 @@ springside4_97_114,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_114_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_114_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -319,8 +300,7 @@ springside4_97_115,"@Test
 			fail(""fail"");
 		} catch (Throwable t) {
 		}
-    }
-",MoreValidateTest::test_oe_115_oe,"public static int positive(@Nullable String role, int x) {
+    }",MoreValidateTest::test_oe_115_oe,"public static int positive(@Nullable String role, int x) {
 		if (x <= 0) {
 			throw new IllegalArgumentException(role + "" ("" + x + "") must be > 0"");
 		}
@@ -335,8 +315,7 @@ springside4_128_101,"@Test
 			fail(""should fail here"");
 		}catch(Exception e){
 		}
-    }
-",NumberUtilTest::toBytes_oe_101_oe,"public static int toInt32(long x) {
+    }",NumberUtilTest::toBytes_oe_101_oe,"public static int toInt32(long x) {
 		if ((int) x == x){
 			return (int) x;
 		}
@@ -350,16 +329,14 @@ springside4_132_101,"@Test
 			fail(""should fail"");
 		} catch (Throwable t) {
 		}
-    }
-",UnitConverterTest::convertDurationMillis_oe_101_oe,,
+    }",UnitConverterTest::convertDurationMillis_oe_101_oe,,
 springside4_132_102,"@Test
 	public void convertDurationMillis_oe_102_oe() {
 		try {
 			fail(""should fail"");
 		} catch (Throwable t) {
 		}
-    }
-",UnitConverterTest::convertDurationMillis_oe_102_oe,,
+    }",UnitConverterTest::convertDurationMillis_oe_102_oe,,
 springside4_133_101,"@Test
 	public void convertSizeBytes_oe_101_oe() {
 		try {
@@ -367,8 +344,7 @@ springside4_133_101,"@Test
 			fail(""should fail"");
 		} catch (Throwable t) {
 		}
-    }
-",UnitConverterTest::convertSizeBytes_oe_101_oe,"public static long convertSizeBytes(String size) {
+    }",UnitConverterTest::convertSizeBytes_oe_101_oe,"public static long convertSizeBytes(String size) {
 		Matcher matcher = NUMBER_AND_UNIT.matcher(size);
 
 		if (matcher.matches()) {
@@ -411,8 +387,7 @@ springside4_133_102,"@Test
 			fail(""should fail"");
 		} catch (Throwable t) {
 		}
-    }
-",UnitConverterTest::convertSizeBytes_oe_102_oe,"public static long convertSizeBytes(String size) {
+    }",UnitConverterTest::convertSizeBytes_oe_102_oe,"public static long convertSizeBytes(String size) {
 		Matcher matcher = NUMBER_AND_UNIT.matcher(size);
 
 		if (matcher.matches()) {
