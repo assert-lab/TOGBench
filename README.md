@@ -1,162 +1,167 @@
-# OE25Dev Framework
+# TOGBench
 
-A comprehensive dataset and framework for evaluating test oracle generation techniques on developer-written Java unit tests.
+A benchmark pipeline for rebuilding, injecting, and evaluating test oracle assertions across decomposed Java projects using the OE25Dev dataset and Maven.
 
-## Overview
-
-OE25Dev is a dataset of developer-written Java unit tests designed to support research on test oracle generation and evaluation. Unlike prior benchmarks that rely mainly on automatically generated tests, OE25Dev focuses on realistic test suites written and maintained by developers in real-world open-source projects.
-
-The dataset enables reproducible evaluation of oracle generation techniques, including large language model (LLM)-based approaches, under practical testing conditions.
-
-## Key Features
-
-- **Developer-Written Test Suites**: Real-world test cases from open-source projects
-- **Single-Oracle Decomposition**: Multi-oracle tests split into single-oracle instances
-- **Mutation-Based Evaluation**: Systematic comparison of oracle effectiveness
-- **End-to-End Pipeline**: Complete framework from dataset construction to evaluation
-- **Extensible Benchmark**: Support for evaluating various oracle generation tools
-
-## Pipeline Overview
-
-![OE25Dev Pipeline](docs/pipeline.png)
-
-The OE25Dev pipeline consists of the following stages:
-
-1. **Project Preparation**: Download and collect developer-written test cases
-2. **Test Decomposition**: Split multi-oracle tests into single-oracle instances
-3. **Test Execution**: Run and validate decomposed test cases
-4. **Mutation Testing**: Apply mutations to evaluate oracle effectiveness
-5. **Oracle Generation**: Generate oracles using target tools
-6. **Evaluation**: Compare original, decomposed, and tool-generated oracles
+---
 
 ## Repository Structure
 
 ```
 .
-├── projects_original/      # Original unmodified open-source projects
-├── projects_decompose/     # Projects with decomposed single-oracle tests
-├── scripts/                # All framework scripts and tools
-    ├── download_projects.sh
-    ├── Final_mvn_run_original.sh
-    ├── main.sh
-    ├── final_mvn_run_decomposed.sh
-    ├── run_pitest.sh
+├── dataset_mixed/                  # Per-project dataset for mixed tests
+│   └── <project>/
+│       ├── inputs_no_assert.csv
+│       ├── inputs_llm.csv
+│       └── togll.csv
+├── dataset_single/                 # Per-project dataset for single tests
+│   └── <project>/
+├── dataset_custom/                 # Per-project dataset for custom tests
+│   └── <project>/
+├── dataset_multiple/               # Per-project dataset for multiple tests
+│   └── <project>/
+├── projects_decomposed/            # Rebuilt projects from OE25Dev datasets
+│   ├── async-http-client/
+│   ├── bcel/
+│   ├── commons-beanutils/
+│   ├── commons-collections4/
+│   ├── commons-configuration2/
+│   ├── commons-dbutils/
+│   ├── commons-geometry/
+│   ├── commons-imaging/
+│   ├── commons-jcs3/
+│   ├── commons-jexl3/
+│   ├── commons-lang3/
+│   ├── commons-net/
+│   ├── commons-numbers/
+│   ├── commons-pool2/
+│   ├── commons-rng/
+│   ├── commons-validator/
+│   ├── commons-vfs/
+│   ├── commons-weaver/
+│   ├── http-request/
+│   ├── joda-time/
+│   ├── JSON-java/
+│   ├── jsoup/
+│   ├── mvn_log.txt
+│   ├── scribejava/
+│   ├── spark/
+│   └── springside4/
+├── projects_original/              # Original projects with PIT and Maven logs
+├── logs/                           # Per-project Maven logs
+└── scripts/                        # All pipeline scripts
+    ├── run_project_dataset.sh
+    ├── rebuild_dataset_tests.py
+    ├── clean_run_mvn.sh
     ├── remove_assertion.py
-    ├── inject_generated_assertions.py
-    └── evaluate_tool.sh
+    ├── inject_assertion.py
+    ├── comment-incompatible_assertions.py
+    └── data_csv/
+        └── test_count.py
 ```
-
-Generated test files use the suffix `_OE25Dev.java`.
-
-## Usage
-
-### Prerequisites
-
-- Java Development Kit 8 (JDK 1.8)
-- Maven
-- Python 3.x
-- PIT 1.22 (for mutation testing)
-
-### Step 1: Download Projects
-
-If the projects are not already available, download them using:
-
-```bash
-scripts/download_projects.sh
-```
-
-The downloaded projects are stored in `projects_original/`.
-
-### Step 2: Run Original Test Suites
-
-Execute the original test suites and collect baseline statistics:
-
-```bash
-scripts/Final_mvn_run_original.sh
-```
-
-This step builds each project and records the number of executed tests.
-
-### Step 3: Build OE25Dev Decomposed Tests
-
-Construct the OE25Dev dataset:
-
-```bash
-scripts/main.sh
-```
-
-This script reads `inputs.csv` and `meta.csv`, decomposes multi-oracle test methods into single-oracle test cases, and generates new test files with the suffix `_OE25Dev.java`.
-
-### Step 4: Run Decomposed Test Suites
-
-Execute the decomposed test suites:
-
-```bash
-scripts/final_mvn_run_decomposed.sh
-```
-
-This step records test execution statistics for the OE25Dev test cases.
-
-### Step 5: Mutation Testing
-
-Run mutation testing using PIT:
-
-```bash
-scripts/run_pitest.sh
-```
-
-Mutation testing logs are saved, and final mutation statistics are recorded in `mutation_count.csv`.
-
-### Step 6: Oracle Removal
-
-Prepare oracle-free test cases:
-
-```bash
-scripts/remove_oracle.py
-```
-
-All assertion-based and exception-based oracles are removed and replaced with a placeholder token.
-
-### Step 7: Oracle Injection
-
-After generating oracles, inject them into the test cases:
-
-```bash
-scripts/inject_generated_assertions.py
-```
-
-### Step 8: Tool Evaluation
-
-Evaluate generated oracles:
-
-```bash
-scripts/evaluate_tool.sh
-```
-
-This step:
-- Compiles and executes the modified test suites
-- Removes tests with compilation errors
-- Records test execution results, false positives, mutation kills, and unique bug identification statistics
-
-## Evaluation Metrics
-
-OE25Dev supports analysis of:
-
-- **Mutation Kill Rates**: Effectiveness of oracles in detecting injected faults
-- **False Positives**: Tests that fail incorrectly
-- **Unique Bug Identification**: Novel bugs detected by generated oracles
-- **Compilation Success**: Syntactic correctness of generated oracles
-
-## Use Cases
-
-OE25Dev enables:
-
-- Benchmarking oracle generation tools and LLMs
-- Comparing different oracle generation approaches
-- Analyzing oracle quality in real-world contexts
-- Studying the impact of test decomposition on oracle effectiveness
-
 
 ---
 
-OE25Dev provides a realistic and extensible benchmark for evaluating test oracle generation techniques on developer-written test suites. By decomposing tests at the oracle level and supporting a complete evaluation pipeline, OE25Dev enables systematic and fine-grained analysis of oracle quality in real-world software projects.
+## Full Pipeline
+
+### 1. Dataset Rebuild & Maven Run
+
+Run the full pipeline end-to-end using:
+
+```bash
+./scripts/run_project_dataset.sh
+```
+
+This script executes the following steps in order:
+
+**Step 1 — Clean previous rebuild files**
+```bash
+find projects_decomposed -type f -name "*_OE25Dev*.java" -delete
+```
+Removes any previously generated test files to ensure a clean rebuild.
+
+**Step 2 — Rebuild tests from dataset**
+```bash
+python3 scripts/rebuild_dataset_tests.py
+```
+Interactively rebuilds test files from the chosen dataset into `projects_decomposed/`.
+
+**Step 3 — Run Maven across all projects**
+```bash
+./scripts/clean_run_mvn.sh > clean_loop_mvn.log
+```
+Runs each project module, saving individual Maven logs under `logs/`.
+
+**Step 4 — Collect statistics**
+```bash
+python3 scripts/data_csv/test_count.py
+```
+Counts and summarises test results from the Maven logs per project.
+
+---
+
+### 2. Testing a Tool (Assertion Injection Workflow)
+
+Use this workflow to evaluate a tool's generated assertions against the dataset.
+
+**Step 1 — Prepare input CSV**
+
+Save the CSV file with assertion output in the same directory as the dataset. The file should contain assertion statements alongside test inputs.
+
+**Step 2 — Strip existing assertions**
+```bash
+python3 scripts/remove_assertion.py
+```
+Removes assertions from the input CSV, producing a clean `inputs_no_assert.csv`.
+
+**Step 3 — Inject tool predictions**
+```bash
+python3 scripts/inject_assertion.py \
+  --inputs dataset_<type>/<project>/inputs_no_assert.csv \
+  --preds  dataset_<type>/<project>/togll.csv \
+  --out    dataset_<type>/<project>/inputs_llm.csv
+```
+Merges tool-predicted assertions into the input file, producing `inputs_llm.csv`.
+
+**Step 4 — Rebuild test files**
+```bash
+python3 scripts/rebuild_dataset_tests.py
+```
+Regenerates the `.java` test files using the injected assertions.
+
+**Step 5 — Run tests per project**
+```bash
+./scripts/run_tests.sh
+```
+Executes tests for the target project and saves logs under `logs/`.
+
+---
+
+### 3. Handling Compilation Errors
+
+If compilation errors persist after injection, comment out incompatible assertions:
+
+```bash
+python3 scripts/comment-incompatible_assertions.py
+```
+
+To count how many assertions were commented out for a given project (e.g. `joda-time`):
+
+```bash
+grep -R --include="*OE25Dev.java" "// incorrect assertion" projects_decomposed/joda-time | wc -l
+```
+
+---
+
+## Logs
+
+- `clean_loop_mvn.log` — Aggregate Maven output from the full pipeline run
+- `logs/<project>/` — Per-project Maven logs produced by `clean_run_mvn.sh`
+- `projects_original/` — Original unmodified projects with their baseline PIT mutation and Maven logs
+
+---
+
+## Notes
+
+- All generated test files follow the naming convention `*_OE25Dev.java`.
+- The `projects_original/` directory should not be modified; it serves as the baseline reference.
+- Dataset variants (`mixed`, `single`, `custom`, `multiple`) are independent and can each be used as input to `rebuild_dataset_tests.py`.
