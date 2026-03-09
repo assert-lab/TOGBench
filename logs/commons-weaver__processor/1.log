@@ -46,7 +46,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-weaver-processor ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/processor' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-weaver/processor
-[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054787626
+[INFO] Storing buildNumber: 6235ba7a7edd9a970966539f14983e5e8e4db74b at timestamp: 1773059447252
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:resources (default-resources) @ commons-weaver-processor ---
@@ -82,15 +82,15 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.weaver.utils.ProvidersTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.081 s - in org.apache.commons.weaver.utils.ProvidersTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in org.apache.commons.weaver.utils.ProvidersTest_OE25Dev
 [INFO] Running org.apache.commons.weaver.utils.ArgsTest_OE25Dev
 [INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.weaver.utils.ArgsTest_OE25Dev
 [INFO] Running org.apache.commons.weaver.FinderTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in org.apache.commons.weaver.FinderTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.191 s - in org.apache.commons.weaver.FinderTest_OE25Dev
 [INFO] Running org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.069 s - in org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.164 s - in org.apache.commons.weaver.test.WeaveProcessorTest_OE25Dev
 [INFO] Running org.apache.commons.weaver.test.CleanProcessorTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.weaver.test.CleanProcessorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.weaver.test.CleanProcessorTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -99,6 +99,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.369 s
-[INFO] Finished at: 2026-03-09T06:13:13-05:00
+[INFO] Total time:  11.762 s
+[INFO] Finished at: 2026-03-09T07:30:54-05:00
 [INFO] ------------------------------------------------------------------------

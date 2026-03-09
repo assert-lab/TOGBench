@@ -1,7 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type
-commons-net_7_101,commons-net,SubnetUtilsTest,,src/test/java/org/apache/commons/net/SubnetUtilsTest.java,,,,MUST_THROW
-commons-net_15_101,commons-net,SubnetUtilsTest,,src/test/java/org/apache/commons/net/SubnetUtilsTest.java,,,,MUST_THROW
-commons-net_15_102,commons-net,SubnetUtilsTest,,src/test/java/org/apache/commons/net/SubnetUtilsTest.java,,,,MUST_THROW
-commons-net_86_101,commons-net,FTPClientConfigTest,,src/test/java/org/apache/commons/net/ftp/FTPClientConfigTest.java,/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net/src/main/java/org/apache/commons/net/ftp/FTPClientConfig.java,org.apache.commons.net.ftp.FTPClientConfig,org.apache.commons.net.ftp,MUST_THROW
-commons-net_86_102,commons-net,FTPClientConfigTest,,src/test/java/org/apache/commons/net/ftp/FTPClientConfigTest.java,/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net/src/main/java/org/apache/commons/net/ftp/FTPClientConfig.java,org.apache.commons.net.ftp.FTPClientConfig,org.apache.commons.net.ftp,MUST_THROW
-commons-net_86_103,commons-net,FTPClientConfigTest,,src/test/java/org/apache/commons/net/ftp/FTPClientConfigTest.java,/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-net/src/main/java/org/apache/commons/net/ftp/FTPClientConfig.java,org.apache.commons.net.ftp.FTPClientConfig,org.apache.commons.net.ftp,MUST_THROW

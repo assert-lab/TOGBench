@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-fraction ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-fraction' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-fraction
-[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054813383
+[INFO] Storing buildNumber: 6235ba7a7edd9a970966539f14983e5e8e4db74b at timestamp: 1773059477332
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-fraction ---
@@ -63,13 +63,13 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.fraction.FractionTest_OE25Dev
-[INFO] Tests run: 293, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.294 s - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
+[INFO] Tests run: 293, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 s - in org.apache.commons.numbers.fraction.FractionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
-[INFO] Tests run: 290, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.928 s - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
+[INFO] Tests run: 290, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.8 s - in org.apache.commons.numbers.fraction.BigFractionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.numbers.fraction.ContinuedFractionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
-[INFO] Tests run: 258, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.135 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
+[INFO] Tests run: 258, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s - in org.apache.commons.numbers.fraction.CommonsLangPortedFractionTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -78,6 +78,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.064 s
-[INFO] Finished at: 2026-03-09T06:13:41-05:00
+[INFO] Total time:  9.983 s
+[INFO] Finished at: 2026-03-09T07:31:24-05:00
 [INFO] ------------------------------------------------------------------------

@@ -867,50 +867,6 @@ public Property dayOfMonth() {
      * 
      * @return the day of month property
      */"
-joda-time_289,"@SuppressWarnings_oe(""deprecation"")
-    public void testIsContiguous_RP() {
-        YearMonthDay ymd = new YearMonthDay(2005, 6, 9);
-        assertEquals(true,DateTimeUtils.isContiguous(ymd));
-        TimeOfDay tod = new TimeOfDay(12, 20, 30, 0);
-        assertEquals(true,DateTimeUtils.isContiguous(tod));
-        Partial year = new Partial(DateTimeFieldType.year(), 2005);
-        assertEquals(true,DateTimeUtils.isContiguous(year));
-        Partial hourOfDay = new Partial(DateTimeFieldType.hourOfDay(), 12);
-        assertEquals(true,DateTimeUtils.isContiguous(hourOfDay));
-        Partial yearHour = year.with(DateTimeFieldType.hourOfDay(), 12);
-        assertEquals(false,DateTimeUtils.isContiguous(yearHour));
-        Partial ymdd = new Partial(ymd).with(DateTimeFieldType.dayOfWeek(), 2);
-        assertEquals(false,DateTimeUtils.isContiguous(ymdd));
-        Partial dd = new Partial(DateTimeFieldType.dayOfMonth(), 13).with(DateTimeFieldType.dayOfWeek(), 5);
-        assertEquals(false,DateTimeUtils.isContiguous(dd));
-        
-        try {
-            DateTimeUtils.isContiguous((ReadablePartial) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestDateTimeUtils::SuppressWarnings_oe,,
-joda-time_290,"@SuppressWarnings_oe(""deprecation"")
-    public void testIsContiguous_RP_GJChronology() {
-        YearMonthDay ymd = new YearMonthDay(2005, 6, 9, GJ);
-        assertEquals(true,DateTimeUtils.isContiguous(ymd));
-        TimeOfDay tod = new TimeOfDay(12, 20, 30, 0, GJ);
-        assertEquals(true,DateTimeUtils.isContiguous(tod));
-        Partial year = new Partial(DateTimeFieldType.year(), 2005, GJ);
-        assertEquals(true,DateTimeUtils.isContiguous(year));
-        Partial hourOfDay = new Partial(DateTimeFieldType.hourOfDay(), 12, GJ);
-        assertEquals(true,DateTimeUtils.isContiguous(hourOfDay));
-        Partial yearHour = year.with(DateTimeFieldType.hourOfDay(), 12);
-        assertEquals(false,DateTimeUtils.isContiguous(yearHour));
-        Partial ymdd = new Partial(ymd).with(DateTimeFieldType.dayOfWeek(), 2);
-        assertEquals(false,DateTimeUtils.isContiguous(ymdd));
-        Partial dd = new Partial(DateTimeFieldType.dayOfMonth(), 13).with(DateTimeFieldType.dayOfWeek(), 5);
-        assertEquals(false,DateTimeUtils.isContiguous(dd));
-        
-        try {
-            DateTimeUtils.isContiguous((ReadablePartial) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestDateTimeUtils::SuppressWarnings_oe,,
 joda-time_329,"public void testConstructor_int_int_int_int_int_int_int_oe() throws Throwable {
         MutableDateTime test = new MutableDateTime(2002, 6, 9, 1, 0, 0, 0);  // +01:00
         assertEquals(ISOChronology.getInstance(),test.getChronology());
@@ -3146,185 +3102,6 @@ joda-time_446,"public void testToStandardDuration_months_oe() {
      * @return a duration equivalent to this period
      * @throws UnsupportedOperationException if the period contains years or months
      * @since 1.5
-     */"
-joda-time_471,"public void testPropertyCompareToYear_oe() {
-        YearMonth test1 = new YearMonth(TEST_TIME1);
-        YearMonth test2 = new YearMonth(TEST_TIME2);
-        assertEquals(true,test1.year().compareTo(test2)< 0);
-        assertEquals(true,test2.year().compareTo(test1)> 0);
-        assertEquals(true,test1.year().compareTo(test1)== 0);
-        try {
-            test1.year().compareTo((ReadablePartial) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-        
-        DateTime dt1 = new DateTime(TEST_TIME1);
-        DateTime dt2 = new DateTime(TEST_TIME2);
-        assertEquals(true,test1.year().compareTo(dt2)< 0);
-        assertEquals(true,test2.year().compareTo(dt1)> 0);
-        assertEquals(true,test1.year().compareTo(dt1)== 0);
-        try {
-            test1.year().compareTo((ReadableInstant) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestYearMonth_Properties::testPropertyCompareToYear_oe,"public Property year() {
-        return new Property(this, YEAR);
-    }","/**
-     * Get the year field property which provides access to advanced functionality.
-     * 
-     * @return the year property
-     */"
-joda-time_475,"public void testPropertyCompareToMonth_oe() {
-        YearMonth test1 = new YearMonth(TEST_TIME1);
-        YearMonth test2 = new YearMonth(TEST_TIME2);
-        assertEquals(true,test1.monthOfYear().compareTo(test2)< 0);
-        assertEquals(true,test2.monthOfYear().compareTo(test1)> 0);
-        assertEquals(true,test1.monthOfYear().compareTo(test1)== 0);
-        try {
-            test1.monthOfYear().compareTo((ReadablePartial) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-        
-        DateTime dt1 = new DateTime(TEST_TIME1);
-        DateTime dt2 = new DateTime(TEST_TIME2);
-        assertEquals(true,test1.monthOfYear().compareTo(dt2)< 0);
-        assertEquals(true,test2.monthOfYear().compareTo(dt1)> 0);
-        assertEquals(true,test1.monthOfYear().compareTo(dt1)== 0);
-        try {
-            test1.monthOfYear().compareTo((ReadableInstant) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestYearMonth_Properties::testPropertyCompareToMonth_oe,"public Property monthOfYear() {
-        return new Property(this, MONTH_OF_YEAR);
-    }","/**
-     * Get the month of year field property which provides access to advanced functionality.
-     * 
-     * @return the month of year property
-     */"
-joda-time_481,"public void testGet_DateTimeField_oe() {
-        DateMidnight test = new DateMidnight();
-        assertEquals(1,test.get(ISO_DEFAULT.era()));
-        assertEquals(20,test.get(ISO_DEFAULT.centuryOfEra()));
-        assertEquals(2,test.get(ISO_DEFAULT.yearOfCentury()));
-        assertEquals(2002,test.get(ISO_DEFAULT.yearOfEra()));
-        assertEquals(2002,test.get(ISO_DEFAULT.year()));
-        assertEquals(6,test.get(ISO_DEFAULT.monthOfYear()));
-        assertEquals(9,test.get(ISO_DEFAULT.dayOfMonth()));
-        assertEquals(2002,test.get(ISO_DEFAULT.weekyear()));
-        assertEquals(23,test.get(ISO_DEFAULT.weekOfWeekyear()));
-        assertEquals(7,test.get(ISO_DEFAULT.dayOfWeek()));
-        assertEquals(160,test.get(ISO_DEFAULT.dayOfYear()));
-        assertEquals(0,test.get(ISO_DEFAULT.halfdayOfDay()));
-        assertEquals(0,test.get(ISO_DEFAULT.hourOfHalfday()));
-        assertEquals(24,test.get(ISO_DEFAULT.clockhourOfDay()));
-        assertEquals(12,test.get(ISO_DEFAULT.clockhourOfHalfday()));
-        assertEquals(0,test.get(ISO_DEFAULT.hourOfDay()));
-        assertEquals(0,test.get(ISO_DEFAULT.minuteOfHour()));
-        assertEquals(0,test.get(ISO_DEFAULT.minuteOfDay()));
-        assertEquals(0,test.get(ISO_DEFAULT.secondOfMinute()));
-        assertEquals(0,test.get(ISO_DEFAULT.secondOfDay()));
-        assertEquals(0,test.get(ISO_DEFAULT.millisOfSecond()));
-        assertEquals(0,test.get(ISO_DEFAULT.millisOfDay()));
-        try {
-            test.get((DateTimeField) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestDateMidnight_Basics::testGet_DateTimeField_oe,"@Override
-        public int get() {
-            return iYearMonthDay.getValue(iFieldIndex);
-        }","/**
-         * Gets the value of this field.
-         * 
-         * @return the field value
-         */"
-joda-time_482,"public void testGet_DateTimeFieldType_oe() {
-        DateMidnight test = new DateMidnight();
-        assertEquals(1,test.get(DateTimeFieldType.era()));
-        assertEquals(20,test.get(DateTimeFieldType.centuryOfEra()));
-        assertEquals(2,test.get(DateTimeFieldType.yearOfCentury()));
-        assertEquals(2002,test.get(DateTimeFieldType.yearOfEra()));
-        assertEquals(2002,test.get(DateTimeFieldType.year()));
-        assertEquals(6,test.get(DateTimeFieldType.monthOfYear()));
-        assertEquals(9,test.get(DateTimeFieldType.dayOfMonth()));
-        assertEquals(2002,test.get(DateTimeFieldType.weekyear()));
-        assertEquals(23,test.get(DateTimeFieldType.weekOfWeekyear()));
-        assertEquals(7,test.get(DateTimeFieldType.dayOfWeek()));
-        assertEquals(160,test.get(DateTimeFieldType.dayOfYear()));
-        assertEquals(0,test.get(DateTimeFieldType.halfdayOfDay()));
-        assertEquals(0,test.get(DateTimeFieldType.hourOfHalfday()));
-        assertEquals(24,test.get(DateTimeFieldType.clockhourOfDay()));
-        assertEquals(12,test.get(DateTimeFieldType.clockhourOfHalfday()));
-        assertEquals(0,test.get(DateTimeFieldType.hourOfDay()));
-        assertEquals(0,test.get(DateTimeFieldType.minuteOfHour()));
-        assertEquals(0,test.get(DateTimeFieldType.minuteOfDay()));
-        assertEquals(0,test.get(DateTimeFieldType.secondOfMinute()));
-        assertEquals(0,test.get(DateTimeFieldType.secondOfDay()));
-        assertEquals(0,test.get(DateTimeFieldType.millisOfSecond()));
-        assertEquals(0,test.get(DateTimeFieldType.millisOfDay()));
-        try {
-            test.get((DateTimeFieldType) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestDateMidnight_Basics::testGet_DateTimeFieldType_oe,"@Override
-        public int get() {
-            return iYearMonthDay.getValue(iFieldIndex);
-        }","/**
-         * Gets the value of this field.
-         * 
-         * @return the field value
-         */"
-joda-time_486,"public void testCompareTo_oe() {
-        DateMidnight test1 = new DateMidnight(TEST_TIME1_UTC);
-        DateMidnight test1a = new DateMidnight(TEST_TIME1_UTC);
-        assertEquals(0,test1.compareTo(test1a));
-        assertEquals(0,test1a.compareTo(test1));
-        assertEquals(0,test1.compareTo(test1));
-        assertEquals(0,test1a.compareTo(test1a));
-        
-        DateMidnight test2 = new DateMidnight(TEST_TIME2_UTC);
-        assertEquals(-1,test1.compareTo(test2));
-        assertEquals(+1,test2.compareTo(test1));
-        
-        DateMidnight test3 = new DateMidnight(TEST_TIME2_UTC, GREGORIAN_PARIS);
-        assertEquals(-1,test1.compareTo(test3));
-        assertEquals(+1,test3.compareTo(test1));
-        assertEquals(-1,test3.compareTo(test2));// midnight paris before london assertEquals(+1,test2.compareTo(new MockInstant()));
-        assertEquals(0,test1.compareTo(new MockInstant()));
-        
-        try {
-            test1.compareTo(null);
-            fail();
-        } catch (NullPointerException ex) {}
-    }",TestDateMidnight_Basics::testCompareTo_oe,"@Override
-    public int compareTo(ReadablePartial partial) {
-        // override to perform faster
-        if (this == partial) {
-            return 0;
-        }
-        if (partial instanceof LocalTime) {
-            LocalTime other = (LocalTime) partial;
-            if (iChronology.equals(other.iChronology)) {
-                return (iLocalMillis < other.iLocalMillis ? -1 :
-                            (iLocalMillis == other.iLocalMillis ? 0 : 1));
-
-            }
-        }
-        return super.compareTo(partial);
-    }","/**
-     * Compares this partial with another returning an integer
-     * indicating the order.
-     * <p>
-     * The fields are compared in order, from largest to smallest.
-     * The first field that is non-equal is used to determine the result.
-     * <p>
-     * The specified object must be a partial instance whose field types
-     * match those of this partial.
-     *
-     * @param partial  an object to check against
-     * @return negative if this is less, zero if equal, positive if greater
-     * @throws ClassCastException if the partial is the wrong class
-     *  or if it has field types that don't match
-     * @throws NullPointerException if the partial is null
      */"
 joda-time_537,"public void testProperty_oe() {
         DateMidnight test = new DateMidnight();
@@ -5977,39 +5754,6 @@ joda-time_1039,"public void testGet_DateTimeFieldType_oe() {
      * @return the value of that field
      * @throws IllegalArgumentException if the field type is null
      */"
-joda-time_1050,"@SuppressWarnings_oe(""deprecation"")
-    public void testCompareTo() {
-        LocalTime test1 = new LocalTime(10, 20, 30, 40);
-        LocalTime test1a = new LocalTime(10, 20, 30, 40);
-        assertEquals(0,test1.compareTo(test1a));
-        assertEquals(0,test1a.compareTo(test1));
-        assertEquals(0,test1.compareTo(test1));
-        assertEquals(0,test1a.compareTo(test1a));
-        
-        LocalTime test2 = new LocalTime(10, 20, 35, 40);
-        assertEquals(-1,test1.compareTo(test2));
-        assertEquals(+1,test2.compareTo(test1));
-        
-        LocalTime test3 = new LocalTime(10, 20, 35, 40, GregorianChronology.getInstanceUTC());
-        assertEquals(-1,test1.compareTo(test3));
-        assertEquals(+1,test3.compareTo(test1));
-        assertEquals(0,test3.compareTo(test2));
-        
-        DateTimeFieldType[] types = new DateTimeFieldType[] {
-            DateTimeFieldType.hourOfDay(),
-            DateTimeFieldType.minuteOfHour(),
-            DateTimeFieldType.secondOfMinute(),
-            DateTimeFieldType.millisOfSecond(),
-        };
-        int[] values = new int[] {10, 20, 30, 40};
-        Partial p = new Partial(types, values);
-        assertEquals(0,test1.compareTo(p));
-        assertEquals(0,test1.compareTo(new TimeOfDay(10,20,30,40)));
-        try {
-            test1.compareTo(null);
-            fail();
-        } catch (NullPointerException ex) {}
-    }",TestLocalTime_Basics::SuppressWarnings_oe,,
 joda-time_1051,"public void testIsEqual_LocalTime_oe() {
         LocalTime test1 = new LocalTime(10, 20, 30, 40);
         LocalTime test1a = new LocalTime(10, 20, 30, 40);
@@ -6267,20 +6011,6 @@ joda-time_1101,"public void testPropertyCompareToYear_oe() {
      * 
      * @return the year property
      */"
-joda-time_1102,"@SuppressWarnings_oe(""deprecation"")
-    public void testPropertyCompareToYear2() {
-        DateTime test1 = new DateTime(2004, 6, 9, 0, 0, 0, 0);
-        YearMonthDay ymd1 = new YearMonthDay(2003, 6, 9);
-        YearMonthDay ymd2 = new YearMonthDay(2004, 6, 9);
-        YearMonthDay ymd3 = new YearMonthDay(2005, 6, 9);
-        assertEquals(true,test1.year().compareTo(ymd1)> 0);
-        assertEquals(true,test1.year().compareTo(ymd2)== 0);
-        assertEquals(true,test1.year().compareTo(ymd3)< 0);
-        try {
-            test1.year().compareTo((ReadablePartial) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestDateTime_Properties::SuppressWarnings_oe,,
 joda-time_1108,"public void testPropertySetMonthOfYear_oe() {
         DateTime test = new DateTime(2004, 6, 9, 0, 0, 0, 0);
         DateTime copy = test.monthOfYear().setCopy(12);
@@ -7193,39 +6923,6 @@ joda-time_1297,"public void testGet_oe() {
          * 
          * @return the field value
          */"
-joda-time_1307,"@SuppressWarnings_oe(""deprecation"")
-    public void testCompareTo() {
-        Partial test1 = createHourMinPartial();
-        Partial test1a = createHourMinPartial();
-        assertEquals(0,test1.compareTo(test1a));
-        assertEquals(0,test1a.compareTo(test1));
-        assertEquals(0,test1.compareTo(test1));
-        assertEquals(0,test1a.compareTo(test1a));
-        
-        Partial test2 = createHourMinPartial2(ISO_UTC);
-        assertEquals(-1,test1.compareTo(test2));
-        assertEquals(+1,test2.compareTo(test1));
-        
-        Partial test3 = createHourMinPartial2(COPTIC_UTC);
-        assertEquals(-1,test1.compareTo(test3));
-        assertEquals(+1,test3.compareTo(test1));
-        assertEquals(0,test3.compareTo(test2));
-        
-        assertEquals(0,new TimeOfDay(10,20,30,40).compareTo(createTODPartial(ISO_UTC)));
-        
-        try {
-            test1.compareTo(null);
-            fail();
-        } catch (NullPointerException ex) {}
-        try {
-            test1.compareTo(new YearMonthDay());
-            fail();
-        } catch (ClassCastException ex) {}
-        try {
-            createTODPartial(ISO_UTC).without(DateTimeFieldType.hourOfDay()).compareTo(new YearMonthDay());
-            fail();
-        } catch (ClassCastException ex) {}
-    }",TestPartial_Basics::SuppressWarnings_oe,,
 joda-time_1308,"public void testIsEqual_TOD_oe() {
         Partial test1 = createHourMinPartial();
         Partial test1a = createHourMinPartial();
@@ -7631,52 +7328,6 @@ public static DurationFieldType days() {
      * 
      * @return the DurationFieldType constant
      */"
-joda-time_1419,"@SuppressWarnings_oe(""deprecation"")
-    public void testFactory_between_RPartial() {
-        LocalDate start = new LocalDate(2006, 6, 9);
-        LocalDate end1 = new LocalDate(2006, 6, 12);
-        YearMonthDay end2 = new YearMonthDay(2006, 6, 15);
-        
-        Single zero = new Single(0);
-        assertEquals(3,Single.between(start,end1,zero));
-        assertEquals(0,Single.between(start,start,zero));
-        assertEquals(0,Single.between(end1,end1,zero));
-        assertEquals(-3,Single.between(end1,start,zero));
-        assertEquals(6,Single.between(start,end2,zero));
-        try {
-            Single.between(start, (ReadablePartial) null, zero);
-            fail();
-        } catch (IllegalArgumentException ex) {
-        }
-        try {
-            Single.between((ReadablePartial) null, end1, zero);
-            fail();
-        } catch (IllegalArgumentException ex) {
-        }
-        try {
-            Single.between((ReadablePartial) null, (ReadablePartial) null, zero);
-            fail();
-        } catch (IllegalArgumentException ex) {
-        }
-        try {
-            Single.between(start, new LocalTime(), zero);
-            fail();
-        } catch (IllegalArgumentException ex) {
-        }
-        try {
-            Single.between(new Partial(DateTimeFieldType.dayOfWeek(), 2), new Partial(DateTimeFieldType.dayOfMonth(), 3), zero);
-            fail();
-        } catch (IllegalArgumentException ex) {
-        }
-        Partial p = new Partial(
-                new DateTimeFieldType[] {DateTimeFieldType.year(), DateTimeFieldType.hourOfDay()},
-                new int[] {1, 2});
-        try {
-            Single.between(p, p, zero);
-            fail();
-        } catch (IllegalArgumentException ex) {
-        }
-    }",TestBaseSingleFieldPeriod::SuppressWarnings_oe,,
 joda-time_1420,"public void testFactory_standardPeriodIn_RPeriod_oe() {
         assertEquals(0,Single.standardPeriodIn((ReadablePeriod)null,DateTimeConstants.MILLIS_PER_DAY));
         assertEquals(0,Single.standardPeriodIn(Period.ZERO,DateTimeConstants.MILLIS_PER_DAY));
@@ -9940,50 +9591,6 @@ public Number getUpperBound() {
      * 
      * @return the upper bound
      */"
-joda-time_1745,"@SuppressWarnings_oe(""deprecation"")
-    public void testReadablePartialValidate() {
-        try {
-            new YearMonthDay(1970, -5, 1);
-            fail();
-        } catch (IllegalFieldValueException e) {
-            assertEquals(DateTimeFieldType.monthOfYear(),e.getDateTimeFieldType());
-            assertEquals(null,e.getDurationFieldType());
-            assertEquals(""monthOfYear"",e.getFieldName());
-            assertEquals(new Integer(-5),e.getIllegalNumberValue());
-            assertEquals(null,e.getIllegalStringValue());
-            assertEquals(""-5"",e.getIllegalValueAsString());
-            assertEquals(new Integer(1),e.getLowerBound());
-            assertEquals(null,e.getUpperBound());
-        }
-
-        try {
-            new YearMonthDay(1970, 500, 1);
-            fail();
-        } catch (IllegalFieldValueException e) {
-            assertEquals(DateTimeFieldType.monthOfYear(),e.getDateTimeFieldType());
-            assertEquals(null,e.getDurationFieldType());
-            assertEquals(""monthOfYear"",e.getFieldName());
-            assertEquals(new Integer(500),e.getIllegalNumberValue());
-            assertEquals(null,e.getIllegalStringValue());
-            assertEquals(""500"",e.getIllegalValueAsString());
-            assertEquals(null,e.getLowerBound());
-            assertEquals(new Integer(12),e.getUpperBound());
-        }
-
-        try {
-            new YearMonthDay(1970, 2, 30);
-            fail();
-        } catch (IllegalFieldValueException e) {
-            assertEquals(DateTimeFieldType.dayOfMonth(),e.getDateTimeFieldType());
-            assertEquals(null,e.getDurationFieldType());
-            assertEquals(""dayOfMonth"",e.getFieldName());
-            assertEquals(new Integer(30),e.getIllegalNumberValue());
-            assertEquals(null,e.getIllegalStringValue());
-            assertEquals(""30"",e.getIllegalValueAsString());
-            assertEquals(null,e.getLowerBound());
-            assertEquals(new Integer(28),e.getUpperBound());
-        }
-    }",TestIllegalFieldValueException::SuppressWarnings_oe,,
 joda-time_1748,"public void testFactory_FromCalendarFields_oe() throws Exception {
         GregorianCalendar cal = new GregorianCalendar(1970, 1, 3, 4, 5, 6);
         cal.set(Calendar.MILLISECOND, 7);
@@ -12879,50 +12486,6 @@ joda-time_2198,"public void testGet_DateTimeFieldType_oe() {
      * @return the value of that field
      * @throws IllegalArgumentException if the field type is null or unsupported
      */"
-joda-time_2212,"@SuppressWarnings_oe(""deprecation"")
-    public void testCompareTo() {
-        LocalDate test1 = new LocalDate(2005, 6, 2);
-        LocalDate test1a = new LocalDate(2005, 6, 2);
-        assertEquals(0,test1.compareTo(test1a));
-        assertEquals(0,test1a.compareTo(test1));
-        assertEquals(0,test1.compareTo(test1));
-        assertEquals(0,test1a.compareTo(test1a));
-        
-        LocalDate test2 = new LocalDate(2005, 7, 2);
-        assertEquals(-1,test1.compareTo(test2));
-        assertEquals(+1,test2.compareTo(test1));
-        
-        LocalDate test3 = new LocalDate(2005, 7, 2, GregorianChronology.getInstanceUTC());
-        assertEquals(-1,test1.compareTo(test3));
-        assertEquals(+1,test3.compareTo(test1));
-        assertEquals(0,test3.compareTo(test2));
-        
-        DateTimeFieldType[] types = new DateTimeFieldType[] {
-            DateTimeFieldType.year(),
-            DateTimeFieldType.monthOfYear(),
-            DateTimeFieldType.dayOfMonth(),
-        };
-        int[] values = new int[] {2005, 6, 2};
-        Partial p = new Partial(types, values);
-        assertEquals(0,test1.compareTo(p));
-        assertEquals(0,test1.compareTo(new YearMonthDay(2005,6,2)));
-        try {
-            test1.compareTo(null);
-            fail();
-        } catch (NullPointerException ex) {}
-        try {
-            test1.compareTo(new TimeOfDay());
-            fail();
-        } catch (ClassCastException ex) {}
-        Partial partial = new Partial()
-            .with(DateTimeFieldType.centuryOfEra(), 1)
-            .with(DateTimeFieldType.halfdayOfDay(), 0)
-            .with(DateTimeFieldType.dayOfMonth(), 9);
-        try {
-            new LocalDate(1970, 6, 9).compareTo(partial);
-            fail();
-        } catch (ClassCastException ex) {}
-    }",TestLocalDate_Basics::SuppressWarnings_oe,,
 joda-time_2213,"public void testIsEqual_LocalDate_oe() {
         LocalDate test1 = new LocalDate(2005, 6, 2);
         LocalDate test1a = new LocalDate(2005, 6, 2);
@@ -17664,69 +17227,6 @@ public DateTime parseDateTime(String text) {
      * @throws UnsupportedOperationException if parsing is not supported
      * @throws IllegalArgumentException if the text to parse is invalid
      */"
-joda-time_3506,"@SuppressWarnings_oe(""deprecation"")
-    public void testPrint_bufferMethods() throws Exception {
-        DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
-        StringBuffer buf = new StringBuffer();
-        f.printTo(buf, dt);
-        assertEquals(""Wed 2004-06-09T10:20:30Z"",buf.toString());
-        
-        buf = new StringBuffer();
-        f.printTo(buf, dt.getMillis());
-        assertEquals(""Wed 2004-06-09T11:20:30+01:00"",buf.toString());
-        
-        buf = new StringBuffer();
-        ISODateTimeFormat.yearMonthDay().printTo(buf, dt.toYearMonthDay());
-        assertEquals(""2004-06-09"",buf.toString());
-        
-        buf = new StringBuffer();
-        try {
-            ISODateTimeFormat.yearMonthDay().printTo(buf, (ReadablePartial) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestDateTimeFormatter::SuppressWarnings_oe,,
-joda-time_3507,"@SuppressWarnings_oe(""deprecation"")
-    public void testPrint_builderMethods() throws Exception {
-        DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
-        StringBuilder buf = new StringBuilder();
-        f.printTo(buf, dt);
-        assertEquals(""Wed 2004-06-09T10:20:30Z"",buf.toString());
-        
-        buf = new StringBuilder();
-        f.printTo(buf, dt.getMillis());
-        assertEquals(""Wed 2004-06-09T11:20:30+01:00"",buf.toString());
-        
-        buf = new StringBuilder();
-        ISODateTimeFormat.yearMonthDay().printTo(buf, dt.toYearMonthDay());
-        assertEquals(""2004-06-09"",buf.toString());
-        
-        buf = new StringBuilder();
-        try {
-            ISODateTimeFormat.yearMonthDay().printTo(buf, (ReadablePartial) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestDateTimeFormatter::SuppressWarnings_oe,,
-joda-time_3508,"@SuppressWarnings_oe(""deprecation"")
-    public void testPrint_writerMethods() throws Exception {
-        DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
-        CharArrayWriter out = new CharArrayWriter();
-        f.printTo(out, dt);
-        assertEquals(""Wed 2004-06-09T10:20:30Z"",out.toString());
-        
-        out = new CharArrayWriter();
-        f.printTo(out, dt.getMillis());
-        assertEquals(""Wed 2004-06-09T11:20:30+01:00"",out.toString());
-        
-        out = new CharArrayWriter();
-        ISODateTimeFormat.yearMonthDay().printTo(out, dt.toYearMonthDay());
-        assertEquals(""2004-06-09"",out.toString());
-        
-        out = new CharArrayWriter();
-        try {
-            ISODateTimeFormat.yearMonthDay().printTo(out, (ReadablePartial) null);
-            fail();
-        } catch (IllegalArgumentException ex) {}
-    }",TestDateTimeFormatter::SuppressWarnings_oe,,
 joda-time_3509,"public void testPrint_appendableMethods_oe() throws Exception {
         DateTime dt = new DateTime(2004, 6, 9, 10, 20, 30, 40, UTC);
         StringBuilder buf = new StringBuilder();

@@ -1,10 +1,10 @@
-START commons-jcs3/commons-jcs-jcache
- ITER 1
-START commons-jcs3/commons-jcs-core
- ITER 1
 START commons-jcs3/commons-jcs-jcache-openjpa
  ITER 1
+START commons-jcs3/commons-jcs-jcache
+ ITER 1
 START commons-jcs3/commons-jcs-jcache-extras
+ ITER 1
+START commons-jcs3/commons-jcs-core
  ITER 1
 START http-request
  ITER 1
@@ -12,23 +12,23 @@ START commons-geometry/commons-geometry-io-euclidean
  ITER 1
 START commons-geometry/commons-geometry-io-core
  ITER 1
-START springside4/modules/utils
+START commons-geometry/commons-geometry-spherical
  ITER 1
 START commons-geometry/commons-geometry-euclidean
  ITER 1
-START commons-geometry/commons-geometry-core
+START springside4/modules/utils
  ITER 1
 START commons-lang3
  ITER 1
-START commons-configuration2
+START commons-geometry/commons-geometry-core
  ITER 1
 START springside4/modules/metrics
  ITER 1
+START commons-configuration2
 START async-http-client/extras/rxjava
  ITER 1
-START async-http-client/netty-utils
  ITER 1
-START commons-geometry/commons-geometry-spherical
+START async-http-client/netty-utils
  ITER 1
  STOP async-http-client/netty-utils (no compile error, no tests)
 START async-http-client/extras/rxjava2
@@ -36,94 +36,94 @@ START async-http-client/extras/rxjava2
  DONE springside4/modules/metrics (tests ran)
 START async-http-client/extras/registry
  ITER 1
- DONE commons-jcs3/commons-jcs-jcache (tests ran)
+ STOP commons-configuration2 (no bad files)
 START async-http-client/extras/typesafeconfig
  ITER 1
  DONE async-http-client/extras/rxjava (tests ran)
 START async-http-client/extras/retrofit2
  ITER 1
- DONE commons-jcs3/commons-jcs-jcache-openjpa (tests ran)
- DONE async-http-client/extras/registry (tests ran)
+ DONE commons-jcs3/commons-jcs-jcache (tests ran)
 START async-http-client/extras/simple
  ITER 1
+ DONE commons-jcs3/commons-jcs-jcache-openjpa (tests ran)
 START async-http-client/client
  ITER 1
- DONE commons-geometry/commons-geometry-io-core (tests ran)
+ DONE commons-jcs3/commons-jcs-jcache-extras (tests ran)
 START commons-vfs/commons-vfs2
  ITER 1
- DONE async-http-client/extras/rxjava2 (tests ran)
+ DONE async-http-client/extras/registry (tests ran)
 START commons-vfs/commons-vfs2-jackrabbit2
  ITER 1
- DONE commons-jcs3/commons-jcs-jcache-extras (tests ran)
+ STOP async-http-client/extras/typesafeconfig (no compile error, no tests)
 START commons-jexl3
  ITER 1
- STOP async-http-client/extras/typesafeconfig (no compile error, no tests)
+ DONE commons-geometry/commons-geometry-io-core (tests ran)
 START spark
  ITER 1
- DONE commons-geometry/commons-geometry-io-euclidean (tests ran)
+ DONE async-http-client/extras/rxjava2 (tests ran)
 START commons-pool2
  ITER 1
- DONE springside4/modules/utils (tests ran)
+ DONE commons-geometry/commons-geometry-io-euclidean (tests ran)
 START commons-validator
  ITER 1
- DONE commons-geometry/commons-geometry-core (tests ran)
+ DONE springside4/modules/utils (tests ran)
 START commons-dbutils
  ITER 1
  DONE commons-geometry/commons-geometry-spherical (tests ran)
+ DONE commons-geometry/commons-geometry-core (tests ran)
 START bcel
  ITER 1
- DONE async-http-client/extras/simple (tests ran)
 START commons-weaver/processor
  ITER 1
- STOP commons-dbutils (no compile error, no tests)
+ DONE async-http-client/extras/simple (tests ran)
 START commons-weaver/modules/normalizer
  ITER 1
- DONE async-http-client/extras/retrofit2 (tests ran)
+ STOP commons-dbutils (no compile error, no tests)
 START commons-net
  ITER 1
- DONE commons-vfs/commons-vfs2-jackrabbit2 (tests ran)
+ DONE async-http-client/extras/retrofit2 (tests ran)
 START JSON-java
  ITER 1
- DONE commons-validator (tests ran)
+ DONE commons-weaver/processor (tests ran)
 START joda-time
  ITER 1
- DONE bcel (tests ran)
+ DONE commons-vfs/commons-vfs2-jackrabbit2 (tests ran)
 START commons-rng/commons-rng-simple
  ITER 1
  DONE commons-weaver/modules/normalizer (tests ran)
 START commons-rng/commons-rng-core
  ITER 1
- DONE commons-weaver/processor (tests ran)
+ DONE commons-validator (tests ran)
 START commons-rng/commons-rng-examples/examples-stress
  ITER 1
- DONE commons-jcs3/commons-jcs-core (tests ran)
+ DONE bcel (tests ran)
 START commons-rng/commons-rng-examples/examples-sampling
  ITER 1
  DONE JSON-java (tests ran)
 START commons-rng/commons-rng-sampling
  ITER 1
- DONE commons-configuration2 (tests ran)
+ STOP commons-rng/commons-rng-examples/examples-sampling (no compile error, no tests)
 START commons-beanutils
  ITER 1
- DONE commons-jexl3 (tests ran)
+ DONE commons-rng/commons-rng-examples/examples-stress (tests ran)
 START commons-numbers/commons-numbers-gamma
  ITER 1
- DONE commons-rng/commons-rng-simple (tests ran)
+ DONE commons-jcs3/commons-jcs-core (tests ran)
 START commons-numbers/commons-numbers-combinatorics
  ITER 1
- DONE commons-rng/commons-rng-examples/examples-stress (tests ran)
+ DONE commons-rng/commons-rng-simple (tests ran)
 START commons-numbers/commons-numbers-complex
  ITER 1
- STOP commons-rng/commons-rng-examples/examples-sampling (no compile error, no tests)
+ DONE commons-jexl3 (tests ran)
 START commons-numbers/commons-numbers-angle
  ITER 1
  DONE commons-rng/commons-rng-core (tests ran)
 START commons-numbers/commons-numbers-fraction
  ITER 1
- DONE joda-time (tests ran)
+ DONE commons-numbers/commons-numbers-gamma (tests ran)
 START commons-numbers/commons-numbers-arrays
  ITER 1
- DONE commons-numbers/commons-numbers-gamma (tests ran)
+ DONE joda-time (tests ran)
 START commons-numbers/commons-numbers-primes
  ITER 1
  DONE commons-numbers/commons-numbers-angle (tests ran)
@@ -132,19 +132,19 @@ START commons-numbers/commons-numbers-quaternion
  DONE commons-numbers/commons-numbers-combinatorics (tests ran)
 START commons-numbers/commons-numbers-rootfinder
  ITER 1
- DONE spark (tests ran)
+ DONE commons-numbers/commons-numbers-complex (tests ran)
 START commons-numbers/commons-numbers-field
  ITER 1
- DONE commons-numbers/commons-numbers-complex (tests ran)
+ DONE commons-rng/commons-rng-sampling (tests ran)
 START commons-numbers/commons-numbers-core
  ITER 1
- DONE commons-rng/commons-rng-sampling (tests ran)
+ DONE spark (tests ran)
 START scribejava/scribejava-core
  ITER 1
- DONE commons-numbers/commons-numbers-fraction (tests ran)
+ DONE commons-numbers/commons-numbers-arrays (tests ran)
 START commons-imaging
  ITER 1
- DONE commons-numbers/commons-numbers-arrays (tests ran)
+ DONE commons-numbers/commons-numbers-fraction (tests ran)
 START jsoup
  ITER 1
  DONE commons-numbers/commons-numbers-primes (tests ran)
@@ -164,3 +164,7 @@ START commons-collections4
  DONE jsoup (tests ran)
  DONE http-request (tests ran)
  DONE commons-net (tests ran)
+ DONE async-http-client/client (tests ran)
+  TIMEOUT
+ DONE commons-pool2 (tests ran)
+ALL DONE

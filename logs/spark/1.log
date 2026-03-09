@@ -39,75 +39,75 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running spark.staticfiles.DisableMimeGuessingTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.008 s - in spark.staticfiles.DisableMimeGuessingTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.482 s - in spark.staticfiles.DisableMimeGuessingTest_OE25Dev
 [INFO] Running spark.staticfiles.StaticFilesTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.263 s - in spark.staticfiles.StaticFilesTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.868 s - in spark.staticfiles.StaticFilesTest_OE25Dev
 [INFO] Running spark.route.HttpMethodTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.086 s - in spark.route.HttpMethodTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.147 s - in spark.route.HttpMethodTest_OE25Dev
 [INFO] Running spark.route.RouteEntryTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in spark.route.RouteEntryTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.09 s - in spark.route.RouteEntryTest_OE25Dev
 [INFO] Running spark.utils.ObjectUtilsTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in spark.utils.ObjectUtilsTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in spark.utils.ObjectUtilsTest_OE25Dev
 [INFO] Running spark.utils.CollectionUtilsTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.195 s - in spark.utils.CollectionUtilsTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in spark.utils.CollectionUtilsTest_OE25Dev
 [INFO] Running spark.utils.SparkUtilsTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.066 s - in spark.utils.SparkUtilsTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in spark.utils.SparkUtilsTest_OE25Dev
 [INFO] Running spark.RedirectTest_OE25Dev
-[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.915 s - in spark.RedirectTest_OE25Dev
+[INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.094 s - in spark.RedirectTest_OE25Dev
 [INFO] Running spark.ExceptionMapperTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.11 s - in spark.ExceptionMapperTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.059 s - in spark.ExceptionMapperTest_OE25Dev
 [INFO] Running spark.ServiceTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.131 s - in spark.ServiceTest_OE25Dev
+[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.085 s - in spark.ServiceTest_OE25Dev
 [INFO] Running spark.serialization.InputStreamSerializerTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.061 s - in spark.serialization.InputStreamSerializerTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.08 s - in spark.serialization.InputStreamSerializerTest_OE25Dev
 [INFO] Running spark.BodyAvailabilityTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.767 s - in spark.BodyAvailabilityTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.915 s - in spark.BodyAvailabilityTest_OE25Dev
 [INFO] Running spark.UnmapTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.765 s - in spark.UnmapTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.836 s - in spark.UnmapTest_OE25Dev
 [INFO] Running spark.resource.UriPathTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in spark.resource.UriPathTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.057 s - in spark.resource.UriPathTest_OE25Dev
 [INFO] Running spark.MultipleServicesTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.772 s - in spark.MultipleServicesTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.793 s - in spark.MultipleServicesTest_OE25Dev
 [INFO] Running spark.ServicePortIntegrationTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.794 s - in spark.ServicePortIntegrationTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.743 s - in spark.ServicePortIntegrationTest_OE25Dev
 [INFO] Running spark.customerrorpages.CustomErrorPagesTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.842 s - in spark.customerrorpages.CustomErrorPagesTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.552 s - in spark.customerrorpages.CustomErrorPagesTest_OE25Dev
 [INFO] Running spark.FilterImplTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in spark.FilterImplTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in spark.FilterImplTest_OE25Dev
 [INFO] Running spark.InitExceptionHandlerTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.324 s - in spark.InitExceptionHandlerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 s - in spark.InitExceptionHandlerTest_OE25Dev
 [INFO] Running spark.FilterTest_OE25Dev
 Filter matched
 response.status = 404
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.768 s - in spark.FilterTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.635 s - in spark.FilterTest_OE25Dev
 [INFO] Running spark.BooksIntegrationTest_OE25Dev
-[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.613 s - in spark.BooksIntegrationTest_OE25Dev
+[INFO] Tests run: 31, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.64 s - in spark.BooksIntegrationTest_OE25Dev
 [INFO] Running spark.GzipTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.469 s - in spark.GzipTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.512 s - in spark.GzipTest_OE25Dev
 [INFO] Running spark.GenericIntegrationTest_OE25Dev
-[INFO] Tests run: 73, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.8 s - in spark.GenericIntegrationTest_OE25Dev
+[INFO] Tests run: 73, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.888 s - in spark.GenericIntegrationTest_OE25Dev
 [INFO] Running spark.StaticFilesMemberTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.013 s - in spark.StaticFilesMemberTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.755 s - in spark.StaticFilesMemberTest_OE25Dev
 [INFO] Running spark.embeddedserver.EmbeddedServersTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.519 s - in spark.embeddedserver.EmbeddedServersTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.323 s - in spark.embeddedserver.EmbeddedServersTest_OE25Dev
 [INFO] Running spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.122 s - in spark.embeddedserver.jetty.websocket.WebSocketCreatorFactoryTest_OE25Dev
 [INFO] Running spark.embeddedserver.jetty.SocketConnectorFactoryTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.186 s - in spark.embeddedserver.jetty.SocketConnectorFactoryTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in spark.embeddedserver.jetty.SocketConnectorFactoryTest_OE25Dev
 [INFO] Running spark.embeddedserver.jetty.JettyServerTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.185 s - in spark.embeddedserver.jetty.JettyServerTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s - in spark.embeddedserver.jetty.JettyServerTest_OE25Dev
 [INFO] Running spark.GenericSecureIntegrationTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.046 s - in spark.GenericSecureIntegrationTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.874 s - in spark.GenericSecureIntegrationTest_OE25Dev
 [INFO] Running spark.util.ResourceUtilsTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.079 s - in spark.util.ResourceUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in spark.util.ResourceUtilsTest_OE25Dev
 [INFO] Running spark.RouteImplTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in spark.RouteImplTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.072 s - in spark.RouteImplTest_OE25Dev
 [INFO] Running spark.ResponseWrapperDelegationTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.829 s - in spark.ResponseWrapperDelegationTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.464 s - in spark.ResponseWrapperDelegationTest_OE25Dev
 [INFO] Running spark.Base64Test_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in spark.Base64Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.034 s - in spark.Base64Test_OE25Dev
 [INFO] Running spark.QueryParamsMapTest_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.104 s - in spark.QueryParamsMapTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.073 s - in spark.QueryParamsMapTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -116,6 +116,6 @@ response.status = 404
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  47.716 s
-[INFO] Finished at: 2026-03-09T06:13:37-05:00
+[INFO] Total time:  45.063 s
+[INFO] Finished at: 2026-03-09T07:31:23-05:00
 [INFO] ------------------------------------------------------------------------

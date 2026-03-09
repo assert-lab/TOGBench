@@ -1,9 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
-lang_left_556_5,commons-lang3,StringUtilsTest,testAbbreviate_StringStringIntInt_5_oe,src/test/java/org/apache/commons/lang3/StringUtilsTest.java,,,,assert,unknown,standard,assertThrows
-lang_left_1674_1,commons-lang3,CircuitBreakingExceptionTest,testThrowingInformativeException_1_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_left_1675_1,commons-lang3,CircuitBreakingExceptionTest,testThrowingExceptionWithMessage_1_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_left_1676_1,commons-lang3,CircuitBreakingExceptionTest,testThrowingExceptionWithCause_1_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_left_1677_1,commons-lang3,CircuitBreakingExceptionTest,testThrowingEmptyException_1_oe,src/test/java/org/apache/commons/lang3/concurrent/CircuitBreakingExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_left_3108_1,commons-lang3,CloneFailedExceptionTest,testThrowingInformativeException_1_oe,src/test/java/org/apache/commons/lang3/exception/CloneFailedExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_left_3109_1,commons-lang3,CloneFailedExceptionTest,testThrowingExceptionWithMessage_1_oe,src/test/java/org/apache/commons/lang3/exception/CloneFailedExceptionTest.java,,,,assert,unknown,standard,assertThrows
-lang_left_3110_1,commons-lang3,CloneFailedExceptionTest,testThrowingExceptionWithCause_1_oe,src/test/java/org/apache/commons/lang3/exception/CloneFailedExceptionTest.java,,,,assert,unknown,standard,assertThrows

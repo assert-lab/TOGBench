@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-geometry/commons-geometry-core
-[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054750764
+[INFO] Storing buildNumber: 6235ba7a7edd9a970966539f14983e5e8e4db74b at timestamp: 1773059423065
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-core ---
@@ -72,35 +72,35 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.geometry.core.SizedTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.27 s - in org.apache.commons.geometry.core.SizedTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.196 s - in org.apache.commons.geometry.core.SizedTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.AbstractConvexHyperplaneBoundedRegionTest_OE25Dev
-[INFO] Tests run: 86, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.352 s - in org.apache.commons.geometry.core.partitioning.AbstractConvexHyperplaneBoundedRegionTest_OE25Dev
+[INFO] Tests run: 86, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.223 s - in org.apache.commons.geometry.core.partitioning.AbstractConvexHyperplaneBoundedRegionTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.SplitTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.geometry.core.partitioning.SplitTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.geometry.core.partitioning.SplitTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.AbstractHyperplaneTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.geometry.core.partitioning.AbstractHyperplaneTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.geometry.core.partitioning.AbstractHyperplaneTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.BoundaryListTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.geometry.core.partitioning.BoundaryListTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.geometry.core.partitioning.BoundaryListTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.geometry.core.partitioning.bsp.BSPTreeVisitorTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeMergeOperatorTest_OE25Dev
-[INFO] Tests run: 134, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.142 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeMergeOperatorTest_OE25Dev
+[INFO] Tests run: 134, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.211 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeMergeOperatorTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.bsp.RegionCutBoundaryTest_OE25Dev
-[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.068 s - in org.apache.commons.geometry.core.partitioning.bsp.RegionCutBoundaryTest_OE25Dev
+[INFO] Tests run: 38, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.geometry.core.partitioning.bsp.RegionCutBoundaryTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev
-[INFO] Tests run: 362, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.277 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev
+[INFO] Tests run: 362, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.394 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.bsp.AbstractPartitionedRegionBuilderTest_OE25Dev
-[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.22 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractPartitionedRegionBuilderTest_OE25Dev
+[INFO] Tests run: 60, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.208 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractPartitionedRegionBuilderTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeTest_OE25Dev
-[INFO] Tests run: 295, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.118 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeTest_OE25Dev
+[INFO] Tests run: 295, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.163 s - in org.apache.commons.geometry.core.partitioning.bsp.AbstractBSPTreeTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.internal.IteratorTransformTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.core.internal.IteratorTransformTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.geometry.core.internal.IteratorTransformTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.internal.GeometryInternalErrorTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.geometry.core.internal.GeometryInternalErrorTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.internal.HyperplaneSubsetsTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.geometry.core.internal.HyperplaneSubsetsTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.geometry.core.internal.HyperplaneSubsetsTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.internal.SimpleTupleFormatTest_OE25Dev
-[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.geometry.core.internal.SimpleTupleFormatTest_OE25Dev
+[INFO] Tests run: 41, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.apache.commons.geometry.core.internal.SimpleTupleFormatTest_OE25Dev
 [INFO] Running org.apache.commons.geometry.core.EmbeddingTest_OE25Dev
 [INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.geometry.core.EmbeddingTest_OE25Dev
 [INFO] 
@@ -111,6 +111,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  23.234 s
-[INFO] Finished at: 2026-03-09T06:12:49-05:00
+[INFO] Total time:  21.989 s
+[INFO] Finished at: 2026-03-09T07:30:40-05:00
 [INFO] ------------------------------------------------------------------------

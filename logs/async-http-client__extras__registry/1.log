@@ -30,7 +30,7 @@
  T E S T S
 -------------------------------------------------------
 Running org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
-Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.196 sec - in org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.217 sec - in org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
 
 Results :
 
@@ -39,6 +39,6 @@ Tests run: 17, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.821 s
-[INFO] Finished at: 2026-03-09T06:12:44-05:00
+[INFO] Total time:  8.015 s
+[INFO] Finished at: 2026-03-09T07:30:36-05:00
 [INFO] ------------------------------------------------------------------------

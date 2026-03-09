@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-core
-[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054822129
+[INFO] Storing buildNumber: 6235ba7a7edd9a970966539f14983e5e8e4db74b at timestamp: 1773059485564
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-core ---
@@ -63,17 +63,17 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
-[INFO] Tests run: 90, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.114 s - in org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
+[INFO] Tests run: 90, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.109 s - in org.apache.commons.numbers.core.EpsilonDoubleEquivalenceTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.PrecisionTest_OE25Dev
-[INFO] Tests run: 314, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.195 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
+[INFO] Tests run: 314, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.222 s - in org.apache.commons.numbers.core.PrecisionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.SumTest_OE25Dev
-[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
+[INFO] Tests run: 89, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.numbers.core.SumTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.NormTest_OE25Dev
-[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.443 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
+[INFO] Tests run: 125, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.484 s - in org.apache.commons.numbers.core.NormTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
-[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
+[INFO] Tests run: 34, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.numbers.core.ExtendedPrecisionTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
-[INFO] Tests run: 138, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.083 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
+[INFO] Tests run: 138, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.047 s - in org.apache.commons.numbers.core.ArithmeticUtilsTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -82,6 +82,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.426 s
-[INFO] Finished at: 2026-03-09T06:13:50-05:00
+[INFO] Total time:  10.038 s
+[INFO] Finished at: 2026-03-09T07:31:33-05:00
 [INFO] ------------------------------------------------------------------------

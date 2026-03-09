@@ -1172,6 +1172,4 @@ json_288_26,JSON-java,JSONStringerTest,complexObjectString_26_oe,src/test/java/o
 json_289_2,JSON-java,HTTPTest,notEnoughHTTPException_2_oe,src/test/java/org/json/junit/HTTPTest.java,,,,assert,unknown,standard,assertTrue
 json_200_1,JSON-java,JSONObjectTest,issue654StackOverflowInputWellFormed_1_oe,src/test/java/org/json/junit/JSONObjectTest.java,,,,assert,unknown,standard,assertNotNull
 json_200_2,JSON-java,JSONObjectTest,issue654StackOverflowInputWellFormed_2_oe,src/test/java/org/json/junit/JSONObjectTest.java,,,,assert,unknown,standard,fail
-json_left_183_7,JSON-java,JSONObjectTest,testSingletonBean_7_oe,src/test/java/org/json/junit/JSONObjectTest.java,,,,assert,unknown,standard,assertEquals
-json_left_184_7,JSON-java,JSONObjectTest,testSingletonEnumBean_7_oe,src/test/java/org/json/junit/JSONObjectTest.java,,,,assert,unknown,standard,assertEquals
 JSON-java_284_101,JSON-java,JSONStringerTest,,src/test/java/org/json/junit/JSONStringerTest.java,/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/java/org/json/JSONWriter.java,org.json.JSONWriter,org.json,MUST_THROW,,,

@@ -1,7 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version,assert_kind,assert_name
-spark_122_101,spark,SessionTest,testSession_whenHttpSessionIsNull_thenThrowException_oe_101_oe,src/test/java/spark/SessionTest.java,,,,multiple,unknown,standard,
-spark_123_101,spark,SessionTest,testSession_whenRequestIsNull_thenThrowException_oe_101_oe,src/test/java/spark/SessionTest.java,,,,multiple,unknown,standard,
-spark_256_101,spark,SocketConnectorFactoryTest,testCreateSocketConnector_whenHostIsNull_thenThrowException_oe_101_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,multiple,unknown,standard,
-spark_259_101,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_whenHostIsNull_oe_101_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,multiple,unknown,standard,
-spark_260_101,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_whenSslStoresIsNull_oe_101_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,multiple,unknown,standard,
-spark_266_101,spark,JettyServerTest,testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_oe_101_oe,src/test/java/spark/embeddedserver/jetty/JettyServerTest.java,,,,multiple,unknown,standard,

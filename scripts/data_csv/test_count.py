@@ -11,9 +11,9 @@ LOGS_DIR = ROOT / "logs"
 OUT_DIR = ROOT / "scripts"
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 
-COUNTS_CSV = OUT_DIR / "test_counts.csv"
-CLASSES_CSV = OUT_DIR / "test_classes.csv"
-FAIL_LINES_CSV = OUT_DIR / "test_fail_lines.csv"
+COUNTS_CSV = OUT_DIR / "data_csv" / "test_counts.csv"
+CLASSES_CSV = OUT_DIR / "data_csv" / "test_classes.csv"
+FAIL_LINES_CSV = OUT_DIR / "data_csv" / "test_fail_lines.csv"
 
 SUMMARY_RE = re.compile(r"Tests run:\s*(\d+),\s*Failures:\s*(\d+),\s*Errors:\s*(\d+),\s*Skipped:\s*(\d+)")
 CLASS_RE = re.compile(r"Tests run:\s*(\d+),\s*Failures:\s*(\d+),\s*Errors:\s*(\d+),\s*Skipped:\s*(\d+).* - in\s+(\S+)")

@@ -1,2 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type
-jsoup_398_101,jsoup,TokenQueueTest,,src/test/java/org/jsoup/parser/TokenQueueTest.java,/home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/src/main/java/org/jsoup/parser/TokenQueue.java,org.jsoup.parser.TokenQueue,org.jsoup.parser,MUST_THROW

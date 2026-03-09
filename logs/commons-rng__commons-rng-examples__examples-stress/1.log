@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-examples-stress ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-rng/commons-rng-examples/examples-stress' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-rng/commons-rng-examples/examples-stress
-[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 2026-03-09 06:13:18-0500
+[INFO] Storing buildNumber: 6235ba7a7edd9a970966539f14983e5e8e4db74b at timestamp: 2026-03-09 07:31:02-0500
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-examples-stress ---
@@ -61,7 +61,7 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.rng.examples.stress.HexTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.063 s - in org.apache.commons.rng.examples.stress.HexTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.apache.commons.rng.examples.stress.HexTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -70,6 +70,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  8.411 s
-[INFO] Finished at: 2026-03-09T06:13:23-05:00
+[INFO] Total time:  7.382 s
+[INFO] Finished at: 2026-03-09T07:31:07-05:00
 [INFO] ------------------------------------------------------------------------

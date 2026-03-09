@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-numbers-complex ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-complex' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-complex
-[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054808756
+[INFO] Storing buildNumber: 6235ba7a7edd9a970966539f14983e5e8e4db74b at timestamp: 1773059474291
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-numbers-complex ---
@@ -55,7 +55,7 @@ main:
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-numbers-complex ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 13 resources
+[INFO] Copying 12 resources
 [INFO] Copying 2 resources to META-INF
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-numbers-complex ---
@@ -71,21 +71,40 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.numbers.complex.ComplexTest_OE25Dev
-[INFO] Tests run: 551, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.487 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
+[INFO] Tests run: 551, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.319 s - in org.apache.commons.numbers.complex.ComplexTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.CStandardTest_OE25Dev
-[INFO] Tests run: 209, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.095 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
+[INFO] Tests run: 209, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.148 s - in org.apache.commons.numbers.complex.CStandardTest_OE25Dev
 [INFO] Running org.apache.commons.numbers.complex.CReferenceTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.074 s - in org.apache.commons.numbers.complex.CReferenceTest_OE25Dev
+[ERROR] Tests run: 10, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.053 s <<< FAILURE! - in org.apache.commons.numbers.complex.CReferenceTest_OE25Dev
+[ERROR] testLog_1_oe_1_oe  Time elapsed: 0.014 s  <<< ERROR!
+java.lang.NullPointerException
+	at org.apache.commons.numbers.complex.CReferenceTest_OE25Dev.loadTestData(CReferenceTest_OE25Dev.java:238)
+	at org.apache.commons.numbers.complex.CReferenceTest_OE25Dev.testLog_1_oe_1_oe(CReferenceTest_OE25Dev.java:440)
+
 [INFO] Running org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
-[INFO] Tests run: 168, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.34 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
+[INFO] Tests run: 168, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.268 s - in org.apache.commons.numbers.complex.ComplexEdgeCaseTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
-[INFO] Tests run: 938, Failures: 0, Errors: 0, Skipped: 0
+[ERROR] Errors: 
+[ERROR]   CReferenceTest_OE25Dev.testLog_1_oe_1_oe:440->loadTestData:238 » NullPointer
+[INFO] 
+[ERROR] Tests run: 938, Failures: 0, Errors: 1, Skipped: 0
 [INFO] 
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.928 s
-[INFO] Finished at: 2026-03-09T06:13:37-05:00
+[INFO] Total time:  10.096 s
+[INFO] Finished at: 2026-03-09T07:31:21-05:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-numbers-complex: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-numbers/commons-numbers-complex/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

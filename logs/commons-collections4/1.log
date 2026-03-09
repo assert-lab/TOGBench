@@ -27,7 +27,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-collections4 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-collections4' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-collections4
-[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054827830
+[INFO] Storing buildNumber: 6235ba7a7edd9a970966539f14983e5e8e4db74b at timestamp: 1773059489644
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-collections4 ---
@@ -68,55 +68,55 @@ main:
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.041 s - in org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.026 s - in org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
-[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.025 s - in org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
-[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev
 [INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
-[INFO] Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
+[INFO] Tests run: 46, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.NodeListIteratorTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.collections4.iterators.NodeListIteratorTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.collections4.iterators.NodeListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
-[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev
@@ -124,21 +124,21 @@ main:
 [INFO] Running org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.IteratorIterableTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.IteratorIterableTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.IteratorIterableTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ObjectArrayIteratorTest_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ObjectArrayIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
 [INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
-[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
+[INFO] Tests run: 28, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
-[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.ArrayListIteratorTest_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ArrayListIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
@@ -146,103 +146,103 @@ main:
 [INFO] Running org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
 [INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.QueueUtilsTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.QueueUtilsTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.QueueUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
 [INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
 [INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.PredicatedCollectionTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.PredicatedCollectionTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.collection.PredicatedCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
-[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.MapUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.231 s - in org.apache.commons.collections4.MapUtilsTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.183 s - in org.apache.commons.collections4.MapUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.ListUtilsTest_OE25Dev
-[INFO] Tests run: 73, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.collections4.ListUtilsTest_OE25Dev
+[INFO] Tests run: 73, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.collections4.ListUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
-[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev
+[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.TrieUtilsTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.TrieUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
-[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
+[INFO] Tests run: 97, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.queue.TransformedQueueTest_OE25Dev
 [INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.queue.TransformedQueueTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
-[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[INFO] Tests run: 51, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.queue.UnmodifiableQueueTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.queue.UnmodifiableQueueTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
-[INFO] Tests run: 465, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
+[INFO] Tests run: 465, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.044 s - in org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
 [INFO] Tests run: 24, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.BagUtilsTest_OE25Dev
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.BagUtilsTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.BagUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.FluentIterableTest_OE25Dev
-[INFO] Tests run: 92, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.collections4.FluentIterableTest_OE25Dev
+[INFO] Tests run: 92, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.collections4.FluentIterableTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.properties.PropertiesFactoryTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.properties.PropertiesFactoryTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
 [INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.properties.SortedPropertiesFactoryTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.properties.SortedPropertiesFactoryTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.properties.SortedPropertiesFactoryTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.IterableUtilsTest_OE25Dev
-[INFO] Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.collections4.IterableUtilsTest_OE25Dev
+[INFO] Tests run: 88, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.collections4.IterableUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
-[INFO] Tests run: 153, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[INFO] Tests run: 153, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.comparators.ReverseComparatorTest_OE25Dev
@@ -250,121 +250,121 @@ main:
 [INFO] Running org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
+[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
-[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
+[INFO] Tests run: 22, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
-[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
+[INFO] Tests run: 50, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
 [INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.keyvalue.TiedMapEntryTest_OE25Dev
 [INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.TiedMapEntryTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.ArrayStackTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.ArrayStackTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.ArrayStackTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.TreeListTest_OE25Dev
 [INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.collections4.list.TreeListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.GrowthListTest_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.GrowthListTest_OE25Dev
+[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.GrowthListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.TransformedListTest_OE25Dev
-[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.list.TransformedListTest_OE25Dev
+[INFO] Tests run: 21, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.list.TransformedListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
-[INFO] Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
+[INFO] Tests run: 96, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.LazyListTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.list.LazyListTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.list.LazyListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
-[INFO] Tests run: 292, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.051 s - in org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
+[INFO] Tests run: 292, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.053 s - in org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.FixedSizeListTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.FixedSizeListTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.list.Collections701Test_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.Collections701Test_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.Collections701Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
-[INFO] Tests run: 98, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
+[INFO] Tests run: 98, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.161 s - in org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.162 s - in org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.SetUtilsTest_OE25Dev
-[INFO] Tests run: 79, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.SetUtilsTest_OE25Dev
+[INFO] Tests run: 79, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.SetUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.ClosureUtilsTest_OE25Dev
 [INFO] Tests run: 65, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.ClosureUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.TransformedSortedSetTest_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.TransformedSortedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
-[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
+[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
+[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
 [INFO] Tests run: 54, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.UnmodifiableSortedSetTest_OE25Dev
 [INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.UnmodifiableSortedSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
-[INFO] Tests run: 119, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[INFO] Tests run: 119, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev
-[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev
+[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
-[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
+[INFO] Tests run: 40, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.HashedMapTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.map.HashedMapTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.HashedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
-[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
+[INFO] Tests run: 29, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.Flat3MapTest_OE25Dev
-[INFO] Tests run: 174, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.collections4.map.Flat3MapTest_OE25Dev
+[INFO] Tests run: 174, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.collections4.map.Flat3MapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.342 s - in org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.389 s - in org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.LRUMapTest_OE25Dev
-[INFO] Tests run: 144, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.105 s - in org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[INFO] Tests run: 144, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 8.067 s - in org.apache.commons.collections4.map.LRUMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.PredicatedMapTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.PredicatedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
+[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
-[INFO] Tests run: 102, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
+[INFO] Tests run: 102, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
+[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
-[INFO] Tests run: 114, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
+[INFO] Tests run: 114, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
 [INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
-[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
+[INFO] Tests run: 47, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
-[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
+[INFO] Tests run: 17, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
 [INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.TransformedSortedMapTest_OE25Dev
 [INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.TransformedSortedMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
 [INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
 [INFO] Running org.apache.commons.collections4.map.LazyMapTest_OE25Dev
@@ -379,6 +379,6 @@ main:
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  21.692 s
-[INFO] Finished at: 2026-03-09T06:14:06-05:00
+[INFO] Total time:  20.870 s
+[INFO] Finished at: 2026-03-09T07:31:48-05:00
 [INFO] ------------------------------------------------------------------------

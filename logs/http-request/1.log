@@ -39,9 +39,9 @@
  T E S T S
 -------------------------------------------------------
 Running com.github.kevinsawicki.http.EncodeTest_OE25Dev
-Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.259 sec
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.215 sec
 Running com.github.kevinsawicki.http.HttpRequestTest_OE25Dev
-Tests run: 313, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 167.556 sec
+Tests run: 313, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 168.598 sec
 
 Results :
 
@@ -50,6 +50,6 @@ Tests run: 333, Failures: 0, Errors: 0, Skipped: 0
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  02:57 min
-[INFO] Finished at: 2026-03-09T06:15:23-05:00
+[INFO] Total time:  02:59 min
+[INFO] Finished at: 2026-03-09T07:33:17-05:00
 [INFO] ------------------------------------------------------------------------

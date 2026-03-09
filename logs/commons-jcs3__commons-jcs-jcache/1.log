@@ -33,7 +33,7 @@
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-jcache ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-jcs3/commons-jcs-jcache' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV-organized/projects_decomposed/commons-jcs3/commons-jcs-jcache
-[INFO] Storing buildNumber: 9232d663999e031377be36e86afd0358274eb631 at timestamp: 1773054750638
+[INFO] Storing buildNumber: 6235ba7a7edd9a970966539f14983e5e8e4db74b at timestamp: 1773059423478
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-jcache ---
@@ -71,11 +71,11 @@
 [INFO]  T E S T S
 [INFO] -------------------------------------------------------
 [INFO] Running org.apache.commons.jcs3.jcache.cdi.CDIJCacheHelperTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.432 s - in org.apache.commons.jcs3.jcache.cdi.CDIJCacheHelperTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.44 s - in org.apache.commons.jcs3.jcache.cdi.CDIJCacheHelperTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.CachingProviderTest_OE25Dev
 [INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.jcache.CachingProviderTest_OE25Dev
 [INFO] Running org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.apache.commons.jcs3.jcache.ImmediateExpiryTest_OE25Dev
 [INFO] 
 [INFO] Results:
 [INFO] 
@@ -84,6 +84,6 @@
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD SUCCESS
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  14.480 s
-[INFO] Finished at: 2026-03-09T06:12:40-05:00
+[INFO] Total time:  13.713 s
+[INFO] Finished at: 2026-03-09T07:30:32-05:00
 [INFO] ------------------------------------------------------------------------

@@ -16,8 +16,6 @@ joda-time_118,joda-time,TestMonthDay_Basics,testIsBefore_MD_oe,src/test/java/org
 joda-time_119,joda-time,TestMonthDay_Basics,testIsAfter_MD_oe,src/test/java/org/joda/time/TestMonthDay_Basics.java,,,,mixed
 joda-time_169,joda-time,TestMonthDay_Basics,testToLocalDate_oe,src/test/java/org/joda/time/TestMonthDay_Basics.java,,,,mixed
 joda-time_173,joda-time,TestMonthDay_Basics,testProperty_oe,src/test/java/org/joda/time/TestMonthDay_Basics.java,,,,mixed
-joda-time_289,joda-time,TestDateTimeUtils,SuppressWarnings_oe,src/test/java/org/joda/time/TestDateTimeUtils.java,,,,mixed
-joda-time_290,joda-time,TestDateTimeUtils,SuppressWarnings_oe,src/test/java/org/joda/time/TestDateTimeUtils.java,,,,mixed
 joda-time_329,joda-time,TestMutableDateTime_Constructors,testConstructor_int_int_int_int_int_int_int_oe,src/test/java/org/joda/time/TestMutableDateTime_Constructors.java,,,,mixed
 joda-time_330,joda-time,TestMutableDateTime_Constructors,testConstructor_int_int_int_int_int_int_int_DateTimeZone_oe,src/test/java/org/joda/time/TestMutableDateTime_Constructors.java,,,,mixed
 joda-time_332,joda-time,TestMutableDateTime_Constructors,testConstructor_int_int_int_int_int_int_int_Chronology_oe,src/test/java/org/joda/time/TestMutableDateTime_Constructors.java,,,,mixed
@@ -50,11 +48,6 @@ joda-time_443,joda-time,TestPeriod_Basics,testToStandardSeconds_months_oe,src/te
 joda-time_444,joda-time,TestPeriod_Basics,testToStandardDuration_oe,src/test/java/org/joda/time/TestPeriod_Basics.java,,,,mixed
 joda-time_445,joda-time,TestPeriod_Basics,testToStandardDuration_years_oe,src/test/java/org/joda/time/TestPeriod_Basics.java,,,,mixed
 joda-time_446,joda-time,TestPeriod_Basics,testToStandardDuration_months_oe,src/test/java/org/joda/time/TestPeriod_Basics.java,,,,mixed
-joda-time_471,joda-time,TestYearMonth_Properties,testPropertyCompareToYear_oe,src/test/java/org/joda/time/TestYearMonth_Properties.java,,,,mixed
-joda-time_475,joda-time,TestYearMonth_Properties,testPropertyCompareToMonth_oe,src/test/java/org/joda/time/TestYearMonth_Properties.java,,,,mixed
-joda-time_481,joda-time,TestDateMidnight_Basics,testGet_DateTimeField_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,mixed
-joda-time_482,joda-time,TestDateMidnight_Basics,testGet_DateTimeFieldType_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,mixed
-joda-time_486,joda-time,TestDateMidnight_Basics,testCompareTo_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,mixed
 joda-time_537,joda-time,TestDateMidnight_Basics,testProperty_oe,src/test/java/org/joda/time/TestDateMidnight_Basics.java,,,,mixed
 joda-time_539,joda-time,TestMinMaxLong,testDateTime_max_math_oe,src/test/java/org/joda/time/TestMinMaxLong.java,,,,mixed
 joda-time_546,joda-time,TestMinMaxLong,testDateTime_min_math_oe,src/test/java/org/joda/time/TestMinMaxLong.java,,,,mixed
@@ -120,14 +113,12 @@ joda-time_986,joda-time,TestLocalDate_Constructors,testConstructor_int_int_int_C
 joda-time_1001,joda-time,TestMutableDateTime_Adds,testAdd_DurationFieldType_int2_oe,src/test/java/org/joda/time/TestMutableDateTime_Adds.java,,,,mixed
 joda-time_1002,joda-time,TestMutableDateTime_Adds,testAdd_DurationFieldType_int3_oe,src/test/java/org/joda/time/TestMutableDateTime_Adds.java,,,,mixed
 joda-time_1039,joda-time,TestLocalTime_Basics,testGet_DateTimeFieldType_oe,src/test/java/org/joda/time/TestLocalTime_Basics.java,,,,mixed
-joda-time_1050,joda-time,TestLocalTime_Basics,SuppressWarnings_oe,src/test/java/org/joda/time/TestLocalTime_Basics.java,,,,mixed
 joda-time_1051,joda-time,TestLocalTime_Basics,testIsEqual_LocalTime_oe,src/test/java/org/joda/time/TestLocalTime_Basics.java,,,,mixed
 joda-time_1052,joda-time,TestLocalTime_Basics,testIsBefore_LocalTime_oe,src/test/java/org/joda/time/TestLocalTime_Basics.java,,,,mixed
 joda-time_1053,joda-time,TestLocalTime_Basics,testIsAfter_LocalTime_oe,src/test/java/org/joda/time/TestLocalTime_Basics.java,,,,mixed
 joda-time_1083,joda-time,TestLocalTime_Basics,testProperty_oe,src/test/java/org/joda/time/TestLocalTime_Basics.java,,,,mixed
 joda-time_1097,joda-time,TestDateTime_Properties,testPropertyAddYear_oe,src/test/java/org/joda/time/TestDateTime_Properties.java,,,,mixed
 joda-time_1101,joda-time,TestDateTime_Properties,testPropertyCompareToYear_oe,src/test/java/org/joda/time/TestDateTime_Properties.java,,,,mixed
-joda-time_1102,joda-time,TestDateTime_Properties,SuppressWarnings_oe,src/test/java/org/joda/time/TestDateTime_Properties.java,,,,mixed
 joda-time_1108,joda-time,TestDateTime_Properties,testPropertySetMonthOfYear_oe,src/test/java/org/joda/time/TestDateTime_Properties.java,,,,mixed
 joda-time_1110,joda-time,TestDateTime_Properties,testPropertyCompareToMonthOfYear_oe,src/test/java/org/joda/time/TestDateTime_Properties.java,,,,mixed
 joda-time_1115,joda-time,TestDateTime_Properties,testPropertySetDayOfMonth_oe,src/test/java/org/joda/time/TestDateTime_Properties.java,,,,mixed
@@ -156,7 +147,6 @@ joda-time_1284,joda-time,TestYearMonthDay_Properties,testPropertyCompareToYear_o
 joda-time_1288,joda-time,TestYearMonthDay_Properties,testPropertyCompareToMonth_oe,src/test/java/org/joda/time/TestYearMonthDay_Properties.java,,,,mixed
 joda-time_1292,joda-time,TestYearMonthDay_Properties,testPropertyCompareToDay_oe,src/test/java/org/joda/time/TestYearMonthDay_Properties.java,,,,mixed
 joda-time_1297,joda-time,TestPartial_Basics,testGet_oe,src/test/java/org/joda/time/TestPartial_Basics.java,,,,mixed
-joda-time_1307,joda-time,TestPartial_Basics,SuppressWarnings_oe,src/test/java/org/joda/time/TestPartial_Basics.java,,,,mixed
 joda-time_1308,joda-time,TestPartial_Basics,testIsEqual_TOD_oe,src/test/java/org/joda/time/TestPartial_Basics.java,,,,mixed
 joda-time_1309,joda-time,TestPartial_Basics,testIsBefore_TOD_oe,src/test/java/org/joda/time/TestPartial_Basics.java,,,,mixed
 joda-time_1310,joda-time,TestPartial_Basics,testIsAfter_TOD_oe,src/test/java/org/joda/time/TestPartial_Basics.java,,,,mixed
@@ -169,7 +159,6 @@ joda-time_1384,joda-time,TestInstant_Basics,testGet_DateTimeFieldType_oe,src/tes
 joda-time_1385,joda-time,TestInstant_Basics,testGet_DateTimeField_oe,src/test/java/org/joda/time/TestInstant_Basics.java,,,,mixed
 joda-time_1388,joda-time,TestInstant_Basics,testCompareTo_oe,src/test/java/org/joda/time/TestInstant_Basics.java,,,,mixed
 joda-time_1418,joda-time,TestBaseSingleFieldPeriod,testFactory_between_RInstant_oe,src/test/java/org/joda/time/TestBaseSingleFieldPeriod.java,,,,mixed
-joda-time_1419,joda-time,TestBaseSingleFieldPeriod,SuppressWarnings_oe,src/test/java/org/joda/time/TestBaseSingleFieldPeriod.java,,,,mixed
 joda-time_1420,joda-time,TestBaseSingleFieldPeriod,testFactory_standardPeriodIn_RPeriod_oe,src/test/java/org/joda/time/TestBaseSingleFieldPeriod.java,,,,mixed
 joda-time_1421,joda-time,TestBaseSingleFieldPeriod,testValueIndexMethods_oe,src/test/java/org/joda/time/TestBaseSingleFieldPeriod.java,,,,mixed
 joda-time_1422,joda-time,TestBaseSingleFieldPeriod,testFieldTypeIndexMethods_oe,src/test/java/org/joda/time/TestBaseSingleFieldPeriod.java,,,,mixed
@@ -210,7 +199,6 @@ joda-time_1741,joda-time,TestIllegalFieldValueException,testSetText_oe,src/test/
 joda-time_1742,joda-time,TestIllegalFieldValueException,testZoneTransition_oe,src/test/java/org/joda/time/TestIllegalFieldValueException.java,,,,mixed
 joda-time_1743,joda-time,TestIllegalFieldValueException,testJulianYearZero_oe,src/test/java/org/joda/time/TestIllegalFieldValueException.java,,,,mixed
 joda-time_1744,joda-time,TestIllegalFieldValueException,testGJCutover_oe,src/test/java/org/joda/time/TestIllegalFieldValueException.java,,,,mixed
-joda-time_1745,joda-time,TestIllegalFieldValueException,SuppressWarnings_oe,src/test/java/org/joda/time/TestIllegalFieldValueException.java,,,,mixed
 joda-time_1748,joda-time,TestTimeOfDay_Constructors,testFactory_FromCalendarFields_oe,src/test/java/org/joda/time/TestTimeOfDay_Constructors.java,,,,mixed
 joda-time_1780,joda-time,TestTimeOfDay_Constructors,testConstructor2_Object_Chronology_oe,src/test/java/org/joda/time/TestTimeOfDay_Constructors.java,,,,mixed
 joda-time_1784,joda-time,TestTimeOfDay_Constructors,testConstructor_int_int_oe,src/test/java/org/joda/time/TestTimeOfDay_Constructors.java,,,,mixed
@@ -269,7 +257,6 @@ joda-time_2160,joda-time,TestHours,testMultipliedBy_int_oe,src/test/java/org/jod
 joda-time_2161,joda-time,TestHours,testDividedBy_int_oe,src/test/java/org/joda/time/TestHours.java,,,,mixed
 joda-time_2162,joda-time,TestHours,testNegated_oe,src/test/java/org/joda/time/TestHours.java,,,,mixed
 joda-time_2198,joda-time,TestLocalDate_Basics,testGet_DateTimeFieldType_oe,src/test/java/org/joda/time/TestLocalDate_Basics.java,,,,mixed
-joda-time_2212,joda-time,TestLocalDate_Basics,SuppressWarnings_oe,src/test/java/org/joda/time/TestLocalDate_Basics.java,,,,mixed
 joda-time_2213,joda-time,TestLocalDate_Basics,testIsEqual_LocalDate_oe,src/test/java/org/joda/time/TestLocalDate_Basics.java,,,,mixed
 joda-time_2214,joda-time,TestLocalDate_Basics,testIsBefore_LocalDate_oe,src/test/java/org/joda/time/TestLocalDate_Basics.java,,,,mixed
 joda-time_2215,joda-time,TestLocalDate_Basics,testIsAfter_LocalDate_oe,src/test/java/org/joda/time/TestLocalDate_Basics.java,,,,mixed
@@ -381,9 +368,6 @@ joda-time_3498,joda-time,TestDateTimeFormatterBuilder,test_printParseShortNameWi
 joda-time_3499,joda-time,TestDateTimeFormatterBuilder,test_printParseShortNameWithAutoLookup_oe,src/test/java/org/joda/time/format/TestDateTimeFormatterBuilder.java,,,,mixed
 joda-time_3500,joda-time,TestDateTimeFormatterBuilder,test_printParseLongName_oe,src/test/java/org/joda/time/format/TestDateTimeFormatterBuilder.java,,,,mixed
 joda-time_3501,joda-time,TestDateTimeFormatterBuilder,test_printParseLongNameWithLookup_oe,src/test/java/org/joda/time/format/TestDateTimeFormatterBuilder.java,,,,mixed
-joda-time_3506,joda-time,TestDateTimeFormatter,SuppressWarnings_oe,src/test/java/org/joda/time/format/TestDateTimeFormatter.java,,,,mixed
-joda-time_3507,joda-time,TestDateTimeFormatter,SuppressWarnings_oe,src/test/java/org/joda/time/format/TestDateTimeFormatter.java,,,,mixed
-joda-time_3508,joda-time,TestDateTimeFormatter,SuppressWarnings_oe,src/test/java/org/joda/time/format/TestDateTimeFormatter.java,,,,mixed
 joda-time_3509,joda-time,TestDateTimeFormatter,testPrint_appendableMethods_oe,src/test/java/org/joda/time/format/TestDateTimeFormatter.java,,,,mixed
 joda-time_3516,joda-time,TestDateTimeFormatter,testPrinterParserMethods_oe,src/test/java/org/joda/time/format/TestDateTimeFormatter.java,,,,mixed
 joda-time_3517,joda-time,TestDateTimeFormatter,testParseLocalDate_simple_oe,src/test/java/org/joda/time/format/TestDateTimeFormatter.java,,,,mixed
