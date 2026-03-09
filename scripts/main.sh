@@ -89,8 +89,10 @@ python3 scripts/3_rebuild_decomposed.py
 
 # run each projects' fix.sh before running mvn test
 # ./scripts/project_fixes.sh
+mvn test -Dtest="*_OE25Dev#*_oe"
 
-./scripts/clean_loop.sh
+
+./scripts/clean_loop.sh > clran_loop_mvn.log
 
 # ======== map muts ========
 python3 scripts/collect_methods.py

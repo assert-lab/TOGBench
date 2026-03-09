@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-simple ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple
-[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 2026-03-05 21:41:14-0600
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 2026-03-08 23:54:11-0500
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-simple ---
@@ -49,23 +49,130 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-simple ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 19 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/target/test-classes
+[INFO] Compiling 36 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/target/test-classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersList.java:[74,37] XOR_SHIFT_1024_S in org.apache.commons.rng.simple.RandomSource has been deprecated
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-simple ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-rng-simple ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-simple ---
+[INFO] 1 warning
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[507,10] method testUnsupportedSeedType(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[515,10] method testFactoryCreateMethod(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[529,10] method testFactoryCreateMethodWithSeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[546,10] method testCreateMethodThrowsWithIncorrectArguments(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[566,10] method testAllSeedTypes(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[603,10] method testEmptyIntArraySeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[616,10] method testEmptyLongArraySeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[631,10] method testZeroIntArraySeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[644,10] method testZeroLongArraySeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[658,10] method testUnrestorable(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[679,10] method testSerializingState(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[725,10] method testUnrestorableToString(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[732,10] method testSupportedInterfaces(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[506,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[514,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[528,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[545,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[565,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[602,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[615,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[630,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[643,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[655,2] cannot find symbol
+  symbol:   class SuppressWarnings_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[678,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[724,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[731,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[INFO] 26 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.301 s
-[INFO] Finished at: 2026-03-05T21:41:22-06:00
+[INFO] Total time:  6.422 s
+[INFO] Finished at: 2026-03-08T23:54:14-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-simple: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-simple: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[507,10] method testUnsupportedSeedType(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[515,10] method testFactoryCreateMethod(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[529,10] method testFactoryCreateMethodWithSeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[546,10] method testCreateMethodThrowsWithIncorrectArguments(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[566,10] method testAllSeedTypes(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[603,10] method testEmptyIntArraySeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[616,10] method testEmptyLongArraySeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[631,10] method testZeroIntArraySeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[644,10] method testZeroLongArraySeed(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[658,10] method testUnrestorable(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[679,10] method testSerializingState(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[725,10] method testUnrestorableToString(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[732,10] method testSupportedInterfaces(org.apache.commons.rng.simple.ProvidersList.Data) is already defined in class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[506,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[514,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[528,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[545,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[565,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[602,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[615,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[630,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[643,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[655,2] cannot find symbol
+[ERROR]   symbol:   class SuppressWarnings_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[678,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[724,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-simple/src/test/java/org/apache/commons/rng/simple/ProvidersCommonParametricTest_OE25Dev.java:[731,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.simple.ProvidersCommonParametricTest_OE25Dev
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

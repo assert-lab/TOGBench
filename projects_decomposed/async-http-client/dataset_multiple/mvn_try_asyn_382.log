@@ -1,0 +1,29 @@
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running org.asynchttpclient.extras.rxjava.AsyncHttpObservableTest_OE25Dev
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.625 sec <<< FAILURE! - in org.asynchttpclient.extras.rxjava.AsyncHttpObservableTest_OE25Dev
+testObserveMultiple_oe(org.asynchttpclient.extras.rxjava.AsyncHttpObservableTest_OE25Dev)  Time elapsed: 0.452 sec  <<< FAILURE!
+java.lang.AssertionError: Unexpected onError events (0 completions) (+1 error)
+	at org.asynchttpclient.extras.rxjava.AsyncHttpObservableTest_OE25Dev.testObserveMultiple_oe(AsyncHttpObservableTest_OE25Dev.java:121)
+Caused by: java.net.UnknownHostException: DNS service refused [response code 5]
+
+
+Results :
+
+Failed tests: 
+  AsyncHttpObservableTest_OE25Dev.testObserveMultiple_oe:121 Unexpected onError events (0 completions) (+1 error)
+
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0
+
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-rxjava: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava/target/surefire-reports for the individual test results.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

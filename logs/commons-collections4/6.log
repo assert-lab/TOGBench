@@ -1,0 +1,260 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------------< org.apache.commons:commons-collections4 >---------------
+[INFO] Building Apache Commons Collections 4.4
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-collections4 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-version) @ commons-collections4 ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M2:enforce (enforce-maven-3) @ commons-collections4 ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-collections4 ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.0.0:parse-version (parse-version) @ commons-collections4 ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-collections4 ---
+[INFO] Executing tasks
+
+main:
+     [copy] Copying 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/apidocs/META-INF
+[INFO] Executed tasks
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.5:process (process-resource-bundles) @ commons-collections4 ---
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-collections4 ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773032120468
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-collections4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:compile (default-compile) @ commons-collections4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 326 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/java/org/apache/commons/collections4/collection/IndexedCollection.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/java/org/apache/commons/collections4/collection/IndexedCollection.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/java/org/apache/commons/collections4/iterators/EmptyIterator.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/main/java/org/apache/commons/collections4/iterators/EmptyIterator.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- animal-sniffer-maven-plugin:1.17:check (checkAPIcompatibility) @ commons-collections4 ---
+[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-collections4 ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 179 resources
+[INFO] Copying 2 resources to META-INF
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-collections4 ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 299 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AbstractCompositePredicateTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AbstractCompositePredicateTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- jacoco-maven-plugin:0.8.4:prepare-agent (prepare-agent) @ commons-collections4 ---
+[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.4/org.jacoco.agent-0.8.4-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/jacoco.exec
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ commons-collections4 ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
+[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
+[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
+[ERROR] Tests run: 12, Failures: 4, Errors: 0, Skipped: 0, Time elapsed: 0.005 s <<< FAILURE! - in org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
+[ERROR] testLooping2_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
+	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testLooping2_oe(LoopingListIteratorTest_OE25Dev.java:137)
+
+[ERROR] testRemovingElementsAndIteratingForward_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_oe(LoopingListIteratorTest_OE25Dev.java:189)
+
+[ERROR] testRemovingElementsAndIteratingBackwards_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_oe(LoopingListIteratorTest_OE25Dev.java:211)
+
+[ERROR] testAdd_oe(org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<[b]> but was:<[a]>
+	at org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev.testAdd_oe(LoopingListIteratorTest_OE25Dev.java:256)
+
+[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.NodeListIteratorTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.collections4.iterators.NodeListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
+[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.QueueUtilsTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.QueueUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.functors.NullPredicateTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.MapUtilsTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.076 s - in org.apache.commons.collections4.MapUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.TrieUtilsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.TrieUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
+[ERROR] Tests run: 7, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.007 s <<< FAILURE! - in org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
+[ERROR] testPrefixMap_oe(org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+java.lang.AssertionError
+	at org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev.testPrefixMap_oe(PatriciaTrieTest_OE25Dev.java:292)
+
+[INFO] Running org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.BagUtilsTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.collections4.BagUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.LazyListTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.list.LazyListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.FixedSizeListTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.FixedSizeListTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.list.Collections701Test_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.Collections701Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.16 s - in org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.SetUtilsTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.SetUtilsTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.UnmodifiableSortedSetTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.UnmodifiableSortedSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
+[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
+[INFO] Running org.apache.commons.collections4.map.LazyMapTest_OE25Dev
+[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.LazyMapTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   LoopingListIteratorTest_OE25Dev.testAdd_oe:256 expected:<[b]> but was:<[a]>
+[ERROR]   LoopingListIteratorTest_OE25Dev.testLooping2_oe:137 expected:<[b]> but was:<[a]>
+[ERROR]   LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingBackwards_oe:211
+[ERROR]   LoopingListIteratorTest_OE25Dev.testRemovingElementsAndIteratingForward_oe:189
+[ERROR]   PatriciaTrieTest_OE25Dev.testPrefixMap_oe:292
+[INFO] 
+[ERROR] Tests run: 280, Failures: 5, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  4.693 s
+[INFO] Finished at: 2026-03-08T23:55:24-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.1:test (default-test) on project commons-collections4: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

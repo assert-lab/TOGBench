@@ -344,9 +344,9 @@ def main():
     proj_dir = PROJECTS_DIR / args.project
     if not proj_dir.is_dir():
         raise SystemExit(f"project not found: {args.project}")
-    dataset_dir = proj_dir / "dataset"
-    inputs_failed = dataset_dir / "inputs_multiline.csv"
-    meta_failed = dataset_dir / "meta.csv"
+    dataset_dir = proj_dir / "dataset_multiple"
+    inputs_failed = dataset_dir / "inputs_multiple.csv"
+    meta_failed = dataset_dir / "meta_multiple.csv"
     if not inputs_failed.exists() or not meta_failed.exists():
         print(f"[skip] {args.project} missing inputs_left_filtered/meta_left_filtered")
         return

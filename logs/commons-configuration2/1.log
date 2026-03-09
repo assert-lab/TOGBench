@@ -51,7 +51,7 @@ Parser generated successfully.
 [INFO] --- buildnumber-maven-plugin:3.0.0:create (default) @ commons-configuration2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2
-[INFO] Storing buildNumber: null at timestamp: 1772768434665
+[INFO] Storing buildNumber: null at timestamp: 1773031993927
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.2.0:resources (default-resources) @ commons-configuration2 ---
@@ -65,8 +65,6 @@ Parser generated successfully.
 [INFO] Compiling 268 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/target/classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/AbstractConfiguration.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/AbstractConfiguration.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/web/AppletConfiguration.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/web/AppletConfiguration.java uses or overrides a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/web/AppletConfiguration.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/AbstractYAMLBasedConfiguration.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/AbstractYAMLBasedConfiguration.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -82,339 +80,147 @@ Parser generated successfully.
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ commons-configuration2 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 356 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/target/test-classes
+[INFO] Compiling 358 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestXMLListHandling.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestXMLListHandling.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration.java uses or overrides a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJSONConfiguration_OE25Dev.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestJSONConfiguration_OE25Dev.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.20:check (checkAPIcompatibility) @ commons-configuration2 ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:88: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.flip() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.flip()
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:90: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.clear() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.clear()
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:88: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.flip() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.flip()
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:90: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.clear() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.clear()
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:88: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.flip() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.flip()
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/main/java/org/apache/commons/configuration2/io/FileUtils.java:90: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.clear() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.clear()
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.8:prepare-agent (prepare-agent) @ commons-configuration2 ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.8/org.jacoco.agent-0.8.8-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-configuration2 ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.configuration2.TestJNDIEnvironmentValues_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.404 s - in org.apache.commons.configuration2.TestJNDIEnvironmentValues_OE25Dev
-[INFO] Running org.apache.commons.configuration2.reloading.TestReloadingController_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.012 s - in org.apache.commons.configuration2.reloading.TestReloadingController_OE25Dev
-[INFO] Running org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.reloading.TestFileHandlerReloadingDetector_OE25Dev
-[INFO] Running org.apache.commons.configuration2.reloading.TestPeriodicReloadingTrigger_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.17 s - in org.apache.commons.configuration2.reloading.TestPeriodicReloadingTrigger_OE25Dev
-[INFO] Running org.apache.commons.configuration2.reloading.TestVFSFileHandlerReloadingDetector_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.reloading.TestVFSFileHandlerReloadingDetector_OE25Dev
-[INFO] Running org.apache.commons.configuration2.reloading.TestCombinedReloadingController_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.reloading.TestCombinedReloadingController_OE25Dev
-[INFO] Running org.apache.commons.configuration2.reloading.TestManagedReloadingDetector_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.reloading.TestManagedReloadingDetector_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestAbstractConfigurationSynchronization_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.173 s - in org.apache.commons.configuration2.TestAbstractConfigurationSynchronization_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestXMLPropertiesConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestXMLPropertiesConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestThreesomeConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestThreesomeConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev
-[INFO] Tests run: 30, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.87 s - in org.apache.commons.configuration2.TestXMLConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.024 s - in org.apache.commons.configuration2.TestDatabaseConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestFileHandler_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.configuration2.io.TestFileHandler_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestFileLocator_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.configuration2.io.TestFileLocator_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestBasePathLocationStrategy_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestBasePathLocationStrategy_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestFileSystemLocationStrategy_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestFileSystemLocationStrategy_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestAbsoluteNameLocationStrategy_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestAbsoluteNameLocationStrategy_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestClasspathLocationStrategy_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestClasspathLocationStrategy_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestProvidedURLLocationStrategy_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestProvidedURLLocationStrategy_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestConfigurationLogger_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.configuration2.io.TestConfigurationLogger_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestHomeDirectoryLocationStrategy_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestHomeDirectoryLocationStrategy_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestDefaultFileSystem_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.io.TestDefaultFileSystem_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestCombinedLocationStrategy_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.io.TestCombinedLocationStrategy_OE25Dev
-[INFO] Running org.apache.commons.configuration2.io.TestFileLocatorUtils_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.configuration2.io.TestFileLocatorUtils_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestConfigurationUtils_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.configuration2.TestConfigurationUtils_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestEqualBehavior_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.configuration2.TestEqualBehavior_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestXMLDocumentHelper_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestXMLDocumentHelper_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestSubnodeConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestSubnodeConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.event.TestConfigurationEventTypes_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.075 s - in org.apache.commons.configuration2.event.TestConfigurationEventTypes_OE25Dev
-[INFO] Running org.apache.commons.configuration2.event.TestEventType_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestEventType_OE25Dev
-[INFO] Running org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
-[INFO] Running org.apache.commons.configuration2.event.TestEvent_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestEvent_OE25Dev
-[INFO] Running org.apache.commons.configuration2.event.TestEventSource_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.event.TestEventSource_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestHierarchicalConfiguration_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.apache.commons.configuration2.TestHierarchicalConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.web.TestServletRequestConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.web.TestServletRequestConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestHierarchicalXMLConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.configuration2.TestHierarchicalXMLConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestSystemConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestSystemConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.convert.TestDisabledListDelimiterHandler_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.convert.TestDisabledListDelimiterHandler_OE25Dev
-[INFO] Running org.apache.commons.configuration2.convert.TestPropertyConverter_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.configuration2.convert.TestPropertyConverter_OE25Dev
-[INFO] Running org.apache.commons.configuration2.convert.TestDefaultConversionHandler_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.configuration2.convert.TestDefaultConversionHandler_OE25Dev
-[INFO] Running org.apache.commons.configuration2.convert.TestDefaultListDelimiterHandler_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.convert.TestDefaultListDelimiterHandler_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestCopyObjectDefaultHandler_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestCopyObjectDefaultHandler_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestHierarchicalBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestHierarchicalBuilderParametersImpl_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestBuilderConfigurationWrapperFactory_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBuilderConfigurationWrapperFactory_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestBasicConfigurationBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBasicConfigurationBuilder_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestPropertiesBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestPropertiesBuilderParametersImpl_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestReloadingCombinedConfigurationBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestReloadingCombinedConfigurationBuilder_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestFileExtensionConfigurationBuilderProvider_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestFileExtensionConfigurationBuilderProvider_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilder_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilder_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestReloadingCombinedConfigurationBuilderFileBased_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestConfigurationDeclaration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestConfigurationDeclaration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestMultiWrapDynaBean_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.094 s - in org.apache.commons.configuration2.builder.combined.TestMultiWrapDynaBean_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestBaseConfigurationBuilderProvider_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestBaseConfigurationBuilderProvider_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestReloadingMultiFileConfigurationBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestReloadingMultiFileConfigurationBuilder_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestMultiFileConfigurationBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestMultiFileConfigurationBuilder_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestCombinedBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.configuration2.builder.combined.TestCombinedBuilderParametersImpl_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestMultiFileBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestMultiFileBuilderParametersImpl_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilderVFS_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.combined.TestCombinedConfigurationBuilderVFS_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestReloadingBuilderSupportListener_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestReloadingBuilderSupportListener_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestBasicBuilderParameters_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBasicBuilderParameters_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestBasicConfigurationBuilderEvents_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestBasicConfigurationBuilderEvents_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestXMLBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestXMLBuilderParametersImpl_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestFileBasedConfigurationBuilder_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestFileBasedConfigurationBuilder_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestDefaultReloadingDetectorFactory_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestDefaultReloadingDetectorFactory_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestDatabaseBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestDatabaseBuilderParametersImpl_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestDefaultParametersManager_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestDefaultParametersManager_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestReloadingFileBasedConfigurationBuilder_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestReloadingFileBasedConfigurationBuilder_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestJndiBuilderParametersImpl_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestJndiBuilderParametersImpl_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestFileBasedBuilderParameters_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.TestEventListenerParameters_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.TestEventListenerParameters_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.fluent.TestConfigurations_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.fluent.TestConfigurations_OE25Dev
-[INFO] Running org.apache.commons.configuration2.builder.fluent.TestParameters_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.builder.fluent.TestParameters_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestJNDIConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestCatalogResolver_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestCatalogResolver_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.apache.commons.configuration2.TestCompositeConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.06 s - in org.apache.commons.configuration2.TestCombinedConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestSubsetConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestBaseNullConfiguration_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.configuration2.TestBaseNullConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestDataConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.133 s - in org.apache.commons.configuration2.TestDataConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestPropertiesConfigurationLayout_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.configuration2.TestPropertiesConfigurationLayout_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestYAMLConfiguration_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.119 s - in org.apache.commons.configuration2.TestYAMLConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestConfigurationMap_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.TestConfigurationMap_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.apache.commons.configuration2.TestNullCompositeConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestJSONConfiguration_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.157 s - in org.apache.commons.configuration2.TestJSONConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestDefaultImmutableConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.TestDefaultImmutableConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestStrictConfigurationComparator_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.configuration2.TestStrictConfigurationComparator_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestConfigurationSet_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestConfigurationSet_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestConfigurationConverter_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.configuration2.TestConfigurationConverter_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestPropertiesSequence_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestPropertiesSequence_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestMapConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestMapConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.spring.TestConfigurationPropertySource_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.94 s - in org.apache.commons.configuration2.spring.TestConfigurationPropertySource_OE25Dev
-[INFO] Running org.apache.commons.configuration2.spring.TestConfigurationPropertiesFactoryBean_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.spring.TestConfigurationPropertiesFactoryBean_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestBaseHierarchicalConfigurationSynchronization_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.apache.commons.configuration2.TestBaseHierarchicalConfigurationSynchronization_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestBaseConfiguration_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestBaseConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestEqualsProperty_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.apache.commons.configuration2.TestEqualsProperty_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestHierarchicalConfigurationXMLReader_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestHierarchicalConfigurationXMLReader_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestImmutableConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestImmutableConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestNullJNDIEnvironmentValues_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.configuration2.TestNullJNDIEnvironmentValues_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestEnvironmentConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestEnvironmentConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestAbstractConfigurationBasicFeatures_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.TestAbstractConfigurationBasicFeatures_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestPatternSubtreeConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestPatternSubtreeConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev
-[INFO] Tests run: 16, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestInMemoryNodeModelReferences_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestInMemoryNodeModelReferences_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestNodeAddData_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestNodeAddData_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestTrackedNodeHandler_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.configuration2.tree.TestTrackedNodeHandler_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestQueryResult_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestQueryResult_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestTrackedNodeModel_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.tree.TestTrackedNodeModel_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestNodeSelector_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestNodeSelector_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestOverrideCombiner_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestOverrideCombiner_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestNodeUpdateData_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestNodeUpdateData_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestUnionCombiner_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestUnionCombiner_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestNodeNameMatchers_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestNodeNameMatchers_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestImmutableNode_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestImmutableNode_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestInMemoryNodeModel_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointer_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointer_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationAttributePointer_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationAttributePointer_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.xpath.TestXPathContextFactory_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestXPathContextFactory_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationNodeIteratorChildren_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationNodeIteratorChildren_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.xpath.TestXPathExpressionEngineInConfig_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestXPathExpressionEngineInConfig_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.xpath.TestXPathExpressionEngine_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestXPathExpressionEngine_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationIteratorAttributes_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationIteratorAttributes_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointerFactory_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.101 s - in org.apache.commons.configuration2.tree.xpath.TestConfigurationNodePointerFactory_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestDefaultExpressionEngine_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.apache.commons.configuration2.tree.TestDefaultExpressionEngine_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestNodeTreeWalker_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestNodeTreeWalker_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestDefaultExpressionEngineSymbols_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestDefaultExpressionEngineSymbols_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestMergeCombiner_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.configuration2.tree.TestMergeCombiner_OE25Dev
-[INFO] Running org.apache.commons.configuration2.tree.TestInMemoryNodeModelTrackedNodes_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.tree.TestInMemoryNodeModelTrackedNodes_OE25Dev
-[INFO] Running org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.168 s - in org.apache.commons.configuration2.plist.TestXMLPropertyListConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in org.apache.commons.configuration2.plist.TestPropertyListConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.plist.TestPropertyListParser_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.plist.TestPropertyListParser_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev
-[INFO] Tests run: 26, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.123 s - in org.apache.commons.configuration2.TestPropertiesConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestConfigurationLookup_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestConfigurationLookup_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestDynamicCombinedConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.TestDynamicCombinedConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestAbstractHierarchicalConfiguration_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.apache.commons.configuration2.TestAbstractHierarchicalConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestINIConfiguration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.configuration2.TestINIConfiguration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.beanutils.TestCombinedBeanDeclaration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestCombinedBeanDeclaration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestBeanHelper_OE25Dev
-[INFO] Running org.apache.commons.configuration2.beanutils.TestDefaultBeanFactory_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestDefaultBeanFactory_OE25Dev
-[INFO] Running org.apache.commons.configuration2.beanutils.TestConstructorArg_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestConstructorArg_OE25Dev
-[INFO] Running org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.beanutils.TestXMLBeanDeclaration_OE25Dev
-[INFO] Running org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
-[INFO] Running org.apache.commons.configuration2.sync.TestReadWriteSynchronizer_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.sync.TestReadWriteSynchronizer_OE25Dev
-[INFO] Running org.apache.commons.configuration2.interpol.TestConstantLookup_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.configuration2.interpol.TestConstantLookup_OE25Dev
-[INFO] Running org.apache.commons.configuration2.interpol.TestSystemPropertiesLookup_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.configuration2.interpol.TestSystemPropertiesLookup_OE25Dev
-[INFO] Running org.apache.commons.configuration2.interpol.TestDummyLookup_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.interpol.TestDummyLookup_OE25Dev
-[INFO] Running org.apache.commons.configuration2.interpol.TestInterpolatorSpecification_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.configuration2.interpol.TestInterpolatorSpecification_OE25Dev
-[INFO] Running org.apache.commons.configuration2.interpol.TestEnvironmentLookup_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.interpol.TestEnvironmentLookup_OE25Dev
-[INFO] Running org.apache.commons.configuration2.interpol.TestConfigurationInterpolator_OE25Dev
-[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.apache.commons.configuration2.interpol.TestConfigurationInterpolator_OE25Dev
-[INFO] Running org.apache.commons.configuration2.interpol.TestExprLookup_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.configuration2.interpol.TestExprLookup_OE25Dev
-[INFO] Running org.apache.commons.configuration2.TestXMLListHandling_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.configuration2.TestXMLListHandling_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 317, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/event/TestEventListenerList_OE25Dev.java:[408,17] method testEventListenerIteratorWrongEvent() is already defined in class org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/event/TestEventListenerList_OE25Dev.java:[433,17] method testGetEventListenersIteratorRemove() is already defined in class org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestHierarchicalXMLConfiguration_OE25Dev.java:[256,17] method testSetRootElementNameWhenLoadedFromFile() is already defined in class org.apache.commons.configuration2.TestHierarchicalXMLConfiguration_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestSubnodeConfiguration_OE25Dev.java:[444,17] method testSetThrowExceptionOnMissing() is already defined in class org.apache.commons.configuration2.TestSubnodeConfiguration_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/tree/TestDefaultConfigurationKey_OE25Dev.java:[534,17] method testIterateWithRemove() is already defined in class org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/builder/TestReloadingBuilderSupportListener_OE25Dev.java:[76,17] method testResetReloadingStateOnResultCreation() is already defined in class org.apache.commons.configuration2.builder.TestReloadingBuilderSupportListener_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[372,17] method testGetDescriptorArguments() is already defined in class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/event/TestEventListenerList_OE25Dev.java:[407,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/event/TestEventListenerList_OE25Dev.java:[432,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestHierarchicalXMLConfiguration_OE25Dev.java:[255,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.apache.commons.configuration2.TestHierarchicalXMLConfiguration_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestSubnodeConfiguration_OE25Dev.java:[443,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.apache.commons.configuration2.TestSubnodeConfiguration_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/tree/TestDefaultConfigurationKey_OE25Dev.java:[533,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/builder/TestReloadingBuilderSupportListener_OE25Dev.java:[74,2] cannot find symbol
+  symbol:   class SuppressWarnings_oe
+  location: class org.apache.commons.configuration2.builder.TestReloadingBuilderSupportListener_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[371,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration_OE25Dev.java:[101,1] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration_OE25Dev.java:[114,1] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[149,9] cannot find symbol
+  symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Boolean>)
+  location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[157,9] cannot find symbol
+  symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Double>)
+  location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[165,9] cannot find symbol
+  symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Float>)
+  location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[173,9] cannot find symbol
+  symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Integer>)
+  location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[181,9] cannot find symbol
+  symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Long>)
+  location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[194,9] cannot find symbol
+  symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Boolean>)
+  location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[202,9] cannot find symbol
+  symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Short>)
+  location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[210,9] cannot find symbol
+  symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.String>)
+  location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/interpol/TestConstantLookup_OE25Dev.java:[61,9] cannot find symbol
+  symbol:   method testLookupConstant()
+  location: class org.apache.commons.configuration2.interpol.TestConstantLookup_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/interpol/TestConstantLookup_OE25Dev.java:[62,9] cannot find symbol
+  symbol:   method testLookupConstant()
+  location: class org.apache.commons.configuration2.interpol.TestConstantLookup_OE25Dev
+[INFO] 26 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  38.258 s
-[INFO] Finished at: 2026-03-05T21:41:07-06:00
+[INFO] Total time:  20.248 s
+[INFO] Finished at: 2026-03-08T23:53:28-05:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project commons-configuration2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/event/TestEventListenerList_OE25Dev.java:[408,17] method testEventListenerIteratorWrongEvent() is already defined in class org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/event/TestEventListenerList_OE25Dev.java:[433,17] method testGetEventListenersIteratorRemove() is already defined in class org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestHierarchicalXMLConfiguration_OE25Dev.java:[256,17] method testSetRootElementNameWhenLoadedFromFile() is already defined in class org.apache.commons.configuration2.TestHierarchicalXMLConfiguration_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestSubnodeConfiguration_OE25Dev.java:[444,17] method testSetThrowExceptionOnMissing() is already defined in class org.apache.commons.configuration2.TestSubnodeConfiguration_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/tree/TestDefaultConfigurationKey_OE25Dev.java:[534,17] method testIterateWithRemove() is already defined in class org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/builder/TestReloadingBuilderSupportListener_OE25Dev.java:[76,17] method testResetReloadingStateOnResultCreation() is already defined in class org.apache.commons.configuration2.builder.TestReloadingBuilderSupportListener_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[372,17] method testGetDescriptorArguments() is already defined in class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/event/TestEventListenerList_OE25Dev.java:[407,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/event/TestEventListenerList_OE25Dev.java:[432,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.apache.commons.configuration2.event.TestEventListenerList_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestHierarchicalXMLConfiguration_OE25Dev.java:[255,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.apache.commons.configuration2.TestHierarchicalXMLConfiguration_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/TestSubnodeConfiguration_OE25Dev.java:[443,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.apache.commons.configuration2.TestSubnodeConfiguration_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/tree/TestDefaultConfigurationKey_OE25Dev.java:[533,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.apache.commons.configuration2.tree.TestDefaultConfigurationKey_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/builder/TestReloadingBuilderSupportListener_OE25Dev.java:[74,2] cannot find symbol
+[ERROR]   symbol:   class SuppressWarnings_oe
+[ERROR]   location: class org.apache.commons.configuration2.builder.TestReloadingBuilderSupportListener_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[371,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration_OE25Dev.java:[101,1] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/web/TestAppletConfiguration_OE25Dev.java:[114,1] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[149,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Boolean>)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[157,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Double>)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[165,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Float>)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[173,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Integer>)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[181,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Long>)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[194,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Boolean>)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[202,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.Short>)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/beanutils/TestConfigurationDynaBean_OE25Dev.java:[210,9] cannot find symbol
+[ERROR]   symbol:   method testGetDescriptorBase(java.lang.String,java.lang.Class<java.lang.String>)
+[ERROR]   location: class org.apache.commons.configuration2.beanutils.TestConfigurationDynaBean_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/interpol/TestConstantLookup_OE25Dev.java:[61,9] cannot find symbol
+[ERROR]   symbol:   method testLookupConstant()
+[ERROR]   location: class org.apache.commons.configuration2.interpol.TestConstantLookup_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-configuration2/src/test/java/org/apache/commons/configuration2/interpol/TestConstantLookup_OE25Dev.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method testLookupConstant()
+[ERROR]   location: class org.apache.commons.configuration2.interpol.TestConstantLookup_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

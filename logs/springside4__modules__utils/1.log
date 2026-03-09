@@ -51,10 +51,8 @@
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[321,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java: Some input files use or override a deprecated API.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java: Some input files use or override a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java: Recompile with -Xlint:removal for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/number/NumberUtil.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/number/NumberUtil.java uses or overrides a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/number/NumberUtil.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/reflect/ClassUtil.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/reflect/ClassUtil.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -64,447 +62,59 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ springside-utils ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 110 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/test-classes
+[INFO] Compiling 116 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/type/SortedArrayListTest_OE25Dev.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/type/SortedArrayListTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest_OE25Dev.java: Some input files use or override a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/number/NumberUtilTest_OE25Dev.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ springside-utils ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.springside.modules.utils.misc.SamplerTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.1 s - in org.springside.modules.utils.misc.SamplerTest_OE25Dev
-[INFO] Running org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
-[INFO] Running org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.concurrent.threadpool.ThreadPoolBuilderTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolBuilderTest_OE25Dev
-[INFO] Running org.springside.modules.utils.concurrent.ConcurrentToolsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.concurrent.ConcurrentToolsTest_OE25Dev
-[INFO] Running org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev
-[INFO] Running org.springside.modules.utils.io.FileTreeWalkerTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.io.FileTreeWalkerTest_OE25Dev
-[INFO] Running org.springside.modules.utils.io.IOUtilTest_OE25Dev
-[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.288 s <<< FAILURE! - in org.springside.modules.utils.io.IOUtilTest_OE25Dev
-[ERROR] read_2_oe(org.springside.modules.utils.io.IOUtilTest_OE25Dev)  Time elapsed: 0.021 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expected size: 2 but was: 1 in:
-[["ABCDEFG", "ABC"]]
-	at org.springside.modules.utils.io.IOUtilTest_OE25Dev.read_2_oe(IOUtilTest_OE25Dev.java:44)
-
-[INFO] Running org.springside.modules.utils.io.FileUtilTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.springside.modules.utils.io.FileUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.io.ResourceUtilTest_OE25Dev
-[ERROR] Tests run: 4, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.038 s <<< FAILURE! - in org.springside.modules.utils.io.ResourceUtilTest_OE25Dev
-[ERROR] test_3_oe(org.springside.modules.utils.io.ResourceUtilTest_OE25Dev)  Time elapsed: 0.014 s  <<< FAILURE!
-org.junit.ComparisonFailure: 
-
-Expecting actual:
-  [["ABCDEFG", "ABC"]]
-to contain exactly (and in same order):
-  ["ABCDEFG", "ABC"]
-but some elements were not found:
-  ["ABCDEFG", "ABC"]
-and others were not expected:
-  [["ABCDEFG", "ABC"]]
- expected:<[["ABCDEFG", "ABC"]]> but was:<[[["ABCDEFG", "ABC"]]]>
-	at org.springside.modules.utils.io.ResourceUtilTest_OE25Dev.test_3_oe(ResourceUtilTest_OE25Dev.java:59)
-
-[ERROR] test_4_oe(org.springside.modules.utils.io.ResourceUtilTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
-org.junit.ComparisonFailure: 
-
-Expecting actual:
-  [["ABCDEFG", "ABC"]]
-to contain exactly (and in same order):
-  ["ABCDEFG", "ABC"]
-but some elements were not found:
-  ["ABCDEFG", "ABC"]
-and others were not expected:
-  [["ABCDEFG", "ABC"]]
- expected:<[["ABCDEFG", "ABC"]]> but was:<[[["ABCDEFG", "ABC"]]]>
-	at org.springside.modules.utils.io.ResourceUtilTest_OE25Dev.test_4_oe(ResourceUtilTest_OE25Dev.java:65)
-
-[INFO] Running org.springside.modules.utils.io.URLResourceTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.io.URLResourceTest_OE25Dev
-[INFO] Running org.springside.modules.utils.io.FilePathUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.springside.modules.utils.io.FilePathUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.collection.QueueUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.QueueUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.collection.CollectionUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.CollectionUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.collection.SetUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.SetUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.collection.type.PairTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.PairTest_OE25Dev
-[INFO] Running org.springside.modules.utils.collection.type.SortedArrayListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.SortedArrayListTest_OE25Dev
-[INFO] Running org.springside.modules.utils.collection.type.ConcurrentHashSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.ConcurrentHashSetTest_OE25Dev
-[INFO] Running org.springside.modules.utils.collection.ListUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.ListUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.collection.ArrayUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.ArrayUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.collection.MapUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.springside.modules.utils.collection.MapUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.text.EncodeUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.008 s - in org.springside.modules.utils.text.EncodeUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.text.EscapeUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.EscapeUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.text.TextValidatorTest_OE25Dev
-[INFO] Tests run: 36, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.048 s - in org.springside.modules.utils.text.TextValidatorTest_OE25Dev
-[INFO] Running org.springside.modules.utils.text.HashUtilTest_OE25Dev
-[INFO] Tests run: 15, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.springside.modules.utils.text.HashUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.text.CsvUtilTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.springside.modules.utils.text.CsvUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.text.WildcardMatcherTest_OE25Dev
-[INFO] Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.springside.modules.utils.text.WildcardMatcherTest_OE25Dev
-[INFO] Running org.springside.modules.utils.text.MoreStringUtilTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.MoreStringUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.net.NetUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.net.NetUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.net.IPUtilTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.springside.modules.utils.net.IPUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.mapper.JsonMapperTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.mapper.JsonMapperTest_OE25Dev
-[INFO] Running org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev
-[INFO] Running org.springside.modules.utils.base.PropertiesUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.PropertiesUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.base.EnumUtilTest_OE25Dev
-[ERROR] Tests run: 6, Failures: 6, Errors: 0, Skipped: 0, Time elapsed: 0.013 s <<< FAILURE! - in org.springside.modules.utils.base.EnumUtilTest_OE25Dev
-[ERROR] test_1_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
-	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_1_oe(EnumUtilTest_OE25Dev.java:30)
-
-[ERROR] test_2_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<3[]> but was:<3[L]>
-	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_2_oe(EnumUtilTest_OE25Dev.java:36)
-
-[ERROR] test_3_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
-	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_3_oe(EnumUtilTest_OE25Dev.java:43)
-
-[ERROR] test_4_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<3[]> but was:<3[L]>
-	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_4_oe(EnumUtilTest_OE25Dev.java:50)
-
-[ERROR] test_5_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expected size: 2 but was: 1 in:
-[[A, B]]
-	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_5_oe(EnumUtilTest_OE25Dev.java:58)
-
-[ERROR] test_6_oe(org.springside.modules.utils.base.EnumUtilTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expected size: 3 but was: 1 in:
-[[A, C, D]]
-	at org.springside.modules.utils.base.EnumUtilTest_OE25Dev.test_6_oe(EnumUtilTest_OE25Dev.java:66)
-
-[INFO] Running org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.base.PlatformsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.PlatformsTest_OE25Dev
-[INFO] Running org.springside.modules.utils.base.BeanUtilTest_OE25Dev
-[INFO] Tests run: 18, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.springside.modules.utils.base.BeanUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.base.ObjectUtilTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.springside.modules.utils.base.ObjectUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.base.SystemPropertiesUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.SystemPropertiesUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.base.MoreValidateTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.base.MoreValidateTest_OE25Dev
-[INFO] Running org.springside.modules.utils.security.CryptoUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.security.CryptoUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.time.DateUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.time.DateUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.time.ClockUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.springside.modules.utils.time.ClockUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.time.CachingDatFormatterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.time.CachingDatFormatterTest_OE25Dev
-[INFO] Running org.springside.modules.utils.time.DateFormatUtilTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.springside.modules.utils.time.DateFormatUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.number.RandomUtilTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.springside.modules.utils.number.RandomUtilTest_OE25Dev
-[INFO] Running org.springside.modules.utils.number.UnitConverterTest_OE25Dev
-[ERROR] Tests run: 13, Failures: 9, Errors: 0, Skipped: 0, Time elapsed: 0.015 s <<< FAILURE! - in org.springside.modules.utils.number.UnitConverterTest_OE25Dev
-[ERROR] convertSizeBytes_1_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<12345[]> but was:<12345[L]>
-	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertSizeBytes_1_oe(UnitConverterTest_OE25Dev.java:104)
-
-[ERROR] convertSizeBytes_2_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0.004 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<12[]> but was:<12[L]>
-	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertSizeBytes_2_oe(UnitConverterTest_OE25Dev.java:110)
-
-[ERROR] convertSizeBytes_3_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<12288[]> but was:<12288[L]>
-	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertSizeBytes_3_oe(UnitConverterTest_OE25Dev.java:116)
-
-[ERROR] convertSizeBytes_4_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<12582912[]> but was:<12582912[L]>
-	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertSizeBytes_4_oe(UnitConverterTest_OE25Dev.java:122)
-
-[ERROR] convertDurationMillis_1_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<12345[]> but was:<12345[L]>
-	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_1_oe(UnitConverterTest_OE25Dev.java:62)
-
-[ERROR] convertDurationMillis_2_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<12000[]> but was:<12000[L]>
-	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_2_oe(UnitConverterTest_OE25Dev.java:68)
-
-[ERROR] convertDurationMillis_3_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<12000[]> but was:<12000[L]>
-	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_3_oe(UnitConverterTest_OE25Dev.java:74)
-
-[ERROR] convertDurationMillis_4_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<12[]> but was:<12[L]>
-	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_4_oe(UnitConverterTest_OE25Dev.java:80)
-
-[ERROR] convertDurationMillis_5_oe(org.springside.modules.utils.number.UnitConverterTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<720000[]> but was:<720000[L]>
-	at org.springside.modules.utils.number.UnitConverterTest_OE25Dev.convertDurationMillis_5_oe(UnitConverterTest_OE25Dev.java:86)
-
-[INFO] Running org.springside.modules.utils.number.MathUtilTest_OE25Dev
-[ERROR] Tests run: 25, Failures: 10, Errors: 0, Skipped: 0, Time elapsed: 0.021 s <<< FAILURE! - in org.springside.modules.utils.number.MathUtilTest_OE25Dev
-[ERROR] caculate_12_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<8[]> but was:<8[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_12_oe(MathUtilTest_OE25Dev.java:217)
-
-[ERROR] caculate_13_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_13_oe(MathUtilTest_OE25Dev.java:227)
-
-[ERROR] caculate_16_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<3[]> but was:<3[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_16_oe(MathUtilTest_OE25Dev.java:260)
-
-[ERROR] divide_3_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<2[]> but was:<2[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.divide_3_oe(MathUtilTest_OE25Dev.java:278)
-
-[ERROR] caculate_4_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<5[]> but was:<5[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_4_oe(MathUtilTest_OE25Dev.java:151)
-
-[ERROR] caculate_5_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<5[]> but was:<5[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_5_oe(MathUtilTest_OE25Dev.java:158)
-
-[ERROR] caculate_6_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_6_oe(MathUtilTest_OE25Dev.java:165)
-
-[ERROR] caculate_7_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<5[]> but was:<5[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_7_oe(MathUtilTest_OE25Dev.java:173)
-
-[ERROR] caculate_8_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<5[]> but was:<5[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_8_oe(MathUtilTest_OE25Dev.java:181)
-
-[ERROR] caculate_9_oe(org.springside.modules.utils.number.MathUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<1[]> but was:<1[L]>
-	at org.springside.modules.utils.number.MathUtilTest_OE25Dev.caculate_9_oe(MathUtilTest_OE25Dev.java:189)
-
-[INFO] Running org.springside.modules.utils.number.NumberUtilTest_OE25Dev
-[ERROR] Tests run: 50, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.springside.modules.utils.number.NumberUtilTest_OE25Dev
-[ERROR] toNumber_7_oe(org.springside.modules.utils.number.NumberUtilTest_OE25Dev)  Time elapsed: 0.01 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<0[]> but was:<0[L]>
-	at org.springside.modules.utils.number.NumberUtilTest_OE25Dev.toNumber_7_oe(NumberUtilTest_OE25Dev.java:196)
-
-[ERROR] toNumber_10_oe(org.springside.modules.utils.number.NumberUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-org.junit.ComparisonFailure: expected:<0[L]> but was:<0[.0]>
-	at org.springside.modules.utils.number.NumberUtilTest_OE25Dev.toNumber_10_oe(NumberUtilTest_OE25Dev.java:219)
-
-[INFO] Running org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev
-21:40:49.037 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean2's superclass not ParameterizedType
-21:40:49.043 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean3's superclass not ParameterizedType
-[ERROR] Tests run: 17, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.053 s <<< FAILURE! - in org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev
-[ERROR] getAllClass_1_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expected size: 4 but was: 1 in:
-[[org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.CInterface,
-    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.BInterface,
-    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.AInterface,
-    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.DInterface]]
-	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_1_oe(ClassUtilTest_OE25Dev.java:255)
-
-[ERROR] getAllClass_2_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expected size: 2 but was: 1 in:
-[[org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.AClass,
-    java.lang.Object]]
-	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_2_oe(ClassUtilTest_OE25Dev.java:263)
-
-[ERROR] getAllClass_3_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.013 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expected size: 4 but was: 1 in:
-[[@org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$DAnnotation(),
-    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$CAnnotation(),
-    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BAnnotation(),
-    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AAnnotation()]]
-	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_3_oe(ClassUtilTest_OE25Dev.java:272)
-
-[ERROR] getAllClass_4_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expected size: 2 but was: 1 in:
-[[public int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.sfield,
-    public int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.tfield]]
-	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_4_oe(ClassUtilTest_OE25Dev.java:282)
-
-[ERROR] getAllClass_5_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expected size: 3 but was: 1 in:
-[[private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.afield,
-    private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.efield,
-    private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.bfield]]
-	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_5_oe(ClassUtilTest_OE25Dev.java:293)
-
-[ERROR] getAllClass_6_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.002 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expecting ArrayList:
-  [[private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]]
-to contain:
-  [private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]
-but could not find the following element(s):
-  [private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]
-
-	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_6_oe(ClassUtilTest_OE25Dev.java:305)
-
-[ERROR] getAllClass_7_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.003 s  <<< FAILURE!
-java.lang.AssertionError: 
-
-Expected size: 3 but was: 1 in:
-[[public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.hello(),
-    public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.hello3(int),
-    public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.hello4(int)]]
-	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getAllClass_7_oe(ClassUtilTest_OE25Dev.java:318)
-
-[INFO] Running org.springside.modules.test.log.LogbackListAppenderTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.test.log.LogbackListAppenderTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[ERROR] Failures: 
-[ERROR]   EnumUtilTest_OE25Dev.test_1_oe:30 expected:<1[]> but was:<1[L]>
-[ERROR]   EnumUtilTest_OE25Dev.test_2_oe:36 expected:<3[]> but was:<3[L]>
-[ERROR]   EnumUtilTest_OE25Dev.test_3_oe:43 expected:<1[]> but was:<1[L]>
-[ERROR]   EnumUtilTest_OE25Dev.test_4_oe:50 expected:<3[]> but was:<3[L]>
-[ERROR]   EnumUtilTest_OE25Dev.test_5_oe:58 
-Expected size: 2 but was: 1 in:
-[[A, B]]
-[ERROR]   EnumUtilTest_OE25Dev.test_6_oe:66 
-Expected size: 3 but was: 1 in:
-[[A, C, D]]
-[ERROR]   IOUtilTest_OE25Dev.read_2_oe:44 
-Expected size: 2 but was: 1 in:
-[["ABCDEFG", "ABC"]]
-[ERROR]   ResourceUtilTest_OE25Dev.test_3_oe:59 
-Expecting actual:
-  [["ABCDEFG", "ABC"]]
-to contain exactly (and in same order):
-  ["ABCDEFG", "ABC"]
-but some elements were not found:
-  ["ABCDEFG", "ABC"]
-and others were not expected:
-  [["ABCDEFG", "ABC"]]
- expected:<[["ABCDEFG", "ABC"]]> but was:<[[["ABCDEFG", "ABC"]]]>
-[ERROR]   ResourceUtilTest_OE25Dev.test_4_oe:65 
-Expecting actual:
-  [["ABCDEFG", "ABC"]]
-to contain exactly (and in same order):
-  ["ABCDEFG", "ABC"]
-but some elements were not found:
-  ["ABCDEFG", "ABC"]
-and others were not expected:
-  [["ABCDEFG", "ABC"]]
- expected:<[["ABCDEFG", "ABC"]]> but was:<[[["ABCDEFG", "ABC"]]]>
-[ERROR]   MathUtilTest_OE25Dev.caculate_12_oe:217 expected:<8[]> but was:<8[L]>
-[ERROR]   MathUtilTest_OE25Dev.caculate_13_oe:227 expected:<1[]> but was:<1[L]>
-[ERROR]   MathUtilTest_OE25Dev.caculate_16_oe:260 expected:<3[]> but was:<3[L]>
-[ERROR]   MathUtilTest_OE25Dev.caculate_4_oe:151 expected:<5[]> but was:<5[L]>
-[ERROR]   MathUtilTest_OE25Dev.caculate_5_oe:158 expected:<5[]> but was:<5[L]>
-[ERROR]   MathUtilTest_OE25Dev.caculate_6_oe:165 expected:<1[]> but was:<1[L]>
-[ERROR]   MathUtilTest_OE25Dev.caculate_7_oe:173 expected:<5[]> but was:<5[L]>
-[ERROR]   MathUtilTest_OE25Dev.caculate_8_oe:181 expected:<5[]> but was:<5[L]>
-[ERROR]   MathUtilTest_OE25Dev.caculate_9_oe:189 expected:<1[]> but was:<1[L]>
-[ERROR]   MathUtilTest_OE25Dev.divide_3_oe:278 expected:<2[]> but was:<2[L]>
-[ERROR]   NumberUtilTest_OE25Dev.toNumber_10_oe:219 expected:<0[L]> but was:<0[.0]>
-[ERROR]   NumberUtilTest_OE25Dev.toNumber_7_oe:196 expected:<0[]> but was:<0[L]>
-[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_1_oe:62 expected:<12345[]> but was:<12345[L]>
-[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_2_oe:68 expected:<12000[]> but was:<12000[L]>
-[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_3_oe:74 expected:<12000[]> but was:<12000[L]>
-[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_4_oe:80 expected:<12[]> but was:<12[L]>
-[ERROR]   UnitConverterTest_OE25Dev.convertDurationMillis_5_oe:86 expected:<720000[]> but was:<720000[L]>
-[ERROR]   UnitConverterTest_OE25Dev.convertSizeBytes_1_oe:104 expected:<12345[]> but was:<12345[L]>
-[ERROR]   UnitConverterTest_OE25Dev.convertSizeBytes_2_oe:110 expected:<12[]> but was:<12[L]>
-[ERROR]   UnitConverterTest_OE25Dev.convertSizeBytes_3_oe:116 expected:<12288[]> but was:<12288[L]>
-[ERROR]   UnitConverterTest_OE25Dev.convertSizeBytes_4_oe:122 expected:<12582912[]> but was:<12582912[L]>
-[ERROR]   ClassUtilTest_OE25Dev.getAllClass_1_oe:255 
-Expected size: 4 but was: 1 in:
-[[org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.CInterface,
-    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.BInterface,
-    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.AInterface,
-    org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.DInterface]]
-[ERROR]   ClassUtilTest_OE25Dev.getAllClass_2_oe:263 
-Expected size: 2 but was: 1 in:
-[[org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.AClass,
-    java.lang.Object]]
-[ERROR]   ClassUtilTest_OE25Dev.getAllClass_3_oe:272 
-Expected size: 4 but was: 1 in:
-[[@org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$DAnnotation(),
-    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$CAnnotation(),
-    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BAnnotation(),
-    @org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AAnnotation()]]
-[ERROR]   ClassUtilTest_OE25Dev.getAllClass_4_oe:282 
-Expected size: 2 but was: 1 in:
-[[public int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.sfield,
-    public int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.tfield]]
-[ERROR]   ClassUtilTest_OE25Dev.getAllClass_5_oe:293 
-Expected size: 3 but was: 1 in:
-[[private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.afield,
-    private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.efield,
-    private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.bfield]]
-[ERROR]   ClassUtilTest_OE25Dev.getAllClass_6_oe:305 
-Expecting ArrayList:
-  [[private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]]
-to contain:
-  [private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]
-but could not find the following element(s):
-  [private int org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.dfield]
-
-[ERROR]   ClassUtilTest_OE25Dev.getAllClass_7_oe:318 
-Expected size: 3 but was: 1 in:
-[[public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.hello(),
-    public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$BClass.hello3(int),
-    public void org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev$AClass.hello4(int)]]
-[INFO] 
-[ERROR] Tests run: 257, Failures: 37, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[52,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[54,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java:[99,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[140,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[143,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[146,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[148,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[183,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[186,17] reference to assertThat is ambiguous
+  both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[INFO] 9 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  20.314 s
-[INFO] Finished at: 2026-03-05T21:40:49-06:00
+[INFO] Total time:  11.567 s
+[INFO] Finished at: 2026-03-08T23:53:19-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project springside-utils: There are test failures.
-[ERROR] 
-[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/surefire-reports for the individual test results.
-[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.10.1:testCompile (default-testCompile) on project springside-utils: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[52,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/CollectionUtilTest_OE25Dev.java:[54,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/ListUtilTest_OE25Dev.java:[99,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[140,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[143,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[146,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[148,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[183,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/reflect/ReflectionUtilTest_OE25Dev.java:[186,17] reference to assertThat is ambiguous
+[ERROR]   both method assertThat(java.util.function.IntPredicate) in org.assertj.core.api.Assertions and method <T>assertThat(java.util.function.Predicate<T>) in org.assertj.core.api.Assertions match
 [ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.

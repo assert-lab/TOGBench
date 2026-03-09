@@ -1,0 +1,784 @@
+id,test_prefix,test_name,custom_assert_name,custom_assert_method,custom_assert_file
+conf_3_1,"    @Test
+    public void testAppendNull_1_oe() {
+        final AbstractConfiguration config = setUpDestConfig();
+        config.append(null);
+        ConfigurationAssert.assertConfigurationEquals(setUpDestConfig(), config);
+    }",TestAbstractConfigurationBasicFeatures::testAppendNull_1_oe,assertConfigurationEquals,"    public static void assertConfigurationEquals(final ImmutableConfiguration expected, final ImmutableConfiguration actual) {
+        // check that the actual configuration contains all the properties of the expected configuration
+        for (final Iterator<String> it = expected.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration doesn't contain the expected key '"" + key + ""'"", actual.containsKey(key));
+            assertEquals(""Value of the '"" + key + ""' property"", expected.getProperty(key), actual.getProperty(key));
+        }
+
+        // check that the actual configuration has no extra properties
+        for (final Iterator<String> it = actual.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration contains an extra key '"" + key + ""'"", expected.containsKey(key));
+        }
+    }
+",src/test/java/org/apache/commons/configuration2/ConfigurationAssert.java
+conf_7_1,"    @Test
+    public void testCopyNull_1_oe() {
+        final AbstractConfiguration config = setUpDestConfig();
+        config.copy(null);
+        ConfigurationAssert.assertConfigurationEquals(setUpDestConfig(), config);
+    }",TestAbstractConfigurationBasicFeatures::testCopyNull_1_oe,assertConfigurationEquals,"    public static void assertConfigurationEquals(final ImmutableConfiguration expected, final ImmutableConfiguration actual) {
+        // check that the actual configuration contains all the properties of the expected configuration
+        for (final Iterator<String> it = expected.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration doesn't contain the expected key '"" + key + ""'"", actual.containsKey(key));
+            assertEquals(""Value of the '"" + key + ""' property"", expected.getProperty(key), actual.getProperty(key));
+        }
+
+        // check that the actual configuration has no extra properties
+        for (final Iterator<String> it = actual.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration contains an extra key '"" + key + ""'"", expected.containsKey(key));
+        }
+    }
+",src/test/java/org/apache/commons/configuration2/ConfigurationAssert.java
+conf_251_1,"    @Test
+    public void testSaveWithDefaultListDelimiterHandler_1_oe() throws ConfigurationException {
+        conf.setListDelimiterHandler(new DefaultListDelimiterHandler(','));
+        saveTestConfig();
+
+        final PropertiesConfiguration checkConfig = new PropertiesConfiguration();
+        checkConfig.setListDelimiterHandler(conf.getListDelimiterHandler());
+        new FileHandler(checkConfig).load(testSavePropertiesFile);
+        ConfigurationAssert.assertConfigurationEquals(conf, checkConfig);
+    }",TestPropertiesConfiguration::testSaveWithDefaultListDelimiterHandler_1_oe,assertConfigurationEquals,"    public static void assertConfigurationEquals(final ImmutableConfiguration expected, final ImmutableConfiguration actual) {
+        // check that the actual configuration contains all the properties of the expected configuration
+        for (final Iterator<String> it = expected.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration doesn't contain the expected key '"" + key + ""'"", actual.containsKey(key));
+            assertEquals(""Value of the '"" + key + ""' property"", expected.getProperty(key), actual.getProperty(key));
+        }
+
+        // check that the actual configuration has no extra properties
+        for (final Iterator<String> it = actual.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration contains an extra key '"" + key + ""'"", expected.containsKey(key));
+        }
+    }
+",src/test/java/org/apache/commons/configuration2/ConfigurationAssert.java
+conf_252_1,"    @Test
+    public void testSaveWithDelimiterParsingDisabled_1_oe() throws ConfigurationException {
+        conf.clear();
+        conf.setListDelimiterHandler(new DisabledListDelimiterHandler());
+        conf.addProperty(""test.list"", ""a,b,c"");
+        conf.addProperty(""test.dirs"", ""C:\\Temp\\,D:\\Data\\"");
+        saveTestConfig();
+
+        final PropertiesConfiguration checkConfig = new PropertiesConfiguration();
+        checkConfig.setListDelimiterHandler(new DisabledListDelimiterHandler());
+        new FileHandler(checkConfig).load(testSavePropertiesFile);
+        ConfigurationAssert.assertConfigurationEquals(conf, checkConfig);
+    }",TestPropertiesConfiguration::testSaveWithDelimiterParsingDisabled_1_oe,assertConfigurationEquals,"    public static void assertConfigurationEquals(final ImmutableConfiguration expected, final ImmutableConfiguration actual) {
+        // check that the actual configuration contains all the properties of the expected configuration
+        for (final Iterator<String> it = expected.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration doesn't contain the expected key '"" + key + ""'"", actual.containsKey(key));
+            assertEquals(""Value of the '"" + key + ""' property"", expected.getProperty(key), actual.getProperty(key));
+        }
+
+        // check that the actual configuration has no extra properties
+        for (final Iterator<String> it = actual.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration contains an extra key '"" + key + ""'"", expected.containsKey(key));
+        }
+    }
+",src/test/java/org/apache/commons/configuration2/ConfigurationAssert.java
+conf_928_1,"    @Test
+    public void testLocateSuccess_1_oe() throws ConfigurationException {
+        final FileLocator locator = FileLocatorUtils.fileLocator().fileName(FILE_NAME).basePath(""somePath"").create();
+        final URL url = strategy.locate(fileSystem, locator);
+        final Configurations configurations = new Configurations();
+        final XMLConfiguration config1 = configurations.xml(url);
+        final XMLConfiguration config2 = configurations.xml(ConfigurationAssert.getTestURL(FILE_NAME));
+        ConfigurationAssert.assertConfigurationEquals(config1, config2);
+    }",TestClasspathLocationStrategy::testLocateSuccess_1_oe,assertConfigurationEquals,"    public static void assertConfigurationEquals(final ImmutableConfiguration expected, final ImmutableConfiguration actual) {
+        // check that the actual configuration contains all the properties of the expected configuration
+        for (final Iterator<String> it = expected.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration doesn't contain the expected key '"" + key + ""'"", actual.containsKey(key));
+            assertEquals(""Value of the '"" + key + ""' property"", expected.getProperty(key), actual.getProperty(key));
+        }
+
+        // check that the actual configuration has no extra properties
+        for (final Iterator<String> it = actual.getKeys(); it.hasNext();) {
+            final String key = it.next();
+            assertTrue(""The actual configuration contains an extra key '"" + key + ""'"", expected.containsKey(key));
+        }
+    }
+",src/test/java/org/apache/commons/configuration2/ConfigurationAssert.java
+conf_1044_1,"    @Test
+    public void testListenerRegistrationWithListenerData_1_oe() {
+        final ListenerTestImpl listener = new ListenerTestImpl();
+        final EventListenerRegistrationData<EventSub1> regData = new EventListenerRegistrationData<>(typeSub1, listener);
+        list.addEventListener(regData);
+
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener.assertEvent(this, typeSub1, MESSAGE);
+    }",TestEventListenerList::testListenerRegistrationWithListenerData_1_oe,assertEvent,"        public void assertEvent(final Object expSource, final EventType<?> expType, final String expMessage) {
+            assertNotNull(""No event received"", receivedEvent);
+            assertEquals(""Wrong source"", expSource, receivedEvent.getSource());
+            assertEquals(""Wrong event type"", expType, receivedEvent.getEventType());
+            assertEquals(""Wrong message"", expMessage, receivedEvent.getMessage());
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1045_1,"    @Test
+    public void testMultipleListenerRegistration_1_oe() {
+        final ListenerTestImpl listener = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener);
+        list.addEventListener(typeSub2, listener);
+
+        list.fire(new EventSub2(this, typeSub2, MESSAGE));
+        list.removeEventListener(typeSub1, listener);
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener.assertEvent(this, typeSub2, MESSAGE);
+    }",TestEventListenerList::testMultipleListenerRegistration_1_oe,assertEvent,"        public void assertEvent(final Object expSource, final EventType<?> expType, final String expMessage) {
+            assertNotNull(""No event received"", receivedEvent);
+            assertEquals(""Wrong source"", expSource, receivedEvent.getSource());
+            assertEquals(""Wrong event type"", expType, receivedEvent.getEventType());
+            assertEquals(""Wrong message"", expMessage, receivedEvent.getMessage());
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1046_1,"    @Test
+    public void testReceiveEventDifferentType_1_oe() {
+        final ListenerTestImpl listener1 = new ListenerTestImpl();
+        final ListenerTestImpl listener2 = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener1);
+        list.addEventListener(typeSub2, listener2);
+
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener1.assertEvent(this, typeSub1, MESSAGE);
+    }",TestEventListenerList::testReceiveEventDifferentType_1_oe,assertEvent,"        public void assertEvent(final Object expSource, final EventType<?> expType, final String expMessage) {
+            assertNotNull(""No event received"", receivedEvent);
+            assertEquals(""Wrong source"", expSource, receivedEvent.getSource());
+            assertEquals(""Wrong event type"", expType, receivedEvent.getEventType());
+            assertEquals(""Wrong message"", expMessage, receivedEvent.getMessage());
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1046_2,"    @Test
+    public void testReceiveEventDifferentType_2_oe() {
+        final ListenerTestImpl listener1 = new ListenerTestImpl();
+        final ListenerTestImpl listener2 = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener1);
+        list.addEventListener(typeSub2, listener2);
+
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener2.assertNoEvent();
+    }",TestEventListenerList::testReceiveEventDifferentType_2_oe,assertNoEvent,"        public void assertNoEvent() {
+            assertNull(""Unexpected event received: "" + receivedEvent, receivedEvent);
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1047_1,"    @Test
+    public void testReceiveEventMultipleListeners_1_oe() {
+        final ListenerTestImpl listener1 = new ListenerTestImpl();
+        final ListenerTestImpl listener2 = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener1);
+        list.addEventListener(typeSub1, listener2);
+
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener1.assertEvent(this, typeSub1, MESSAGE);
+    }",TestEventListenerList::testReceiveEventMultipleListeners_1_oe,assertEvent,"        public void assertEvent(final Object expSource, final EventType<?> expType, final String expMessage) {
+            assertNotNull(""No event received"", receivedEvent);
+            assertEquals(""Wrong source"", expSource, receivedEvent.getSource());
+            assertEquals(""Wrong event type"", expType, receivedEvent.getEventType());
+            assertEquals(""Wrong message"", expMessage, receivedEvent.getMessage());
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1047_2,"    @Test
+    public void testReceiveEventMultipleListeners_2_oe() {
+        final ListenerTestImpl listener1 = new ListenerTestImpl();
+        final ListenerTestImpl listener2 = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener1);
+        list.addEventListener(typeSub1, listener2);
+
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener2.assertEvent(this, typeSub1, MESSAGE);
+    }",TestEventListenerList::testReceiveEventMultipleListeners_2_oe,assertEvent,"        public void assertEvent(final Object expSource, final EventType<?> expType, final String expMessage) {
+            assertNotNull(""No event received"", receivedEvent);
+            assertEquals(""Wrong source"", expSource, receivedEvent.getSource());
+            assertEquals(""Wrong event type"", expType, receivedEvent.getEventType());
+            assertEquals(""Wrong message"", expMessage, receivedEvent.getMessage());
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1048_1,"    @Test
+    public void testReceiveEventOfExactType_1_oe() {
+        final ListenerTestImpl listener = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener);
+
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener.assertEvent(this, typeSub1, MESSAGE);
+    }",TestEventListenerList::testReceiveEventOfExactType_1_oe,assertEvent,"        public void assertEvent(final Object expSource, final EventType<?> expType, final String expMessage) {
+            assertNotNull(""No event received"", receivedEvent);
+            assertEquals(""Wrong source"", expSource, receivedEvent.getSource());
+            assertEquals(""Wrong event type"", expType, receivedEvent.getEventType());
+            assertEquals(""Wrong message"", expMessage, receivedEvent.getMessage());
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1049_1,"    @Test
+    public void testReceiveEventSubType_1_oe() {
+        final ListenerTestImpl listener = new ListenerTestImpl();
+        list.addEventListener(typeBase, listener);
+
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener.assertEvent(this, typeSub1, MESSAGE);
+    }",TestEventListenerList::testReceiveEventSubType_1_oe,assertEvent,"        public void assertEvent(final Object expSource, final EventType<?> expType, final String expMessage) {
+            assertNotNull(""No event received"", receivedEvent);
+            assertEquals(""Wrong source"", expSource, receivedEvent.getSource());
+            assertEquals(""Wrong event type"", expType, receivedEvent.getEventType());
+            assertEquals(""Wrong message"", expMessage, receivedEvent.getMessage());
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1050_2,"    @Test
+    public void testRemoveEventListenerExisting_2_oe() {
+        final ListenerTestImpl listener = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener);
+
+        list.fire(new EventSub1(this, typeSub1, MESSAGE));
+        listener.assertNoEvent();
+    }",TestEventListenerList::testRemoveEventListenerExisting_2_oe,assertNoEvent,"        public void assertNoEvent() {
+            assertNull(""Unexpected event received: "" + receivedEvent, receivedEvent);
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1056_1,"    @Test
+    public void testSuppressEventOfSuperType_1_oe() {
+        final ListenerTestImpl listener = new ListenerTestImpl();
+        list.addEventListener(typeSub1, listener);
+
+        list.fire(new EventBase(this, typeBase, MESSAGE));
+        listener.assertNoEvent();
+    }",TestEventListenerList::testSuppressEventOfSuperType_1_oe,assertNoEvent,"        public void assertNoEvent() {
+            assertNull(""Unexpected event received: "" + receivedEvent, receivedEvent);
+        }
+",src/test/java/org/apache/commons/configuration2/event/TestEventListenerList.java
+conf_1166_1,"    @Test
+    public void testReloadingControllerEvents_1_oe() throws ConfigurationException {
+        final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
+        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
+        final ReloadingFileBasedConfigurationBuilderTestImpl builder = new ReloadingFileBasedConfigurationBuilderTestImpl(detector);
+        EasyMock.replay(detector);
+        final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+        builder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
+        builder.getConfiguration();
+        builder.getReloadingController().checkForReloading(null);
+        listener.nextEvent(ConfigurationBuilderEvent.RESET);
+        listener.assertNoMoreEvents();
+    }",TestReloadingFileBasedConfigurationBuilder::testReloadingControllerEvents_1_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1170_2,"    @Test
+    public void testResetBuilderOnReloadingEvent_2_oe() {
+        final ReloadingDetector detector = EasyMock.createMock(ReloadingDetector.class);
+        EasyMock.expect(detector.isReloadingRequired()).andReturn(Boolean.TRUE);
+        EasyMock.replay(detector);
+        final ReloadingController controller = new ReloadingController(detector);
+        final BasicConfigurationBuilder<Configuration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
+        final BuilderEventListenerImpl builderListener = new BuilderEventListenerImpl();
+        builder.addEventListener(ConfigurationBuilderEvent.ANY, builderListener);
+
+        final ReloadingBuilderSupportListener listener = ReloadingBuilderSupportListener.connect(builder, controller);
+        controller.checkForReloading(null);
+        builderListener.nextEvent(ConfigurationBuilderEvent.RESET);
+        builderListener.assertNoMoreEvents();
+    }",TestReloadingBuilderSupportListener::testResetBuilderOnReloadingEvent_2_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1217_3,"    @Test
+    public void testBuilderResetEvent_3_oe() {
+        final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
+        builder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
+
+        builder.reset();
+        builder.resetResult();
+        ConfigurationBuilderEvent event = listener.nextEvent(ConfigurationBuilderEvent.RESET);
+        event = listener.nextEvent(ConfigurationBuilderEvent.RESET);
+        listener.assertNoMoreEvents();
+    }",TestBasicConfigurationBuilderEvents::testBuilderResetEvent_3_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1219_2,"    @Test
+    public void testConfigurationRequestEvent_2_oe() throws ConfigurationException {
+        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
+        builder.getConfiguration();
+        final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+        builder.addEventListener(ConfigurationBuilderEvent.ANY, listener);
+
+        builder.getConfiguration();
+        final ConfigurationBuilderEvent event = listener.nextEvent(ConfigurationBuilderEvent.CONFIGURATION_REQUEST);
+        listener.assertNoMoreEvents();
+    }",TestBasicConfigurationBuilderEvents::testConfigurationRequestEvent_2_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1221_2,"    @Test
+    public void testRemoveEventListener_2_oe() {
+        final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
+        builder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
+
+        builder.reset();
+        builder.resetResult();
+        listener.nextEvent(ConfigurationBuilderEvent.RESET);
+        listener.assertNoMoreEvents();
+    }",TestBasicConfigurationBuilderEvents::testRemoveEventListener_2_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1223_2,"    @Test
+    public void testResetOnConfigurationRequestEvent_2_oe() throws ConfigurationException {
+        final BasicConfigurationBuilder<PropertiesConfiguration> builder = new BasicConfigurationBuilder<>(PropertiesConfiguration.class);
+        final PropertiesConfiguration configuration = builder.getConfiguration();
+        final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+        builder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
+        builder.addEventListener(ConfigurationBuilderEvent.CONFIGURATION_REQUEST, event -> builder.resetResult());
+
+        final PropertiesConfiguration configuration2 = builder.getConfiguration();
+        listener.nextEvent(ConfigurationBuilderEvent.RESET);
+        listener.assertNoMoreEvents();
+    }",TestBasicConfigurationBuilderEvents::testResetOnConfigurationRequestEvent_2_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1321_5,"    @Test
+    public void testMultiTenentConfigurationReloading_5_oe() throws ConfigurationException, InterruptedException {
+        final CombinedConfiguration config = createMultiFileConfig(""testCCMultiTenentReloading.xml"");
+        final File outFile = ConfigurationAssert.getOutFile(""MultiFileReloadingTest.xml"");
+        switchToMultiFile(outFile.getAbsolutePath());
+        final XMLConfiguration reloadConfig = new XMLConfiguration();
+        final FileHandler handler = new FileHandler(reloadConfig);
+        handler.setFile(outFile);
+        final String key = ""test.reload"";
+        reloadConfig.setProperty(key, ""no"");
+        handler.save();
+        try {
+            final ConfigurationBuilder<? extends Configuration> childBuilder = builder.getNamedBuilder(""clientConfig"");
+            final ReloadingController ctrl = ((ReloadingControllerSupport) childBuilder).getReloadingController();
+            ctrl.checkForReloading(null); // initialize reloading
+            final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+            childBuilder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
+            reloadConfig.setProperty(key, ""yes"");
+            handler.save();
+
+            int attempts = 10;
+            boolean changeDetected;
+            do {
+                changeDetected = ctrl.checkForReloading(null);
+                if (!changeDetected) {
+                    Thread.sleep(1000);
+                    handler.save(outFile);
+                }
+            } while (!changeDetected && --attempts > 0);
+            final ConfigurationBuilderEvent event = listener.nextEvent(ConfigurationBuilderEvent.RESET);
+            listener.assertNoMoreEvents();
+    }
+    }",TestCombinedConfigurationBuilder::testMultiTenentConfigurationReloading_5_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1321_6,"    @Test
+    public void testMultiTenentConfigurationReloading_6_oe() throws ConfigurationException, InterruptedException {
+        final CombinedConfiguration config = createMultiFileConfig(""testCCMultiTenentReloading.xml"");
+        final File outFile = ConfigurationAssert.getOutFile(""MultiFileReloadingTest.xml"");
+        switchToMultiFile(outFile.getAbsolutePath());
+        final XMLConfiguration reloadConfig = new XMLConfiguration();
+        final FileHandler handler = new FileHandler(reloadConfig);
+        handler.setFile(outFile);
+        final String key = ""test.reload"";
+        reloadConfig.setProperty(key, ""no"");
+        handler.save();
+        try {
+            final ConfigurationBuilder<? extends Configuration> childBuilder = builder.getNamedBuilder(""clientConfig"");
+            final ReloadingController ctrl = ((ReloadingControllerSupport) childBuilder).getReloadingController();
+            ctrl.checkForReloading(null); // initialize reloading
+            final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+            childBuilder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
+            reloadConfig.setProperty(key, ""yes"");
+            handler.save();
+
+            int attempts = 10;
+            boolean changeDetected;
+            do {
+                changeDetected = ctrl.checkForReloading(null);
+                if (!changeDetected) {
+                    Thread.sleep(1000);
+                    handler.save(outFile);
+                }
+            } while (!changeDetected && --attempts > 0);
+            final ConfigurationBuilderEvent event = listener.nextEvent(ConfigurationBuilderEvent.RESET);
+            final BasicConfigurationBuilder<? extends Configuration> multiBuilder = (BasicConfigurationBuilder<? extends Configuration>) event.getSource();
+            childBuilder.removeEventListener(ConfigurationBuilderEvent.RESET, listener);
+            multiBuilder.resetResult();
+            listener.assertNoMoreEvents();
+    }
+    }",TestCombinedConfigurationBuilder::testMultiTenentConfigurationReloading_6_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1355_3,"    @Test
+    public void testBuilderListenerOtherTypes_3_oe() throws ConfigurationException {
+        final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+        final MultiFileConfigurationBuilder<XMLConfiguration> builder = createTestBuilder(null);
+        builder.addEventListener(ConfigurationBuilderEvent.ANY, listener);
+        switchToConfig(1);
+        builder.getConfiguration();
+        final ConfigurationBuilderEvent event = listener.nextEvent(ConfigurationBuilderEvent.CONFIGURATION_REQUEST);
+        final ConfigurationBuilderResultCreatedEvent createdEvent = listener.nextEvent(ConfigurationBuilderResultCreatedEvent.RESULT_CREATED);
+        listener.assertNoMoreEvents();
+    }",TestMultiFileConfigurationBuilder::testBuilderListenerOtherTypes_3_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1366_1,"    @Test
+    public void testRemoveBuilderListenerOnReset_1_oe() throws ConfigurationException {
+        final BuilderEventListenerImpl listener = new BuilderEventListenerImpl();
+        final Collection<FileBasedConfigurationBuilder<XMLConfiguration>> managedBuilders = new ArrayList<>();
+        final MultiFileConfigurationBuilder<XMLConfiguration> builder = createBuilderWithAccessToManagedBuilders(managedBuilders);
+        switchToConfig(1);
+        builder.addEventListener(ConfigurationBuilderEvent.RESET, listener);
+        builder.getConfiguration();
+        builder.resetParameters();
+        managedBuilders.iterator().next().resetResult();
+        listener.assertNoMoreEvents();
+    }",TestMultiFileConfigurationBuilder::testRemoveBuilderListenerOnReset_1_oe,assertNoMoreEvents,"    public void assertNoMoreEvents() {
+        assertFalse(""Too many events"", initIterator().hasNext());
+    }
+",src/test/java/org/apache/commons/configuration2/builder/BuilderEventListenerImpl.java
+conf_1687_1,"    @Test
+    public void testData_1_oe() {
+        ObjectAssert.assertInstanceOf(""data"", ArrayUtils.EMPTY_BYTE_ARRAY.getClass(), config.getProperty(""data""));
+    }",TestPropertyListConfiguration::testData_1_oe,assertInstanceOf,,
+conf_1690_2,"    @Test
+    public void testDictionaryArray_2_oe() {
+        final String key = ""dictionary-array"";
+
+        final Object array = config.getProperty(key);
+
+        ObjectAssert.assertInstanceOf(""the array element is not parsed as a List"", List.class, array);
+    }",TestPropertyListConfiguration::testDictionaryArray_2_oe,assertInstanceOf,,
+conf_1690_5,"    @Test
+    public void testDictionaryArray_5_oe() {
+        final String key = ""dictionary-array"";
+
+        final Object array = config.getProperty(key);
+
+        final List<?> list = config.getList(key);
+
+
+        ObjectAssert.assertInstanceOf(""the dict element is not parsed as a Configuration"", Configuration.class, list.get(0));
+    }",TestPropertyListConfiguration::testDictionaryArray_5_oe,assertInstanceOf,,
+conf_1690_8,"    @Test
+    public void testDictionaryArray_8_oe() {
+        final String key = ""dictionary-array"";
+
+        final Object array = config.getProperty(key);
+
+        final List<?> list = config.getList(key);
+
+
+        final Configuration conf1 = (Configuration) list.get(0);
+
+        ObjectAssert.assertInstanceOf(""the dict element is not parsed as a Configuration"", Configuration.class, list.get(1));
+    }",TestPropertyListConfiguration::testDictionaryArray_8_oe,assertInstanceOf,,
+conf_1696_2,"    @Test
+    public void testNestedArrays_2_oe() {
+        final String key = ""nested-arrays"";
+
+        final Object array = config.getProperty(key);
+
+        ObjectAssert.assertInstanceOf(""the array element is not parsed as a List"", List.class, array);
+    }",TestPropertyListConfiguration::testNestedArrays_2_oe,assertInstanceOf,,
+conf_1696_5,"    @Test
+    public void testNestedArrays_5_oe() {
+        final String key = ""nested-arrays"";
+
+        final Object array = config.getProperty(key);
+
+        final List<?> list = config.getList(key);
+
+
+        ObjectAssert.assertInstanceOf(""the array element is not parsed as a List"", List.class, list.get(0));
+    }",TestPropertyListConfiguration::testNestedArrays_5_oe,assertInstanceOf,,
+conf_1696_10,"    @Test
+    public void testNestedArrays_10_oe() {
+        final String key = ""nested-arrays"";
+
+        final Object array = config.getProperty(key);
+
+        final List<?> list = config.getList(key);
+
+
+        final List<?> list1 = (List<?>) list.get(0);
+
+        ObjectAssert.assertInstanceOf(""the array element is not parsed as a List"", List.class, list.get(1));
+    }",TestPropertyListConfiguration::testNestedArrays_10_oe,assertInstanceOf,,
+conf_1709_2,"    @Test
+    public void testArray_2_oe() {
+        final Object array = config.getProperty(""array"");
+
+        ObjectAssert.assertInstanceOf(""the array element is not parsed as a List"", List.class, array);
+    }",TestXMLPropertyListConfiguration::testArray_2_oe,assertInstanceOf,,
+conf_1713_2,"    @Test
+    public void testDictionaryArray_2_oe() {
+        final String key = ""dictionary-array"";
+
+        final Object array = config.getProperty(key);
+
+        ObjectAssert.assertInstanceOf(""the array element is not parsed as a List"", List.class, array);
+    }",TestXMLPropertyListConfiguration::testDictionaryArray_2_oe,assertInstanceOf,,
+conf_1713_5,"    @Test
+    public void testDictionaryArray_5_oe() {
+        final String key = ""dictionary-array"";
+
+        final Object array = config.getProperty(key);
+
+        final List<?> list = config.getList(key);
+
+
+        ObjectAssert.assertInstanceOf(""the dict element is not parsed as a Configuration"", Configuration.class, list.get(0));
+    }",TestXMLPropertyListConfiguration::testDictionaryArray_5_oe,assertInstanceOf,,
+conf_1713_8,"    @Test
+    public void testDictionaryArray_8_oe() {
+        final String key = ""dictionary-array"";
+
+        final Object array = config.getProperty(key);
+
+        final List<?> list = config.getList(key);
+
+
+        final Configuration conf1 = (Configuration) list.get(0);
+
+        ObjectAssert.assertInstanceOf(""the dict element is not parsed as a Configuration"", Configuration.class, list.get(1));
+    }",TestXMLPropertyListConfiguration::testDictionaryArray_8_oe,assertInstanceOf,,
+conf_1719_2,"    @Test
+    public void testNestedArray_2_oe() {
+        final String key = ""nested-array"";
+
+        final Object array = config.getProperty(key);
+
+        ObjectAssert.assertInstanceOf(""the array element is not parsed as a List"", List.class, array);
+    }",TestXMLPropertyListConfiguration::testNestedArray_2_oe,assertInstanceOf,,
+conf_1719_5,"    @Test
+    public void testNestedArray_5_oe() {
+        final String key = ""nested-array"";
+
+        final Object array = config.getProperty(key);
+
+        final List<?> list = config.getList(key);
+
+
+        ObjectAssert.assertInstanceOf(""the array element is not parsed as a List"", List.class, list.get(0));
+    }",TestXMLPropertyListConfiguration::testNestedArray_5_oe,assertInstanceOf,,
+conf_1719_10,"    @Test
+    public void testNestedArray_10_oe() {
+        final String key = ""nested-array"";
+
+        final Object array = config.getProperty(key);
+
+        final List<?> list = config.getList(key);
+
+
+        final List<?> list1 = (List<?>) list.get(0);
+
+        ObjectAssert.assertInstanceOf(""the array element is not parsed as a List"", List.class, list.get(1));
+    }",TestXMLPropertyListConfiguration::testNestedArray_10_oe,assertInstanceOf,,
+conf_1775_2,"    @Test
+    public void testGetIndexedValues_2_oe() {
+        for (int i = 0; i < 5; i++) {
+            Object value = bean.get(""intArray"", i);
+
+            ObjectAssert.assertInstanceOf(""intArray index "" + i, Integer.class, value);
+    }
+    }",TestConfigurationDynaBean::testGetIndexedValues_2_oe,assertInstanceOf,,
+conf_1775_5,"    @Test
+    public void testGetIndexedValues_5_oe() {
+        for (int i = 0; i < 5; i++) {
+            Object value = bean.get(""intArray"", i);
+
+
+            value = bean.get(""intIndexed"", i);
+
+            ObjectAssert.assertInstanceOf(""intIndexed index "" + i, Integer.class, value);
+    }
+    }",TestConfigurationDynaBean::testGetIndexedValues_5_oe,assertInstanceOf,,
+conf_1775_8,"    @Test
+    public void testGetIndexedValues_8_oe() {
+        for (int i = 0; i < 5; i++) {
+            Object value = bean.get(""intArray"", i);
+
+
+            value = bean.get(""intIndexed"", i);
+
+
+            value = bean.get(""listIndexed"", i);
+
+            ObjectAssert.assertInstanceOf(""list index "" + i, String.class, value);
+    }
+    }",TestConfigurationDynaBean::testGetIndexedValues_8_oe,assertInstanceOf,,
+conf_1775_12,"    @Test
+    public void testGetIndexedValues_12_oe() {
+        for (int i = 0; i < 5; i++) {
+            Object value = bean.get(""intArray"", i);
+
+
+            value = bean.get(""intIndexed"", i);
+
+
+            value = bean.get(""listIndexed"", i);
+
+
+            value = bean.get(""stringArray"", i);
+
+            ObjectAssert.assertInstanceOf(""stringArray index "" + i, String.class, value);
+    }
+    }",TestConfigurationDynaBean::testGetIndexedValues_12_oe,assertInstanceOf,,
+conf_1775_15,"    @Test
+    public void testGetIndexedValues_15_oe() {
+        for (int i = 0; i < 5; i++) {
+            Object value = bean.get(""intArray"", i);
+
+
+            value = bean.get(""intIndexed"", i);
+
+
+            value = bean.get(""listIndexed"", i);
+
+
+            value = bean.get(""stringArray"", i);
+
+
+            value = bean.get(""stringIndexed"", i);
+
+            ObjectAssert.assertInstanceOf(""stringIndexed"", String.class, value);
+    }
+    }",TestConfigurationDynaBean::testGetIndexedValues_15_oe,assertInstanceOf,,
+conf_1778_2,"    @Test
+    public void testGetSimpleBoolean_2_oe() {
+        final Object value = bean.get(""booleanProperty"");
+        ObjectAssert.assertInstanceOf(""Got correct type"", Boolean.class, value);
+    }",TestConfigurationDynaBean::testGetSimpleBoolean_2_oe,assertInstanceOf,,
+conf_1779_2,"    @Test
+    public void testGetSimpleDouble_2_oe() {
+        final Object value = bean.get(""doubleProperty"");
+        ObjectAssert.assertInstanceOf(""Got correct type"", Double.class, value);
+    }",TestConfigurationDynaBean::testGetSimpleDouble_2_oe,assertInstanceOf,,
+conf_1780_2,"    @Test
+    public void testGetSimpleFloat_2_oe() {
+        final Object value = bean.get(""floatProperty"");
+        ObjectAssert.assertInstanceOf(""Got correct type"", Float.class, value);
+    }",TestConfigurationDynaBean::testGetSimpleFloat_2_oe,assertInstanceOf,,
+conf_1781_2,"    @Test
+    public void testGetSimpleInt_2_oe() {
+        final Object value = bean.get(""intProperty"");
+        ObjectAssert.assertInstanceOf(""Incorrect type"", Integer.class, value);
+    }",TestConfigurationDynaBean::testGetSimpleInt_2_oe,assertInstanceOf,,
+conf_1782_2,"    @Test
+    public void testGetSimpleLong_2_oe() {
+        final Object value = bean.get(""longProperty"");
+        ObjectAssert.assertInstanceOf(""Returned incorrect type"", Long.class, value);
+    }",TestConfigurationDynaBean::testGetSimpleLong_2_oe,assertInstanceOf,,
+conf_1783_2,"    @Test
+    public void testGetSimpleShort_2_oe() {
+        final Object value = bean.get(""shortProperty"");
+        ObjectAssert.assertInstanceOf(""Got correct type"", Short.class, value);
+    }",TestConfigurationDynaBean::testGetSimpleShort_2_oe,assertInstanceOf,,
+conf_1784_2,"    @Test
+    public void testGetSimpleString_2_oe() {
+        final Object value = bean.get(""stringProperty"");
+        ObjectAssert.assertInstanceOf(""Got correct type"", String.class, value);
+    }",TestConfigurationDynaBean::testGetSimpleString_2_oe,assertInstanceOf,,
+conf_1788_2,"    @Test
+    public void testSetArrayValue_2_oe() {
+        final MapConfiguration configuration = new MapConfiguration(new HashMap<>());
+        configuration.getMap().put(""objectArray"", new Object[] {""value1"", ""value2"", ""value3""});
+
+        final ConfigurationDynaBean bean = new ConfigurationDynaBean(configuration);
+
+        bean.set(""objectArray"", 1, ""New Value 1"");
+        final Object value = bean.get(""objectArray"", 1);
+
+        ObjectAssert.assertInstanceOf(""Returned String new value 1"", String.class, value);
+    }",TestConfigurationDynaBean::testSetArrayValue_2_oe,assertInstanceOf,,
+conf_1789_2,"    @Test
+    public void testSetIndexedValues_2_oe() {
+        bean.set(""intArray"", 0, Integer.valueOf(1));
+        Object value = bean.get(""intArray"", 0);
+
+        ObjectAssert.assertInstanceOf(""Returned Integer new value 0"", Integer.class, value);
+    }",TestConfigurationDynaBean::testSetIndexedValues_2_oe,assertInstanceOf,,
+conf_1789_5,"    @Test
+    public void testSetIndexedValues_5_oe() {
+        bean.set(""intArray"", 0, Integer.valueOf(1));
+        Object value = bean.get(""intArray"", 0);
+
+
+        bean.set(""intIndexed"", 1, Integer.valueOf(11));
+        value = bean.get(""intIndexed"", 1);
+
+        ObjectAssert.assertInstanceOf(""Returned Integer new value 1"", Integer.class, value);
+    }",TestConfigurationDynaBean::testSetIndexedValues_5_oe,assertInstanceOf,,
+conf_1789_8,"    @Test
+    public void testSetIndexedValues_8_oe() {
+        bean.set(""intArray"", 0, Integer.valueOf(1));
+        Object value = bean.get(""intArray"", 0);
+
+
+        bean.set(""intIndexed"", 1, Integer.valueOf(11));
+        value = bean.get(""intIndexed"", 1);
+
+
+        bean.set(""listIndexed"", 2, ""New Value 2"");
+        value = bean.get(""listIndexed"", 2);
+
+        ObjectAssert.assertInstanceOf(""Returned String new value 2"", String.class, value);
+    }",TestConfigurationDynaBean::testSetIndexedValues_8_oe,assertInstanceOf,,
+conf_1789_11,"    @Test
+    public void testSetIndexedValues_11_oe() {
+        bean.set(""intArray"", 0, Integer.valueOf(1));
+        Object value = bean.get(""intArray"", 0);
+
+
+        bean.set(""intIndexed"", 1, Integer.valueOf(11));
+        value = bean.get(""intIndexed"", 1);
+
+
+        bean.set(""listIndexed"", 2, ""New Value 2"");
+        value = bean.get(""listIndexed"", 2);
+
+
+        bean.set(""stringArray"", 3, ""New Value 3"");
+        value = bean.get(""stringArray"", 3);
+
+        ObjectAssert.assertInstanceOf(""Returned String new value 3"", String.class, value);
+    }",TestConfigurationDynaBean::testSetIndexedValues_11_oe,assertInstanceOf,,
+conf_1789_14,"    @Test
+    public void testSetIndexedValues_14_oe() {
+        bean.set(""intArray"", 0, Integer.valueOf(1));
+        Object value = bean.get(""intArray"", 0);
+
+
+        bean.set(""intIndexed"", 1, Integer.valueOf(11));
+        value = bean.get(""intIndexed"", 1);
+
+
+        bean.set(""listIndexed"", 2, ""New Value 2"");
+        value = bean.get(""listIndexed"", 2);
+
+
+        bean.set(""stringArray"", 3, ""New Value 3"");
+        value = bean.get(""stringArray"", 3);
+
+
+        bean.set(""stringIndexed"", 4, ""New Value 4"");
+        value = bean.get(""stringIndexed"", 4);
+
+        ObjectAssert.assertInstanceOf(""Returned String new value 4"", String.class, value);
+    }",TestConfigurationDynaBean::testSetIndexedValues_14_oe,assertInstanceOf,,

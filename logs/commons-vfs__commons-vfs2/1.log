@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-vfs2 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2
-[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768453053
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773032013731
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-vfs2 ---
@@ -49,8 +49,6 @@ main:
 [INFO] Compiling 293 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/https/HttpsFileNameParser.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Some input files use or override a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/provider/AbstractFileObject.java: Recompile with -Xlint:removal for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/main/java/org/apache/commons/vfs2/FileSystemOptions.java: Recompile with -Xlint:unchecked for details.
 [INFO] 
@@ -64,179 +62,513 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-vfs2 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 237 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/test-classes
+[INFO] Compiling 274 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/util/NHttpFileServer.java: Recompile with -Xlint:deprecation for details.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Some input files use unchecked or unsafe operations.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/ftp/FtpProviderTestCase.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- maven-antrun-plugin:1.8:run (default) @ commons-vfs2 ---
-[INFO] Executing tasks
-
-main:
-     [move] Moving 2 files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/target/test-classes/test-data/code
-[INFO] Executed tasks
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-vfs2 ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- maven-surefire-plugin:3.0.0-M5:test (default-test) @ commons-vfs2 ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.vfs2.FileIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.106 s - in org.apache.commons.vfs2.FileIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileTypeSelectorTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.PatternFileSelectorTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.operations.BasicOperationsTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.http4s.Http4sGetContentInfoTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.ram.CustomRamProviderTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.ram.RamFileRandomAccessContentTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.provider.ram.RamFileRandomAccessContentTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.jar.JarAttributesTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
-VfsClassLoaderTests no layered .jar provider, skipping.
-Threads still running (2) at 2026-03-06T03:41:22.228571172Z, live threads:
-	Thread[0]  ID 51, Thread[MultiThreadedHttpConnectionManager cleanup,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
-[INFO] Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.645 s - in org.apache.commons.vfs2.provider.http.HttpProviderTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http.GetContentInfoFunctionalTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http.GetContentInfoFunctionalTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http.HttpFilesCacheTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http.HttpFilesCacheTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http4.Http4FilesCacheTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
-VfsClassLoaderTests no layered .jar provider, skipping.
-Threads still running (1) at 2026-03-06T03:41:27.624352970Z, live threads:
-	Thread[0]  ID 86, Thread[org.apache.commons.vfs2.cache.SoftRefFilesCache$ReleaseThread,5,main],	WAITING,	daemon,	unknown (java.lang.IllegalAccessException: class org.apache.commons.vfs2.AbstractTestSuite cannot access a member of class java.lang.Thread (in module java.base) with modifiers "private")
-[INFO] Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.349 s - in org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http4.Http4GetContentInfoTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.local.ConversionTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.local.TempFileTests_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.local.LocalFileRandomAccessContentTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.local.LocalFileRandomAccessContentTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.ftp.FtpFileSystemConfigBuilderTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.AbstractFileNameTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.AbstractFileNameTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.zip.FileLockTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
-[INFO] Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
-VfsClassLoaderTests no layered .jar provider, skipping.
-[INFO] Tests run: 102, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 4.268 s - in org.apache.commons.vfs2.provider.res.Vfs444TestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.tar.CreateFileSystemTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.vfs2.provider.tar.LargeTarTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.bzip2.Bzip2TestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.UriParserTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.sftp.SftpFileSystemConfigBuilderTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.test.GenericFileNameTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.test.FileObjectSortTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.provider.test.FileObjectSortTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
-VfsClassLoaderTests no layered .jar provider, skipping.
-[INFO] Tests run: 99, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 5.849 s - in org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http5.Http5FilesCacheTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http5.Http5GetContentInfoTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.provider.http5s.Http5sGetContentInfoTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.FileTypeTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileTypeTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.FileChangeEventTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileChangeEventTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.VFSTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.VFSTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.auth.StaticUserAuthenticatorTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileSystemExceptionTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.NotFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
-[WARNING] Tests run: 1, Failures: 0, Errors: 0, Skipped: 1, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.CanExecuteFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.SymbolicLinkFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.SizeFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.SuffixFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.WildcardFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.AgeFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.HiddenFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.RegexFileFilterTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.RegexFileFilterTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.vfs2.filter.OrFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.DirectoryAndFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.EmptyFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.NameFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
-[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.017 s - in org.apache.commons.vfs2.filter.CanWriteFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.filter.PrefixFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.filter.CanReadFileFilterTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.vfs2.filter.CanReadFileFilterTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.UserAuthenticationDataTestCase_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.UserAuthenticationDataTestCase_OE25Dev
-[INFO] Running org.apache.commons.vfs2.FileSystemOptionsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileSystemOptionsTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.impl.StandardFileSystemManagerTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.vfs2.impl.StandardFileSystemManagerTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.vfs2.InvertIncludeFileSelectorTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.util.DelegatingFileSystemOptionsBuilderTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
-[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.util.FileObjectUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.util.EncryptDecryptTest_OE25Dev
-[INFO] Running org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.vfs2.FileExtensionSelectorTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[WARNING] Tests run: 442, Failures: 0, Errors: 0, Skipped: 1
-[INFO] 
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/hdfs/HdfsFileProviderTest_OE25Dev.java:[315,17] method testRandomAccessContent() is already defined in class org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/http5/Http5ProviderTestCase_OE25Dev.java:[209,17] method testHttpTimeoutConfig() is already defined in class org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/res/ResSchemeTestCase_OE25Dev.java:[63,17] method test_resolveFile_String_SSSnull() is already defined in class org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/res/ResSchemeTestCase_OE25Dev.java:[109,17] method test_resolveURI_String_SSSnull() is already defined in class org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ZipFileObjectTestCase_OE25Dev.java:[126,17] method testLeaveNestedFileOpen() is already defined in class org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest_OE25Dev.java:[331,17] method ignore_testAddRemove() is already defined in class org.apache.commons.vfs2.impl.DefaultFileMonitorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest_OE25Dev.java:[352,17] method ignore_testStartStop() is already defined in class org.apache.commons.vfs2.impl.DefaultFileMonitorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/AndFileFilterTest_OE25Dev.java:[91,17] method testAccept() is already defined in class org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/http4/Http4ProviderTestCase_OE25Dev.java:[215,17] method testHttpTimeoutConfig() is already defined in class org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/hdfs/HdfsFileProviderTest_OE25Dev.java:[314,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/http5/Http5ProviderTestCase_OE25Dev.java:[208,2] cannot find symbol
+  symbol:   class SuppressWarnings_oe
+  location: class org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/res/ResSchemeTestCase_OE25Dev.java:[62,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/res/ResSchemeTestCase_OE25Dev.java:[108,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ZipFileObjectTestCase_OE25Dev.java:[125,6] cannot find symbol
+  symbol:   class Ignore_oe
+  location: class org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest_OE25Dev.java:[329,2] cannot find symbol
+  symbol:   class Ignore_oe
+  location: class org.apache.commons.vfs2.impl.DefaultFileMonitorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest_OE25Dev.java:[350,2] cannot find symbol
+  symbol:   class Ignore_oe
+  location: class org.apache.commons.vfs2.impl.DefaultFileMonitorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/AndFileFilterTest_OE25Dev.java:[89,2] cannot find symbol
+  symbol:   class SuppressWarnings_oe
+  location: class org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/http4/Http4ProviderTestCase_OE25Dev.java:[214,2] cannot find symbol
+  symbol:   class SuppressWarnings_oe
+  location: class org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileObjectEscapeCharacterInPathTest_OE25Dev.java:[93,9] cannot find symbol
+  symbol:   method testToFile(FileObject[...]File2)
+  location: class org.apache.commons.vfs2.FileObjectEscapeCharacterInPathTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests_OE25Dev.java:[33,1] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[115,9] cannot find symbol
+  symbol:   method testRoot(org.apache.commons.vfs2.FileObject)
+  location: class org.apache.commons.vfs2.ContentTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[128,9] cannot find symbol
+  symbol:   method testRoot(org.apache.commons.vfs2.FileObject)
+  location: class org.apache.commons.vfs2.ContentTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest_OE25Dev.java:[56,9] cannot find symbol
+  symbol:   method testCreateFileSystem(java.lang.String,java.lang.Class<org.apache.commons.vfs2.provider.bzip2.Bzip2FileObject>)
+  location: class org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest_OE25Dev.java:[62,9] cannot find symbol
+  symbol:   method testCreateFileSystem(java.lang.String,java.lang.Class<org.apache.commons.vfs2.provider.gzip.GzipFileObject>)
+  location: class org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest_OE25Dev.java:[67,9] cannot find symbol
+  symbol:   method testCreateFileSystem(java.lang.String,java.lang.Class<org.apache.commons.vfs2.provider.jar.JarFileObject>)
+  location: class org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest_OE25Dev.java:[72,9] cannot find symbol
+  symbol:   method testCreateFileSystem(java.lang.String,java.lang.Class<org.apache.commons.vfs2.provider.zip.ZipFileObject>)
+  location: class org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/DefaultFileContentTest_OE25Dev.java:[75,9] cannot find symbol
+  symbol:   method testStreamClosedInADifferentThread(FileConten[...]tream)
+  location: class org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/DefaultFileContentTest_OE25Dev.java:[75,44] invalid method reference
+  non-static method getInputStream() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/DefaultFileContentTest_OE25Dev.java:[114,9] cannot find symbol
+  symbol:   method testStreamClosedInADifferentThread(FileConten[...]tream)
+  location: class org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/DefaultFileContentTest_OE25Dev.java:[114,44] invalid method reference
+  non-static method getOutputStream() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[185,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[186,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[189,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[192,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[193,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[196,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[197,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[200,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[201,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[202,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[203,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[206,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[207,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[208,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[216,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[217,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[220,9] cannot find symbol
+  symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+  location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileObjectTestCase_OE25Dev.java:[37,9] cannot find symbol
+  symbol:   method testReadSpecialNameFileInFile(java.lang.String,java.lang.String)
+  location: class org.apache.commons.vfs2.provider.tar.TarFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileObjectTestCase_OE25Dev.java:[46,9] cannot find symbol
+  symbol:   method testReadSpecialNameFileInFile(java.lang.String,java.lang.String)
+  location: class org.apache.commons.vfs2.provider.tar.TarFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileObjectTestCase_OE25Dev.java:[55,9] cannot find symbol
+  symbol:   method testReadSpecialNameFileInFile(java.lang.String,java.lang.String)
+  location: class org.apache.commons.vfs2.provider.tar.TarFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[106,9] cannot find symbol
+  symbol:   method testResolveAndParseXmlInZip(java.lang.String,<nulltype>)
+  location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[111,9] cannot find symbol
+  symbol:   method testResolveAndParseXmlInZip(java.lang.String,java.lang.String)
+  location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[116,9] cannot find symbol
+  symbol:   method testResolveAndParseXmlInZip(java.lang.String,java.lang.String)
+  location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[135,13] cannot find symbol
+  symbol:   method testResolveAndParseXmlInZip(java.lang.String,java.lang.String)
+  location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[145,13] cannot find symbol
+  symbol:   method testResolveAndParseXmlInZip(java.lang.String,java.lang.String)
+  location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[33,9] cannot find symbol
+  symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,<nulltype>)
+  location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[39,9] cannot find symbol
+  symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,org.apache.commons.vfs2.cache.WeakRefFilesCache)
+  location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[44,9] cannot find symbol
+  symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,<nulltype>)
+  location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[50,9] cannot find symbol
+  symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,org.apache.commons.vfs2.cache.WeakRefFilesCache)
+  location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[55,9] cannot find symbol
+  symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,<nulltype>)
+  location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[61,9] cannot find symbol
+  symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,org.apache.commons.vfs2.cache.WeakRefFilesCache)
+  location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/url/UrlFileNameParserTest_OE25Dev.java:[30,9] cannot find symbol
+  symbol:   method testJira739(java.lang.String)
+  location: class org.apache.commons.vfs2.provider.url.UrlFileNameParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/url/UrlFileNameParserTest_OE25Dev.java:[35,9] cannot find symbol
+  symbol:   method testJira739(java.lang.String)
+  location: class org.apache.commons.vfs2.provider.url.UrlFileNameParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/url/UrlFileNameParserTest_OE25Dev.java:[40,9] cannot find symbol
+  symbol:   method testJira739(java.lang.String)
+  location: class org.apache.commons.vfs2.provider.url.UrlFileNameParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileTypeTest_OE25Dev.java:[51,9] cannot find symbol
+  symbol:   method test(org.apache.commons.vfs2.FileType)
+  location: class org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileTypeTest_OE25Dev.java:[56,9] cannot find symbol
+  symbol:   method test(org.apache.commons.vfs2.FileType)
+  location: class org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileTypeTest_OE25Dev.java:[61,9] cannot find symbol
+  symbol:   method test(org.apache.commons.vfs2.FileType)
+  location: class org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileTypeTest_OE25Dev.java:[66,9] cannot find symbol
+  symbol:   method test(org.apache.commons.vfs2.FileType)
+  location: class org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[42,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject::exists)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[42,28] invalid method reference
+  non-static method exists() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[47,9] cannot find symbol
+  symbol:   method testZipParentLayer((fileObjec[...](); })
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[55,9] cannot find symbol
+  symbol:   method testZipParentLayer((fileObjec[...]ren())
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[60,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]ntent)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[60,28] invalid method reference
+  non-static method getContent() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[65,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject::getType)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[65,28] invalid method reference
+  non-static method getType() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[70,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]ached)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[70,28] invalid method reference
+  non-static method isAttached() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[75,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]tOpen)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[75,28] invalid method reference
+  non-static method isContentOpen() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[80,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]table)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[80,28] invalid method reference
+  non-static method isExecutable() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[85,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject::isFile)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[85,28] invalid method reference
+  non-static method isFile() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[90,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]older)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[90,28] invalid method reference
+  non-static method isFolder() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[95,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]idden)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[95,28] invalid method reference
+  non-static method isHidden() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[100,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]dable)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[100,28] invalid method reference
+  non-static method isReadable() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[105,9] cannot find symbol
+  symbol:   method testZipParentLayer(FileObject[...]eable)
+  location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[105,28] invalid method reference
+  non-static method isWriteable() cannot be referenced from a static context
+[INFO] 92 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  50.331 s
-[INFO] Finished at: 2026-03-05T21:41:38-06:00
+[INFO] Total time:  15.535 s
+[INFO] Finished at: 2026-03-08T23:53:44-05:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-vfs2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/hdfs/HdfsFileProviderTest_OE25Dev.java:[315,17] method testRandomAccessContent() is already defined in class org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/http5/Http5ProviderTestCase_OE25Dev.java:[209,17] method testHttpTimeoutConfig() is already defined in class org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/res/ResSchemeTestCase_OE25Dev.java:[63,17] method test_resolveFile_String_SSSnull() is already defined in class org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/res/ResSchemeTestCase_OE25Dev.java:[109,17] method test_resolveURI_String_SSSnull() is already defined in class org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ZipFileObjectTestCase_OE25Dev.java:[126,17] method testLeaveNestedFileOpen() is already defined in class org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest_OE25Dev.java:[331,17] method ignore_testAddRemove() is already defined in class org.apache.commons.vfs2.impl.DefaultFileMonitorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest_OE25Dev.java:[352,17] method ignore_testStartStop() is already defined in class org.apache.commons.vfs2.impl.DefaultFileMonitorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/AndFileFilterTest_OE25Dev.java:[91,17] method testAccept() is already defined in class org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/http4/Http4ProviderTestCase_OE25Dev.java:[215,17] method testHttpTimeoutConfig() is already defined in class org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/hdfs/HdfsFileProviderTest_OE25Dev.java:[314,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.apache.commons.vfs2.provider.hdfs.HdfsFileProviderTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/http5/Http5ProviderTestCase_OE25Dev.java:[208,2] cannot find symbol
+[ERROR]   symbol:   class SuppressWarnings_oe
+[ERROR]   location: class org.apache.commons.vfs2.provider.http5.Http5ProviderTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/res/ResSchemeTestCase_OE25Dev.java:[62,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/res/ResSchemeTestCase_OE25Dev.java:[108,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.apache.commons.vfs2.provider.res.ResSchemeTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ZipFileObjectTestCase_OE25Dev.java:[125,6] cannot find symbol
+[ERROR]   symbol:   class Ignore_oe
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.ZipFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest_OE25Dev.java:[329,2] cannot find symbol
+[ERROR]   symbol:   class Ignore_oe
+[ERROR]   location: class org.apache.commons.vfs2.impl.DefaultFileMonitorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileMonitorTest_OE25Dev.java:[350,2] cannot find symbol
+[ERROR]   symbol:   class Ignore_oe
+[ERROR]   location: class org.apache.commons.vfs2.impl.DefaultFileMonitorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/filter/AndFileFilterTest_OE25Dev.java:[89,2] cannot find symbol
+[ERROR]   symbol:   class SuppressWarnings_oe
+[ERROR]   location: class org.apache.commons.vfs2.filter.AndFileFilterTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/http4/Http4ProviderTestCase_OE25Dev.java:[214,2] cannot find symbol
+[ERROR]   symbol:   class SuppressWarnings_oe
+[ERROR]   location: class org.apache.commons.vfs2.provider.http4.Http4ProviderTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileObjectEscapeCharacterInPathTest_OE25Dev.java:[93,9] cannot find symbol
+[ERROR]   symbol:   method testToFile(FileObject[...]File2)
+[ERROR]   location: class org.apache.commons.vfs2.FileObjectEscapeCharacterInPathTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/cache/NullFilesCacheTests_OE25Dev.java:[33,1] method does not override or implement a method from a supertype
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[115,9] cannot find symbol
+[ERROR]   symbol:   method testRoot(org.apache.commons.vfs2.FileObject)
+[ERROR]   location: class org.apache.commons.vfs2.ContentTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/ContentTests_OE25Dev.java:[128,9] cannot find symbol
+[ERROR]   symbol:   method testRoot(org.apache.commons.vfs2.FileObject)
+[ERROR]   location: class org.apache.commons.vfs2.ContentTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest_OE25Dev.java:[56,9] cannot find symbol
+[ERROR]   symbol:   method testCreateFileSystem(java.lang.String,java.lang.Class<org.apache.commons.vfs2.provider.bzip2.Bzip2FileObject>)
+[ERROR]   location: class org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest_OE25Dev.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method testCreateFileSystem(java.lang.String,java.lang.Class<org.apache.commons.vfs2.provider.gzip.GzipFileObject>)
+[ERROR]   location: class org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest_OE25Dev.java:[67,9] cannot find symbol
+[ERROR]   symbol:   method testCreateFileSystem(java.lang.String,java.lang.Class<org.apache.commons.vfs2.provider.jar.JarFileObject>)
+[ERROR]   location: class org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/impl/DefaultFileSystemManagerTest_OE25Dev.java:[72,9] cannot find symbol
+[ERROR]   symbol:   method testCreateFileSystem(java.lang.String,java.lang.Class<org.apache.commons.vfs2.provider.zip.ZipFileObject>)
+[ERROR]   location: class org.apache.commons.vfs2.impl.DefaultFileSystemManagerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/DefaultFileContentTest_OE25Dev.java:[75,9] cannot find symbol
+[ERROR]   symbol:   method testStreamClosedInADifferentThread(FileConten[...]tream)
+[ERROR]   location: class org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/DefaultFileContentTest_OE25Dev.java:[75,44] invalid method reference
+[ERROR]   non-static method getInputStream() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/DefaultFileContentTest_OE25Dev.java:[114,9] cannot find symbol
+[ERROR]   symbol:   method testStreamClosedInADifferentThread(FileConten[...]tream)
+[ERROR]   location: class org.apache.commons.vfs2.provider.DefaultFileContentTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/DefaultFileContentTest_OE25Dev.java:[114,44] invalid method reference
+[ERROR]   non-static method getOutputStream() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[185,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[186,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[189,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[192,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[193,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[196,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[197,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[200,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[201,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[202,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[203,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[206,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[207,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[208,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[216,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[217,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/NamingTests_OE25Dev.java:[220,9] cannot find symbol
+[ERROR]   symbol:   method testRelName(org.apache.commons.vfs2.FileName,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.NamingTests_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileObjectTestCase_OE25Dev.java:[37,9] cannot find symbol
+[ERROR]   symbol:   method testReadSpecialNameFileInFile(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.tar.TarFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileObjectTestCase_OE25Dev.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method testReadSpecialNameFileInFile(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.tar.TarFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileObjectTestCase_OE25Dev.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method testReadSpecialNameFileInFile(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.tar.TarFileObjectTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[106,9] cannot find symbol
+[ERROR]   symbol:   method testResolveAndParseXmlInZip(java.lang.String,<nulltype>)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[111,9] cannot find symbol
+[ERROR]   symbol:   method testResolveAndParseXmlInZip(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[116,9] cannot find symbol
+[ERROR]   symbol:   method testResolveAndParseXmlInZip(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[135,13] cannot find symbol
+[ERROR]   symbol:   method testResolveAndParseXmlInZip(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/ParseXmlInZipTestCase_OE25Dev.java:[145,13] cannot find symbol
+[ERROR]   symbol:   method testResolveAndParseXmlInZip(java.lang.String,java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.ParseXmlInZipTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[33,9] cannot find symbol
+[ERROR]   symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,<nulltype>)
+[ERROR]   location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[39,9] cannot find symbol
+[ERROR]   symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,org.apache.commons.vfs2.cache.WeakRefFilesCache)
+[ERROR]   location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[44,9] cannot find symbol
+[ERROR]   symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,<nulltype>)
+[ERROR]   location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[50,9] cannot find symbol
+[ERROR]   symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,org.apache.commons.vfs2.cache.WeakRefFilesCache)
+[ERROR]   location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,<nulltype>)
+[ERROR]   location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/tar/TarFileSystemTestCase_OE25Dev.java:[61,9] cannot find symbol
+[ERROR]   symbol:   method testUseWeakRefFilesCache(java.lang.String,java.lang.String,org.apache.commons.vfs2.cache.WeakRefFilesCache)
+[ERROR]   location: class org.apache.commons.vfs2.provider.tar.TarFileSystemTestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/url/UrlFileNameParserTest_OE25Dev.java:[30,9] cannot find symbol
+[ERROR]   symbol:   method testJira739(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.url.UrlFileNameParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/url/UrlFileNameParserTest_OE25Dev.java:[35,9] cannot find symbol
+[ERROR]   symbol:   method testJira739(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.url.UrlFileNameParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/url/UrlFileNameParserTest_OE25Dev.java:[40,9] cannot find symbol
+[ERROR]   symbol:   method testJira739(java.lang.String)
+[ERROR]   location: class org.apache.commons.vfs2.provider.url.UrlFileNameParserTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileTypeTest_OE25Dev.java:[51,9] cannot find symbol
+[ERROR]   symbol:   method test(org.apache.commons.vfs2.FileType)
+[ERROR]   location: class org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileTypeTest_OE25Dev.java:[56,9] cannot find symbol
+[ERROR]   symbol:   method test(org.apache.commons.vfs2.FileType)
+[ERROR]   location: class org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileTypeTest_OE25Dev.java:[61,9] cannot find symbol
+[ERROR]   symbol:   method test(org.apache.commons.vfs2.FileType)
+[ERROR]   location: class org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/FileTypeTest_OE25Dev.java:[66,9] cannot find symbol
+[ERROR]   symbol:   method test(org.apache.commons.vfs2.FileType)
+[ERROR]   location: class org.apache.commons.vfs2.FileTypeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[42,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject::exists)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[42,28] invalid method reference
+[ERROR]   non-static method exists() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[47,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer((fileObjec[...](); })
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer((fileObjec[...]ren())
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[60,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]ntent)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[60,28] invalid method reference
+[ERROR]   non-static method getContent() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[65,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject::getType)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[65,28] invalid method reference
+[ERROR]   non-static method getType() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]ached)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[70,28] invalid method reference
+[ERROR]   non-static method isAttached() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[75,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]tOpen)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[75,28] invalid method reference
+[ERROR]   non-static method isContentOpen() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[80,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]table)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[80,28] invalid method reference
+[ERROR]   non-static method isExecutable() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[85,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject::isFile)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[85,28] invalid method reference
+[ERROR]   non-static method isFile() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[90,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]older)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[90,28] invalid method reference
+[ERROR]   non-static method isFolder() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[95,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]idden)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[95,28] invalid method reference
+[ERROR]   non-static method isHidden() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[100,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]dable)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[100,28] invalid method reference
+[ERROR]   non-static method isReadable() cannot be referenced from a static context
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[105,9] cannot find symbol
+[ERROR]   symbol:   method testZipParentLayer(FileObject[...]eable)
+[ERROR]   location: class org.apache.commons.vfs2.provider.zip.Jira733TestCase_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-vfs/commons-vfs2/src/test/java/org/apache/commons/vfs2/provider/zip/Jira733TestCase_OE25Dev.java:[105,28] invalid method reference
+[ERROR]   non-static method isWriteable() cannot be referenced from a static context
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

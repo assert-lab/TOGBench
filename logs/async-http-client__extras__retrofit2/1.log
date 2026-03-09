@@ -23,26 +23,496 @@
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ async-http-client-extras-retrofit2 ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 7 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-retrofit2 ---
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running TestSuite
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.627 sec - in TestSuite
-
-Results :
-
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
-
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[227,8] method shouldThrowISEIfHttpClientIsNotDefined() is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[437,15] method testRxJava1Service_OK(retrofit2.adapter.rxjava.RxJavaCallAdapterFactory) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[457,15] method testRxJava1Service_OK_WithBadEncoding(retrofit2.adapter.rxjava.RxJavaCallAdapterFactory) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[478,15] method testRxJava2Service_OK(retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[498,15] method testRxJava2Service_OK_WithBadEncoding(retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[424,10] method shouldInvokeConsumersOnEachExecution(java.util.function.Consumer<org.asynchttpclient.AsyncCompletionHandler<?>>,int,int,int) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[495,10] method toIOExceptionShouldProduceExpectedResult(java.lang.Throwable) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[517,14] method <T>runConsumerShouldTolerateBadConsumers(java.util.function.Consumer<T>,T) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[526,14] method <T>runConsumersShouldTolerateBadConsumers(java.util.Collection<java.util.function.Consumer<T>>,T) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[226,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[436,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[456,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[477,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[497,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[423,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[494,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[516,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[525,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[89,26] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[90,21] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[91,25] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[92,36] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[97,31] incompatible types: inference variable T has incompatible bounds
+    equality constraints: org.asynchttpclient.Request
+    upper bounds: lombok.val,java.lang.Object
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[98,25] cannot find symbol
+  symbol:   method getHeaders()
+  location: variable mockRequest of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[100,55] incompatible types: lombok.val cannot be converted to org.asynchttpclient.Request
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[101,84] no suitable method found for thenReturn(lombok.val)
+    method org.mockito.stubbing.OngoingStubbing.thenReturn(org.asynchttpclient.BoundRequestBuilder) is not applicable
+      (argument mismatch; lombok.val cannot be converted to org.asynchttpclient.BoundRequestBuilder)
+    method org.mockito.stubbing.OngoingStubbing.thenReturn(org.asynchttpclient.BoundRequestBuilder,org.asynchttpclient.BoundRequestBuilder...) is not applicable
+      (argument mismatch; lombok.val cannot be converted to org.asynchttpclient.BoundRequestBuilder)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[114,48] cannot find symbol
+  symbol:   method incrementAndGet()
+  location: variable numStarted of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[115,49] cannot find symbol
+  symbol:   method incrementAndGet()
+  location: variable numFailed of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[116,45] cannot find symbol
+  symbol:   method incrementAndGet()
+  location: variable numOk of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[117,62] cannot find symbol
+  symbol:   method incrementAndGet()
+  location: variable numRequestCustomizer of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[118,23] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[121,32] cannot find symbol
+  symbol:   method isExecuted()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[122,32] cannot find symbol
+  symbol:   method isCanceled()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[124,17] cannot find symbol
+  symbol:   method execute()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[129,24] cannot find symbol
+  symbol:   method isExecuted()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[130,32] cannot find symbol
+  symbol:   method isCanceled()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[131,40] cannot find symbol
+  symbol:   method get()
+  location: variable numRequestCustomizer of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[132,25] cannot find symbol
+  symbol:   method get()
+  location: variable numOk of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[133,29] cannot find symbol
+  symbol:   method get()
+  location: variable numFailed of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[136,19] cannot find symbol
+  symbol:   method set(int)
+  location: variable numStarted of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[137,14] cannot find symbol
+  symbol:   method set(int)
+  location: variable numOk of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[138,18] cannot find symbol
+  symbol:   method set(int)
+  location: variable numFailed of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[139,30] cannot find symbol
+  symbol:   method clone()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[142,19] cannot find symbol
+  symbol:   method enqueue(<nulltype>)
+  location: variable clonedCall of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[145,30] cannot find symbol
+  symbol:   method isExecuted()
+  location: variable clonedCall of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[146,38] cannot find symbol
+  symbol:   method isCanceled()
+  location: variable clonedCall of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[147,40] cannot find symbol
+  symbol:   method get()
+  location: variable numRequestCustomizer of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[148,25] cannot find symbol
+  symbol:   method get()
+  location: variable numOk of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[149,29] cannot find symbol
+  symbol:   method get()
+  location: variable numFailed of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[155,28] incompatible types: inference variable T has incompatible bounds
+    equality constraints: org.asynchttpclient.Response
+    upper bounds: lombok.val,java.lang.Object
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[156,22] cannot find symbol
+  symbol:   method getStatusCode()
+  location: variable response of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[157,22] cannot find symbol
+  symbol:   method getStatusText()
+  location: variable response of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[158,22] cannot find symbol
+  symbol:   method getHeaders()
+  location: variable response of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[162,37] incompatible types: lombok.val cannot be converted to org.asynchttpclient.Response
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[180,23] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[183,26] cannot find symbol
+  symbol:   method toIOException(java.lang.Throwable)
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[190,30] cannot find symbol
+  symbol:   method getMessage()
+  location: variable result of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[192,30] cannot find symbol
+  symbol:   method getMessage()
+  location: variable result of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[307,21] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[310,11] cannot find symbol
+  symbol:   method getHttpClient()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[316,26] incompatible types: org.asynchttpclient.DefaultAsyncHttpClientConfig.Builder cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[323,23] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[326,28] cannot find symbol
+  symbol:   method setReadTimeout(int)
+  location: variable cfgBuilder of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[332,26] cannot find symbol
+  symbol:   method getRequestTimeoutMillis()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[333,26] cannot find symbol
+  symbol:   method timeout()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[336,28] cannot find symbol
+  symbol:   method setReadTimeout(int)
+  location: variable cfgBuilder of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[342,26] cannot find symbol
+  symbol:   method getRequestTimeoutMillis()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[343,26] cannot find symbol
+  symbol:   method timeout()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[346,28] cannot find symbol
+  symbol:   method setRequestTimeout(int)
+  location: variable cfgBuilder of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[353,26] cannot find symbol
+  symbol:   method getRequestTimeoutMillis()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[354,26] cannot find symbol
+  symbol:   method timeout()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[48,76] incompatible types: okhttp3.Request cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[49,26] incompatible types: inference variable T has incompatible bounds
+    equality constraints: org.asynchttpclient.AsyncHttpClient
+    upper bounds: lombok.val,java.lang.Object
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[57,29] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[62,24] cannot find symbol
+  symbol:   method incrementAndGet()
+  location: variable customizer1Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[66,29] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[69,24] cannot find symbol
+  symbol:   method incrementAndGet()
+  location: variable customizer2Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[74,25] incompatible types: lombok.val cannot be converted to org.asynchttpclient.AsyncHttpClient
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[80,23] cannot find symbol
+  symbol:   method getHttpClient()
+  location: variable factory of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[81,23] cannot find symbol
+  symbol:   method getCallCustomizers()
+  location: variable factory of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[82,33] cannot find symbol
+  symbol:   method get()
+  location: variable customizer1Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[83,33] cannot find symbol
+  symbol:   method get()
+  location: variable customizer2Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[86,45] cannot find symbol
+  symbol:   method newCall(lombok.val)
+  location: variable factory of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[86,16] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[90,33] cannot find symbol
+  symbol:   method get()
+  location: variable customizer1Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[91,33] cannot find symbol
+  symbol:   method get()
+  location: variable customizer2Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[93,20] cannot find symbol
+  symbol:   method request()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[94,20] cannot find symbol
+  symbol:   method getHttpClient()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[96,22] cannot find symbol
+  symbol:   method getOnRequestStart()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[97,22] cannot find symbol
+  symbol:   method getOnRequestFailure()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[98,22] cannot find symbol
+  symbol:   method getOnRequestSuccess()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[99,22] cannot find symbol
+  symbol:   method getRequestCustomizers()
+  location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[105,26] incompatible types: inference variable T has incompatible bounds
+    equality constraints: org.asynchttpclient.AsyncHttpClient
+    upper bounds: lombok.val,java.lang.Object
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[107,22] incompatible types: java.lang.String cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[108,22] incompatible types: java.lang.String cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[109,49] incompatible types: java.lang.String cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[111,25] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[112,27] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[113,29] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[114,29] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  17.497 s
-[INFO] Finished at: 2026-03-05T21:41:02-06:00
+[INFO] Total time:  8.826 s
+[INFO] Finished at: 2026-03-08T23:53:34-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-retrofit2: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project async-http-client-extras-retrofit2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[227,8] method shouldThrowISEIfHttpClientIsNotDefined() is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[437,15] method testRxJava1Service_OK(retrofit2.adapter.rxjava.RxJavaCallAdapterFactory) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[457,15] method testRxJava1Service_OK_WithBadEncoding(retrofit2.adapter.rxjava.RxJavaCallAdapterFactory) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[478,15] method testRxJava2Service_OK(retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[498,15] method testRxJava2Service_OK_WithBadEncoding(retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[424,10] method shouldInvokeConsumersOnEachExecution(java.util.function.Consumer<org.asynchttpclient.AsyncCompletionHandler<?>>,int,int,int) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[495,10] method toIOExceptionShouldProduceExpectedResult(java.lang.Throwable) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[517,14] method <T>runConsumerShouldTolerateBadConsumers(java.util.function.Consumer<T>,T) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[526,14] method <T>runConsumersShouldTolerateBadConsumers(java.util.Collection<java.util.function.Consumer<T>>,T) is already defined in class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[226,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[436,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[456,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[477,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpRetrofitIntegrationTest_OE25Dev.java:[497,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.retrofit.AsyncHttpRetrofitIntegrationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[423,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[494,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[516,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest_OE25Dev.java:[525,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.retrofit.AsyncHttpClientCallTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[89,26] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[90,21] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[91,25] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[92,36] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[97,31] incompatible types: inference variable T has incompatible bounds
+[ERROR]     equality constraints: org.asynchttpclient.Request
+[ERROR]     upper bounds: lombok.val,java.lang.Object
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[98,25] cannot find symbol
+[ERROR]   symbol:   method getHeaders()
+[ERROR]   location: variable mockRequest of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[100,55] incompatible types: lombok.val cannot be converted to org.asynchttpclient.Request
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[101,84] no suitable method found for thenReturn(lombok.val)
+[ERROR]     method org.mockito.stubbing.OngoingStubbing.thenReturn(org.asynchttpclient.BoundRequestBuilder) is not applicable
+[ERROR]       (argument mismatch; lombok.val cannot be converted to org.asynchttpclient.BoundRequestBuilder)
+[ERROR]     method org.mockito.stubbing.OngoingStubbing.thenReturn(org.asynchttpclient.BoundRequestBuilder,org.asynchttpclient.BoundRequestBuilder...) is not applicable
+[ERROR]       (argument mismatch; lombok.val cannot be converted to org.asynchttpclient.BoundRequestBuilder)
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[114,48] cannot find symbol
+[ERROR]   symbol:   method incrementAndGet()
+[ERROR]   location: variable numStarted of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[115,49] cannot find symbol
+[ERROR]   symbol:   method incrementAndGet()
+[ERROR]   location: variable numFailed of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[116,45] cannot find symbol
+[ERROR]   symbol:   method incrementAndGet()
+[ERROR]   location: variable numOk of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[117,62] cannot find symbol
+[ERROR]   symbol:   method incrementAndGet()
+[ERROR]   location: variable numRequestCustomizer of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[118,23] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[121,32] cannot find symbol
+[ERROR]   symbol:   method isExecuted()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[122,32] cannot find symbol
+[ERROR]   symbol:   method isCanceled()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[124,17] cannot find symbol
+[ERROR]   symbol:   method execute()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[129,24] cannot find symbol
+[ERROR]   symbol:   method isExecuted()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[130,32] cannot find symbol
+[ERROR]   symbol:   method isCanceled()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[131,40] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable numRequestCustomizer of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[132,25] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable numOk of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[133,29] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable numFailed of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[136,19] cannot find symbol
+[ERROR]   symbol:   method set(int)
+[ERROR]   location: variable numStarted of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[137,14] cannot find symbol
+[ERROR]   symbol:   method set(int)
+[ERROR]   location: variable numOk of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[138,18] cannot find symbol
+[ERROR]   symbol:   method set(int)
+[ERROR]   location: variable numFailed of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[139,30] cannot find symbol
+[ERROR]   symbol:   method clone()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[142,19] cannot find symbol
+[ERROR]   symbol:   method enqueue(<nulltype>)
+[ERROR]   location: variable clonedCall of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[145,30] cannot find symbol
+[ERROR]   symbol:   method isExecuted()
+[ERROR]   location: variable clonedCall of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[146,38] cannot find symbol
+[ERROR]   symbol:   method isCanceled()
+[ERROR]   location: variable clonedCall of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[147,40] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable numRequestCustomizer of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[148,25] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable numOk of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[149,29] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable numFailed of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[155,28] incompatible types: inference variable T has incompatible bounds
+[ERROR]     equality constraints: org.asynchttpclient.Response
+[ERROR]     upper bounds: lombok.val,java.lang.Object
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[156,22] cannot find symbol
+[ERROR]   symbol:   method getStatusCode()
+[ERROR]   location: variable response of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[157,22] cannot find symbol
+[ERROR]   symbol:   method getStatusText()
+[ERROR]   location: variable response of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[158,22] cannot find symbol
+[ERROR]   symbol:   method getHeaders()
+[ERROR]   location: variable response of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[162,37] incompatible types: lombok.val cannot be converted to org.asynchttpclient.Response
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[180,23] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[183,26] cannot find symbol
+[ERROR]   symbol:   method toIOException(java.lang.Throwable)
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[190,30] cannot find symbol
+[ERROR]   symbol:   method getMessage()
+[ERROR]   location: variable result of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[192,30] cannot find symbol
+[ERROR]   symbol:   method getMessage()
+[ERROR]   location: variable result of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[307,21] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[310,11] cannot find symbol
+[ERROR]   symbol:   method getHttpClient()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[316,26] incompatible types: org.asynchttpclient.DefaultAsyncHttpClientConfig.Builder cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[323,23] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[326,28] cannot find symbol
+[ERROR]   symbol:   method setReadTimeout(int)
+[ERROR]   location: variable cfgBuilder of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[332,26] cannot find symbol
+[ERROR]   symbol:   method getRequestTimeoutMillis()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[333,26] cannot find symbol
+[ERROR]   symbol:   method timeout()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[336,28] cannot find symbol
+[ERROR]   symbol:   method setReadTimeout(int)
+[ERROR]   location: variable cfgBuilder of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[342,26] cannot find symbol
+[ERROR]   symbol:   method getRequestTimeoutMillis()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[343,26] cannot find symbol
+[ERROR]   symbol:   method timeout()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[346,28] cannot find symbol
+[ERROR]   symbol:   method setRequestTimeout(int)
+[ERROR]   location: variable cfgBuilder of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[353,26] cannot find symbol
+[ERROR]   symbol:   method getRequestTimeoutMillis()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallTest.java:[354,26] cannot find symbol
+[ERROR]   symbol:   method timeout()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[48,76] incompatible types: okhttp3.Request cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[49,26] incompatible types: inference variable T has incompatible bounds
+[ERROR]     equality constraints: org.asynchttpclient.AsyncHttpClient
+[ERROR]     upper bounds: lombok.val,java.lang.Object
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[57,29] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[62,24] cannot find symbol
+[ERROR]   symbol:   method incrementAndGet()
+[ERROR]   location: variable customizer1Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[66,29] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[69,24] cannot find symbol
+[ERROR]   symbol:   method incrementAndGet()
+[ERROR]   location: variable customizer2Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[74,25] incompatible types: lombok.val cannot be converted to org.asynchttpclient.AsyncHttpClient
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[80,23] cannot find symbol
+[ERROR]   symbol:   method getHttpClient()
+[ERROR]   location: variable factory of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[81,23] cannot find symbol
+[ERROR]   symbol:   method getCallCustomizers()
+[ERROR]   location: variable factory of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[82,33] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable customizer1Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[83,33] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable customizer2Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[86,45] cannot find symbol
+[ERROR]   symbol:   method newCall(lombok.val)
+[ERROR]   location: variable factory of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[86,16] incompatible types: org.asynchttpclient.extras.retrofit.AsyncHttpClientCall cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[90,33] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable customizer1Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[91,33] cannot find symbol
+[ERROR]   symbol:   method get()
+[ERROR]   location: variable customizer2Called of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[93,20] cannot find symbol
+[ERROR]   symbol:   method request()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[94,20] cannot find symbol
+[ERROR]   symbol:   method getHttpClient()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[96,22] cannot find symbol
+[ERROR]   symbol:   method getOnRequestStart()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[97,22] cannot find symbol
+[ERROR]   symbol:   method getOnRequestFailure()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[98,22] cannot find symbol
+[ERROR]   symbol:   method getOnRequestSuccess()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[99,22] cannot find symbol
+[ERROR]   symbol:   method getRequestCustomizers()
+[ERROR]   location: variable call of type lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[105,26] incompatible types: inference variable T has incompatible bounds
+[ERROR]     equality constraints: org.asynchttpclient.AsyncHttpClient
+[ERROR]     upper bounds: lombok.val,java.lang.Object
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[107,22] incompatible types: java.lang.String cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[108,22] incompatible types: java.lang.String cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[109,49] incompatible types: java.lang.String cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[111,25] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[112,27] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[113,29] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/retrofit2/src/test/java/org/asynchttpclient/extras/retrofit/AsyncHttpClientCallFactoryTest_OE25Dev.java:[114,29] incompatible types: java.util.concurrent.atomic.AtomicInteger cannot be converted to lombok.val
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

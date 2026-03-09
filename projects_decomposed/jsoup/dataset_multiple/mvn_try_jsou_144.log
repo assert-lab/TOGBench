@@ -1,0 +1,25 @@
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.02 s <<< FAILURE! - in org.jsoup.select.QueryParserTest_OE25Dev
+[ERROR] org.jsoup.select.QueryParserTest_OE25Dev.structuralEvaluatorsToString  Time elapsed: 0.012 s  <<< ERROR!
+org.jsoup.select.Selector$SelectorParseException: Could not parse query 'a:not_oe(:has(span.foo)) b d > e + f ~ g': unexpected token at ':not_oe(:has(span.foo)) b d > e + f ~ g'
+	at org.jsoup.select.QueryParser.findElements(QueryParser.java:226)
+	at org.jsoup.select.QueryParser.parse(QueryParser.java:74)
+	at org.jsoup.select.QueryParser.parse(QueryParser.java:45)
+	at org.jsoup.select.QueryParserTest_OE25Dev.structuralEvaluatorsToString(QueryParserTest_OE25Dev.java:85)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+	at java.util.ArrayList.forEach(ArrayList.java:1259)
+
+[ERROR] Errors: 
+[ERROR]   QueryParserTest_OE25Dev.structuralEvaluatorsToString:85 » SelectorParse Could not parse query 'a:not_oe(:has(span.foo)) b d > e + f ~ g': unexpected token at ':not_oe(:has(span.foo)) b d > e + f ~ g'
+[ERROR] Tests run: 1, Failures: 0, Errors: 1, Skipped: 0
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project jsoup: 
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/jsoup/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date].dump, [date]-jvmRun[N].dump and [date].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

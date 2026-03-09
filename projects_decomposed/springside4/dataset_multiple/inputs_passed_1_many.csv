@@ -1,0 +1,3294 @@
+id,test_prefix,test_name
+springside4_8,"@Test
+	public void test_oe() {
+		Sampler sampler = Sampler.create(10.5);
+		int hits = 0;
+		for (int i = 0; i < 10000; i++) {
+			if (sampler.select()) {
+				hits++;
+			}
+		}
+		System.out.println(""sample 10.5% in 10000 hits should close to 1050, actual is "" + hits);
+
+		assertThat(hits).isBetween(900, 1200);
+		//////////
+		Sampler sampler2 = Sampler.create(0.5);
+
+		hits = 0;
+		for (int i = 0; i < 10000; i++) {
+			if (sampler2.select()) {
+				hits++;
+			}
+		}
+		System.out.println(""sample 0.5% in 10000 hits should close to 50, actual is "" + hits);
+		assertThat(hits).isBetween(20, 100);
+
+	}",SamplerTest::test_oe
+springside4_9,"@Test
+	public void always_oe() {
+		Sampler sampler = Sampler.create(0d);
+		assertThat(sampler).isInstanceOf(NeverSampler.class);
+		sampler = Sampler.create(100d);
+		assertThat(sampler).isInstanceOf(AlwaysSampler.class);
+
+		try {
+			sampler = Sampler.create(101d);
+			fail(""shoud fail before"");
+		} catch (Exception e) {
+			assertThat(e).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		try {
+			sampler = Sampler.create(-2.2);
+			fail(""shoud fail before"");
+		} catch (Exception e) {
+			assertThat(e).isInstanceOf(IllegalArgumentException.class);
+		}
+	}",SamplerTest::always_oe
+springside4_10,"@Test
+	public void test_oe() throws InterruptedException, ExecutionException {
+		MyFuture<String> future = new MyFuture<String>();
+		Tasks.success(future);
+		String result = future.get();
+		assertThat(result).isEqualTo(""haha"");
+
+		// 无人设置返回值
+		try {
+			MyFuture<String> future2 = new MyFuture<String>();
+			future2.get(10, TimeUnit.MILLISECONDS);
+			fail(""should fail before"");
+		} catch (TimeoutException e) {
+			assertThat(e).isInstanceOf(TimeoutException.class);
+		}
+
+		// 失败
+		try {
+			MyFuture<String> future3 = new MyFuture<String>();
+			Tasks.fail(future3);
+			future3.get();
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(ExceptionUtil.unwrap(t)).hasMessage(""wuwu"");
+		}
+
+		// 取消
+		MyFuture<String> future4 = new MyFuture<String>();
+		Tasks.cancel(future4);
+		String result4 = future4.get();
+		assertThat(result4).isNull();
+		assertThat(future4.isCancelled()).isTrue();
+	}",BasicFutureTest::test_oe
+springside4_11,"@Test
+	public void test_oe() throws InterruptedException {
+		ExecutorService executor = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		CountDownLatch countDownLatch= ConcurrentTools.countDownLatch(10);
+		for(int i=0;i<10;i++){
+			executor.execute(new LongRunTask(countDownLatch));
+		}
+		countDownLatch.await();
+		
+		ThreadDumpper dumpper = new ThreadDumpper();
+		dumpper.threadDumpIfNeed();
+
+		LogbackListAppender appender = new LogbackListAppender();
+		appender.addToLogger(ThreadDumpper.class);
+
+		// disable,不输出
+		dumpper.setEnable(false);
+		dumpper.threadDumpIfNeed();
+		assertThat(appender.getAllLogs()).hasSize(0);
+
+		// 设置最少间隔,不输出
+		dumpper.setEnable(true);
+		dumpper.setLeastInterval(1800);
+		dumpper.threadDumpIfNeed();
+		assertThat(appender.getAllLogs()).hasSize(0);
+		
+		executor.shutdownNow();
+
+	}",ThreadDumpperTest::test_oe
+springside4_13,"@Test
+	public void longAdder_oe() {
+		LongAdder counter = ConcurrentTools.longAdder();
+		counter.increment();
+		counter.add(2);
+		assertThat(counter.longValue()).isEqualTo(3L);
+	}",ConcurrentToolsTest::longAdder_oe
+springside4_14,"@Test
+	public void readWrite_oe() throws IOException {
+		File file = FileUtil.createTempFile(""abc"", "".tmp"");
+		try {
+			String content = ""haha\nhehe"";
+			FileUtil.write(content, file);
+
+			String result = FileUtil.toString(file);
+			assertThat(result).isEqualTo(content);
+			List<String> lines = FileUtil.toLines(file);
+			assertThat(lines).containsExactly(""haha"", ""hehe"");
+
+			FileUtil.append(""kaka"", file);
+			assertThat(new String(FileUtil.toByteArray(file), Charsets.UTF_8)).isEqualTo(""haha\nhehekaka"");
+		} finally {
+			FileUtil.deleteFile(file);
+		}
+	}",FileUtilTest::readWrite_oe
+springside4_15,"@Test
+	public void opFiles_oe() throws IOException {
+		File file = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testFile"" + RandomUtil.nextInt()));
+		FileUtil.touch(file);
+		assertThat(FileUtil.isFileExists(file)).isTrue();
+		FileUtil.touch(file);
+
+		String content = ""haha\nhehe"";
+		FileUtil.write(content, file);
+		assertThat(FileUtil.toString(file)).isEqualTo(content);
+		
+		File newFile = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testFile"" + RandomUtil.nextInt()));
+		File newFile2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testFile"" + RandomUtil.nextInt()));
+
+		FileUtil.copyFile(file, newFile);
+		assertThat(FileUtil.isFileExists(newFile)).isTrue();
+		assertThat(FileUtil.toString(newFile)).isEqualTo(content);
+
+		FileUtil.moveFile(newFile, newFile2);
+		assertThat(FileUtil.toString(newFile2)).isEqualTo(""haha\nhehe"");
+
+	
+	}",FileUtilTest::opFiles_oe
+springside4_16,"@Test
+	public void opDir_oe() throws IOException {
+		String fileName = ""testFile"" + RandomUtil.nextInt();
+		File dir = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir""));
+
+		File file = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir"", fileName));
+		String content = ""haha\nhehe"";
+		FileUtil.makesureDirExists(dir);
+		FileUtil.write(content, file);
+
+		File dir2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir2""));
+		FileUtil.copyDir(dir, dir2);
+		File file2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir2"", fileName));
+		assertThat(FileUtil.toString(file2)).isEqualTo(""haha\nhehe"");
+
+		File dir3 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir3""));
+		FileUtil.moveDir(dir, dir3);
+		File file3 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir3"", fileName));
+		assertThat(FileUtil.toString(file3)).isEqualTo(""haha\nhehe"");
+		assertThat(FileUtil.isDirExists(dir)).isFalse();
+
+	}",FileUtilTest::opDir_oe
+springside4_17,"@Test
+	public void fileExist_oe() throws IOException {
+		assertThat(FileUtil.isDirExists(Platforms.TMP_DIR)).isTrue();
+		assertThat(FileUtil.isDirExists(Platforms.TMP_DIR + RandomUtil.nextInt())).isFalse();
+
+		File tmpFile = null;
+		try {
+			tmpFile = FileUtil.createTempFile();
+			assertThat(FileUtil.isFileExists(tmpFile)).isTrue();
+
+			assertThat(FileUtil.isFileExists(tmpFile.getAbsolutePath() + RandomUtil.nextInt())).isFalse();
+
+		} finally {
+			FileUtil.deleteFile(tmpFile);
+		}
+	}",FileUtilTest::fileExist_oe
+springside4_18,"@Test
+	public void getName_oe() {
+
+		assertThat(FileUtil.getFileName(FilePathUtil.normalizePath(""/a/d/b/abc.txt""))).isEqualTo(""abc.txt"");
+		assertThat(FileUtil.getFileName(""abc.txt"")).isEqualTo(""abc.txt"");
+
+		assertThat(FileUtil.getFileExtension(FilePathUtil.normalizePath(""a/d/b/abc.txt""))).isEqualTo(""txt"");
+		assertThat(FileUtil.getFileExtension(FilePathUtil.normalizePath(""/a/d/b/abc""))).isEqualTo("""");
+		assertThat(FileUtil.getFileExtension(FilePathUtil.normalizePath(""/a/d/b/abc.""))).isEqualTo("""");
+
+	}",FileUtilTest::getName_oe
+springside4_19,"@Test
+	public void resource_oe() throws IOException {
+		File file = URLResourceUtil.asFile(""classpath://application.properties"");
+		assertThat(FileUtil.toString(file)).isEqualTo(""springside.min=1\nspringside.max=10"");
+
+		InputStream is = URLResourceUtil.asStream(""classpath://application.properties"");
+		assertThat(IOUtil.toString(is)).isEqualTo(""springside.min=1\nspringside.max=10"");
+		IOUtil.closeQuietly(is);
+
+		try {
+			URLResourceUtil.asFile(""classpath://notexist.properties"");
+			fail(""should fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		try {
+			URLResourceUtil.asStream(""classpath://notexist.properties"");
+			fail(""should fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+	}",URLResourceTest::resource_oe
+springside4_20,"@Test
+	public void file_oe() throws IOException {
+		File file = FileUtil.createTempFile();
+		FileUtil.write(""haha"", file);
+		try {
+			File file2 = URLResourceUtil.asFile(""file://"" + file.getAbsolutePath());
+			assertThat(FileUtil.toString(file2)).isEqualTo(""haha"");
+
+			File file2NotExist = URLResourceUtil.asFile(""file://"" + file.getAbsolutePath() + "".noexist"");
+
+			File file3 = URLResourceUtil.asFile(file.getAbsolutePath());
+			assertThat(FileUtil.toString(file3)).isEqualTo(""haha"");
+			File file3NotExist = URLResourceUtil.asFile(file.getAbsolutePath() + "".noexist"");
+
+		} finally {
+			FileUtil.deleteFile(file);
+		}
+
+	}",URLResourceTest::file_oe
+springside4_21,"@Test
+	public void pathName_oe() {
+		String filePath = FilePathUtil.contact(sep + ""abc"", ""ef"");
+		assertThat(filePath).isEqualTo(FilePathUtil.normalizePath(""/abc/ef""));
+
+		String filePath2 = FilePathUtil.contact(sep + ""stuv"" + sep, ""xy"");
+		assertThat(filePath2).isEqualTo(FilePathUtil.normalizePath(""/stuv/xy""));
+
+		assertThat(FilePathUtil.simplifyPath(""../dd/../abc"")).isEqualTo(""../abc"");
+		assertThat(FilePathUtil.simplifyPath(""../../dd/../abc"")).isEqualTo(""../../abc"");
+		assertThat(FilePathUtil.simplifyPath(""./abc"")).isEqualTo(""abc"");
+
+		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath(""/abc/dd/efg/""))).isEqualTo(FilePathUtil.normalizePath(""/abc/dd/""));
+
+		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath(""/abc/dd/efg.txt""))).isEqualTo(FilePathUtil.normalizePath(""/abc/dd/""));
+	}",FilePathUtilTest::pathName_oe
+springside4_22,"@Test
+	public void getJarPath_oe() {
+		System.out.println(""the jar file contains Files.class"" + FilePathUtil.getJarPath(Files.class));
+		assertThat(FilePathUtil.getJarPath(Files.class)).endsWith(""guava-20.0.jar"");
+	}",FilePathUtilTest::getJarPath_oe
+springside4_23,"@Test
+	public void listFile_oe() throws IOException {
+		File tmpDir = FileUtil.createTempDir();
+
+		List<File> all = FileTreeWalker.listAll(tmpDir);
+		assertThat(all).hasSize(1);
+
+		List<File> files = FileTreeWalker.listFile(tmpDir);
+		assertThat(files).hasSize(0);
+
+		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), ""tmp-"" + RandomUtil.nextInt()) + "".tmp"");
+		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), ""tmp-"" + RandomUtil.nextInt()) + "".abc"");
+
+		String childDir = FilePathUtil.contact(tmpDir.getAbsolutePath(), ""tmp-"" + RandomUtil.nextInt());
+		FileUtil.makesureDirExists(childDir);
+
+		FileUtil.touch(FilePathUtil.contact(childDir, ""tmp-"" + RandomUtil.nextInt()) + "".tmp"");
+
+		all = FileTreeWalker.listAll(tmpDir);
+		assertThat(all).hasSize(5);
+
+		files = FileTreeWalker.listFile(tmpDir);
+		assertThat(files).hasSize(3);
+
+		//extension
+		files = FileTreeWalker.listFileWithExtension(tmpDir, ""tmp"");
+		assertThat(files).hasSize(2);
+
+		files = FileTreeWalker.listFileWithExtension(tmpDir, ""tp"");
+		assertThat(files).hasSize(0);
+
+		//wildcard
+		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, ""*.tmp"");
+		assertThat(files).hasSize(2);
+		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, ""*.tp"");
+		assertThat(files).hasSize(0);
+
+		//regex
+		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, "".*\\.tmp"");
+		assertThat(files).hasSize(2);
+		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, "".*\\.tp"");
+		assertThat(files).hasSize(0);
+		
+		
+		//antpath
+		files = FileTreeWalker.listFileWithAntPath(tmpDir, ""**/*.tmp"");
+		assertThat(files).hasSize(2);
+		
+		files = FileTreeWalker.listFileWithAntPath(tmpDir, ""*/*.tmp"");
+		assertThat(files).hasSize(1);
+		
+		files = FileTreeWalker.listFileWithAntPath(tmpDir, ""*.tp"");
+		assertThat(files).hasSize(0);
+
+		FileUtil.deleteDir(tmpDir);
+
+		assertThat(FileUtil.isDirExists(tmpDir)).isFalse();
+
+	}",FileTreeWalkerTest::listFile_oe
+springside4_24,"@Test
+	public void test_oe() throws IOException {
+		// getResoruce
+		assertThat(ResourceUtil.toString(""test.txt"")).contains(""ABCDEFG"");
+		assertThat(ResourceUtil.toString(ResourceUtilTest.class, ""/test.txt"")).contains(""ABCDEFG"");
+		assertThat(ResourceUtil.toLines(""test.txt"")).containsExactly(""ABCDEFG"", ""ABC"");
+		assertThat(ResourceUtil.toLines(ResourceUtilTest.class, ""/test.txt"")).containsExactly(""ABCDEFG"", ""ABC"");
+
+		// getResoruce 处理重复的资源
+		System.out.println(ResourceUtil.asUrl(""META-INF/MANIFEST.MF""));
+		assertThat(ResourceUtil.toString(""META-INF/MANIFEST.MF"")).contains(""Manifest"");
+
+		// getResources
+		assertThat(ResourceUtil.getResources(""META-INF/MANIFEST.MF"").size()).isGreaterThan(1);
+
+		System.out.println(ResourceUtil.getResources(""META-INF/MANIFEST.MF""));
+
+		assertThat(ResourceUtil.getResources(""META-INF/MANIFEST.MF"",ResourceUtilTest.class.getClassLoader()).size()).isGreaterThan(1);
+
+	}",ResourceUtilTest::test_oe
+springside4_25,"@Test
+	public void resourceNameTest_oe() throws IOException{
+		JarFile guavaFile = new JarFile(FilePathUtil.getJarPath(Files.class));
+		assertThat(guavaFile.getEntry(""META-INF/MANIFEST.MF"")).isNotNull();
+		assertThat(guavaFile.getEntry(""/META-INF/MANIFEST.MF"")).isNull();
+		guavaFile.close();
+	}",ResourceUtilTest::resourceNameTest_oe
+springside4_26,"@Test
+	public void read_oe() throws IOException {
+		assertThat(IOUtil.toString(ResourceUtil.asStream(""test.txt""))).isEqualTo(""ABCDEFG\nABC"");
+		assertThat(IOUtil.toLines(ResourceUtil.asStream(""test.txt""))).hasSize(2).containsExactly(""ABCDEFG"", ""ABC"");
+	}",IOUtilTest::read_oe
+springside4_27,"@Test
+	public void write_oe() throws IOException {
+		StringBuilderWriter sw = new StringBuilderWriter();
+		IOUtil.write(""hahahaha"", sw);
+		assertThat(sw.toString()).isEqualTo(""hahahaha"");
+
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		IOUtil.write(""hahahaha"", out);
+		assertThat(new String(out.toByteArray(), Charsets.UTF_8)).isEqualTo(""hahahaha"");
+
+		IOUtil.closeQuietly(out);
+		IOUtil.closeQuietly((Closeable) null);
+	}",IOUtilTest::write_oe
+springside4_28,"@Test
+	public void guavaBuildList_oe() {
+		List<String> list1 = ListUtil.newArrayList();
+
+		List<String> list2 = ListUtil.newArrayList(""a"", ""b"");
+		assertThat(list2).hasSize(2).containsExactly(""a"", ""b"");
+
+		List<String> list3 = ListUtil.newArrayList(SetUtil.newHashSet(""a"", ""b""));
+		assertThat(list2).hasSize(2).containsExactly(""a"", ""b"");
+
+		List<String> list4 = ListUtil.newArrayListWithCapacity(10);
+
+		List<String> list5 = ListUtil.newCopyOnWriteArrayList();
+
+		List<String> list6 = ListUtil.newCopyOnWriteArrayList(""a"", ""b"");
+		assertThat(list6).hasSize(2).containsExactly(""a"", ""b"");
+
+		List<String> list7 = ListUtil.newLinkedList();
+	}",ListUtilTest::guavaBuildList_oe
+springside4_29,"@Test
+	public void jdkBuild_oe() {
+		List<String> list1 = ListUtil.emptyList();
+
+		assertThat(list1).hasSize(0);
+
+		List<String> list2 = ListUtil.emptyListIfNull(null);
+		assertThat(list2).isNotNull().hasSize(0);
+
+		List<String> list3 = ListUtil.emptyListIfNull(list1);
+		assertThat(list3).isSameAs(list1);
+
+		try {
+			list1.add(""a"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		List<String> list4 = ListUtil.singletonList(""1"");
+		assertThat(list4).hasSize(1).contains(""1"");
+		try {
+			list4.add(""a"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		List<String> list5 = ListUtil.newArrayList();
+		List<String> list6 = ListUtil.unmodifiableList(list5);
+
+		try {
+			list6.add(""a"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		List<String> list7 = ListUtil.synchronizedList(list6);
+	}",ListUtilTest::jdkBuild_oe
+springside4_31,"@Test
+	public void sortAndSearch_oe() {
+
+		List<String> list = ListUtil.newArrayList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+		ListUtil.sort(list);
+
+		assertThat(list).hasSize(7).containsExactly(""a"", ""b"", ""c"", ""d"", ""e"", ""g"", ""i"");
+
+		ListUtil.shuffle(list);
+		ListUtil.shuffle(list, new Random());
+		System.out.println(""shuffle list:"" + list);
+
+		ListUtil.sort(list, Ordering.natural());
+
+		assertThat(list).hasSize(7).containsExactly(""a"", ""b"", ""c"", ""d"", ""e"", ""g"", ""i"");
+
+		assertThat(ListUtil.binarySearch(list, ""b"")).isEqualTo(1);
+		assertThat(ListUtil.binarySearch(list, ""b"", Ordering.natural())).isEqualTo(1);
+		assertThat(ListUtil.binarySearch(list, ""x"")).isEqualTo(-8);
+
+		// reverse
+		List list8 = ListUtil.reverse(list);
+		assertThat(list8).hasSize(7).containsExactly(""i"", ""g"", ""e"", ""d"", ""c"", ""b"", ""a"");
+
+		// sortReverse
+		ListUtil.shuffle(list8);
+		ListUtil.sortReverse(list8);
+		assertThat(list8).hasSize(7).containsExactly(""i"", ""g"", ""e"", ""d"", ""c"", ""b"", ""a"");
+
+		ListUtil.shuffle(list8);
+		ListUtil.sortReverse(list8, Ordering.natural());
+		assertThat(list8).hasSize(7).containsExactly(""i"", ""g"", ""e"", ""d"", ""c"", ""b"", ""a"");
+	}",ListUtilTest::sortAndSearch_oe
+springside4_32,"@Test
+	public void collectionCalc_oe() {
+		List<String> list1 = ListUtil.newArrayList(""1"", ""2"", ""3"", ""6"", ""6"");
+		List<String> list2 = ListUtil.newArrayList(""4"", ""5"", ""6"", ""7"", ""6"", ""6"");
+
+		List<String> result = ListUtil.union(list1, list2);
+		assertThat(result).containsExactly(""1"", ""2"", ""3"", ""6"", ""6"", ""4"", ""5"", ""6"", ""7"", ""6"", ""6"");
+
+		List<String> result2 = ListUtil.intersection(list1, list2);
+		assertThat(result2).containsExactly(""6"", ""6"");
+
+		List<String> result3 = ListUtil.difference(list2, list1);
+		assertThat(result3).containsExactly(""4"", ""5"", ""7"", ""6"");
+
+		List<String> result4 = ListUtil.disjoint(list1, list2);
+		assertThat(result4).containsExactly(""1"", ""2"", ""3"", ""4"", ""5"", ""7"", ""6"");
+	}",ListUtilTest::collectionCalc_oe
+springside4_33,"@Test
+	public void generalMethod_oe() {
+		HashMap<String, Integer> map = MapUtil.newHashMap();
+		assertThat(MapUtil.isEmpty(map)).isTrue();
+		assertThat(MapUtil.isEmpty(null)).isTrue();
+		assertThat(MapUtil.isNotEmpty(map)).isFalse();
+		assertThat(MapUtil.isNotEmpty(null)).isFalse();
+
+		map.put(""haha"", 1);
+		assertThat(MapUtil.isEmpty(map)).isFalse();
+		assertThat(MapUtil.isNotEmpty(map)).isTrue();
+
+		//////////
+		ConcurrentMap<String, Integer> map2 = MapUtil.newConcurrentHashMap();
+		assertThat(MapUtil.putIfAbsentWithFinalValue(map2, ""haha"", 3)).isEqualTo(3);
+		assertThat(MapUtil.putIfAbsentWithFinalValue(map2, ""haha"", 4)).isEqualTo(3);
+
+		MapUtil.createIfAbsent(map2, ""haha"", new ValueCreator<Integer>() {
+			@Override
+			public Integer get() {
+				return 5;
+			}
+		});
+
+		assertThat(map2).hasSize(1).containsEntry(""haha"", 3);
+
+		MapUtil.createIfAbsent(map2, ""haha2"", new ValueCreator<Integer>() {
+			@Override
+			public Integer get() {
+				return 5;
+			}
+		});
+
+		assertThat(map2).hasSize(2).containsEntry(""haha2"", 5);
+
+	}",MapUtilTest::generalMethod_oe
+springside4_34,"@Test
+	public void guavaBuildMap_oe() {
+		HashMap<String, Integer> map1 = MapUtil.newHashMap();
+
+		HashMap<String, Integer> map2 = MapUtil.newHashMapWithCapacity(10, 0.5f);
+		map2 = MapUtil.newHashMapWithCapacity(10, 0.5f);
+
+		HashMap<String, Integer> map3 = MapUtil.newHashMap(""1"", 1);
+		assertThat(map3).hasSize(1).containsEntry(""1"", 1);
+
+		HashMap<String, Integer> map4 = MapUtil.newHashMap(new String[] { ""1"", ""2"" }, new Integer[] { 1, 2 });
+		assertThat(map4).hasSize(2).containsEntry(""1"", 1).containsEntry(""2"", 2);
+
+		HashMap<String, Integer> map5 = MapUtil.newHashMap(ArrayUtil.asList(""1"", ""2"", ""3""), ArrayUtil.asList(1, 2, 3));
+		assertThat(map5).hasSize(3).containsEntry(""1"", 1).containsEntry(""2"", 2).containsEntry(""3"", 3);
+
+		TreeMap<String, Integer> map6 = MapUtil.newSortedMap();
+
+		TreeMap<String, Integer> map7 = MapUtil.newSortedMap(Ordering.natural());
+
+		ConcurrentMap map8 = MapUtil.newConcurrentHashMap();
+		ConcurrentSkipListMap map9 = MapUtil.newConcurrentSortedMap();
+
+		EnumMap map10 = MapUtil.newEnumMap(EnumA.class);
+	}",MapUtilTest::guavaBuildMap_oe
+springside4_35,"@Test
+	public void jdkBuildMap_oe() {
+		Map<String, Integer> map1 = MapUtil.emptyMap();
+		assertThat(map1).hasSize(0);
+
+		Map<String, Integer> map2 = MapUtil.emptyMapIfNull(null);
+		assertThat(map2).isNotNull().hasSize(0);
+
+		Map<String, Integer> map3 = MapUtil.emptyMapIfNull(map1);
+		assertThat(map3).isSameAs(map1);
+
+		Map<String, Integer> map4 = MapUtil.singletonMap(""haha"", 1);
+		assertThat(map4).hasSize(1).containsEntry(""haha"", 1);
+		try {
+			map4.put(""dada"", 2);
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		Map<String, Integer> map5 = MapUtil.newHashMap();
+		Map<String, Integer> map6 = MapUtil.unmodifiableMap(map5);
+
+		try {
+			map6.put(""a"", 2);
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+	}",MapUtilTest::jdkBuildMap_oe
+springside4_36,"@Test
+	public void weakMap_oe() {
+		ConcurrentMap<MyBean, MyBean> weakKeyMap = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		initExpireAllMap(weakKeyMap);
+		System.gc();
+		assertThat(weakKeyMap.get(new MyBean(""A""))).isNull();
+		assertThat(weakKeyMap).hasSize(1);// key仍然在 
+		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
+		MyBean value = new MyBean(""B"");
+		initExpireKeyMap(weakKeyMap2, value);
+		System.gc();
+		assertThat(weakKeyMap2.get(new MyBean(""A""))).isNull();
+
+		ConcurrentMap<MyBean, MyBean> weakKeyMap3 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		MyBean key = new MyBean(""A"");
+		initExpireValueMap(weakKeyMap3, key);
+		System.gc();
+		assertThat(weakKeyMap3.get(key)).isEqualTo(new MyBean(""B""));
+
+		// weak value
+		ConcurrentMap<MyBean, MyBean> weakValueMap = MapUtil.createWeakValueConcurrentHashMap(10, 1);
+		initExpireAllMap(weakValueMap);
+		System.gc();
+		assertThat(weakValueMap.get(new MyBean(""A""))).isNull();
+		
+		ConcurrentMap<MyBean, MyBean> weakValueMap2 = MapUtil.createWeakValueConcurrentHashMap(10, 1);
+		MyBean value2 = new MyBean(""B"");
+		initExpireKeyMap(weakValueMap2, value2);
+		System.gc();
+		assertThat(weakValueMap2.get(new MyBean(""A""))).isEqualTo(new MyBean(""B""));
+
+		ConcurrentMap<MyBean, MyBean> weakValueMap3 = MapUtil.createWeakValueConcurrentHashMap(10, 1);
+		MyBean key3 = new MyBean(""A"");
+		initExpireValueMap(weakValueMap3, key3);
+		System.gc();
+		assertThat(weakValueMap3.get(new MyBean(""A""))).isNull();
+	}",MapUtilTest::weakMap_oe
+springside4_37,"@Test
+	public void stack_oe() {
+
+		Queue<String> stack = QueueUtil.createStack(10);
+		Queue<String> stack2 = QueueUtil.createConcurrentStack();
+
+		stack.offer(""1"");
+		stack.offer(""2"");
+		
+		assertThat(stack.poll()).isEqualTo(""2"");
+		assertThat(stack.poll()).isEqualTo(""1"");
+		
+		stack2.offer(""1"");
+		stack2.offer(""2"");
+		
+		assertThat(stack2.poll()).isEqualTo(""2"");
+		assertThat(stack2.poll()).isEqualTo(""1"");
+	}",QueueUtilTest::stack_oe
+springside4_38,"@Test
+	public void shuffle_oe() {
+		String[] arrays = new String[] { ""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"" };
+		Arrays.sort(arrays);
+		assertThat(arrays).containsExactly(""a"", ""b"", ""c"", ""d"", ""e"", ""g"", ""i"");
+		ArrayUtil.shuffle(arrays);
+		System.out.println(Arrays.toString(arrays));
+		Arrays.sort(arrays);
+
+		ArrayUtil.shuffle(arrays, RandomUtil.secureRandom());
+	}",ArrayUtilTest::shuffle_oe
+springside4_39,"@Test
+	public void asList_oe() {
+		List<String> list = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+		assertThat(list).hasSize(7).containsExactly(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+
+		try {
+			list.add(""a"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		List<String> list2 = ArrayUtil.asList(""d"", new String[] { ""a"", ""c"", ""b"", ""e"", ""i"", ""g"" });
+		assertThat(list2).hasSize(7).containsExactly(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+
+		try {
+			list2.add(""a"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		List<Integer> list3 = ArrayUtil.intAsList(1, 2, 3);
+		assertThat(list3).hasSize(3).containsExactly(1, 2, 3);
+
+		List<Long> list4 = ArrayUtil.longAsList(1L, 2L, 3L);
+		assertThat(list4).hasSize(3).containsExactly(1L, 2L, 3L);
+
+		List<Double> list5 = ArrayUtil.doubleAsList(1.1d, 2.2d, 3.3d);
+		assertThat(list5).hasSize(3).containsExactly(1.1d, 2.2d, 3.3d);
+	}",ArrayUtilTest::asList_oe
+springside4_40,"@Test
+	public void contact_oe() {
+		String[] array = new String[] { ""d"", ""a"", ""c"" };
+		assertThat(ArrayUtil.concat(""z"", array)).containsExactly(""z"", ""d"", ""a"", ""c"");
+		assertThat(ArrayUtil.concat(array, ""z"")).containsExactly(""d"", ""a"", ""c"", ""z"");
+	}",ArrayUtilTest::contact_oe
+springside4_42,"@Test
+	public void minAndMax_oe() {
+		List<Integer> list = ListUtil.newArrayList(4, 1, 9, 100, 20, 101, 40);
+
+		assertThat(CollectionUtil.min(list)).isEqualTo(1);
+		assertThat(CollectionUtil.min(list, Ordering.natural())).isEqualTo(1);
+		assertThat(CollectionUtil.max(list)).isEqualTo(101);
+		assertThat(CollectionUtil.max(list, Ordering.natural())).isEqualTo(101);
+
+		assertThat(CollectionUtil.minAndMax(list).getFirst()).isEqualTo(1);
+		assertThat(CollectionUtil.minAndMax(list).getSecond()).isEqualTo(101);
+
+		assertThat(CollectionUtil.minAndMax(list, Ordering.natural()).getFirst()).isEqualTo(1);
+		assertThat(CollectionUtil.minAndMax(list, Ordering.natural()).getSecond()).isEqualTo(101);
+
+	}",CollectionUtilTest::minAndMax_oe
+springside4_43,"@Test
+	public void listCompare_oe() {
+		List<String> list1 = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+		List<String> list2 = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+
+		List<String> list3 = ArrayUtil.asList(""d"", ""c"", ""a"", ""b"", ""e"", ""i"", ""g"");
+		List<String> list4 = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"");
+		List<String> list5 = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"", ""x"");
+
+		assertThat(CollectionUtil.elementsEqual(list1, list1)).isTrue();
+		assertThat(CollectionUtil.elementsEqual(list1, list2)).isTrue();
+
+		assertThat(CollectionUtil.elementsEqual(list1, list3)).isFalse();
+		assertThat(CollectionUtil.elementsEqual(list1, list4)).isFalse();
+		assertThat(CollectionUtil.elementsEqual(list1, list5)).isFalse();
+	}",CollectionUtilTest::listCompare_oe
+springside4_44,"@Test
+	public void topNAndBottomN_oe() {
+		List<Integer> list = ArrayUtil.asList(3, 5, 7, 4, 2, 6, 9);
+		
+		assertThat(CollectionUtil.topN(list, 3)).containsExactly(9,7,6);
+		assertThat(CollectionUtil.topN(list, 3, Ordering.natural().reverse())).containsExactly(2,3,4);
+		assertThat(CollectionUtil.bottomN(list, 3)).containsExactly(2,3,4);
+		assertThat(CollectionUtil.bottomN(list, 3, Ordering.natural().reverse())).containsExactly(9,7,6);
+	}",CollectionUtilTest::topNAndBottomN_oe
+springside4_45,"@Test
+	public void guavaBuildSet_oe() {
+		HashSet<String> set1 = SetUtil.newHashSet();
+
+		HashSet<String> set2 = SetUtil.newHashSetWithCapacity(10);
+
+		HashSet<String> set3 = SetUtil.newHashSet(""1"", ""2"", ""2"");
+
+		assertThat(set3).hasSize(2).contains(""1"", ""2"");
+
+		HashSet<String> set4 = SetUtil.newHashSet(ListUtil.newArrayList(""1"", ""2"", ""2""));
+		assertThat(set4).hasSize(2).contains(""1"", ""2"");
+
+		TreeSet<String> set5 = SetUtil.newSortedSet();
+
+		TreeSet<String> set6 = SetUtil.newSortedSet(Ordering.natural());
+
+		ConcurrentHashSet set7 = SetUtil.newConcurrentHashSet();
+	}",SetUtilTest::guavaBuildSet_oe
+springside4_46,"@Test
+	public void jdkBuildSet_oe() {
+		Set<String> set1 = SetUtil.emptySet();
+		assertThat(set1).hasSize(0);
+
+		Set<String> set2 = SetUtil.emptySetIfNull(null);
+		assertThat(set2).isNotNull().hasSize(0);
+
+		Set<String> set3 = SetUtil.emptySetIfNull(set1);
+		assertThat(set3).isSameAs(set1);
+
+		try {
+			set1.add(""a"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		Set<String> set4 = SetUtil.singletonSet(""1"");
+		assertThat(set4).hasSize(1).contains(""1"");
+		try {
+			set4.add(""a"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		Set<String> set5 = SetUtil.newHashSet();
+		Set<String> set6 = SetUtil.unmodifiableSet(set5);
+
+		try {
+			set6.add(""a"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		Set<String> set7 = SetUtil.newSetFromMap(MapUtil.<String, Boolean> newConcurrentSortedMap());
+	}",SetUtilTest::jdkBuildSet_oe
+springside4_47,"@Test
+	public void collectionCaculate_oe() {
+		HashSet<String> set1 = SetUtil.newHashSet(""1"", ""2"", ""3"", ""6"");
+		HashSet<String> set2 = SetUtil.newHashSet(""4"", ""5"", ""6"", ""7"");
+
+		Set<String> set3 = SetUtil.unionView(set1, set2);
+		assertThat(set3).hasSize(7).contains(""1"", ""2"", ""3"", ""4"", ""5"", ""6"", ""7"");
+
+		Set<String> set4 = SetUtil.intersectionView(set1, set2);
+		assertThat(set4).hasSize(1).contains(""6"");
+
+		Set<String> set5 = SetUtil.differenceView(set1, set2);
+		assertThat(set5).hasSize(3).contains(""1"", ""2"", ""3"");
+
+		Set<String> set6 = SetUtil.disjointView(set1, set2);
+		assertThat(set6).hasSize(6).contains(""1"", ""2"", ""3"", ""4"", ""5"", ""7"");
+
+		try {
+			set6.add(""a"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+	}",SetUtilTest::collectionCaculate_oe
+springside4_48,"@Test
+	public void toCsvString_oe() {
+		assertThat(CsvUtil.toCsvString(1, 2)).isEqualTo(""1,2"");
+
+		assertThat(CsvUtil.toCsvString(1, 2, 3, 4)).isEqualTo(""1,2,3,4"");
+
+		// ""2"" still plain as 2
+		assertThat(CsvUtil.toCsvString(1, ""2"")).isEqualTo(""1,2"");
+
+		// ""A BC"" still plain as A BC
+		assertThat(CsvUtil.toCsvString(1, ""A BC"")).isEqualTo(""1,A BC"");
+
+		// ""A,BC"" has ',' as ""A,BC""
+		assertThat(CsvUtil.toCsvString(1, ""A,BC"")).isEqualTo(""1,\""A,BC\"""");
+
+		// ""A""BC"" has '""' as ""A""""BC""
+		assertThat(CsvUtil.toCsvString(1, ""A\""BC"")).isEqualTo(""1,\""A\""\""BC\"""");
+
+		// ""A,B""a""C"" has 2 '""""' as ""A,""""a""""BC""
+		assertThat(CsvUtil.toCsvString(1, ""A,\""a\""BC"")).isEqualTo(""1,\""A,\""\""a\""\""BC\"""");
+	}",CsvUtilTest::toCsvString_oe
+springside4_49,"@Test
+	public void fromCsvString_oe() {
+		assertThat(CsvUtil.fromCsvString(""1,2"")).hasSize(2).contains(""1"").contains(""2"");
+		assertThat(CsvUtil.fromCsvString(""1,A BC"")).hasSize(2).contains(""1"").contains(""A BC"");
+		assertThat(CsvUtil.fromCsvString(""1,\""A,BC\"""")).hasSize(2).contains(""1"").contains(""A,BC"");
+		assertThat(CsvUtil.fromCsvString(""1,\""A,\""\""a\""\""BC\"""")).hasSize(2).contains(""1"").contains(""A,\""a\""BC"");
+
+		// wrong format still work
+		assertThat(CsvUtil.fromCsvString(""1,\""A,\""a\""\""BC\"""")).hasSize(2).contains(""1"").contains(""A,\""a\""BC"");
+		assertThat(CsvUtil.fromCsvString(""1,ABC\"""")).hasSize(2).contains(""1"").contains(""ABC\"""");
+	}",CsvUtilTest::fromCsvString_oe
+springside4_50,"@Test
+	public void hexEncode_oe() {
+		String input = ""haha,i am a very long message"";
+		String result = EncodeUtil.encodeHex(input.getBytes());
+		assertThat(new String(EncodeUtil.decodeHex(result), Charsets.UTF_8)).isEqualTo(input);
+
+		byte[] bytes = new byte[] { 1, 2, 15, 17 };
+		result = EncodeUtil.encodeHex(bytes);
+		assertThat(result).isEqualTo(""01020F11"");
+
+		input = ""01020F11"";
+		assertThat(EncodeUtil.decodeHex(input)).hasSize(4).containsSequence((byte) 1, (byte) 2, (byte) 15, (byte) 17);
+
+		try {
+			input = ""01020G11"";
+			EncodeUtil.decodeHex(input);
+			fail(""should throw exception before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+	}",EncodeUtilTest::hexEncode_oe
+springside4_51,"@Test
+	public void base64Encode_oe() {
+		String input = ""haha,i am a very long message"";
+		String result = EncodeUtil.encodeBase64(input.getBytes());
+		assertThat(new String(EncodeUtil.decodeBase64(result), Charsets.UTF_8)).isEqualTo(input);
+
+		byte[] bytes = new byte[] { 5 };
+		result = EncodeUtil.encodeBase64(bytes);
+		assertThat(result).isEqualTo(""BQ=="");
+
+		bytes = new byte[] { 1, 2, 15, 17, 127 };
+		result = EncodeUtil.encodeBase64(bytes);
+		assertThat(result).isEqualTo(""AQIPEX8="");
+	}",EncodeUtilTest::base64Encode_oe
+springside4_52,"@Test
+	public void base64UrlSafeEncode_oe() {
+		String input = ""haha,i am a very long message"";
+		String result = EncodeUtil.encodeBase64UrlSafe(input.getBytes());
+		assertThat(new String(EncodeUtil.decodeBase64UrlSafe(result), Charsets.UTF_8)).isEqualTo(input);
+
+		try {
+			assertThat(result).isEqualTo(EncodeUtil.decodeBase64UrlSafe(""AQIPE+8=""));
+			fail(""should throw exception before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+	}",EncodeUtilTest::base64UrlSafeEncode_oe
+springside4_53,"@Test
+	public void urlEncode_oe() {
+
+		String input = ""http://locahost/"";
+		String result = EscapeUtil.urlEncode(input);
+		assertThat(result).isEqualTo(""http%3A%2F%2Flocahost%2F"");
+		assertThat(EscapeUtil.urlDecode(result)).isEqualTo(input);
+
+		input = ""http://locahost/?query=中文&t=1"";
+		result = EscapeUtil.urlEncode(input);
+		System.out.println(result);
+
+		assertThat(EscapeUtil.urlDecode(result)).isEqualTo(input);
+	}",EscapeUtilTest::urlEncode_oe
+springside4_54,"@Test
+	public void xmlEncode_oe() {
+		String input = ""1>2"";
+		String result = EscapeUtil.escapeXml(input);
+		assertThat(result).isEqualTo(""1&gt;2"");
+		assertThat(EscapeUtil.unescapeXml(result)).isEqualTo(input);
+	}",EscapeUtilTest::xmlEncode_oe
+springside4_55,"@Test
+	public void html_oe() {
+		String input = ""1>2"";
+		String result = EscapeUtil.escapeHtml(input);
+		assertThat(result).isEqualTo(""1&gt;2"");
+		assertThat(EscapeUtil.unescapeHtml(result)).isEqualTo(input);
+	}",EscapeUtilTest::html_oe
+springside4_56,"@Test
+	public void hashSha1_oe() {
+		// 普通
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah""));
+		System.out.println(""sha1:"" + result);
+		assertThat(result).isEqualTo(""sCtJLx2IJNto032AhdkP64t/os4="");
+
+		String result2 = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"".getBytes()));
+		assertThat(result).isEqualTo(""sCtJLx2IJNto032AhdkP64t/os4="");
+
+		// 带盐, 每次salt值不一样，所以值也不一样。
+		result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"", HashUtil.generateSalt(5)));
+		System.out.println(""sha1 with salt:"" + result);
+
+		// 带盐，固定的盐
+		result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"", new byte[] { 1, 2, 3 }));
+		assertThat(result).isEqualTo(""U/7wy5R1sVrjEf3dOTAPz383g2k="");
+		result2 = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"".getBytes(), new byte[] { 1, 2, 3 }));
+		assertThat(result).isEqualTo(result2);
+
+		// 带盐迭代, 每次salt值不一样，所以值也不一样。
+		result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"", HashUtil.generateSalt(5), 2));
+		System.out.println(""sha1 with salt with iteration:"" + result);
+
+		// 带盐迭代, 固定的盐
+		result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"", new byte[] { 1, 2, 3 }, 2));
+		assertThat(result).isEqualTo(""n9O7laits+ovoK8X8xde+XrsCtM="");
+		result2 = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"".getBytes(), new byte[] { 1, 2, 3 }, 2));
+		assertThat(result).isEqualTo(result2);
+
+	}",HashUtilTest::hashSha1_oe
+springside4_57,"@Test
+	public void hashFile_oe() throws IOException {
+		InputStream in = ResourceUtil.asStream(""test.txt"");
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1File(in));
+		assertThat(result).isEqualTo(""DmSnwK/Fl0Jplrwtm9tfi7cb/js="");
+		result = EncodeUtil.encodeBase64(HashUtil.md5File(in));
+		assertThat(result).isEqualTo(""1B2M2Y8AsgTpgAmY7PhCfg=="");
+	}",HashUtilTest::hashFile_oe
+springside4_58,"@Test
+	public void crc32_oe() {
+		assertThat(HashUtil.crc32AsInt(""hahhha1"")).isEqualTo(-625925593);
+		assertThat(HashUtil.crc32AsInt(""hahhha1"".getBytes())).isEqualTo(-625925593);
+		assertThat(HashUtil.crc32AsInt(""hahhha2"")).isEqualTo(1136161693);
+
+		assertThat(HashUtil.crc32AsLong(""hahhha1"")).isEqualTo(3669041703L);
+		assertThat(HashUtil.crc32AsLong(""hahhha1"".getBytes())).isEqualTo(3669041703L);
+		assertThat(HashUtil.crc32AsLong(""hahhha2"")).isEqualTo(1136161693L);
+	}",HashUtilTest::crc32_oe
+springside4_59,"@Test
+	public void murmurhash_oe() {
+		assertThat(HashUtil.murmur32AsInt(""hahhha1"")).isEqualTo(-1920794701);
+		assertThat(HashUtil.murmur32AsInt(""hahhha1"".getBytes())).isEqualTo(-1920794701);
+		assertThat(HashUtil.murmur32AsInt(""hahhha2"")).isEqualTo(2065789419);
+		assertThat(HashUtil.murmur32AsInt(""hahhha3"")).isEqualTo(-293065542);
+		assertThat(HashUtil.murmur32AsInt(""hahhha4"")).isEqualTo(-2003559207);
+		assertThat(HashUtil.murmur32AsInt(""hahhha5"")).isEqualTo(-3887993);
+		assertThat(HashUtil.murmur32AsInt(""hahhha6"")).isEqualTo(-446760132);
+		
+		assertThat(HashUtil.murmur128AsLong(""hahhha6"")).isEqualTo(-5203515929515563680L);
+		assertThat(HashUtil.murmur128AsLong(""hahhha6"".getBytes(Charsets.UTF_8))).isEqualTo(-5203515929515563680L);
+
+	}",HashUtilTest::murmurhash_oe
+springside4_60,"@Test
+	public void split_oe() {
+
+		List<String> result = MoreStringUtil.split(""192.168.0.1"", '.', 4);
+		assertThat(result).hasSize(4).containsSequence(""192"", ""168"", ""0"", ""1"");
+
+		result = MoreStringUtil.split(""192.168..1"", '.', 4);
+		assertThat(result).hasSize(3).containsSequence(""192"", ""168"", ""1"");
+
+		result = MoreStringUtil.split(""192.168.0."", '.', 4);
+		assertThat(result).hasSize(3).containsSequence(""192"", ""168"", ""0"");
+
+		assertThat(MoreStringUtil.split(null, '.', 4)).isNull();
+
+		assertThat(MoreStringUtil.split("""", '.', 4)).hasSize(0);
+
+	}",MoreStringUtilTest::split_oe
+springside4_61,"@Test
+	public void charMatch_oe() {
+		String str = ""abc"";
+		assertThat(MoreStringUtil.startWith(str, 'a')).isTrue();
+		assertThat(MoreStringUtil.startWith(str, 'b')).isFalse();
+		assertThat(MoreStringUtil.startWith(null, 'b')).isFalse();
+		assertThat(MoreStringUtil.startWith("""", 'b')).isFalse();
+		
+		assertThat(MoreStringUtil.endWith(str, 'c')).isTrue();
+		assertThat(MoreStringUtil.endWith(str, 'b')).isFalse();
+		assertThat(MoreStringUtil.endWith(null, 'b')).isFalse();
+		assertThat(MoreStringUtil.endWith("""", 'b')).isFalse();
+
+		assertThat(MoreStringUtil.replaceFirst(""abbc"", 'b', 'c')).isEqualTo(""acbc"");
+		assertThat(MoreStringUtil.replaceFirst(""abcc"", 'c', 'c')).isEqualTo(""abcc"");
+		assertThat(MoreStringUtil.replaceFirst("""", 'c', 'c')).isEqualTo("""");
+		assertThat(MoreStringUtil.replaceFirst(null, 'c', 'c')).isNull();
+		
+		assertThat(MoreStringUtil.replaceLast(""abbc"", 'b', 'c')).isEqualTo(""abcc"");
+		assertThat(MoreStringUtil.replaceLast(""abcc"", 'c', 'c')).isEqualTo(""abcc"");
+		assertThat(MoreStringUtil.replaceLast("""", 'c', 'c')).isEqualTo("""");
+		assertThat(MoreStringUtil.replaceLast(null, 'c', 'c')).isNull();
+
+	}",MoreStringUtilTest::charMatch_oe
+springside4_62,"@Test
+	public void utf8EncodedLength_oe() {
+		assertThat(MoreStringUtil.utf8EncodedLength(""ab12"")).isEqualTo(4);
+		assertThat(MoreStringUtil.utf8EncodedLength(""中文"")).isEqualTo(6);
+	}",MoreStringUtilTest::utf8EncodedLength_oe
+springside4_63,"@Test
+	public void matchString_oe() {
+		assertThat(WildcardMatcher.match(""abc"", ""*"")).isTrue();
+		assertThat(WildcardMatcher.match(""abc"", ""*c"")).isTrue();
+		assertThat(WildcardMatcher.match(""abc"", ""a*"")).isTrue();
+		assertThat(WildcardMatcher.match(""abc"", ""a*c"")).isTrue();
+
+		assertThat(WildcardMatcher.match(""abc"", ""a?c"")).isTrue();
+		assertThat(WildcardMatcher.match(""abcd"", ""a?c?"")).isTrue();
+		assertThat(WildcardMatcher.match(""abcd"", ""a??d"")).isTrue();
+
+		assertThat(WildcardMatcher.match(""abcde"", ""a*d?"")).isTrue();
+
+		assertThat(WildcardMatcher.match(""abcde"", ""a*d"")).isFalse();
+		assertThat(WildcardMatcher.match(""abcde"", ""a*x"")).isFalse();
+		assertThat(WildcardMatcher.match(""abcde"", ""a*df"")).isFalse();
+
+		assertThat(WildcardMatcher.match(""abcde"", ""?abcd"")).isFalse();
+
+		assertThat(WildcardMatcher.match(""ab\\\\*cde"", ""ab\\\\*c*"")).isTrue();
+		assertThat(WildcardMatcher.match(""ab\\\\*cde"", ""ab\\\\*?de"")).isTrue();
+
+		// matchOne
+		assertThat(WildcardMatcher.matchOne(""abcde"", new String[] { ""a*d?"", ""abde?"" })).isEqualTo(0);
+		assertThat(WildcardMatcher.matchOne(""abcde"", new String[] { ""?abcd"", ""a*d?"" })).isEqualTo(1);
+		assertThat(WildcardMatcher.matchOne(""abcde"", new String[] { ""?abcd"", ""xyz*"" })).isEqualTo(-1);
+	}",WildcardMatcherTest::matchString_oe
+springside4_64,"@Test
+	public void matchPath_oe() {
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""**"")).isTrue();
+
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""**/dd"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/c/dd"", ""/a/**/dd"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""/a/*/dd"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""/a/*/d?"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/ddxxa"", ""/a/*/dd*"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/ddxxa"", ""/a/?/dd*"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""a/b/ddxxa"", ""a/?/dd*"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""a/b/dd"", ""**/dd"")).isTrue();
+
+		assertThat(WildcardMatcher.matchPath(""/a/b/c/dd"", ""/a/*/dd"")).isFalse();
+
+		// matchOne
+		assertThat(WildcardMatcher.matchPathOne(""/a/b/c/dd"", new String[] { ""/a/*/dd"", ""**/dd"" })).isEqualTo(1);
+		assertThat(WildcardMatcher.matchPathOne(""/a/b/c/dd"", new String[] { ""/a/**/dd"", ""**/dd"" })).isEqualTo(0);
+		assertThat(WildcardMatcher.matchPathOne(""/a/b/c/dd"", new String[] { ""/b/d"", ""/a/c/*"" })).isEqualTo(-1);
+
+	}",WildcardMatcherTest::matchPath_oe
+springside4_65,"@Test
+	public void isMobileSimple_oe() {
+		assertThat(TextValidator.isMobileSimple(null)).isFalse();
+		assertThat(TextValidator.isMobileSimple("""")).isFalse();
+		assertThat(TextValidator.isMobileSimple(""1234a"")).isFalse();
+		assertThat(TextValidator.isMobileSimple(""1234561"")).isFalse();
+		assertThat(TextValidator.isMobileSimple(""11170998762"")).isTrue();
+	}",TextValidatorTest::isMobileSimple_oe
+springside4_66,"@Test
+	public void isMobileExact_oe() {
+		assertThat(TextValidator.isMobileExact(""1234a"")).isFalse();
+		assertThat(TextValidator.isMobileExact(""11170998762"")).isFalse();
+		assertThat(TextValidator.isMobileExact(""13970998762"")).isTrue();
+	}",TextValidatorTest::isMobileExact_oe
+springside4_67,"@Test
+	public void isTel_oe() {
+		// 含字母
+		assertThat(TextValidator.isTel(""8802973a"")).isFalse();
+		// 太长
+		assertThat(TextValidator.isTel(""8908222222"")).isFalse();
+		// 太短
+		assertThat(TextValidator.isTel(""89081"")).isFalse();
+
+		assertThat(TextValidator.isTel(""89019739"")).isTrue();
+		assertThat(TextValidator.isTel(""020-89019739"")).isTrue();
+	}",TextValidatorTest::isTel_oe
+springside4_68,"@Test
+	public void isIdCard_oe() {
+		// 含字母
+		assertThat(TextValidator.isIdCard(""440101198987754ab"")).isFalse();
+		// 月份不对
+		assertThat(TextValidator.isIdCard(""440101198987754122"")).isFalse();
+		// 日期不对
+		assertThat(TextValidator.isIdCard(""440101891232451"")).isFalse();
+
+		// 18位正确
+		assertThat(TextValidator.isIdCard(""440101198909204518"")).isTrue();
+		// 15位正确
+		assertThat(TextValidator.isIdCard(""440101891231451"")).isTrue();
+	}",TextValidatorTest::isIdCard_oe
+springside4_69,"@Test
+	public void isEmail_oe() {
+		assertThat(TextValidator.isEmail(""abc"")).isFalse();
+		assertThat(TextValidator.isEmail(""abc@a"")).isFalse();
+		assertThat(TextValidator.isEmail(""中文@a.com"")).isFalse();
+
+		assertThat(TextValidator.isEmail(""abc@abc.com"")).isTrue();
+	}",TextValidatorTest::isEmail_oe
+springside4_70,"@Test
+	public void isUrl_oe() {
+		assertThat(TextValidator.isUrl(""abc.com"")).isFalse();
+		assertThat(TextValidator.isUrl(""http://abc.c om"")).isFalse();
+		assertThat(TextValidator.isUrl(""http2://abc.com"")).isFalse();
+
+		assertThat(TextValidator.isUrl(""http://abc.com"")).isTrue();
+	}",TextValidatorTest::isUrl_oe
+springside4_71,"@Test
+	public void isDate_oe() {
+		assertThat(TextValidator.isDate(""2011-02-29"")).isFalse();
+		assertThat(TextValidator.isDate(""201a-02-30"")).isFalse();
+		assertThat(TextValidator.isDate(""2011-0211"")).isFalse();
+
+		assertThat(TextValidator.isDate(""2011-03-11"")).isTrue();
+		assertThat(TextValidator.isDate(""2012-02-29"")).isTrue();
+	}",TextValidatorTest::isDate_oe
+springside4_72,"@Test
+	public void isIp_oe() {
+		assertThat(TextValidator.isIp(""192.168.0.300"")).isFalse();
+		assertThat(TextValidator.isIp(""192.168.300.1"")).isFalse();
+		assertThat(TextValidator.isIp(""192.168.300"")).isFalse();
+		assertThat(TextValidator.isIp(""192.168.A3.1"")).isFalse();
+
+		assertThat(TextValidator.isIp(""192.168.0.1"")).isTrue();
+	}",TextValidatorTest::isIp_oe
+springside4_73,"@Test
+	public void test_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock();
+			Logger realLogger = LoggerFactory.getLogger(ThrottledSlf4jLoggerTest.class);
+			LogbackListAppender appender = LogbackListAppender.create(ThrottledSlf4jLoggerTest.class);
+			// 间隔10毫秒
+			ThrottledSlf4jLogger logger = new ThrottledSlf4jLogger(realLogger, 10, TimeUnit.MILLISECONDS);
+
+			logger.warn(""haha"");
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+
+			// still 1
+			logger.warn(""haha {}"", 1);
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+
+			// still 1
+			logger.error(""haha {}"", 1);
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+			// still 1
+			clock.increaseTime(5);
+			logger.error(""haha, {} {} {}"", 1, 2, 3);
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+
+			// 10ms pass
+			clock.increaseTime(5);
+			logger.warn(""haha"");
+			assertThat(appender.getLogsCount()).isEqualTo(2);
+
+			// still 2
+			logger.warn(""haha {} {} {}"", 1, 2, 3);
+			assertThat(appender.getLogsCount()).isEqualTo(2);
+
+			// still 2
+			clock.increaseTime(7);
+			logger.warn(""haha"");
+			assertThat(appender.getLogsCount()).isEqualTo(2);
+
+		} finally {
+			ClockUtil.useDefaultClock();
+		}
+
+	}",ThrottledSlf4jLoggerTest::test_oe
+springside4_75,"@Test
+	public void portDetect_oe() throws UnknownHostException, IOException {
+		int port = NetUtil.findRandomAvailablePort(20000, 20100);
+		assertThat(port).isBetween(20000, 20100);
+		System.out.println(""random port:"" + port);
+
+		assertThat(NetUtil.isPortAvailable(port)).isTrue();
+
+		int port2 = NetUtil.findAvailablePortFrom(port);
+		assertThat(port2).isEqualTo(port);
+
+		int port3 = NetUtil.findRandomAvailablePort();
+
+		assertThat(port3).isBetween(NetUtil.PORT_RANGE_MIN, NetUtil.PORT_RANGE_MAX);
+		System.out.println(""random port:"" + port3);
+
+		// 尝试占住一个端口
+		ServerSocket serverSocket = null;
+		try {
+			serverSocket = ServerSocketFactory.getDefault().createServerSocket(port, 1,
+					InetAddress.getByName(""localhost""));
+
+			assertThat(NetUtil.isPortAvailable(port)).isFalse();
+
+			int port4 = NetUtil.findAvailablePortFrom(port);
+			assertThat(port4).isEqualTo(port + 1);
+
+			try {
+				int port5 = NetUtil.findRandomAvailablePort(port, port);
+				fail(""should fail before"");
+			} catch (Throwable t) {
+				assertThat(t).isInstanceOf(IllegalStateException.class);
+			}
+
+		} finally {
+			IOUtil.close(serverSocket);
+		}
+
+	}",NetUtilTest::portDetect_oe
+springside4_76,"@Test
+	public void stringAndInt_oe() {
+
+		assertThat(IPUtil.ipv4StringToInt(""192.168.0.1"")).isEqualTo(-1062731775);
+		assertThat(IPUtil.ipv4StringToInt(""192.168.0.2"")).isEqualTo(-1062731774);
+
+		assertThat(IPUtil.intToIpv4String(-1062731775)).isEqualTo(""192.168.0.1"");
+		assertThat(IPUtil.intToIpv4String(-1062731774)).isEqualTo(""192.168.0.2"");
+	}",IPUtilTest::stringAndInt_oe
+springside4_77,"@Test
+	public void inetAddress_oe() {
+
+		assertThat(IPUtil.fromInt(-1062731775).getHostAddress()).isEqualTo(""192.168.0.1"");
+		assertThat(IPUtil.fromInt(-1062731774).getHostAddress()).isEqualTo(""192.168.0.2"");
+
+		assertThat(IPUtil.fromIpString(""192.168.0.1"").getHostAddress()).isEqualTo(""192.168.0.1"");
+		assertThat(IPUtil.fromIpString(""192.168.0.2"").getHostAddress()).isEqualTo(""192.168.0.2"");
+		assertThat(IPUtil.fromIpv4String(""192.168.0.1"").getHostAddress()).isEqualTo(""192.168.0.1"");
+		assertThat(IPUtil.fromIpv4String(""192.168.0.2"").getHostAddress()).isEqualTo(""192.168.0.2"");
+
+		assertThat(IPUtil.toInt(IPUtil.fromIpString(""192.168.0.1""))).isEqualTo(-1062731775);
+	}",IPUtilTest::inetAddress_oe
+springside4_78,"@Test
+	public void objectToXml_oe() {
+		User user = new User();
+		user.setId(1L);
+		user.setName(""calvin"");
+
+		user.getInterests().add(""movie"");
+		user.getInterests().add(""sports"");
+
+		String xml = XmlMapper.toXml(user, ""UTF-8"");
+		System.out.println(""Jaxb Object to Xml result:\n"" + xml);
+		assertXmlByDom4j(xml);
+	}",XmlMapperTest::objectToXml_oe
+springside4_79,"@Test
+	public void xmlToObject_oe() {
+		String xml = generateXmlByDom4j();
+		User user = XmlMapper.fromXml(xml, User.class);
+
+		System.out.println(""Jaxb Xml to Object result:\n"" + user);
+
+		assertThat(user.getId()).isEqualTo(1L);
+		assertThat(user.getInterests()).containsOnly(""movie"", ""sports"");
+	}",XmlMapperTest::xmlToObject_oe
+springside4_80,"@Test
+	public void toJson_oe() throws Exception {
+		// Bean
+		TestBean bean = new TestBean(""A"");
+		String beanString = JsonMapper.INSTANCE.toJson(bean);
+		System.out.println(""Bean:"" + beanString);
+		assertThat(beanString)
+				.isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}"");
+
+		// Map
+		Map<String, Object> map = Maps.newLinkedHashMap();
+		map.put(""name"", ""A"");
+		map.put(""age"", 2);
+		String mapString = JsonMapper.INSTANCE.toJson(map);
+		System.out.println(""Map:"" + mapString);
+		assertThat(mapString).isEqualTo(""{\""name\"":\""A\"",\""age\"":2}"");
+
+		// List<String>
+		List<String> stringList = Lists.newArrayList(""A"", ""B"", ""C"");
+		String listString = JsonMapper.INSTANCE.toJson(stringList);
+		System.out.println(""String List:"" + listString);
+		assertThat(listString).isEqualTo(""[\""A\"",\""B\"",\""C\""]"");
+
+		// List<Bean>
+		List<TestBean> beanList = Lists.newArrayList(new TestBean(""A""), new TestBean(""B""));
+		String beanListString = JsonMapper.INSTANCE.toJson(beanList);
+		System.out.println(""Bean List:"" + beanListString);
+		assertThat(beanListString).isEqualTo(
+				""[{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]},{\""name\"":\""B\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}]"");
+
+		// Bean[]
+		TestBean[] beanArray = new TestBean[] { new TestBean(""A""), new TestBean(""B"") };
+		String beanArrayString = JsonMapper.INSTANCE.toJson(beanArray);
+		System.out.println(""Array List:"" + beanArrayString);
+		assertThat(beanArrayString).isEqualTo(
+				""[{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]},{\""name\"":\""B\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}]"");
+	}",JsonMapperTest::toJson_oe
+springside4_81,"@Test
+	public void nullAndEmpty_oe() {
+		// toJson测试 //
+
+		// Null Bean
+		TestBean nullBean = null;
+		String nullBeanString = JsonMapper.INSTANCE.toJson(nullBean);
+		assertThat(nullBeanString).isEqualTo(""null"");
+
+		// Empty List
+		List<String> emptyList = Lists.newArrayList();
+		String emptyListString = JsonMapper.INSTANCE.toJson(emptyList);
+		assertThat(emptyListString).isEqualTo(""[]"");
+
+		// fromJson测试 //
+
+		// Null String for Bean
+		TestBean nullBeanResult = JsonMapper.INSTANCE.fromJson(null, TestBean.class);
+		assertThat(nullBeanResult).isNull();
+
+		nullBeanResult = JsonMapper.INSTANCE.fromJson(""null"", TestBean.class);
+		assertThat(nullBeanResult).isNull();
+
+		// Null/Empty String for List
+		List nullListResult = JsonMapper.INSTANCE.fromJson(null, List.class);
+		assertThat(nullListResult).isNull();
+
+		nullListResult = JsonMapper.INSTANCE.fromJson(""null"", List.class);
+		assertThat(nullListResult).isNull();
+
+		nullListResult = JsonMapper.INSTANCE.fromJson(""[]"", List.class);
+		assertThat(nullListResult).isEmpty();
+	}",JsonMapperTest::nullAndEmpty_oe
+springside4_82,"@Test
+	public void threeTypeMappers_oe() {
+		// 打印全部属性
+		JsonMapper normalBinder = JsonMapper.defaultMapper();
+		TestBean bean = new TestBean(""A"");
+		assertThat(normalBinder.toJson(bean))
+				.isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}"");
+
+		// 不打印nullValue属性
+		JsonMapper nonNullMapper = JsonMapper.nonNullMapper();
+		assertThat(nonNullMapper.toJson(bean))
+				.isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""emptyValue\"":[]}"");
+
+		// 不打印nullValue与empty的属性
+		JsonMapper nonEmptyMapper = JsonMapper.nonEmptyMapper();
+		assertThat(nonEmptyMapper.toJson(bean)).isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\""}"");
+
+		TestBean nonEmptyBean = nonEmptyMapper.fromJson(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\""}"", TestBean.class);
+		assertThat(nonEmptyBean.getEmptyValue()).isEmpty();
+	}",JsonMapperTest::threeTypeMappers_oe
+springside4_83,"@Test
+	public void jsonp_oe() {
+		TestBean bean = new TestBean(""A"");
+		String jsonp = JsonMapper.nonEmptyMapper().toJsonP(""haha"", bean);
+		assertThat(jsonp).isEqualTo(""haha({\""name\"":\""A\"",\""defaultValue\"":\""hello\""})"");
+	}",JsonMapperTest::jsonp_oe
+springside4_84,"@Test
+	public void update_oe() {
+		TestBean bean = new TestBean(""A"");
+		bean.setDefaultValue(""lalala"");
+		JsonMapper.INSTANCE.update(""{\""name\"":\""B\""}"", bean);
+		assertThat(bean.getName()).isEqualTo(""B"");
+		assertThat(bean.getDefaultValue()).isEqualTo(""lalala"");
+	}",JsonMapperTest::update_oe
+springside4_85,"@Test
+	public void copySingleObject_oe() {
+		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
+
+		StudentVO studentVo = BeanMapper.map(student, StudentVO.class);
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+
+		//////////
+		Type<Student> studentType = BeanMapper.getType(Student.class);
+		Type<StudentVO> studentVoType = BeanMapper.getType(StudentVO.class);
+		studentVo = BeanMapper.map(student, studentType, studentVoType);
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+	}",BeanMapperTest::copySingleObject_oe
+springside4_86,"@Test
+	public void copyListObject_oe() {
+		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
+		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
+		Student student3 = new Student(""zhang5"", 40, new Teacher(""li6""), ListUtil.newArrayList(""chinese3"", ""english5""));
+		List<Student> studentList = ListUtil.newArrayList(student1, student2, student3);
+
+		List<StudentVO> studentVoList = BeanMapper.mapList(studentList, Student.class, StudentVO.class);
+		assertThat(studentVoList).hasSize(3);
+		StudentVO studentVo = studentVoList.get(0);
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+
+		/////////
+		Type<Student> studentType = BeanMapper.getType(Student.class);
+		Type<StudentVO> studentVoType = BeanMapper.getType(StudentVO.class);
+		studentVoList = BeanMapper.mapList(studentList, studentType, studentVoType);
+
+		studentVoList = BeanMapper.mapList(studentList, Student.class, StudentVO.class);
+		assertThat(studentVoList).hasSize(3);
+		studentVo = studentVoList.get(0);
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+	}",BeanMapperTest::copyListObject_oe
+springside4_87,"@Test
+	public void copyArrayObject_oe() {
+		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
+		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
+		Student student3 = new Student(""zhang5"", 40, new Teacher(""li6""), ListUtil.newArrayList(""chinese3"", ""english5""));
+		Student[] studentList = new Student[]{student1, student2, student3};
+		StudentVO[] studentVoList =new StudentVO[studentList.length];
+		BeanMapper.mapArray(studentVoList, studentList, StudentVO.class);
+		assertThat(studentVoList).hasSize(3);
+		StudentVO studentVo = studentVoList[0];
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+
+		/////////
+		Type<Student> studentType = BeanMapper.getType(Student.class);
+		Type<StudentVO> studentVoType = BeanMapper.getType(StudentVO.class);
+		
+		StudentVO[] studentVoList2 =new StudentVO[studentList.length];
+		BeanMapper.mapArray(studentVoList2, studentList,studentType, studentVoType);
+		assertThat(studentVoList).hasSize(3);
+		studentVo = studentVoList2[0];
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+	}",BeanMapperTest::copyArrayObject_oe
+springside4_88,"@Test
+	public void test_oe() {
+		assertThat(EnumUtil.generateBits(Options.class, Options.A)).isEqualTo(1);
+		assertThat(EnumUtil.generateBits(Options.class, Options.A, Options.B)).isEqualTo(3);
+
+		assertThat(EnumUtil.generateBits(Options.class, ListUtil.newArrayList(Options.A))).isEqualTo(1);
+		assertThat(EnumUtil.generateBits(Options.class, ListUtil.newArrayList(Options.A, Options.B))).isEqualTo(3);
+
+		assertThat(EnumUtil.processBits(Options.class, 3)).hasSize(2).containsExactly(Options.A, Options.B);
+		assertThat(EnumUtil.processBits(Options.class,EnumUtil.generateBits(Options.class,Options.A,Options.C,Options.D))).hasSize(3).containsExactly(Options.A,Options.C,Options.D);
+
+	}",EnumUtilTest::test_oe
+springside4_89,"@Test
+	public void unchecked_oe() {
+		// convert Exception to RuntimeException with cause
+		Exception exception = new Exception(""my exception"");
+		try {
+			ExceptionUtil.unchecked(exception);
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t.getCause()).isSameAs(exception);
+		}
+
+		// do nothing of Error
+		Error error = new LinkageError();
+		try {
+			ExceptionUtil.unchecked(error);
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isSameAs(error);
+		}
+
+		// do nothing of RuntimeException
+		RuntimeException runtimeException = new RuntimeException(""haha"");
+		try {
+			ExceptionUtil.unchecked(runtimeException);
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isSameAs(runtimeException);
+		}
+
+	}",ExceptionUtilTest::unchecked_oe
+springside4_90,"@Test
+	public void unwrap_oe() {
+		RuntimeException re = new RuntimeException(""my runtime"");
+		assertThat(ExceptionUtil.unwrap(re)).isSameAs(re);
+
+		ExecutionException ee = new ExecutionException(re);
+		assertThat(ExceptionUtil.unwrap(ee)).isSameAs(re);
+
+		InvocationTargetException ie = new InvocationTargetException(re);
+		assertThat(ExceptionUtil.unwrap(ie)).isSameAs(re);
+		
+		Exception e = new Exception(""my exception"");
+		ExecutionException ee2 = new ExecutionException(e);
+		try{
+		ExceptionUtil.uncheckedAndWrap(ee2);
+		}catch (Throwable t) {
+			assertThat(t).isInstanceOf(UncheckedException.class).hasCauseExactlyInstanceOf(Exception.class);
+		}
+	}",ExceptionUtilTest::unwrap_oe
+springside4_91,"@Test
+	public void isCausedBy_oe() {
+		IOException ioexception = new IOException(""my exception"");
+		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
+		RuntimeException runtimeException = new RuntimeException(illegalStateException);
+
+		assertThat(ExceptionUtil.isCausedBy(runtimeException, IOException.class)).isTrue();
+		assertThat(ExceptionUtil.isCausedBy(runtimeException, IllegalStateException.class, IOException.class)).isTrue();
+		assertThat(ExceptionUtil.isCausedBy(runtimeException, Exception.class)).isTrue();
+		assertThat(ExceptionUtil.isCausedBy(runtimeException, IllegalAccessException.class)).isFalse();
+	}",ExceptionUtilTest::isCausedBy_oe
+springside4_92,"@Test
+	public void getRootCause_oe() {
+		IOException ioexception = new IOException(""my exception"");
+		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
+		RuntimeException runtimeException = new RuntimeException(illegalStateException);
+
+		assertThat(ExceptionUtil.getRootCause(runtimeException)).isSameAs(ioexception);
+		// 无cause
+		assertThat(ExceptionUtil.getRootCause(ioexception)).isSameAs(ioexception);
+	}",ExceptionUtilTest::getRootCause_oe
+springside4_95,"@Test
+	public void test_oe() {
+		assertThat(BooleanUtil.toBoolean(""True"")).isTrue();
+		assertThat(BooleanUtil.toBoolean(""tre"")).isFalse();
+		assertThat(BooleanUtil.toBoolean(null)).isFalse();
+
+		assertThat(BooleanUtil.toBooleanObject(""True"")).isTrue();
+		assertThat(BooleanUtil.toBooleanObject(""tre"")).isFalse();
+		assertThat(BooleanUtil.toBooleanObject(null)).isNull();
+
+		assertThat(BooleanUtil.parseGeneralString(""1"", false)).isFalse();
+		assertThat(BooleanUtil.parseGeneralString(""y"", false)).isTrue();
+		assertThat(BooleanUtil.parseGeneralString(""y"")).isTrue();
+		assertThat(BooleanUtil.parseGeneralString(""x"")).isNull();
+	}",BeanUtilTest::test_oe
+springside4_96,"@Test
+	public void logic_oe() {
+		assertThat(BooleanUtil.negate(Boolean.TRUE)).isFalse();
+		assertThat(BooleanUtil.negate(Boolean.FALSE)).isTrue();
+
+		assertThat(BooleanUtil.negate(true)).isFalse();
+		assertThat(BooleanUtil.negate(false)).isTrue();
+
+		assertThat(BooleanUtil.or(true, true, false)).isTrue();
+		assertThat(BooleanUtil.or(false, false, false)).isFalse();
+
+		assertThat(BooleanUtil.and(true, true, false)).isFalse();
+		assertThat(BooleanUtil.and(true, true, true)).isTrue();
+
+	}",BeanUtilTest::logic_oe
+springside4_97,"@Test
+	public void test_oe() {
+		// int
+		int a = MoreValidate.nonNegative(""x"", 0);
+		assertThat(a).isEqualTo(0);
+		a = MoreValidate.nonNegative(""x"", 1);
+		assertThat(a).isEqualTo(1);
+
+		a = MoreValidate.positive(""x"", 1);
+		assertThat(a).isEqualTo(1);
+
+		// Integer
+		Integer c = MoreValidate.nonNegative(""x"", Integer.valueOf(0));
+		assertThat(c).isEqualTo(0);
+		c = MoreValidate.nonNegative(""x"", Integer.valueOf(21));
+		assertThat(c).isEqualTo(21);
+
+		c = MoreValidate.positive(""x"", Integer.valueOf(1));
+		assertThat(c).isEqualTo(1);
+
+		// long
+		long b = MoreValidate.nonNegative(""x"", 0l);
+		assertThat(b).isEqualTo(0);
+
+		b = MoreValidate.nonNegative(""x"", 11l);
+		assertThat(b).isEqualTo(11);
+
+		b = MoreValidate.positive(""x"", 1l);
+		assertThat(b).isEqualTo(1);
+
+		double e = MoreValidate.nonNegative(""x"", 0l);
+		assertThat(e).isEqualTo(0);
+
+		e = MoreValidate.nonNegative(""x"", 11d);
+		assertThat(e).isEqualTo(11);
+
+		e = MoreValidate.positive(""x"", 1.1d);
+		assertThat(e).isEqualTo(1.1);
+
+		// Long
+		Long d = MoreValidate.nonNegative(""x"", Long.valueOf(0));
+		assertThat(d).isEqualTo(0);
+
+		d = MoreValidate.positive(""x"", Long.valueOf(1));
+		assertThat(d).isEqualTo(1);
+
+		d = MoreValidate.nonNegative(""x"", Long.valueOf(11));
+		assertThat(d).isEqualTo(11);
+
+		// int
+		try {
+			MoreValidate.nonNegative(""x"", -1);
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+		try {
+			MoreValidate.positive(""x"", -1);
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		try {
+			MoreValidate.positive(""x"", 0);
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		// long
+		try {
+			MoreValidate.nonNegative(""x"", -1l);
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1l);
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+		try {
+			MoreValidate.positive(""x"", 0l);
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		// Long
+		try {
+			MoreValidate.nonNegative(""x"", Long.valueOf(-1));
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(-1));
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		try {
+			MoreValidate.positive(""x"", Long.valueOf(0));
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		// Integer
+		try {
+			MoreValidate.nonNegative(""x"", Integer.valueOf(-1));
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(-1));
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		try {
+			MoreValidate.positive(""x"", Integer.valueOf(0));
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		// double
+		try {
+			MoreValidate.nonNegative(""x"", -9999.2d);
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		try {
+			MoreValidate.positive(""x"", -1.2d);
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+		try {
+			MoreValidate.positive(""x"", 0d);
+			fail(""fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+
+
+	}",MoreValidateTest::test_oe
+springside4_98,"@Test
+	public void loadProperties_oe() {
+		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
+		assertThat(p1.get(""springside.min"")).isEqualTo(""1"");
+		assertThat(p1.get(""springside.max"")).isEqualTo(""10"");
+
+		Properties p2 = PropertiesUtil.loadFromString(""springside.min=1\nspringside.max=10\nisOpen=true"");
+		assertThat(PropertiesUtil.getInt(p2, ""springside.min"", 0)).isEqualTo(1);
+		assertThat(PropertiesUtil.getInt(p2, ""springside.max"", 0)).isEqualTo(10);
+		assertThat(PropertiesUtil.getInt(p2, ""springside.maxA"", 0)).isEqualTo(0);
+
+		assertThat(PropertiesUtil.getLong(p2, ""springside.min"", 0L)).isEqualTo(1);
+		assertThat(PropertiesUtil.getLong(p2, ""springside.max"", 0L)).isEqualTo(10);
+		assertThat(PropertiesUtil.getLong(p2, ""springside.maxA"", 0L)).isEqualTo(0);
+		
+		assertThat(PropertiesUtil.getDouble(p2, ""springside.min"", 0d)).isEqualTo(1);
+		assertThat(PropertiesUtil.getDouble(p2, ""springside.max"", 0d)).isEqualTo(10);
+		assertThat(PropertiesUtil.getDouble(p2, ""springside.maxA"", 0d)).isEqualTo(0);
+		
+		assertThat(PropertiesUtil.getString(p2, ""springside.min"", """")).isEqualTo(""1"");
+		assertThat(PropertiesUtil.getString(p2, ""springside.max"", """")).isEqualTo(""10"");
+		assertThat(PropertiesUtil.getString(p2, ""springside.maxA"", """")).isEqualTo("""");
+
+		assertThat(PropertiesUtil.getBoolean(p2, ""isOpen"", false)).isTrue();
+	}",PropertiesUtilTest::loadProperties_oe
+springside4_99,"@Test
+	public void systemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+
+		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		assertThat(result0).isNull();
+
+		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		assertThat(result1).isNull();
+
+		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		assertThat(result3).isTrue();
+
+		System.setProperty(name, ""true"");
+
+		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		assertThat(result5).isTrue();
+
+		System.clearProperty(name);
+
+		/// int
+		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		assertThat(result6).isNull();
+
+		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		assertThat(result6).isEqualTo(1);
+
+		System.setProperty(name, ""2"");
+		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		assertThat(result6).isEqualTo(2);
+
+		System.clearProperty(name);
+
+		///// long
+		Long result7 = SystemPropertiesUtil.getLong(name);
+		assertThat(result7).isNull();
+
+		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		assertThat(result7).isEqualTo(1L);
+
+		System.setProperty(name, ""2"");
+		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		assertThat(result7).isEqualTo(2L);
+
+		System.clearProperty(name);
+
+		///// doulbe
+		Double result8 = SystemPropertiesUtil.getDouble(name);
+		assertThat(result8).isNull();
+
+		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		assertThat(result8).isEqualTo(1.1);
+
+		System.setProperty(name, ""2.1"");
+		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		assertThat(result8).isEqualTo(2.1);
+
+		System.clearProperty(name);
+
+		///// String
+		String result9 = SystemPropertiesUtil.getString(name);
+		assertThat(result9).isNull();
+
+		result9 = SystemPropertiesUtil.getString(name, ""1.1"");
+		assertThat(result9).isEqualTo(""1.1"");
+
+		System.setProperty(name, ""2.1"");
+		result9 = SystemPropertiesUtil.getString(name, ""1.1"");
+		assertThat(result9).isEqualTo(""2.1"");
+
+		System.clearProperty(name);
+
+	}",SystemPropertiesUtilTest::systemProperty_oe
+springside4_100,"@Test
+	public void stringSystemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		// default 值
+		String result = SystemPropertiesUtil.getString(name, envName, ""123"");
+		assertThat(result).isEqualTo(""123"");
+
+		// env值
+		String result2 = SystemPropertiesUtil.getString(name, ""HOME"", ""123"");
+		assertThat(result2).isNotEqualTo(""123"");
+
+		// system properties值
+		System.setProperty(name, ""456"");
+		String result3 = SystemPropertiesUtil.getString(name, envName, ""123"");
+		assertThat(result3).isEqualTo(""456"");
+
+		try {
+			// 非法字符
+			String result4 = SystemPropertiesUtil.getString(name, name, ""123"");
+			fail(""should fail before"");
+		} catch (Exception e) {
+			assertThat(e).isInstanceOf(IllegalArgumentException.class);
+		}
+
+		System.clearProperty(name);
+	}",SystemPropertiesUtilTest::stringSystemProperty_oe
+springside4_101,"@Test
+	public void intSystemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		// default 值
+		int result = SystemPropertiesUtil.getInteger(name, envName, 123);
+		assertThat(result).isEqualTo(123);
+
+		// env值没有数字类型的，忽略
+
+		// system properties值
+		System.setProperty(name, ""456"");
+		int result3 = SystemPropertiesUtil.getInteger(name, envName, 123);
+		assertThat(result3).isEqualTo(456);
+
+		System.clearProperty(name);
+	}",SystemPropertiesUtilTest::intSystemProperty_oe
+springside4_102,"@Test
+	public void longSystemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		// default 值
+		long result = SystemPropertiesUtil.getLong(name, envName, 123L);
+		assertThat(result).isEqualTo(123L);
+
+		// env值没有数字类型的，忽略
+
+		// system properties值
+		System.setProperty(name, ""456"");
+		long result3 = SystemPropertiesUtil.getLong(name, envName, 123L);
+		assertThat(result3).isEqualTo(456L);
+
+		System.clearProperty(name);
+	}",SystemPropertiesUtilTest::longSystemProperty_oe
+springside4_103,"@Test
+	public void doubleSystemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		// default 值
+		double result = SystemPropertiesUtil.getDouble(name, envName, 123d);
+		assertThat(result).isEqualTo(123d);
+
+		// env值没有数字类型的，忽略
+
+		// system properties值
+		System.setProperty(name, ""456"");
+		double result3 = SystemPropertiesUtil.getDouble(name, envName, 123d);
+		assertThat(result3).isEqualTo(456d);
+
+		System.clearProperty(name);
+	}",SystemPropertiesUtilTest::doubleSystemProperty_oe
+springside4_104,"@Test
+	public void booleanSystemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		// default 值
+		boolean result = SystemPropertiesUtil.getBoolean(name, envName, true);
+		assertThat(result).isTrue();
+
+		// env值没有boolean类型的，忽略
+
+		// system properties值
+		System.setProperty(name, ""true"");
+		boolean result3 = SystemPropertiesUtil.getBoolean(name, envName, false);
+		assertThat(result3).isTrue();
+
+		System.clearProperty(name);
+	}",SystemPropertiesUtilTest::booleanSystemProperty_oe
+springside4_105,"@Test
+	public void listenableProperties_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+
+		TestPropertiesListener listener = new TestPropertiesListener(name);
+		SystemPropertiesUtil.registerSystemPropertiesListener(listener);
+
+		System.setProperty(name, ""haha"");
+
+		assertThat(listener.newValue).isEqualTo(""haha"");
+	}",SystemPropertiesUtilTest::listenableProperties_oe
+springside4_106,"@Test
+	public void hashCodeTest_oe() {
+		assertThat(ObjectUtil.hashCode(""a"", ""b"") - ObjectUtil.hashCode(""a"", ""a"")).isEqualTo(1);
+	}",ObjectUtilTest::hashCodeTest_oe
+springside4_107,"@Test
+	public void toPrettyString_oe() {
+		assertThat(ObjectUtil.toPrettyString(null)).isEqualTo(""null"");
+		assertThat(ObjectUtil.toPrettyString(1)).isEqualTo(""1"");
+
+		assertThat(ObjectUtil.toPrettyString(new int[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		assertThat(ObjectUtil.toPrettyString(new long[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		assertThat(ObjectUtil.toPrettyString(new double[] { 1.1d, 2.2d })).isEqualTo(""[1.1, 2.2]"");
+		assertThat(ObjectUtil.toPrettyString(new float[] { 1.1f, 2.2f })).isEqualTo(""[1.1, 2.2]"");
+		assertThat(ObjectUtil.toPrettyString(new boolean[] { true, false })).isEqualTo(""[true, false]"");
+		assertThat(ObjectUtil.toPrettyString(new short[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		assertThat(ObjectUtil.toPrettyString(new byte[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		
+		assertThat(ObjectUtil.toPrettyString(new Integer[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		assertThat(ObjectUtil.toPrettyString(ListUtil.newArrayList(""1"", ""2""))).isEqualTo(""{1,2}"");
+	}",ObjectUtilTest::toPrettyString_oe
+springside4_108,"@Test
+	public void PlatformTest_oe() {
+
+		if (Platforms.IS_WINDOWS) {
+			assertThat(Platforms.FILE_PATH_SEPARATOR).isEqualTo(""\\"");
+			assertThat(Platforms.FILE_PATH_SEPARATOR_CHAR).isEqualTo('\\');
+		} else {
+			assertThat(Platforms.FILE_PATH_SEPARATOR).isEqualTo(""/"");
+			assertThat(Platforms.FILE_PATH_SEPARATOR_CHAR).isEqualTo('/');
+		}
+
+		System.out.println(""OS_NAME:"" + Platforms.OS_NAME);
+		System.out.println(""OS_VERSION:"" + Platforms.OS_VERSION);
+		System.out.println(""OS_ARCH:"" + Platforms.OS_ARCH);
+		System.out.println(""JAVA_SPECIFICATION_VERSION:"" + Platforms.JAVA_SPECIFICATION_VERSION);
+		System.out.println(""JAVA_VERSION:"" + Platforms.JAVA_VERSION);
+		System.out.println(""JAVA_HOME:"" + Platforms.JAVA_HOME);
+		System.out.println(""USER_HOME:"" + Platforms.USER_HOME);
+		System.out.println(""TMP_DIR:"" + Platforms.TMP_DIR);
+		System.out.println(""WORKING_DIR:"" + Platforms.WORKING_DIR);
+
+		if (Platforms.IS_JAVA7) {
+			assertThat(Platforms.IS_ATLEASET_JAVA6).isTrue();
+			assertThat(Platforms.IS_ATLEASET_JAVA7).isTrue();
+			assertThat(Platforms.IS_ATLEASET_JAVA8).isFalse();
+		}
+		
+		if (Platforms.IS_JAVA8) {
+			assertThat(Platforms.IS_ATLEASET_JAVA6).isTrue();
+			assertThat(Platforms.IS_ATLEASET_JAVA7).isTrue();
+			assertThat(Platforms.IS_ATLEASET_JAVA8).isTrue();
+		}
+		
+		System.out.println(""pid:""+ Platforms.getPid());
+		assertThat(Platforms.getPid()).isNotEqualTo(-1);
+	}",PlatformsTest::PlatformTest_oe
+springside4_109,"@Test
+	public void mac_oe() {
+		String input = ""foo message"";
+
+		// key可为任意字符串
+		// byte[] key = ""a foo key"".getBytes();
+		byte[] key = CryptoUtil.generateHmacSha1Key();
+		assertThat(key).hasSize(20);
+
+		byte[] macResult = CryptoUtil.hmacSha1(input.getBytes(), key);
+		System.out.println(""hmac-sha1 key in hex      :"" + EncodeUtil.encodeHex(key));
+		System.out.println(""hmac-sha1 in hex result   :"" + EncodeUtil.encodeHex(macResult));
+
+		assertThat(CryptoUtil.isMacValid(macResult, input.getBytes(), key)).isTrue();
+	}",CryptoUtilTest::mac_oe
+springside4_110,"@Test
+	public void aes_oe() {
+		byte[] key = CryptoUtil.generateAesKey();
+		assertThat(key).hasSize(16);
+		String input = ""foo message"";
+
+		byte[] encryptResult = CryptoUtil.aesEncrypt(input.getBytes(), key);
+		String descryptResult = CryptoUtil.aesDecrypt(encryptResult, key);
+
+		System.out.println(""aes key in hex            :"" + EncodeUtil.encodeHex(key));
+		System.out.println(""aes encrypt in hex result :"" + EncodeUtil.encodeHex(encryptResult));
+		assertThat(descryptResult).isEqualTo(input);
+	}",CryptoUtilTest::aes_oe
+springside4_111,"@Test
+	public void aesWithIV_oe() {
+		byte[] key = CryptoUtil.generateAesKey();
+		byte[] iv = CryptoUtil.generateIV();
+		assertThat(key).hasSize(16);
+		assertThat(iv).hasSize(16);
+		String input = ""foo message"";
+
+		byte[] encryptResult = CryptoUtil.aesEncrypt(input.getBytes(), key, iv);
+		String descryptResult = CryptoUtil.aesDecrypt(encryptResult, key, iv);
+
+		System.out.println(""aes key in hex            :"" + EncodeUtil.encodeHex(key));
+		System.out.println(""iv in hex                 :"" + EncodeUtil.encodeHex(iv));
+		System.out.println(""aes encrypt in hex result :"" + EncodeUtil.encodeHex(encryptResult));
+		assertThat(descryptResult).isEqualTo(input);
+	}",CryptoUtilTest::aesWithIV_oe
+springside4_112,"@Test
+	public void isSameDay_oe() {
+		Date date1 = new Date(106, 10, 1);
+		Date date2 = new Date(106, 10, 1, 12, 23, 44);
+		assertThat(DateUtil.isSameDay(date1, date2)).isTrue();
+
+		Date date3 = new Date(106, 10, 1);
+		assertThat(DateUtil.isSameTime(date1, date3)).isTrue();
+
+		Date date5 = new Date(106, 10, 2);
+		assertThat(DateUtil.isSameTime(date1, date5)).isFalse();
+
+		Date date4 = new Date(106, 10, 1, 12, 23, 43);
+		assertThat(DateUtil.isBetween(date3, date1, date2)).isTrue();
+		assertThat(DateUtil.isBetween(date4, date1, date2)).isTrue();
+
+		try {
+			DateUtil.isBetween(null, date1, date2);
+			fail(""should fail before"");
+		} catch (Exception e) {
+
+		}
+
+		try {
+			DateUtil.isBetween(date3, date2, date1);
+			fail(""should fail before"");
+		} catch (Exception e) {
+
+		}
+
+		assertThat(DateUtil.isBetween(date5, date1, date2)).isFalse();
+	}",DateUtilTest::isSameDay_oe
+springside4_113,"@Test
+	public void truncateAndCelling_oe() {
+		// Sat Jan 21 12:12:12 CST 2017
+		Date date = new Date(117, 0, 21, 12, 12, 12);
+
+		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
+		Date endYear = new Date(new Date(117, 11, 31, 23, 59, 59).getTime() + 999);
+		Date nextYear = new Date(118, 0, 1, 0, 0, 0);
+
+		Date beginMonth = new Date(117, 0, 1);
+		Date endMonth = new Date(new Date(117, 0, 31, 23, 59, 59).getTime() + 999);
+		Date nextMonth = new Date(117, 1, 1);
+
+		Date beginWeek = new Date(117, 0, 16);
+		Date endWeek = new Date(new Date(117, 0, 22, 23, 59, 59).getTime() + 999);
+		Date nextWeek = new Date(117, 0, 23);
+
+		Date beginDate = new Date(117, 0, 21);
+		Date endDate = new Date(new Date(117, 0, 21, 23, 59, 59).getTime() + 999);
+		Date nextDate = new Date(117, 0, 22);
+
+		Date beginHour = new Date(117, 0, 21, 12, 0, 0);
+		Date endHour = new Date(new Date(117, 0, 21, 12, 59, 59).getTime() + 999);
+		Date nextHour = new Date(117, 0, 21, 13, 0, 0);
+
+		Date beginMinute = new Date(117, 0, 21, 12, 12, 0);
+		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
+		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfYear(date), beginYear)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfYear(date), endYear)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextYear(date), nextYear)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfMonth(date), beginMonth)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfMonth(date), endMonth)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextMonth(date), nextMonth)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfWeek(date), beginWeek)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfWeek(date), endWeek)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextWeek(date), nextWeek)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfDate(date), beginDate)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfDate(date), endDate)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextDate(date), nextDate)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfHour(date), beginHour)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfHour(date), endHour)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextHour(date), nextHour)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfMinute(date), beginMinute)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfMinute(date), endMinute)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextMinute(date), nextMinute)).isTrue();
+	}",DateUtilTest::truncateAndCelling_oe
+springside4_114,"@Test
+	public void changeDay_oe() {
+		Date date = new Date(106, 10, 1, 12, 23, 44);
+		Date expectDate1 = new Date(106, 10, 3);
+		Date expectDate2 = new Date(106, 9, 31);
+		Date expectDate3 = new Date(106, 11, 1);
+		Date expectDate4 = new Date(106, 7, 1);
+		Date expectDate5 = new Date(106, 10, 1, 13, 23, 44);
+		Date expectDate6 = new Date(106, 10, 1, 10, 23, 44);
+		Date expectDate7 = new Date(106, 10, 1, 12, 24, 44);
+		Date expectDate8 = new Date(106, 10, 1, 12, 21, 44);
+
+		Date expectDate9 = new Date(106, 10, 1, 12, 23, 45);
+		Date expectDate10 = new Date(106, 10, 1, 12, 23, 42);
+
+		Date expectDate11 = new Date(106, 10, 8);
+		Date expectDate12 = new Date(106, 9, 25);
+
+		assertThat(DateUtil.isSameDay(DateUtil.addDays(date, 2), expectDate1)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.subDays(date, 1), expectDate2)).isTrue();
+
+		assertThat(DateUtil.isSameDay(DateUtil.addWeeks(date, 1), expectDate11)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.subWeeks(date, 1), expectDate12)).isTrue();
+
+		assertThat(DateUtil.isSameDay(DateUtil.addMonths(date, 1), expectDate3)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.subMonths(date, 3), expectDate4)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.addHours(date, 1), expectDate5)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.subHours(date, 2), expectDate6)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.addMinutes(date, 1), expectDate7)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.subMinutes(date, 2), expectDate8)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.addSeconds(date, 1), expectDate9)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.subSeconds(date, 2), expectDate10)).isTrue();
+
+	}",DateUtilTest::changeDay_oe
+springside4_115,"@Test
+	public void setDay_oe() {
+		Date date = new Date(116, 10, 1, 10, 10, 1);
+		Date expectedDate = new Date(116, 10, 3);
+		Date expectedDate2 = new Date(116, 11, 1);
+		Date expectedDate3 = new Date(117, 10, 1);
+		Date expectedDate4 = new Date(116, 10, 1, 9, 10, 1);
+		Date expectedDate5 = new Date(116, 10, 1, 10, 9, 1);
+		Date expectedDate6 = new Date(116, 10, 1, 10, 10, 10);
+
+		assertThat(DateUtil.isSameDay(DateUtil.setDays(date, 3), expectedDate)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.setMonths(date, 11), expectedDate2)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.setYears(date, 2017), expectedDate3)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.setHours(date, 9), expectedDate4)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.setMinutes(date, 9), expectedDate5)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.setSeconds(date, 10), expectedDate6)).isTrue();
+
+	}",DateUtilTest::setDay_oe
+springside4_116,"@Test
+	public void getDayOfWeek_oe() {
+		// 2017-01-09
+		Date date = new Date(117, 0, 9);
+		assertThat(DateUtil.getDayOfWeek(date)).isEqualTo(1);
+
+		Date date2 = new Date(117, 0, 15);
+		assertThat(DateUtil.getDayOfWeek(date2)).isEqualTo(7);
+	}",DateUtilTest::getDayOfWeek_oe
+springside4_117,"@Test
+	public void isLeapYear_oe() {
+		// 2008-01-09,整除4年, true
+		Date date = new Date(108, 0, 9);
+		assertThat(DateUtil.isLeapYear(date)).isTrue();
+
+		// 2000-01-09,整除400年，true
+		date = new Date(100, 0, 9);
+		assertThat(DateUtil.isLeapYear(date)).isTrue();
+
+		// 1900-01-09，整除100年，false
+		date = new Date(0, 0, 9);
+		assertThat(DateUtil.isLeapYear(date)).isFalse();
+	}",DateUtilTest::isLeapYear_oe
+springside4_118,"@Test
+	public void getXXofXX_oe() {
+		// 2008-02-09, 整除4年, 闰年
+		Date date = new Date(108, 2, 9);
+		assertThat(DateUtil.getMonthLength(date)).isEqualTo(29);
+
+		// 2009-02-09, 整除4年, 非闰年
+		Date date2 = new Date(109, 2, 9);
+		assertThat(DateUtil.getMonthLength(date2)).isEqualTo(28);
+
+		Date date3 = new Date(108, 8, 9);
+		assertThat(DateUtil.getMonthLength(date3)).isEqualTo(31);
+
+		Date date4 = new Date(109, 11, 30);
+		assertThat(DateUtil.getDayOfYear(date4)).isEqualTo(364);
+
+		Date date5 = new Date(117, 0, 12);
+		assertThat(DateUtil.getWeekOfMonth(date5)).isEqualTo(3);
+		assertThat(DateUtil.getWeekOfYear(date5)).isEqualTo(3);
+	}",DateUtilTest::getXXofXX_oe
+springside4_119,"@Test
+	public void testDummyClock_oe() {
+		DummyClock clock = new DummyClock();
+		clock.updateNow(111);
+		assertThat(clock.currentTimeMillis()).isEqualTo(111);
+		assertThat(clock.currentDate().getTime()).isEqualTo(111);
+
+		clock.updateNow(new Date(112));
+		assertThat(clock.currentTimeMillis()).isEqualTo(112);
+		clock.increaseTime(200);
+		assertThat(clock.currentTimeMillis()).isEqualTo(312);
+		clock.decreaseTime(100);
+		assertThat(clock.currentTimeMillis()).isEqualTo(212);
+
+		clock.setNanoTime(150);
+		assertThat(clock.nanoTime()).isEqualTo(150);
+
+	}",ClockUtilTest::testDummyClock_oe
+springside4_120,"@Test
+	public void elapsedTime_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock(2000);
+			clock.increaseTime(1000);
+			assertThat(ClockUtil.elapsedTime(2000)).isEqualTo(1000);
+		} finally {
+			ClockUtil.useDefaultClock();
+		}
+	}",ClockUtilTest::elapsedTime_oe
+springside4_121,"@Test
+	public void test_oe() {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+
+		CachingDateFormatter formatter = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT);
+		assertThat(formatter.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44.000"");
+		assertThat(formatter.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44.000"");
+		assertThat(formatter.format(date.getTime() + 2)).isEqualTo(""2016-11-01 12:23:44.002"");
+
+		CachingDateFormatter formatterOnSecond = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT_ON_SECOND);
+		assertThat(formatterOnSecond.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44"");
+		assertThat(formatterOnSecond.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44"");
+		assertThat(formatterOnSecond.format(date.getTime() + 2)).isEqualTo(""2016-11-01 12:23:44"");
+		assertThat(formatterOnSecond.format(date.getTime() + 1000)).isEqualTo(""2016-11-01 12:23:45"");
+	}",CachingDatFormatterTest::test_oe
+springside4_122,"@Test
+	public void isoDateFormat_oe() {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+		assertThat(DateFormatUtil.ISO_FORMAT.format(date)).contains(""2016-11-01T12:23:44.000"");
+		assertThat(DateFormatUtil.ISO_ON_SECOND_FORMAT.format(date)).contains(""2016-11-01T12:23:44"");
+		assertThat(DateFormatUtil.ISO_ON_DATE_FORMAT.format(date)).isEqualTo(""2016-11-01"");
+	}",DateFormatUtilTest::isoDateFormat_oe
+springside4_123,"@Test
+	public void defaultDateFormat_oe() {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+		assertThat(DateFormatUtil.DEFAULT_FORMAT.format(date)).isEqualTo(""2016-11-01 12:23:44.000"");
+		assertThat(DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.format(date)).isEqualTo(""2016-11-01 12:23:44"");
+	}",DateFormatUtilTest::defaultDateFormat_oe
+springside4_124,"@Test
+	public void formatWithPattern_oe() {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT,date)).isEqualTo(""2016-11-01 12:23:44.000"");
+		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT,date.getTime())).isEqualTo(""2016-11-01 12:23:44.000"");
+	}",DateFormatUtilTest::formatWithPattern_oe
+springside4_125,"@Test
+	public void parseWithPattern_oe() throws ParseException {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+		Date resultDate = DateFormatUtil.pareDate(DateFormatUtil.PATTERN_DEFAULT, ""2016-11-01 12:23:44.000"");
+		assertThat(resultDate.getTime() == date.getTime()).isTrue();
+	}",DateFormatUtilTest::parseWithPattern_oe
+springside4_126,"@Test
+	public void formatDuration_oe() {
+		assertThat(DateFormatUtil.formatDuration(100)).isEqualTo(""00:00:00.100"");
+
+		assertThat(DateFormatUtil.formatDuration(new Date(100), new Date(3000))).isEqualTo(""00:00:02.900"");
+
+		assertThat(DateFormatUtil.formatDuration(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)).isEqualTo(""52:00:00.000"");
+
+		assertThat(DateFormatUtil.formatDurationOnSecond(new Date(100), new Date(3000))).isEqualTo(""00:00:02"");
+
+		assertThat(DateFormatUtil.formatDurationOnSecond(2000)).isEqualTo(""00:00:02"");
+
+		assertThat(DateFormatUtil.formatDurationOnSecond(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)).isEqualTo(""52:00:00"");
+	}",DateFormatUtilTest::formatDuration_oe
+springside4_127,"@Test
+	public void formatFriendlyTimeSpanByNow_oe() throws ParseException {
+		try {
+			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
+
+			ClockUtil.useDummyClock(now);
+
+			Date lessOneSecond = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:59.500"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(lessOneSecond)).isEqualTo(""刚刚"");
+
+			Date lessOneMinute = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:55.000"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(lessOneMinute)).isEqualTo(""5秒前"");
+
+			Date lessOneHour = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(lessOneHour)).isEqualTo(""30分钟前"");
+
+			Date today = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 1:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(today)).isEqualTo(""今天01:00"");
+
+			Date yesterday = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-10 1:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(yesterday)).isEqualTo(""昨天01:00"");
+
+			Date threeDayBefore = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-09 1:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(threeDayBefore)).isEqualTo(""2016-12-09"");
+
+		} finally {
+
+			ClockUtil.useDefaultClock();
+		}
+	}",DateFormatUtilTest::formatFriendlyTimeSpanByNow_oe
+springside4_128,"@Test
+	public void toBytes_oe() {
+		byte[] bytes = NumberUtil.toBytes(1);
+		assertThat(bytes).hasSize(4).containsSequence((byte) 0, (byte) 0, (byte) 0, (byte) 1);
+
+		bytes = NumberUtil.toBytes(257);
+		assertThat(bytes).containsSequence((byte) 0, (byte) 0, (byte) 1, (byte) 1);
+		assertThat(NumberUtil.toInt(bytes)).isEqualTo(257);
+
+		//long
+		byte[] bytes2 = NumberUtil.toBytes(1L);
+		assertThat(bytes2).hasSize(8);
+
+		
+		bytes2 = NumberUtil.toBytes(257L);
+		assertThat(bytes2).containsSequence((byte) 0, (byte) 0, (byte) 1, (byte) 1);
+		assertThat(NumberUtil.toLong(bytes2)).isEqualTo(257L);
+		
+		//dobule
+		byte[] bytes3 = NumberUtil.toBytes(1.123d);
+		assertThat(NumberUtil.toDouble(bytes3)).isEqualTo(1.123d);
+		
+		//toInt32
+		assertThat(NumberUtil.toInt32(123l)).isEqualTo(123);
+		
+		try{
+			NumberUtil.toInt32(Long.valueOf(Integer.MAX_VALUE+1l));
+			fail(""should fail here"");
+		}catch(Exception e){
+			assertThat(e).isInstanceOf(IllegalArgumentException.class);
+		}
+	}",NumberUtilTest::toBytes_oe
+springside4_129,"@Test
+	public void isNumber_oe() {
+		assertThat(NumberUtil.isNumber(""123"")).isTrue();
+		assertThat(NumberUtil.isNumber(""-123.1"")).isTrue();
+		assertThat(NumberUtil.isNumber(""-1a3.1"")).isFalse();
+
+		assertThat(NumberUtil.isHexNumber(""0x12F"")).isTrue();
+		assertThat(NumberUtil.isHexNumber(""-0x12A3"")).isTrue();
+		assertThat(NumberUtil.isHexNumber(""12A3"")).isFalse();
+	}",NumberUtilTest::isNumber_oe
+springside4_130,"@Test
+	public void toNumber_oe() {
+		assertThat(NumberUtil.toInt(""122"")).isEqualTo(122);
+		assertThat(NumberUtil.toInt(""12A"")).isEqualTo(0);
+		assertThat(NumberUtil.toInt((String) null)).isEqualTo(0);
+		assertThat(NumberUtil.toInt(""12A"", 123)).isEqualTo(123);
+
+		assertThat(NumberUtil.toLong(""122"")).isEqualTo(122L);
+		assertThat(NumberUtil.toLong(""12A"")).isEqualTo(0L);
+		assertThat(NumberUtil.toLong((String) null)).isEqualTo(0);
+		assertThat(NumberUtil.toLong(""12A"", 123)).isEqualTo(123L);
+
+		assertThat(NumberUtil.toDouble(""122.1"")).isEqualTo(122.1);
+		assertThat(NumberUtil.toDouble(""12A"")).isEqualTo(0L);
+		assertThat(NumberUtil.toDouble(""12A"", 123.1)).isEqualTo(123.1);
+
+		assertThat(NumberUtil.toIntObject(""122"")).isEqualTo(122);
+		assertThat(NumberUtil.toIntObject(""12A"")).isEqualTo(null);
+		assertThat(NumberUtil.toIntObject(""12A"", 123)).isEqualTo(123);
+		assertThat(NumberUtil.toIntObject(null, 123)).isEqualTo(123);
+		assertThat(NumberUtil.toIntObject("""", 123)).isEqualTo(123);
+
+		assertThat(NumberUtil.toLongObject(""122"")).isEqualTo(122L);
+		assertThat(NumberUtil.toLongObject(""12A"")).isEqualTo(null);
+		assertThat(NumberUtil.toLongObject(""12A"", 123L)).isEqualTo(123L);
+		assertThat(NumberUtil.toLongObject(null, 123L)).isEqualTo(123L);
+
+		assertThat(NumberUtil.toDoubleObject(""122.1"")).isEqualTo(122.1);
+		assertThat(NumberUtil.toDoubleObject(""12A"")).isEqualTo(null);
+		assertThat(NumberUtil.toDoubleObject(""12A"", 123.1)).isEqualTo(123.1);
+
+		assertThat(NumberUtil.hexToIntObject(""0x10"")).isEqualTo(16);
+		assertThat(NumberUtil.hexToIntObject(""0X100"")).isEqualTo(256);
+		assertThat(NumberUtil.hexToIntObject(""-0x100"")).isEqualTo(-256);
+		assertThat(NumberUtil.hexToIntObject(""0xHI"")).isEqualTo(null);
+		assertThat(NumberUtil.hexToIntObject(null)).isEqualTo(null);
+		assertThat(NumberUtil.hexToIntObject(""0xHI"", 123)).isEqualTo(123);
+
+		assertThat(NumberUtil.hexToLongObject(""0x10"")).isEqualTo(16L);
+		assertThat(NumberUtil.hexToLongObject(""0X100"")).isEqualTo(256L);
+		assertThat(NumberUtil.hexToLongObject(""-0x100"")).isEqualTo(-256L);
+		assertThat(NumberUtil.hexToLongObject(""0xHI"")).isEqualTo(null);
+		assertThat(NumberUtil.hexToLongObject(null)).isEqualTo(null);
+		assertThat(NumberUtil.hexToLongObject(""0xHI"", 123L)).isEqualTo(123L);
+
+	}",NumberUtilTest::toNumber_oe
+springside4_131,"@Test
+	public void toStringTest_oe() {
+		assertThat(NumberUtil.toString(23)).isEqualTo(""23"");
+		assertThat(NumberUtil.toString(new Integer(23))).isEqualTo(""23"");
+		assertThat(NumberUtil.toString(23l)).isEqualTo(""23"");
+		assertThat(NumberUtil.toString(new Long(23))).isEqualTo(""23"");
+		assertThat(NumberUtil.toString(23l)).isEqualTo(""23"");
+		
+		assertThat(NumberUtil.toString(new Double(23.112d))).isEqualTo(""23.112"");
+		assertThat(NumberUtil.toString(23.112d)).isEqualTo(""23.112"");
+		assertThat(NumberUtil.to2DigitString(23.112d)).isEqualTo(""23.11"");
+		assertThat(NumberUtil.to2DigitString(23.116d)).isEqualTo(""23.12"");
+
+	}",NumberUtilTest::toStringTest_oe
+springside4_132,"@Test
+	public void convertDurationMillis_oe() {
+		assertThat(UnitConverter.convertDurationMillis(""12345"")).isEqualTo(12345);
+		assertThat(UnitConverter.convertDurationMillis(""12S"")).isEqualTo(12000);
+		assertThat(UnitConverter.convertDurationMillis(""12s"")).isEqualTo(12000);
+		assertThat(UnitConverter.convertDurationMillis(""12ms"")).isEqualTo(12);
+		assertThat(UnitConverter.convertDurationMillis(""12m"")).isEqualTo(12 * 60 * 1000);
+		assertThat(UnitConverter.convertDurationMillis(""12h"")).isEqualTo(12l * 60 * 60 * 1000);
+		assertThat(UnitConverter.convertDurationMillis(""12d"")).isEqualTo(12l * 24 * 60 * 60 * 1000);
+
+		try {
+			assertThat(UnitConverter.convertDurationMillis(""12a"")).isEqualTo(12 * 60 * 1000);
+			fail(""should fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+		
+		try {
+			assertThat(UnitConverter.convertDurationMillis(""a12"")).isEqualTo(12 * 60 * 1000);
+			fail(""should fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+	}",UnitConverterTest::convertDurationMillis_oe
+springside4_133,"@Test
+	public void convertSizeBytes_oe() {
+		assertThat(UnitConverter.convertSizeBytes(""12345"")).isEqualTo(12345);
+		assertThat(UnitConverter.convertSizeBytes(""12b"")).isEqualTo(12);
+		assertThat(UnitConverter.convertSizeBytes(""12k"")).isEqualTo(12 * 1024);
+		assertThat(UnitConverter.convertSizeBytes(""12M"")).isEqualTo(12 * 1024 * 1024);
+
+		assertThat(UnitConverter.convertSizeBytes(""12G"")).isEqualTo(12l * 1024 * 1024 * 1024);
+		assertThat(UnitConverter.convertSizeBytes(""12T"")).isEqualTo(12l * 1024 * 1024 * 1024 * 1024);
+
+		try {
+			UnitConverter.convertSizeBytes(""12x"");
+			fail(""should fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+		
+		try {
+			UnitConverter.convertSizeBytes(""a12"");
+			fail(""should fail"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(IllegalArgumentException.class);
+		}
+	}",UnitConverterTest::convertSizeBytes_oe
+springside4_134,"@Test
+	public void randomNumber_oe() {
+
+		int i = RandomUtil.nextInt();
+		assertThat(i).isBetween(0, Integer.MAX_VALUE);
+		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		assertThat(i).isBetween(0, Integer.MAX_VALUE);
+
+		i = RandomUtil.nextInt(10);
+		assertThat(i).isBetween(0, 10);
+		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		assertThat(i).isBetween(0, 10);
+
+		i = RandomUtil.nextInt(10, 20);
+		assertThat(i).isBetween(10, 20);
+		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		assertThat(i).isBetween(10, 20);
+
+		long l = RandomUtil.nextLong();
+		assertThat(l).isBetween(0L, Long.MAX_VALUE);
+		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		assertThat(l).isBetween(0L, Long.MAX_VALUE);
+
+		l = RandomUtil.nextLong(10);
+		assertThat(l).isBetween(0L, 10L);
+		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		assertThat(l).isBetween(0L, 10L);
+
+		l = RandomUtil.nextLong(10L, 20L);
+		assertThat(l).isBetween(10L, 20L);
+		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10, 20);
+		assertThat(l).isBetween(10L, 20L);
+
+		double d = RandomUtil.nextDouble();
+		assertThat(d).isBetween(0d, Double.MAX_VALUE);
+		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom());
+		assertThat(d).isBetween(0d, Double.MAX_VALUE);
+
+		d = RandomUtil.nextDouble(10);
+		assertThat(d).isBetween(0d, 10d);
+		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom(), 10L);
+		assertThat(d).isBetween(0d, 10d);
+
+		d = RandomUtil.nextDouble(10L, 20L);
+		assertThat(d).isBetween(10d, 20d);
+		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom(), 10, 20);
+		assertThat(d).isBetween(10d, 20d);
+
+	}",RandomUtilTest::randomNumber_oe
+springside4_135,"@Test
+	public void generateString_oe() {
+		System.out.println(RandomUtil.randomStringFixLength(5));
+		System.out.println(RandomUtil.randomStringRandomLength(5, 10));
+
+		System.out.println(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5));
+		System.out.println(RandomUtil.randomStringRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
+
+		assertThat(RandomUtil.randomStringFixLength(5)).hasSize(5);
+		assertThat(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
+
+		System.out.println(RandomUtil.randomLetterFixLength(5));
+		System.out.println(RandomUtil.randomLetterRandomLength(5, 10));
+
+		System.out.println(RandomUtil.randomLetterFixLength(RandomUtil.threadLocalRandom(), 5));
+		System.out.println(RandomUtil.randomLetterRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
+
+		assertThat(RandomUtil.randomLetterFixLength(5)).hasSize(5);
+		assertThat(RandomUtil.randomLetterFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
+
+		System.out.println(RandomUtil.randomAsciiFixLength(5));
+		System.out.println(RandomUtil.randomAsciiRandomLength(5, 10));
+
+		System.out.println(RandomUtil.randomAsciiFixLength(RandomUtil.threadLocalRandom(), 5));
+		System.out.println(RandomUtil.randomAsciiRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
+
+		assertThat(RandomUtil.randomAsciiFixLength(5)).hasSize(5);
+		assertThat(RandomUtil.randomAsciiFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
+	}",RandomUtilTest::generateString_oe
+springside4_136,"@Test
+	public void power2_oe() {
+		try {
+			assertThat(MathUtil.nextPowerOfTwo(-5)).isEqualTo(8);
+			fail(""should fail here"");
+		} catch (Exception e) {
+			assertThat(e).isInstanceOf(IllegalArgumentException.class);
+		}
+		assertThat(MathUtil.nextPowerOfTwo(5)).isEqualTo(8);
+		assertThat(MathUtil.nextPowerOfTwo(99)).isEqualTo(128);
+
+		assertThat(MathUtil.previousPowerOfTwo(5)).isEqualTo(4);
+		assertThat(MathUtil.previousPowerOfTwo(99)).isEqualTo(64);
+
+		assertThat(MathUtil.isPowerOfTwo(32)).isTrue();
+		assertThat(MathUtil.isPowerOfTwo(31)).isFalse();
+
+		assertThat(MathUtil.nextPowerOfTwo(5L)).isEqualTo(8L);
+		assertThat(MathUtil.nextPowerOfTwo(99L)).isEqualTo(128L);
+
+		assertThat(MathUtil.previousPowerOfTwo(5L)).isEqualTo(4L);
+		assertThat(MathUtil.previousPowerOfTwo(99L)).isEqualTo(64L);
+
+		assertThat(MathUtil.isPowerOfTwo(32L)).isTrue();
+		assertThat(MathUtil.isPowerOfTwo(31L)).isFalse();
+		assertThat(MathUtil.isPowerOfTwo(-2)).isFalse();
+
+		assertThat(MathUtil.modByPowerOfTwo(0, 16)).isEqualTo(0);
+		assertThat(MathUtil.modByPowerOfTwo(1, 16)).isEqualTo(1);
+		assertThat(MathUtil.modByPowerOfTwo(31, 16)).isEqualTo(15);
+		assertThat(MathUtil.modByPowerOfTwo(32, 16)).isEqualTo(0);
+		assertThat(MathUtil.modByPowerOfTwo(65, 16)).isEqualTo(1);
+		assertThat(MathUtil.modByPowerOfTwo(-1, 16)).isEqualTo(15);
+
+	}",MathUtilTest::power2_oe
+springside4_137,"@Test
+	public void gcd_oe() {
+		assertThat(MathUtil.gcd(5, 6)).isEqualTo(1);
+		assertThat(MathUtil.gcd(12, 18)).isEqualTo(6);
+		assertThat(MathUtil.gcd(100, 1000)).isEqualTo(100);
+
+		assertThat(MathUtil.gcd(5L, 6L)).isEqualTo(1L);
+		assertThat(MathUtil.gcd(12L, 18L)).isEqualTo(6L);
+		assertThat(MathUtil.gcd(100L, 1000L)).isEqualTo(100L);
+	}",MathUtilTest::gcd_oe
+springside4_138,"@Test
+	public void caculate_oe() {
+		assertThat(MathUtil.mod(15, 10)).isEqualTo(5);
+		assertThat(MathUtil.mod(-15, 10)).isEqualTo(5);
+		assertThat(MathUtil.mod(-5, 3)).isEqualTo(1);
+
+		assertThat(MathUtil.mod(15l, 10l)).isEqualTo(5);
+		assertThat(MathUtil.mod(-15l, 10l)).isEqualTo(5);
+		assertThat(MathUtil.mod(-5l, 3l)).isEqualTo(1);
+		
+		assertThat(MathUtil.mod(15l, 10)).isEqualTo(5);
+		assertThat(MathUtil.mod(-15l, 10)).isEqualTo(5);
+		assertThat(MathUtil.mod(-5l, 3)).isEqualTo(1);
+		
+		assertThat(MathUtil.pow(2, 3)).isEqualTo(8);
+		assertThat(MathUtil.pow(2, 0)).isEqualTo(1);
+		
+		assertThat(MathUtil.pow(2l, 3)).isEqualTo(8);
+		assertThat(MathUtil.pow(2l, 0)).isEqualTo(1);
+		
+		assertThat(MathUtil.sqrt(15, RoundingMode.HALF_UP)).isEqualTo(4);
+		assertThat(MathUtil.sqrt(16, RoundingMode.HALF_UP)).isEqualTo(4);
+		assertThat(MathUtil.sqrt(10l, RoundingMode.HALF_UP)).isEqualTo(3);
+	}",MathUtilTest::caculate_oe
+springside4_139,"@Test
+	public void divide_oe() {
+		assertThat(10 / 4).isEqualTo(2);
+		assertThat(MathUtil.divide(10, 4, RoundingMode.HALF_UP)).isEqualTo(3);
+		assertThat(MathUtil.divide(10L, 4L, RoundingMode.HALF_DOWN)).isEqualTo(2);
+	}",MathUtilTest::divide_oe
+springside4_140,"@Test
+	public void test_oe() throws InvocationTargetException {
+		FastMethodInvoker fastGetAge = FastMethodInvoker.create(Student.class, ""getAge"");
+		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
+		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
+
+		int age = fastGetAge.invoke(student1);
+		assertThat(age).isEqualTo(20);
+
+		age = fastGetAge.invoke(student2);
+		assertThat(age).isEqualTo(30);
+
+		FastMethodInvoker fastGetAge2 = FastMethodInvoker.createGetter(Student.class, ""age"");
+		age = fastGetAge2.invoke(student1);
+		assertThat(age).isEqualTo(20);
+
+		age = fastGetAge2.invoke(student2);
+		assertThat(age).isEqualTo(30);
+
+		FastMethodInvoker fastSetAge = FastMethodInvoker.create(Student.class, ""setAge"", int.class);
+		fastSetAge.invoke(student1, 1);
+
+		assertThat(student1.getAge()).isEqualTo(1);
+		
+		FastMethodInvoker fastSetAge2 = FastMethodInvoker.createSetter(Student.class, ""age"", int.class);
+		fastSetAge2.invoke(student1, 3);
+
+		assertThat(student1.getAge()).isEqualTo(3);
+	}",FastMethodInvokerTest::test_oe
+springside4_146,"@Test
+	public void getAllClass_oe() {
+
+		assertThat(ClassUtil.getAllInterfaces(BClass.class)).hasSize(4).contains(AInterface.class,BInterface.class,CInterface.class,DInterface.class);
+
+		assertThat(ClassUtil.getAllSuperclasses(BClass.class)).hasSize(2).contains(AClass.class, Object.class);
+
+		assertThat(ClassUtil.getAllAnnotations(BClass.class)).hasSize(4);
+
+		assertThat(ClassUtil.getAnnotatedPublicFields(BClass.class,AAnnotation.class)).hasSize(2).contains(ClassUtil.getAccessibleField(BClass.class,""sfield""),ClassUtil.getAccessibleField(BClass.class,""tfield""));
+
+		assertThat(ClassUtil.getAnnotatedFields(BClass.class,EAnnotation.class)).hasSize(3).contains(ClassUtil.getAccessibleField(BClass.class,""bfield""),ClassUtil.getAccessibleField(BClass.class,""efield""),ClassUtil.getAccessibleField(AClass.class,""afield""));
+
+		assertThat(ClassUtil.getAnnotatedFields(BClass.class,FAnnotation.class)).hasSize(1).contains(ClassUtil.getAccessibleField(AClass.class,""dfield""));
+
+		assertThat(ClassUtil.getAnnotatedPublicMethods(BClass.class,FAnnotation.class)).hasSize(3).contains(ClassUtil.getAccessibleMethodByName(BClass.class,""hello""),ClassUtil.getAccessibleMethodByName(BClass.class,""hello3""),ClassUtil.getAccessibleMethodByName(AClass.class,""hello4""));
+	}",ClassUtilTest::getAllClass_oe
+springside4_147,"@Test
+	public void getSuperClassGenricType_oe() {
+		// 获取第1，2个泛型类型
+		assertThat(ClassUtil.getClassGenricType(TestBean.class)).isEqualTo(String.class);
+		assertThat(ClassUtil.getClassGenricType(TestBean.class, 1)).isEqualTo(Long.class);
+
+		// 定义父类时无泛型定义
+		assertThat(ClassUtil.getClassGenricType(TestBean2.class)).isEqualTo(Object.class);
+
+		// 无父类定义
+		assertThat(ClassUtil.getClassGenricType(TestBean3.class)).isEqualTo(Object.class);
+	}",ClassUtilTest::getSuperClassGenricType_oe
+springside4_148,"@Test
+	public void test_oe() {
+		QueuableCachedThreadPool threadPool = null;
+		try {
+			threadPool = ThreadPoolBuilder.queuableCachedPool().setMinSize(0).setMaxSize(10).setQueueSize(10).build();
+			// 线程满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+
+			assertThat(threadPool.getActiveCount()).isEqualTo(10);
+			assertThat(threadPool.getQueue().size()).isEqualTo(0);
+
+			// queue 满
+			for (int i = 0; i < 10; i++) {
+				threadPool.submit(new LongRunTask());
+			}
+			assertThat(threadPool.getActiveCount()).isEqualTo(10);
+			assertThat(threadPool.getQueue().size()).isEqualTo(10);
+
+			// 爆
+			try {
+				threadPool.submit(new LongRunTask());
+				fail(""should fail before"");
+			} catch (Throwable t) {
+				assertThat(t).isInstanceOf(RejectedExecutionException.class);
+			}
+
+		} finally {
+			ThreadPoolUtil.gracefulShutdown(threadPool, 1000);
+		}
+	}",QueuableCachedThreadPoolTest::test_oe
+springside4_149,"@Test
+	public void buildThreadFactory_oe() {
+
+		Runnable testRunnable = new Runnable() {
+			@Override
+			public void run() {
+			}
+		};
+		// 测试name格式
+		ThreadFactory threadFactory = ThreadPoolUtil.buildThreadFactory(""example"");
+		Thread thread = threadFactory.newThread(testRunnable);
+
+		assertThat(thread.getName()).isEqualTo(""example-0"");
+		assertThat(thread.isDaemon()).isFalse();
+
+		// 测试daemon属性设置
+		threadFactory = ThreadPoolUtil.buildThreadFactory(""example"", true);
+		Thread thread2 = threadFactory.newThread(testRunnable);
+
+		assertThat(thread.getName()).isEqualTo(""example-0"");
+		assertThat(thread2.isDaemon()).isTrue();
+	}",ThreadPoolUtilTest::buildThreadFactory_oe
+springside4_150,"@Test
+	public void gracefulShutdown_oe() throws InterruptedException {
+
+		Logger logger = LoggerFactory.getLogger(""test"");
+		LogbackListAppender appender = new LogbackListAppender();
+		appender.addToLogger(""test"");
+
+		// time enough to shutdown
+		ExecutorService pool = Executors.newSingleThreadExecutor();
+		Runnable task = new Task(logger, 200, 0);
+		pool.execute(task);
+		ThreadPoolUtil.gracefulShutdown(pool, 1000, TimeUnit.MILLISECONDS);
+		assertThat(pool.isTerminated()).isTrue();
+		assertThat(appender.getFirstLog()).isNull();
+
+		// time not enough to shutdown,call shutdownNow
+		appender.clearLogs();
+		pool = Executors.newSingleThreadExecutor();
+		task = new Task(logger, 1000, 0);
+		pool.execute(task);
+		ThreadPoolUtil.gracefulShutdown(pool, 500, TimeUnit.MILLISECONDS);
+		assertThat(pool.isTerminated()).isTrue();
+		assertThat(appender.getFirstLog().getMessage()).isEqualTo(""InterruptedException"");
+
+		// self thread interrupt while calling gracefulShutdown
+		appender.clearLogs();
+
+		final ExecutorService self = Executors.newSingleThreadExecutor();
+		task = new Task(logger, 100000, 0);
+		self.execute(task);
+
+		final CountDownLatch lock = new CountDownLatch(1);
+		Thread thread = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				lock.countDown();
+				ThreadPoolUtil.gracefulShutdown(self, 200000, TimeUnit.MILLISECONDS);
+			}
+		});
+		thread.start();
+		lock.await();
+		thread.interrupt();
+		ThreadUtil.sleep(500);
+		assertThat(appender.getFirstLog().getMessage()).isEqualTo(""InterruptedException"");
+
+		ThreadPoolUtil.gracefulShutdown(null, 1000);
+		ThreadPoolUtil.gracefulShutdown(null, 1000, TimeUnit.MILLISECONDS);
+	}",ThreadPoolUtilTest::gracefulShutdown_oe
+springside4_151,"@Test
+	public void wrapException_oe() {
+		ScheduledThreadPoolExecutor executor = ThreadPoolBuilder.scheduledPool().build();
+		ExceptionTask task = new ExceptionTask();
+		executor.scheduleAtFixedRate(task, 0, 100, TimeUnit.MILLISECONDS);
+
+		ThreadUtil.sleep(500);
+
+		// 线程第一次跑就被中断
+		assertThat(task.counter.get()).isEqualTo(1);
+		ThreadPoolUtil.gracefulShutdown(executor, 1000);
+
+		////////
+		executor = ThreadPoolBuilder.scheduledPool().build();
+		ExceptionTask newTask = new ExceptionTask();
+		Runnable wrapTask = ThreadPoolUtil.safeRunnable(newTask);
+		executor.scheduleAtFixedRate(wrapTask, 0, 100, TimeUnit.MILLISECONDS);
+
+		ThreadUtil.sleep(500);
+		assertThat(newTask.counter.get()).isGreaterThan(2);
+		System.out.println(""-------actual run:"" + task.counter.get());
+		ThreadPoolUtil.gracefulShutdown(executor, 1000);
+
+	}",ThreadPoolUtilTest::wrapException_oe
+springside4_152,"@Test
+	public void fixPool_oe() {
+		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		assertThat(singlePool.getCorePoolSize()).isEqualTo(1);
+		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(1);
+		assertThat(singlePool.getQueue()).isInstanceOf(LinkedBlockingQueue.class);
+		singlePool.shutdown();
+
+		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		assertThat(fixPoolWithUnlimitQueue.getCorePoolSize()).isEqualTo(10);
+		assertThat(fixPoolWithUnlimitQueue.getMaximumPoolSize()).isEqualTo(10);
+		fixPoolWithUnlimitQueue.shutdown();
+
+		ThreadPoolExecutor fixPoolWithlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).setQueueSize(100)
+				.setThreadFactory(ThreadPoolUtil.buildThreadFactory(""kaka"")).build();
+
+		assertThat(fixPoolWithlimitQueue.getQueue()).isInstanceOf(ArrayBlockingQueue.class);
+		Thread thread = fixPoolWithlimitQueue.getThreadFactory().newThread(new Runnable() {
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread.getName()).startsWith(""kaka"");
+
+		fixPoolWithlimitQueue.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.fixedPool().setPoolSize(10)
+				.setThreadNamePrefix(""fixPool"").build();
+		Thread thread2 = fixPoolWithNamePrefix.getThreadFactory().newThread(new Runnable() {
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread2.getName()).startsWith(""fixPool"");
+		assertThat(thread2.isDaemon()).isFalse();
+		fixPoolWithNamePrefix.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefixAndDaemon = ThreadPoolBuilder.fixedPool().setPoolSize(10)
+				.setThreadNamePrefix(""fixPoolDaemon"").setDaemon(true).build();
+		Thread thread3 = fixPoolWithNamePrefixAndDaemon.getThreadFactory().newThread(new Runnable() {
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread3.getName()).startsWith(""fixPoolDaemon"");
+		assertThat(thread3.isDaemon()).isTrue();
+		fixPoolWithNamePrefixAndDaemon.shutdown();
+	}",ThreadPoolBuilderTest::fixPool_oe
+springside4_153,"@Test
+	public void cachedPool_oe() {
+		ThreadPoolExecutor singlePool = ThreadPoolBuilder.cachedPool().build();
+		assertThat(singlePool.getCorePoolSize()).isEqualTo(0);
+		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
+		assertThat(singlePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(10);
+		assertThat(singlePool.getQueue()).isInstanceOf(SynchronousQueue.class);
+		singlePool.shutdown();
+
+		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.cachedPool().setMinSize(10).setMaxSize(100)
+				.setKeepAliveSecs(20).build();
+		assertThat(sizeablePool.getCorePoolSize()).isEqualTo(10);
+		assertThat(sizeablePool.getMaximumPoolSize()).isEqualTo(100);
+		assertThat(sizeablePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(20);
+		sizeablePool.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.cachedPool().setThreadNamePrefix(""cachedPool"")
+				.build();
+		Thread thread = fixPoolWithNamePrefix.getThreadFactory().newThread(new Runnable() {
+
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread.getName()).startsWith(""cachedPool"");
+		fixPoolWithNamePrefix.shutdown();
+	}",ThreadPoolBuilderTest::cachedPool_oe
+springside4_154,"@Test
+	public void scheduledPool_oe() {
+		ScheduledThreadPoolExecutor singlePool = ThreadPoolBuilder.scheduledPool().build();
+		assertThat(singlePool.getCorePoolSize()).isEqualTo(1);
+		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
+		singlePool.shutdown();
+
+		ScheduledThreadPoolExecutor sizeablePool = ThreadPoolBuilder.scheduledPool().setPoolSize(2).build();
+		assertThat(sizeablePool.getCorePoolSize()).isEqualTo(2);
+		assertThat(sizeablePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
+		sizeablePool.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.scheduledPool()
+				.setThreadNamePrefix(""scheduledPool"").build();
+		Thread thread = fixPoolWithNamePrefix.getThreadFactory().newThread(new Runnable() {
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread.getName()).startsWith(""scheduledPool"");
+		fixPoolWithNamePrefix.shutdown();
+	}",ThreadPoolBuilderTest::scheduledPool_oe
+springside4_155,"@Test
+	public void quequablePool_oe() {
+		ThreadPoolExecutor singlePool = ThreadPoolBuilder.queuableCachedPool().build();
+		assertThat(singlePool.getCorePoolSize()).isEqualTo(0);
+		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
+		assertThat(singlePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(10);
+		assertThat(singlePool.getQueue()).isInstanceOf(ControllableQueue.class);
+		singlePool.shutdown();
+
+		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.queuableCachedPool().setMinSize(10).setMaxSize(100)
+				.setKeepAliveSecs(20).build();
+		assertThat(sizeablePool.getCorePoolSize()).isEqualTo(10);
+		assertThat(sizeablePool.getMaximumPoolSize()).isEqualTo(100);
+		assertThat(sizeablePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(20);
+		sizeablePool.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.queuableCachedPool()
+				.setThreadNamePrefix(""queuableCachedPool"").build();
+		Thread thread = fixPoolWithNamePrefix.getThreadFactory().newThread(new Runnable() {
+
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread.getName()).startsWith(""queuableCachedPool"");
+		fixPoolWithNamePrefix.shutdown();
+	}",ThreadPoolBuilderTest::quequablePool_oe
+springside4_156,"@Test
+	public void concurrentHashSet_oe() {
+		ConcurrentHashSet<String> conrrentHashSet = SetUtil.newConcurrentHashSet();
+		conrrentHashSet.add(""a"");
+		conrrentHashSet.add(""b"");
+		conrrentHashSet.add(""c"");
+
+		assertThat(conrrentHashSet.isEmpty()).isFalse();
+		assertThat(conrrentHashSet.contains(""a"")).isTrue();
+		assertThat(conrrentHashSet.contains(""d"")).isFalse();
+
+		assertThat(conrrentHashSet).hasSize(3).contains(""a"", ""b"", ""c"");
+
+		for (String key : conrrentHashSet) {
+			System.out.print(key + "","");
+		}
+
+		conrrentHashSet.remove(""c"");
+		assertThat(conrrentHashSet).hasSize(2);
+
+		Object[] strings = conrrentHashSet.toArray();
+		assertThat(strings).hasSize(2).contains(""a"", ""b"");
+
+		conrrentHashSet.toArray(new String[conrrentHashSet.size()]);
+		conrrentHashSet.hashCode();
+		conrrentHashSet.toString();
+
+		ConcurrentHashSet<String> conrrentHashSet2 = SetUtil.newConcurrentHashSet();
+		conrrentHashSet2.add(""a"");
+
+		assertThat(conrrentHashSet.equals(conrrentHashSet)).isTrue();
+		assertThat(conrrentHashSet.equals(conrrentHashSet2)).isFalse();
+
+		assertThat(conrrentHashSet.containsAll(conrrentHashSet2)).isTrue();
+
+		conrrentHashSet.retainAll(conrrentHashSet2);
+		assertThat(conrrentHashSet).hasSize(1).contains(""a"");
+		assertThat(conrrentHashSet.equals(conrrentHashSet2)).isTrue();
+
+		conrrentHashSet.removeAll(conrrentHashSet2);
+		assertThat(conrrentHashSet.isEmpty()).isTrue();
+
+		conrrentHashSet2.clear();
+		assertThat(conrrentHashSet2.isEmpty()).isTrue();
+	}",ConcurrentHashSetTest::concurrentHashSet_oe
+springside4_157,"@Test
+	public void sortedArrayList_oe() {
+		SortedArrayList<String> list = ListUtil.createSortedArrayList();
+		list.add(""9"");
+		list.add(""1"");
+		list.add(""6"");
+		list.add(""9"");
+		list.add(""3"");
+
+		assertThat(list).containsExactly(""1"", ""3"", ""6"", ""9"", ""9"");
+
+		list.remove(2);
+		assertThat(list).containsExactly(""1"", ""3"", ""9"", ""9"");
+
+		assertThat(list.contains(""3"")).isTrue();
+		assertThat(list.contains(""2"")).isFalse();
+
+		try {
+			list.add(1, ""2"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		try {
+			list.set(1, ""2"");
+			fail(""should fail before"");
+		} catch (Throwable t) {
+			assertThat(t).isInstanceOf(UnsupportedOperationException.class);
+		}
+
+		SortedArrayList<String> list2 = ListUtil.createSortedArrayList(Ordering.natural());
+		list2.addAll(ListUtil.newArrayList(""3"", ""1"", ""2""));
+		assertThat(list2).containsExactly(""1"", ""2"", ""3"");
+	}",SortedArrayListTest::sortedArrayList_oe
+springside4_158,"@Test
+	public void test_oe(){
+		Pair<String,Integer> pair = Pair.of(""haha"", 1);
+		Pair<String,Integer> pair2 = Pair.of(""haha"", 2);
+		
+		assertThat(pair.equals(pair2)).isFalse();
+		assertThat(pair.hashCode()!=pair2.hashCode()).isTrue();
+		assertThat(pair.toString()).isEqualTo(""Pair [first=haha, second=1]"");
+	}",PairTest::test_oe
+springside4_159,"@Test
+	public void normal_oe() {
+		String testString1 = ""Hello"";
+		String testString2 = ""World"";
+		LogbackListAppender appender = new LogbackListAppender();
+		appender.addToLogger(LogbackListAppenderTest.class);
+
+		// null
+		assertThat(appender.getFirstLog()).isNull();
+		assertThat(appender.getLastLog()).isNull();
+		assertThat(appender.getFirstMessage()).isNull();
+		assertThat(appender.getFirstMessage()).isNull();
+
+		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
+		logger.warn(testString1);
+		logger.warn(testString2);
+
+		// getFirstLog/getLastLog
+		assertThat(appender.getFirstLog().getMessage()).isEqualTo(testString1);
+		assertThat(appender.getLastLog().getMessage()).isEqualTo(testString2);
+
+		assertThat(appender.getFirstMessage()).isEqualTo(testString1);
+		assertThat(appender.getLastMessage()).isEqualTo(testString2);
+
+		// getAllLogs
+		assertThat(appender.getLogsCount()).isEqualTo(2);
+		assertThat(appender.getAllLogs()).hasSize(2);
+		assertThat(appender.getAllLogs().get(1).getMessage()).isEqualTo(testString2);
+
+		// clearLogs
+		appender.clearLogs();
+		assertThat(appender.getFirstLog()).isNull();
+		assertThat(appender.getLastLog()).isNull();
+	}",LogbackListAppenderTest::normal_oe
+springside4_160,"@Test
+	public void addAndRemoveAppender_oe() {
+		String testString = ""Hello"";
+		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
+		LogbackListAppender appender = new LogbackListAppender();
+		// class
+		appender.addToLogger(LogbackListAppenderTest.class);
+		logger.warn(testString);
+		assertThat(appender.getFirstLog()).isNotNull();
+
+		appender.clearLogs();
+		appender.removeFromLogger(LogbackListAppenderTest.class);
+		logger.warn(testString);
+		assertThat(appender.getFirstLog()).isNull();
+
+		// name
+		appender.clearLogs();
+		appender.addToLogger(""org.springside.modules.test.log"");
+		logger.warn(testString);
+		assertThat(appender.getFirstLog()).isNotNull();
+
+		appender.clearLogs();
+		appender.removeFromLogger(""org.springside.modules.test.log"");
+		logger.warn(testString);
+		assertThat(appender.getFirstLog()).isNull();
+	}",LogbackListAppenderTest::addAndRemoveAppender_oe
+springside4_161,"@Test
+	public void normal_oe() {
+		MockClock clock = new MockClock();
+		Timer.clock = clock;
+		Counter.clock = clock;
+		Timer timer = new Timer(new Double[] { 90d });
+
+		TimerContext timerContext = timer.start();
+		clock.increaseTime(200);
+		timerContext.stop();
+
+		TimerContext timer2 = timer.start();
+		clock.increaseTime(300);
+		timer2.stop();
+
+		TimerMetric metric = timer.calculateMetric();
+
+		assertThat(metric.counterMetric.totalCount).isEqualTo(2);
+		assertThat(metric.counterMetric.avgRate).isEqualTo(4);
+		assertThat(metric.counterMetric.latestCount).isEqualTo(2);
+		assertThat(metric.counterMetric.latestRate).isEqualTo(4);
+
+		assertThat(metric.histogramMetric.min).isEqualTo(200);
+		assertThat(metric.histogramMetric.avg).isEqualTo(250);
+		assertThat(metric.histogramMetric.pcts.get(90d)).isEqualTo(300);
+	}",TimerTest::normal_oe
+springside4_162,"@Test
+	public void counter_oe() {
+		MetricRegistry metricRegistry = new MetricRegistry();
+		Counter counter = metricRegistry.counter(MetricRegistry.name(""UserService"", ""getUser.counter""));
+		assertThat(counter).isNotNull();
+
+		Map<String, Counter> counters = metricRegistry.getCounters();
+
+		Counter counter2 = counters.get(""UserService.getUser.counter"");
+		assertThat(counter2).isNotNull().isSameAs(counter);
+
+		Counter counter3 = metricRegistry.counter(MetricRegistry.name(""UserService"", ""getUser.counter""));
+		assertThat(counter3).isNotNull().isSameAs(counter);
+	}",MetricRegistryTest::counter_oe
+springside4_163,"@Test
+	public void histogram_oe() {
+		MetricRegistry metricRegistry = new MetricRegistry();
+		Histogram histogram = metricRegistry.histogram(MetricRegistry.name(""UserService"", ""getUser.latency""));
+		assertThat(histogram).isNotNull();
+
+		Map<String, Histogram> histograms = metricRegistry.getHistograms();
+
+		Histogram histogram2 = histograms.get(""UserService.getUser.latency"");
+		assertThat(histogram2).isNotNull().isSameAs(histogram);
+
+		Histogram histogram3 = metricRegistry.histogram(MetricRegistry.name(""UserService"", ""getUser.latency""));
+		assertThat(histogram3).isNotNull().isSameAs(histogram);
+
+	}",MetricRegistryTest::histogram_oe
+springside4_164,"@Test
+	public void execution_oe() {
+		MetricRegistry metricRegistry = new MetricRegistry();
+
+		Timer execution = metricRegistry.timer(MetricRegistry.name(""UserService"", ""getUser.execution""));
+		assertThat(execution).isNotNull();
+
+		Map<String, Timer> executions = metricRegistry.getTimers();
+
+		Timer execution2 = executions.get(""UserService.getUser.execution"");
+		assertThat(execution2).isNotNull().isSameAs(execution);
+
+		Timer execution3 = metricRegistry.timer(MetricRegistry.name(""UserService"", ""getUser.execution""));
+		assertThat(execution3).isNotNull().isSameAs(execution);
+	}",MetricRegistryTest::execution_oe
+springside4_165,"@Test
+	public void defaultPcts_oe() {
+		MetricRegistry metricRegistry = new MetricRegistry();
+
+		// set pcts 60,70
+		Histogram histogram = metricRegistry.histogram(MetricRegistry.name(""UserService"", ""getUser.histogram.setPcts""),
+				60d, 70d);
+
+		for (int i = 1; i <= 100; i++) {
+			histogram.update(i);
+		}
+
+		HistogramMetric metric = histogram.calculateMetric();
+
+		assertThat(metric.pcts.get(60d)).isEqualTo(60);
+		assertThat(metric.pcts.get(70d)).isEqualTo(70);
+
+		// new default 50
+		metricRegistry.setDefaultPcts(new Double[] { 50d });
+		Histogram histogramWithNewDefaultPcts = metricRegistry.histogram(MetricRegistry.name(""UserService"",
+				""getUser.histogram.newDefault""));
+
+		for (int i = 1; i <= 100; i++) {
+			histogramWithNewDefaultPcts.update(i);
+		}
+
+		metric = histogramWithNewDefaultPcts.calculateMetric();
+
+		assertThat(metric.pcts.get(50d)).isEqualTo(50);
+		assertThat(metric.pcts.get(90d)).isNull();
+	}",MetricRegistryTest::defaultPcts_oe
+springside4_166,"@Test
+	public void normal_oe() {
+		Histogram histogram = new Histogram(90d, 95d);
+
+		for (int i = 1; i <= 100; i++) {
+			histogram.update(i);
+		}
+
+		HistogramMetric metric = histogram.calculateMetric();
+
+		assertThat(metric.min).isEqualTo(1);
+		assertThat(metric.max).isEqualTo(100);
+		assertThat(metric.avg).isEqualTo(50.5);
+		assertThat(metric.pcts.get(90d)).isEqualTo(90);
+		assertThat(metric.pcts.get(95d)).isEqualTo(95);
+
+		for (int i = 1; i <= 100; i++) {
+			histogram.update(i * 2);
+		}
+
+		metric = histogram.calculateMetric();
+
+		assertThat(metric.min).isEqualTo(2);
+		assertThat(metric.max).isEqualTo(200);
+		assertThat(metric.avg).isEqualTo(101);
+		assertThat(metric.pcts.get(90d)).isEqualTo(180);
+		assertThat(metric.pcts.get(95d)).isEqualTo(190);
+	}",HistogramTest::normal_oe
+springside4_167,"@Test
+	public void fewData_oe() {
+		Histogram histogram = new Histogram(90d, 95d);
+
+		histogram.update(1);
+		HistogramMetric metric = histogram.calculateMetric();
+		assertThat(metric.pcts.get(90d)).isEqualTo(1);
+		assertThat(metric.pcts.get(95d)).isEqualTo(1);
+
+		for (int i = 1; i <= 3; i++) {
+			histogram.update(i);
+		}
+		metric = histogram.calculateMetric();
+
+		assertThat(metric.min).isEqualTo(1);
+		assertThat(metric.max).isEqualTo(3);
+		assertThat(metric.avg).isEqualTo(2);
+		assertThat(metric.pcts.get(90d)).isEqualTo(3);
+		assertThat(metric.pcts.get(95d)).isEqualTo(3);
+	}",HistogramTest::fewData_oe
+springside4_168,"@Test
+	public void emptyMesures_oe() {
+		Histogram histogram = new Histogram(90d, 95d);
+
+		HistogramMetric metric = histogram.calculateMetric();
+
+		assertThat(metric.min).isZero();
+		assertThat(metric.max).isZero();
+		assertThat(metric.avg).isZero();
+		assertThat(metric.pcts.get(90d)).isZero();
+	}",HistogramTest::emptyMesures_oe
+springside4_170,"@Test
+	public void normal_oe() {
+
+		Counter counter = new Counter();
+		counter.inc(10);
+		counter.inc(20);
+		counter.inc(30);
+		clock.increaseTime(1000);
+
+		CounterMetric metric = counter.calculateMetric();
+		assertThat(metric.totalCount).isEqualTo(60);
+		assertThat(metric.avgRate).isEqualTo(60);
+		assertThat(metric.latestCount).isEqualTo(60);
+		assertThat(metric.latestRate).isEqualTo(60);
+
+		counter.inc(20);
+		clock.increaseTime(1000);
+		metric = counter.calculateMetric();
+
+		assertThat(metric.totalCount).isEqualTo(80);
+		assertThat(metric.avgRate).isEqualTo(40);
+		assertThat(metric.latestCount).isEqualTo(20);
+		assertThat(metric.latestRate).isEqualTo(20);
+	}",CounterTest::normal_oe
+springside4_171,"@Test
+	public void incAndDec_oe() {
+		Counter counter = new Counter();
+
+		counter.inc(20);
+		counter.inc();
+		counter.inc();
+		counter.dec(10);
+		counter.dec();
+		clock.increaseTime(1000);
+
+		CounterMetric metric = counter.calculateMetric();
+		assertThat(metric.totalCount).isEqualTo(11);
+	}",CounterTest::incAndDec_oe
+springside4_172,"@Test
+	public void empty_oe() {
+		Counter counter = new Counter();
+		clock.increaseTime(1000);
+
+		CounterMetric metric = counter.calculateMetric();
+		assertThat(metric.totalCount).isEqualTo(0);
+		assertThat(metric.latestRate).isEqualTo(0);
+	}",CounterTest::empty_oe

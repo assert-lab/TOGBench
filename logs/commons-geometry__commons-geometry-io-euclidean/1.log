@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-io-euclidean ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean
-[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768433738
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773031993524
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-io-euclidean ---
@@ -57,26 +57,122 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-geometry-io-euclidean ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 24 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/test-classes
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-geometry-io-euclidean ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/main/java/org/apache/commons/geometry/io/euclidean/threed/stl/BinaryStlWriter.java:91: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.rewind() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.rewind()
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/main/java/org/apache/commons/geometry/io/euclidean/threed/stl/BinaryStlWriter.java:148: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.flip() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.flip()
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/main/java/org/apache/commons/geometry/io/euclidean/threed/stl/BinaryStlFacetDefinitionReader.java:141: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.rewind() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.rewind()
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/main/java/org/apache/commons/geometry/io/euclidean/threed/stl/BinaryStlFacetDefinitionReader.java:182: Covariant return type change detected: java.nio.Buffer java.nio.ByteBuffer.rewind() has been changed to java.nio.ByteBuffer java.nio.ByteBuffer.rewind()
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-geometry-io-euclidean ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ commons-geometry-io-euclidean ---
+[INFO] Compiling 47 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[74,9] cannot find symbol
+  symbol:   method testReadWriteWithPath((fmt,path)[...]ath)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[77,9] cannot find symbol
+  symbol:   method testReadWriteWithUrl((fmt,url)-[...]url)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[88,9] cannot find symbol
+  symbol:   method testReadWriteWithPath((fmt,path)[...]ath)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[91,9] cannot find symbol
+  symbol:   method testReadWriteWithUrl((fmt,url)-[...]url)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[102,9] cannot find symbol
+  symbol:   method testReadWriteWithPath((fmt,path)[...]SION),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[105,9] cannot find symbol
+  symbol:   method testReadWriteWithUrl((fmt,url)-[...]SION),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[116,9] cannot find symbol
+  symbol:   method testReadWriteWithPath((fmt,path)[...]SION),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[119,9] cannot find symbol
+  symbol:   method testReadWriteWithUrl((fmt,url)-[...]SION),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[130,9] cannot find symbol
+  symbol:   method testReadWriteWithPath((fmt,path)[...]ION)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[133,9] cannot find symbol
+  symbol:   method testReadWriteWithUrl((fmt,url)-[...]ION)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[144,9] cannot find symbol
+  symbol:   method testReadWriteWithPath((fmt,path)[...]ION)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[147,9] cannot find symbol
+  symbol:   method testReadWriteWithUrl((fmt,url)-[...]ION)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[158,9] cannot find symbol
+  symbol:   method testReadWriteWithPath((fmt,path)[...]ION)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[161,9] cannot find symbol
+  symbol:   method testReadWriteWithUrl((fmt,url)-[...]ION)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[172,9] cannot find symbol
+  symbol:   method testReadWriteWithPath((fmt,path)[...]ION)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[175,9] cannot find symbol
+  symbol:   method testReadWriteWithUrl((fmt,url)-[...]ION)),(src,fmt,p[...]path))
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[197,17] cannot find symbol
+  symbol:   method testReadWriteWithStreams(org.apache.commons.geometry.io.core.GeometryFormat,java.nio.file.Path,org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev.ReadFn<org.apache.commons.geometry.io.core.input.GeometryInput>,org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev.WriteFn<org.apache.commons.geometry.io.core.output.GeometryOutput>,org.apache.commons.geometry.euclidean.threed.RegionBSPTree3D)
+  location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[INFO] 17 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.469 s
-[INFO] Finished at: 2026-03-05T21:40:45-06:00
+[INFO] Total time:  13.273 s
+[INFO] Finished at: 2026-03-08T23:53:21-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project commons-geometry-io-euclidean: No tests matching pattern "*_OE25Dev#*_oe" were executed! (Set -Dsurefire.failIfNoSpecifiedTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-io-euclidean: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[74,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithPath((fmt,path)[...]ath)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[77,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithUrl((fmt,url)-[...]url)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[88,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithPath((fmt,path)[...]ath)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[91,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithUrl((fmt,url)-[...]url)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[102,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithPath((fmt,path)[...]SION),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[105,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithUrl((fmt,url)-[...]SION),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[116,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithPath((fmt,path)[...]SION),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[119,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithUrl((fmt,url)-[...]SION),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[130,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithPath((fmt,path)[...]ION)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[133,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithUrl((fmt,url)-[...]ION)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[144,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithPath((fmt,path)[...]ION)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[147,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithUrl((fmt,url)-[...]ION)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[158,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithPath((fmt,path)[...]ION)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[161,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithUrl((fmt,url)-[...]ION)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[172,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithPath((fmt,path)[...]ION)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[175,9] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithUrl((fmt,url)-[...]ION)),(src,fmt,p[...]path))
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-io-euclidean/src/test/java/org/apache/commons/geometry/io/euclidean/threed/IO3DTest_OE25Dev.java:[197,17] cannot find symbol
+[ERROR]   symbol:   method testReadWriteWithStreams(org.apache.commons.geometry.io.core.GeometryFormat,java.nio.file.Path,org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev.ReadFn<org.apache.commons.geometry.io.core.input.GeometryInput>,org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev.WriteFn<org.apache.commons.geometry.io.core.output.GeometryOutput>,org.apache.commons.geometry.euclidean.threed.RegionBSPTree3D)
+[ERROR]   location: class org.apache.commons.geometry.io.euclidean.threed.IO3DTest_OE25Dev
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

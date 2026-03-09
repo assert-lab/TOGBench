@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-sampling ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling
-[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 2026-03-05 21:41:19-0600
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 2026-03-08 23:54:21-0500
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-sampling ---
@@ -60,26 +60,619 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-sampling ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 52 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/test-classes
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[51,21] org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSampler in org.apache.commons.rng.sampling.distribution has been deprecated
-[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[160,21] org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[INFO] Compiling 97 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/test-classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[64,23] org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[75,23] org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerGaussianSamplerTest_OE25Dev.java:[50,23] org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[343,56] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[361,19] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest.java:[41,19] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest.java:[544,56] UnitSphereSampler(int,org.apache.commons.rng.UniformRandomProvider) in org.apache.commons.rng.sampling.UnitSphereSampler has been deprecated
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-sampling ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-rng-sampling ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-sampling ---
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[51,21] org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ContinuousSamplersList.java:[160,21] org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSampler in org.apache.commons.rng.sampling.distribution has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[513,41] createPoissonSampler(org.apache.commons.rng.UniformRandomProvider,double) in org.apache.commons.rng.sampling.distribution.PoissonSamplerCache has been deprecated
+[INFO] 10 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[58,10] method testConstructorThrowsWithNegativeScale() is already defined in class org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[69,10] method testConstructorThrowsWithZeroShape() is already defined in class org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerGaussianSamplerTest_OE25Dev.java:[44,10] method testConstructorThrowsWithZeroStandardDeviation() is already defined in class org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[511,10] method testCreatePoissonSampler() is already defined in class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[56,2] cannot find symbol
+  symbol:   class SuppressWarnings_oe
+  location: class org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[67,2] cannot find symbol
+  symbol:   class SuppressWarnings_oe
+  location: class org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerGaussianSamplerTest_OE25Dev.java:[42,2] cannot find symbol
+  symbol:   class SuppressWarnings_oe
+  location: class org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[509,2] cannot find symbol
+  symbol:   class SuppressWarnings_oe
+  location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/KempSmallMeanPoissonSamplerTest_OE25Dev.java:[83,9] cannot find symbol
+  symbol:   method testSample(org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev.FixedRNG,org.apache.commons.rng.sampling.distribution.SharedStateDiscreteSampler,int,int,int)
+  location: class org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/KempSmallMeanPoissonSamplerTest_OE25Dev.java:[86,9] cannot find symbol
+  symbol:   method testSample(org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev.FixedRNG,org.apache.commons.rng.sampling.distribution.SharedStateDiscreteSampler,int,int,int)
+  location: class org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/KempSmallMeanPoissonSamplerTest_OE25Dev.java:[93,13] cannot find symbol
+  symbol:   method testSample(org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev.FixedRNG,org.apache.commons.rng.sampling.distribution.SharedStateDiscreteSampler,double,int,int)
+  location: class org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[302,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,int[])
+  location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[310,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,int[])
+  location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[318,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,int[])
+  location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[334,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,double)
+  location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[343,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,double)
+  location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[53,9] cannot find symbol
+  symbol:   method testExtremeValueCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[62,9] cannot find symbol
+  symbol:   method testExtremeValueCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[71,9] cannot find symbol
+  symbol:   method testExtremeValueCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[86,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[94,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[102,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[117,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[125,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[133,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[145,9] cannot find symbol
+  symbol:   method testChangedInputCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[153,9] cannot find symbol
+  symbol:   method testChangedInputCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[161,9] cannot find symbol
+  symbol:   method testChangedInputCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev.java:[680,9] cannot find symbol
+  symbol:   method testSamplesWithDInfinite(double)
+  location: class org.apache.commons.rng.sampling.distribution.StableSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev.java:[713,17] cannot find symbol
+  symbol:   method testSupport(double,double)
+  location: class org.apache.commons.rng.sampling.distribution.StableSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev.java:[714,17] cannot find symbol
+  symbol:   method testSupport(double,double)
+  location: class org.apache.commons.rng.sampling.distribution.StableSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[84,9] cannot find symbol
+  symbol:   method testExtremeValueCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[93,9] cannot find symbol
+  symbol:   method testExtremeValueCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[102,9] cannot find symbol
+  symbol:   method testExtremeValueCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[117,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[125,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[133,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[179,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[187,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[195,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[207,9] cannot find symbol
+  symbol:   method testChangedInputCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[215,9] cannot find symbol
+  symbol:   method testChangedInputCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[223,9] cannot find symbol
+  symbol:   method testChangedInputCoordinates(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[254,9] cannot find symbol
+  symbol:   method testTransformND(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[262,9] cannot find symbol
+  symbol:   method testTransformND(int)
+  location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/DiscreteUniformSamplerTest_OE25Dev.java:[103,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,int)
+  location: class org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/DiscreteUniformSamplerTest_OE25Dev.java:[109,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,int)
+  location: class org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/DiscreteUniformSamplerTest_OE25Dev.java:[114,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,int)
+  location: class org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/DiscreteUniformSamplerTest_OE25Dev.java:[119,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,int)
+  location: class org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[210,9] cannot find symbol
+  symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[],double[],double[])
+  location: class org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[246,9] cannot find symbol
+  symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[],double[],double[],double[],double[])
+  location: class org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[279,9] cannot find symbol
+  symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[])
+  location: class org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[310,9] cannot find symbol
+  symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[])
+  location: class org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/LargeMeanPoissonSamplerTest_OE25Dev.java:[75,13] cannot find symbol
+  symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,int)
+  location: class org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/LargeMeanPoissonSamplerTest_OE25Dev.java:[77,13] cannot find symbol
+  symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,double)
+  location: class org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/LargeMeanPoissonSamplerTest_OE25Dev.java:[96,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double)
+  location: class org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/LargeMeanPoissonSamplerTest_OE25Dev.java:[105,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double)
+  location: class org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[46,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[54,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[62,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[70,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[78,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[86,9] cannot find symbol
+  symbol:   method testDistributionND(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[106,9] cannot find symbol
+  symbol:   method testInvalidInverseNormalisationND(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[114,9] cannot find symbol
+  symbol:   method testInvalidInverseNormalisationND(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[127,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[135,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[143,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[151,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int)
+  location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[53,9] cannot find symbol
+  symbol:   method testDistribution1D(boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[96,9] cannot find symbol
+  symbol:   method testDistribution2D(boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[113,9] cannot find symbol
+  symbol:   method testDistribution3D(boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[130,9] cannot find symbol
+  symbol:   method testDistribution4D(boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[231,9] cannot find symbol
+  symbol:   method testInvalidInverseNormalisationND(int)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[239,9] cannot find symbol
+  symbol:   method testInvalidInverseNormalisationND(int)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[247,9] cannot find symbol
+  symbol:   method testInvalidInverseNormalisationND(int)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[266,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[274,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[282,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[290,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[298,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[306,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[314,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[322,9] cannot find symbol
+  symbol:   method testSharedStateSampler(int,boolean)
+  location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/AliasMethodDiscreteSamplerTest_OE25Dev.java:[218,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double[])
+  location: class org.apache.commons.rng.sampling.distribution.AliasMethodDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/AliasMethodDiscreteSamplerTest_OE25Dev.java:[226,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double[])
+  location: class org.apache.commons.rng.sampling.distribution.AliasMethodDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev.java:[43,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double,double)
+  location: class org.apache.commons.rng.sampling.distribution.AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev.java:[51,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double,double)
+  location: class org.apache.commons.rng.sampling.distribution.AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest_OE25Dev.java:[405,9] cannot find symbol
+  symbol:   method testSharedStateObjectSampler(boolean)
+  location: class org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest_OE25Dev.java:[427,9] cannot find symbol
+  symbol:   method testSharedStateDiscreteSampler(boolean)
+  location: class org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest_OE25Dev.java:[449,9] cannot find symbol
+  symbol:   method testSharedStateContinuousSampler(boolean)
+  location: class org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest_OE25Dev.java:[494,9] cannot find symbol
+  symbol:   method testSharedStateLongSampler(boolean)
+  location: class org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerTest_OE25Dev.java:[36,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double)
+  location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerTest_OE25Dev.java:[44,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double)
+  location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[201,13] cannot find symbol
+  symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,int)
+  location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[203,13] cannot find symbol
+  symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,double)
+  location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[326,13] cannot find symbol
+  symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,int)
+  location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[328,13] cannot find symbol
+  symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,double)
+  location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GeometricSamplerTest_OE25Dev.java:[72,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double)
+  location: class org.apache.commons.rng.sampling.distribution.GeometricSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ChengBetaSamplerTest_OE25Dev.java:[43,9] cannot find symbol
+  symbol:   method testSharedStateSampler(double,double)
+  location: class org.apache.commons.rng.sampling.distribution.ChengBetaSamplerTest_OE25Dev
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  15.516 s
-[INFO] Finished at: 2026-03-05T21:41:31-06:00
+[INFO] Total time:  8.096 s
+[INFO] Finished at: 2026-03-08T23:54:26-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-sampling: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-sampling: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[58,10] method testConstructorThrowsWithNegativeScale() is already defined in class org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[69,10] method testConstructorThrowsWithZeroShape() is already defined in class org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerGaussianSamplerTest_OE25Dev.java:[44,10] method testConstructorThrowsWithZeroStandardDeviation() is already defined in class org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[511,10] method testCreatePoissonSampler() is already defined in class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[56,2] cannot find symbol
+[ERROR]   symbol:   class SuppressWarnings_oe
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerLogNormalSamplerTest_OE25Dev.java:[67,2] cannot find symbol
+[ERROR]   symbol:   class SuppressWarnings_oe
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.BoxMullerLogNormalSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/BoxMullerGaussianSamplerTest_OE25Dev.java:[42,2] cannot find symbol
+[ERROR]   symbol:   class SuppressWarnings_oe
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.BoxMullerGaussianSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[509,2] cannot find symbol
+[ERROR]   symbol:   class SuppressWarnings_oe
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/KempSmallMeanPoissonSamplerTest_OE25Dev.java:[83,9] cannot find symbol
+[ERROR]   symbol:   method testSample(org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev.FixedRNG,org.apache.commons.rng.sampling.distribution.SharedStateDiscreteSampler,int,int,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/KempSmallMeanPoissonSamplerTest_OE25Dev.java:[86,9] cannot find symbol
+[ERROR]   symbol:   method testSample(org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev.FixedRNG,org.apache.commons.rng.sampling.distribution.SharedStateDiscreteSampler,int,int,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/KempSmallMeanPoissonSamplerTest_OE25Dev.java:[93,13] cannot find symbol
+[ERROR]   symbol:   method testSample(org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev.FixedRNG,org.apache.commons.rng.sampling.distribution.SharedStateDiscreteSampler,double,int,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.KempSmallMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[302,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,int[])
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[310,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,int[])
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[318,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,int[])
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[334,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest_OE25Dev.java:[343,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.MarsagliaTsangWangDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[53,9] cannot find symbol
+[ERROR]   symbol:   method testExtremeValueCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method testExtremeValueCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[71,9] cannot find symbol
+[ERROR]   symbol:   method testExtremeValueCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[86,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[94,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[102,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[117,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[125,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[133,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[145,9] cannot find symbol
+[ERROR]   symbol:   method testChangedInputCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[153,9] cannot find symbol
+[ERROR]   symbol:   method testChangedInputCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest_OE25Dev.java:[161,9] cannot find symbol
+[ERROR]   symbol:   method testChangedInputCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.BoxSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev.java:[680,9] cannot find symbol
+[ERROR]   symbol:   method testSamplesWithDInfinite(double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.StableSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev.java:[713,17] cannot find symbol
+[ERROR]   symbol:   method testSupport(double,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.StableSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/StableSamplerTest_OE25Dev.java:[714,17] cannot find symbol
+[ERROR]   symbol:   method testSupport(double,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.StableSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[84,9] cannot find symbol
+[ERROR]   symbol:   method testExtremeValueCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[93,9] cannot find symbol
+[ERROR]   symbol:   method testExtremeValueCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[102,9] cannot find symbol
+[ERROR]   symbol:   method testExtremeValueCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[117,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[125,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[133,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[179,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[187,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[195,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[207,9] cannot find symbol
+[ERROR]   symbol:   method testChangedInputCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[215,9] cannot find symbol
+[ERROR]   symbol:   method testChangedInputCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[223,9] cannot find symbol
+[ERROR]   symbol:   method testChangedInputCoordinates(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[254,9] cannot find symbol
+[ERROR]   symbol:   method testTransformND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest_OE25Dev.java:[262,9] cannot find symbol
+[ERROR]   symbol:   method testTransformND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.TriangleSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/DiscreteUniformSamplerTest_OE25Dev.java:[103,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/DiscreteUniformSamplerTest_OE25Dev.java:[109,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/DiscreteUniformSamplerTest_OE25Dev.java:[114,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/DiscreteUniformSamplerTest_OE25Dev.java:[119,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.DiscreteUniformSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[210,9] cannot find symbol
+[ERROR]   symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[],double[],double[])
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[246,9] cannot find symbol
+[ERROR]   symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[],double[],double[],double[],double[])
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[279,9] cannot find symbol
+[ERROR]   symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[])
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ZigguratSamplerTest_OE25Dev.java:[310,9] cannot find symbol
+[ERROR]   symbol:   method testSamples(double[],java.util.function.Function<org.apache.commons.rng.UniformRandomProvider,org.apache.commons.rng.sampling.distribution.ContinuousSampler>,ZigguratSa[...]ution,double[],double[],double[],double[],double[])
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.ZigguratSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/LargeMeanPoissonSamplerTest_OE25Dev.java:[75,13] cannot find symbol
+[ERROR]   symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/LargeMeanPoissonSamplerTest_OE25Dev.java:[77,13] cannot find symbol
+[ERROR]   symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/LargeMeanPoissonSamplerTest_OE25Dev.java:[96,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/LargeMeanPoissonSamplerTest_OE25Dev.java:[105,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.LargeMeanPoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[46,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[54,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[62,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[78,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[86,9] cannot find symbol
+[ERROR]   symbol:   method testDistributionND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[106,9] cannot find symbol
+[ERROR]   symbol:   method testInvalidInverseNormalisationND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[114,9] cannot find symbol
+[ERROR]   symbol:   method testInvalidInverseNormalisationND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[127,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[135,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[143,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/UnitBallSamplerTest_OE25Dev.java:[151,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.shape.UnitBallSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[53,9] cannot find symbol
+[ERROR]   symbol:   method testDistribution1D(boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[96,9] cannot find symbol
+[ERROR]   symbol:   method testDistribution2D(boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[113,9] cannot find symbol
+[ERROR]   symbol:   method testDistribution3D(boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[130,9] cannot find symbol
+[ERROR]   symbol:   method testDistribution4D(boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[231,9] cannot find symbol
+[ERROR]   symbol:   method testInvalidInverseNormalisationND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[239,9] cannot find symbol
+[ERROR]   symbol:   method testInvalidInverseNormalisationND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[247,9] cannot find symbol
+[ERROR]   symbol:   method testInvalidInverseNormalisationND(int)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[266,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[274,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[282,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[290,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[298,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[306,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[314,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/UnitSphereSamplerTest_OE25Dev.java:[322,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(int,boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.UnitSphereSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/AliasMethodDiscreteSamplerTest_OE25Dev.java:[218,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double[])
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.AliasMethodDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/AliasMethodDiscreteSamplerTest_OE25Dev.java:[226,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double[])
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.AliasMethodDiscreteSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev.java:[43,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev.java:[51,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.AhrensDieterMarsagliaTsangGammaSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest_OE25Dev.java:[405,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateObjectSampler(boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest_OE25Dev.java:[427,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateDiscreteSampler(boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest_OE25Dev.java:[449,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateContinuousSampler(boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest_OE25Dev.java:[494,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateLongSampler(boolean)
+[ERROR]   location: class org.apache.commons.rng.sampling.CompositeSamplersTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerTest_OE25Dev.java:[36,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerTest_OE25Dev.java:[44,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[201,13] cannot find symbol
+[ERROR]   symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[203,13] cannot find symbol
+[ERROR]   symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[326,13] cannot find symbol
+[ERROR]   symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,int)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/PoissonSamplerCacheTest_OE25Dev.java:[328,13] cannot find symbol
+[ERROR]   symbol:   method testPoissonSamples(org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.RestorableUniformRandomProvider,org.apache.commons.rng.sampling.distribution.PoissonSamplerCache,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.PoissonSamplerCacheTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/GeometricSamplerTest_OE25Dev.java:[72,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.GeometricSamplerTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/ChengBetaSamplerTest_OE25Dev.java:[43,9] cannot find symbol
+[ERROR]   symbol:   method testSharedStateSampler(double,double)
+[ERROR]   location: class org.apache.commons.rng.sampling.distribution.ChengBetaSamplerTest_OE25Dev
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

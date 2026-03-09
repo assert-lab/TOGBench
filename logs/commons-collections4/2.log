@@ -27,7 +27,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-collections4 ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4
-[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768507831
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773032103291
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-collections4 ---
@@ -53,328 +53,227 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.0:testCompile (default-testCompile) @ commons-collections4 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 392 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/test-classes
+[INFO] Compiling 375 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/MultiValueMapTest.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Some input files use or override a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/collection/AbstractCollectionTest.java: Recompile with -Xlint:removal for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AbstractCompositePredicateTest.java: Some input files use unchecked or unsafe operations.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AbstractCompositePredicateTest.java: Recompile with -Xlint:unchecked for details.
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.4:prepare-agent (prepare-agent) @ commons-collections4 ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.4/org.jacoco.agent-0.8.4-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.1:test (default-test) @ commons-collections4 ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.collections4.ComparatorUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.EnumerationUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
-[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.SplitMapUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.FactoryUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.MultiSetUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.iterators.CollatingIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.SingletonIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.SingletonIterator2Test_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.IteratorChainTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.UniqueFilterIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.BoundedIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.ReverseListIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.iterators.UnmodifiableOrderedMapIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ListIteratorWrapper2Test_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.FilterListIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ListIteratorWrapperTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ArrayIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.LoopingListIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.UnmodifiableIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.UnmodifiableListIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ObjectGraphIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.LazyIteratorChainTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.IteratorEnumerationTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.PeekingIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.ObjectArrayListIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ZippingIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.IteratorIterableTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.IteratorIterableTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ObjectArrayIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ObjectArrayIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.ArrayIterator2Test_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.SingletonListIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.SkippingIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.ArrayListIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.iterators.ArrayListIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.iterators.UnmodifiableMapIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.iterators.LoopingIteratorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.QueueUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.QueueUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.functors.CatchAndRethrowClosureTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
-[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.functors.ComparatorPredicateTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.collection.TransformedCollectionTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.IndexedCollectionTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.collection.PredicatedCollectionTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.PredicatedCollectionTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.collection.UnmodifiableBoundedCollectionTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.UnmodifiableCollectionTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.collection.CompositeCollectionTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.collection.PredicatedCollectionBuilderTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.MapUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.266 s - in org.apache.commons.collections4.MapUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.ListUtilsTest_OE25Dev
-[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.ListUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.multimap.HashSetValuedHashMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.multimap.ArrayListValuedHashMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.TrieUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.TrieUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.trie.UnmodifiableTrieTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.trie.PatriciaTrieTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.queue.TransformedQueueTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.queue.TransformedQueueTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.queue.UnmodifiableQueueTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.queue.UnmodifiableQueueTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
-[INFO] Tests run: 32, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.CollectionUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.splitmap.TransformedSplitMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.BagUtilsTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.BagUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.FluentIterableTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.FluentIterableTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.TransformedSortedBagTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.bag.UnmodifiableSortedBagTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.CollectionBagTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.TransformedBagTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.PredicatedSortedBagTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.UnmodifiableBagTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bag.CollectionSortedBagTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bag.TreeBagTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.properties.PropertiesFactoryTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.properties.PropertiesFactoryTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.properties.SortedPropertiesTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.properties.SortedPropertiesFactoryTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.properties.SortedPropertiesFactoryTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.IterableUtilsTest_OE25Dev
-[INFO] Tests run: 13, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.IterableUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
-[INFO] Tests run: 42, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.apache.commons.collections4.bidimap.UnmodifiableOrderedBidiMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.bidimap.UnmodifiableSortedBidiMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.bidimap.UnmodifiableBidiMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.bidimap.DualTreeBidiMap2Test_OE25Dev
-[INFO] Running org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.multiset.UnmodifiableMultiSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.comparators.ReverseComparatorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.ReverseComparatorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.TransformingComparatorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.FixedOrderComparatorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.comparators.ComparatorChainTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
-[INFO] Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.comparators.BooleanComparatorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.DefaultKeyValueTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.MultiKeyTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.keyvalue.TiedMapEntryTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.keyvalue.TiedMapEntryTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.ArrayStackTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.ArrayStackTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.TreeListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.TreeListTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.GrowthListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.GrowthListTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.TransformedListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.TransformedListTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.SetUniqueListTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.LazyListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.LazyListTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.list.UnmodifiableListTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
-[INFO] Tests run: 19, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.apache.commons.collections4.list.CursorableLinkedListTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.FixedSizeListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.FixedSizeListTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.list.Collections701Test_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.list.Collections701Test_OE25Dev
-[INFO] Running org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
-[INFO] Tests run: 37, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.apache.commons.collections4.TransformerUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.sequence.SequencesComparatorTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.SetUtilsTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.SetUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.ClosureUtilsTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.ClosureUtilsTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.PredicatedSortedSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.TransformedSortedSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.TransformedSortedSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.PredicatedSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.ListOrderedSet2Test_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.PredicatedNavigableSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.UnmodifiableNavigableSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.TransformedSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.UnmodifiableSortedSetTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.UnmodifiableSortedSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.set.UnmodifiableSetTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.ListOrderedMap2Test_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.ListOrderedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.DefaultedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.UnmodifiableMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.HashedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.HashedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.TransformedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.Flat3MapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.Flat3MapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.LRUMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.LRUMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.PredicatedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.PredicatedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.ReferenceIdentityMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.MultiValueMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.CaseInsensitiveMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.MultiKeyMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.UnmodifiableSortedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.PassiveExpiringMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
-[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.apache.commons.collections4.map.UnmodifiableOrderedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.LazySortedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.TransformedSortedMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.collections4.map.TransformedSortedMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.SingletonMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.LazyMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.LazyMapTest_OE25Dev
-[INFO] Running org.apache.commons.collections4.map.StaticBucketMapTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.collections4.map.StaticBucketMapTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 237, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/TransformedListTest_OE25Dev.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/TransformedListTest_OE25Dev.java: Recompile with -Xlint:unchecked for details.
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/TransformedListTest_OE25Dev.java:[126,17] method testTransformedList() is already defined in class org.apache.commons.collections4.list.TransformedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[387,17] method testCircularFifoQueueCircular() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[457,17] method testRemoveError1() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[476,17] method testRemoveError2() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[497,17] method testRemoveError3() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[520,17] method testRemoveError4() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[538,17] method testRemoveError5() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[556,17] method testRemoveError6() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[574,17] method testRemoveError7() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[592,17] method testRemoveError8() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[611,17] method testRemoveError9() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[630,17] method testRepeatedSerialization() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AllPredicateTest_OE25Dev.java:[109,17] method emptyArrayToGetInstance() is already defined in class org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AllPredicateTest_OE25Dev.java:[122,17] method oneTruePredicate() is already defined in class org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AllPredicateTest_OE25Dev.java:[132,17] method oneFalsePredicate() is already defined in class org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/MultiMapUtilsTest_OE25Dev.java:[53,17] method testEmptyUnmodifiableMultiValuedMap() is already defined in class org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/TransformedMultiValuedMapTest_OE25Dev.java:[144,17] method testKeyTransformedMap() is already defined in class org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/TransformedMultiValuedMapTest_OE25Dev.java:[168,17] method testValueTransformedMap() is already defined in class org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/TransformedMultiValuedMapTest_OE25Dev.java:[187,17] method testFactory_Decorate() is already defined in class org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/TransformedMultiValuedMapTest_OE25Dev.java:[207,17] method testFactory_decorateTransform() is already defined in class org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IteratorUtilsTest_OE25Dev.java:[775,17] method testEmptyMapIterator() is already defined in class org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IteratorUtilsTest_OE25Dev.java:[811,17] method testEmptyOrderedIterator() is already defined in class org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IteratorUtilsTest_OE25Dev.java:[839,17] method testEmptyOrderedMapIterator() is already defined in class org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/TransformedNavigableSetTest_OE25Dev.java:[93,17] method testTransformedSet() is already defined in class org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LinkedMapTest_OE25Dev.java:[160,17] method testReset() is already defined in class org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LinkedMapTest_OE25Dev.java:[322,17] method testClone() is already defined in class org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[468,17] method testReset() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[607,17] method testClone() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[616,17] method testRemoveLRU() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[633,17] method testRemoveLRUBlocksRemove() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[649,17] method testRemoveLRUBlocksRemoveScan() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[665,17] method testRemoveLRUFirstBlocksRemove() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[681,17] method testInternalState_Buckets() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[759,17] method testInternalState_getEntry_int() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PermutationIteratorTest_OE25Dev.java:[145,17] method testPermutationResultSize() is already defined in class org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PermutationIteratorTest_OE25Dev.java:[163,17] method testPermutationExhaustivity() is already defined in class org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[262,17] method testOrdering() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[295,17] method testListAddRemove() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[325,17] method testListAddIndexed() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[363,17] method testListAddReplacing() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[378,17] method testRetainAll() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[402,17] method testDuplicates() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/FluentIterableTest_OE25Dev.java:[411,17] method zip() is already defined in class org.apache.commons.collections4.FluentIterableTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/FluentIterableTest_OE25Dev.java:[572,17] method toArray() is already defined in class org.apache.commons.collections4.FluentIterableTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/ReferenceMapTest_OE25Dev.java:[277,17] method testNullHandling() is already defined in class org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/PredicatedListTest_OE25Dev.java:[142,17] method testIllegalAdd() is already defined in class org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/PredicatedListTest_OE25Dev.java:[155,17] method testIllegalAddAll() is already defined in class org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/PredicatedListTest_OE25Dev.java:[175,17] method testIllegalSet() is already defined in class org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/PredicatedListTest_OE25Dev.java:[186,17] method testLegalAddAll() is already defined in class org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bag/PredicatedBagTest_OE25Dev.java:[136,17] method testlegalAddRemove() is already defined in class org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bag/PredicatedBagTest_OE25Dev.java:[153,17] method testIllegalAdd() is already defined in class org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bag/PredicatedBagTest_OE25Dev.java:[166,17] method testIllegalDecorate() is already defined in class org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/MapBackedSet2Test_OE25Dev.java:[92,17] method testOrdering() is already defined in class org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multiset/PredicatedMultiSetTest_OE25Dev.java:[136,17] method testLegalAddRemove() is already defined in class org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multiset/PredicatedMultiSetTest_OE25Dev.java:[153,17] method testIllegalAdd() is already defined in class org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multiset/PredicatedMultiSetTest_OE25Dev.java:[166,17] method testIllegalDecorate() is already defined in class org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/PredicatedQueueTest_OE25Dev.java:[120,17] method testGet() is already defined in class org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/PredicatedQueueTest_OE25Dev.java:[132,17] method testRemove() is already defined in class org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/FilterIteratorTest_OE25Dev.java:[213,17] method testSetIterator() is already defined in class org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/EqualPredicateTest_OE25Dev.java:[70,17] method testPredicateTypeCanBeSuperClassOfObject() is already defined in class org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[273,17] method testAddException() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[283,17] method testUnmodifiableEntries() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[308,17] method testUnmodifiableMapIterator() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[325,17] method testUnmodifiableKeySet() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[355,17] method testUnmodifiableValues() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[385,17] method testUnmodifiableAsMap() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[414,17] method testUnmodifiableKeys() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/ArrayStackTest_OE25Dev.java:[117,17] method testPushPeekPop() is already defined in class org.apache.commons.collections4.ArrayStackTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/ArrayStackTest_OE25Dev.java:[142,17] method testSearch() is already defined in class org.apache.commons.collections4.ArrayStackTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev.java:[122,17] method testImmediatePushback() is already defined in class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev.java:[132,17] method testDelayedPushback() is already defined in class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev.java:[143,17] method testMultiplePushback() is already defined in class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/AbstractTreeMapTest_OE25Dev.java:[60,17] method testSearch() is already defined in class org.apache.commons.collections4.AbstractTreeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/PredicatedSortedMapTest_OE25Dev.java:[184,17] method testEntrySet() is already defined in class org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/PredicatedSortedMapTest_OE25Dev.java:[194,17] method testPut() is already defined in class org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/PredicatedSortedMapTest_OE25Dev.java:[244,17] method testSortOrder() is already defined in class org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[606,17] method testAllPredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[656,17] method testAnyPredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[707,17] method testOnePredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[761,17] method testNonePredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[846,17] method testNullIsExceptionPredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AbstractAnyAllOnePredicateTest_OE25Dev.java:[74,23] method singleElementArrayToGetInstance() is already defined in class org.apache.commons.collections4.functors.AbstractAnyAllOnePredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/UnmodifiableMapEntryTest_OE25Dev.java:[106,17] method testConstructors() is already defined in class org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/UnmodifiableMapEntryTest_OE25Dev.java:[128,17] method testAccessorsAndMutators() is already defined in class org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[177,17] method testAddComposited() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[193,17] method testRemoveComposited() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[210,17] method testRemoveFromUnderlying() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[224,17] method testRemoveFromComposited() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[267,17] method testPut() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IterableUtilsTest_OE25Dev.java:[500,17] method partition() is already defined in class org.apache.commons.collections4.IterableUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IterableUtilsTest_OE25Dev.java:[538,17] method partitionMultiplePredicates() is already defined in class org.apache.commons.collections4.IterableUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/DefaultMapEntryTest_OE25Dev.java:[100,17] method testConstructors() is already defined in class org.apache.commons.collections4.keyvalue.DefaultMapEntryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/DefaultMapEntryTest_OE25Dev.java:[123,17] method testSelfReferenceHandling() is already defined in class org.apache.commons.collections4.keyvalue.DefaultMapEntryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[207,17] method testContains() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[213,17] method testContainsAll() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[219,17] method testRemoveAll() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[225,17] method testRemoveUnderlying() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[237,17] method testRemoveComposited() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[249,17] method testFailedCollisionResolution() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[287,17] method testAddComposited() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  6.904 s
-[INFO] Finished at: 2026-03-05T21:41:53-06:00
+[INFO] Total time:  4.846 s
+[INFO] Finished at: 2026-03-08T23:55:06-05:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.0:testCompile (default-testCompile) on project commons-collections4: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/TransformedListTest_OE25Dev.java:[126,17] method testTransformedList() is already defined in class org.apache.commons.collections4.list.TransformedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[387,17] method testCircularFifoQueueCircular() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[457,17] method testRemoveError1() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[476,17] method testRemoveError2() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[497,17] method testRemoveError3() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[520,17] method testRemoveError4() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[538,17] method testRemoveError5() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[556,17] method testRemoveError6() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[574,17] method testRemoveError7() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[592,17] method testRemoveError8() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[611,17] method testRemoveError9() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/CircularFifoQueueTest_OE25Dev.java:[630,17] method testRepeatedSerialization() is already defined in class org.apache.commons.collections4.queue.CircularFifoQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AllPredicateTest_OE25Dev.java:[109,17] method emptyArrayToGetInstance() is already defined in class org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AllPredicateTest_OE25Dev.java:[122,17] method oneTruePredicate() is already defined in class org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AllPredicateTest_OE25Dev.java:[132,17] method oneFalsePredicate() is already defined in class org.apache.commons.collections4.functors.AllPredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/MultiMapUtilsTest_OE25Dev.java:[53,17] method testEmptyUnmodifiableMultiValuedMap() is already defined in class org.apache.commons.collections4.MultiMapUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/TransformedMultiValuedMapTest_OE25Dev.java:[144,17] method testKeyTransformedMap() is already defined in class org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/TransformedMultiValuedMapTest_OE25Dev.java:[168,17] method testValueTransformedMap() is already defined in class org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/TransformedMultiValuedMapTest_OE25Dev.java:[187,17] method testFactory_Decorate() is already defined in class org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/TransformedMultiValuedMapTest_OE25Dev.java:[207,17] method testFactory_decorateTransform() is already defined in class org.apache.commons.collections4.multimap.TransformedMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IteratorUtilsTest_OE25Dev.java:[775,17] method testEmptyMapIterator() is already defined in class org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IteratorUtilsTest_OE25Dev.java:[811,17] method testEmptyOrderedIterator() is already defined in class org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IteratorUtilsTest_OE25Dev.java:[839,17] method testEmptyOrderedMapIterator() is already defined in class org.apache.commons.collections4.IteratorUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/TransformedNavigableSetTest_OE25Dev.java:[93,17] method testTransformedSet() is already defined in class org.apache.commons.collections4.set.TransformedNavigableSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LinkedMapTest_OE25Dev.java:[160,17] method testReset() is already defined in class org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LinkedMapTest_OE25Dev.java:[322,17] method testClone() is already defined in class org.apache.commons.collections4.map.LinkedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[468,17] method testReset() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[607,17] method testClone() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[616,17] method testRemoveLRU() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[633,17] method testRemoveLRUBlocksRemove() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[649,17] method testRemoveLRUBlocksRemoveScan() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[665,17] method testRemoveLRUFirstBlocksRemove() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[681,17] method testInternalState_Buckets() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/LRUMapTest_OE25Dev.java:[759,17] method testInternalState_getEntry_int() is already defined in class org.apache.commons.collections4.map.LRUMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PermutationIteratorTest_OE25Dev.java:[145,17] method testPermutationResultSize() is already defined in class org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PermutationIteratorTest_OE25Dev.java:[163,17] method testPermutationExhaustivity() is already defined in class org.apache.commons.collections4.iterators.PermutationIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[262,17] method testOrdering() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[295,17] method testListAddRemove() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[325,17] method testListAddIndexed() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[363,17] method testListAddReplacing() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[378,17] method testRetainAll() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/ListOrderedSetTest_OE25Dev.java:[402,17] method testDuplicates() is already defined in class org.apache.commons.collections4.set.ListOrderedSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/FluentIterableTest_OE25Dev.java:[411,17] method zip() is already defined in class org.apache.commons.collections4.FluentIterableTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/FluentIterableTest_OE25Dev.java:[572,17] method toArray() is already defined in class org.apache.commons.collections4.FluentIterableTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/ReferenceMapTest_OE25Dev.java:[277,17] method testNullHandling() is already defined in class org.apache.commons.collections4.map.ReferenceMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/PredicatedListTest_OE25Dev.java:[142,17] method testIllegalAdd() is already defined in class org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/PredicatedListTest_OE25Dev.java:[155,17] method testIllegalAddAll() is already defined in class org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/PredicatedListTest_OE25Dev.java:[175,17] method testIllegalSet() is already defined in class org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/list/PredicatedListTest_OE25Dev.java:[186,17] method testLegalAddAll() is already defined in class org.apache.commons.collections4.list.PredicatedListTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bag/PredicatedBagTest_OE25Dev.java:[136,17] method testlegalAddRemove() is already defined in class org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bag/PredicatedBagTest_OE25Dev.java:[153,17] method testIllegalAdd() is already defined in class org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/bag/PredicatedBagTest_OE25Dev.java:[166,17] method testIllegalDecorate() is already defined in class org.apache.commons.collections4.bag.PredicatedBagTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/MapBackedSet2Test_OE25Dev.java:[92,17] method testOrdering() is already defined in class org.apache.commons.collections4.set.MapBackedSet2Test_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multiset/PredicatedMultiSetTest_OE25Dev.java:[136,17] method testLegalAddRemove() is already defined in class org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multiset/PredicatedMultiSetTest_OE25Dev.java:[153,17] method testIllegalAdd() is already defined in class org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multiset/PredicatedMultiSetTest_OE25Dev.java:[166,17] method testIllegalDecorate() is already defined in class org.apache.commons.collections4.multiset.PredicatedMultiSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/PredicatedQueueTest_OE25Dev.java:[120,17] method testGet() is already defined in class org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/queue/PredicatedQueueTest_OE25Dev.java:[132,17] method testRemove() is already defined in class org.apache.commons.collections4.queue.PredicatedQueueTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/FilterIteratorTest_OE25Dev.java:[213,17] method testSetIterator() is already defined in class org.apache.commons.collections4.iterators.FilterIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/EqualPredicateTest_OE25Dev.java:[70,17] method testPredicateTypeCanBeSuperClassOfObject() is already defined in class org.apache.commons.collections4.functors.EqualPredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[273,17] method testAddException() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[283,17] method testUnmodifiableEntries() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[308,17] method testUnmodifiableMapIterator() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[325,17] method testUnmodifiableKeySet() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[355,17] method testUnmodifiableValues() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[385,17] method testUnmodifiableAsMap() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/multimap/UnmodifiableMultiValuedMapTest_OE25Dev.java:[414,17] method testUnmodifiableKeys() is already defined in class org.apache.commons.collections4.multimap.UnmodifiableMultiValuedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/ArrayStackTest_OE25Dev.java:[117,17] method testPushPeekPop() is already defined in class org.apache.commons.collections4.ArrayStackTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/ArrayStackTest_OE25Dev.java:[142,17] method testSearch() is already defined in class org.apache.commons.collections4.ArrayStackTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev.java:[122,17] method testImmediatePushback() is already defined in class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev.java:[132,17] method testDelayedPushback() is already defined in class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/iterators/PushbackIteratorTest_OE25Dev.java:[143,17] method testMultiplePushback() is already defined in class org.apache.commons.collections4.iterators.PushbackIteratorTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/AbstractTreeMapTest_OE25Dev.java:[60,17] method testSearch() is already defined in class org.apache.commons.collections4.AbstractTreeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/PredicatedSortedMapTest_OE25Dev.java:[184,17] method testEntrySet() is already defined in class org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/PredicatedSortedMapTest_OE25Dev.java:[194,17] method testPut() is already defined in class org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/PredicatedSortedMapTest_OE25Dev.java:[244,17] method testSortOrder() is already defined in class org.apache.commons.collections4.map.PredicatedSortedMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[606,17] method testAllPredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[656,17] method testAnyPredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[707,17] method testOnePredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[761,17] method testNonePredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/PredicateUtilsTest_OE25Dev.java:[846,17] method testNullIsExceptionPredicate() is already defined in class org.apache.commons.collections4.PredicateUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/functors/AbstractAnyAllOnePredicateTest_OE25Dev.java:[74,23] method singleElementArrayToGetInstance() is already defined in class org.apache.commons.collections4.functors.AbstractAnyAllOnePredicateTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/UnmodifiableMapEntryTest_OE25Dev.java:[106,17] method testConstructors() is already defined in class org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/UnmodifiableMapEntryTest_OE25Dev.java:[128,17] method testAccessorsAndMutators() is already defined in class org.apache.commons.collections4.keyvalue.UnmodifiableMapEntryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[177,17] method testAddComposited() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[193,17] method testRemoveComposited() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[210,17] method testRemoveFromUnderlying() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[224,17] method testRemoveFromComposited() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/map/CompositeMapTest_OE25Dev.java:[267,17] method testPut() is already defined in class org.apache.commons.collections4.map.CompositeMapTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IterableUtilsTest_OE25Dev.java:[500,17] method partition() is already defined in class org.apache.commons.collections4.IterableUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/IterableUtilsTest_OE25Dev.java:[538,17] method partitionMultiplePredicates() is already defined in class org.apache.commons.collections4.IterableUtilsTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/DefaultMapEntryTest_OE25Dev.java:[100,17] method testConstructors() is already defined in class org.apache.commons.collections4.keyvalue.DefaultMapEntryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/keyvalue/DefaultMapEntryTest_OE25Dev.java:[123,17] method testSelfReferenceHandling() is already defined in class org.apache.commons.collections4.keyvalue.DefaultMapEntryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[207,17] method testContains() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[213,17] method testContainsAll() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[219,17] method testRemoveAll() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[225,17] method testRemoveUnderlying() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[237,17] method testRemoveComposited() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[249,17] method testFailedCollisionResolution() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-collections4/src/test/java/org/apache/commons/collections4/set/CompositeSetTest_OE25Dev.java:[287,17] method testAddComposited() is already defined in class org.apache.commons.collections4.set.CompositeSetTest_OE25Dev
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

@@ -22,29 +22,38 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-rxjava2 ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 6 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/target/test-classes
+[INFO] Compiling 5 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/target/test-classes
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java: Some input files use or override a deprecated API.
 [INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-rxjava2 ---
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running TestSuite
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.68 sec - in TestSuite
-
-Results :
-
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
-
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java:[391,15] method httpEventCallbacksCheckDisposal(java.util.concurrent.Callable<org.asynchttpclient.AsyncHandler.State>) is already defined in class org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeAsyncHandlerBridgeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev.java:[121,15] method httpEventCallbacksCheckDisposal(java.util.concurrent.Callable<org.asynchttpclient.AsyncHandler.State>) is already defined in class org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java:[390,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeAsyncHandlerBridgeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev.java:[120,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev
+[INFO] 4 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  10.720 s
-[INFO] Finished at: 2026-03-05T21:40:48-06:00
+[INFO] Total time:  5.927 s
+[INFO] Finished at: 2026-03-08T23:53:22-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-rxjava2: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client-extras-rxjava2: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java:[391,15] method httpEventCallbacksCheckDisposal(java.util.concurrent.Callable<org.asynchttpclient.AsyncHandler.State>) is already defined in class org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeAsyncHandlerBridgeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev.java:[121,15] method httpEventCallbacksCheckDisposal(java.util.concurrent.Callable<org.asynchttpclient.AsyncHandler.State>) is already defined in class org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeAsyncHandlerBridgeTest_OE25Dev.java:[390,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeAsyncHandlerBridgeTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/rxjava2/src/test/java/org/asynchttpclient/extras/rxjava2/maybe/AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev.java:[120,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.rxjava2.maybe.AbstractMaybeProgressAsyncHandlerBridgeTest_OE25Dev
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

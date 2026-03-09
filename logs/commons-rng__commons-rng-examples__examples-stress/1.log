@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-examples-stress ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress
-[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 2026-03-05 21:41:17-0600
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 2026-03-08 23:54:19-0500
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-examples-stress ---
@@ -50,20 +50,45 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-examples-stress ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 2 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/target/test-classes
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-examples-stress ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/main/java/org/apache/commons/rng/examples/stress/BridgeTestCommand.java:117: Covariant return type change detected: java.nio.Buffer java.nio.IntBuffer.flip() has been changed to java.nio.IntBuffer java.nio.IntBuffer.flip()
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-examples-stress ---
+[INFO] Compiling 4 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/target/test-classes
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[160,13] incompatible types: invalid method reference
+    writeInt(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[168,13] incompatible types: invalid method reference
+    writeInt(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[176,13] incompatible types: invalid method reference
+    writeLong(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[184,13] incompatible types: invalid method reference
+    writeLong(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[199,13] incompatible types: invalid method reference
+    writeInt(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[214,13] incompatible types: invalid method reference
+    writeInt(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[INFO] 6 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  11.103 s
-[INFO] Finished at: 2026-03-05T21:41:24-06:00
+[INFO] Total time:  6.528 s
+[INFO] Finished at: 2026-03-08T23:54:22-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-examples-stress: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-examples-stress: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[160,13] incompatible types: invalid method reference
+[ERROR]     writeInt(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[168,13] incompatible types: invalid method reference
+[ERROR]     writeInt(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[176,13] incompatible types: invalid method reference
+[ERROR]     writeLong(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[184,13] incompatible types: invalid method reference
+[ERROR]     writeLong(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[199,13] incompatible types: invalid method reference
+[ERROR]     writeInt(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-examples/examples-stress/src/test/java/org/apache/commons/rng/examples/stress/RngDataOutputTest_OE25Dev.java:[214,13] incompatible types: invalid method reference
+[ERROR]     writeInt(java.io.DataOutputStream,org.apache.commons.rng.UniformRandomProvider) has private access in org.apache.commons.rng.examples.stress.RngDataOutputTest
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

@@ -1,0 +1,325 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-jcs3-core:jar:3.1
+[WARNING] 'dependencies.dependency.(groupId:artifactId:type:classifier)' must be unique: junit:junit:jar -> version 4.13 vs (?) @ line 96, column 17
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] ----------------< org.apache.commons:commons-jcs3-core >----------------
+[INFO] Building Apache Commons JCS :: Core 3.1
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:3.1.0:clean (default-clean) @ commons-jcs3-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-version) @ commons-jcs3-core ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:3.0.0-M3:enforce (enforce-maven-3) @ commons-jcs3-core ---
+[INFO] 
+[INFO] --- apache-rat-plugin:0.13:check (rat-check) @ commons-jcs3-core ---
+[INFO] RAT will not execute since it is configured to be skipped via system property 'rat.skip'.
+[INFO] 
+[INFO] --- build-helper-maven-plugin:3.2.0:parse-version (parse-version) @ commons-jcs3-core ---
+[INFO] 
+[INFO] --- maven-antrun-plugin:1.8:run (javadoc.resources) @ commons-jcs3-core ---
+[INFO] Skipping Antrun execution
+[INFO] 
+[INFO] --- maven-remote-resources-plugin:1.7.0:process (process-resource-bundles) @ commons-jcs3-core ---
+[INFO] Preparing remote bundle org.apache:apache-jar-resource-bundle:1.4
+[INFO] Copying 3 resources from 1 bundle.
+[INFO] 
+[INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-jcs3-core ---
+[INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core' && 'git' 'rev-parse' '--verify' 'HEAD'
+[INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773032011078
+[INFO] Storing buildScmBranch: final-single-assertion-dataset
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-jcs3-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 0 resource to META-INF
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:compile (default-compile) @ commons-jcs3-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 233 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/main/java/org/apache/commons/jcs3/utils/config/PropertySetter.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/main/java/org/apache/commons/jcs3/utils/config/PropertySetter.java uses unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/main/java/org/apache/commons/jcs3/utils/config/PropertySetter.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-bundle-plugin:5.1.1:manifest (bundle-manifest) @ commons-jcs3-core ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.1.0:testResources (default-testResources) @ commons-jcs3-core ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 49 resources
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-jcs3-core ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 234 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/utils/discovery/UDPDiscoverySenderUnitTest_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-jcs3/commons-jcs-core/src/test/java/org/apache/commons/jcs3/utils/discovery/UDPDiscoverySenderUnitTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-jcs3-core ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.089 s - in org.apache.commons.jcs3.engine.logging.CacheEventLoggerDebugLoggerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.mru.LRUvsMRUPerformanceTest_OE25Dev
+The log level must be at info or above for the a performance test.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.memory.mru.LRUvsMRUPerformanceTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.085 s - in org.apache.commons.jcs3.engine.memory.mru.MRUMemoryCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.129 s - in org.apache.commons.jcs3.engine.memory.soft.SoftReferenceMemoryCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
+[onemore, key2, key5, key6, key3, key4, key9, key7, key8, key10]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.engine.memory.fifo.FIFOMemoryCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.521 s - in org.apache.commons.jcs3.engine.memory.shrinking.ShrinkerThreadUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.078 s - in org.apache.commons.jcs3.engine.memory.lru.LHMLRUMemoryCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.match.KeyMatcherPatternImpllUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.engine.ZombieCacheServiceNonLocalUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.043 s - in org.apache.commons.jcs3.engine.SystemPropertyUsageUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.058 s - in org.apache.commons.jcs3.engine.CacheEventQueueFactoryUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.engine.control.CacheManagerStatsUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev
+[ERROR] testRelease_oe(org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+junit.framework.AssertionFailedError: The cache was NOT disposed during release! expected:<DISPOSED> but was:<ALIVE>
+	at org.apache.commons.jcs3.engine.control.CompositeCacheManagerTest_OE25Dev.testRelease_oe(CompositeCacheManagerTest_OE25Dev.java:53)
+
+[INFO] Running org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
+[ERROR] Tests run: 7, Failures: 5, Errors: 1, Skipped: 0, Time elapsed: 9.463 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev
+[ERROR] testSpoolNotAllowedEvent_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.288 s  <<< FAILURE!
+junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEvent_oe(SimpleEventHandlingUnitTest_OE25Dev.java:259)
+
+[ERROR] testSpoolNoDiskEvent_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.17 s  <<< FAILURE!
+junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_DISK_NOT_AVAILABLE events [1990] does not equal the number expected.
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNoDiskEvent_oe(SimpleEventHandlingUnitTest_OE25Dev.java:236)
+
+[ERROR] testSpoolNotAllowedEventOnItem_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 8.82 s  <<< FAILURE!
+junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_NOT_ALLOWED events [0] does not equal the number expected.
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolNotAllowedEventOnItem_oe(SimpleEventHandlingUnitTest_OE25Dev.java:284)
+
+[ERROR] testExceededMaxlifeOnrequestEvent_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0 s  <<< ERROR!
+java.lang.IllegalArgumentException: timeout value is negative
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededMaxlifeOnrequestEvent_oe(SimpleEventHandlingUnitTest_OE25Dev.java:304)
+
+[ERROR] testSpoolEvent_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.168 s  <<< FAILURE!
+junit.framework.AssertionFailedError: The number of ELEMENT_EVENT_SPOOLED_DISK_AVAILABLE events [0] does not equal the number expected [2000]
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testSpoolEvent_oe(SimpleEventHandlingUnitTest_OE25Dev.java:213)
+
+[ERROR] testExceededIdletimeOnrequestEvent_oe(org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev)  Time elapsed: 0.006 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Item should not be null for key 0:key
+	at org.apache.commons.jcs3.engine.control.event.SimpleEventHandlingUnitTest_OE25Dev.testExceededIdletimeOnrequestEvent_oe(SimpleEventHandlingUnitTest_OE25Dev.java:338)
+
+[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.apache.commons.jcs3.engine.control.CompositeCacheUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.003 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev
+[ERROR] testParseSpoolChunkSize_Normal_oe(org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError: Wrong chunkSize expected:<2> but was:<5>
+	at org.apache.commons.jcs3.engine.control.CompositeCacheConfiguratorUnitTest_OE25Dev.testParseSpoolChunkSize_Normal_oe(CompositeCacheConfiguratorUnitTest_OE25Dev.java:92)
+
+[INFO] Running org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
+[ERROR] Tests run: 8, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.002 s <<< FAILURE! - in org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev
+[ERROR] testUpdateConfig_oe(org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev)  Time elapsed: 0.001 s  <<< FAILURE!
+junit.framework.AssertionFailedError: expected:<UPDATE> but was:<SWAP>
+	at org.apache.commons.jcs3.engine.control.CompositeCacheDiskUsageUnitTest_OE25Dev.testUpdateConfig_oe(CompositeCacheDiskUsageUnitTest_OE25Dev.java:337)
+
+[INFO] Running org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.apache.commons.jcs3.utils.access.JCSWorkerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.01 s <<< FAILURE! - in org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev
+[ERROR] testReadWrite_oe(org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev)  Time elapsed: 0.009 s  <<< FAILURE!
+junit.framework.AssertionFailedError: 
+[key:0] should not be null, Region Name = blockRegion1
+HitCountRam = 0
+HitCountAux = 0
+---------------------------Memory Cache
+Put Count = 500
+Hit Count = 0
+Miss Count = 1
+Map Size = 10
+List Size = 10
+	at org.apache.commons.jcs3.utils.serialization.SerializerUnitTest_OE25Dev.testReadWrite_oe(SerializerUnitTest_OE25Dev.java:91)
+
+[INFO] Running org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.852 s - in org.apache.commons.jcs3.utils.serialization.CompressingSerializerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.apache.commons.jcs3.utils.serialization.StandardSerializerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.013 s - in org.apache.commons.jcs3.utils.serialization.SerializationConversionUtilUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.177 s - in org.apache.commons.jcs3.utils.serialization.EncryptingSerializerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.087 s - in org.apache.commons.jcs3.utils.threadpool.ThreadPoolManagerUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.net.HostNameUtilUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.apache.commons.jcs3.utils.config.PropertySetterUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev
+JCS       put time for 100000 = 70; millis per = 7.0E-4
+JCS       get time for 100000 = 147; millis per = 0.00147
+LRUMap (commons) put time for 100000 = 71; millis per = 7.1E-4
+LRUMap (commons) get time for 100000 = 24; millis per = 2.4E-4
+
+
+JCS       put time for 100000 = 68; millis per = 6.8E-4
+JCS       get time for 100000 = 202; millis per = 0.00202
+LRUMap (commons) put time for 100000 = 27; millis per = 2.7E-4
+LRUMap (commons) get time for 100000 = 49; millis per = 4.9E-4
+
+
+JCS       put time for 100000 = 78; millis per = 7.8E-4
+JCS       get time for 100000 = 175; millis per = 0.00175
+LRUMap (commons) put time for 100000 = 67; millis per = 6.7E-4
+LRUMap (commons) get time for 100000 = 24; millis per = 2.4E-4
+
+
+JCS       put time for 100000 = 78; millis per = 7.8E-4
+JCS       get time for 100000 = 217; millis per = 0.00217
+LRUMap (commons) put time for 100000 = 47; millis per = 4.7E-4
+LRUMap (commons) get time for 100000 = 20; millis per = 2.0E-4
+
+
+JCS       put time for 100000 = 116; millis per = 0.00116
+JCS       get time for 100000 = 296; millis per = 0.00296
+LRUMap (commons) put time for 100000 = 54; millis per = 5.4E-4
+LRUMap (commons) get time for 100000 = 47; millis per = 4.7E-4
+
+
+JCS       put time for 100000 = 69; millis per = 6.9E-4
+JCS       get time for 100000 = 239; millis per = 0.00239
+LRUMap (commons) put time for 100000 = 18; millis per = 1.8E-4
+LRUMap (commons) get time for 100000 = 11; millis per = 1.1E-4
+
+
+JCS       put time for 100000 = 69; millis per = 6.9E-4
+JCS       get time for 100000 = 407; millis per = 0.00407
+LRUMap (commons) put time for 100000 = 14; millis per = 1.4E-4
+LRUMap (commons) get time for 100000 = 8; millis per = 8.0E-5
+
+
+JCS       put time for 100000 = 62; millis per = 6.2E-4
+JCS       get time for 100000 = 97; millis per = 9.7E-4
+LRUMap (commons) put time for 100000 = 13; millis per = 1.3E-4
+LRUMap (commons) get time for 100000 = 6; millis per = 6.0E-5
+
+
+JCS       put time for 100000 = 44; millis per = 4.4E-4
+JCS       get time for 100000 = 104; millis per = 0.00104
+LRUMap (commons) put time for 100000 = 13; millis per = 1.3E-4
+LRUMap (commons) get time for 100000 = 7; millis per = 7.0E-5
+
+
+JCS       put time for 100000 = 36; millis per = 3.6E-4
+JCS       get time for 100000 = 103; millis per = 0.00103
+LRUMap (commons) put time for 100000 = 36; millis per = 3.6E-4
+LRUMap (commons) get time for 100000 = 26; millis per = 2.6E-4
+
+
+JCS       put time for 100000 = 344; millis per = 0.00344
+JCS       get time for 100000 = 287; millis per = 0.00287
+LRUMap (commons) put time for 100000 = 20; millis per = 2.0E-4
+LRUMap (commons) get time for 100000 = 9; millis per = 9.0E-5
+
+
+JCS       put time for 100000 = 2538; millis per = 0.02538
+JCS       get time for 100000 = 128; millis per = 0.00128
+LRUMap (commons) put time for 100000 = 11; millis per = 1.1E-4
+LRUMap (commons) get time for 100000 = 5; millis per = 5.0E-5
+
+
+JCS       put time for 100000 = 36; millis per = 3.6E-4
+JCS       get time for 100000 = 109; millis per = 0.00109
+LRUMap (commons) put time for 100000 = 11; millis per = 1.1E-4
+LRUMap (commons) get time for 100000 = 7; millis per = 7.0E-5
+
+
+JCS       put time for 100000 = 46; millis per = 4.6E-4
+JCS       get time for 100000 = 129; millis per = 0.00129
+LRUMap (commons) put time for 100000 = 11; millis per = 1.1E-4
+LRUMap (commons) get time for 100000 = 6; millis per = 6.0E-5
+
+
+JCS       put time for 100000 = 44; millis per = 4.4E-4
+JCS       get time for 100000 = 162; millis per = 0.00162
+LRUMap (commons) put time for 100000 = 59; millis per = 5.9E-4
+LRUMap (commons) get time for 100000 = 57; millis per = 5.7E-4
+
+
+JCS       put time for 100000 = 59; millis per = 5.9E-4
+JCS       get time for 100000 = 339; millis per = 0.00339
+LRUMap (commons) put time for 100000 = 61; millis per = 6.1E-4
+LRUMap (commons) get time for 100000 = 20; millis per = 2.0E-4
+
+
+JCS       put time for 100000 = 41; millis per = 4.1E-4
+JCS       get time for 100000 = 110; millis per = 0.0011
+LRUMap (commons) put time for 100000 = 29; millis per = 2.9E-4
+LRUMap (commons) get time for 100000 = 15; millis per = 1.5E-4
+
+
+JCS       put time for 100000 = 81; millis per = 8.1E-4
+JCS       get time for 100000 = 192; millis per = 0.00192
+LRUMap (commons) put time for 100000 = 14; millis per = 1.4E-4
+LRUMap (commons) get time for 100000 = 13; millis per = 1.3E-4
+
+
+JCS       put time for 100000 = 36; millis per = 3.6E-4
+JCS       get time for 100000 = 112; millis per = 0.00112
+LRUMap (commons) put time for 100000 = 45; millis per = 4.5E-4
+LRUMap (commons) get time for 100000 = 13; millis per = 1.3E-4
+
+
+JCS       put time for 100000 = 84; millis per = 8.4E-4
+JCS       get time for 100000 = 226; millis per = 0.00226
+LRUMap (commons) put time for 100000 = 20; millis per = 2.0E-4
+LRUMap (commons) get time for 100000 = 9; millis per = 9.0E-5
+
+
+Finished 20 loops of 100000 gets and puts
+
+
+Put average for LRUMap       = 199
+Put average for LRUMap (commons) = 32
+JCS       puts took 6.21875 times the LRUMap (commons), the goal is <1.2x
+
+
+Get average for LRUMap       = 189
+Get average for LRUMap (commons) = 18
+JCS       gets took 10.5 times the LRUMap (commons), the goal is <0.5x
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 8.861 s <<< FAILURE! - in org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev
+[ERROR] testSimpleLoad_oe(org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev)  Time elapsed: 8.86 s  <<< FAILURE!
+junit.framework.AssertionFailedError
+	at org.apache.commons.jcs3.utils.struct.LRUMapPerformanceTest_OE25Dev.testSimpleLoad_oe(LRUMapPerformanceTest_OE25Dev.java:174)
+
+[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapConcurrentUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.384 s - in org.apache.commons.jcs3.utils.struct.LRUMapConcurrentUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListDumpUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest_OE25Dev
+The log level must be at info or above for the a performance test.
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.JCSvsCommonsLRUMapPerformanceTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.LRUMapUnitTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.LRUMapUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.apache.commons.jcs3.utils.struct.DoubleLinkedListUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.zip.CompressionUtilUnitTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.apache.commons.jcs3.utils.zip.CompressionUtilUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.054 s - in org.apache.commons.jcs3.utils.discovery.UDPDiscoveryServiceUnitTest_OE25Dev
+[INFO] Running org.apache.commons.jcs3.utils.discovery.UDPDiscoverySenderUnitTest_OE25Dev
+TIMEOUT

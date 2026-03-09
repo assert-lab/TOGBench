@@ -1,0 +1,531 @@
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] -------------------< io.springside:springside-utils >-------------------
+[INFO] Building Springside :: Module :: Utils 5.0.0-SNAPSHOT
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ springside-utils ---
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ springside-utils ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:compile (default-compile) @ springside-utils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 78 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/classes
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[3144,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1511,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1535,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1537,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1541,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1542,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1543,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinTask.java:[1543,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[712,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[731,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[733,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[737,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[738,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[739,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/CountedCompleter.java:[739,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6245,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6287,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6289,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6293,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6294,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6295,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ConcurrentHashMapV8.java:[6295,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[1032,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3230,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3327,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3329,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3333,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3334,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3335,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/ForkJoinPool.java:[3335,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[101,38] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[291,34] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[314,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[316,28] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[320,66] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[321,32] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,35] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/concurrent/jsr166e/Striped64.java:[322,56] sun.misc.Unsafe is internal proprietary API and may be removed in a future release
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/number/NumberUtil.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/number/NumberUtil.java uses or overrides a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/number/NumberUtil.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/reflect/ClassUtil.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/main/java/org/springside/modules/utils/reflect/ClassUtil.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:testResources (default-testResources) @ springside-utils ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 3 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.10.1:testCompile (default-testCompile) @ springside-utils ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 113 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/test-classes
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/type/SortedArrayListTest_OE25Dev.java: Some input files use or override a deprecated API.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/collection/type/SortedArrayListTest_OE25Dev.java: Recompile with -Xlint:deprecation for details.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/mapper/JsonMapperTest.java: Some input files use unchecked or unsafe operations.
+[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/src/test/java/org/springside/modules/utils/mapper/JsonMapperTest.java: Recompile with -Xlint:unchecked for details.
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ springside-utils ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.springside.modules.utils.misc.SamplerTest_OE25Dev
+sample 10.5% in 10000 hits should close to 1050, actual is 1121
+sample 0.5% in 10000 hits should close to 50, actual is 56
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.422 s - in org.springside.modules.utils.misc.SamplerTest_OE25Dev
+[INFO] Running org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
+onCompleted:haha
+onFailed:wuwu
+onCancelled
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 s - in org.springside.modules.utils.concurrent.BasicFutureTest_OE25Dev
+[INFO] Running org.springside.modules.utils.concurrent.threadpool.QueuableCachedThreadPoolTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.492 s - in org.springside.modules.utils.concurrent.threadpool.QueuableCachedThreadPoolTest_OE25Dev
+[INFO] Running org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev
+start task
+start task
+23:53:34.202 [pool-3-thread-1] WARN  test - InterruptedException
+start task
+23:53:34.215 [pool-4-thread-1] WARN  test - InterruptedException
+23:53:35.233 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
+java.lang.RuntimeException: fail
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+23:53:35.332 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
+java.lang.RuntimeException: fail
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+23:53:35.429 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
+java.lang.RuntimeException: fail
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+23:53:35.529 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
+java.lang.RuntimeException: fail
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+23:53:35.629 [pool-8-thread-1] ERROR o.s.m.u.c.t.ThreadPoolUtil$SafeRunnable - Unexpected error occurred in task
+java.lang.RuntimeException: fail
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev$ExceptionTask.run(ThreadPoolUtilTest_OE25Dev.java:32)
+	at org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtil$SafeRunnable.run(ThreadPoolUtil.java:107)
+	at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+	at java.util.concurrent.FutureTask.runAndReset(FutureTask.java:308)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+-------actual run:1
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 2.314 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.concurrent.threadpool.ThreadPoolBuilderTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.023 s - in org.springside.modules.utils.concurrent.threadpool.ThreadPoolBuilderTest_OE25Dev
+[INFO] Running org.springside.modules.utils.concurrent.ThreadUtilTest_OE25Dev
+[ERROR] Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.039 s <<< FAILURE! - in org.springside.modules.utils.concurrent.ThreadUtilTest_OE25Dev
+[ERROR] testCaller_oe(org.springside.modules.utils.concurrent.ThreadUtilTest_OE25Dev)  Time elapsed: 0.037 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...t_OE25Dev.testCaller[]()"> but was:<...t_OE25Dev.testCaller[_oe]()">
+	at org.springside.modules.utils.concurrent.ThreadUtilTest_OE25Dev.hello(ThreadUtilTest_OE25Dev.java:11)
+	at org.springside.modules.utils.concurrent.ThreadUtilTest_OE25Dev.testCaller_oe(ThreadUtilTest_OE25Dev.java:27)
+
+[INFO] Running org.springside.modules.utils.concurrent.ConcurrentToolsTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.006 s - in org.springside.modules.utils.concurrent.ConcurrentToolsTest_OE25Dev
+[INFO] Running org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev
+23:53:35.864 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - Thread dump by ThreadDumpper
+23:53:35.867 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - Finish the threads snapshot
+23:53:35.867 [main] INFO  o.s.m.utils.concurrent.ThreadDumpper - 
+"pool-23-thread-3" Id=47 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"Finalizer" Id=3 WAITING
+	at java.lang.Object.wait(Native Method)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:144)
+	at java.lang.ref.ReferenceQueue.remove(ReferenceQueue.java:165)
+	at java.lang.ref.Finalizer$FinalizerThread.run(Finalizer.java:188)
+
+"main" Id=1 RUNNABLE
+	at java.lang.Thread.dumpThreads(Native Method)
+	at java.lang.Thread.getAllStackTraces(Thread.java:1615)
+	at org.springside.modules.utils.concurrent.ThreadDumpper.threadDumpIfNeed(ThreadDumpper.java:66)
+	at org.springside.modules.utils.concurrent.ThreadDumpper.threadDumpIfNeed(ThreadDumpper.java:43)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev.test_oe(ThreadDumpperTest_OE25Dev.java:38)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	...
+
+"pool-23-thread-9" Id=53 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"pool-23-thread-4" Id=48 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"Signal Dispatcher" Id=4 RUNNABLE
+
+"pool-23-thread-8" Id=52 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"surefire-forkedjvm-ping-30s" Id=19 TIMED_WAITING
+	at sun.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	at java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:2078)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:1093)
+	at java.util.concurrent.ScheduledThreadPoolExecutor$DelayedWorkQueue.take(ScheduledThreadPoolExecutor.java:809)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1074)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	...
+
+"Reference Handler" Id=2 WAITING
+	at java.lang.Object.wait(Native Method)
+	at java.lang.Object.wait(Object.java:502)
+	at java.lang.ref.Reference.tryHandlePending(Reference.java:191)
+	at java.lang.ref.Reference$ReferenceHandler.run(Reference.java:153)
+
+"pool-23-thread-6" Id=50 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"process reaper" Id=20 TIMED_WAITING
+	at sun.misc.Unsafe.park(Native Method)
+	at java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:215)
+	at java.util.concurrent.SynchronousQueue$TransferStack.awaitFulfill(SynchronousQueue.java:460)
+	at java.util.concurrent.SynchronousQueue$TransferStack.transfer(SynchronousQueue.java:362)
+	at java.util.concurrent.SynchronousQueue.poll(SynchronousQueue.java:941)
+	at java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1073)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1134)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	...
+
+"pool-23-thread-5" Id=49 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"pool-23-thread-1" Id=45 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"pool-23-thread-10" Id=54 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"pool-23-thread-2" Id=46 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"pool-23-thread-7" Id=51 TIMED_WAITING
+	at java.lang.Thread.sleep(Native Method)
+	at org.springside.modules.utils.concurrent.ThreadUtil.sleep(ThreadUtil.java:35)
+	at org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev$LongRunTask.run(ThreadDumpperTest_OE25Dev.java:24)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at java.lang.Thread.run(Thread.java:750)
+
+"surefire-forkedjvm-command-thread" Id=18 RUNNABLE
+	at java.io.FileInputStream.readBytes(Native Method)
+	at java.io.FileInputStream.read(FileInputStream.java:255)
+	at java.io.BufferedInputStream.fill(BufferedInputStream.java:246)
+	at java.io.BufferedInputStream.read(BufferedInputStream.java:265)
+	at java.io.DataInputStream.readInt(DataInputStream.java:387)
+	at org.apache.maven.surefire.booter.MasterProcessCommand.decode(MasterProcessCommand.java:115)
+	at org.apache.maven.surefire.booter.CommandReader$CommandRunnable.run(CommandReader.java:391)
+	at java.lang.Thread.run(Thread.java:750)
+
+
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.04 s - in org.springside.modules.utils.concurrent.ThreadDumpperTest_OE25Dev
+[INFO] Running org.springside.modules.utils.io.FileTreeWalkerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.077 s - in org.springside.modules.utils.io.FileTreeWalkerTest_OE25Dev
+[INFO] Running org.springside.modules.utils.io.IOUtilTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.021 s - in org.springside.modules.utils.io.IOUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.io.FileUtilTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.082 s - in org.springside.modules.utils.io.FileUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.io.ResourceUtilTest_OE25Dev
+jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunec.jar!/META-INF/MANIFEST.MF
+[jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunec.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/nashorn.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/icedtea-sound.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/jaccess.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/java-atk-wrapper.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/localedata.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/zipfs.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/cldrdata.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunjce_provider.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/dnsns.jar!/META-INF/MANIFEST.MF, jar:file:/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/ext/sunpkcs11.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/surefire/surefirebooter1840831877058832936.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/maven/surefire/surefire-booter/2.22.0/surefire-booter-2.22.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/maven/surefire/surefire-api/2.22.0/surefire-api-2.22.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/maven/surefire/surefire-logger-api/2.22.0/surefire-logger-api-2.22.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/commons/commons-lang3/3.5/commons-lang3-3.5.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/slf4j/slf4j-api/1.7.22/slf4j-api-1.7.22.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.8.6/jackson-databind-2.8.6.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.8.0/jackson-annotations-2.8.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.8.6/jackson-core-2.8.6.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/ma/glasnost/orika/orika-core/1.5.0/orika-core-1.5.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/javassist/javassist/3.19.0-GA/javassist-3.19.0-GA.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/thoughtworks/paranamer/paranamer/2.8/paranamer-2.8.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/googlecode/concurrentlinkedhashmap/concurrentlinkedhashmap-lru/1.4.2/concurrentlinkedhashmap-lru-1.4.2.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/carrotsearch/java-sizeof/0.0.4/java-sizeof-0.0.4.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/codehaus/janino/janino/2.7.5/janino-2.7.5.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/codehaus/janino/commons-compiler/2.7.5/commons-compiler-2.7.5.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/cglib/cglib/3.2.4/cglib-3.2.4.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/ow2/asm/asm/5.1/asm-5.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/commons/commons-collections4/4.1/commons-collections4-4.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/junit/junit/4.12/junit-4.12.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/assertj/assertj-core/3.24.2/assertj-core-3.24.2.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/net/bytebuddy/byte-buddy/1.12.21/byte-buddy-1.12.21.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/mockito/mockito-core/3.12.4/mockito-core-3.12.4.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/net/bytebuddy/byte-buddy-agent/1.11.13/byte-buddy-agent-1.11.13.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/objenesis/objenesis/3.2/objenesis-3.2.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/ch/qos/logback/logback-classic/1.1.8/logback-classic-1.1.8.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/ch/qos/logback/logback-core/1.1.8/logback-core-1.1.8.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/dom4j/dom4j/1.6.1/dom4j-1.6.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/xml-apis/xml-apis/1.0.b2/xml-apis-1.0.b2.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/jaxen/jaxen/1.1.6/jaxen-1.1.6.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/javax/xml/bind/jaxb-api/2.3.1/jaxb-api-2.3.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/javax/activation/javax.activation-api/1.2.0/javax.activation-api-1.2.0.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/sun/xml/bind/jaxb-core/2.3.0.1/jaxb-core-2.3.0.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/com/sun/xml/bind/jaxb-impl/2.3.1/jaxb-impl-2.3.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/javax/activation/activation/1.1.1/activation-1.1.1.jar!/META-INF/MANIFEST.MF, jar:file:/home/tasfia/.m2/repository/org/apache/maven/surefire/surefire-junit4/2.22.0/surefire-junit4-2.22.0.jar!/META-INF/MANIFEST.MF]
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.springside.modules.utils.io.ResourceUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.io.URLResourceTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.springside.modules.utils.io.URLResourceTest_OE25Dev
+[INFO] Running org.springside.modules.utils.io.FilePathUtilTest_OE25Dev
+the jar file contains Files.class/home/tasfia/.m2/repository/com/google/guava/guava/20.0/guava-20.0.jar
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.037 s - in org.springside.modules.utils.io.FilePathUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.collection.QueueUtilTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.springside.modules.utils.collection.QueueUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.collection.SetUtilTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.05 s - in org.springside.modules.utils.collection.SetUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.collection.type.PairTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.collection.type.PairTest_OE25Dev
+[INFO] Running org.springside.modules.utils.collection.type.SortedArrayListTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.005 s - in org.springside.modules.utils.collection.type.SortedArrayListTest_OE25Dev
+[INFO] Running org.springside.modules.utils.collection.type.ConcurrentHashSetTest_OE25Dev
+a,b,c,[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.springside.modules.utils.collection.type.ConcurrentHashSetTest_OE25Dev
+[INFO] Running org.springside.modules.utils.collection.ArrayUtilTest_OE25Dev
+[e, i, d, g, b, a, c]
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.084 s - in org.springside.modules.utils.collection.ArrayUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.collection.MapUtilTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.657 s - in org.springside.modules.utils.collection.MapUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.text.EncodeUtilTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.springside.modules.utils.text.EncodeUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.text.EscapeUtilTest_OE25Dev
+http%3A%2F%2Flocahost%2F%3Fquery%3D%E4%B8%AD%E6%96%87%26t%3D1
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.035 s - in org.springside.modules.utils.text.EscapeUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.text.TextValidatorTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.springside.modules.utils.text.TextValidatorTest_OE25Dev
+[INFO] Running org.springside.modules.utils.text.HashUtilTest_OE25Dev
+sha1:sCtJLx2IJNto032AhdkP64t/os4=
+sha1 with salt:tQIaEaC1Mwk/U1zNMMWxp2/sfxc=
+sha1 with salt with iteration:z+kkAk1w4elKXtBofeWuvQcaZik=
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.02 s - in org.springside.modules.utils.text.HashUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.text.CsvUtilTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.text.CsvUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.text.WildcardMatcherTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.text.WildcardMatcherTest_OE25Dev
+[INFO] Running org.springside.modules.utils.text.MoreStringUtilTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.text.MoreStringUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.log.ThrottledSlf4jLoggerTest_OE25Dev
+23:53:37.175 [main] WARN  o.s.m.u.log.ThrottledSlf4jLoggerTest - haha
+23:53:37.175 [main] WARN  o.s.m.u.log.ThrottledSlf4jLoggerTest - haha
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.009 s - in org.springside.modules.utils.log.ThrottledSlf4jLoggerTest_OE25Dev
+[INFO] Running org.springside.modules.utils.net.NetUtilTest_OE25Dev
+23:53:37.188 [main] INFO  o.s.modules.utils.net.NetUtil - localhost is 127.0.0.1
+random port:20044
+random port:14853
+[ERROR] Tests run: 2, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.029 s <<< FAILURE! - in org.springside.modules.utils.net.NetUtilTest_OE25Dev
+[ERROR] localhost_oe(org.springside.modules.utils.net.NetUtilTest_OE25Dev)  Time elapsed: 0.023 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting actual:
+  "127.0.0.1"
+not to be equal to:
+  "127.0.0.1"
+
+	at org.springside.modules.utils.net.NetUtilTest_OE25Dev.localhost_oe(NetUtilTest_OE25Dev.java:19)
+
+[INFO] Running org.springside.modules.utils.net.IPUtilTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.utils.net.IPUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.mapper.BeanMapperTest_OE25Dev
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.576 s - in org.springside.modules.utils.mapper.BeanMapperTest_OE25Dev
+[INFO] Running org.springside.modules.utils.mapper.JsonMapperTest_OE25Dev
+Bean:{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]}
+Map:{"name":"A","age":2}
+String List:["A","B","C"]
+Bean List:[{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]},{"name":"B","defaultValue":"hello","nullValue":null,"emptyValue":[]}]
+Array List:[{"name":"A","defaultValue":"hello","nullValue":null,"emptyValue":[]},{"name":"B","defaultValue":"hello","nullValue":null,"emptyValue":[]}]
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.547 s - in org.springside.modules.utils.mapper.JsonMapperTest_OE25Dev
+[INFO] Running org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev
+Jaxb Xml to Object result:
+org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev$User@40dff0b7[id=1,name=calvin,password=<null>,interests=[movie, sports]]
+Jaxb Object to Xml result:
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<user id="1">
+    <name>calvin</name>
+    <interests>
+        <interest>movie</interest>
+        <interest>sports</interest>
+    </interests>
+</user>
+
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.763 s - in org.springside.modules.utils.mapper.XmlMapperTest_OE25Dev
+[INFO] Running org.springside.modules.utils.base.PropertiesUtilTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.springside.modules.utils.base.PropertiesUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.base.EnumUtilTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.015 s - in org.springside.modules.utils.base.EnumUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev
+[ERROR] Tests run: 6, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.023 s <<< FAILURE! - in org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev
+[ERROR] staticException_oe(org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+java.lang.AssertionError: 
+
+Expecting actual:
+  "java.lang.RuntimeException: Timeout
+	at org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev.hello(Unknown Source)
+"
+to contain:
+  "at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)" 
+	at org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev.staticException_oe(ExceptionUtilTest_OE25Dev.java:138)
+
+[ERROR] buildMessage_oe(org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev)  Time elapsed: 0.005 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<...my runtimeException;[]<---IOException: my ...> but was:<...my runtimeException;[ ]<---IOException: my ...>
+	at org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev.buildMessage_oe(ExceptionUtilTest_OE25Dev.java:129)
+
+[INFO] Running org.springside.modules.utils.base.PlatformsTest_OE25Dev
+OS_NAME:Linux
+OS_VERSION:6.14.0-37-generic
+OS_ARCH:amd64
+JAVA_SPECIFICATION_VERSION:1.8
+JAVA_VERSION:1.8.0_482
+JAVA_HOME:/usr/lib/jvm/java-8-openjdk-amd64/jre
+USER_HOME:/home/tasfia
+TMP_DIR:/tmp
+WORKING_DIR:/home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils
+pid:2394602
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.springside.modules.utils.base.PlatformsTest_OE25Dev
+[INFO] Running org.springside.modules.utils.base.BeanUtilTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.springside.modules.utils.base.BeanUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.base.ObjectUtilTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.01 s - in org.springside.modules.utils.base.ObjectUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.base.SystemPropertiesUtilTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.springside.modules.utils.base.SystemPropertiesUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.base.MoreValidateTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.springside.modules.utils.base.MoreValidateTest_OE25Dev
+[INFO] Running org.springside.modules.utils.security.CryptoUtilTest_OE25Dev
+aes key in hex            :91066B0F78EDB804F404406231A9686F
+aes encrypt in hex result :DB98042ADDE737380E2DD3329040FDE0
+hmac-sha1 key in hex      :5493514950B748E57712FF9C0AA3018DF12B5EC5
+hmac-sha1 in hex result   :A3D4D17A69D8563F8A3209AF1238E7BC53B960BA
+aes key in hex            :F8374AA4AF6919924EEBF0611D75CC76
+iv in hex                 :0DE8EC5CA077AA97B6EF0187F55AC1C3
+aes encrypt in hex result :AB3EA1E77107E463AF19F8BBF31DC433
+[INFO] Tests run: 3, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.144 s - in org.springside.modules.utils.security.CryptoUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.time.DateUtilTest_OE25Dev
+[INFO] Tests run: 7, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.springside.modules.utils.time.DateUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.time.ClockUtilTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.014 s - in org.springside.modules.utils.time.ClockUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.time.CachingDatFormatterTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.027 s - in org.springside.modules.utils.time.CachingDatFormatterTest_OE25Dev
+[INFO] Running org.springside.modules.utils.time.DateFormatUtilTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.springside.modules.utils.time.DateFormatUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.number.RandomUtilTest_OE25Dev
+CGysk
+kigeHZdM
+gSgkz
+fJuCKuAmu
+JtOhO
+wYlWam
+bygeH
+kwprFnsTj
+Ohz$5
+oe>*^a
+_7$T$
+@(2E(f
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.011 s - in org.springside.modules.utils.number.RandomUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.number.UnitConverterTest_OE25Dev
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.003 s - in org.springside.modules.utils.number.UnitConverterTest_OE25Dev
+[INFO] Running org.springside.modules.utils.number.MathUtilTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.018 s - in org.springside.modules.utils.number.MathUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.number.NumberUtilTest_OE25Dev
+[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.springside.modules.utils.number.NumberUtilTest_OE25Dev
+[INFO] Running org.springside.modules.utils.reflect.FastMethodInvokerTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.13 s - in org.springside.modules.utils.reflect.FastMethodInvokerTest_OE25Dev
+[INFO] Running org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev
+23:53:39.654 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean2's superclass not ParameterizedType
+23:53:39.654 [main] WARN  o.s.modules.utils.reflect.ClassUtil - TestBean3's superclass not ParameterizedType
+[ERROR] Tests run: 3, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.05 s <<< FAILURE! - in org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev
+[ERROR] getMessage_oe(org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev)  Time elapsed: 0.011 s  <<< FAILURE!
+org.junit.ComparisonFailure: expected:<"ClassUtilTest[].BClass"> but was:<"ClassUtilTest[_OE25Dev].BClass">
+	at org.springside.modules.utils.reflect.ClassUtilTest_OE25Dev.getMessage_oe(ClassUtilTest_OE25Dev.java:163)
+
+[INFO] Running org.springside.modules.test.log.LogbackListAppenderTest_OE25Dev
+23:53:39.682 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
+23:53:39.682 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
+23:53:39.682 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
+23:53:39.682 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
+23:53:39.682 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - Hello
+23:53:39.682 [main] WARN  o.s.m.t.log.LogbackListAppenderTest - World
+[INFO] Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.springside.modules.test.log.LogbackListAppenderTest_OE25Dev
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   ExceptionUtilTest_OE25Dev.buildMessage_oe:129 expected:<...my runtimeException;[]<---IOException: my ...> but was:<...my runtimeException;[ ]<---IOException: my ...>
+[ERROR]   ExceptionUtilTest_OE25Dev.staticException_oe:138 
+Expecting actual:
+  "java.lang.RuntimeException: Timeout
+	at org.springside.modules.utils.base.ExceptionUtilTest_OE25Dev.hello(Unknown Source)
+"
+to contain:
+  "at org.springside.modules.utils.base.ExceptionUtilTest.hello(Unknown Source)" 
+[ERROR]   ThreadUtilTest_OE25Dev.testCaller_oe:27->hello:11 expected:<...t_OE25Dev.testCaller[]()"> but was:<...t_OE25Dev.testCaller[_oe]()">
+[ERROR]   NetUtilTest_OE25Dev.localhost_oe:19 
+Expecting actual:
+  "127.0.0.1"
+not to be equal to:
+  "127.0.0.1"
+
+[ERROR]   ClassUtilTest_OE25Dev.getMessage_oe:163 expected:<"ClassUtilTest[].BClass"> but was:<"ClassUtilTest[_OE25Dev].BClass">
+[INFO] 
+[ERROR] Tests run: 140, Failures: 5, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  17.732 s
+[INFO] Finished at: 2026-03-08T23:53:40-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project springside-utils: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/springside4/modules/utils/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

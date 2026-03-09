@@ -22,52 +22,302 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ json ---
 [INFO] Compiling 57 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ json ---
-[INFO] 
-[INFO] -------------------------------------------------------
-[INFO]  T E S T S
-[INFO] -------------------------------------------------------
-[INFO] Running org.json.junit.JSONMLTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.115 s - in org.json.junit.JSONMLTest_OE25Dev
-[INFO] Running org.json.junit.JSONArrayTest_OE25Dev
-[INFO] Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.004 s - in org.json.junit.JSONArrayTest_OE25Dev
-[INFO] Running org.json.junit.CookieListTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.007 s - in org.json.junit.CookieListTest_OE25Dev
-[INFO] Running org.json.junit.XMLTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.033 s - in org.json.junit.XMLTest_OE25Dev
-[INFO] Running org.json.junit.HTTPTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.HTTPTest_OE25Dev
-[INFO] Running org.json.junit.EnumTest_OE25Dev
-[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.EnumTest_OE25Dev
-[INFO] Running org.json.junit.JSONObjectLocaleTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONObjectLocaleTest_OE25Dev
-[INFO] Running org.json.junit.PropertyTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.PropertyTest_OE25Dev
-[INFO] Running org.json.junit.JSONStringTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONStringTest_OE25Dev
-[INFO] Running org.json.junit.JSONPointerTest_OE25Dev
-[INFO] Tests run: 23, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.029 s - in org.json.junit.JSONPointerTest_OE25Dev
-[INFO] Running org.json.junit.XMLConfigurationTest_OE25Dev
-[INFO] Tests run: 12, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.019 s - in org.json.junit.XMLConfigurationTest_OE25Dev
-[INFO] Running org.json.junit.JSONStringerTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.JSONStringerTest_OE25Dev
-[INFO] Running org.json.junit.CookieTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CookieTest_OE25Dev
-[INFO] Running org.json.junit.JSONTokenerTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.json.junit.JSONTokenerTest_OE25Dev
-[INFO] Running org.json.junit.CDLTest_OE25Dev
-[INFO] Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.CDLTest_OE25Dev
-[INFO] Running org.json.junit.JSONObjectTest_OE25Dev
-[INFO] Tests run: 11, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.03 s - in org.json.junit.JSONObjectTest_OE25Dev
-[INFO] 
-[INFO] Results:
-[INFO] 
-[INFO] Tests run: 63, Failures: 0, Errors: 0, Skipped: 0
-[INFO] 
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[634,16] error: method nullException() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[802,16] error: method getArrayValues() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[931,16] error: method opt() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[993,16] error: method put() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1067,16] error: method putIndex() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1306,16] error: method iteratorTest() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1500,16] error: method testObjectConstructor() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1564,13] error: method jsonArrayClearMethodTest() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1575,16] error: method issue654StackOverflowInputWellFormed() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[1645,16] error: method jsonObjectByNullBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[1951,16] error: method jsonObjectByBean1() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2075,16] error: method jsonObjectAccumulate() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2105,16] error: method jsonObjectAppend() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2134,16] error: method jsonObjectDoubleToString() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2435,16] error: method bigNumberOperations() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2723,16] error: method jsonObjectIncrement() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2841,16] error: method jsonObjectNumberToString() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2861,16] error: method jsonObjectPut() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3106,16] error: method valueToStringConfirmException() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3214,16] error: method jsonObjectParsingErrors() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3897,16] error: method invalidEscapeSequence() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3978,16] error: method testSingletonBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4002,16] error: method testSingletonEnumBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4026,16] error: method testGenericBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4038,16] error: method testGenericIntBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4089,16] error: method testPutNullBoolean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4097,16] error: method testPutNullCollection() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4105,16] error: method testPutNullDouble() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4113,16] error: method testPutNullFloat() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4121,16] error: method testPutNullInt() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4129,16] error: method testPutNullLong() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4137,16] error: method testPutNullMap() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4145,16] error: method testPutNullObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4153,16] error: method testSelfRecursiveObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4162,16] error: method testLongSelfRecursiveObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4173,16] error: method testSimpleRecursiveObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4184,16] error: method testLongRecursiveObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4199,16] error: method testRepeatObjectRecursive() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4225,16] error: method jsonObjectClearMethodTest() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4236,16] error: method issue654StackOverflowInput() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4247,16] error: method issue654IncorrectNestingNoKey1() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4254,16] error: method issue654IncorrectNestingNoKey2() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4261,16] error: method issue654StackOverflowInputWellFormed() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONStringTest_OE25Dev.java:[280,16] error: method valuesToString() is already defined in class JSONStringTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/XMLTest_OE25Dev.java:[512,16] error: method shouldHandleNullXML() is already defined in class XMLTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/XMLConfigurationTest_OE25Dev.java:[570,16] error: method shouldHandleNullXML() is already defined in class XMLConfigurationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[775,16] error: method testIssue484InfinteLoop1() is already defined in class JSONMLTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[633,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[800,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[929,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[991,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1065,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1304,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1499,5] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1563,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1574,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[1644,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[1949,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2073,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2103,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2132,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2433,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2721,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2839,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2859,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3104,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3212,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3896,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3976,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4000,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4024,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4036,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4088,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4096,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4104,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4112,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4120,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4128,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4136,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4144,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4152,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4161,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4172,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4183,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4198,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4224,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4235,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4246,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4253,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4260,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONStringTest_OE25Dev.java:[278,1] error: cannot find symbol
+[ERROR]  class JSONStringTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/XMLTest_OE25Dev.java:[511,1] error: cannot find symbol
+[ERROR]  class XMLTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/XMLConfigurationTest_OE25Dev.java:[569,1] error: cannot find symbol
+[ERROR]  class XMLConfigurationTest_OE25Dev
+/home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[774,1] error: cannot find symbol
+[INFO] 94 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
+[INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  14.518 s
-[INFO] Finished at: 2026-03-05T21:41:13-06:00
+[INFO] Total time:  7.363 s
+[INFO] Finished at: 2026-03-08T23:54:07-05:00
 [INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:2.3.2:testCompile (default-testCompile) on project json: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[634,16] error: method nullException() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[802,16] error: method getArrayValues() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[931,16] error: method opt() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[993,16] error: method put() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1067,16] error: method putIndex() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1306,16] error: method iteratorTest() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1500,16] error: method testObjectConstructor() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1564,13] error: method jsonArrayClearMethodTest() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1575,16] error: method issue654StackOverflowInputWellFormed() is already defined in class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[1645,16] error: method jsonObjectByNullBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[1951,16] error: method jsonObjectByBean1() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2075,16] error: method jsonObjectAccumulate() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2105,16] error: method jsonObjectAppend() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2134,16] error: method jsonObjectDoubleToString() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2435,16] error: method bigNumberOperations() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2723,16] error: method jsonObjectIncrement() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2841,16] error: method jsonObjectNumberToString() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2861,16] error: method jsonObjectPut() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3106,16] error: method valueToStringConfirmException() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3214,16] error: method jsonObjectParsingErrors() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3897,16] error: method invalidEscapeSequence() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3978,16] error: method testSingletonBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4002,16] error: method testSingletonEnumBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4026,16] error: method testGenericBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4038,16] error: method testGenericIntBean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4089,16] error: method testPutNullBoolean() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4097,16] error: method testPutNullCollection() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4105,16] error: method testPutNullDouble() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4113,16] error: method testPutNullFloat() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4121,16] error: method testPutNullInt() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4129,16] error: method testPutNullLong() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4137,16] error: method testPutNullMap() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4145,16] error: method testPutNullObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4153,16] error: method testSelfRecursiveObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4162,16] error: method testLongSelfRecursiveObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4173,16] error: method testSimpleRecursiveObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4184,16] error: method testLongRecursiveObject() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4199,16] error: method testRepeatObjectRecursive() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4225,16] error: method jsonObjectClearMethodTest() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4236,16] error: method issue654StackOverflowInput() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4247,16] error: method issue654IncorrectNestingNoKey1() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4254,16] error: method issue654IncorrectNestingNoKey2() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4261,16] error: method issue654StackOverflowInputWellFormed() is already defined in class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONStringTest_OE25Dev.java:[280,16] error: method valuesToString() is already defined in class JSONStringTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/XMLTest_OE25Dev.java:[512,16] error: method shouldHandleNullXML() is already defined in class XMLTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/XMLConfigurationTest_OE25Dev.java:[570,16] error: method shouldHandleNullXML() is already defined in class XMLConfigurationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[775,16] error: method testIssue484InfinteLoop1() is already defined in class JSONMLTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[633,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[800,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[929,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[991,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1065,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1304,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1499,5] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1563,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONArrayTest_OE25Dev.java:[1574,1] error: cannot find symbol
+[ERROR]  class JSONArrayTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[1644,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[1949,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2073,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2103,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2132,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2433,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2721,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2839,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[2859,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3104,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3212,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3896,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[3976,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4000,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4024,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4036,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4088,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4096,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4104,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4112,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4120,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4128,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4136,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4144,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4152,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4161,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4172,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4183,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4198,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4224,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4235,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4246,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4253,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONObjectTest_OE25Dev.java:[4260,1] error: cannot find symbol
+[ERROR]  class JSONObjectTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONStringTest_OE25Dev.java:[278,1] error: cannot find symbol
+[ERROR]  class JSONStringTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/XMLTest_OE25Dev.java:[511,1] error: cannot find symbol
+[ERROR]  class XMLTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/XMLConfigurationTest_OE25Dev.java:[569,1] error: cannot find symbol
+[ERROR]  class XMLConfigurationTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/test/java/org/json/junit/JSONMLTest_OE25Dev.java:[774,1] error: cannot find symbol
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

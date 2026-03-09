@@ -28,7 +28,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-rng-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core
-[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 2026-03-05 21:41:16-0600
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 2026-03-08 23:54:14-0500
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-rng-core ---
@@ -49,7 +49,10 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-rng-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 54 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/test-classes
+[INFO] Compiling 104 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/test-classes
+[INFO] -------------------------------------------------------------
+[WARNING] COMPILATION WARNING : 
+[INFO] -------------------------------------------------------------
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[43,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[44,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[51,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
@@ -62,21 +65,145 @@ main:
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[64,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[65,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
 [WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java:[66,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-rng-core ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-rng-core ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ commons-rng-core ---
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[81,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[82,41] makeBoolean(int) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[89,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[90,41] makeBoolean(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[97,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[98,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[99,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[100,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[101,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[102,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[103,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[WARNING] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest_OE25Dev.java:[104,58] makeInt(long) in org.apache.commons.rng.core.util.NumberFactory has been deprecated
+[INFO] 24 warnings 
+[INFO] -------------------------------------------------------------
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[588,10] method testPreconditionNextInt(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[595,10] method testPreconditionNextLong(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[602,10] method testPreconditionNextBytes(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[615,10] method testUniformNextBytesFullBuffer(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[633,10] method testUniformNextBytesPartialBuffer(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[657,10] method testStateSettable(org.apache.commons.rng.RestorableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[681,10] method testStateWrongSize(org.apache.commons.rng.RestorableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[689,10] method testRestoreForeignState(org.apache.commons.rng.RestorableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[285,10] method testJumpReturnsACopy(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[291,10] method testLongJumpReturnsACopy(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[297,10] method testJumpCopyMatchesPreJumpState(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[303,10] method testLongJumpCopyMatchesPreJumpState(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[309,10] method testJumpResetsDefaultState(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[315,10] method testLongJumpResetsDefaultState(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[587,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[594,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[601,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[614,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[632,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[656,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[680,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[688,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[284,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[290,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[296,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[302,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[308,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[314,6] cannot find symbol
+  symbol:   class MethodSource_oe
+  location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[INFO] 28 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  12.303 s
-[INFO] Finished at: 2026-03-05T21:41:25-06:00
+[INFO] Total time:  8.254 s
+[INFO] Finished at: 2026-03-08T23:54:19-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project commons-rng-core: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-rng-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[588,10] method testPreconditionNextInt(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[595,10] method testPreconditionNextLong(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[602,10] method testPreconditionNextBytes(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[615,10] method testUniformNextBytesFullBuffer(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[633,10] method testUniformNextBytesPartialBuffer(org.apache.commons.rng.UniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[657,10] method testStateSettable(org.apache.commons.rng.RestorableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[681,10] method testStateWrongSize(org.apache.commons.rng.RestorableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[689,10] method testRestoreForeignState(org.apache.commons.rng.RestorableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[285,10] method testJumpReturnsACopy(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[291,10] method testLongJumpReturnsACopy(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[297,10] method testJumpCopyMatchesPreJumpState(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[303,10] method testLongJumpCopyMatchesPreJumpState(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[309,10] method testJumpResetsDefaultState(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[315,10] method testLongJumpResetsDefaultState(org.apache.commons.rng.JumpableUniformRandomProvider) is already defined in class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[587,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[594,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[601,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[614,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[632,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[656,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[680,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/ProvidersCommonParametricTest_OE25Dev.java:[688,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.ProvidersCommonParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[284,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[290,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[296,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[302,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[308,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-rng/commons-rng-core/src/test/java/org/apache/commons/rng/core/JumpableProvidersParametricTest_OE25Dev.java:[314,6] cannot find symbol
+[ERROR]   symbol:   class MethodSource_oe
+[ERROR]   location: class org.apache.commons.rng.core.JumpableProvidersParametricTest_OE25Dev
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

@@ -36,7 +36,7 @@ main:
 [INFO] --- buildnumber-maven-plugin:1.4:create (default) @ commons-geometry-core ---
 [INFO] Executing: /bin/sh -c cd '/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core' && 'git' 'rev-parse' '--verify' 'HEAD'
 [INFO] Working directory: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core
-[INFO] Storing buildNumber: 03a10a37da660dc1006663e3057e1e2e2ae4b15e at timestamp: 1772768433166
+[INFO] Storing buildNumber: 685bfddf08d4cc096c0d12e9117a2d01f808d66c at timestamp: 1773031992870
 [INFO] Storing buildScmBranch: final-single-assertion-dataset
 [INFO] 
 [INFO] --- maven-resources-plugin:3.1.0:resources (default-resources) @ commons-geometry-core ---
@@ -57,22 +57,101 @@ main:
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.8.1:testCompile (default-testCompile) @ commons-geometry-core ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 29 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/test-classes
-[INFO] 
-[INFO] --- animal-sniffer-maven-plugin:1.19:check (checkAPIcompatibility) @ commons-geometry-core ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- jacoco-maven-plugin:0.8.5:prepare-agent (prepare-agent) @ commons-geometry-core ---
-[INFO] argLine set to -javaagent:/home/tasfia/.m2/repository/org/jacoco/org.jacoco.agent/0.8.5/org.jacoco.agent-0.8.5-runtime.jar=destfile=/home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/jacoco.exec
-[INFO] 
-[INFO] --- maven-surefire-plugin:3.0.0-M7:test (default-test) @ commons-geometry-core ---
+[INFO] Compiling 46 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/target/test-classes
+[INFO] Some messages have been simplified; recompile with -Xdiags:verbose to get full output
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[466,22] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[472,22] incompatible types: invalid method reference
+    emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[478,22] incompatible types: invalid method reference
+    yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[484,22] incompatible types: invalid method reference
+    fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[490,22] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[544,29] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[550,29] incompatible types: invalid method reference
+    emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[556,29] incompatible types: invalid method reference
+    yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[565,29] incompatible types: invalid method reference
+    fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[574,29] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[592,27] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[601,27] incompatible types: invalid method reference
+    emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[607,27] incompatible types: invalid method reference
+    yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[613,27] incompatible types: invalid method reference
+    fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[622,27] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[640,20] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[649,20] incompatible types: invalid method reference
+    emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[658,20] incompatible types: invalid method reference
+    yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[667,20] incompatible types: invalid method reference
+    fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[676,20] incompatible types: invalid method reference
+    xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[INFO] 20 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  16.327 s
-[INFO] Finished at: 2026-03-05T21:40:45-06:00
+[INFO] Total time:  13.659 s
+[INFO] Finished at: 2026-03-08T23:53:21-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:3.0.0-M7:test (default-test) on project commons-geometry-core: No tests matching pattern "*_OE25Dev#*_oe" were executed! (Set -Dsurefire.failIfNoSpecifiedTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.8.1:testCompile (default-testCompile) on project commons-geometry-core: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[466,22] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[472,22] incompatible types: invalid method reference
+[ERROR]     emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[478,22] incompatible types: invalid method reference
+[ERROR]     yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[484,22] incompatible types: invalid method reference
+[ERROR]     fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[490,22] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[544,29] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[550,29] incompatible types: invalid method reference
+[ERROR]     emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[556,29] incompatible types: invalid method reference
+[ERROR]     yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[565,29] incompatible types: invalid method reference
+[ERROR]     fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[574,29] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[592,27] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[601,27] incompatible types: invalid method reference
+[ERROR]     emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[607,27] incompatible types: invalid method reference
+[ERROR]     yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[613,27] incompatible types: invalid method reference
+[ERROR]     fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[622,27] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[640,20] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[649,20] incompatible types: invalid method reference
+[ERROR]     emptyTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[658,20] incompatible types: invalid method reference
+[ERROR]     yAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[667,20] incompatible types: invalid method reference
+[ERROR]     fullTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/commons-geometry/commons-geometry-core/src/test/java/org/apache/commons/geometry/core/partitioning/bsp/AbstractRegionBSPTreeBooleanTest_OE25Dev.java:[676,20] incompatible types: invalid method reference
+[ERROR]     xAxisTree() has private access in org.apache.commons.geometry.core.partitioning.bsp.AbstractRegionBSPTreeBooleanTest
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

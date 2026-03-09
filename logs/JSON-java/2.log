@@ -1,0 +1,84 @@
+[INFO] Scanning for projects...
+[INFO] Inspecting build with total of 1 modules...
+[INFO] Installing Nexus Staging features:
+[INFO]   ... total of 1 executions of maven-deploy-plugin replaced with nexus-staging-maven-plugin
+[INFO] 
+[INFO] ---------------------------< org.json:json >----------------------------
+[INFO] Building JSON in Java 20220924
+[INFO] -------------------------------[ bundle ]-------------------------------
+[INFO] 
+[INFO] --- maven-clean-plugin:2.5:clean (default-clean) @ json ---
+[INFO] 
+[INFO] --- maven-enforcer-plugin:1.2:enforce (enforce-maven) @ json ---
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:resources (default-resources) @ json ---
+[INFO] skip non existing resourceDirectory /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/src/main/resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:compile (default-compile) @ json ---
+[INFO] Compiling 22 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.4.0:testResources (default-testResources) @ json ---
+[INFO] Copying 5 resources from src/test/resources to target/test-classes
+[INFO] 
+[INFO] --- maven-compiler-plugin:2.3.2:testCompile (default-testCompile) @ json ---
+[INFO] Compiling 51 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.22.0:test (default-test) @ json ---
+[INFO] 
+[INFO] -------------------------------------------------------
+[INFO]  T E S T S
+[INFO] -------------------------------------------------------
+[INFO] Running org.json.junit.CookieListTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.279 s - in org.json.junit.CookieListTest_OE25Dev
+[INFO] Running org.json.junit.HTTPTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 s - in org.json.junit.HTTPTest_OE25Dev
+[INFO] Running org.json.junit.EnumTest_OE25Dev
+[INFO] Tests run: 8, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.028 s - in org.json.junit.EnumTest_OE25Dev
+[INFO] Running org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.001 s - in org.json.junit.JSONObjectLocaleTest_OE25Dev
+[INFO] Running org.json.junit.PropertyTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.039 s - in org.json.junit.PropertyTest_OE25Dev
+[INFO] Running org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Tests run: 27, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.032 s - in org.json.junit.JSONPointerTest_OE25Dev
+[INFO] Running org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Tests run: 10, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in org.json.junit.JSONStringerTest_OE25Dev
+[INFO] Running org.json.junit.CookieTest_OE25Dev
+[INFO] Tests run: 6, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.016 s - in org.json.junit.CookieTest_OE25Dev
+[INFO] Running org.json.junit.JSONTokenerTest_OE25Dev
+[INFO] Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.125 s - in org.json.junit.JSONTokenerTest_OE25Dev
+[INFO] Running org.json.junit.CDLTest_OE25Dev
+[ERROR] Tests run: 13, Failures: 2, Errors: 0, Skipped: 0, Time elapsed: 0.012 s <<< FAILURE! - in org.json.junit.CDLTest_OE25Dev
+[ERROR] nullInName_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0.012 s  <<< FAILURE!
+org.junit.ComparisonFailure: Expecting an exception message expected:<Bad character 'o'[](111). at 2 [charact...> but was:<Bad character 'o'[ ](111). at 2 [charact...>
+	at org.json.junit.CDLTest_OE25Dev.nullInName_oe(CDLTest_OE25Dev.java:194)
+
+[ERROR] badEscapedQuote_oe(org.json.junit.CDLTest_OE25Dev)  Time elapsed: 0 s  <<< FAILURE!
+org.junit.ComparisonFailure: Expecting an exception message expected:<Bad character 'V'[](86). at 20 [charact...> but was:<Bad character 'V'[ ](86). at 20 [charact...>
+	at org.json.junit.CDLTest_OE25Dev.badEscapedQuote_oe(CDLTest_OE25Dev.java:244)
+
+[INFO] 
+[INFO] Results:
+[INFO] 
+[ERROR] Failures: 
+[ERROR]   CDLTest_OE25Dev.badEscapedQuote_oe:244 Expecting an exception message expected:<Bad character 'V'[](86). at 20 [charact...> but was:<Bad character 'V'[ ](86). at 20 [charact...>
+[ERROR]   CDLTest_OE25Dev.nullInName_oe:194 Expecting an exception message expected:<Bad character 'o'[](111). at 2 [charact...> but was:<Bad character 'o'[ ](111). at 2 [charact...>
+[INFO] 
+[ERROR] Tests run: 84, Failures: 2, Errors: 0, Skipped: 0
+[INFO] 
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  8.982 s
+[INFO] Finished at: 2026-03-08T23:54:17-05:00
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.22.0:test (default-test) on project json: There are test failures.
+[ERROR] 
+[ERROR] Please refer to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/JSON-java/target/surefire-reports for the individual test results.
+[ERROR] Please refer to dump files (if any exist) [date]-jvmRun[N].dump, [date].dumpstream and [date]-jvmRun[N].dumpstream.
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

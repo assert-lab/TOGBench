@@ -15,10 +15,6 @@
 [INFO] --- maven-compiler-plugin:3.6.1:compile (default-compile) @ async-http-client-extras-registry ---
 [INFO] Changes detected - recompiling the module!
 [INFO] Compiling 5 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/classes
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncHttpClientFactory.java: Some input files use or override a deprecated API.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncHttpClientFactory.java: Recompile with -Xlint:deprecation for details.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncImplHelper.java: /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncImplHelper.java uses or overrides a deprecated API that is marked for removal.
-[INFO] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/main/java/org/asynchttpclient/extras/registry/AsyncImplHelper.java: Recompile with -Xlint:removal for details.
 [INFO] 
 [INFO] --- maven-resources-plugin:3.0.2:testResources (default-testResources) @ async-http-client-extras-registry ---
 [INFO] Using 'UTF-8' encoding to copy filtered resources.
@@ -26,27 +22,60 @@
 [INFO] 
 [INFO] --- maven-compiler-plugin:3.6.1:testCompile (default-testCompile) @ async-http-client-extras-registry ---
 [INFO] Changes detected - recompiling the module!
-[INFO] Compiling 8 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/test-classes
-[INFO] 
-[INFO] --- maven-surefire-plugin:2.19.1:test (default-test) @ async-http-client-extras-registry ---
-
--------------------------------------------------------
- T E S T S
--------------------------------------------------------
-Running org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.72 sec - in org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
-
-Results :
-
-Tests run: 0, Failures: 0, Errors: 0, Skipped: 0
-
+[INFO] Compiling 9 source files to /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/target/test-classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryTest_OE25Dev.java:[125,15] method testNonExistentAsyncHttpClientRegistry() is already defined in class org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryTest_OE25Dev.java:[133,15] method testBadAsyncHttpClientRegistry() is already defined in class org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[194,15] method testFactoryWithBadAsyncHttpClient() is already defined in class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[227,15] method testFactoryWithNonExistentAsyncHttpClient() is already defined in class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[237,15] method testRepeatedCallsToBadAsyncHttpClient() is already defined in class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryTest_OE25Dev.java:[124,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryTest_OE25Dev.java:[132,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[193,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[226,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[236,2] cannot find symbol
+  symbol:   class Test_oe
+  location: class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[INFO] 10 errors 
+[INFO] -------------------------------------------------------------
 [INFO] ------------------------------------------------------------------------
 [INFO] BUILD FAILURE
 [INFO] ------------------------------------------------------------------------
-[INFO] Total time:  9.346 s
-[INFO] Finished at: 2026-03-05T21:40:48-06:00
+[INFO] Total time:  6.371 s
+[INFO] Finished at: 2026-03-08T23:53:23-05:00
 [INFO] ------------------------------------------------------------------------
-[ERROR] Failed to execute goal org.apache.maven.plugins:maven-surefire-plugin:2.19.1:test (default-test) on project async-http-client-extras-registry: No tests were executed!  (Set -DfailIfNoTests=false to ignore this error.) -> [Help 1]
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.6.1:testCompile (default-testCompile) on project async-http-client-extras-registry: Compilation failure: Compilation failure: 
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryTest_OE25Dev.java:[125,15] method testNonExistentAsyncHttpClientRegistry() is already defined in class org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryTest_OE25Dev.java:[133,15] method testBadAsyncHttpClientRegistry() is already defined in class org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[194,15] method testFactoryWithBadAsyncHttpClient() is already defined in class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[227,15] method testFactoryWithNonExistentAsyncHttpClient() is already defined in class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[237,15] method testRepeatedCallsToBadAsyncHttpClient() is already defined in class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryTest_OE25Dev.java:[124,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AsyncHttpClientRegistryTest_OE25Dev.java:[132,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.registry.AsyncHttpClientRegistryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[193,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[226,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] /home/tasfia/Desktop/OE25-DEV/projects_decomposed/async-http-client/extras/registry/src/test/java/org/asynchttpclient/extras/registry/AbstractAsyncHttpClientFactoryTest_OE25Dev.java:[236,2] cannot find symbol
+[ERROR]   symbol:   class Test_oe
+[ERROR]   location: class org.asynchttpclient.extras.registry.AbstractAsyncHttpClientFactoryTest_OE25Dev
+[ERROR] -> [Help 1]
 [ERROR] 
 [ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
 [ERROR] Re-run Maven using the -X switch to enable full debug logging.

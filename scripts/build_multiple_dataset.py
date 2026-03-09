@@ -1,4 +1,4 @@
-# python3 scripts/build_multiple_dataset.py projects_decomposed/bcel/all_test_methods.csv projects_decomposed/bcel projects_decomposed/bcel/dataset_multiple
+# python3 scripts/build_multiple_dataset.py projects_decomposed/async-http-client/all_test_methods.csv projects_decomposed/async-http-client dataset_multiple/async-http-client
 #!/usr/bin/env python3
 import csv
 import re
@@ -6,6 +6,10 @@ import sys
 from pathlib import Path
 import re
 
+ASSERT_LINE_RE = re.compile(
+    r'(\bassert[A-Z_]\w*\s*\()|(\bassertThat\s*\()|(\bassume[A-Z_]\w*\s*\()|(\bAssert\.\w+\s*\()|(\bAssertions\.\w+\s*\()'
+)
+FAIL_LINE_RE = re.compile(r'\bfail\s*\(')
 ORACLE_LINE_RE = re.compile(
     r'(\bassert[A-Z_]\w*\s*\()|(\bassertThat\s*\()|(\bfail\s*\()|(\bassume[A-Z_]\w*\s*\()|(\bAssert\.\w+\s*\()|(\bAssertions\.\w+\s*\()'
 )
@@ -20,7 +24,7 @@ def method_name_from_def(method_def: str) -> str:
         return ""
     for ln in method_def.splitlines():
         s = ln.strip()
-        if not s:
+        if not s or s.startswith("@"):  # skip annotation lines
             continue
         m = SIG_NAME_RE.search(s)
         if m:
@@ -60,6 +64,18 @@ def has_oracle(method_def: str) -> bool:
     if ORACLE_LINE_RE.search(method_def):
         return True
     return has_trycatch_oracle(method_def)
+
+
+def get_dataset_type(method_def: str) -> str:
+    """
+    mixed    = has both assertions and fail()
+    multiple = has only assertions, or only fail(), but not both
+    """
+    has_assert = bool(ASSERT_LINE_RE.search(method_def))
+    has_fail = bool(FAIL_LINE_RE.search(method_def))
+    if has_assert and has_fail:
+        return "mixed"
+    return "multiple"
 
 
 def class_simple_name(classname: str) -> str:
@@ -120,6 +136,22 @@ def write_csv(path: Path, fieldnames, rows):
             w.writerow(row)
 
 
+GENERIC_PREFIXES = {"commons", "apache", "spring", "lang", "io", "org", "jakarta"}
+
+def project_short_prefix(project_name: str) -> str:
+    """
+    Take first 4 letters of the meaningful part of the project name.
+    e.g. commons-math -> math, async-http-client -> asyn, bcel -> bcel
+    Skips leading tokens that are generic (commons, apache, etc.)
+    """
+    tokens = project_name.lower().split("-")
+    for token in tokens:
+        if token and token not in GENERIC_PREFIXES:
+            return token[:4]
+    # fallback: just use first 4 chars of full name
+    return project_name[:4].lower()
+
+
 def main():
     if len(sys.argv) < 4:
         print("usage: python3 build_multiple_dataset.py INPUT.csv PROJECT_ROOT OUT_DIR")
@@ -145,6 +177,7 @@ def main():
 
     counter = 0
     project = project_root.name
+    project_prefix = project_short_prefix(project)
 
     for row in rows:
         total += 1
@@ -166,7 +199,7 @@ def main():
             continue
 
         counter += 1
-        rid = f"{project}_{counter}"
+        rid = f"{project_prefix}_{counter}"
 
         mname = method_name_from_def(method_def) or (row.get("method") or "").strip()
         tclass = class_simple_name(classname)
@@ -186,6 +219,8 @@ def main():
         pattern = re.compile(r'(\b%s\s*\()' % re.escape(old_name))
         method_def = pattern.sub(new_name + "(", method_def, count=1)
 
+        dataset_type = get_dataset_type(method_def)
+
         rel_path = test_file.relative_to(project_root)
 
         inputs_out.append({
@@ -203,10 +238,7 @@ def main():
             "focal_file_path": "",
             "focal_class": "",
             "focal_package": "",
-            "oracle_type": "multiple",
-            "junit_version": "unknown",
-            "assert_kind": "standard",
-            "assert_name": "",
+            "dataset_type": dataset_type,
         })
 
         kept += 1
@@ -215,11 +247,11 @@ def main():
     meta_fields = [
         "id", "project", "test_class", "test_name", "test_file_path",
         "focal_file_path", "focal_class", "focal_package",
-        "oracle_type", "junit_version", "assert_kind", "assert_name"
+        "dataset_type",
     ]
 
-    write_csv(out_dir / "inputs_multiple.csv", inputs_fields, inputs_out)
-    write_csv(out_dir / "meta_multiple.csv", meta_fields, meta_out)
+    write_csv(out_dir / "dataset_multiple/inputs_multiple.csv", inputs_fields, inputs_out)
+    write_csv(out_dir / "dataset_multiple/meta_multiple.csv", meta_fields, meta_out)
 
     print(f"total_rows={total}")
     print(f"in_test_src={in_test_src}")
@@ -227,8 +259,8 @@ def main():
     print(f"kept={kept}")
     print(f"missing_test_file={missing_test_file}")
     print(f"no_oracle={no_oracle}")
-    print(str(out_dir / "inputs_multiple.csv"))
-    print(str(out_dir / "meta_multiple.csv"))
+    print(str(out_dir / "inputs.csv"))
+    print(str(out_dir / "meta.csv"))
 
 
 if __name__ == "__main__":

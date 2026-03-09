@@ -1,0 +1,2290 @@
+id,test_prefix,test_name
+spark_1,"@Test
+    public void testConstructor_oe(){
+        route = new RouteImpl(PATH_TEST) {
+            @Override
+            public Object handle(Request request, Response response) throws Exception {
+                return null;
+            }
+        };
+        assertEquals(""Should return path specified"", PATH_TEST, route.getPath());
+    }",RouteImplTest::testConstructor_oe
+spark_2,"@Test
+    public void testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_oe() throws Exception {
+        route = RouteImpl.create(PATH_TEST, ACCEPT_TYPE_TEST, null);
+        assertEquals(""Should return path specified"", PATH_TEST, route.getPath());
+        assertEquals(""Should return accept type specified"", ACCEPT_TYPE_TEST, route.getAcceptType());
+    }",RouteImplTest::testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_oe
+spark_3,"@Test
+    public void testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_oe(){
+        route = RouteImpl.create(PATH_TEST, null);
+        assertEquals(""Should return path specified"", PATH_TEST, route.getPath());
+        assertEquals(""Should return the default accept type"", RouteImpl.DEFAULT_ACCEPT_TYPE, route.getAcceptType());
+    }",RouteImplTest::testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_oe
+spark_4,"@Test
+    public void testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_oe(){
+        route = RouteImpl.create(PATH_TEST, null, null);
+        assertEquals(""Should return path specified"", PATH_TEST, route.getPath());
+        assertEquals(""Should return the default accept type"", RouteImpl.DEFAULT_ACCEPT_TYPE, route.getAcceptType());
+    }",RouteImplTest::testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_oe
+spark_5,"@Test
+    public void testRender_whenElementParameterValid_thenReturnValidObject_oe() throws Exception {
+        String finalObjValue = ""object_value"";
+        route = RouteImpl.create(PATH_TEST, null);
+        Object value = route.render(finalObjValue);
+        assertNotNull(""Should return an Object because we configured it to have one"", value);
+        assertEquals(""Should return a string object specified"", finalObjValue, value.toString());
+    }",RouteImplTest::testRender_whenElementParameterValid_thenReturnValidObject_oe
+spark_6,"@Test
+    public void testRender_whenElementParameterIsNull_thenReturnNull_oe() throws Exception {
+        route = RouteImpl.create(PATH_TEST, null);
+        Object value = route.render(null);
+        assertNull(""Should return null because the element from render is null"", value);
+    }",RouteImplTest::testRender_whenElementParameterIsNull_thenReturnNull_oe
+spark_7,"@Test
+    public void filters_should_be_accept_type_aware_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/protected/resource"", null, ""application/json"");
+        Assert.assertTrue(response.status == 401);
+        Assert.assertEquals(""{\""message\"": \""Go Away!\""}"", response.body);
+    }",GenericIntegrationTest::filters_should_be_accept_type_aware_oe
+spark_8,"@Test
+    public void routes_should_be_accept_type_aware_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null, ""application/json"");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""{\""message\"": \""Hello World\""}"", response.body);
+    }",GenericIntegrationTest::routes_should_be_accept_type_aware_oe
+spark_9,"@Test
+    public void template_view_should_be_rendered_with_given_model_view_object_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/templateView"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello from my view"", response.body);
+    }",GenericIntegrationTest::template_view_should_be_rendered_with_given_model_view_object_oe
+spark_10,"@Test
+    public void testGetHi_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello World!"", response.body);
+    }",GenericIntegrationTest::testGetHi_oe
+spark_11,"@Test
+    public void testGetBinaryHi_oe() {
+        try {
+            UrlResponse response = testUtil.doMethod(""GET"", ""/binaryhi"", null);
+            Assert.assertEquals(200, response.status);
+            Assert.assertEquals(""Hello World!"", response.body);
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+    }",GenericIntegrationTest::testGetBinaryHi_oe
+spark_12,"@Test
+    public void testGetByteBufferHi_oe() {
+        try {
+            UrlResponse response = testUtil.doMethod(""GET"", ""/bytebufferhi"", null);
+            Assert.assertEquals(200, response.status);
+            Assert.assertEquals(""Hello World!"", response.body);
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+    }",GenericIntegrationTest::testGetByteBufferHi_oe
+spark_13,"@Test
+    public void testGetInputStreamHi_oe() {
+        try {
+            UrlResponse response = testUtil.doMethod(""GET"", ""/inputstreamhi"", null);
+            Assert.assertEquals(200, response.status);
+            Assert.assertEquals(""Hello World!"", response.body);
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+    }",GenericIntegrationTest::testGetInputStreamHi_oe
+spark_14,"@Test
+    public void testHiHead_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""HEAD"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("""", response.body);
+    }",GenericIntegrationTest::testHiHead_oe
+spark_15,"@Test
+    public void testGetHiAfterFilter_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
+        Assert.assertTrue(response.headers.get(""after"").contains(""foobar""));
+    }",GenericIntegrationTest::testGetHiAfterFilter_oe
+spark_16,"@Test
+    public void testXForwardedFor_oe() throws Exception {
+        final String xForwardedFor = ""XXX.XXX.XXX.XXX"";
+        Map<String, String> headers = new HashMap<>();
+        headers.put(""X-Forwarded-For"", xForwardedFor);
+
+        UrlResponse response = testUtil.doMethod(""GET"", ""/ip"", null, false, ""text/html"", headers);
+        Assert.assertEquals(xForwardedFor, response.body);
+
+        response = testUtil.doMethod(""GET"", ""/ip"", null, false, ""text/html"", null);
+        Assert.assertNotEquals(xForwardedFor, response.body);
+    }",GenericIntegrationTest::testXForwardedFor_oe
+spark_17,"@Test
+    public void testGetRoot_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello Root!"", response.body);
+    }",GenericIntegrationTest::testGetRoot_oe
+spark_18,"@Test
+    public void testParamAndWild_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/paramandwild/thedude/stuff/andits"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""paramandwild: thedudeandits"", response.body);
+    }",GenericIntegrationTest::testParamAndWild_oe
+spark_19,"@Test
+    public void testEchoParam1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/shizzy"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: shizzy"", response.body);
+    }",GenericIntegrationTest::testEchoParam1_oe
+spark_20,"@Test
+    public void testEchoParam2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/gunit"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: gunit"", response.body);
+    }",GenericIntegrationTest::testEchoParam2_oe
+spark_21,"@Test
+    public void testEchoParam3_oe() throws Exception {
+        String polyglot = ""жξ Ä 聊"";
+        String encoded = URIUtil.encodePath(polyglot);
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + encoded, null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: "" + polyglot, response.body);
+    }",GenericIntegrationTest::testEchoParam3_oe
+spark_22,"@Test
+    public void testPathParamsWithPlusSign_oe() throws Exception {
+        String pathParamWithPlusSign = ""not+broken+path+param"";
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + pathParamWithPlusSign, null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: "" + pathParamWithPlusSign, response.body);
+    }",GenericIntegrationTest::testPathParamsWithPlusSign_oe
+spark_23,"@Test
+    public void testParamWithEncodedSlash_oe() throws Exception {
+        String polyglot = ""te/st"";
+        String encoded = URLEncoder.encode(polyglot, ""UTF-8"");
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + encoded, null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: "" + polyglot, response.body);
+    }",GenericIntegrationTest::testParamWithEncodedSlash_oe
+spark_24,"@Test
+    public void testSplatWithEncodedSlash_oe() throws Exception {
+        String param = ""fo/shizzle"";
+        String encodedParam = URLEncoder.encode(param, ""UTF-8"");
+        String splat = ""mah/FRIEND"";
+        String encodedSplat = URLEncoder.encode(splat, ""UTF-8"");
+        UrlResponse response = testUtil.doMethod(""GET"",
+                                                 ""/paramandwild/"" + encodedParam + ""/stuff/"" + encodedSplat, null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""paramandwild: "" + param + splat, response.body);
+    }",GenericIntegrationTest::testSplatWithEncodedSlash_oe
+spark_25,"@Test
+    public void testEchoParamWithUpperCaseInValue_oe() throws Exception {
+        final String camelCased = ""ThisIsAValueAndSparkShouldRetainItsUpperCasedCharacters"";
+        UrlResponse response = testUtil.doMethod(""GET"", ""/param/"" + camelCased, null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: "" + camelCased, response.body);
+    }",GenericIntegrationTest::testEchoParamWithUpperCaseInValue_oe
+spark_26,"@Test
+    public void testTwoRoutesWithDifferentCaseButSameName_oe() throws Exception {
+        String lowerCasedRoutePart = ""param"";
+        String upperCasedRoutePart = ""PARAM"";
+
+        registerEchoRoute(lowerCasedRoutePart);
+        registerEchoRoute(upperCasedRoutePart);
+        assertEchoRoute(lowerCasedRoutePart);
+        assertEchoRoute(upperCasedRoutePart);
+    }",GenericIntegrationTest::testTwoRoutesWithDifferentCaseButSameName_oe
+spark_27,"@Test
+    public void testEchoParamWithMaj_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/paramwithmaj/plop"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: plop"", response.body);
+    }",GenericIntegrationTest::testEchoParamWithMaj_oe
+spark_28,"@Test
+    public void testUnauthorized_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/secretcontent/whateva"", null);
+        Assert.assertTrue(response.status == 401);
+    }",GenericIntegrationTest::testUnauthorized_oe
+spark_29,"@Test
+    public void testNotFound_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/no/resource"", null);
+        Assert.assertTrue(response.status == 404);
+    }",GenericIntegrationTest::testNotFound_oe
+spark_30,"@Test
+    public void testPost_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""POST"", ""/poster"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        Assert.assertEquals(201, response.status);
+        Assert.assertTrue(response.body.contains(""Fo shizzy""));
+    }",GenericIntegrationTest::testPost_oe
+spark_31,"@Test
+    public void testPostViaGetWithMethodOverrideHeader_oe() throws IOException {
+        Map<String, String> map = new HashMap<>();
+        map.put(""X-HTTP-Method-Override"", ""POST"");
+        UrlResponse response = testUtil.doMethod(""GET"", ""/post_via_get"", ""Fo shizzy"", false, ""*/*"", map);
+        System.out.println(response.body);
+        Assert.assertEquals(201, response.status);
+        Assert.assertTrue(response.body.contains(""Method Override Worked""));
+    }",GenericIntegrationTest::testPostViaGetWithMethodOverrideHeader_oe
+spark_32,"@Test
+    public void testPatch_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""PATCH"", ""/patcher"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        Assert.assertEquals(200, response.status);
+        Assert.assertTrue(response.body.contains(""Fo shizzy""));
+    }",GenericIntegrationTest::testPatch_oe
+spark_33,"@Test
+    public void testSessionReset_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/session_reset"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""22222"", response.body);
+    }",GenericIntegrationTest::testSessionReset_oe
+spark_34,"@Test
+    public void testStaticFile_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/css/style.css"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Content of css file"", response.body);
+    }",GenericIntegrationTest::testStaticFile_oe
+spark_35,"@Test
+    public void testExternalStaticFile_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/externalFile.html"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Content of external file"", response.body);
+    }",GenericIntegrationTest::testExternalStaticFile_oe
+spark_36,"@Test
+    public void testExceptionMapper_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/throwexception"", null);
+        Assert.assertEquals(""Exception handled"", response.body);
+    }",GenericIntegrationTest::testExceptionMapper_oe
+spark_37,"@Test
+    public void testInheritanceExceptionMapper_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/throwsubclassofbaseexception"", null);
+        Assert.assertEquals(""Exception handled"", response.body);
+    }",GenericIntegrationTest::testInheritanceExceptionMapper_oe
+spark_38,"@Test
+    public void testNotFoundExceptionMapper_oe() throws Exception {
+        //        thrownotfound
+        UrlResponse response = testUtil.doMethod(""GET"", ""/thrownotfound"", null);
+        Assert.assertEquals(NOT_FOUND_BRO, response.body);
+        Assert.assertEquals(404, response.status);
+    }",GenericIntegrationTest::testNotFoundExceptionMapper_oe
+spark_39,"@Test
+    public void testTypedExceptionMapper_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/throwmeyling"", null);
+        Assert.assertEquals(new JWGmeligMeylingException().trustButVerify(), response.body);
+    }",GenericIntegrationTest::testTypedExceptionMapper_oe
+spark_40,"@Test
+    public void testWebSocketConversation_oe() throws Exception {
+        String uri = ""ws://localhost:4567/ws"";
+        WebSocketClient client = new WebSocketClient();
+        WebSocketTestClient ws = new WebSocketTestClient();
+
+        try {
+            client.start();
+            client.connect(ws, URI.create(uri), new ClientUpgradeRequest());
+            ws.awaitClose(30, TimeUnit.SECONDS);
+        } finally {
+            client.stop();
+        }
+
+        List<String> events = WebSocketTestHandler.events;
+        Assert.assertEquals(3, events.size(), 3);
+        Assert.assertEquals(""onConnect"", events.get(0));
+        Assert.assertEquals(""onMessage: Hi Spark!"", events.get(1));
+        Assert.assertEquals(""onClose: 1000 Bye!"", events.get(2));
+    }",GenericIntegrationTest::testWebSocketConversation_oe
+spark_41,"@Test
+    public void path_should_prefix_routes_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/firstPath/test"", null, ""application/json"");
+        Assert.assertTrue(response.status == 200);
+        Assert.assertEquals(""Single path-prefix works"", response.body);
+        Assert.assertEquals(""true"", response.headers.get(""before-filter-ran""));
+    }",GenericIntegrationTest::path_should_prefix_routes_oe
+spark_42,"@Test
+    public void paths_should_be_nestable_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/firstPath/secondPath/test"", null, ""application/json"");
+        Assert.assertTrue(response.status == 200);
+        Assert.assertEquals(""Nested path-prefix works"", response.body);
+        Assert.assertEquals(""true"", response.headers.get(""before-filter-ran""));
+    }",GenericIntegrationTest::paths_should_be_nestable_oe
+spark_43,"@Test
+    public void paths_should_be_very_nestable_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/firstPath/secondPath/thirdPath/test"", null, ""application/json"");
+        Assert.assertTrue(response.status == 200);
+        Assert.assertEquals(""Very nested path-prefix works"", response.body);
+        Assert.assertEquals(""true"", response.headers.get(""before-filter-ran""));
+    }",GenericIntegrationTest::paths_should_be_very_nestable_oe
+spark_44,"@Test
+    public void testRuntimeExceptionForDone_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/exception"", null);
+        Assert.assertEquals(""done executed for exception"", response.body);
+        Assert.assertEquals(500, response.status);
+    }",GenericIntegrationTest::testRuntimeExceptionForDone_oe
+spark_45,"@Test
+    public void testRuntimeExceptionForAllRoutesFinally_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
+        Assert.assertEquals(""foobar"", response.headers.get(""after""));
+        Assert.assertEquals(""nice done response after all"", response.headers.get(""post-process-all""));
+        Assert.assertEquals(200, response.status);
+    }",GenericIntegrationTest::testRuntimeExceptionForAllRoutesFinally_oe
+spark_46,"@Test
+    public void testPostProcessBodyForFinally_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""POST"", ""/nice"", """");
+        Assert.assertEquals(""nice response"", response.body);
+        Assert.assertEquals(""nice done response"", response.headers.get(""post-process""));
+        Assert.assertEquals(200, response.status);
+    }",GenericIntegrationTest::testPostProcessBodyForFinally_oe
+spark_47,"@Test
+    public void testJustFilter_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/justfilter"", null);
+
+        System.out.println(""response.status = "" + response.status);
+        Assert.assertEquals(404, response.status);
+    }",FilterTest::testJustFilter_oe
+spark_48,"@Test
+    public void queryParamShouldReturnsParametersFromQueryString_oe() {
+
+        when(servletRequest.getParameter(""name"")).thenReturn(""Federico"");
+
+        String name = request.queryParams(""name"");
+        assertEquals(""Invalid name in query string"", ""Federico"", name);
+    }",RequestTest::queryParamShouldReturnsParametersFromQueryString_oe
+spark_49,"@Test
+    public void queryParamOrDefault_shouldReturnQueryParam_whenQueryParamExists_oe() {
+
+        when(servletRequest.getParameter(""name"")).thenReturn(""Federico"");
+
+        String name = request.queryParamOrDefault(""name"", ""David"");
+        assertEquals(""Invalid name in query string"", ""Federico"", name);
+    }",RequestTest::queryParamOrDefault_shouldReturnQueryParam_whenQueryParamExists_oe
+spark_50,"@Test
+    public void queryParamOrDefault_shouldReturnDefault_whenQueryParamIsNull_oe() {
+
+        when(servletRequest.getParameter(""name"")).thenReturn(null);
+
+        String name = request.queryParamOrDefault(""name"", ""David"");
+        assertEquals(""Invalid name in default value"", ""David"", name);
+    }",RequestTest::queryParamOrDefault_shouldReturnDefault_whenQueryParamIsNull_oe
+spark_51,"@Test
+    public void queryParamShouldBeParsedAsHashMap_oe() {
+        Map<String, String[]> params = new HashMap<>();
+        params.put(""user[name]"", new String[] {""Federico""});
+
+        when(servletRequest.getParameterMap()).thenReturn(params);
+
+        String name = request.queryMap(""user"").value(""name"");
+        assertEquals(""Invalid name in query string"", ""Federico"", name);
+    }",RequestTest::queryParamShouldBeParsedAsHashMap_oe
+spark_52,"@Test
+    public void shouldBeAbleToGetTheServletPath_oe() {
+
+        when(servletRequest.getServletPath()).thenReturn(THE_SERVLET_PATH);
+
+        Request request = new Request(match, servletRequest);
+        assertEquals(""Should have delegated getting the servlet path"", THE_SERVLET_PATH, request.servletPath());
+    }",RequestTest::shouldBeAbleToGetTheServletPath_oe
+spark_53,"@Test
+    public void shouldBeAbleToGetTheContextPath_oe() {
+
+        when(servletRequest.getContextPath()).thenReturn(THE_CONTEXT_PATH);
+
+        Request request = new Request(match, servletRequest);
+        assertEquals(""Should have delegated getting the context path"", THE_CONTEXT_PATH, request.contextPath());
+    }",RequestTest::shouldBeAbleToGetTheContextPath_oe
+spark_54,"@Test
+    public void shouldBeAbleToGetTheMatchedPath_oe() {
+        Request request = new Request(matchWithParams, servletRequest);
+        assertEquals(""Should have returned the matched route"", THE_MATCHED_ROUTE, request.matchedPath());
+        try {
+            http.get(""/users/bob"");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }",RequestTest::shouldBeAbleToGetTheMatchedPath_oe
+spark_55,"@Test
+    public void testSessionNoParams_whenSessionIsNull_oe() {
+
+        when(servletRequest.getSession()).thenReturn(httpSession);
+
+        assertEquals(""A Session with an HTTPSession from the Request should have been created"",httpSession,request.session().raw());
+    }",RequestTest::testSessionNoParams_whenSessionIsNull_oe
+spark_56,"@Test
+    public void testSession_whenCreateIsTrue_oe() {
+
+        when(servletRequest.getSession(true)).thenReturn(httpSession);
+
+        assertEquals(""A Session with an HTTPSession from the Request should have been created because create parameter "" + ""was set to true"",httpSession,request.session(true).raw());
+
+    }",RequestTest::testSession_whenCreateIsTrue_oe
+spark_57,"@Test
+    public void testSession_whenCreateIsFalse_oe() {
+
+        when(servletRequest.getSession(true)).thenReturn(httpSession);
+
+        assertEquals(""A Session should not have been created because create parameter was set to false"",null,request.session(false));
+
+    }",RequestTest::testSession_whenCreateIsFalse_oe
+spark_58,"@Test
+    public void testSession_2times_oe() {
+        when(servletRequest.getSession(true)).thenReturn(httpSession);
+
+        Session session = request.session(true);
+        session = request.session(true);
+
+        assertNotNull(session);
+        verify(servletRequest, times(1)).getSession(true);
+    }",RequestTest::testSession_2times_oe
+spark_59,"@Test
+    public void testCookies_whenCookiesArePresent_oe() {
+
+        Collection<Cookie> cookies = new ArrayList<>();
+        cookies.add(new Cookie(""cookie1"", ""cookie1value""));
+        cookies.add(new Cookie(""cookie2"", ""cookie2value""));
+
+        Map<String, String> expected = new HashMap<>();
+        for(Cookie cookie : cookies) {
+            expected.put(cookie.getName(), cookie.getValue());
+        }
+
+        Cookie[] cookieArray = cookies.toArray(new Cookie[cookies.size()]);
+
+        when(servletRequest.getCookies()).thenReturn(cookieArray);
+
+        assertTrue(""The count of cookies returned should be the same as those in the request"",request.cookies().size()== 2);
+
+        assertEquals(""A Map of Cookies should have been returned because they exist"", expected, request.cookies());
+
+    }",RequestTest::testCookies_whenCookiesArePresent_oe
+spark_60,"@Test
+    public void testCookies_whenCookiesAreNotPresent_oe() {
+
+        when(servletRequest.getCookies()).thenReturn(null);
+
+        assertNotNull(""A Map of Cookies should have been instantiated even if cookies are not present in the request"",request.cookies());
+
+        assertTrue(""The Map of cookies should be empty because cookies are not present in the request"",request.cookies().size()== 0);
+
+    }",RequestTest::testCookies_whenCookiesAreNotPresent_oe
+spark_61,"@Test
+    public void testCookie_whenCookiesArePresent_oe() {
+
+        final String cookieKey = ""cookie1"";
+        final String cookieValue = ""cookie1value"";
+
+        Collection<Cookie> cookies = new ArrayList<>();
+        cookies.add(new Cookie(cookieKey, cookieValue));
+
+        Cookie[] cookieArray = cookies.toArray(new Cookie[cookies.size()]);
+        when(servletRequest.getCookies()).thenReturn(cookieArray);
+
+        assertNotNull(""A value for the key provided should exist because a cookie with the same key is present"",request.cookie(cookieKey));
+
+        assertEquals(""The correct value for the cookie key supplied should be returned"",cookieValue,request.cookie(cookieKey));
+
+    }",RequestTest::testCookie_whenCookiesArePresent_oe
+spark_62,"@Test
+    public void testCookie_whenCookiesAreNotPresent_oe() {
+
+        final String cookieKey = ""nonExistentCookie"";
+
+        when(servletRequest.getCookies()).thenReturn(null);
+
+        assertNull(""A null value should have been returned because the cookie with that key does not exist"",request.cookie(cookieKey));
+
+    }",RequestTest::testCookie_whenCookiesAreNotPresent_oe
+spark_63,"@Test
+    public void testRequestMethod_oe() {
+
+        final String requestMethod = ""GET"";
+
+        when(servletRequest.getMethod()).thenReturn(requestMethod);
+
+        assertEquals(""The request method of the underlying servlet request should be returned"",requestMethod,request.requestMethod());
+
+    }",RequestTest::testRequestMethod_oe
+spark_64,"@Test
+    public void testScheme_oe() {
+
+        final String scheme = ""http"";
+
+        when(servletRequest.getScheme()).thenReturn(scheme);
+
+        assertEquals(""The scheme of the underlying servlet request should be returned"",scheme,request.scheme());
+
+    }",RequestTest::testScheme_oe
+spark_65,"@Test
+    public void testHost_oe() {
+
+        final String host = ""www.google.com"";
+
+        when(servletRequest.getHeader(""host"")).thenReturn(host);
+
+        assertEquals(""The value of the host header of the underlying servlet request should be returned"",host,request.host());
+
+    }",RequestTest::testHost_oe
+spark_66,"@Test
+    public void testUserAgent_oe() {
+
+        final String userAgent = ""Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/47.0.2526.106 Safari/537.36"";
+
+        when(servletRequest.getHeader(""user-agent"")).thenReturn(userAgent);
+
+        assertEquals(""The value of the user agent header of the underlying servlet request should be returned"",userAgent,request.userAgent());
+
+    }",RequestTest::testUserAgent_oe
+spark_67,"@Test
+    public void testPort_oe() {
+
+        final int port = 80;
+
+        when(servletRequest.getServerPort()).thenReturn(80);
+
+        assertEquals(""The server port of the the underlying servlet request should be returned"",port,request.port());
+
+    }",RequestTest::testPort_oe
+spark_68,"@Test
+    public void testPathInfo_oe() {
+
+        final String pathInfo = ""/path/to/resource"";
+
+        when(servletRequest.getPathInfo()).thenReturn(pathInfo);
+
+        assertEquals(""The path info of the underlying servlet request should be returned"",pathInfo,request.pathInfo());
+
+    }",RequestTest::testPathInfo_oe
+spark_69,"@Test
+    public void testServletPath_oe() {
+
+        final String servletPath = ""/api"";
+
+        when(servletRequest.getServletPath()).thenReturn(servletPath);
+
+        assertEquals(""The servlet path of the underlying servlet request should be returned"",servletPath,request.servletPath());
+
+    }",RequestTest::testServletPath_oe
+spark_70,"@Test
+    public void testContextPath_oe() {
+
+        final String contextPath = ""/my-app"";
+
+        when(servletRequest.getContextPath()).thenReturn(contextPath);
+
+        assertEquals(""The context path of the underlying servlet request should be returned"",contextPath,request.contextPath());
+
+    }",RequestTest::testContextPath_oe
+spark_71,"@Test
+    public void testUrl_oe() {
+
+        final String url = ""http://www.myapp.com/myapp/a"";
+
+        when(servletRequest.getRequestURL()).thenReturn(new StringBuffer(url));
+
+        assertEquals(""The request url of the underlying servlet request should be returned"",url,request.url());
+
+    }",RequestTest::testUrl_oe
+spark_72,"@Test
+    public void testContentType_oe() {
+
+        final String contentType = ""image/jpeg"";
+
+        when(servletRequest.getContentType()).thenReturn(contentType);
+
+        assertEquals(""The content type of the underlying servlet request should be returned"",contentType,request.contentType());
+
+    }",RequestTest::testContentType_oe
+spark_73,"@Test
+    public void testIp_oe() {
+
+        final String ip = ""216.58.197.106:80"";
+
+        when(servletRequest.getRemoteAddr()).thenReturn(ip);
+
+        assertEquals(""The remote IP of the underlying servlet request should be returned"",ip,request.ip());
+
+    }",RequestTest::testIp_oe
+spark_74,"@Test
+    public void testContentLength_oe() {
+
+        final int contentLength = 500;
+
+        when(servletRequest.getContentLength()).thenReturn(contentLength);
+
+        assertEquals(""The content length the underlying servlet request should be returned"",contentLength,request.contentLength());
+
+    }",RequestTest::testContentLength_oe
+spark_75,"@Test
+    public void testHeaders_oe() {
+
+        final String headerKey = ""host"";
+        final String host = ""www.google.com"";
+
+        when(servletRequest.getHeader(headerKey)).thenReturn(host);
+
+        assertEquals(""The value of the header specified should be returned"",host,request.headers(headerKey));
+
+    }",RequestTest::testHeaders_oe
+spark_76,"@Test
+    public void testQueryParamsValues_whenParamExists_oe() {
+
+        final String[] paramValues = {""foo"", ""bar""};
+
+        when(servletRequest.getParameterValues(""id"")).thenReturn(paramValues);
+
+        assertArrayEquals(""An array of Strings for a parameter with multiple values should be returned"",paramValues,request.queryParamsValues(""id""));
+
+    }",RequestTest::testQueryParamsValues_whenParamExists_oe
+spark_77,"@Test
+    public void testQueryParamsValues_whenParamDoesNotExists_oe() {
+
+        when(servletRequest.getParameterValues(""id"")).thenReturn(null);
+
+        assertNull(""Null should be returned because the parameter specified does not exist in the request"",request.queryParamsValues(""id""));
+
+    }",RequestTest::testQueryParamsValues_whenParamDoesNotExists_oe
+spark_78,"@Test
+    public void testQueryParams_oe() {
+
+        Map<String, String[]> params = new HashMap<>();
+        params.put(""sort"", new String[]{""asc""});
+        params.put(""items"", new String[]{""10""});
+
+        when(servletRequest.getParameterMap()).thenReturn(params);
+
+        Set<String> result = request.queryParams();
+
+        assertArrayEquals(""Should return the query parameter names"", params.keySet().toArray(), result.toArray());
+
+    }",RequestTest::testQueryParams_oe
+spark_79,"@Test
+    public void testURI_oe() {
+
+        final String requestURI = ""http://localhost:8080/myapp/"";
+
+        when(servletRequest.getRequestURI()).thenReturn(requestURI);
+
+        assertEquals(""The request URI should be returned"",requestURI,request.uri());
+
+    }",RequestTest::testURI_oe
+spark_80,"@Test
+    public void testProtocol_oe() {
+
+        final String protocol = ""HTTP/1.1"";
+
+        when(servletRequest.getProtocol()).thenReturn(protocol);
+
+        assertEquals(""The underlying request protocol should be returned"",protocol,request.protocol());
+
+    }",RequestTest::testProtocol_oe
+spark_81,"@Test
+    public void testMultipleFilters_oe() {
+        try {
+            SparkTestUtil.UrlResponse response = http.get(""/user"");
+            Assert.assertEquals(200, response.status);
+            Assert.assertEquals(""Kevin"", response.body);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }",MultipleFiltersTest::testMultipleFilters_oe
+spark_82,"@Test
+    public void testConstructor_oe(){
+        FilterImpl filter = new FilterImpl(PATH_TEST, ACCEPT_TYPE_TEST) {
+            @Override
+            public void handle(Request request, Response response) throws Exception {
+            }
+        };
+        assertEquals(""Should return path specified"", PATH_TEST, filter.getPath());
+        assertEquals(""Should return accept type specified"", ACCEPT_TYPE_TEST, filter.getAcceptType());
+    }",FilterImplTest::testConstructor_oe
+spark_83,"@Test
+    public void testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_oe() throws Exception {
+        filter = FilterImpl.create(PATH_TEST, ACCEPT_TYPE_TEST, null);
+        assertEquals(""Should return path specified"", PATH_TEST, filter.getPath());
+        assertEquals(""Should return accept type specified"", ACCEPT_TYPE_TEST, filter.getAcceptType());
+    }",FilterImplTest::testGets_thenReturnGetPathAndGetAcceptTypeSuccessfully_oe
+spark_84,"@Test
+    public void testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_oe(){
+        filter = FilterImpl.create(PATH_TEST, null);
+        assertEquals(""Should return path specified"", PATH_TEST, filter.getPath());
+        assertEquals(""Should return accept type specified"", RouteImpl.DEFAULT_ACCEPT_TYPE, filter.getAcceptType());
+    }",FilterImplTest::testCreate_whenOutAssignAcceptTypeInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_oe
+spark_85,"@Test
+    public void testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_oe(){
+        filter = FilterImpl.create(PATH_TEST, null, null);
+        assertEquals(""Should return path specified"", PATH_TEST, filter.getPath());
+        assertEquals(""Should return accept type specified"", RouteImpl.DEFAULT_ACCEPT_TYPE, filter.getAcceptType());
+    }",FilterImplTest::testCreate_whenAcceptTypeNullValueInTheParameters_thenReturnPathAndAcceptTypeSuccessfully_oe
+spark_86,"@Test
+    public void testStaticFileCssStyleCss_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/css/style.css"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Content of css file"", response.body);
+
+        testGet();
+    }",StaticFilesMemberTest::testStaticFileCssStyleCss_oe
+spark_87,"@Test
+    public void testStaticFileMjs_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/js/module.mjs"", null);
+
+        String expectedContentType = response.headers.get(""Content-Type"");
+        Assert.assertEquals(expectedContentType, ""application/javascript"");
+
+        String body = response.body;
+        Assert.assertEquals(""export default function () { console.log(\""Hello, I'm a .mjs file\""); }\n"", body);
+    }",StaticFilesMemberTest::testStaticFileMjs_oe
+spark_88,"@Test
+    public void testStaticFilePagesIndexHtml_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/pages/index.html"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""<html><body>Hello Static World!</body></html>"", response.body);
+
+        testGet();
+    }",StaticFilesMemberTest::testStaticFilePagesIndexHtml_oe
+spark_89,"@Test
+    public void testStaticFilePageHtml_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/page.html"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""<html><body>Hello Static Files World!</body></html>"", response.body);
+
+        testGet();
+    }",StaticFilesMemberTest::testStaticFilePageHtml_oe
+spark_90,"@Test
+    public void testExternalStaticFile_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/externalFile.html"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Content of external file"", response.body);
+
+        testGet();
+    }",StaticFilesMemberTest::testExternalStaticFile_oe
+spark_91,"@Test
+    public void testStaticFileHeaders_oe() throws Exception {
+        staticFiles.headers(new HashMap() {
+            {
+                put(""Server"", ""Microsoft Word"");
+                put(""Cache-Control"", ""private, max-age=600"");
+            }
+        });
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/pages/index.html"", null);
+        Assert.assertEquals(""Microsoft Word"", response.headers.get(""Server""));
+        Assert.assertEquals(""private, max-age=600"", response.headers.get(""Cache-Control""));
+
+        testGet();
+    }",StaticFilesMemberTest::testStaticFileHeaders_oe
+spark_92,"@Test
+    public void testStaticFileExpireTime_oe() throws Exception {
+        staticFiles.expireTime(600);
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/pages/index.html"", null);
+        Assert.assertEquals(""private, max-age=600"", response.headers.get(""Cache-Control""));
+
+        testGet();
+    }",StaticFilesMemberTest::testStaticFileExpireTime_oe
+spark_94,"@Test
+    public void testExceptionMapping404_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/filethatdoesntexist.html"", null);
+
+        Assert.assertEquals(404, response.status);
+        Assert.assertEquals(NOT_FOUND_BRO, response.body);
+    }",StaticFilesMemberTest::testExceptionMapping404_oe
+spark_95,"@Test
+    public void testRedirectGet_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(REDIRECTED, response.body);
+    }",RedirectTest::testRedirectGet_oe
+spark_96,"@Test
+    public void testRedirectPost_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/hi"", """");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(REDIRECTED, response.body);
+    }",RedirectTest::testRedirectPost_oe
+spark_97,"@Test
+    public void testRedirectPut_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""PUT"", ""/hi"", """");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(REDIRECTED, response.body);
+    }",RedirectTest::testRedirectPut_oe
+spark_98,"@Test
+    public void testRedirectDelete_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""DELETE"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(REDIRECTED, response.body);
+    }",RedirectTest::testRedirectDelete_oe
+spark_99,"@Test
+    public void testRedirectAnyGet_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/any"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(REDIRECTED, response.body);
+    }",RedirectTest::testRedirectAnyGet_oe
+spark_100,"@Test
+    public void testRedirectAnyPut_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""PUT"", ""/any"", """");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(REDIRECTED, response.body);
+    }",RedirectTest::testRedirectAnyPut_oe
+spark_101,"@Test
+    public void testRedirectAnyPost_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/any"", """");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(REDIRECTED, response.body);
+    }",RedirectTest::testRedirectAnyPost_oe
+spark_102,"@Test
+    public void testRedirectAnyDelete_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""DELETE"", ""/any"", """");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(REDIRECTED, response.body);
+    }",RedirectTest::testRedirectAnyDelete_oe
+spark_103,"@Test
+    public void testRedirectGetWithSpecificCode_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hiagain"", null);
+        Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
+    }",RedirectTest::testRedirectGetWithSpecificCode_oe
+spark_104,"@Test
+    public void testRedirectPostWithSpecificCode_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/hiagain"", """");
+        Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
+    }",RedirectTest::testRedirectPostWithSpecificCode_oe
+spark_105,"@Test
+    public void testRedirectPutWithSpecificCode_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""PUT"", ""/hiagain"", """");
+        Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
+    }",RedirectTest::testRedirectPutWithSpecificCode_oe
+spark_106,"@Test
+    public void testRedirectDeleteWithSpecificCode_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""DELETE"", ""/hiagain"", null);
+        Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
+    }",RedirectTest::testRedirectDeleteWithSpecificCode_oe
+spark_107,"@Test
+    public void testRedirectAnyGetWithSpecificCode_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/anyagain"", null);
+        Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
+    }",RedirectTest::testRedirectAnyGetWithSpecificCode_oe
+spark_108,"@Test
+    public void testRedirectAnyPostWithSpecificCode_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/anyagain"", """");
+        Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
+    }",RedirectTest::testRedirectAnyPostWithSpecificCode_oe
+spark_109,"@Test
+    public void testRedirectAnyPutWithSpecificCode_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""PUT"", ""/anyagain"", """");
+        Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
+    }",RedirectTest::testRedirectAnyPutWithSpecificCode_oe
+spark_110,"@Test
+    public void testRedirectAnyDeleteWithSpecificCode_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""DELETE"", ""/anyagain"", null);
+        Assert.assertEquals(Redirect.Status.USE_PROXY.intValue(), response.status);
+    }",RedirectTest::testRedirectAnyDeleteWithSpecificCode_oe
+spark_111,"@Test
+    public void testEmbeddedServerIdentifier_defaultAndSet_oe() {
+        assertEquals(""Should return defaultIdentifier()"",EmbeddedServers.defaultIdentifier(),service.embeddedServerIdentifier());
+
+        Object obj = new Object();
+
+        service.embeddedServerIdentifier(obj);
+
+        assertEquals(""Should return expected obj"",obj,service.embeddedServerIdentifier());
+    }",ServiceTest::testEmbeddedServerIdentifier_defaultAndSet_oe
+spark_112,"@Test
+    public void testIpAddress_whenInitializedFalse_oe() {
+        service.ipAddress(IP_ADDRESS);
+
+        String ipAddress = Whitebox.getInternalState(service, ""ipAddress"");
+        assertEquals(""IP address should be set to the IP address that was specified"", IP_ADDRESS, ipAddress);
+    }",ServiceTest::testIpAddress_whenInitializedFalse_oe
+spark_113,"@Test
+    public void testSetIpAddress_whenInitializedFalse_oe() {
+        service.ipAddress(IP_ADDRESS);
+
+        String ipAddress = Whitebox.getInternalState(service, ""ipAddress"");
+        assertEquals(""IP address should be set to the IP address that was specified"", IP_ADDRESS, ipAddress);
+    }",ServiceTest::testSetIpAddress_whenInitializedFalse_oe
+spark_114,"@Test
+    public void testPort_whenInitializedFalse_oe() {
+        service.port(8080);
+
+        int port = Whitebox.getInternalState(service, ""port"");
+        assertEquals(""Port should be set to the Port that was specified"", 8080, port);
+    }",ServiceTest::testPort_whenInitializedFalse_oe
+spark_115,"@Test
+    public void testSetPort_whenInitializedFalse_oe() {
+        service.port(8080);
+
+        int port = Whitebox.getInternalState(service, ""port"");
+        assertEquals(""Port should be set to the Port that was specified"", 8080, port);
+    }",ServiceTest::testSetPort_whenInitializedFalse_oe
+spark_116,"@Test
+    public void testGetPort_whenInitializedTrue_oe() {
+        int expectedPort = 8080;
+        Whitebox.setInternalState(service, ""initialized"", true);
+        Whitebox.setInternalState(service, ""port"", expectedPort);
+
+        int actualPort = service.port();
+
+        assertEquals(""Port retrieved should be the port setted"", expectedPort, actualPort);
+    }",ServiceTest::testGetPort_whenInitializedTrue_oe
+spark_117,"@Test
+    public void testGetPort_whenInitializedTrue_Default_oe() {
+        int expectedPort = Service.SPARK_DEFAULT_PORT;
+        Whitebox.setInternalState(service, ""initialized"", true);
+
+        int actualPort = service.port();
+
+        assertEquals(""Port retrieved should be the port setted"", expectedPort, actualPort);
+    }",ServiceTest::testGetPort_whenInitializedTrue_Default_oe
+spark_118,"@Test
+    public void testThreadPool_whenOnlyMaxThreads_oe() {
+        service.threadPool(100);
+        int maxThreads = Whitebox.getInternalState(service, ""maxThreads"");
+        int minThreads = Whitebox.getInternalState(service, ""minThreads"");
+        int threadIdleTimeoutMillis = Whitebox.getInternalState(service, ""threadIdleTimeoutMillis"");
+        assertEquals(""Should return maxThreads specified"", 100, maxThreads);
+        assertEquals(""Should return minThreads specified"", -1, minThreads);
+        assertEquals(""Should return threadIdleTimeoutMillis specified"", -1, threadIdleTimeoutMillis);
+    }",ServiceTest::testThreadPool_whenOnlyMaxThreads_oe
+spark_119,"@Test
+    public void testThreadPool_whenMaxMinAndTimeoutParameters_oe() {
+        service.threadPool(100, 50, 75);
+        int maxThreads = Whitebox.getInternalState(service, ""maxThreads"");
+        int minThreads = Whitebox.getInternalState(service, ""minThreads"");
+        int threadIdleTimeoutMillis = Whitebox.getInternalState(service, ""threadIdleTimeoutMillis"");
+        assertEquals(""Should return maxThreads specified"", 100, maxThreads);
+        assertEquals(""Should return minThreads specified"", 50, minThreads);
+        assertEquals(""Should return threadIdleTimeoutMillis specified"", 75, threadIdleTimeoutMillis);
+    }",ServiceTest::testThreadPool_whenMaxMinAndTimeoutParameters_oe
+spark_120,"@Test
+    public void testSecure_thenReturnNewSslStores_oe() {
+        service.secure(""keyfile"", ""keypassword"", ""truststorefile"", ""truststorepassword"");
+        SslStores sslStores = Whitebox.getInternalState(service, ""sslStores"");
+        assertNotNull(""Should return a SslStores because we configured it to have one"", sslStores);
+        assertEquals(""Should return keystoreFile from SslStores"", ""keyfile"", sslStores.keystoreFile());
+        assertEquals(""Should return keystorePassword from SslStores"", ""keypassword"", sslStores.keystorePassword());
+        assertEquals(""Should return trustStoreFile from SslStores"", ""truststorefile"", sslStores.trustStoreFile());
+        assertEquals(""Should return trustStorePassword from SslStores"", ""truststorepassword"", sslStores.trustStorePassword());
+    }",ServiceTest::testSecure_thenReturnNewSslStores_oe
+spark_121,"@Test
+    public void awaitStopBlocksUntilExtinguished_oe() {
+        Service service = Service.ignite();
+        Routes routes = Mockito.mock(Routes.class);
+        EmbeddedServer server = Mockito.mock(EmbeddedServer.class);
+        service.routes = routes;
+        service.server = server;
+        service.initialized = true;
+        service.stop();
+        service.awaitStop();
+        Mockito.verify(server).extinguish();
+        assertFalse(service.initialized);
+    }",ServiceTest::awaitStopBlocksUntilExtinguished_oe
+spark_122,"@Test
+    public void testSession_whenHttpSessionIsNull_thenThrowException_oe() {
+
+        try {
+
+            new Session(null, request);
+            fail(""Session instantiation with a null HttpSession should throw an IllegalArgumentException"");
+
+        } catch (IllegalArgumentException ex) {
+
+            assertEquals(""session cannot be null"", ex.getMessage());
+        }
+    }",SessionTest::testSession_whenHttpSessionIsNull_thenThrowException_oe
+spark_123,"@Test
+    public void testSession_whenRequestIsNull_thenThrowException_oe() {
+
+        try {
+
+            new Session(httpSession, null);
+            fail(""Session instantiation with a null Request should throw an IllegalArgumentException"");
+
+        } catch (IllegalArgumentException ex) {
+
+            assertEquals(""request cannot be null"", ex.getMessage());
+        }
+    }",SessionTest::testSession_whenRequestIsNull_thenThrowException_oe
+spark_124,"@Test
+    public void testSession_oe() {
+
+        HttpSession internalSession = Whitebox.getInternalState(session, ""session"");
+        assertEquals(""Internal session should be set to the http session provided during instantiation"",httpSession,internalSession);
+    }",SessionTest::testSession_oe
+spark_125,"@Test
+    public void testRaw_oe() {
+
+        assertEquals(""Should return the HttpSession provided during instantiation"",httpSession,session.raw());
+    }",SessionTest::testRaw_oe
+spark_126,"@Test
+    public void testAttribute_whenAttributeIsRetrieved_oe() {
+
+        when(httpSession.getAttribute(""name"")).thenReturn(""Jett"");
+
+        assertEquals(""Should return attribute from HttpSession"", ""Jett"", session.attribute(""name""));
+
+    }",SessionTest::testAttribute_whenAttributeIsRetrieved_oe
+spark_127,"@Test
+    public void testAttributes_oe() {
+
+        Set<String> attributes = new HashSet<>(Arrays.asList(""name"", ""location""));
+
+        when(httpSession.getAttributeNames()).thenReturn(Collections.enumeration(attributes));
+
+        assertEquals(""Should return attributes from the HttpSession"", attributes, session.attributes());
+    }",SessionTest::testAttributes_oe
+spark_128,"@Test
+    public void testCreationTime_oe() {
+
+        when(httpSession.getCreationTime()).thenReturn(10000000l);
+
+        assertEquals(""Should return creationTime from HttpSession"", 10000000l, session.creationTime());
+    }",SessionTest::testCreationTime_oe
+spark_129,"@Test
+    public void testId_oe() {
+
+        when(httpSession.getId()).thenReturn(""id"");
+
+        assertEquals(""Should return session id from HttpSession"", ""id"", session.id());
+    }",SessionTest::testId_oe
+spark_130,"@Test
+    public void testLastAccessedTime_oe() {
+
+        when(httpSession.getLastAccessedTime()).thenReturn(20000000l);
+
+        assertEquals(""Should return lastAccessedTime from HttpSession"", 20000000l, session.lastAccessedTime());
+    }",SessionTest::testLastAccessedTime_oe
+spark_131,"@Test
+    public void testMaxInactiveInterval_whenRetrieved_oe() {
+
+        when(httpSession.getMaxInactiveInterval()).thenReturn(100);
+
+        assertEquals(""Should return maxInactiveInterval from HttpSession"", 100, session.maxInactiveInterval());
+    }",SessionTest::testMaxInactiveInterval_whenRetrieved_oe
+spark_132,"@Test
+    public void testIsNew_oe() {
+
+        when(httpSession.isNew()).thenReturn(true);
+
+        assertEquals(""Should return isNew status from HttpSession"", true, session.isNew());
+    }",SessionTest::testIsNew_oe
+spark_133,"@Test
+    public void testGetInstance_whenDefaultInstanceIsNull_oe() {
+        //given
+        ExceptionMapper exceptionMapper = null;
+        Whitebox.setInternalState(ExceptionMapper.class, ""servletInstance"", exceptionMapper);
+
+        //then
+        exceptionMapper = ExceptionMapper.getServletInstance();
+        assertEquals(""Should be equals because ExceptionMapper is a singleton"", Whitebox.getInternalState(ExceptionMapper.class, ""servletInstance""), exceptionMapper);
+    }",ExceptionMapperTest::testGetInstance_whenDefaultInstanceIsNull_oe
+spark_134,"@Test
+    public void testGetInstance_whenDefaultInstanceIsNotNull_oe() {
+        //given
+        ExceptionMapper.getServletInstance(); //initialize Singleton
+
+        //then
+        ExceptionMapper exceptionMapper = ExceptionMapper.getServletInstance();
+        assertEquals(""Should be equals because ExceptionMapper is a singleton"", Whitebox.getInternalState(ExceptionMapper.class, ""servletInstance""), exceptionMapper);
+    }",ExceptionMapperTest::testGetInstance_whenDefaultInstanceIsNotNull_oe
+spark_135,"@Test
+    public void canCreateBook_oe() {
+        UrlResponse response = createBookViaPOST();
+
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertTrue(Integer.valueOf(response.body) > 0);
+        assertEquals(201, response.status);
+    }",BooksIntegrationTest::canCreateBook_oe
+spark_136,"@Test
+    public void canListBooks_oe() {
+        bookId = createBookViaPOST().body.trim();
+
+        UrlResponse response = doMethod(""GET"", ""/books"", null);
+
+        assertNotNull(response);
+        String body = response.body.trim();
+        assertNotNull(body);
+        assertTrue(Integer.valueOf(body) > 0);
+        assertEquals(200, response.status);
+        assertTrue(response.body.contains(bookId));
+    }",BooksIntegrationTest::canListBooks_oe
+spark_137,"@Test
+    public void canGetBook_oe() {
+        bookId = createBookViaPOST().body.trim();
+
+        UrlResponse response = doMethod(""GET"", ""/books/"" + bookId, null);
+
+        String result = response.body;
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertEquals(200, response.status);
+        assertTrue(result.contains(AUTHOR));
+        assertTrue(result.contains(TITLE));
+        assertTrue(beforeFilterIsSet(response));
+        assertTrue(afterFilterIsSet(response));
+    }",BooksIntegrationTest::canGetBook_oe
+spark_138,"@Test
+    public void canUpdateBook_oe() {
+        bookId = createBookViaPOST().body.trim();
+
+        UrlResponse response = updateBook();
+
+        String result = response.body;
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertEquals(200, response.status);
+        assertTrue(result.contains(bookId));
+        assertTrue(result.contains(""updated""));
+    }",BooksIntegrationTest::canUpdateBook_oe
+spark_139,"@Test
+    public void canGetUpdatedBook_oe() {
+        bookId = createBookViaPOST().body.trim();
+        updateBook();
+
+        UrlResponse response = doMethod(""GET"", ""/books/"" + bookId, null);
+
+        String result = response.body;
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertEquals(200, response.status);
+        assertTrue(result.contains(AUTHOR));
+        assertTrue(result.contains(NEW_TITLE));
+    }",BooksIntegrationTest::canGetUpdatedBook_oe
+spark_140,"@Test
+    public void canDeleteBook_oe() {
+        bookId = createBookViaPOST().body.trim();
+
+        UrlResponse response = doMethod(""DELETE"", ""/books/"" + bookId, null);
+
+        String result = response.body;
+        assertNotNull(response);
+        assertNotNull(response.body);
+        assertEquals(200, response.status);
+        assertTrue(result.contains(bookId));
+        assertTrue(result.contains(""deleted""));
+    }",BooksIntegrationTest::canDeleteBook_oe
+spark_141,"@Test
+    public void testGetHi_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello World!"", response.body);
+    }",GenericSecureIntegrationTest::testGetHi_oe
+spark_142,"@Test
+    public void testXForwardedFor_oe() throws Exception {
+        final String xForwardedFor = ""XXX.XXX.XXX.XXX"";
+        Map<String, String> headers = new HashMap<>();
+        headers.put(""X-Forwarded-For"", xForwardedFor);
+
+        UrlResponse response = testUtil.doMethod(""GET"", ""/ip"", null, true, ""text/html"", headers);
+        Assert.assertEquals(xForwardedFor, response.body);
+
+        response = testUtil.doMethod(""GET"", ""/ip"", null, true, ""text/html"", null);
+        Assert.assertNotEquals(xForwardedFor, response.body);
+    }",GenericSecureIntegrationTest::testXForwardedFor_oe
+spark_143,"@Test
+    public void testHiHead_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""HEAD"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("""", response.body);
+    }",GenericSecureIntegrationTest::testHiHead_oe
+spark_144,"@Test
+    public void testGetHiAfterFilter_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/hi"", null);
+        Assert.assertTrue(response.headers.get(""after"").contains(""foobar""));
+    }",GenericSecureIntegrationTest::testGetHiAfterFilter_oe
+spark_145,"@Test
+    public void testGetRoot_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello Root!"", response.body);
+    }",GenericSecureIntegrationTest::testGetRoot_oe
+spark_146,"@Test
+    public void testEchoParam1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/shizzy"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: shizzy"", response.body);
+    }",GenericSecureIntegrationTest::testEchoParam1_oe
+spark_147,"@Test
+    public void testEchoParam2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/gunit"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: gunit"", response.body);
+    }",GenericSecureIntegrationTest::testEchoParam2_oe
+spark_148,"@Test
+    public void testEchoParamWithMaj_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""GET"", ""/paramwithmaj/plop"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: plop"", response.body);
+    }",GenericSecureIntegrationTest::testEchoParamWithMaj_oe
+spark_149,"@Test
+    public void testUnauthorized_oe() throws Exception {
+        UrlResponse urlResponse = testUtil.doMethodSecure(""GET"", ""/protected/resource"", null);
+        Assert.assertTrue(urlResponse.status == 401);
+    }",GenericSecureIntegrationTest::testUnauthorized_oe
+spark_150,"@Test
+    public void testNotFound_oe() throws Exception {
+        UrlResponse urlResponse = testUtil.doMethodSecure(""GET"", ""/no/resource"", null);
+        Assert.assertTrue(urlResponse.status == 404);
+    }",GenericSecureIntegrationTest::testNotFound_oe
+spark_151,"@Test
+    public void testPost_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""POST"", ""/poster"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        Assert.assertEquals(201, response.status);
+        Assert.assertTrue(response.body.contains(""Fo shizzy""));
+    }",GenericSecureIntegrationTest::testPost_oe
+spark_152,"@Test
+    public void testPatch_oe() throws Exception {
+        UrlResponse response = testUtil.doMethodSecure(""PATCH"", ""/patcher"", ""Fo shizzy"");
+        LOGGER.info(response.body);
+        Assert.assertEquals(200, response.status);
+        Assert.assertTrue(response.body.contains(""Fo shizzy""));
+    }",GenericSecureIntegrationTest::testPatch_oe
+spark_153,"@Test
+    public void testUnmap_oe() throws Exception {
+        get(""/tobeunmapped"", (q, a) -> ""tobeunmapped"");
+        awaitInitialization();
+
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/tobeunmapped"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""tobeunmapped"", response.body);
+
+        unmap(""/tobeunmapped"");
+
+        response = testUtil.doMethod(""GET"", ""/tobeunmapped"", null);
+        Assert.assertEquals(404, response.status);
+
+        get(""/tobeunmapped"", (q, a) -> ""tobeunmapped"");
+
+        response = testUtil.doMethod(""GET"", ""/tobeunmapped"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""tobeunmapped"", response.body);
+
+        unmap(""/tobeunmapped"", ""get"");
+
+        response = testUtil.doMethod(""GET"", ""/tobeunmapped"", null);
+        Assert.assertEquals(404, response.status);
+    }",UnmapTest::testUnmap_oe
+spark_154,"@Test
+    public void testInitExceptionHandler_oe() throws Exception {
+        Assert.assertEquals(""Custom init error"", errorMessage);
+    }",InitExceptionHandlerTest::testInitExceptionHandler_oe
+spark_155,"@Test
+    public void testPost_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""POST"", ""/hello"", BODY_CONTENT);
+        LOGGER.info(response.body);
+        Assert.assertEquals(HTTP_OK, response.status);
+        Assert.assertTrue(response.body.contains(BODY_CONTENT));
+
+        Assert.assertEquals(BODY_CONTENT, beforeBody);
+        Assert.assertEquals(BODY_CONTENT, routeBody);
+        Assert.assertEquals(BODY_CONTENT, afterBody);
+    }",BodyAvailabilityTest::testPost_oe
+spark_156,"@Test
+    public void testGetPort_withRandomPort_oe() throws Exception {
+        int actualPort = service.port();
+
+        LOGGER.info(""got port "");
+
+        SparkTestUtil testUtil = new SparkTestUtil(actualPort);
+
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello World!"", response.body);
+    }",ServicePortIntegrationTest::testGetPort_withRandomPort_oe
+spark_157,"@Test
+    public void filters_can_detect_response_status_oe() throws Exception {
+        UrlResponse response = testUtil.get(""/204"");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""ok"", response.body);
+    }",ResponseWrapperDelegationTest::filters_can_detect_response_status_oe
+spark_158,"@Test
+    public void filters_can_detect_content_type_oe() throws Exception {
+        UrlResponse response = testUtil.get(""/json"");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""{\""status\"": \""ok\""}"", response.body);
+        Assert.assertEquals(""text/plain"", response.headers.get(""Content-Type""));
+    }",ResponseWrapperDelegationTest::filters_can_detect_content_type_oe
+spark_159,"@Test
+    public void checkGzipCompression_oe() throws Exception {
+        String decompressed = GzipExample.getAndDecompress();
+        assertEquals(GzipExample.CONTENT, decompressed);
+    }",GzipTest::checkGzipCompression_oe
+spark_160,"@Test
+    public void testStaticFileCssStyleCss_oe() throws Exception {
+        String decompressed = GzipClient.getAndDecompress(""http://localhost:4567/css/style.css"");
+        Assert.assertEquals(""Content of css file"", decompressed);
+        testGet();
+    }",GzipTest::testStaticFileCssStyleCss_oe
+spark_162,"@Test
+    public void testConstructor_whenHttpServletResponseParameter_oe() {
+        HttpServletResponse returnResponse = Whitebox.getInternalState(response, ""response"");
+        assertSame(""Should be the same the HttpServletResponse object for httpServletResponse and returnResponse"", httpServletResponse, returnResponse);
+    }",ResponseTest::testConstructor_whenHttpServletResponseParameter_oe
+spark_163,"@Test
+    public void testSetBody_oe() {
+        final String finalBody = ""Hello world!"";
+
+        response.body(finalBody);
+        String returnBody = Whitebox.getInternalState(response, ""body"");
+        assertEquals(""Should return body specified"", finalBody, returnBody);
+    }",ResponseTest::testSetBody_oe
+spark_164,"@Test
+    public void testGetBody_oe() {
+        final String finalBody = ""Hello world!"";
+
+        Whitebox.setInternalState(response, ""body"", finalBody);
+        String returnBody = response.body();
+        assertEquals(""Should return body specified"", finalBody, returnBody);
+    }",ResponseTest::testGetBody_oe
+spark_165,"@Test
+    public void testRaw_oe() {
+        HttpServletResponse returnResponse = response.raw();
+        assertSame(""Should be the same the HttpServletResponse object for httpServletResponse and returnResponse"", httpServletResponse, returnResponse);
+    }",ResponseTest::testRaw_oe
+spark_166,"@Test
+    public void testRemoveCookie_shouldModifyPropertiesFromCookieSuccessfully_oe() {
+        final String finalPath = ""/cookie/SetCookie"";
+        final String finalName = ""cookie_name"";
+        final String finalValue = ""Test Cookie"";
+        final int finalMaxAge = 86400;
+        final boolean finalSecured = true;
+        final boolean finalHttpOnly = true;
+
+        response.cookie(finalPath, finalName, finalValue, finalMaxAge, finalSecured, finalHttpOnly);
+
+        response.removeCookie(finalName);
+        verify(httpServletResponse, times(2)).addCookie(cookieArgumentCaptor.capture());
+
+        assertEquals(""Should return empty value for the given cookie name"", """", cookieArgumentCaptor.getValue().getValue());
+        assertEquals(""Should return an 0 for maximum cookie age"", 0, cookieArgumentCaptor.getValue().getMaxAge());
+    }",ResponseTest::testRemoveCookie_shouldModifyPropertiesFromCookieSuccessfully_oe
+spark_167,"@Test
+    public void testGetHello_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = firstClient.doMethod(""GET"", ""/hello"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello World!"", response.body);
+    }",MultipleServicesTest::testGetHello_oe
+spark_168,"@Test
+    public void testGetRedirectedHi_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = secondClient.doMethod(""GET"", ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello World!"", response.body);
+    }",MultipleServicesTest::testGetRedirectedHi_oe
+spark_169,"@Test
+    public void testGetUniqueForSecondWithFirst_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = firstClient.doMethod(""GET"", ""/uniqueforsecond"", null);
+        Assert.assertEquals(404, response.status);
+    }",MultipleServicesTest::testGetUniqueForSecondWithFirst_oe
+spark_170,"@Test
+    public void testGetUniqueForSecondWithSecond_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = secondClient.doMethod(""GET"", ""/uniqueforsecond"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Bompton"", response.body);
+    }",MultipleServicesTest::testGetUniqueForSecondWithSecond_oe
+spark_171,"@Test
+    public void testStaticFileCssStyleCssWithFirst_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = firstClient.doMethod(""GET"", ""/css/style.css"", null);
+        Assert.assertEquals(404, response.status);
+    }",MultipleServicesTest::testStaticFileCssStyleCssWithFirst_oe
+spark_172,"@Test
+    public void testStaticFileCssStyleCssWithSecond_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = secondClient.doMethod(""GET"", ""/css/style.css"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Content of css file"", response.body);
+    }",MultipleServicesTest::testStaticFileCssStyleCssWithSecond_oe
+spark_173,"@Test
+    public void testGetAllRoutesFromBothServices_oe(){
+        for(RouteMatch routeMatch : first.routes()){
+            Assert.assertEquals(routeMatch.getAcceptType(), ""*/*"");
+            Assert.assertEquals(routeMatch.getHttpMethod(), HttpMethod.get);
+            Assert.assertEquals(routeMatch.getMatchUri(), ""/hello"");
+            Assert.assertEquals(routeMatch.getRequestURI(), ""ALL_ROUTES"");
+            Assert.assertThat(routeMatch.getTarget(), instanceOf(RouteImpl.class));
+        }
+
+        for(RouteMatch routeMatch : second.routes()){
+            Assert.assertEquals(routeMatch.getAcceptType(), ""*/*"");
+            Assert.assertThat(routeMatch.getHttpMethod(), instanceOf(HttpMethod.class));
+            boolean isUriOnList = (""/hello/hi/uniqueforsecond"").contains(routeMatch.getMatchUri());
+            Assert.assertTrue(isUriOnList);
+            Assert.assertEquals(routeMatch.getRequestURI(), ""ALL_ROUTES"");
+            Assert.assertThat(routeMatch.getTarget(), instanceOf(RouteImpl.class));
+        }
+    }",MultipleServicesTest::testGetAllRoutesFromBothServices_oe
+spark_174,"@Test
+    public final void test_encode_oe() {
+        String in = ""hello"";
+        String encode = Base64.encode(in);
+        Assert.assertFalse(in.equals(encode));
+    }",Base64Test::test_encode_oe
+spark_175,"@Test
+    public final void test_decode_oe() {
+        String in = ""hello"";
+        String encode = Base64.encode(in);
+        String decode = Base64.decode(encode);
+
+        Assert.assertTrue(in.equals(decode));
+    }",Base64Test::test_decode_oe
+spark_176,"@Test
+    public void testCss_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", ""/css/style.css"", null);
+
+        String expectedContentType = response.headers.get(""Content-Type"");
+        assertEquals(expectedContentType, ""text/css"");
+
+        String body = response.body;
+        assertEquals(""Content of css file"", body);
+    }",StaticFilesFromArchiveTest::testCss_oe
+spark_177,"@Test
+    public void testHELLO_oe() {
+        try {
+            SparkTestUtil.UrlResponse response = http.get(HELLO);
+            assertEquals(200, response.status);
+            assertEquals(HELLO_WORLD, response.body);
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+    }",ResponseBodyTest::testHELLO_oe
+spark_178,"@Test
+    public void testSPECIAL_oe() {
+        try {
+            SparkTestUtil.UrlResponse response = http.get(SPECIAL);
+            assertEquals(200, response.status);
+            assertEquals(XIDXUS, response.body);
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+    }",ResponseBodyTest::testSPECIAL_oe
+spark_179,"@Test
+    public void testPORAKATIKAOKAO_oe() {
+        try {
+            SparkTestUtil.UrlResponse response = http.get(PORAKATIKAOKAO);
+            assertEquals(200, response.status);
+            assertEquals(GALLUS_SCANDALUM, response.body);
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+    }",ResponseBodyTest::testPORAKATIKAOKAO_oe
+spark_180,"@Test
+    public void testMAXIME_oe() {
+        try {
+            SparkTestUtil.UrlResponse response = http.get(MAXIME);
+            assertEquals(200, response.status);
+            assertEquals($11AB, response.body);
+        } catch (Throwable e) {
+            throw new RuntimeException(e);
+        }
+    }",ResponseBodyTest::testMAXIME_oe
+spark_181,"@Test
+    public void constructorWithParametersMap_oe() {
+        Map<String,String[]> params = new HashMap<>();
+        
+        params.put(""user[info][name]"",new String[] {""fede""});
+        
+        QueryParamsMap queryMap = new QueryParamsMap(params);
+        
+        assertEquals(""fede"",queryMap.get(""user"").get(""info"").get(""name"").value());
+        assertEquals(""fede"",queryMap.get(""user"",""info"",""name"").value());
+    }",QueryParamsMapTest::constructorWithParametersMap_oe
+spark_182,"@Test
+    public void keyToMap_oe() {
+        QueryParamsMap queryMap = new QueryParamsMap();
+        
+        queryMap.loadKeys(""user[info][first_name]"",new String[] {""federico""});
+        queryMap.loadKeys(""user[info][last_name]"",new String[] {""dayan""});
+
+        assertFalse(queryMap.getQueryMap().isEmpty());
+        assertFalse(queryMap.getQueryMap().get(""user"").getQueryMap().isEmpty());
+        assertFalse(queryMap.getQueryMap().get(""user"").getQueryMap().get(""info"").getQueryMap().isEmpty());
+        assertEquals(""federico"",queryMap.getQueryMap().get(""user"").getQueryMap().get(""info"").getQueryMap().get(""first_name"").getValues()[0]);
+        assertEquals(""dayan"",queryMap.getQueryMap().get(""user"").getQueryMap().get(""info"").getQueryMap().get(""last_name"").getValues()[0]);
+
+        assertTrue(queryMap.hasKey(""user""));
+        assertFalse(queryMap.hasKey(""frame""));
+        assertFalse(queryMap.hasKey(null));
+
+        assertTrue(queryMap.hasKeys());
+        assertFalse(queryMap.hasValue());
+        assertTrue(queryMap.getQueryMap().get(""user"").getQueryMap().get(""info"").getQueryMap().get(""last_name"").hasValue());
+    }",QueryParamsMapTest::keyToMap_oe
+spark_183,"@Test
+    public void testDifferentTypesForValue_oe() {
+        QueryParamsMap queryMap = new QueryParamsMap();
+        
+        queryMap.loadKeys(""user[age]"",new String[] {""10""});
+        queryMap.loadKeys(""user[agrees]"",new String[] {""true""});
+
+        assertEquals(new Integer(10),queryMap.get(""user"").get(""age"").integerValue());
+        assertEquals(new Float(10),queryMap.get(""user"").get(""age"").floatValue());
+        assertEquals(new Double(10),queryMap.get(""user"").get(""age"").doubleValue());
+        assertEquals(new Long(10),queryMap.get(""user"").get(""age"").longValue());
+        assertEquals(Boolean.TRUE,queryMap.get(""user"").get(""agrees"").booleanValue());
+    }",QueryParamsMapTest::testDifferentTypesForValue_oe
+spark_184,"@Test
+    public void parseKeyShouldParseRootKey_oe() {
+        String[] parsed = queryMap.parseKey(""user[name][more]"");
+        
+        assertEquals(""user"",parsed[0]);
+        assertEquals(""[name][more]"",parsed[1]);
+    }",QueryParamsMapTest::parseKeyShouldParseRootKey_oe
+spark_185,"@Test
+    public void parseKeyShouldParseSubkeys_oe() {
+        String[] parsed = null;
+        
+        parsed = queryMap.parseKey(""[name][more]"");
+        
+        assertEquals(""name"",parsed[0]);
+        assertEquals(""[more]"",parsed[1]);
+        
+        parsed = queryMap.parseKey(""[more]"");
+        
+        assertEquals(""more"",parsed[0]);
+        assertEquals("""",parsed[1]);
+    }",QueryParamsMapTest::parseKeyShouldParseSubkeys_oe
+spark_186,"@Test
+    public void itShouldbeNullSafe_oe() {
+        QueryParamsMap queryParamsMap = new QueryParamsMap();
+        
+        String ret = queryParamsMap.get(""x"").get(""z"").get(""y"").value(""w"");
+        
+        assertNull(ret);
+    }",QueryParamsMapTest::itShouldbeNullSafe_oe
+spark_187,"@Test
+    public void testConstructor_oe() {
+        QueryParamsMap queryMap = new QueryParamsMap(""user[name][more]"",""fede"");
+
+        assertFalse(queryMap.getQueryMap().isEmpty());
+        assertFalse(queryMap.getQueryMap().get(""user"").getQueryMap().isEmpty());
+        assertFalse(queryMap.getQueryMap().get(""user"").getQueryMap().get(""name"").getQueryMap().isEmpty());
+        assertEquals(""fede"",queryMap.getQueryMap().get(""user"").getQueryMap().get(""name"").getQueryMap().get(""more"").getValues()[0]);
+    }",QueryParamsMapTest::testConstructor_oe
+spark_188,"@Test
+    public void testToMap_oe() {
+        Map<String,String[]> params = new HashMap<>();
+        
+        params.put(""user[info][name]"",new String[] {""fede""});
+        params.put(""user[info][last]"",new String[] {""dayan""});
+        
+        QueryParamsMap queryMap = new QueryParamsMap(params);
+        
+        Map<String,String[]> map = queryMap.get(""user"",""info"").toMap();
+        
+        assertEquals(2,map.size());
+        assertEquals(""fede"",map.get(""name"")[0]);
+        assertEquals(""dayan"",map.get(""last"")[0]);
+    }",QueryParamsMapTest::testToMap_oe
+spark_189,"@Test
+    public void testMimeTypes_oe() throws Exception {
+        Assert.assertNull(doGet(""/pages/index.html"").headers.get(""Content-Type""));
+        Assert.assertNull(doGet(""/js/scripts.js"").headers.get(""Content-Type""));
+        Assert.assertNull(doGet(""/css/style.css"").headers.get(""Content-Type""));
+        Assert.assertNull(doGet(""/img/sparklogo.png"").headers.get(""Content-Type""));
+        Assert.assertNull(doGet(""/img/sparklogo.svg"").headers.get(""Content-Type""));
+        Assert.assertNull(doGet(""/img/sparklogoPng"").headers.get(""Content-Type""));
+        Assert.assertNull(doGet(""/img/sparklogoSvg"").headers.get(""Content-Type""));
+        Assert.assertNull(doGet(""/externalFile.html"").headers.get(""Content-Type""));
+    }",DisableMimeGuessingTest::testMimeTypes_oe
+spark_190,"@Test
+    public void testCustomMimeType_oe() throws Exception {
+        staticFiles.registerMimeType(""cxt"", ""custom-extension-type"");
+        Assert.assertNull(doGet(""/img/file.cxt"").headers.get(""Content-Type""));
+    }",DisableMimeGuessingTest::testCustomMimeType_oe
+spark_194,"@Test
+    public void testMimeTypes_oe() throws Exception {
+        Assert.assertEquals(""text/html"", doGet(""/pages/index.html"").headers.get(""Content-Type""));
+        Assert.assertEquals(""application/javascript"", doGet(""/js/scripts.js"").headers.get(""Content-Type""));
+        Assert.assertEquals(""text/css"", doGet(""/css/style.css"").headers.get(""Content-Type""));
+        Assert.assertEquals(""image/png"", doGet(""/img/sparklogo.png"").headers.get(""Content-Type""));
+        Assert.assertEquals(""image/svg+xml"", doGet(""/img/sparklogo.svg"").headers.get(""Content-Type""));
+        Assert.assertEquals(""application/octet-stream"", doGet(""/img/sparklogoPng"").headers.get(""Content-Type""));
+        Assert.assertEquals(""application/octet-stream"", doGet(""/img/sparklogoSvg"").headers.get(""Content-Type""));
+        Assert.assertEquals(""text/html"", doGet(""/externalFile.html"").headers.get(""Content-Type""));
+    }",StaticFilesTest::testMimeTypes_oe
+spark_195,"@Test
+    public void testCustomMimeType_oe() throws Exception {
+        staticFiles.registerMimeType(""cxt"", ""custom-extension-type"");
+        Assert.assertEquals(""custom-extension-type"", doGet(""/img/file.cxt"").headers.get(""Content-Type""));
+    }",StaticFilesTest::testCustomMimeType_oe
+spark_196,"@Test
+    public void testStaticFileCssStyleCss_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/css/style.css"");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""text/css"", response.headers.get(""Content-Type""));
+        Assert.assertEquals(""Content of css file"", response.body);
+
+        testGet();
+    }",StaticFilesTest::testStaticFileCssStyleCss_oe
+spark_197,"@Test
+    public void testStaticFilePagesIndexHtml_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/pages/index.html"");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""<html><body>Hello Static World!</body></html>"", response.body);
+
+        testGet();
+    }",StaticFilesTest::testStaticFilePagesIndexHtml_oe
+spark_198,"@Test
+    public void testStaticFilePageHtml_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/page.html"");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""<html><body>Hello Static Files World!</body></html>"", response.body);
+
+        testGet();
+    }",StaticFilesTest::testStaticFilePageHtml_oe
+spark_199,"@Test
+    public void testDirectoryTraversalProtectionLocal_oe() throws Exception {
+        String path = ""/"" + URLEncoder.encode(""..\\spark\\"", ""UTF-8"") + ""Spark.class"";
+        SparkTestUtil.UrlResponse response = doGet(path);
+
+        Assert.assertEquals(400, response.status);
+
+        testGet();
+    }",StaticFilesTest::testDirectoryTraversalProtectionLocal_oe
+spark_200,"@Test
+    public void testExternalStaticFile_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/externalFile.html"");
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(CONTENT_OF_EXTERNAL_FILE, response.body);
+
+        testGet();
+    }",StaticFilesTest::testExternalStaticFile_oe
+spark_202,"@Test
+    public void testExceptionMapping404_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = doGet(""/filethatdoesntexist.html"");
+
+        Assert.assertEquals(404, response.status);
+        Assert.assertEquals(NOT_FOUND_BRO, response.body);
+    }",StaticFilesTest::testExceptionMapping404_oe
+spark_203,"@Test
+    public void testSupportedHttpMethod_oe() {
+        HttpMethod get = HttpMethod.get;
+        HttpMethod method = HttpMethod.get(get.name());
+
+        Assert.assertEquals(get, method);
+    }",HttpMethodTest::testSupportedHttpMethod_oe
+spark_204,"@Test
+    public void testNotSupportedHttpMethod_oe() {
+        HttpMethod method = HttpMethod.get(""lock"");
+
+        Assert.assertEquals(HttpMethod.unsupported, method);
+    }",HttpMethodTest::testNotSupportedHttpMethod_oe
+spark_205,"@Test
+    public void testMatches_BeforeAndAllPaths_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.before;
+        entry.path = SparkUtils.ALL_PATHS;
+
+        assertTrue(""Should return true because HTTP method is \""Before\"",the methods of route and match request match,"" + "" and the path provided is same as ALL_PATHS(+/*paths)"",entry.matches(HttpMethod.before,SparkUtils.ALL_PATHS));
+    }",RouteEntryTest::testMatches_BeforeAndAllPaths_oe
+spark_206,"@Test
+    public void testMatches_AfterAndAllPaths_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.after;
+        entry.path = SparkUtils.ALL_PATHS;
+
+        assertTrue(""Should return true because HTTP method is \""After\"",the methods of route and match request match,"" + "" and the path provided is same as ALL_PATHS(+/*paths)"",entry.matches(HttpMethod.after,SparkUtils.ALL_PATHS));
+    }",RouteEntryTest::testMatches_AfterAndAllPaths_oe
+spark_207,"@Test
+    public void testMatches_NotAllPathsAndDidNotMatchHttpMethod_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.post;
+        entry.path = ""/test"";
+
+        assertFalse(""Should return false because path names did not match"",entry.matches(HttpMethod.get,""/path""));
+    }",RouteEntryTest::testMatches_NotAllPathsAndDidNotMatchHttpMethod_oe
+spark_208,"@Test
+    public void testMatches_RouteDoesNotEndWithSlash_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test"";
+
+        assertFalse(""Should return false because route path does not end with a slash,does not end with "" + ""a wildcard,and the route pah supplied ends with a slash "",entry.matches(HttpMethod.get,""/test/""));
+    }",RouteEntryTest::testMatches_RouteDoesNotEndWithSlash_oe
+spark_209,"@Test
+    public void testMatches_PathDoesNotEndInSlash_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test/"";
+
+        assertFalse(""Should return false because route path ends with a slash while path supplied as parameter does"" + ""not end with a slash"",entry.matches(HttpMethod.get,""/test""));
+    }",RouteEntryTest::testMatches_PathDoesNotEndInSlash_oe
+spark_210,"@Test
+    public void testMatches_MatchingPaths_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test/"";
+
+        assertTrue(""Should return true because route path and path is exactly the same"",entry.matches(HttpMethod.get,""/test/""));
+    }",RouteEntryTest::testMatches_MatchingPaths_oe
+spark_211,"@Test
+    public void testMatches_WithWildcardOnEntryPath_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test/*"";
+
+        assertTrue(""Should return true because path specified is covered by the route path wildcard"",entry.matches(HttpMethod.get,""/test/me""));
+    }",RouteEntryTest::testMatches_WithWildcardOnEntryPath_oe
+spark_212,"@Test
+    public void testMatches_PathsDoNotMatch_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test/me"";
+
+        assertFalse(""Should return false because path does not match route path"",entry.matches(HttpMethod.get,""/test/other""));
+    }",RouteEntryTest::testMatches_PathsDoNotMatch_oe
+spark_213,"@Test
+    public void testMatches_longRoutePathWildcard_oe() {
+
+        RouteEntry entry = new RouteEntry();
+        entry.httpMethod = HttpMethod.get;
+        entry.path = ""/test/this/resource/*"";
+
+        assertTrue(""Should return true because path specified is covered by the route path wildcard"",entry.matches(HttpMethod.get,""/test/this/resource/child/id""));
+    }",RouteEntryTest::testMatches_longRoutePathWildcard_oe
+spark_214,"@Test
+    public void testIsEmpty_whenArrayIsEmpty_oe() throws Exception {
+
+        assertTrue(""Should return false because array is empty"", ObjectUtils.isEmpty(new Object[]{}));
+
+    }",ObjectUtilsTest::testIsEmpty_whenArrayIsEmpty_oe
+spark_215,"@Test
+    public void testIsEmpty_whenArrayIsNotEmpty_oe() throws Exception {
+
+        assertFalse(""Should return false because array is not empty"", ObjectUtils.isEmpty(new Integer[]{1,2}));
+
+    }",ObjectUtilsTest::testIsEmpty_whenArrayIsNotEmpty_oe
+spark_216,"@Test
+    public void testBestMatch_oe() throws Exception {
+
+        final String header = ""text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"";
+
+        Collection<String> supported = Arrays.asList(""application/xml"", ""text/html"");
+
+        assertEquals(""bestMatch should return the supported mime type with the highest quality factor"" + ""because it is preferred mime type as indicated in the HTTP header"",""text/html"",MimeParse.bestMatch(supported,header));
+
+    }",MimeParseTest::testBestMatch_oe
+spark_217,"@Test
+    public void testBestMatch_whenSupportedIsLowQualityFactor_oe() throws Exception {
+
+        final String header = ""text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8"";
+
+        Collection<String> supported = Arrays.asList(""application/json"");
+
+        assertEquals(""bestMatch should return the mime type even if it is not included in the supported"" + ""mime types because it is considered by the */* all media type specified in the Accept"" + ""Header"",""application/json"",MimeParse.bestMatch(supported,header));
+
+    }",MimeParseTest::testBestMatch_whenSupportedIsLowQualityFactor_oe
+spark_218,"@Test
+    public void testConvertRouteToList_oe() throws Exception {
+
+        List<String> expected = Arrays.asList(""api"", ""person"", "":id"");
+
+        List<String> actual = SparkUtils.convertRouteToList(""/api/person/:id"");
+
+        assertThat(""Should return route as a list of individual elements that path is made of"",actual,is(expected));
+
+    }",SparkUtilsTest::testConvertRouteToList_oe
+spark_219,"@Test
+    public void testIsParam_whenParameterFormattedAsParm_oe() throws Exception {
+
+        assertTrue(""Should return true because parameter follows convention of a parameter(:paramname)"",SparkUtils.isParam("":param""));
+
+    }",SparkUtilsTest::testIsParam_whenParameterFormattedAsParm_oe
+spark_220,"@Test
+    public void testIsParam_whenParameterNotFormattedAsParm_oe() throws Exception {
+
+        assertFalse(""Should return false because parameter does not follows convention of a parameter(:paramname)"",SparkUtils.isParam("".param""));
+
+    }",SparkUtilsTest::testIsParam_whenParameterNotFormattedAsParm_oe
+spark_221,"@Test
+    public void testIsSplat_whenParameterIsASplat_oe() throws Exception {
+
+        assertTrue(""Should return true because parameter is a splat (*)"", SparkUtils.isSplat(""*""));
+
+    }",SparkUtilsTest::testIsSplat_whenParameterIsASplat_oe
+spark_222,"@Test
+    public void testIsSplat_whenParameterIsNotASplat_oe() throws Exception {
+
+        assertFalse(""Should return true because parameter is not a splat (*)"", SparkUtils.isSplat(""!""));
+
+    }",SparkUtilsTest::testIsSplat_whenParameterIsNotASplat_oe
+spark_223,"@Test
+    public void testIsEmpty_whenCollectionIsEmpty_thenReturnTrue_oe() {
+
+        Collection<Object> testCollection = new ArrayList<>();
+
+        assertTrue(""Should return true because collection is empty"", CollectionUtils.isEmpty(testCollection));
+
+    }",CollectionUtilsTest::testIsEmpty_whenCollectionIsEmpty_thenReturnTrue_oe
+spark_224,"@Test
+    public void testIsEmpty_whenCollectionIsNotEmpty_thenReturnFalse_oe() {
+
+        Collection<Integer> testCollection = new ArrayList<>();
+        testCollection.add(1);
+        testCollection.add(2);
+
+        assertFalse(""Should return false because collection is not empty"", CollectionUtils.isEmpty(testCollection));
+
+    }",CollectionUtilsTest::testIsEmpty_whenCollectionIsNotEmpty_thenReturnFalse_oe
+spark_225,"@Test
+    public void testIsEmpty_whenCollectionIsNull_thenReturnTrue_oe() {
+
+        Collection<Integer> testCollection = null;
+
+        assertTrue(""Should return true because collection is null"", CollectionUtils.isEmpty(testCollection));
+
+    }",CollectionUtilsTest::testIsEmpty_whenCollectionIsNull_thenReturnTrue_oe
+spark_226,"@Test
+    public void testIsNotEmpty_whenCollectionIsEmpty_thenReturnFalse_oe() {
+
+        Collection<Object> testCollection = new ArrayList<>();
+
+        assertFalse(""Should return false because collection is empty"", CollectionUtils.isNotEmpty(testCollection));
+
+    }",CollectionUtilsTest::testIsNotEmpty_whenCollectionIsEmpty_thenReturnFalse_oe
+spark_227,"@Test
+    public void testIsNotEmpty_whenCollectionIsNotEmpty_thenReturnTrue_oe() {
+
+        Collection<Integer> testCollection = new ArrayList<>();
+        testCollection.add(1);
+        testCollection.add(2);
+
+        assertTrue(""Should return true because collection is not empty"", CollectionUtils.isNotEmpty(testCollection));
+
+    }",CollectionUtilsTest::testIsNotEmpty_whenCollectionIsNotEmpty_thenReturnTrue_oe
+spark_228,"@Test
+    public void testIsNotEmpty_whenCollectionIsNull_thenReturnFalse_oe() {
+
+        Collection<Object> testCollection = null;
+
+        assertFalse(""Should return false because collection is null"", CollectionUtils.isNotEmpty(testCollection));
+
+    }",CollectionUtilsTest::testIsNotEmpty_whenCollectionIsNull_thenReturnFalse_oe
+spark_229,"@Test
+    public void testProcess_copiesData_oe() throws IOException {
+        byte[] bytes = ""Hello, Spark!"".getBytes();
+        ByteArrayInputStream input = new ByteArrayInputStream(bytes);
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+        serializer.process(output, input);
+
+        Assert.assertArrayEquals(bytes, output.toByteArray());
+    }",InputStreamSerializerTest::testProcess_copiesData_oe
+spark_230,"@Test
+    public void testProcess_closesStream_oe() throws IOException {
+        MockInputStream input = new MockInputStream(new ByteArrayInputStream(new byte[0]));
+        ByteArrayOutputStream output = new ByteArrayOutputStream();
+
+        serializer.process(output, input);
+
+        Assert.assertTrue(""Expected stream to be closed"", input.closed);
+    }",InputStreamSerializerTest::testProcess_closesStream_oe
+spark_231,"@Test
+    public void canonical_oe() throws Exception {
+        String[][] canonical = {
+            {""/aaa/bbb/"", ""/aaa/bbb/""},
+            {""/aaa//bbb/"", ""/aaa//bbb/""},
+            {""/aaa///bbb/"", ""/aaa///bbb/""},
+            {""/aaa/./bbb/"", ""/aaa/bbb/""},
+            {""/aaa/../bbb/"", ""/bbb/""},
+            {""/aaa/./../bbb/"", ""/bbb/""},
+            {""/aaa/bbb/ccc/../../ddd/"", ""/aaa/ddd/""},
+            {""./bbb/"", ""bbb/""},
+            {""./aaa/../bbb/"", ""bbb/""},
+            {""./"", """"},
+            {"".//"", "".//""},
+            {"".///"", "".///""},
+            {""/."", ""/""},
+            {""//."", ""//""},
+            {""///."", ""///""},
+            {""/"", ""/""},
+            {""aaa/bbb"", ""aaa/bbb""},
+            {""aaa/"", ""aaa/""},
+            {""aaa"", ""aaa""},
+            {""/aaa/bbb"", ""/aaa/bbb""},
+            {""/aaa//bbb"", ""/aaa//bbb""},
+            {""/aaa/./bbb"", ""/aaa/bbb""},
+            {""/aaa/../bbb"", ""/bbb""},
+            {""/aaa/./../bbb"", ""/bbb""},
+            {""./bbb"", ""bbb""},
+            {""./aaa/../bbb"", ""bbb""},
+            {""aaa/bbb/.."", ""aaa/""},
+            {""aaa/bbb/../"", ""aaa/""},
+            {""/aaa//../bbb"", ""/aaa/bbb""},
+            {""/aaa/./../bbb"", ""/bbb""},
+            {""./"", """"},
+            {""."", """"},
+            {"""", """"},
+            {"".."", null},
+            {""./.."", null},
+            {""aaa/../.."", null},
+            {""/foo/bar/../../.."", null},
+            {""/../foo"", null},
+            {""/foo/."", ""/foo/""},
+            {""a"", ""a""},
+            {""a/"", ""a/""},
+            {""a/."", ""a/""},
+            {""a/.."", """"},
+            {""a/../.."", null},
+            {""/foo/../../bar"", null},
+            {""/foo/../bar//"", ""/bar//""},
+        };
+
+        for (String[] aCanonical : canonical) {
+            assertEquals(""canonical "" + aCanonical[0], aCanonical[1], UriPath.canonical(aCanonical[0]));
+        }
+    }",UriPathTest::canonical_oe
+spark_232,"@Test
+    public void testGetHi_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/hello"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(HELLO_WORLD, response.body);
+    }",CustomErrorPagesTest::testGetHi_oe
+spark_233,"@Test
+    public void testCustomNotFound_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/othernotmapped"", null);
+        Assert.assertEquals(404, response.status);
+        Assert.assertEquals(CUSTOM_NOT_FOUND, response.body);
+    }",CustomErrorPagesTest::testCustomNotFound_oe
+spark_234,"@Test
+    public void testCustomInternal_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/raiseinternal"", null);
+        Assert.assertEquals(500, response.status);
+        Assert.assertEquals(APPLICATION_JSON, response.headers.get(""Content-Type""));
+        Assert.assertEquals(CUSTOM_INTERNAL, response.body);
+    }",CustomErrorPagesTest::testCustomInternal_oe
+spark_235,"@Test
+    public void testCustomInternalFailingRoute_oe() throws Exception {
+        SparkTestUtil.UrlResponse response = testUtil.doMethod(""GET"", ""/raiseinternal?"" + QUERY_PARAM_KEY + ""=sumthin"", null);
+        Assert.assertEquals(500, response.status);
+        Assert.assertEquals(CustomErrorPages.INTERNAL_ERROR, response.body);
+    }",CustomErrorPagesTest::testCustomInternalFailingRoute_oe
+spark_236,"@Test
+    public void testRunFromServlet_whenDefault_oe() throws Exception {
+
+        AtomicBoolean isRunningFromServlet = Whitebox.getInternalState(ServletFlag.class, ""isRunningFromServlet"");
+        assertFalse(""Should be false because it is the default value"", isRunningFromServlet.get());
+    }",ServletFlagTest::testRunFromServlet_whenDefault_oe
+spark_237,"@Test
+    public void testRunFromServlet_whenExecuted_oe() throws Exception {
+
+        ServletFlag.runFromServlet();
+        AtomicBoolean isRunningFromServlet = Whitebox.getInternalState(ServletFlag.class, ""isRunningFromServlet"");
+
+        assertTrue(""Should be true because it flag has been set after runFromServlet"", isRunningFromServlet.get());
+    }",ServletFlagTest::testRunFromServlet_whenExecuted_oe
+spark_238,"@Test
+    public void testIsRunningFromServlet_whenDefault_oe() throws Exception {
+
+        assertFalse(""Should be false because it is the default value"", ServletFlag.isRunningFromServlet());
+
+    }",ServletFlagTest::testIsRunningFromServlet_whenDefault_oe
+spark_239,"@Test
+    public void testIsRunningFromServlet_whenRunningFromServlet_oe() throws Exception {
+
+        ServletFlag.runFromServlet();
+        assertTrue(""Should be true because call to runFromServlet has been made"", ServletFlag.isRunningFromServlet());
+    }",ServletFlagTest::testIsRunningFromServlet_whenRunningFromServlet_oe
+spark_240,"@Test
+    public void testGetHi_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello World!"", response.body);
+    }",ServletTest::testGetHi_oe
+spark_241,"@Test
+    public void testHiHead_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""HEAD"", SOMEPATH + ""/hi"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals("""", response.body);
+    }",ServletTest::testHiHead_oe
+spark_242,"@Test
+    public void testGetHiAfterFilter_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/hi"", null);
+        Assert.assertTrue(response.headers.get(""after"").contains(""foobar""));
+    }",ServletTest::testGetHiAfterFilter_oe
+spark_243,"@Test
+    public void testGetRoot_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Hello Root!"", response.body);
+    }",ServletTest::testGetRoot_oe
+spark_244,"@Test
+    public void testEchoParam1_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/shizzy"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: shizzy"", response.body);
+    }",ServletTest::testEchoParam1_oe
+spark_245,"@Test
+    public void testEchoParam2_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/gunit"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""echo: gunit"", response.body);
+    }",ServletTest::testEchoParam2_oe
+spark_246,"@Test
+    public void testUnauthorized_oe() throws Exception {
+        UrlResponse urlResponse = testUtil.doMethod(""GET"", SOMEPATH + ""/protected/resource"", null);
+        Assert.assertTrue(urlResponse.status == 401);
+    }",ServletTest::testUnauthorized_oe
+spark_247,"@Test
+    public void testNotFound_oe() throws Exception {
+        UrlResponse urlResponse = testUtil.doMethod(""GET"", SOMEPATH + ""/no/resource"", null);
+        Assert.assertTrue(urlResponse.status == 404);
+    }",ServletTest::testNotFound_oe
+spark_248,"@Test
+    public void testPost_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""POST"", SOMEPATH + ""/poster"", ""Fo shizzy"");
+        Assert.assertEquals(201, response.status);
+        Assert.assertTrue(response.body.contains(""Fo shizzy""));
+    }",ServletTest::testPost_oe
+spark_249,"@Test
+    public void testStaticResource_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/css/style.css"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertTrue(response.body.contains(""Content of css file""));
+    }",ServletTest::testStaticResource_oe
+spark_250,"@Test
+    public void testStaticWelcomeResource_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/pages/"", null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertTrue(response.body.contains(""<html><body>Hello Static World!</body></html>""));
+    }",ServletTest::testStaticWelcomeResource_oe
+spark_251,"@Test
+    public void testExternalStaticFile_oe() throws Exception {
+        UrlResponse response = testUtil.doMethod(""GET"", SOMEPATH + ""/"" + MyApp.EXTERNAL_FILE, null);
+        Assert.assertEquals(200, response.status);
+        Assert.assertEquals(""Content of external file"", response.body);
+    }",ServletTest::testExternalStaticFile_oe
+spark_252,"@Test
+    public void testAddAndCreate_whenCreate_createsCustomServer_oe() throws Exception {
+        // Create custom Server
+        Server server = new Server();
+        File requestLogDir = temporaryFolder.newFolder();
+        File requestLogFile = new File(requestLogDir, ""request.log"");
+        server.setRequestLog(new NCSARequestLog(requestLogFile.getAbsolutePath()));
+        JettyServerFactory serverFactory = mock(JettyServerFactory.class);
+        when(serverFactory.create(0, 0, 0)).thenReturn(server);
+
+        String id = ""custom"";
+
+        // Register custom server
+        EmbeddedServers.add(id, new EmbeddedJettyFactory(serverFactory));
+        EmbeddedServer embeddedServer = EmbeddedServers.create(id, null, null, null, false);
+        assertNotNull(embeddedServer);
+        embeddedServer.ignite(""localhost"", 0, null, 0, 0, 0);
+
+        assertTrue(requestLogFile.exists());
+        embeddedServer.extinguish();
+        verify(serverFactory).create(0, 0, 0);
+    }",EmbeddedServersTest::testAddAndCreate_whenCreate_createsCustomServer_oe
+spark_253,"@Test
+    public void testAdd_whenConfigureRoutes_createsCustomServer_oe() throws Exception {
+        File requestLogDir = temporaryFolder.newFolder();
+        File requestLogFile = new File(requestLogDir, ""request.log"");
+        // Register custom server
+        EmbeddedServers.add(EmbeddedServers.Identifiers.JETTY, new EmbeddedJettyFactory(new JettyServerFactory() {
+            @Override
+            public Server create(int maxThreads, int minThreads, int threadTimeoutMillis) {
+                Server server = new Server();
+                server.setRequestLog(new NCSARequestLog(requestLogFile.getAbsolutePath()));
+                return server;
+            }
+
+            @Override
+            public Server create(ThreadPool threadPool) {
+                return null;
+            }
+        }));
+        Spark.get(""/"", (request, response) -> ""OK"");
+        Spark.awaitInitialization();
+
+        assertTrue(requestLogFile.exists());
+    }",EmbeddedServersTest::testAdd_whenConfigureRoutes_createsCustomServer_oe
+spark_254,"@Test
+    public void testGetFile_whenURLProtocolIsFile_thenReturnFileObject_oe() throws
+                                                                         MalformedURLException,
+                                                                         FileNotFoundException,
+                                                                         URISyntaxException {
+        //given
+        URL url = new URL(""file://public/file.txt"");
+        File file = ResourceUtils.getFile(url, ""Some description"");
+
+        //then
+        assertEquals(""Should be equals because URL protocol is file"", file, new File(ResourceUtils.toURI(url).getSchemeSpecificPart()));
+    }",ResourceUtilsTest::testGetFile_whenURLProtocolIsFile_thenReturnFileObject_oe
+spark_255,"@Test
+    public void testCreateSocketConnector_whenServerIsNull_thenThrowException_oe() {
+
+        try {
+            SocketConnectorFactory.createSocketConnector(null, ""host"", 80);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'server' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_oe
+spark_256,"@Test
+    public void testCreateSocketConnector_whenHostIsNull_thenThrowException_oe() {
+
+        Server server = new Server();
+
+        try {
+            SocketConnectorFactory.createSocketConnector(server, null, 80);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'host' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSocketConnector_whenHostIsNull_thenThrowException_oe
+spark_257,"@Test
+    public void testCreateSocketConnector_oe() {
+
+        final String host = ""localhost"";
+        final int port = 8888;
+
+        Server server = new Server();
+        ServerConnector serverConnector = SocketConnectorFactory.createSocketConnector(server, ""localhost"", 8888);
+
+        String internalHost = Whitebox.getInternalState(serverConnector, ""_host"");
+        int internalPort = Whitebox.getInternalState(serverConnector, ""_port"");
+        Server internalServerConnector = Whitebox.getInternalState(serverConnector, ""_server"");
+
+        assertEquals(""Server Connector Host should be set to the specified server"", host, internalHost);
+        assertEquals(""Server Connector Port should be set to the specified port"", port, internalPort);
+        assertEquals(""Server Connector Server should be set to the specified server"", internalServerConnector, server);
+    }",SocketConnectorFactoryTest::testCreateSocketConnector_oe
+spark_258,"@Test
+    public void testCreateSecureSocketConnector_whenServerIsNull_oe() {
+
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(null, ""localhost"", 80, null);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'server' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_oe
+spark_259,"@Test
+    public void testCreateSecureSocketConnector_whenHostIsNull_oe() {
+
+        Server server = new Server();
+
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(server, null, 80, null);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'host' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenHostIsNull_oe
+spark_260,"@Test
+    public void testCreateSecureSocketConnector_whenSslStoresIsNull_oe() {
+
+        Server server = new Server();
+
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(server, ""localhost"", 80, null);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'sslStores' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenSslStoresIsNull_oe
+spark_262,"@Test
+    public void create_oe() throws Exception {
+        final JettyServerFactory jettyServerFactory = mock(JettyServerFactory.class);
+        final StaticFilesConfiguration staticFilesConfiguration = mock(StaticFilesConfiguration.class);
+        final ExceptionMapper exceptionMapper = mock(ExceptionMapper.class);
+        final Routes routes = mock(Routes.class);
+
+        Server server = new Server();
+        when(jettyServerFactory.create(100, 10, 10000)).thenReturn(server);
+
+        final EmbeddedJettyFactory embeddedJettyFactory = new EmbeddedJettyFactory(jettyServerFactory);
+        embeddedServer = embeddedJettyFactory.create(routes, staticFilesConfiguration, exceptionMapper, false);
+
+        embeddedServer.ignite(""localhost"", 6757, null, 100, 10, 10000);
+
+        verify(jettyServerFactory, times(1)).create(100, 10, 10000);
+        verifyNoMoreInteractions(jettyServerFactory);
+        assertTrue(((JettyHandler) server.getHandler()).getSessionCookieConfig().isHttpOnly());
+    }",EmbeddedJettyFactoryTest::create_oe
+spark_263,"@Test
+    public void create_withoutHttpOnly_oe() throws Exception {
+        final JettyServerFactory jettyServerFactory = mock(JettyServerFactory.class);
+        final StaticFilesConfiguration staticFilesConfiguration = mock(StaticFilesConfiguration.class);
+        final Routes routes = mock(Routes.class);
+
+        Server server = new Server();
+        when(jettyServerFactory.create(100, 10, 10000)).thenReturn(server);
+
+        final EmbeddedJettyFactory embeddedJettyFactory = new EmbeddedJettyFactory(jettyServerFactory).withHttpOnly(false);
+        embeddedServer = embeddedJettyFactory.create(routes, staticFilesConfiguration, false);
+        embeddedServer.ignite(""localhost"", 6759, null, 100, 10, 10000);
+
+        assertFalse(((JettyHandler) server.getHandler()).getSessionCookieConfig().isHttpOnly());
+    }",EmbeddedJettyFactoryTest::create_withoutHttpOnly_oe
+spark_264,"@Test
+    public void testCreateServer_useDefaults_oe() {
+        Server server = new JettyServer().create(0, 0, 0);
+
+        QueuedThreadPool threadPool = (QueuedThreadPool) server.getThreadPool();
+
+        int minThreads = Whitebox.getInternalState(threadPool, ""_minThreads"");
+        int maxThreads = Whitebox.getInternalState(threadPool, ""_maxThreads"");
+        int idleTimeout = Whitebox.getInternalState(threadPool, ""_idleTimeout"");
+
+        assertEquals(""Server thread pool default minThreads should be 8"", 8, minThreads);
+        assertEquals(""Server thread pool default maxThreads should be 200"", 200, maxThreads);
+        assertEquals(""Server thread pool default idleTimeout should be 60000"", 60000, idleTimeout);
+    }",JettyServerTest::testCreateServer_useDefaults_oe
+spark_265,"@Test
+    public void testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_oe() {
+        Server server = new JettyServer().create(9, 0, 0);
+
+        QueuedThreadPool threadPool = (QueuedThreadPool) server.getThreadPool();
+
+        int minThreads = Whitebox.getInternalState(threadPool, ""_minThreads"");
+        int maxThreads = Whitebox.getInternalState(threadPool, ""_maxThreads"");
+        int idleTimeout = Whitebox.getInternalState(threadPool, ""_idleTimeout"");
+
+        assertEquals(""Server thread pool default minThreads should be 8"", 8, minThreads);
+        assertEquals(""Server thread pool default maxThreads should be the same as specified"", 9, maxThreads);
+        assertEquals(""Server thread pool default idleTimeout should be 60000"", 60000, idleTimeout);
+
+    }",JettyServerTest::testCreateServer_whenNonDefaultMaxThreadsOnly_thenUseDefaultMinThreadsAndTimeout_oe
+spark_266,"@Test
+    public void testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_oe() {
+        try {
+            new JettyServer().create(2, 0, 0);
+            fail(""expected IllegalArgumentException"");
+        }
+        catch (IllegalArgumentException expected) {
+            assertEquals(""max threads (2) less than min threads (8)"", expected.getMessage());
+        }
+    }",JettyServerTest::testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_oe
+spark_267,"@Test
+    public void testCreateWebSocketHandler_oe() {
+        WebSocketCreator annotated =
+                WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(AnnotatedHandler.class));
+        assertTrue(annotated instanceof SparkWebSocketCreator);
+        assertTrue(SparkWebSocketCreator.class.cast(annotated).getHandler() instanceof AnnotatedHandler);
+
+        WebSocketCreator listener =
+                WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(ListenerHandler.class));
+        assertTrue(listener instanceof SparkWebSocketCreator);
+        assertTrue(SparkWebSocketCreator.class.cast(listener).getHandler() instanceof ListenerHandler);
+    }",WebSocketCreatorFactoryTest::testCreateWebSocketHandler_oe
+spark_268,"@Test
+    public void testCannotCreateInvalidHandlers_oe() {
+        try {
+            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
+            fail(""Handler creation should have thrown an IllegalArgumentException"");
+        } catch (IllegalArgumentException ex) {
+            assertEquals(""WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'"",ex.getMessage());
+        }
+    }",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_oe
+spark_269,"@Test
+    public void testCreate_whenInstantiationException_oe() throws Exception {
+        try {
+            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(FailingHandler.class));
+            fail(""Handler creation should have thrown a RunTimeException"");
+        } catch(RuntimeException ex) {
+            assertEquals(""Could not instantiate websocket handler"", ex.getMessage());
+        }
+
+    }",WebSocketCreatorFactoryTest::testCreate_whenInstantiationException_oe
