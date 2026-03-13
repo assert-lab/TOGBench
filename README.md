@@ -4,8 +4,7 @@
     <a href="#getting-started">Quick Start</a> •
     <a href="#dataset">Dataset</a> •
     <a href="#pipeline">Pipeline</a> •
-    <a href="#scoring">Scoring</a> •
-    <a href="#citation">Citation</a>
+    <a href="#scoring">Scoring</a>
 </p>
 
 TOGBench is a benchmark suite for test oracle generation (TOG) built around **OE25dev**, a multi-variant dataset mined from developer-written unit tests across 25 real-world Java systems spanning 56 modules. It provides an end-to-end evaluation toolchain covering oracle injection, compilation, execution-driven validation, and mutation-based adequacy assessment.
