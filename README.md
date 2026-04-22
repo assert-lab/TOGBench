@@ -1,5 +1,13 @@
 # TOGBench
 
+<p align="center">
+    <a href="#overview">Overview</a> •
+    <a href="#features">Features</a> •
+    <a href="#quick-start">Quick Start</a> •
+    <a href="#outputs">Outputs</a> •
+    <a href="#scripts">Scripts</a>
+</p>
+
 TOGBench is a benchmark suite for automated test oracle generation (TOG) built around **OE25dev**, a multi-variant dataset mined from developer-written unit tests across 25 real-world Java projects spanning 56 modules.
 
 Unlike prior benchmarks that rely on automatically generated tests or restrict evaluation to single assertions, TOGBench preserves realistic test context, six oracle categories, and supports end-to-end executable evaluation through oracle injection, compilation, execution-driven validation, and mutation-based adequacy assessment.
