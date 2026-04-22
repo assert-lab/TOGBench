@@ -1,4 +1,4 @@
-# TOGBench
+<h1 align="center">TOGBench</h1>
 
 <p align="center">
     <a href="#overview">Overview</a> •
