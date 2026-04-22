@@ -1,0 +1,5592 @@
+id,test_prefix,test_name,focal_methods,docstrings
+http-request_1,"@Test
+  public void encode_oe() {
+    assertEquals(""http://google.com"", HttpRequest.encode(""http://google.com""));
+
+    assertEquals(""https://google.com"", HttpRequest.encode(""https://google.com""));
+
+    assertEquals(""http://google.com/a"",HttpRequest.encode(""http://google.com/a""));
+
+    assertEquals(""http://google.com/a/"",HttpRequest.encode(""http://google.com/a/""));
+
+    assertEquals(""http://google.com/a/b"",HttpRequest.encode(""http://google.com/a/b""));
+
+    assertEquals(""http://google.com/a?"",HttpRequest.encode(""http://google.com/a?""));
+
+    assertEquals(""http://google.com/a?b=c"",HttpRequest.encode(""http://google.com/a?b=c""));
+
+    assertEquals(""http://google.com/a?b=c%20d"",HttpRequest.encode(""http://google.com/a?b=c d""));
+
+    assertEquals(""http://google.com/a%20b"",HttpRequest.encode(""http://google.com/a b""));
+
+    assertEquals(""http://google.com/a.b"",HttpRequest.encode(""http://google.com/a.b""));
+
+    assertEquals(""http://google.com/%E2%9C%93?a=b"",HttpRequest.encode(""http://google.com/\u2713?a=b""));
+
+    assertEquals(""http://google.com/a%5Eb"",HttpRequest.encode(""http://google.com/a^b""));
+
+    assertEquals(""http://google.com/%25"",HttpRequest.encode(""http://google.com/%""));
+
+    assertEquals(""http://google.com/a.b?c=d.e"",HttpRequest.encode(""http://google.com/a.b?c=d.e""));
+
+    assertEquals(""http://google.com/a.b?c=d/e"",HttpRequest.encode(""http://google.com/a.b?c=d/e""));
+
+    assertEquals(""http://google.com/a?%E2%98%91"",HttpRequest.encode(""http://google.com/a?\u2611""));
+
+    assertEquals(""http://google.com/a?b=%E2%98%90"",HttpRequest.encode(""http://google.com/a?b=\u2610""));
+
+    assertEquals(""http://google.com/a?b=c%2Bd&e=f%2Bg"",HttpRequest.encode(""http://google.com/a?b=c+d&e=f+g""));
+
+    assertEquals(""http://google.com/+"",HttpRequest.encode(""http://google.com/+""));
+
+    assertEquals(""http://google.com/+?a=b%2Bc"",HttpRequest.encode(""http://google.com/+?a=b+c""));
+  }",EncodeTest::encode_oe,"public static String encode(final CharSequence url)
+      throws HttpRequestException {
+    URL parsed;
+    try {
+      parsed = new URL(url.toString());
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+
+    String host = parsed.getHost();
+    int port = parsed.getPort();
+    if (port != -1)
+      host = host + ':' + Integer.toString(port);
+
+    try {
+      String encoded = new URI(parsed.getProtocol(), host, parsed.getPath(),
+          parsed.getQuery(), null).toASCIIString();
+      int paramsStart = encoded.indexOf('?');
+      if (paramsStart > 0 && paramsStart + 1 < encoded.length())
+        encoded = encoded.substring(0, paramsStart + 1)
+                  + encoded.substring(paramsStart + 1).replace(""+"", ""%2B"");
+      return encoded;
+    } catch (URISyntaxException e) {
+      IOException io = new IOException(""Parsing URI failed"");
+      io.initCause(e);
+      throw new HttpRequestException(io);
+    }
+  }","/**
+   * Encode the given URL as an ASCII {@link String}
+   * <p>
+   * This method ensures the path and query segments of the URL are properly
+   * encoded such as ' ' characters being encoded to '%20' or any UTF-8
+   * characters that are non-ASCII. No encoding of URLs is done by default by
+   * the {@link HttpRequest} constructors and so if URL encoding is needed this
+   * method should be called before calling the {@link HttpRequest} constructor.
+   *
+   * @param url
+   * @return encoded URL
+   * @throws HttpRequestException
+   */"
+http-request_3,"@Test
+  public void getEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url);
+    assertNotNull(request.getConnection());
+    assertEquals(30000,request.readTimeout(30000).getConnection().getReadTimeout());
+    assertEquals(50000,request.connectTimeout(50000).getConnection().getConnectTimeout());
+    assertEquals(2500, request.bufferSize(2500).bufferSize());
+    assertFalse(request.ignoreCloseExceptions(false).ignoreCloseExceptions());
+    assertFalse(request.useCaches(false).getConnection().getUseCaches());
+    int code = request.code();
+    assertTrue(request.ok());
+    assertFalse(request.created());
+    assertFalse(request.badRequest());
+    assertFalse(request.serverError());
+    assertFalse(request.notFound());
+    assertFalse(request.notModified());
+    assertEquals(""GET"", method.get());
+    assertEquals(""OK"", request.message());
+    assertEquals(HTTP_OK, code);
+    assertEquals("""", request.body());
+    assertNotNull(request.toString());
+    assertFalse(request.toString().length() == 0);
+    assertEquals(request, request.disconnect());
+    assertTrue(request.isBodyEmpty());
+    assertEquals(request.url().toString(), url);
+    assertEquals(""GET"", request.method());
+  }",HttpRequestTest::getEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean serverError() throws HttpRequestException {
+    return HTTP_INTERNAL_ERROR == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public boolean notModified() throws HttpRequestException {
+    return HTTP_NOT_MODIFIED == code();
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }
+
+public String message() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseMessage();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public HttpRequest disconnect() {
+    getConnection().disconnect();
+    return this;
+  }
+
+public HttpRequest readTimeout(final int timeout) {
+    getConnection().setReadTimeout(timeout);
+    return this;
+  }
+
+public boolean isBodyEmpty() throws HttpRequestException {
+    return contentLength() == 0;
+  }
+
+public URL url() {
+    return getConnection().getURL();
+  }
+
+public String method() {
+    return getConnection().getRequestMethod();
+  }
+
+public HttpRequest connectTimeout(final int timeout) {
+    getConnection().setConnectTimeout(timeout);
+    return this;
+  }
+
+public HttpRequest bufferSize(final int size) {
+    if (size < 1)
+      throw new IllegalArgumentException(""Size must be greater than zero"");
+    bufferSize = size;
+    return this;
+  }
+
+public HttpRequest ignoreCloseExceptions(final boolean ignore) {
+    ignoreCloseExceptions = ignore;
+    return this;
+  }
+
+public HttpRequest useCaches(final boolean useCaches) {
+    getConnection().setUseCaches(useCaches);
+    return this;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean created() throws HttpRequestException {
+    return HTTP_CREATED == code();
+  }
+
+public boolean badRequest() throws HttpRequestException {
+    return HTTP_BAD_REQUEST == code();
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 500 Internal Server Error?
+   *
+   * @return true if 500, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 304 Not Modified?
+   *
+   * @return true if 304, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get status message of the response
+   *
+   * @return message
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */
+
+/**
+   * Disconnect the connection
+   *
+   * @return this request
+   */
+
+/**
+   * Set read timeout on connection to given value
+   *
+   * @param timeout
+   * @return this request
+   */
+
+/**
+   * Is the response body empty?
+   *
+   * @return true if the Content-Length response header is 0, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get the {@link URL} of this request's connection
+   *
+   * @return request URL
+   */
+
+/**
+   * Get the HTTP method of this request
+   *
+   * @return method
+   */
+
+/**
+   * Set connect timeout on connection to given value
+   *
+   * @param timeout
+   * @return this request
+   */
+
+/**
+   * Set the size used when buffering and copying between streams
+   * <p>
+   * This size is also used for send and receive buffers created for both char
+   * and byte arrays
+   * <p>
+   * The default buffer size is 8,192 bytes
+   *
+   * @param size
+   * @return this request
+   */
+
+/**
+   * Set whether or not to ignore exceptions that occur from calling
+   * {@link Closeable#close()}
+   * <p>
+   * The default value of this setting is <code>true</code>
+   *
+   * @param ignore
+   * @return this request
+   */
+
+/**
+   * Set value of {@link HttpURLConnection#setUseCaches(boolean)}
+   *
+   * @param useCaches
+   * @return this request
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 201 Created?
+   *
+   * @return true if 201, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 400 Bad Request?
+   *
+   * @return true if 400, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_4,"@Test
+  public void getUrlEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(new URL(url));
+    assertNotNull(request.getConnection());
+    int code = request.code();
+    assertTrue(request.ok());
+    assertFalse(request.created());
+    assertFalse(request.noContent());
+    assertFalse(request.badRequest());
+    assertFalse(request.serverError());
+    assertFalse(request.notFound());
+    assertEquals(""GET"", method.get());
+    assertEquals(""OK"", request.message());
+    assertEquals(HTTP_OK, code);
+    assertEquals("""", request.body());
+  }",HttpRequestTest::getUrlEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean created() throws HttpRequestException {
+    return HTTP_CREATED == code();
+  }
+
+public boolean noContent() throws HttpRequestException {
+    return HTTP_NO_CONTENT == code();
+  }
+
+public boolean badRequest() throws HttpRequestException {
+    return HTTP_BAD_REQUEST == code();
+  }
+
+public boolean serverError() throws HttpRequestException {
+    return HTTP_INTERNAL_ERROR == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }
+
+public String message() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseMessage();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 201 Created?
+   *
+   * @return true if 201, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 204 No Content?
+   *
+   * @return true if 204, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 400 Bad Request?
+   *
+   * @return true if 400, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 500 Internal Server Error?
+   *
+   * @return true if 500, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get status message of the response
+   *
+   * @return message
+   * @throws HttpRequestException
+   */"
+http-request_5,"@Test
+  public void getNoContent_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_NO_CONTENT);
+      }
+    };
+    HttpRequest request = get(new URL(url));
+    assertNotNull(request.getConnection());
+    int code = request.code();
+    assertFalse(request.ok());
+    assertFalse(request.created());
+    assertTrue(request.noContent());
+    assertFalse(request.badRequest());
+    assertFalse(request.serverError());
+    assertFalse(request.notFound());
+    assertEquals(""GET"", method.get());
+    assertEquals(""No Content"", request.message());
+    assertEquals(HTTP_NO_CONTENT, code);
+    assertEquals("""", request.body());
+  }",HttpRequestTest::getNoContent_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean created() throws HttpRequestException {
+    return HTTP_CREATED == code();
+  }
+
+public boolean noContent() throws HttpRequestException {
+    return HTTP_NO_CONTENT == code();
+  }
+
+public boolean badRequest() throws HttpRequestException {
+    return HTTP_BAD_REQUEST == code();
+  }
+
+public boolean serverError() throws HttpRequestException {
+    return HTTP_INTERNAL_ERROR == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }
+
+public String message() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseMessage();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 201 Created?
+   *
+   * @return true if 201, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 204 No Content?
+   *
+   * @return true if 204, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 400 Bad Request?
+   *
+   * @return true if 400, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 500 Internal Server Error?
+   *
+   * @return true if 500, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get status message of the response
+   *
+   * @return message
+   * @throws HttpRequestException
+   */"
+http-request_6,"@Test
+  public void getUrlEncodedWithSpace_oe() throws Exception {
+    String unencoded = ""/a resource"";
+    final AtomicReference<String> path = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        path.set(request.getPathInfo());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(encode(url + unencoded));
+    assertTrue(request.ok());
+    assertEquals(unencoded, path.get());
+  }",HttpRequestTest::getUrlEncodedWithSpace_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_7,"@Test
+  public void getUrlEncodedWithUnicode_oe() throws Exception {
+    String unencoded = ""/\u00DF"";
+    final AtomicReference<String> path = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        path.set(request.getPathInfo());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(encode(url + unencoded));
+    assertTrue(request.ok());
+    assertEquals(unencoded, path.get());
+  }",HttpRequestTest::getUrlEncodedWithUnicode_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_8,"@Test
+  public void getUrlEncodedWithPercent_oe() throws Exception {
+    String unencoded = ""/%"";
+    final AtomicReference<String> path = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        path.set(request.getPathInfo());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(encode(url + unencoded));
+    assertTrue(request.ok());
+  }",HttpRequestTest::getUrlEncodedWithPercent_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_9,"@Test
+  public void deleteEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""DELETE"", method.get());
+    assertEquals("""", request.body());
+    assertEquals(""DELETE"", request.method());
+  }",HttpRequestTest::deleteEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public String method() {
+    return getConnection().getRequestMethod();
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get the HTTP method of this request
+   *
+   * @return method
+   */"
+http-request_10,"@Test
+  public void deleteUrlEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""DELETE"", method.get());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::deleteUrlEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_11,"@Test
+  public void optionsEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = options(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""OPTIONS"", method.get());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::optionsEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_12,"@Test
+  public void optionsUrlEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = options(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""OPTIONS"", method.get());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::optionsUrlEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_13,"@Test
+  public void headEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""HEAD"", method.get());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::headEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_14,"@Test
+  public void headUrlEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""HEAD"", method.get());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::headUrlEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_15,"@Test
+  public void putEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""PUT"", method.get());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::putEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_16,"@Test
+  public void putUrlEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""PUT"", method.get());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::putUrlEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_17,"@Test
+  public void traceEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = trace(url);
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""TRACE"", method.get());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::traceEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_18,"@Test
+  public void traceUrlEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = trace(new URL(url));
+    assertNotNull(request.getConnection());
+    assertTrue(request.ok());
+    assertFalse(request.notFound());
+    assertEquals(""TRACE"", method.get());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::traceUrlEmpty_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_19,"@Test
+  public void postEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_CREATED);
+      }
+    };
+    HttpRequest request = post(url);
+    int code = request.code();
+    assertEquals(""POST"", method.get());
+    assertFalse(request.ok());
+    assertTrue(request.created());
+    assertEquals(HTTP_CREATED, code);
+  }",HttpRequestTest::postEmpty_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean created() throws HttpRequestException {
+    return HTTP_CREATED == code();
+  }
+
+public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 201 Created?
+   *
+   * @return true if 201, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */"
+http-request_20,"@Test
+  public void postUrlEmpty_oe() throws Exception {
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        response.setStatus(HTTP_CREATED);
+      }
+    };
+    HttpRequest request = post(new URL(url));
+    int code = request.code();
+    assertEquals(""POST"", method.get());
+    assertFalse(request.ok());
+    assertTrue(request.created());
+    assertEquals(HTTP_CREATED, code);
+  }",HttpRequestTest::postUrlEmpty_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }
+
+public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public boolean created() throws HttpRequestException {
+    return HTTP_CREATED == code();
+  }
+
+public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 201 Created?
+   *
+   * @return true if 201, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */"
+http-request_21,"@Test
+  public void postNonEmptyString_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    int code = post(url).send(""hello"").code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::postNonEmptyString_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_22,"@Test
+  public void postNonEmptyFile_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+    int code = post(url).send(file).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::postNonEmptyFile_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_23,"@Test
+  public void postMultipleFiles_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    File file1 = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file1).append(""hello"").close();
+
+    File file2 = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file2).append("" world"").close();
+
+    int code = post(url).send(file1).send(file2).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(""hello world"", body.get());
+  }",HttpRequestTest::postMultipleFiles_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_24,"@Test
+  public void postNonEmptyReader_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+    int code = post(url).send(new FileReader(file)).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::postNonEmptyReader_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_25,"@Test
+  public void postNonEmptyByteArray_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    byte[] bytes = ""hello"".getBytes(CHARSET_UTF8);
+    int code = post(url).contentLength(Integer.toString(bytes.length))
+        .send(bytes).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::postNonEmptyByteArray_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_26,"@Test
+  public void postWithLength_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    final AtomicReference<Integer> length = new AtomicReference<Integer>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        length.set(request.getContentLength());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    String data = ""hello"";
+    int sent = data.getBytes().length;
+    int code = post(url).contentLength(sent).send(data).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(sent, length.get().intValue());
+    assertEquals(data, body.get());
+  }",HttpRequestTest::postWithLength_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_28,"@Test
+  public void postFormWithNoCharset_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    final AtomicReference<String> contentType = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        contentType.set(request.getContentType());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    Map<String, String> data = new LinkedHashMap<String, String>();
+    data.put(""name"", ""user"");
+    data.put(""number"", ""100"");
+    int code = post(url).form(data, null).form(""zip"", ""12345"").code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(""name=user&number=100&zip=12345"", body.get());
+    assertEquals(""application/x-www-form-urlencoded"", contentType.get());
+  }",HttpRequestTest::postFormWithNoCharset_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_29,"@Test
+  public void postEmptyForm_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    int code = post(url).form(new HashMap<String, String>()).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals("""", body.get());
+  }",HttpRequestTest::postEmptyForm_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_30,"@Test
+  public void chunkPost_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    final AtomicReference<String> encoding = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+        encoding.set(request.getHeader(""Transfer-Encoding""));
+      }
+    };
+    String data = ""hello"";
+    int code = post(url).chunk(2).send(data).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(data, body.get());
+    assertEquals(""chunked"", encoding.get());
+  }",HttpRequestTest::chunkPost_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_31,"@Test
+  public void getNonEmptyString_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write(""hello"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertEquals(HTTP_OK, request.code());
+    assertEquals(""hello"", request.body());
+    assertEquals(""hello"".getBytes().length, request.contentLength());
+    assertFalse(request.isBodyEmpty());
+  }",HttpRequestTest::getNonEmptyString_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public int contentLength() {
+    return intHeader(HEADER_CONTENT_LENGTH);
+  }
+
+public boolean isBodyEmpty() throws HttpRequestException {
+    return contentLength() == 0;
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get the 'Content-Length' header from the response
+   *
+   * @return response header value
+   */
+
+/**
+   * Is the response body empty?
+   *
+   * @return true if the Content-Length response header is 0, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_32,"@Test
+  public void getWithResponseCharset_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setContentType(""text/html; charset=UTF-8"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertEquals(HTTP_OK, request.code());
+    assertEquals(CHARSET_UTF8, request.charset());
+  }",HttpRequestTest::getWithResponseCharset_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public String charset() {
+    return parameter(HEADER_CONTENT_TYPE, PARAM_CHARSET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get 'charset' parameter from 'Content-Type' response header
+   *
+   * @return charset or null if none
+   */"
+http-request_33,"@Test
+  public void getWithResponseCharsetAsSecondParam_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setContentType(""text/html; param1=val1; charset=UTF-8"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertEquals(HTTP_OK, request.code());
+    assertEquals(CHARSET_UTF8, request.charset());
+  }",HttpRequestTest::getWithResponseCharsetAsSecondParam_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public String charset() {
+    return parameter(HEADER_CONTENT_TYPE, PARAM_CHARSET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get 'charset' parameter from 'Content-Type' response header
+   *
+   * @return charset or null if none
+   */"
+http-request_34,"@Test
+  public void basicAuthentication_oe() throws Exception {
+    final AtomicReference<String> user = new AtomicReference<String>();
+    final AtomicReference<String> password = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        String auth = request.getHeader(""Authorization"");
+        auth = auth.substring(auth.indexOf(' ') + 1);
+        try {
+          auth = B64Code.decode(auth, CHARSET_UTF8);
+        } catch (UnsupportedEncodingException e) {
+          throw new RuntimeException(e);
+        }
+        int colon = auth.indexOf(':');
+        user.set(auth.substring(0, colon));
+        password.set(auth.substring(colon + 1));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(get(url).basic(""user"", ""p4ssw0rd"").ok());
+    assertEquals(""user"", user.get());
+    assertEquals(""p4ssw0rd"", password.get());
+  }",HttpRequestTest::basicAuthentication_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_35,"@Test
+  public void basicProxyAuthentication_oe() throws Exception {
+    final AtomicBoolean finalHostReached = new AtomicBoolean(false);
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        finalHostReached.set(true);
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(get(url).useProxy(""localhost"", proxyPort).proxyBasic(""user"", ""p4ssw0rd"").ok());
+    assertEquals(""user"", proxyUser.get());
+    assertEquals(""p4ssw0rd"", proxyPassword.get());
+    assertEquals(true, finalHostReached.get());
+    assertEquals(1, proxyHitCount.get());
+  }",HttpRequestTest::basicProxyAuthentication_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_36,"@Test
+  public void getReader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write(""hello"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    BufferedReader reader = new BufferedReader(request.reader());
+    assertEquals(""hello"", reader.readLine());
+    reader.close();
+  }",HttpRequestTest::getReader_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public InputStreamReader reader(final String charset)
+      throws HttpRequestException {
+    try {
+      return new InputStreamReader(stream(), getValidCharset(charset));
+    } catch (UnsupportedEncodingException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get reader to response body using given character set.
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return reader
+   * @throws HttpRequestException
+   */"
+http-request_37,"@Test
+  public void sendWithWriter_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url);
+    request.writer().append(""hello"").close();
+    assertTrue(request.ok());
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::sendWithWriter_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_38,"@Test
+  public void getBufferedReader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write(""hello"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    BufferedReader reader = request.bufferedReader();
+    assertEquals(""hello"", reader.readLine());
+    reader.close();
+  }",HttpRequestTest::getBufferedReader_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public BufferedReader bufferedReader(final String charset)
+      throws HttpRequestException {
+    return new BufferedReader(reader(charset), bufferSize);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get buffered reader to response body using the given character set r and
+   * the configured buffer size
+   *
+   *
+   * @see #bufferSize(int)
+   * @param charset
+   * @return reader
+   * @throws HttpRequestException
+   */"
+http-request_39,"@Test
+  public void getReaderWithCharset_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write(""hello"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    BufferedReader reader = new BufferedReader(request.reader(CHARSET_UTF8));
+    assertEquals(""hello"", reader.readLine());
+    reader.close();
+  }",HttpRequestTest::getReaderWithCharset_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public InputStreamReader reader(final String charset)
+      throws HttpRequestException {
+    try {
+      return new InputStreamReader(stream(), getValidCharset(charset));
+    } catch (UnsupportedEncodingException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get reader to response body using given character set.
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return reader
+   * @throws HttpRequestException
+   */"
+http-request_40,"@Test
+  public void getBytes_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        write(""hello"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertTrue(Arrays.equals(""hello"".getBytes(), request.bytes()));
+  }",HttpRequestTest::getBytes_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_41,"@Test
+  public void getError_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HttpServletResponse.SC_NOT_FOUND);
+        write(""error"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.notFound());
+    assertEquals(""error"", request.body());
+  }",HttpRequestTest::getError_oe,"public boolean notFound() throws HttpRequestException {
+    return HTTP_NOT_FOUND == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Is the response code a 404 Not Found?
+   *
+   * @return true if 404, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_42,"@Test
+  public void noError_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals("""", request.body());
+  }",HttpRequestTest::noError_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_43,"@Test
+  public void serverHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""Server"", ""aserver"");
+      }
+    };
+    assertEquals(""aserver"", get(url).server());
+  }",HttpRequestTest::serverHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_44,"@Test
+  public void expiresHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setDateHeader(""Expires"", 1234000);
+      }
+    };
+    assertEquals(1234000, get(url).expires());
+  }",HttpRequestTest::expiresHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_45,"@Test
+  public void lastModifiedHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setDateHeader(""Last-Modified"", 555000);
+      }
+    };
+    assertEquals(555000, get(url).lastModified());
+  }",HttpRequestTest::lastModifiedHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_46,"@Test
+  public void dateHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setDateHeader(""Date"", 66000);
+      }
+    };
+    assertEquals(66000, get(url).date());
+  }",HttpRequestTest::dateHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_47,"@Test
+  public void eTagHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""ETag"", ""abcd"");
+      }
+    };
+    assertEquals(""abcd"", get(url).eTag());
+  }",HttpRequestTest::eTagHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_48,"@Test
+  public void locationHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""Location"", ""http://nowhere"");
+      }
+    };
+    assertEquals(""http://nowhere"", get(url).location());
+  }",HttpRequestTest::locationHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_49,"@Test
+  public void contentEncodingHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""Content-Encoding"", ""gzip"");
+      }
+    };
+    assertEquals(""gzip"", get(url).contentEncoding());
+  }",HttpRequestTest::contentEncodingHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_50,"@Test
+  public void contentTypeHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""Content-Type"", ""text/html"");
+      }
+    };
+    assertEquals(""text/html"", get(url).contentType());
+  }",HttpRequestTest::contentTypeHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_51,"@Test
+  public void requestContentType_oe() throws Exception {
+    final AtomicReference<String> contentType = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        contentType.set(request.getContentType());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(post(url).contentType(""text/html"", ""UTF-8"").ok());
+    assertEquals(""text/html; charset=UTF-8"", contentType.get());
+  }",HttpRequestTest::requestContentType_oe,"public static HttpRequest post(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_POST);
+  }","/**
+   * Start a 'POST' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_52,"@Test
+  public void requestContentTypeNullCharset_oe() throws Exception {
+    final AtomicReference<String> contentType = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        contentType.set(request.getContentType());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(post(url).contentType(""text/html"", null).ok());
+    assertEquals(""text/html"", contentType.get());
+  }",HttpRequestTest::requestContentTypeNullCharset_oe,"public static HttpRequest post(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_POST);
+  }","/**
+   * Start a 'POST' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_53,"@Test
+  public void requestContentTypeEmptyCharset_oe() throws Exception {
+    final AtomicReference<String> contentType = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        contentType.set(request.getContentType());
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(post(url).contentType(""text/html"", """").ok());
+    assertEquals(""text/html"", contentType.get());
+  }",HttpRequestTest::requestContentTypeEmptyCharset_oe,"public static HttpRequest post(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_POST);
+  }","/**
+   * Start a 'POST' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_54,"@Test
+  public void cacheControlHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""Cache-Control"", ""no-cache"");
+      }
+    };
+    assertEquals(""no-cache"", get(url).cacheControl());
+  }",HttpRequestTest::cacheControlHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_55,"@Test
+  public void headers_oe() throws Exception {
+    final AtomicReference<String> h1 = new AtomicReference<String>();
+    final AtomicReference<String> h2 = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        h1.set(request.getHeader(""h1""));
+        h2.set(request.getHeader(""h2""));
+      }
+    };
+    Map<String, String> headers = new HashMap<String, String>();
+    headers.put(""h1"", ""v1"");
+    headers.put(""h2"", ""v2"");
+    assertTrue(get(url).headers(headers).ok());
+    assertEquals(""v1"", h1.get());
+    assertEquals(""v2"", h2.get());
+  }",HttpRequestTest::headers_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_56,"@Test
+  public void emptyHeaders_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(get(url).headers(Collections.<String, String> emptyMap()).ok());
+  }",HttpRequestTest::emptyHeaders_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_57,"@Test
+  public void getAllHeaders_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""a"");
+        response.setHeader(""b"", ""b"");
+        response.addHeader(""a"", ""another"");
+      }
+    };
+    Map<String, List<String>> headers = get(url).headers();
+    assertEquals(headers.size(), 5);
+    assertEquals(headers.get(""a"").size(), 2);
+    assertTrue(headers.get(""b"").get(0).equals(""b""));
+  }",HttpRequestTest::getAllHeaders_oe,"public HttpRequest headers(final Map<String, String> headers) {
+    if (!headers.isEmpty())
+      for (Entry<String, String> header : headers.entrySet())
+        header(header);
+    return this;
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Set all headers found in given map where the keys are the header names and
+   * the values are the header values
+   *
+   * @param headers
+   * @return this request
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_58,"@Test
+  public void numberHeader_oe() throws Exception {
+    final AtomicReference<String> h1 = new AtomicReference<String>();
+    final AtomicReference<String> h2 = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        h1.set(request.getHeader(""h1""));
+        h2.set(request.getHeader(""h2""));
+      }
+    };
+    assertTrue(get(url).header(""h1"", 5).header(""h2"", (Number) null).ok());
+    assertEquals(""5"", h1.get());
+    assertEquals("""", h2.get());
+  }",HttpRequestTest::numberHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_59,"@Test
+  public void userAgentHeader_oe() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader(""User-Agent""));
+      }
+    };
+    assertTrue(get(url).userAgent(""browser 1.0"").ok());
+    assertEquals(""browser 1.0"", header.get());
+  }",HttpRequestTest::userAgentHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_60,"@Test
+  public void acceptHeader_oe() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader(""Accept""));
+      }
+    };
+    assertTrue(get(url).accept(""application/json"").ok());
+    assertEquals(""application/json"", header.get());
+  }",HttpRequestTest::acceptHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_61,"@Test
+  public void acceptJson_oe() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader(""Accept""));
+      }
+    };
+    assertTrue(get(url).acceptJson().ok());
+    assertEquals(""application/json"", header.get());
+  }",HttpRequestTest::acceptJson_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_62,"@Test
+  public void ifNoneMatchHeader_oe() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader(""If-None-Match""));
+      }
+    };
+    assertTrue(get(url).ifNoneMatch(""eid"").ok());
+    assertEquals(""eid"", header.get());
+  }",HttpRequestTest::ifNoneMatchHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_63,"@Test
+  public void acceptCharsetHeader_oe() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader(""Accept-Charset""));
+      }
+    };
+    assertTrue(get(url).acceptCharset(CHARSET_UTF8).ok());
+    assertEquals(CHARSET_UTF8, header.get());
+  }",HttpRequestTest::acceptCharsetHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_64,"@Test
+  public void acceptEncodingHeader_oe() throws Exception {
+    final AtomicReference<String> header = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getHeader(""Accept-Encoding""));
+      }
+    };
+    assertTrue(get(url).acceptEncoding(""compress"").ok());
+    assertEquals(""compress"", header.get());
+  }",HttpRequestTest::acceptEncodingHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_65,"@Test
+  public void ifModifiedSinceHeader_oe() throws Exception {
+    final AtomicLong header = new AtomicLong();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        header.set(request.getDateHeader(""If-Modified-Since""));
+      }
+    };
+    assertTrue(get(url).ifModifiedSince(5000).ok());
+    assertEquals(5000, header.get());
+  }",HttpRequestTest::ifModifiedSinceHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_66,"@Test
+  public void refererHeader_oe() throws Exception {
+    final AtomicReference<String> referer = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        referer.set(request.getHeader(""Referer""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertTrue(post(url).referer(""http://heroku.com"").ok());
+    assertEquals(""http://heroku.com"", referer.get());
+  }",HttpRequestTest::refererHeader_oe,"public static HttpRequest post(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_POST);
+  }","/**
+   * Start a 'POST' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_68,"@Test
+  public void postMultipartWithContentType_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        body.set(new String(read()));
+      }
+    };
+    HttpRequest request = post(url);
+    request.part(""body"", null, ""application/json"", ""contents"");
+    assertTrue(request.ok());
+    assertTrue(body.toString().contains(""Content-Type: application/json""));
+    assertTrue(body.toString().contains(""contents\r\n""));
+  }",HttpRequestTest::postMultipartWithContentType_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_73,"@Test
+  public void httpsTrust_oe() throws Exception {
+    assertNotNull(get(""https://localhost"").trustAllCerts().trustAllHosts());
+  }",HttpRequestTest::httpsTrust_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_74,"@Test
+  public void httpTrust_oe() throws Exception {
+    assertNotNull(get(""http://localhost"").trustAllCerts().trustAllHosts());
+  }",HttpRequestTest::httpTrust_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_75,"@Test
+  public void singleVerifier_oe() {
+    HttpRequest request1 = get(""https://localhost"").trustAllHosts();
+    HttpRequest request2 = get(""https://localhost"").trustAllHosts();
+    assertNotNull(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier());
+    assertNotNull(((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
+    assertEquals(((HttpsURLConnection)request1.getConnection()).getHostnameVerifier(),((HttpsURLConnection)request2.getConnection()).getHostnameVerifier());
+  }",HttpRequestTest::singleVerifier_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */"
+http-request_76,"@Test
+  public void singleSslSocketFactory_oe() {
+    HttpRequest request1 = get(""https://localhost"").trustAllCerts();
+    HttpRequest request2 = get(""https://localhost"").trustAllCerts();
+    assertNotNull(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory());
+    assertNotNull(((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
+    assertEquals(((HttpsURLConnection)request1.getConnection()).getSSLSocketFactory(),((HttpsURLConnection)request2.getConnection()).getSSLSocketFactory());
+  }",HttpRequestTest::singleSslSocketFactory_oe,"public HttpURLConnection getConnection() {
+    if (connection == null)
+      connection = createConnection();
+    return connection;
+  }","/**
+   * Get underlying connection
+   *
+   * @return connection
+   */"
+http-request_79,"@Test
+  public void getToOutputCode_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    AtomicInteger code = new AtomicInteger(0);
+    get(url).code(code);
+    assertEquals(HTTP_OK, code.get());
+  }",HttpRequestTest::getToOutputCode_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_82,"@Test
+  public void getGzipped_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        if (!""gzip"".equals(request.getHeader(""Accept-Encoding"")))
+          return;
+
+        response.setHeader(""Content-Encoding"", ""gzip"");
+        GZIPOutputStream output;
+        try {
+          output = new GZIPOutputStream(response.getOutputStream());
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        }
+        try {
+          output.write(""hello compressed"".getBytes(CHARSET_UTF8));
+        } catch (IOException e) {
+          throw new RuntimeException(e);
+        } finally {
+          try {
+            output.close();
+          } catch (IOException ignored) {
+          }
+        }
+      }
+    };
+    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
+    assertTrue(request.ok());
+    assertEquals(""hello compressed"", request.body(CHARSET_UTF8));
+  }",HttpRequestTest::getGzipped_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_83,"@Test
+  public void getNonGzippedWithUncompressEnabled_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        if (!""gzip"".equals(request.getHeader(""Accept-Encoding"")))
+          return;
+
+        write(""hello not compressed"");
+      }
+    };
+    HttpRequest request = get(url).acceptGzipEncoding().uncompress(true);
+    assertTrue(request.ok());
+    assertEquals(""hello not compressed"", request.body(CHARSET_UTF8));
+  }",HttpRequestTest::getNonGzippedWithUncompressEnabled_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String body(final String charset) throws HttpRequestException {
+    final ByteArrayOutputStream output = byteStream();
+    try {
+      copy(buffer(), output);
+      return output.toString(getValidCharset(charset));
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get response as {@link String} in given character set
+   * <p>
+   * This will fall back to using the UTF-8 character set if the given charset
+   * is null
+   *
+   * @param charset
+   * @return string
+   * @throws HttpRequestException
+   */"
+http-request_84,"@Test
+  public void getHeaders_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.addHeader(""a"", ""1"");
+        response.addHeader(""a"", ""2"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    String[] values = request.headers(""a"");
+    assertNotNull(values);
+    assertEquals(2, values.length);
+    assertTrue(Arrays.asList(values).contains(""1""));
+    assertTrue(Arrays.asList(values).contains(""2""));
+  }",HttpRequestTest::getHeaders_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public HttpRequest headers(final Map<String, String> headers) {
+    if (!headers.isEmpty())
+      for (Entry<String, String> header : headers.entrySet())
+        header(header);
+    return this;
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Set all headers found in given map where the keys are the header names and
+   * the values are the header values
+   *
+   * @param headers
+   * @return this request
+   */"
+http-request_85,"@Test
+  public void getEmptyHeaders_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    String[] values = request.headers(""a"");
+    assertNotNull(values);
+    assertEquals(0, values.length);
+  }",HttpRequestTest::getEmptyHeaders_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public HttpRequest headers(final Map<String, String> headers) {
+    if (!headers.isEmpty())
+      for (Entry<String, String> header : headers.entrySet())
+        header(header);
+    return this;
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Set all headers found in given map where the keys are the header names and
+   * the values are the header values
+   *
+   * @param headers
+   * @return this request
+   */"
+http-request_86,"@Test
+  public void getSingleParameter_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""b;c=d"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals(""d"", request.parameter(""a"", ""c""));
+  }",HttpRequestTest::getSingleParameter_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String parameter(final String headerName, final String paramName) {
+    return getParam(header(headerName), paramName);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get parameter with given name from header value in response
+   *
+   * @param headerName
+   * @param paramName
+   * @return parameter value or null if missing
+   */"
+http-request_87,"@Test
+  public void getMultipleParameters_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""b;c=d;e=f"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals(""d"", request.parameter(""a"", ""c""));
+    assertEquals(""f"", request.parameter(""a"", ""e""));
+  }",HttpRequestTest::getMultipleParameters_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String parameter(final String headerName, final String paramName) {
+    return getParam(header(headerName), paramName);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get parameter with given name from header value in response
+   *
+   * @param headerName
+   * @param paramName
+   * @return parameter value or null if missing
+   */"
+http-request_88,"@Test
+  public void getSingleParameterQuoted_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""b;c=\""d\"""");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals(""d"", request.parameter(""a"", ""c""));
+  }",HttpRequestTest::getSingleParameterQuoted_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String parameter(final String headerName, final String paramName) {
+    return getParam(header(headerName), paramName);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get parameter with given name from header value in response
+   *
+   * @param headerName
+   * @param paramName
+   * @return parameter value or null if missing
+   */"
+http-request_89,"@Test
+  public void getMultipleParametersQuoted_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""b;c=\""d\"";e=\""f\"""");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertEquals(""d"", request.parameter(""a"", ""c""));
+    assertEquals(""f"", request.parameter(""a"", ""e""));
+  }",HttpRequestTest::getMultipleParametersQuoted_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String parameter(final String headerName, final String paramName) {
+    return getParam(header(headerName), paramName);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get parameter with given name from header value in response
+   *
+   * @param headerName
+   * @param paramName
+   * @return parameter value or null if missing
+   */"
+http-request_90,"@Test
+  public void getMissingParameter_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""b;c=d"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertNull(request.parameter(""a"", ""e""));
+  }",HttpRequestTest::getMissingParameter_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String parameter(final String headerName, final String paramName) {
+    return getParam(header(headerName), paramName);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get parameter with given name from header value in response
+   *
+   * @param headerName
+   * @param paramName
+   * @return parameter value or null if missing
+   */"
+http-request_91,"@Test
+  public void getParameterFromMissingHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""b;c=d"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertNull(request.parameter(""b"", ""c""));
+    assertTrue(request.parameters(""b"").isEmpty());
+  }",HttpRequestTest::getParameterFromMissingHeader_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String parameter(final String headerName, final String paramName) {
+    return getParam(header(headerName), paramName);
+  }
+
+public Map<String, String> parameters(final String headerName) {
+    return getParams(header(headerName));
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get parameter with given name from header value in response
+   *
+   * @param headerName
+   * @param paramName
+   * @return parameter value or null if missing
+   */
+
+/**
+   * Get all parameters from header value in response
+   * <p>
+   * This will be all key=value pairs after the first ';' that are separated by
+   * a ';'
+   *
+   * @param headerName
+   * @return non-null but possibly empty map of parameter headers
+   */"
+http-request_92,"@Test
+  public void getEmptyParameter_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""b;c="");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertNull(request.parameter(""a"", ""c""));
+    assertTrue(request.parameters(""a"").isEmpty());
+  }",HttpRequestTest::getEmptyParameter_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String parameter(final String headerName, final String paramName) {
+    return getParam(header(headerName), paramName);
+  }
+
+public Map<String, String> parameters(final String headerName) {
+    return getParams(header(headerName));
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get parameter with given name from header value in response
+   *
+   * @param headerName
+   * @param paramName
+   * @return parameter value or null if missing
+   */
+
+/**
+   * Get all parameters from header value in response
+   * <p>
+   * This will be all key=value pairs after the first ';' that are separated by
+   * a ';'
+   *
+   * @param headerName
+   * @return non-null but possibly empty map of parameter headers
+   */"
+http-request_93,"@Test
+  public void getEmptyParameters_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""b;"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    assertNull(request.parameter(""a"", ""c""));
+    assertTrue(request.parameters(""a"").isEmpty());
+  }",HttpRequestTest::getEmptyParameters_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public String parameter(final String headerName, final String paramName) {
+    return getParam(header(headerName), paramName);
+  }
+
+public Map<String, String> parameters(final String headerName) {
+    return getParams(header(headerName));
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get parameter with given name from header value in response
+   *
+   * @param headerName
+   * @param paramName
+   * @return parameter value or null if missing
+   */
+
+/**
+   * Get all parameters from header value in response
+   * <p>
+   * This will be all key=value pairs after the first ';' that are separated by
+   * a ';'
+   *
+   * @param headerName
+   * @return non-null but possibly empty map of parameter headers
+   */"
+http-request_94,"@Test
+  public void getParameters_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""value;b=c;d=e"");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    Map<String, String> params = request.parameters(""a"");
+    assertNotNull(params);
+    assertEquals(2, params.size());
+    assertEquals(""c"", params.get(""b""));
+    assertEquals(""e"", params.get(""d""));
+  }",HttpRequestTest::getParameters_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public Map<String, String> parameters(final String headerName) {
+    return getParams(header(headerName));
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get all parameters from header value in response
+   * <p>
+   * This will be all key=value pairs after the first ';' that are separated by
+   * a ';'
+   *
+   * @param headerName
+   * @return non-null but possibly empty map of parameter headers
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_95,"@Test
+  public void getQuotedParameters_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""value;b=\""c\"";d=\""e\"""");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    Map<String, String> params = request.parameters(""a"");
+    assertNotNull(params);
+    assertEquals(2, params.size());
+    assertEquals(""c"", params.get(""b""));
+    assertEquals(""e"", params.get(""d""));
+  }",HttpRequestTest::getQuotedParameters_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public Map<String, String> parameters(final String headerName) {
+    return getParams(header(headerName));
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get all parameters from header value in response
+   * <p>
+   * This will be all key=value pairs after the first ';' that are separated by
+   * a ';'
+   *
+   * @param headerName
+   * @return non-null but possibly empty map of parameter headers
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_96,"@Test
+  public void getMixQuotedParameters_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""a"", ""value; b=c; d=\""e\"""");
+      }
+    };
+    HttpRequest request = get(url);
+    assertTrue(request.ok());
+    Map<String, String> params = request.parameters(""a"");
+    assertNotNull(params);
+    assertEquals(2, params.size());
+    assertEquals(""c"", params.get(""b""));
+    assertEquals(""e"", params.get(""d""));
+  }",HttpRequestTest::getMixQuotedParameters_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }
+
+public Map<String, String> parameters(final String headerName) {
+    return getParams(header(headerName));
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */
+
+/**
+   * Get all parameters from header value in response
+   * <p>
+   * This will be all key=value pairs after the first ';' that are separated by
+   * a ';'
+   *
+   * @param headerName
+   * @return non-null but possibly empty map of parameter headers
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_97,"@Test
+  public void missingDateHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertEquals(1234L, get(url).dateHeader(""missing"", 1234L));
+  }",HttpRequestTest::missingDateHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_98,"@Test
+  public void malformedDateHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""malformed"", ""not a date"");
+      }
+    };
+    assertEquals(1234L, get(url).dateHeader(""malformed"", 1234L));
+  }",HttpRequestTest::malformedDateHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_99,"@Test
+  public void missingIntHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+    assertEquals(4321, get(url).intHeader(""missing"", 4321));
+  }",HttpRequestTest::missingIntHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_100,"@Test
+  public void malformedIntHeader_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+        response.setHeader(""malformed"", ""not an integer"");
+      }
+    };
+    assertEquals(4321, get(url).intHeader(""malformed"", 4321));
+  }",HttpRequestTest::malformedIntHeader_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_101,"@Test
+  public void postFormAsEntries_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    Map<String, String> data = new LinkedHashMap<String, String>();
+    data.put(""name"", ""user"");
+    data.put(""number"", ""100"");
+    HttpRequest request = post(url);
+    for (Entry<String, String> entry : data.entrySet())
+      request.form(entry);
+    int code = request.code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(""name=user&number=100"", body.get());
+  }",HttpRequestTest::postFormAsEntries_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_102,"@Test
+  public void postFormEntryWithNullValue_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    Map<String, String> data = new LinkedHashMap<String, String>();
+    data.put(""name"", null);
+    HttpRequest request = post(url);
+    for (Entry<String, String> entry : data.entrySet())
+      request.form(entry);
+    int code = request.code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(""name="", body.get());
+  }",HttpRequestTest::postFormEntryWithNullValue_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_103,"@Test
+  public void postWithMappedQueryParams_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""user"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, inputParams, false);
+    assertTrue(request.ok());
+    assertEquals(""POST"", method.get());
+    assertEquals(""user"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::postWithMappedQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_104,"@Test
+  public void postWithVaragsQueryParams_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, false, ""name"", ""user"", ""number"", ""100"");
+    assertTrue(request.ok());
+    assertEquals(""POST"", method.get());
+    assertEquals(""user"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::postWithVaragsQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_105,"@Test
+  public void postWithEscapedMappedQueryParams_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = post(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals(""POST"", method.get());
+    assertEquals(""us er"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::postWithEscapedMappedQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_106,"@Test
+  public void getWithMappedQueryParams_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""user"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url, inputParams, false);
+    assertTrue(request.ok());
+    assertEquals(""GET"", method.get());
+    assertEquals(""user"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::getWithMappedQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_107,"@Test
+  public void getWithVarargsQueryParams_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url, false, ""name"", ""user"", ""number"", ""100"");
+    assertTrue(request.ok());
+    assertEquals(""GET"", method.get());
+    assertEquals(""user"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::getWithVarargsQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_108,"@Test
+  public void getWithEscapedMappedQueryParams_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals(""GET"", method.get());
+    assertEquals(""us er"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::getWithEscapedMappedQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_109,"@Test
+  public void getWithEscapedVarargsQueryParams_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = get(url, true, ""name"", ""us er"", ""number"", ""100"");
+    assertTrue(request.ok());
+    assertEquals(""GET"", method.get());
+    assertEquals(""us er"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::getWithEscapedVarargsQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_110,"@Test
+  public void deleteWithMappedQueryParams_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""user"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, inputParams, false);
+    assertTrue(request.ok());
+    assertEquals(""DELETE"", method.get());
+    assertEquals(""user"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::deleteWithMappedQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_111,"@Test
+  public void deleteWithVarargsQueryParams_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, false, ""name"", ""user"", ""number"", ""100"");
+    assertTrue(request.ok());
+    assertEquals(""DELETE"", method.get());
+    assertEquals(""user"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::deleteWithVarargsQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_112,"@Test
+  public void deleteWithEscapedMappedQueryParams_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals(""DELETE"", method.get());
+  }",HttpRequestTest::deleteWithEscapedMappedQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_113,"@Test
+  public void deleteWithEscapedVarargsQueryParams_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = delete(url, true, ""name"", ""us er"", ""number"", ""100"");
+    assertTrue(request.ok());
+    assertEquals(""DELETE"", method.get());
+  }",HttpRequestTest::deleteWithEscapedVarargsQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_114,"@Test
+  public void putWithMappedQueryParams_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""user"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, inputParams, false);
+    assertTrue(request.ok());
+    assertEquals(""PUT"", method.get());
+    assertEquals(""user"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::putWithMappedQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_115,"@Test
+  public void putWithEscapedMappedQueryParams_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals(""PUT"", method.get());
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::putWithEscapedMappedQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_116,"@Test
+  public void putWithEscapedVarargsQueryParams_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = put(url, true, ""name"", ""us er"", ""number"", ""100"");
+    assertTrue(request.ok());
+    assertEquals(""PUT"", method.get());
+    assertEquals(""us er"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::putWithEscapedVarargsQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_117,"@Test
+  public void headWithVaragsQueryParams_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, false, ""name"", ""user"", ""number"", ""100"");
+    assertTrue(request.ok());
+    assertEquals(""HEAD"", method.get());
+    assertEquals(""user"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::headWithVaragsQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_118,"@Test
+  public void headWithEscapedMappedQueryParams_oe() throws Exception {
+    Map<String, String> inputParams = new HashMap<String, String>();
+    inputParams.put(""name"", ""us er"");
+    inputParams.put(""number"", ""100"");
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, inputParams, true);
+    assertTrue(request.ok());
+    assertEquals(""HEAD"", method.get());
+  }",HttpRequestTest::headWithEscapedMappedQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_119,"@Test
+  public void headWithEscapedVarargsQueryParams_oe() throws Exception {
+    final Map<String, String> outputParams = new HashMap<String, String>();
+    final AtomicReference<String> method = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        method.set(request.getMethod());
+        outputParams.put(""name"", request.getParameter(""name""));
+        outputParams.put(""number"", request.getParameter(""number""));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    HttpRequest request = head(url, true, ""name"", ""us er"", ""number"", ""100"");
+    assertTrue(request.ok());
+    assertEquals(""HEAD"", method.get());
+    assertEquals(""us er"", outputParams.get(""name""));
+    assertEquals(""100"", outputParams.get(""number""));
+  }",HttpRequestTest::headWithEscapedVarargsQueryParams_oe,"public boolean ok() throws HttpRequestException {
+    return HTTP_OK == code();
+  }","/**
+   * Is the response code a 200 OK?
+   *
+   * @return true if 200, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_120,"@Test
+  public void appendMappedQueryParamsWithNoPath_oe() throws Exception {
+    assertEquals(""http://test.com/?a=b"",HttpRequest.append(""http://test.com"",Collections.singletonMap(""a"",""b"")));
+  }",HttpRequestTest::appendMappedQueryParamsWithNoPath_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_121,"@Test
+  public void appendVarargsQueryParmasWithNoPath_oe() throws Exception {
+    assertEquals(""http://test.com/?a=b"",HttpRequest.append(""http://test.com"",""a"",""b""));
+  }",HttpRequestTest::appendVarargsQueryParmasWithNoPath_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_122,"@Test
+  public void appendMappedQueryParamsWithPath_oe() throws Exception {
+    assertEquals(""http://test.com/segment1?a=b"",HttpRequest.append(""http://test.com/segment1"",Collections.singletonMap(""a"",""b"")));
+    assertEquals(""http://test.com/?a=b"",HttpRequest.append(""http://test.com/"",Collections.singletonMap(""a"",""b"")));
+  }",HttpRequestTest::appendMappedQueryParamsWithPath_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_123,"@Test
+  public void appendVarargsQueryParamsWithPath_oe() throws Exception {
+    assertEquals(""http://test.com/segment1?a=b"",HttpRequest.append(""http://test.com/segment1"",""a"",""b""));
+    assertEquals(""http://test.com/?a=b"",HttpRequest.append(""http://test.com/"",""a"",""b""));
+  }",HttpRequestTest::appendVarargsQueryParamsWithPath_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_124,"@Test
+  public void appendMultipleMappedQueryParams_oe() throws Exception {
+    Map<String, Object> params = new LinkedHashMap<String, Object>();
+    params.put(""a"", ""b"");
+    params.put(""c"", ""d"");
+    assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1"",params));
+  }",HttpRequestTest::appendMultipleMappedQueryParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_125,"@Test
+  public void appendMultipleVarargsQueryParams_oe() throws Exception {
+    assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1"",""a"",""b"",""c"",""d""));
+  }",HttpRequestTest::appendMultipleVarargsQueryParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_126,"@Test
+  public void appendNullMappedQueryParams_oe() throws Exception {
+    assertEquals(""http://test.com/1"",HttpRequest.append(""http://test.com/1"",(Map<?,?>)null));
+  }",HttpRequestTest::appendNullMappedQueryParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_127,"@Test
+  public void appendNullVaragsQueryParams_oe() throws Exception {
+    assertEquals(""http://test.com/1"",HttpRequest.append(""http://test.com/1"",(Object[])null));
+  }",HttpRequestTest::appendNullVaragsQueryParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_128,"@Test
+  public void appendEmptyMappedQueryParams_oe() throws Exception {
+    assertEquals(""http://test.com/1"",HttpRequest.append(""http://test.com/1"",Collections.<String,String> emptyMap()));
+  }",HttpRequestTest::appendEmptyMappedQueryParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_129,"@Test
+  public void appendEmptyVarargsQueryParams_oe() throws Exception {
+    assertEquals(""http://test.com/1"",HttpRequest.append(""http://test.com/1"",new Object[0]));
+  }",HttpRequestTest::appendEmptyVarargsQueryParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_130,"@Test
+  public void appendWithNullMappedQueryParamValues_oe() throws Exception {
+    Map<String, Object> params = new LinkedHashMap<String, Object>();
+    params.put(""a"", null);
+    params.put(""b"", null);
+    assertEquals(""http://test.com/1?a=&b="",HttpRequest.append(""http://test.com/1"",params));
+  }",HttpRequestTest::appendWithNullMappedQueryParamValues_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_131,"@Test
+  public void appendWithNullVaragsQueryParamValues_oe() throws Exception {
+    assertEquals(""http://test.com/1?a=&b="",HttpRequest.append(""http://test.com/1"",""a"",null,""b"",null));
+  }",HttpRequestTest::appendWithNullVaragsQueryParamValues_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_132,"@Test
+  public void appendMappedQueryParamsWithExistingQueryStart_oe() {
+    assertEquals(""http://test.com/1?a=b"",HttpRequest.append(""http://test.com/1?"",Collections.singletonMap(""a"",""b"")));
+  }",HttpRequestTest::appendMappedQueryParamsWithExistingQueryStart_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_133,"@Test
+  public void appendVarargsQueryParamsWithExistingQueryStart_oe() {
+    assertEquals(""http://test.com/1?a=b"",HttpRequest.append(""http://test.com/1?"",""a"",""b""));
+  }",HttpRequestTest::appendVarargsQueryParamsWithExistingQueryStart_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_134,"@Test
+  public void appendMappedQueryParamsWithExistingParams_oe() {
+    assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1?a=b"",Collections.singletonMap(""c"",""d"")));
+    assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1?a=b&"",Collections.singletonMap(""c"",""d"")));
+
+  }",HttpRequestTest::appendMappedQueryParamsWithExistingParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_135,"@Test
+  public void appendWithVarargsQueryParamsWithExistingParams_oe() {
+    assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1?a=b"",""c"",""d""));
+    assertEquals(""http://test.com/1?a=b&c=d"",HttpRequest.append(""http://test.com/1?a=b&"",""c"",""d""));
+  }",HttpRequestTest::appendWithVarargsQueryParamsWithExistingParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_136,"@Test
+  public void appendArrayQueryParams_oe() throws Exception {
+    assertEquals(
+        ""http://test.com/?foo[]=bar&foo[]=baz"",
+        HttpRequest.append(""http://test.com"",
+            Collections.singletonMap(""foo"", new String[] { ""bar"", ""baz"" })));
+    assertEquals(
+        ""http://test.com/?a[]=1&a[]=2"",
+        HttpRequest.append(""http://test.com"",
+            Collections.singletonMap(""a"", new int[] { 1, 2 })));
+    assertEquals(
+        ""http://test.com/?a[]=1"",
+        HttpRequest.append(""http://test.com"",
+            Collections.singletonMap(""a"", new int[] { 1 })));
+    assertEquals(
+        ""http://test.com/?"",
+        HttpRequest.append(""http://test.com"",
+            Collections.singletonMap(""a"", new int[] { })));
+    assertEquals(
+        ""http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2"",
+        HttpRequest.append(""http://test.com"",
+            ""foo"", new String[] { ""bar"", ""baz"" },
+            ""a"", new int[] { 1, 2 }));
+  }",HttpRequestTest::appendArrayQueryParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_137,"@Test
+  public void appendListQueryParams_oe() throws Exception {
+    assertEquals(
+        ""http://test.com/?foo[]=bar&foo[]=baz"",
+        HttpRequest.append(""http://test.com"",
+            Collections.singletonMap(""foo"", Arrays.asList(new String[] { ""bar"", ""baz"" }))));
+    assertEquals(
+        ""http://test.com/?a[]=1&a[]=2"",
+        HttpRequest.append(""http://test.com"",
+            Collections.singletonMap(""a"", Arrays.asList(new Integer[] { 1, 2 }))));
+    assertEquals(
+        ""http://test.com/?a[]=1"",
+        HttpRequest.append(""http://test.com"",
+            Collections.singletonMap(""a"", Arrays.asList(new Integer[] { 1 }))));
+    assertEquals(
+        ""http://test.com/?"",
+        HttpRequest.append(""http://test.com"",
+            Collections.singletonMap(""a"", Arrays.asList(new Integer[] { }))));
+    assertEquals(
+        ""http://test.com/?foo[]=bar&foo[]=baz&a[]=1&a[]=2"",
+        HttpRequest.append(""http://test.com"",
+            ""foo"", Arrays.asList(new String[] { ""bar"", ""baz"" }),
+            ""a"", Arrays.asList(new Integer[] { 1, 2 })));
+  }",HttpRequestTest::appendListQueryParams_oe,"public static String append(final CharSequence url, final Map<?, ?> params) {
+    final String baseUrl = url.toString();
+    if (params == null || params.isEmpty())
+      return baseUrl;
+
+    final StringBuilder result = new StringBuilder(baseUrl);
+
+    addPathSeparator(baseUrl, result);
+    addParamPrefix(baseUrl, result);
+
+    Entry<?, ?> entry;
+    Iterator<?> iterator = params.entrySet().iterator();
+    entry = (Entry<?, ?>) iterator.next();
+    addParam(entry.getKey().toString(), entry.getValue(), result);
+
+    while (iterator.hasNext()) {
+      result.append('&');
+      entry = (Entry<?, ?>) iterator.next();
+      addParam(entry.getKey().toString(), entry.getValue(), result);
+    }
+
+    return result.toString();
+  }","/**
+   * Append given map as query parameters to the base URL
+   * <p>
+   * Each map entry's key will be a parameter name and the value's
+   * {@link Object#toString()} will be the parameter value.
+   *
+   * @param url
+   * @param params
+   * @return URL with appended query params
+   */"
+http-request_138,"@Test
+  public void serverErrorCode_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_INTERNAL_ERROR);
+      }
+    };
+    HttpRequest request = get(url);
+    assertNotNull(request);
+    assertTrue(request.serverError());
+  }",HttpRequestTest::serverErrorCode_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }
+
+public boolean serverError() throws HttpRequestException {
+    return HTTP_INTERNAL_ERROR == code();
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 500 Internal Server Error?
+   *
+   * @return true if 500, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_139,"@Test
+  public void badRequestCode_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_BAD_REQUEST);
+      }
+    };
+    HttpRequest request = get(url);
+    assertNotNull(request);
+    assertTrue(request.badRequest());
+  }",HttpRequestTest::badRequestCode_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }
+
+public boolean badRequest() throws HttpRequestException {
+    return HTTP_BAD_REQUEST == code();
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 400 Bad Request?
+   *
+   * @return true if 400, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_140,"@Test
+  public void notModifiedCode_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_NOT_MODIFIED);
+      }
+    };
+    HttpRequest request = get(url);
+    assertNotNull(request);
+    assertTrue(request.notModified());
+  }",HttpRequestTest::notModifiedCode_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }
+
+public boolean notModified() throws HttpRequestException {
+    return HTTP_NOT_MODIFIED == code();
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */
+
+/**
+   * Is the response code a 304 Not Modified?
+   *
+   * @return true if 304, false otherwise
+   * @throws HttpRequestException
+   */"
+http-request_141,"@Test
+  public void sendReceiveWithoutCode_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        try {
+          response.getWriter().write(""world"");
+        } catch (IOException ignored) {
+        }
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url).ignoreCloseExceptions(false);
+    assertEquals(""world"", request.send(""hello"").body());
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::sendReceiveWithoutCode_oe,"public HttpRequest send(final File input) throws HttpRequestException {
+    final InputStream stream;
+    try {
+      stream = new BufferedInputStream(new FileInputStream(input));
+      incrementTotalSize(input.length());
+    } catch (FileNotFoundException e) {
+      throw new HttpRequestException(e);
+    }
+    return send(stream);
+  }","/**
+   * Write contents of file to request body
+   *
+   * @param input
+   * @return this request
+   * @throws HttpRequestException
+   */"
+http-request_142,"@Test
+  public void sendHeadersWithoutCode_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setHeader(""h1"", ""v1"");
+        response.setHeader(""h2"", ""v2"");
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url).ignoreCloseExceptions(false);
+    Map<String, List<String>> headers = request.send(""hello"").headers();
+    assertEquals(""v1"", headers.get(""h1"").get(0));
+    assertEquals(""v2"", headers.get(""h2"").get(0));
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::sendHeadersWithoutCode_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_143,"@Test
+  public void sendDateHeaderWithoutCode_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setDateHeader(""Date"", 1000);
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url).ignoreCloseExceptions(false);
+    assertEquals(1000, request.send(""hello"").date());
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::sendDateHeaderWithoutCode_oe,"public HttpRequest send(final File input) throws HttpRequestException {
+    final InputStream stream;
+    try {
+      stream = new BufferedInputStream(new FileInputStream(input));
+      incrementTotalSize(input.length());
+    } catch (FileNotFoundException e) {
+      throw new HttpRequestException(e);
+    }
+    return send(stream);
+  }","/**
+   * Write contents of file to request body
+   *
+   * @param input
+   * @return this request
+   * @throws HttpRequestException
+   */"
+http-request_144,"@Test
+  public void sendIntHeaderWithoutCode_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setIntHeader(""Width"", 9876);
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest request = post(url).ignoreCloseExceptions(false);
+    assertEquals(9876, request.send(""hello"").intHeader(""Width""));
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::sendIntHeaderWithoutCode_oe,"public HttpRequest send(final File input) throws HttpRequestException {
+    final InputStream stream;
+    try {
+      stream = new BufferedInputStream(new FileInputStream(input));
+      incrementTotalSize(input.length());
+    } catch (FileNotFoundException e) {
+      throw new HttpRequestException(e);
+    }
+    return send(stream);
+  }","/**
+   * Write contents of file to request body
+   *
+   * @param input
+   * @return this request
+   * @throws HttpRequestException
+   */"
+http-request_145,"@Test
+  public void customConnectionFactory_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    ConnectionFactory factory = new ConnectionFactory() {
+
+      public HttpURLConnection create(URL otherUrl) throws IOException {
+        return (HttpURLConnection) new URL(url).openConnection();
+      }
+
+      public HttpURLConnection create(URL url, Proxy proxy) throws IOException {
+        throw new IOException();
+      }
+    };
+
+    HttpRequest.setConnectionFactory(factory);
+    int code = get(""http://not/a/real/url"").code();
+    assertEquals(200, code);
+  }",HttpRequestTest::customConnectionFactory_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */"
+http-request_146,"@Test
+  public void nullConnectionFactory_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    HttpRequest.setConnectionFactory(null);
+    int code = get(url).code();
+    assertEquals(200, code);
+  }",HttpRequestTest::nullConnectionFactory_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */"
+http-request_147,"@Test
+  public void streamOfEmptyOkResponse_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(200);
+      }
+    };
+    assertEquals("""", get(url).body());
+  }",HttpRequestTest::streamOfEmptyOkResponse_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_148,"@Test
+  public void bodyOfEmptyErrorResponse_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_BAD_REQUEST);
+      }
+    };
+    assertEquals("""", get(url).body());
+  }",HttpRequestTest::bodyOfEmptyErrorResponse_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_149,"@Test
+  public void bodyOfNonEmptyErrorResponse_oe() throws Exception {
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        response.setStatus(HTTP_BAD_REQUEST);
+        try {
+          response.getWriter().write(""error"");
+        } catch (IOException ignored) {
+        }
+      }
+    };
+    assertEquals(""error"", get(url).body());
+  }",HttpRequestTest::bodyOfNonEmptyErrorResponse_oe,"public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"
+http-request_150,"@Test
+  public void uploadProgressSend_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    final File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(file.length(), total);
+        assertEquals(tx.incrementAndGet(), transferred);
+      }
+    };
+    post(url).bufferSize(1).progress(progress).send(file).code();
+    assertEquals(file.length(), tx.get());
+  }",HttpRequestTest::uploadProgressSend_oe,,
+http-request_151,"@Test
+  public void uploadProgressSendInputStream_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+    InputStream input = new FileInputStream(file);
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(-1, total);
+        assertEquals(tx.incrementAndGet(), transferred);
+      }
+    };
+    post(url).bufferSize(1).progress(progress).send(input).code();
+    assertEquals(file.length(), tx.get());
+  }",HttpRequestTest::uploadProgressSendInputStream_oe,,
+http-request_152,"@Test
+  public void uploadProgressSendByteArray_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    final byte[] bytes = ""hello"".getBytes(CHARSET_UTF8);
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(bytes.length, total);
+        assertEquals(tx.incrementAndGet(), transferred);
+      }
+    };
+    post(url).bufferSize(1).progress(progress).send(bytes).code();
+    assertEquals(bytes.length, tx.get());
+  }",HttpRequestTest::uploadProgressSendByteArray_oe,,
+http-request_153,"@Test
+  public void uploadProgressSendReader_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+
+    final AtomicLong tx = new AtomicLong(0);
+    UploadProgress progress = new UploadProgress() {
+      public void onUpload(long transferred, long total) {
+        assertEquals(-1, total);
+        assertEquals(tx.incrementAndGet(), transferred);
+      }
+    };
+    File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+    post(url).progress(progress).bufferSize(1).send(new FileReader(file)).code();
+    assertEquals(file.length(), tx.get());
+  }",HttpRequestTest::uploadProgressSendReader_oe,,
+http-request_154,"@Test
+  public void nullUploadProgress_oe() throws Exception {
+    final AtomicReference<String> body = new AtomicReference<String>();
+    handler = new RequestHandler() {
+
+      @Override
+      public void handle(Request request, HttpServletResponse response) {
+        body.set(new String(read()));
+        response.setStatus(HTTP_OK);
+      }
+    };
+    File file = File.createTempFile(""post"", "".txt"");
+    new FileWriter(file).append(""hello"").close();
+    int code = post(url).progress(null).send(file).code();
+    assertEquals(HTTP_OK, code);
+    assertEquals(""hello"", body.get());
+  }",HttpRequestTest::nullUploadProgress_oe,"public int code() throws HttpRequestException {
+    try {
+      closeOutput();
+      return getConnection().getResponseCode();
+    } catch (IOException e) {
+      throw new HttpRequestException(e);
+    }
+  }
+
+public static HttpRequest get(final CharSequence url)
+      throws HttpRequestException {
+    return new HttpRequest(url, METHOD_GET);
+  }","/**
+   * Get the status code of the response
+   *
+   * @return the response code
+   * @throws HttpRequestException
+   */
+
+/**
+   * Start a 'GET' request to the given URL
+   *
+   * @param url
+   * @return request
+   * @throws HttpRequestException
+   */"

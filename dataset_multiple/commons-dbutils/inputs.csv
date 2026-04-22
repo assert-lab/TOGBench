@@ -1,0 +1,3465 @@
+id,test_prefix,test_name,focal_methods,docstrings
+commons-dbutils_1,"public void testLoad_oe() throws IOException {
+        QueryLoader loader = QueryLoader.instance();
+        Map<String,String> q = loader.load(QUERIES);
+        Map<String,String> q2 = loader.load(QUERIES);
+        assertTrue(q == q2);// pointer comparison should return true assertEquals(""SELECT * FROM SomeTable"",q.get(""test.query""));
+
+        loader.unload(QUERIES);
+        Map<String,String> q3 = loader.load(QUERIES);
+        assertTrue(q != q3); // pointer comparison should return false
+    }",QueryLoaderTest::testLoad_oe,"@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }
+
+public synchronized Map<String, String> load(String path) throws IOException {
+
+        Map<String, String> queryMap = this.queries.get(path);
+
+        if (queryMap == null) {
+            queryMap = this.loadQueries(path);
+            this.queries.put(path, queryMap);
+        }
+
+        return queryMap;
+    }","/** {@inheritDoc} */
+
+/**
+     * Loads a Map of query names to SQL values.  The Maps are cached so a
+     * subsequent request to load queries from the same path will return
+     * the cached Map.  The properties file to load can be in either
+     * line-oriented or XML format.  XML formatted properties files must use a
+     * <code>.xml</code> file extension.
+     *
+     * @param path The path that the ClassLoader will use to find the file.
+     * This is <strong>not</strong> a file system path.  If you had a jarred
+     * Queries.properties file in the com.yourcorp.app.jdbc package you would
+     * pass ""/com/yourcorp/app/jdbc/Queries.properties"" to this method.
+     * @throws IOException if a file access error occurs
+     * @throws IllegalArgumentException if the ClassLoader can't find a file at
+     * the given path.
+     * @throws java.util.InvalidPropertiesFormatException if the XML properties file is
+     * invalid
+     * @return Map of query names to SQL values
+     * @see java.util.Properties
+     */"
+commons-dbutils_3,"public void testProcessWithToBean_oe() throws SQLException {
+        TestBean b = null;
+        assertTrue(this.rs.next());
+        b = beanProc.toBean(this.rs, TestBean.class);
+        assertEquals(13.0, b.getColumnProcessorDoubleTest(), 0);
+        assertEquals(b.getThree(), TestBean.Ordinal.THREE);
+
+        assertTrue(this.rs.next());
+        b = beanProc.toBean(this.rs, TestBean.class);
+        assertEquals(13.0, b.getColumnProcessorDoubleTest(), 0);
+        assertEquals(b.getThree(), TestBean.Ordinal.SIX);
+
+        assertFalse(this.rs.next());
+    }",BeanProcessorTest::testProcessWithToBean_oe,"@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }","/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_4,"public void testProcessWithPopulateBean_oe() throws SQLException {
+        TestBean b = new TestBean();
+
+        assertTrue(this.rs.next());
+        b = beanProc.populateBean(this.rs, b);
+        assertEquals(13.0, b.getColumnProcessorDoubleTest(), 0);
+        assertEquals(b.getThree(), TestBean.Ordinal.THREE);
+
+        assertTrue(this.rs.next());
+        b = beanProc.populateBean(this.rs, b);
+        assertEquals(13.0, b.getColumnProcessorDoubleTest(), 0);
+        assertEquals(b.getThree(), TestBean.Ordinal.SIX);
+
+        assertFalse(this.rs.next());
+    }",BeanProcessorTest::testProcessWithPopulateBean_oe,"@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }","/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_5,"public void testMapColumnToProperties_oe() throws Exception {
+        String[] columnNames = { ""test"", ""test"", ""three"" };
+        String[] columnLabels = { ""one"", ""two"", null };
+        ResultSetMetaData rsmd = ProxyFactory.instance().createResultSetMetaData(
+                new MockResultSetMetaData(columnNames, columnLabels));
+        PropertyDescriptor[] props = Introspector.getBeanInfo(MapColumnToPropertiesBean.class).getPropertyDescriptors();
+
+        int[] columns = beanProc.mapColumnsToProperties(rsmd, props);
+        for (int i = 1; i < columns.length; i++) {
+            assertTrue(columns[i] != BeanProcessor.PROPERTY_NOT_FOUND);
+        }
+    }",BeanProcessorTest::testMapColumnToProperties_oe,"protected int[] mapColumnsToProperties(ResultSetMetaData rsmd,
+            PropertyDescriptor[] props) throws SQLException {
+
+        int cols = rsmd.getColumnCount();
+        int[] columnToProperty = new int[cols + 1];
+        Arrays.fill(columnToProperty, PROPERTY_NOT_FOUND);
+
+        for (int col = 1; col <= cols; col++) {
+            String columnName = rsmd.getColumnLabel(col);
+            if (null == columnName || 0 == columnName.length()) {
+              columnName = rsmd.getColumnName(col);
+            }
+            String propertyName = columnToPropertyOverrides.get(columnName);
+            if (propertyName == null) {
+                propertyName = columnName;
+            }
+            for (int i = 0; i < props.length; i++) {
+
+                if (propertyName.equalsIgnoreCase(props[i].getName())) {
+                    columnToProperty[col] = i;
+                    break;
+                }
+            }
+        }
+
+        return columnToProperty;
+    }","/**
+     * The positions in the returned array represent column numbers.  The
+     * values stored at each position represent the index in the
+     * <code>PropertyDescriptor[]</code> for the bean property that matches
+     * the column name.  If no bean property was found for a column, the
+     * position is set to <code>PROPERTY_NOT_FOUND</code>.
+     *
+     * @param rsmd The <code>ResultSetMetaData</code> containing column
+     * information.
+     *
+     * @param props The bean property descriptors.
+     *
+     * @throws SQLException if a database access error occurs
+     *
+     * @return An int[] with column index to property index mappings.  The 0th
+     * element is meaningless because JDBC column indexing starts at 1.
+     */"
+commons-dbutils_6,"public void testMapColumnToPropertiesWithOverrides_oe() throws Exception {
+        Map<String, String> columnToPropertyOverrides = new HashMap<String, String>();
+        columnToPropertyOverrides.put(""five"", ""four"");
+        BeanProcessor beanProc = new BeanProcessor(columnToPropertyOverrides);
+        String[] columnNames = { ""test"", ""test"", ""three"", ""five"" };
+        String[] columnLabels = { ""one"", ""two"", null, null };
+        ResultSetMetaData rsmd = ProxyFactory.instance().createResultSetMetaData(
+                new MockResultSetMetaData(columnNames, columnLabels));
+        PropertyDescriptor[] props = Introspector.getBeanInfo(MapColumnToPropertiesBean.class).getPropertyDescriptors();
+
+        int[] columns = beanProc.mapColumnsToProperties(rsmd, props);
+        for (int i = 1; i < columns.length; i++) {
+            assertTrue(columns[i] != BeanProcessor.PROPERTY_NOT_FOUND);
+        }
+    }",BeanProcessorTest::testMapColumnToPropertiesWithOverrides_oe,"protected int[] mapColumnsToProperties(ResultSetMetaData rsmd,
+            PropertyDescriptor[] props) throws SQLException {
+
+        int cols = rsmd.getColumnCount();
+        int[] columnToProperty = new int[cols + 1];
+        Arrays.fill(columnToProperty, PROPERTY_NOT_FOUND);
+
+        for (int col = 1; col <= cols; col++) {
+            String columnName = rsmd.getColumnLabel(col);
+            if (null == columnName || 0 == columnName.length()) {
+              columnName = rsmd.getColumnName(col);
+            }
+            String propertyName = columnToPropertyOverrides.get(columnName);
+            if (propertyName == null) {
+                propertyName = columnName;
+            }
+            for (int i = 0; i < props.length; i++) {
+
+                if (propertyName.equalsIgnoreCase(props[i].getName())) {
+                    columnToProperty[col] = i;
+                    break;
+                }
+            }
+        }
+
+        return columnToProperty;
+    }","/**
+     * The positions in the returned array represent column numbers.  The
+     * values stored at each position represent the index in the
+     * <code>PropertyDescriptor[]</code> for the bean property that matches
+     * the column name.  If no bean property was found for a column, the
+     * position is set to <code>PROPERTY_NOT_FOUND</code>.
+     *
+     * @param rsmd The <code>ResultSetMetaData</code> containing column
+     * information.
+     *
+     * @param props The bean property descriptors.
+     *
+     * @throws SQLException if a database access error occurs
+     *
+     * @return An int[] with column index to property index mappings.  The 0th
+     * element is meaningless because JDBC column indexing starts at 1.
+     */"
+commons-dbutils_11,"@Test
+    public void testGoodInsert_oe() throws Exception {
+        results = mock(ResultSet.class);
+        
+        when(meta.getParameterCount()).thenReturn(2);
+        when(conn.prepareStatement(any(String.class), eq(Statement.RETURN_GENERATED_KEYS))).thenReturn(stmt);
+        when(stmt.getGeneratedKeys()).thenReturn(results);
+        when(results.next()).thenReturn(true).thenReturn(false);
+        when(results.getObject(1)).thenReturn(1L);
+
+        Long generatedKey = runner.insert(""INSERT INTO blah(col1, col2) VALUES(?,?)"", new ScalarHandler<Long>(), ""unit"", ""test"");
+
+        verify(stmt, times(1)).executeUpdate();
+        verify(stmt, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we closed the connection
+        
+        Assert.assertEquals(1L, generatedKey.longValue());
+    }",QueryRunnerTest::testGoodInsert_oe,"protected void close(Connection conn) throws SQLException {
+        DbUtils.close(conn);
+    }","/**
+     * Close a <code>Connection</code>. This implementation avoids closing if
+     * null and does <strong>not</strong> suppress any exceptions. Subclasses
+     * can override to provide special handling like logging.
+     *
+     * @param conn
+     *            Connection to close
+     * @throws SQLException
+     *             if a database access error occurs
+     * @since DbUtils 1.1
+     */"
+commons-dbutils_12,"@Test
+    public void testGoodBatchInsert_oe() throws Exception {
+        results = mock(ResultSet.class);
+        resultsMeta = mock(ResultSetMetaData.class);
+        
+        when(meta.getParameterCount()).thenReturn(2);
+        when(conn.prepareStatement(any(String.class), eq(Statement.RETURN_GENERATED_KEYS))).thenReturn(stmt);
+        when(stmt.getGeneratedKeys()).thenReturn(results);
+        when(results.next()).thenReturn(true).thenReturn(true).thenReturn(false);
+        when(results.getMetaData()).thenReturn(resultsMeta);
+        when(resultsMeta.getColumnCount()).thenReturn(1);
+        
+        ResultSetHandler<List<Object>> handler = new ResultSetHandler<List<Object>>()
+        {
+            @Override
+            public List<Object> handle(ResultSet rs) throws SQLException
+            {
+                List<Object> objects = new ArrayList<Object>();
+                while (rs.next())
+                {
+                    objects.add(new Object());
+                }
+                return objects;
+            }
+        };
+        
+        Object[][] params = new Object[2][2];
+        params[0][0] = ""Test"";
+        params[0][1] = ""Blah"";
+        params[1][0] = ""Test2"";
+        params[1][1] = ""Blah2"";
+        
+        List<Object> generatedKeys = runner.insertBatch(""INSERT INTO blah(col1, col2) VALUES(?,?)"", handler, params);
+
+        verify(stmt, times(2)).addBatch();
+        verify(stmt, times(1)).executeBatch();
+        verify(stmt, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we closed the connection
+        
+        Assert.assertEquals(2, generatedKeys.size());
+    }",QueryRunnerTest::testGoodBatchInsert_oe,"protected void close(Connection conn) throws SQLException {
+        DbUtils.close(conn);
+    }","/**
+     * Close a <code>Connection</code>. This implementation avoids closing if
+     * null and does <strong>not</strong> suppress any exceptions. Subclasses
+     * can override to provide special handling like logging.
+     *
+     * @param conn
+     *            Connection to close
+     * @throws SQLException
+     *             if a database access error occurs
+     * @since DbUtils 1.1
+     */"
+commons-dbutils_13,"@Test
+    public void testExecuteWithMultipleResultSets_oe() throws Exception {
+        when(call.execute()).thenReturn(true);
+        when(call.getMoreResults()).thenAnswer(new Answer<Boolean>()
+        {
+            int count = 1;
+            @Override
+            public Boolean answer(InvocationOnMock invocation)
+            {
+                return ++count <= 3;
+            }
+        });
+        when(meta.getParameterCount()).thenReturn(0);
+        List<Object[]> objects = runner.execute(""{call my_proc()}"", handler);
+
+        Assert.assertEquals(3, objects.size());
+        verify(call, times(1)).execute();
+        verify(results, times(3)).close();
+        verify(call, times(1)).close();    // make sure we closed the statement
+        verify(conn, times(1)).close();    // make sure we close the connection
+
+    }",QueryRunnerTest::testExecuteWithMultipleResultSets_oe,"public int execute(Connection conn, String sql, Object... params) throws SQLException {
+        return this.execute(conn, false, sql, params);
+    }","/**
+     * Execute an SQL statement, including a stored procedure call, which does
+     * not return any result sets.
+     * Any parameters which are instances of {@link OutParameter} will be
+     * registered as OUT parameters.
+     * <p>
+     * Use this method when invoking a stored procedure with OUT parameters
+     * that does not return any result sets.  If you are not invoking a stored
+     * procedure, or the stored procedure has no OUT parameters, consider using
+     * {@link #update(java.sql.Connection, java.lang.String, java.lang.Object...) }.
+     * If the stored procedure returns result sets, use
+     * {@link #execute(java.sql.Connection, java.lang.String, org.apache.commons.dbutils.ResultSetHandler, java.lang.Object...) }.
+     *
+     * @param conn The connection to use to run the query.
+     * @param sql The SQL to execute.
+     * @param params The query replacement parameters.
+     * @return The number of rows updated.
+     * @throws SQLException if a database access error occurs
+     */"
+commons-dbutils_14,"@Test
+    public void testFindsLocalColumnHandler_oe() {
+        boolean found = false;
+        for (ColumnHandler handler : columns) {
+            if (handler instanceof TestColumnHandler) {
+                found = true;
+            }
+        }
+
+        assertTrue(found);
+    }",ServiceLoaderTest::testFindsLocalColumnHandler_oe,,
+commons-dbutils_15,"@Test
+    public void testFindsLocalPropertyHandler_oe() {
+        boolean found = false;
+        for (PropertyHandler handler : properties) {
+            if (handler instanceof TestPropertyHandler) {
+                found = true;
+            }
+        }
+
+        assertTrue(found);
+    }",ServiceLoaderTest::testFindsLocalPropertyHandler_oe,,
+commons-dbutils_16,"@Test
+    public void testFindMoreThanLocalColumns_oe() {
+        int count = 0;
+        for (ColumnHandler handler : columns) {
+            count++;
+        }
+
+        assertTrue(count > 1);
+    }",ServiceLoaderTest::testFindMoreThanLocalColumns_oe,,
+commons-dbutils_17,"@Test
+    public void testFindMoreThanLocalProperties_oe() {
+        int count = 0;
+        for (PropertyHandler handler : properties) {
+            count++;
+        }
+
+        assertTrue(count > 1);
+    }",ServiceLoaderTest::testFindMoreThanLocalProperties_oe,,
+commons-dbutils_18,"@Test
+    public void commitAndCloseWithException_oe() throws Exception {
+        Connection mockConnection = mock(Connection.class);
+        doThrow(SQLException.class).when(mockConnection).commit();
+        try {
+            DbUtils.commitAndClose(mockConnection);
+            fail(""DbUtils.commitAndClose() swallowed SQLEception!"");
+        } catch (SQLException e) {
+        }
+        verify(mockConnection).close();
+    }",DbUtilsTest::commitAndCloseWithException_oe,,
+commons-dbutils_19,"@Test
+    public void rollbackAndCloseWithException_oe() throws Exception {
+        Connection mockConnection = mock(Connection.class);
+        doThrow(SQLException.class).when(mockConnection).rollback();
+        try {
+            DbUtils.rollbackAndClose(mockConnection);
+            fail(""DbUtils.rollbackAndClose() swallowed SQLException!"");
+        } catch (SQLException e) {
+        }
+        verify(mockConnection).rollback();
+        verify(mockConnection).close();
+    }",DbUtilsTest::rollbackAndCloseWithException_oe,,
+commons-dbutils_20,"@Test
+    public void testLoadDriverReturnsFalse_oe() {
+        
+        assertFalse(DbUtils.loadDriver(""""));
+
+    }",DbUtilsTest::testLoadDriverReturnsFalse_oe,"public static boolean loadDriver(String driverClassName) {
+        return loadDriver(DbUtils.class.getClassLoader(), driverClassName);
+    }","/**
+     * Loads and registers a database driver class.
+     * If this succeeds, it returns true, else it returns false.
+     *
+     * @param driverClassName of driver to load
+     * @return boolean <code>true</code> if the driver was found, otherwise <code>false</code>
+     */"
+commons-dbutils_21,"@Test
+    public void testSetValue_oe() throws Exception {
+        when(stmt.getObject(INDEX)).thenReturn(VALUE);
+
+        parameter.setValue(stmt, INDEX);
+
+        assertEquals(VALUE, parameter.getValue());
+    }",OutParameterTest::testSetValue_oe,"public T getValue() {
+        return value;
+    }","/**
+     * Get the value of the OUT parameter.  After the stored procedure has
+     * been executed, the value is the value returned via this parameter.
+     * @return the value of the OUT parameter.
+     */"
+commons-dbutils_22,"public void testCheckDataSizes_oe() {
+        assertEquals(""Row 1 must contain correct number of columns"", columnNames.length, row1.length);
+        assertEquals(""Row 1 must contain correct number of columns"", columnNames.length, row2.length);
+    }",BaseTestCase::testCheckDataSizes_oe,,
+commons-dbutils_23,"public void testResultSets_oe() throws Exception {
+        assertFalse(""emptyResultSet should be empty"", emptyResultSet.next());
+    }",BaseTestCase::testResultSets_oe,"@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }","/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_25,"public void testCreateConnection_oe() {
+        assertNotNull(ProxyFactory.instance().createConnection(stub));
+    }",ProxyFactoryTest::testCreateConnection_oe,"public static ProxyFactory instance() {
+        return instance;
+    }","/**
+     * Returns the Singleton instance of this class.
+     *
+     * @return singleton instance
+     */"
+commons-dbutils_26,"public void testCreateDriver_oe() {
+        assertNotNull(ProxyFactory.instance().createDriver(stub));
+    }",ProxyFactoryTest::testCreateDriver_oe,"public static ProxyFactory instance() {
+        return instance;
+    }","/**
+     * Returns the Singleton instance of this class.
+     *
+     * @return singleton instance
+     */"
+commons-dbutils_27,"public void testCreatePreparedStatement_oe() {
+        assertNotNull(ProxyFactory.instance().createPreparedStatement(stub));
+    }",ProxyFactoryTest::testCreatePreparedStatement_oe,"public static ProxyFactory instance() {
+        return instance;
+    }","/**
+     * Returns the Singleton instance of this class.
+     *
+     * @return singleton instance
+     */"
+commons-dbutils_28,"public void testCreateResultSet_oe() {
+        assertNotNull(ProxyFactory.instance().createResultSet(stub));
+    }",ProxyFactoryTest::testCreateResultSet_oe,"public static ProxyFactory instance() {
+        return instance;
+    }","/**
+     * Returns the Singleton instance of this class.
+     *
+     * @return singleton instance
+     */"
+commons-dbutils_29,"public void testCreateResultSetMetaData_oe() {
+        assertNotNull(ProxyFactory.instance().createResultSetMetaData(stub));
+    }",ProxyFactoryTest::testCreateResultSetMetaData_oe,"public static ProxyFactory instance() {
+        return instance;
+    }","/**
+     * Returns the Singleton instance of this class.
+     *
+     * @return singleton instance
+     */"
+commons-dbutils_30,"public void testCreateStatement_oe() {
+        assertNotNull(ProxyFactory.instance().createStatement(stub));
+    }",ProxyFactoryTest::testCreateStatement_oe,"public static ProxyFactory instance() {
+        return instance;
+    }","/**
+     * Returns the Singleton instance of this class.
+     *
+     * @return singleton instance
+     */"
+commons-dbutils_31,"public void testCreateCallableStatement_oe() {
+        assertNotNull(ProxyFactory.instance().createCallableStatement(stub));
+    }",ProxyFactoryTest::testCreateCallableStatement_oe,"public static ProxyFactory instance() {
+        return instance;
+    }","/**
+     * Returns the Singleton instance of this class.
+     *
+     * @return singleton instance
+     */"
+commons-dbutils_32,"public void testNext_oe() {
+
+        Iterator<Object[]> iter = new ResultSetIterator(this.rs);
+
+        Object[] row = null;
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.length);
+        assertEquals(""1"", row[0]);
+        assertEquals(""2"", row[1]);
+        assertEquals(""THREE"", row[2]);
+
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.length);
+
+        assertEquals(""4"", row[0]);
+        assertEquals(""5"", row[1]);
+        assertEquals(""SIX"", row[2]);
+
+        assertFalse(iter.hasNext());
+    }",ResultSetIteratorTest::testNext_oe,"@Override
+    public boolean hasNext() {
+        try {
+            return !rs.isLast();
+        } catch (SQLException e) {
+            rethrow(e);
+            return false;
+        }
+    }
+
+@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }","/**
+     * Returns true if there are more rows in the ResultSet.
+     * @return boolean <code>true</code> if there are more rows
+     * @throws RuntimeException if an SQLException occurs.
+     */
+
+/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_34,"public void testToArray_oe() throws SQLException {
+
+        Object[] a = null;
+        assertTrue(this.rs.next());
+        a = processor.toArray(this.rs);
+        assertEquals(COLS, a.length);
+        assertEquals(""1"", a[0]);
+        assertEquals(""2"", a[1]);
+        assertEquals(""THREE"", a[2]);
+
+        assertTrue(this.rs.next());
+        a = processor.toArray(this.rs);
+        assertEquals(COLS, a.length);
+
+        assertEquals(""4"", a[0]);
+        assertEquals(""5"", a[1]);
+        assertEquals(""SIX"", a[2]);
+
+        assertFalse(this.rs.next());
+    }",BasicRowProcessorTest::testToArray_oe,"@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }","/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_35,"public void testToBean_oe() throws SQLException, ParseException {
+
+        TestBean row = null;
+        assertTrue(this.rs.next());
+        row = processor.toBean(this.rs, TestBean.class);
+        assertEquals(""1"", row.getOne());
+        assertEquals(""2"", row.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, row.getThree());
+        assertEquals(""not set"", row.getDoNotSet());
+
+        assertTrue(this.rs.next());
+        row = processor.toBean(this.rs, TestBean.class);
+
+        assertEquals(""4"", row.getOne());
+        assertEquals(""5"", row.getTwo());
+        assertEquals(TestBean.Ordinal.SIX, row.getThree());
+        assertEquals(""not set"", row.getDoNotSet());
+        assertEquals(3, row.getIntTest());
+        assertEquals(Integer.valueOf(4), row.getIntegerTest());
+        assertEquals(null, row.getNullObjectTest());
+        assertEquals(0, row.getNullPrimitiveTest());
+        assertNotNull(row.getNotDate());
+        assertTrue(!""not a date"".equals(row.getNotDate()));
+        assertTrue(row.getNotDate().endsWith(""789456123""));
+
+        assertFalse(this.rs.next());
+
+    }",BasicRowProcessorTest::testToBean_oe,"@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }","/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_36,"public void testToBeanList_oe() throws SQLException, ParseException {
+
+        List<TestBean> list = processor.toBeanList(this.rs, TestBean.class);
+        assertNotNull(list);
+        assertEquals(ROWS, list.size());
+
+        TestBean b = list.get(0);
+        assertEquals(""1"", b.getOne());
+        assertEquals(""2"", b.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, b.getThree());
+        assertEquals(""not set"", b.getDoNotSet());
+        datef.parse(b.getNotDate());
+
+        b = list.get(1);
+        assertEquals(""4"", b.getOne());
+        assertEquals(""5"", b.getTwo());
+        assertEquals(TestBean.Ordinal.SIX, b.getThree());
+        assertEquals(""not set"", b.getDoNotSet());
+        assertEquals(3, b.getIntTest());
+        assertEquals(Integer.valueOf(4), b.getIntegerTest());
+        assertEquals(null, b.getNullObjectTest());
+        assertEquals(0, b.getNullPrimitiveTest());
+        assertNotNull(b.getNotDate());
+        assertTrue(!""not a date"".equals(b.getNotDate()));
+        assertTrue(b.getNotDate().endsWith(""789456123""));
+    }",BasicRowProcessorTest::testToBeanList_oe,"@Override
+    public <T> List<T> toBeanList(ResultSet rs, Class<? extends T> type) throws SQLException {
+        return this.convert.toBeanList(rs, type);
+    }
+
+@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }","/**
+     * Convert a <code>ResultSet</code> into a <code>List</code> of JavaBeans.
+     * This implementation delegates to a BeanProcessor instance.
+     * @see org.apache.commons.dbutils.RowProcessor#toBeanList(java.sql.ResultSet, java.lang.Class)
+     * @see org.apache.commons.dbutils.BeanProcessor#toBeanList(java.sql.ResultSet, java.lang.Class)
+     * @param <T> The type of bean to create
+     * @param rs ResultSet that supplies the bean data
+     * @param type Class from which to create the bean instance
+     * @throws SQLException if a database access error occurs
+     * @return A <code>List</code> of beans with the given type in the order
+     * they were returned by the <code>ResultSet</code>.
+     */
+
+/** {@inheritDoc} */"
+commons-dbutils_37,"public void testToMap_oe() throws SQLException {
+
+        assertTrue(this.rs.next());
+        Map<String, Object> m = processor.toMap(this.rs);
+        assertEquals(COLS, m.keySet().size());
+        assertEquals(""1"", m.get(""one""));
+        assertEquals(""2"", m.get(""TWO""));
+        assertEquals(""THREE"", m.get(""Three""));
+
+        assertTrue(this.rs.next());
+        m = processor.toMap(this.rs);
+        assertEquals(COLS, m.keySet().size());
+
+        assertEquals(""4"",m.get(""One""));// case shouldn't matter assertEquals(""5"",m.get(""two""));
+        assertEquals(""SIX"", m.get(""THREE""));
+
+        assertFalse(this.rs.next());
+    }",BasicRowProcessorTest::testToMap_oe,"@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }","/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_38,"public void testToMapOrdering_oe() throws SQLException {
+
+        assertTrue(this.rs.next());
+        Map<String, Object> m = processor.toMap(this.rs);
+
+        Iterator<String> itr = m.keySet().iterator();
+        assertEquals(""one"", itr.next());
+        assertEquals(""two"", itr.next());
+        assertEquals(""three"", itr.next());
+        assertEquals(""notInBean"", itr.next());
+        assertEquals(""intTest"", itr.next());
+        assertEquals(""integerTest"", itr.next());
+        assertEquals(""nullObjectTest"", itr.next());
+        assertEquals(""nullPrimitiveTest"", itr.next());
+        assertEquals(""notDate"", itr.next());
+        assertEquals(""columnProcessorDoubleTest"", itr.next());
+
+        assertFalse(itr.hasNext());
+    }",BasicRowProcessorTest::testToMapOrdering_oe,"@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }","/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_39,"@Test
+    public void testEmptyBuilder_oe() {
+        StatementConfiguration config = new StatementConfiguration.Builder().build();
+
+        assertFalse(config.isFetchDirectionSet());
+        assertFalse(config.isFetchSizeSet());
+        assertFalse(config.isMaxFieldSizeSet());
+        assertFalse(config.isMaxRowsSet());
+        assertFalse(config.isQueryTimeoutSet());
+    }",StatementConfigurationTest::testEmptyBuilder_oe,"public boolean isFetchDirectionSet() {
+        return fetchDirection != null;
+    }
+
+public boolean isFetchSizeSet() {
+        return fetchSize != null;
+    }
+
+public boolean isMaxFieldSizeSet() {
+        return maxFieldSize != null;
+    }
+
+public boolean isMaxRowsSet() {
+        return maxRows != null;
+    }
+
+public boolean isQueryTimeoutSet() {
+        return queryTimeout != null;
+    }","/**
+     * Whether fetch direction is set.
+     *
+     * @return true if set, false otherwise.
+     */
+
+/**
+     * Whether fetch size is set.
+     *
+     * @return true if set, false otherwise.
+     */
+
+/**
+     * Whether max field size is set.
+     *
+     * @return true if set, false otherwise.
+     */
+
+/**
+     * Whether max rows is set.
+     *
+     * @return true if set, false otherwise.
+     */
+
+/**
+     * Whether query timeout is set.
+     *
+     * @return true if set, false otherwise.
+     */"
+commons-dbutils_40,"@Test
+    public void testBuilder_oe() {
+        StatementConfiguration.Builder builder = new StatementConfiguration.Builder()
+                .fetchDirection(1)
+                .fetchSize(2)
+                .maxFieldSize(3)
+                .maxRows(4)
+                .queryTimeout(5);
+        StatementConfiguration config = builder.build();
+
+        assertTrue(config.isFetchDirectionSet());
+        assertEquals(Integer.valueOf(1), config.getFetchDirection());
+
+        assertTrue(config.isFetchSizeSet());
+        assertEquals(Integer.valueOf(2), config.getFetchSize());
+
+        assertTrue(config.isMaxFieldSizeSet());
+        assertEquals(Integer.valueOf(3), config.getMaxFieldSize());
+
+        assertTrue(config.isMaxRowsSet());
+        assertEquals(Integer.valueOf(4), config.getMaxRows());
+
+        assertTrue(config.isQueryTimeoutSet());
+        assertEquals(Integer.valueOf(5), config.getQueryTimeout());
+    }",StatementConfigurationTest::testBuilder_oe,"public boolean isFetchDirectionSet() {
+        return fetchDirection != null;
+    }
+
+public StatementConfiguration build() {
+            return new StatementConfiguration(fetchDirection, fetchSize, maxFieldSize, maxRows, queryTimeout);
+        }
+
+public boolean isFetchSizeSet() {
+        return fetchSize != null;
+    }
+
+public boolean isMaxFieldSizeSet() {
+        return maxFieldSize != null;
+    }
+
+public boolean isMaxRowsSet() {
+        return maxRows != null;
+    }
+
+public boolean isQueryTimeoutSet() {
+        return queryTimeout != null;
+    }","/**
+     * Whether fetch direction is set.
+     *
+     * @return true if set, false otherwise.
+     */
+
+
+
+/**
+     * Whether fetch size is set.
+     *
+     * @return true if set, false otherwise.
+     */
+
+/**
+     * Whether max field size is set.
+     *
+     * @return true if set, false otherwise.
+     */
+
+/**
+     * Whether max rows is set.
+     *
+     * @return true if set, false otherwise.
+     */
+
+/**
+     * Whether query timeout is set.
+     *
+     * @return true if set, false otherwise.
+     */"
+commons-dbutils_41,"@Test
+    public void testConstructor_oe() {
+        StatementConfiguration config = new StatementConfiguration(1, 2, 3, 4, 5);
+
+        assertEquals(Integer.valueOf(1), config.getFetchDirection());
+        assertEquals(Integer.valueOf(2), config.getFetchSize());
+        assertEquals(Integer.valueOf(3), config.getMaxFieldSize());
+        assertEquals(Integer.valueOf(4), config.getMaxRows());
+        assertEquals(Integer.valueOf(5), config.getQueryTimeout());
+    }",StatementConfigurationTest::testConstructor_oe,,
+commons-dbutils_42,"public void testGetString_oe() throws SQLException {
+        this.rs.next();
+        assertEquals(""notInBean"", rs.getString(4));
+    }",StringTrimmedResultSetTest::testGetString_oe,"protected final String getString(int columnIndex) throws SQLException {
+        return rs.getString(columnIndex);
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getString(int)
+     */"
+commons-dbutils_43,"public void testGetObject_oe() throws SQLException {
+        this.rs.next();
+        assertEquals(""notInBean"", rs.getObject(4));
+    }",StringTrimmedResultSetTest::testGetObject_oe,"protected final Object getObject(int columnIndex, Map<String, Class<?>> map) throws SQLException {
+        return rs.getObject(columnIndex, map);
+    }","/**
+     * @param columnIndex
+     * @param map
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getObject(int, java.util.Map)
+     */"
+commons-dbutils_44,"public void testMultipleWrappers_oe() throws Exception {
+        Object[][] rows = new Object[][] { { null }
+        };
+        ResultSet rs = MockResultSet.create(metaData, rows);
+
+        SqlNullCheckedResultSet ncrs = new SqlNullCheckedResultSet(rs);
+        ncrs.setNullString(""   trim this   "");
+        rs = ProxyFactory.instance().createResultSet(ncrs);
+
+        rs = StringTrimmedResultSet.wrap(rs);
+
+        rs.next();
+        assertEquals(""trim this"", rs.getString(1));
+    }",StringTrimmedResultSetTest::testMultipleWrappers_oe,"protected final String getString(int columnIndex) throws SQLException {
+        return rs.getString(columnIndex);
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getString(int)
+     */"
+commons-dbutils_45,"public void testGetAsciiStream_oe() throws SQLException {
+
+        assertNull(rs.getAsciiStream(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getAsciiStream(""column""));
+        assertTrue(rs.wasNull());
+        InputStream stream = new ByteArrayInputStream(new byte[0]);
+        rs2.setNullAsciiStream(stream);
+        assertNotNull(rs.getAsciiStream(1));
+        assertEquals(stream, rs.getAsciiStream(1));
+        assertNotNull(rs.getAsciiStream(""column""));
+        assertEquals(stream, rs.getAsciiStream(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetAsciiStream_oe,"protected final InputStream getAsciiStream(int columnIndex) throws SQLException {
+        return rs.getAsciiStream(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getAsciiStream(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_46,"public void testGetBigDecimal_oe() throws SQLException {
+
+        assertNull(rs.getBigDecimal(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getBigDecimal(""column""));
+        assertTrue(rs.wasNull());
+        BigDecimal bd = new BigDecimal(5.0);
+        rs2.setNullBigDecimal(bd);
+        assertNotNull(rs.getBigDecimal(1));
+        assertEquals(bd, rs.getBigDecimal(1));
+        assertNotNull(rs.getBigDecimal(""column""));
+        assertEquals(bd, rs.getBigDecimal(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetBigDecimal_oe,"@Deprecated
+    protected final BigDecimal getBigDecimal(int columnIndex, int scale) throws SQLException {
+        return rs.getBigDecimal(columnIndex, scale);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @param scale
+     * @return
+     * @throws SQLException
+     * @deprecated
+     * @see java.sql.ResultSet#getBigDecimal(int, int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_47,"public void testGetBinaryStream_oe() throws SQLException {
+
+        assertNull(rs.getBinaryStream(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getBinaryStream(""column""));
+        assertTrue(rs.wasNull());
+        InputStream stream = new ByteArrayInputStream(new byte[0]);
+        rs2.setNullBinaryStream(stream);
+        assertNotNull(rs.getBinaryStream(1));
+        assertEquals(stream, rs.getBinaryStream(1));
+        assertNotNull(rs.getBinaryStream(""column""));
+        assertEquals(stream, rs.getBinaryStream(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetBinaryStream_oe,"protected final InputStream getBinaryStream(int columnIndex) throws SQLException {
+        return rs.getBinaryStream(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getBinaryStream(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_48,"public void testGetBlob_oe() throws SQLException {
+
+        assertNull(rs.getBlob(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getBlob(""column""));
+        assertTrue(rs.wasNull());
+        Blob blob = new SqlNullCheckedResultSetMockBlob();
+        rs2.setNullBlob(blob);
+        assertNotNull(rs.getBlob(1));
+        assertEquals(blob, rs.getBlob(1));
+        assertNotNull(rs.getBlob(""column""));
+        assertEquals(blob, rs.getBlob(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetBlob_oe,"protected final Blob getBlob(int columnIndex) throws SQLException {
+        return rs.getBlob(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getBlob(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_49,"public void testGetBoolean_oe() throws SQLException {
+
+        assertEquals(false, rs.getBoolean(1));
+        assertTrue(rs.wasNull());
+        assertEquals(false, rs.getBoolean(""column""));
+        assertTrue(rs.wasNull());
+        rs2.setNullBoolean(true);
+        assertEquals(true, rs.getBoolean(1));
+        assertEquals(true, rs.getBoolean(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetBoolean_oe,"protected final boolean getBoolean(int columnIndex) throws SQLException {
+        return rs.getBoolean(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getBoolean(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_50,"public void testGetByte_oe() throws SQLException {
+
+        assertEquals((byte) 0, rs.getByte(1));
+        assertTrue(rs.wasNull());
+        assertEquals((byte) 0, rs.getByte(""column""));
+        assertTrue(rs.wasNull());
+        byte b = (byte) 10;
+        rs2.setNullByte(b);
+        assertEquals(b, rs.getByte(1));
+        assertEquals(b, rs.getByte(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetByte_oe,"protected final byte getByte(int columnIndex) throws SQLException {
+        return rs.getByte(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getByte(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_51,"public void testGetBytes_oe() throws SQLException {
+
+        assertNull(rs.getBytes(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getBytes(""column""));
+        assertTrue(rs.wasNull());
+        byte[] b = new byte[5];
+        for (int i = 0; i < 5; i++) {
+            b[0] = (byte) i;
+        }
+        rs2.setNullBytes(b);
+        assertNotNull(rs.getBytes(1));
+        assertArrayEquals(b, rs.getBytes(1));
+        assertNotNull(rs.getBytes(""column""));
+        assertArrayEquals(b, rs.getBytes(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetBytes_oe,"protected final byte[] getBytes(int columnIndex) throws SQLException {
+        return rs.getBytes(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getBytes(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_52,"public void testGetCharacterStream_oe() throws SQLException {
+
+        assertNull(rs.getCharacterStream(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getCharacterStream(""column""));
+        assertTrue(rs.wasNull());
+        Reader reader = new CharArrayReader(""this is a string"".toCharArray());
+        rs2.setNullCharacterStream(reader);
+        assertNotNull(rs.getCharacterStream(1));
+        assertEquals(reader, rs.getCharacterStream(1));
+        assertNotNull(rs.getCharacterStream(""column""));
+        assertEquals(reader, rs.getCharacterStream(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetCharacterStream_oe,"protected final Reader getCharacterStream(int columnIndex) throws SQLException {
+        return rs.getCharacterStream(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getCharacterStream(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_53,"public void testGetClob_oe() throws SQLException {
+
+        assertNull(rs.getClob(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getClob(""column""));
+        assertTrue(rs.wasNull());
+        Clob clob = new SqlNullCheckedResultSetMockClob();
+        rs2.setNullClob(clob);
+        assertNotNull(rs.getClob(1));
+        assertEquals(clob, rs.getClob(1));
+        assertNotNull(rs.getClob(""column""));
+        assertEquals(clob, rs.getClob(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetClob_oe,"protected final Clob getClob(int columnIndex) throws SQLException {
+        return rs.getClob(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getClob(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_54,"public void testGetDate_oe() throws SQLException {
+
+        assertNull(rs.getDate(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getDate(""column""));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getDate(1, Calendar.getInstance()));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getDate(""column"", Calendar.getInstance()));
+        assertTrue(rs.wasNull());
+        java.sql.Date date = new java.sql.Date(new java.util.Date().getTime());
+        rs2.setNullDate(date);
+        assertNotNull(rs.getDate(1));
+        assertEquals(date, rs.getDate(1));
+        assertNotNull(rs.getDate(""column""));
+        assertEquals(date, rs.getDate(""column""));
+        assertNotNull(rs.getDate(1, Calendar.getInstance()));
+        assertEquals(date, rs.getDate(1, Calendar.getInstance()));
+        assertNotNull(rs.getDate(""column"", Calendar.getInstance()));
+        assertEquals(date, rs.getDate(""column"", Calendar.getInstance()));
+
+    }",SqlNullCheckedResultSetTest::testGetDate_oe,"protected final Date getDate(int columnIndex, Calendar cal) throws SQLException {
+        return rs.getDate(columnIndex, cal);
+    }
+
+public void setNullDate(Date nullDate) {
+        this.nullDate = nullDate != null ? new Date(nullDate.getTime()) : null;
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }
+
+","/**
+     * @param columnIndex
+     * @param cal
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getDate(int, java.util.Calendar)
+     */
+
+/**
+     * Sets the value to return when a SQL null is encountered as the result of
+     * invoking a <code>getDate</code> method.
+     *
+     * @param nullDate the value
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */
+
+"
+commons-dbutils_55,"public void testGetDouble_oe() throws SQLException {
+
+        assertEquals(0.0, rs.getDouble(1), 0.0);
+        assertTrue(rs.wasNull());
+        assertEquals(0.0, rs.getDouble(""column""), 0.0);
+        assertTrue(rs.wasNull());
+        double d = 10.0;
+        rs2.setNullDouble(d);
+        assertEquals(d, rs.getDouble(1), 0.0);
+        assertEquals(d, rs.getDouble(""column""), 0.0);
+
+    }",SqlNullCheckedResultSetTest::testGetDouble_oe,"protected final double getDouble(int columnIndex) throws SQLException {
+        return rs.getDouble(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getDouble(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_56,"public void testGetFloat_oe() throws SQLException {
+        assertEquals(0, rs.getFloat(1), 0.0);
+        assertTrue(rs.wasNull());
+        assertEquals(0, rs.getFloat(""column""), 0.0);
+        assertTrue(rs.wasNull());
+        float f = 10;
+        rs2.setNullFloat(f);
+        assertEquals(f, rs.getFloat(1), 0.0);
+        assertEquals(f, rs.getFloat(""column""), 0.0);
+    }",SqlNullCheckedResultSetTest::testGetFloat_oe,"protected final float getFloat(int columnIndex) throws SQLException {
+        return rs.getFloat(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getFloat(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_57,"public void testGetInt_oe() throws SQLException {
+        assertEquals(0, rs.getInt(1));
+        assertTrue(rs.wasNull());
+        assertEquals(0, rs.getInt(""column""));
+        assertTrue(rs.wasNull());
+        int i = 10;
+        rs2.setNullInt(i);
+        assertEquals(i, rs.getInt(1));
+        assertEquals(i, rs.getInt(""column""));
+    }",SqlNullCheckedResultSetTest::testGetInt_oe,"protected final int getInt(int columnIndex) throws SQLException {
+        return rs.getInt(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getInt(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_58,"public void testGetLong_oe() throws SQLException {
+        assertEquals(0, rs.getLong(1));
+        assertTrue(rs.wasNull());
+        assertEquals(0, rs.getLong(""column""));
+        assertTrue(rs.wasNull());
+        long l = 10;
+        rs2.setNullLong(l);
+        assertEquals(l, rs.getLong(1));
+        assertEquals(l, rs.getLong(""column""));
+    }",SqlNullCheckedResultSetTest::testGetLong_oe,"protected final long getLong(int columnIndex) throws SQLException {
+        return rs.getLong(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getLong(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_59,"public void testGetObject_oe() throws SQLException {
+
+        assertNull(rs.getObject(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getObject(""column""));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getObject(1, (Map<String, Class<?>>) null));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getObject(""column"", (Map<String, Class<?>>) null));
+        assertTrue(rs.wasNull());
+        Object o = new Object();
+        rs2.setNullObject(o);
+        assertNotNull(rs.getObject(1));
+        assertEquals(o, rs.getObject(1));
+        assertNotNull(rs.getObject(""column""));
+        assertEquals(o, rs.getObject(""column""));
+        assertNotNull(rs.getObject(1, (Map<String, Class<?>>) null));
+        assertEquals(o, rs.getObject(1, (Map<String, Class<?>>) null));
+        assertNotNull(rs.getObject(""column"", (Map<String, Class<?>>) null));
+        assertEquals(o, rs.getObject(""column"", (Map<String, Class<?>>) null));
+
+    }",SqlNullCheckedResultSetTest::testGetObject_oe,"protected final Object getObject(int columnIndex, Map<String, Class<?>> map) throws SQLException {
+        return rs.getObject(columnIndex, map);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @param map
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getObject(int, java.util.Map)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_60,"public void testGetRef_oe() throws SQLException {
+
+        assertNull(rs.getRef(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getRef(""column""));
+        assertTrue(rs.wasNull());
+        Ref ref = new SqlNullCheckedResultSetMockRef();
+        rs2.setNullRef(ref);
+        assertNotNull(rs.getRef(1));
+        assertEquals(ref, rs.getRef(1));
+        assertNotNull(rs.getRef(""column""));
+        assertEquals(ref, rs.getRef(""column""));
+
+    }",SqlNullCheckedResultSetTest::testGetRef_oe,"protected final Ref getRef(int columnIndex) throws SQLException {
+        return rs.getRef(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getRef(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_61,"public void testGetShort_oe() throws SQLException {
+
+        assertEquals((short) 0, rs.getShort(1));
+        assertTrue(rs.wasNull());
+        assertEquals((short) 0, rs.getShort(""column""));
+        assertTrue(rs.wasNull());
+        short s = (short) 10;
+        rs2.setNullShort(s);
+        assertEquals(s, rs.getShort(1));
+        assertEquals(s, rs.getShort(""column""));
+    }",SqlNullCheckedResultSetTest::testGetShort_oe,"protected final short getShort(int columnIndex) throws SQLException {
+        return rs.getShort(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getShort(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_62,"public void testGetString_oe() throws SQLException {
+        assertEquals(null, rs.getString(1));
+        assertTrue(rs.wasNull());
+        assertEquals(null, rs.getString(""column""));
+        assertTrue(rs.wasNull());
+        String s = ""hello, world"";
+        rs2.setNullString(s);
+        assertEquals(s, rs.getString(1));
+        assertEquals(s, rs.getString(""column""));
+    }",SqlNullCheckedResultSetTest::testGetString_oe,"protected final String getString(int columnIndex) throws SQLException {
+        return rs.getString(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getString(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_63,"public void testGetTime_oe() throws SQLException {
+
+        assertNull(rs.getTime(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getTime(""column""));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getTime(1, Calendar.getInstance()));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getTime(""column"", Calendar.getInstance()));
+        assertTrue(rs.wasNull());
+        Time time = new Time(new java.util.Date().getTime());
+        rs2.setNullTime(time);
+        assertNotNull(rs.getTime(1));
+        assertEquals(time, rs.getTime(1));
+        assertNotNull(rs.getTime(""column""));
+        assertEquals(time, rs.getTime(""column""));
+        assertNotNull(rs.getTime(1, Calendar.getInstance()));
+        assertEquals(time, rs.getTime(1, Calendar.getInstance()));
+        assertNotNull(rs.getTime(""column"", Calendar.getInstance()));
+        assertEquals(time, rs.getTime(""column"", Calendar.getInstance()));
+
+    }",SqlNullCheckedResultSetTest::testGetTime_oe,"protected final Time getTime(int columnIndex, Calendar cal) throws SQLException {
+        return rs.getTime(columnIndex, cal);
+    }
+
+public void setNullTime(Time nullTime) {
+        this.nullTime = nullTime;
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }
+
+","/**
+     * @param columnIndex
+     * @param cal
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getTime(int, java.util.Calendar)
+     */
+
+/**
+     * Sets the value to return when a SQL null is encountered as the result of
+     * invoking a <code>getTime</code> method.
+     *
+     * @param nullTime the value
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */
+
+"
+commons-dbutils_64,"public void testGetTimestamp_oe() throws SQLException {
+
+        assertNull(rs.getTimestamp(1));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getTimestamp(""column""));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getTimestamp(1, Calendar.getInstance()));
+        assertTrue(rs.wasNull());
+        assertNull(rs.getTimestamp(""column"", Calendar.getInstance()));
+        assertTrue(rs.wasNull());
+        Timestamp ts = new Timestamp(new java.util.Date().getTime());
+        rs2.setNullTimestamp(ts);
+        assertNotNull(rs.getTimestamp(1));
+        assertEquals(ts, rs.getTimestamp(1));
+        assertNotNull(rs.getTimestamp(""column""));
+        assertEquals(ts, rs.getTimestamp(""column""));
+        assertNotNull(rs.getTimestamp(1, Calendar.getInstance()));
+        assertEquals(ts, rs.getTimestamp(1, Calendar.getInstance()));
+        assertNotNull(rs.getTimestamp(""column"", Calendar.getInstance()));
+        assertEquals(ts, rs.getTimestamp(""column"", Calendar.getInstance()));
+    }",SqlNullCheckedResultSetTest::testGetTimestamp_oe,"protected final Timestamp getTimestamp(int columnIndex, Calendar cal) throws SQLException {
+        return rs.getTimestamp(columnIndex, cal);
+    }
+
+public void setNullTimestamp(Timestamp nullTimestamp) {
+        this.nullTimestamp = nullTimestamp != null ? new Timestamp(nullTimestamp.getTime()) : null;
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }
+
+","/**
+     * @param columnIndex
+     * @param cal
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getTimestamp(int, java.util.Calendar)
+     */
+
+/**
+     * Sets the value to return when a SQL null is encountered as the result of
+     * invoking a <code>getTimestamp</code> method.
+     *
+     * @param nullTimestamp the value
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */
+
+"
+commons-dbutils_65,"public void testURL_oe() throws SQLException, MalformedURLException,
+            IllegalAccessException, IllegalArgumentException,
+            java.lang.reflect.InvocationTargetException
+    {
+        Method getUrlInt = null;
+        Method getUrlString = null;
+        try {
+            getUrlInt = ResultSet.class.getMethod(""getURL"",
+                        new Class[] { Integer.TYPE } );
+            getUrlString = ResultSet.class.getMethod(""getURL"",
+                           new Class[] { String.class } );
+        } catch(NoSuchMethodException e) {
+        } catch(SecurityException e) {
+        }
+        if (getUrlInt != null && getUrlString != null) {
+            assertEquals(null, getUrlInt.invoke(rs,
+                         new Object[] { Integer.valueOf(1) } ) );
+            assertTrue(rs.wasNull());
+            assertEquals(null, getUrlString.invoke(rs,
+                         new Object[] { ""column"" } ) );
+            assertTrue(rs.wasNull());
+            URL u = new URL(""http://www.apache.org"");
+            rs2.setNullURL(u);
+            assertEquals(u, getUrlInt.invoke(rs,
+                         new Object[] { Integer.valueOf(1) } ) );
+            assertEquals(u, getUrlString.invoke(rs,
+                         new Object[] { ""column"" } ) );
+        }
+    }",SqlNullCheckedResultSetTest::testURL_oe,"@Override
+    public Object invoke(Object proxy, Method method, Object[] args)
+        throws Throwable {
+
+        Object result = method.invoke(this.rs, args);
+
+        Method nullMethod = nullMethods.get(method.getName());
+
+        // Check nullMethod != null first so that we don't call wasNull()
+        // before a true getter method was invoked on the ResultSet.
+        return (nullMethod != null && this.rs.wasNull())
+            ? nullMethod.invoke(this, (Object[]) null)
+            : result;
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * Intercepts calls to <code>get*</code> methods and calls the appropriate
+     * <code>getNull*</code> method if the <code>ResultSet</code> returned
+     * <code>null</code>.
+     *
+     *  @see java.lang.reflect.InvocationHandler#invoke(java.lang.Object, java.lang.reflect.Method, java.lang.Object[])
+     * @param proxy Not used; all method calls go to the internal result set
+     * @param method The method to invoke on the result set
+     * @param args The arguments to pass to the result set
+     * @return null checked result
+     * @throws Throwable error
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_66,"public void testSetNullAsciiStream_oe() throws SQLException {
+
+        assertNull(rs2.getNullAsciiStream());
+        InputStream stream = new ByteArrayInputStream(new byte[0]);
+        rs2.setNullAsciiStream(stream);
+        assertNotNull(rs.getAsciiStream(1));
+        assertEquals(stream, rs.getAsciiStream(1));
+        assertNotNull(rs.getAsciiStream(""column""));
+        assertEquals(stream, rs.getAsciiStream(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullAsciiStream_oe,"public InputStream getNullAsciiStream() {
+        return this.nullAsciiStream;
+    }
+
+protected final InputStream getAsciiStream(int columnIndex) throws SQLException {
+        return rs.getAsciiStream(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getAsciiStream</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getAsciiStream(int)
+     */"
+commons-dbutils_67,"public void testSetNullBigDecimal_oe() throws SQLException {
+
+        assertNull(rs2.getNullBigDecimal());
+        BigDecimal bd = new BigDecimal(5.0);
+        rs2.setNullBigDecimal(bd);
+        assertNotNull(rs.getBigDecimal(1));
+        assertEquals(bd, rs.getBigDecimal(1));
+        assertNotNull(rs.getBigDecimal(""column""));
+        assertEquals(bd, rs.getBigDecimal(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullBigDecimal_oe,"public BigDecimal getNullBigDecimal() {
+        return this.nullBigDecimal;
+    }
+
+@Deprecated
+    protected final BigDecimal getBigDecimal(int columnIndex, int scale) throws SQLException {
+        return rs.getBigDecimal(columnIndex, scale);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getBigDecimal</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @param scale
+     * @return
+     * @throws SQLException
+     * @deprecated
+     * @see java.sql.ResultSet#getBigDecimal(int, int)
+     */"
+commons-dbutils_68,"public void testSetNullBinaryStream_oe() throws SQLException {
+
+        assertNull(rs2.getNullBinaryStream());
+        InputStream stream = new ByteArrayInputStream(new byte[0]);
+        rs2.setNullBinaryStream(stream);
+        assertNotNull(rs.getBinaryStream(1));
+        assertEquals(stream, rs.getBinaryStream(1));
+        assertNotNull(rs.getBinaryStream(""column""));
+        assertEquals(stream, rs.getBinaryStream(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullBinaryStream_oe,"public InputStream getNullBinaryStream() {
+        return this.nullBinaryStream;
+    }
+
+protected final InputStream getBinaryStream(int columnIndex) throws SQLException {
+        return rs.getBinaryStream(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getBinaryStream</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getBinaryStream(int)
+     */"
+commons-dbutils_69,"public void testSetNullBlob_oe() throws SQLException {
+
+        assertNull(rs2.getNullBlob());
+        Blob blob = new SqlNullCheckedResultSetMockBlob();
+        rs2.setNullBlob(blob);
+        assertNotNull(rs.getBlob(1));
+        assertEquals(blob, rs.getBlob(1));
+        assertNotNull(rs.getBlob(""column""));
+        assertEquals(blob, rs.getBlob(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullBlob_oe,"public Blob getNullBlob() {
+        return this.nullBlob;
+    }
+
+protected final Blob getBlob(int columnIndex) throws SQLException {
+        return rs.getBlob(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getBlob</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getBlob(int)
+     */"
+commons-dbutils_70,"public void testSetNullBoolean_oe() throws SQLException {
+
+        assertEquals(false, rs2.getNullBoolean());
+        rs2.setNullBoolean(true);
+        assertEquals(true, rs.getBoolean(1));
+        assertEquals(true, rs.getBoolean(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullBoolean_oe,"public boolean getNullBoolean() {
+        return this.nullBoolean;
+    }
+
+protected final boolean getBoolean(int columnIndex) throws SQLException {
+        return rs.getBoolean(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getBoolean</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getBoolean(int)
+     */"
+commons-dbutils_71,"public void testSetNullByte_oe() throws SQLException {
+
+        assertEquals((byte) 0, rs2.getNullByte());
+        byte b = (byte) 10;
+        rs2.setNullByte(b);
+        assertEquals(b, rs.getByte(1));
+        assertEquals(b, rs.getByte(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullByte_oe,"public byte getNullByte() {
+        return this.nullByte;
+    }
+
+protected final byte getByte(int columnIndex) throws SQLException {
+        return rs.getByte(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getByte</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getByte(int)
+     */"
+commons-dbutils_72,"public void testSetNullBytes_oe() throws SQLException {
+
+        assertNull(rs2.getNullBytes());
+        byte[] b = new byte[5];
+        for (int i = 0; i < 5; i++) {
+            b[0] = (byte) i;
+        }
+        rs2.setNullBytes(b);
+        assertNotNull(rs.getBytes(1));
+        assertArrayEquals(b, rs.getBytes(1));
+        assertNotNull(rs.getBytes(""column""));
+        assertArrayEquals(b, rs.getBytes(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullBytes_oe,"public byte[] getNullBytes() {
+        if (this.nullBytes == null) {
+            return null;
+        }
+        byte[] copy = new byte[this.nullBytes.length];
+        System.arraycopy(this.nullBytes, 0, copy, 0, this.nullBytes.length);
+        return copy;
+    }
+
+protected final byte[] getBytes(int columnIndex) throws SQLException {
+        return rs.getBytes(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getBytes</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getBytes(int)
+     */"
+commons-dbutils_73,"public void testSetNullCharacterStream_oe() throws SQLException {
+
+        assertNull(rs2.getNullCharacterStream());
+        Reader reader = new CharArrayReader(""this is a string"".toCharArray());
+        rs2.setNullCharacterStream(reader);
+        assertNotNull(rs.getCharacterStream(1));
+        assertEquals(reader, rs.getCharacterStream(1));
+        assertNotNull(rs.getCharacterStream(""column""));
+        assertEquals(reader, rs.getCharacterStream(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullCharacterStream_oe,"public Reader getNullCharacterStream() {
+        return this.nullCharacterStream;
+    }
+
+protected final Reader getCharacterStream(int columnIndex) throws SQLException {
+        return rs.getCharacterStream(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getCharacterStream</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getCharacterStream(int)
+     */"
+commons-dbutils_74,"public void testSetNullClob_oe() throws SQLException {
+
+        assertNull(rs2.getNullClob());
+        Clob clob = new SqlNullCheckedResultSetMockClob();
+        rs2.setNullClob(clob);
+        assertNotNull(rs.getClob(1));
+        assertEquals(clob, rs.getClob(1));
+        assertNotNull(rs.getClob(""column""));
+        assertEquals(clob, rs.getClob(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullClob_oe,"public Clob getNullClob() {
+        return this.nullClob;
+    }
+
+protected final Clob getClob(int columnIndex) throws SQLException {
+        return rs.getClob(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getClob</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getClob(int)
+     */"
+commons-dbutils_75,"public void testSetNullDate_oe() throws SQLException {
+
+        assertNull(rs2.getNullDate());
+        java.sql.Date date = new java.sql.Date(new java.util.Date().getTime());
+        rs2.setNullDate(date);
+        assertNotNull(rs.getDate(1));
+        assertEquals(date, rs.getDate(1));
+        assertNotNull(rs.getDate(""column""));
+        assertEquals(date, rs.getDate(""column""));
+        assertNotNull(rs.getDate(1, Calendar.getInstance()));
+        assertEquals(date, rs.getDate(1, Calendar.getInstance()));
+        assertNotNull(rs.getDate(""column"", Calendar.getInstance()));
+        assertEquals(date, rs.getDate(""column"", Calendar.getInstance()));
+
+    }",SqlNullCheckedResultSetTest::testSetNullDate_oe,"public Date getNullDate() {
+        return this.nullDate != null ? new Date(this.nullDate.getTime()) : null;
+    }
+
+protected final Date getDate(int columnIndex, Calendar cal) throws SQLException {
+        return rs.getDate(columnIndex, cal);
+    }
+
+public void setNullDate(Date nullDate) {
+        this.nullDate = nullDate != null ? new Date(nullDate.getTime()) : null;
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getDate</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @param cal
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getDate(int, java.util.Calendar)
+     */
+
+/**
+     * Sets the value to return when a SQL null is encountered as the result of
+     * invoking a <code>getDate</code> method.
+     *
+     * @param nullDate the value
+     */"
+commons-dbutils_76,"public void testSetNullDouble_oe() throws SQLException {
+        assertEquals(0.0, rs2.getNullDouble(), 0.0);
+        double d = 10.0;
+        rs2.setNullDouble(d);
+        assertEquals(d, rs.getDouble(1), 0.0);
+        assertEquals(d, rs.getDouble(""column""), 0.0);
+    }",SqlNullCheckedResultSetTest::testSetNullDouble_oe,"public double getNullDouble() {
+        return this.nullDouble;
+    }
+
+protected final double getDouble(int columnIndex) throws SQLException {
+        return rs.getDouble(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getDouble</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getDouble(int)
+     */"
+commons-dbutils_77,"public void testSetNullFloat_oe() throws SQLException {
+        assertEquals((float) 0.0, rs2.getNullFloat(), 0.0);
+        float f = (float) 10.0;
+        rs2.setNullFloat(f);
+        assertEquals(f, rs.getFloat(1), 0.0);
+        assertEquals(f, rs.getFloat(""column""), 0.0);
+    }",SqlNullCheckedResultSetTest::testSetNullFloat_oe,"public float getNullFloat() {
+        return this.nullFloat;
+    }
+
+protected final float getFloat(int columnIndex) throws SQLException {
+        return rs.getFloat(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getFloat</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getFloat(int)
+     */"
+commons-dbutils_78,"public void testSetNullInt_oe() throws SQLException {
+        assertEquals(0, rs2.getNullInt());
+        assertEquals(0, rs.getInt(1));
+        assertTrue(rs.wasNull());
+        assertEquals(0, rs.getInt(""column""));
+        assertTrue(rs.wasNull());
+        int i = 10;
+        rs2.setNullInt(i);
+        assertEquals(i, rs.getInt(1));
+        assertEquals(i, rs.getInt(""column""));
+    }",SqlNullCheckedResultSetTest::testSetNullInt_oe,"public int getNullInt() {
+        return this.nullInt;
+    }
+
+protected final int getInt(int columnIndex) throws SQLException {
+        return rs.getInt(columnIndex);
+    }
+
+protected final boolean wasNull() throws SQLException {
+        return rs.wasNull();
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getInt</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getInt(int)
+     */
+
+/**
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#wasNull()
+     */"
+commons-dbutils_79,"public void testSetNullLong_oe() throws SQLException {
+        assertEquals(0, rs2.getNullLong());
+        long l = 10;
+        rs2.setNullLong(l);
+        assertEquals(l, rs.getLong(1));
+        assertEquals(l, rs.getLong(""column""));
+    }",SqlNullCheckedResultSetTest::testSetNullLong_oe,"public long getNullLong() {
+        return this.nullLong;
+    }
+
+protected final long getLong(int columnIndex) throws SQLException {
+        return rs.getLong(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getLong</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getLong(int)
+     */"
+commons-dbutils_80,"public void testSetNullObject_oe() throws SQLException {
+        assertNull(rs2.getNullObject());
+        Object o = new Object();
+        rs2.setNullObject(o);
+        assertNotNull(rs.getObject(1));
+        assertEquals(o, rs.getObject(1));
+        assertNotNull(rs.getObject(""column""));
+        assertEquals(o, rs.getObject(""column""));
+        assertNotNull(rs.getObject(1, (Map<String, Class<?>>) null));
+        assertEquals(o, rs.getObject(1, (Map<String, Class<?>>) null));
+        assertNotNull(rs.getObject(""column"", (Map<String, Class<?>>) null));
+        assertEquals(o, rs.getObject(""column"", (Map<String, Class<?>>) null));
+    }",SqlNullCheckedResultSetTest::testSetNullObject_oe,"public Object getNullObject() {
+        return this.nullObject;
+    }
+
+protected final Object getObject(int columnIndex, Map<String, Class<?>> map) throws SQLException {
+        return rs.getObject(columnIndex, map);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getObject</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @param map
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getObject(int, java.util.Map)
+     */"
+commons-dbutils_81,"public void testSetNullShort_oe() throws SQLException {
+
+        assertEquals((short) 0, rs2.getNullShort());
+        short s = (short) 10;
+        rs2.setNullShort(s);
+        assertEquals(s, rs.getShort(1));
+        assertEquals(s, rs.getShort(""column""));
+
+    }",SqlNullCheckedResultSetTest::testSetNullShort_oe,"public short getNullShort() {
+        return this.nullShort;
+    }
+
+protected final short getShort(int columnIndex) throws SQLException {
+        return rs.getShort(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getShort</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getShort(int)
+     */"
+commons-dbutils_82,"public void testSetNullString_oe() throws SQLException {
+        assertEquals(null, rs2.getNullString());
+        String s = ""hello, world"";
+        rs2.setNullString(s);
+        assertEquals(s, rs.getString(1));
+        assertEquals(s, rs.getString(""column""));
+    }",SqlNullCheckedResultSetTest::testSetNullString_oe,"public String getNullString() {
+        return this.nullString;
+    }
+
+protected final String getString(int columnIndex) throws SQLException {
+        return rs.getString(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getString</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getString(int)
+     */"
+commons-dbutils_83,"public void testSetNullRef_oe() throws SQLException {
+        assertNull(rs2.getNullRef());
+        Ref ref = new SqlNullCheckedResultSetMockRef();
+        rs2.setNullRef(ref);
+        assertNotNull(rs.getRef(1));
+        assertEquals(ref, rs.getRef(1));
+        assertNotNull(rs.getRef(""column""));
+        assertEquals(ref, rs.getRef(""column""));
+    }",SqlNullCheckedResultSetTest::testSetNullRef_oe,"public Ref getNullRef() {
+        return this.nullRef;
+    }
+
+protected final Ref getRef(int columnIndex) throws SQLException {
+        return rs.getRef(columnIndex);
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getRef</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getRef(int)
+     */"
+commons-dbutils_84,"public void testSetNullTime_oe() throws SQLException {
+        assertEquals(null, rs2.getNullTime());
+        Time time = new Time(new java.util.Date().getTime());
+        rs2.setNullTime(time);
+        assertNotNull(rs.getTime(1));
+        assertEquals(time, rs.getTime(1));
+        assertNotNull(rs.getTime(""column""));
+        assertEquals(time, rs.getTime(""column""));
+        assertNotNull(rs.getTime(1, Calendar.getInstance()));
+        assertEquals(time, rs.getTime(1, Calendar.getInstance()));
+        assertNotNull(rs.getTime(""column"", Calendar.getInstance()));
+        assertEquals(time, rs.getTime(""column"", Calendar.getInstance()));
+    }",SqlNullCheckedResultSetTest::testSetNullTime_oe,"public Time getNullTime() {
+        return this.nullTime;
+    }
+
+protected final Time getTime(int columnIndex, Calendar cal) throws SQLException {
+        return rs.getTime(columnIndex, cal);
+    }
+
+public void setNullTime(Time nullTime) {
+        this.nullTime = nullTime;
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getTime</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @param cal
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getTime(int, java.util.Calendar)
+     */
+
+/**
+     * Sets the value to return when a SQL null is encountered as the result of
+     * invoking a <code>getTime</code> method.
+     *
+     * @param nullTime the value
+     */"
+commons-dbutils_85,"public void testSetNullTimestamp_oe() throws SQLException {
+        assertEquals(null, rs2.getNullTimestamp());
+        Timestamp ts = new Timestamp(new java.util.Date().getTime());
+        rs2.setNullTimestamp(ts);
+        assertNotNull(rs.getTimestamp(1));
+        assertEquals(ts, rs.getTimestamp(1));
+        assertNotNull(rs.getTimestamp(""column""));
+        assertEquals(ts, rs.getTimestamp(""column""));
+        assertNotNull(rs.getTimestamp(1, Calendar.getInstance()));
+        assertEquals(ts, rs.getTimestamp(1, Calendar.getInstance()));
+        assertNotNull(rs.getTimestamp(""column"", Calendar.getInstance()));
+        assertEquals(ts, rs.getTimestamp(""column"", Calendar.getInstance()));
+    }",SqlNullCheckedResultSetTest::testSetNullTimestamp_oe,"public Timestamp getNullTimestamp() {
+        return this.nullTimestamp != null ? new Timestamp(this.nullTimestamp.getTime()) : null;
+    }
+
+protected final Timestamp getTimestamp(int columnIndex, Calendar cal) throws SQLException {
+        return rs.getTimestamp(columnIndex, cal);
+    }
+
+public void setNullTimestamp(Timestamp nullTimestamp) {
+        this.nullTimestamp = nullTimestamp != null ? new Timestamp(nullTimestamp.getTime()) : null;
+    }","/**
+     * Returns the value when a SQL null is encountered as the result of
+     * invoking a <code>getTimestamp</code> method.
+     *
+     * @return the value
+     */
+
+/**
+     * @param columnIndex
+     * @param cal
+     * @return
+     * @throws SQLException
+     * @see java.sql.ResultSet#getTimestamp(int, java.util.Calendar)
+     */
+
+/**
+     * Sets the value to return when a SQL null is encountered as the result of
+     * invoking a <code>getTimestamp</code> method.
+     *
+     * @param nullTimestamp the value
+     */"
+commons-dbutils_86,"public void testHandle_oe() throws SQLException {
+        ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
+        List<String> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        assertEquals(""1"", results.get(0));
+        assertEquals(""4"", results.get(1));
+    }",ColumnListHandlerTest::testHandle_oe,"@Override
+    public final T handle(ResultSet rs) throws SQLException {
+        if (this.rs != null) {
+            throw new IllegalStateException(""Re-entry not allowed!"");
+        }
+
+        this.rs = rs;
+
+        try {
+            return handle();
+        } finally {
+            this.rs = null;
+        }
+    }
+
+@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }","/**
+     * {@inheritDoc}
+     */
+
+/** {@inheritDoc} */"
+commons-dbutils_87,"public void testColumnIndexHandle_oe() throws SQLException {
+        ResultSetHandler<List<String>> h = new ColumnListHandler<String>(2);
+        List<String> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        assertEquals(""2"", results.get(0));
+        assertEquals(""5"", results.get(1));
+    }",ColumnListHandlerTest::testColumnIndexHandle_oe,"@Override
+    public final T handle(ResultSet rs) throws SQLException {
+        if (this.rs != null) {
+            throw new IllegalStateException(""Re-entry not allowed!"");
+        }
+
+        this.rs = rs;
+
+        try {
+            return handle();
+        } finally {
+            this.rs = null;
+        }
+    }
+
+@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }","/**
+     * {@inheritDoc}
+     */
+
+/** {@inheritDoc} */"
+commons-dbutils_88,"public void testColumnNameHandle_oe() throws SQLException {
+        ResultSetHandler<List<Integer>> h = new ColumnListHandler<Integer>(""intTest"");
+        List<Integer> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        assertEquals(new Integer(1), results.get(0));
+        assertEquals(new Integer(3), results.get(1));
+    }",ColumnListHandlerTest::testColumnNameHandle_oe,"@Override
+    public final T handle(ResultSet rs) throws SQLException {
+        if (this.rs != null) {
+            throw new IllegalStateException(""Re-entry not allowed!"");
+        }
+
+        this.rs = rs;
+
+        try {
+            return handle();
+        } finally {
+            this.rs = null;
+        }
+    }
+
+@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }","/**
+     * {@inheritDoc}
+     */
+
+/** {@inheritDoc} */"
+commons-dbutils_89,"public void testEmptyResultSetHandle_oe() throws SQLException {
+        ResultSetHandler<List<String>> h = new ColumnListHandler<String>();
+        List<String> results = h.handle(this.emptyResultSet);
+
+        assertNotNull(results);
+        assertTrue(results.isEmpty());
+    }",ColumnListHandlerTest::testEmptyResultSetHandle_oe,"@Override
+    public final T handle(ResultSet rs) throws SQLException {
+        if (this.rs != null) {
+            throw new IllegalStateException(""Re-entry not allowed!"");
+        }
+
+        this.rs = rs;
+
+        try {
+            return handle();
+        } finally {
+            this.rs = null;
+        }
+    }","/**
+     * {@inheritDoc}
+     */"
+commons-dbutils_90,"public void testHandle_oe() throws SQLException {
+        ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
+
+        Map<String,Map<String,Object>> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Map<String,Object> row = null;
+        for(Entry<String, Map<String, Object>> entry : results.entrySet())
+        {
+            Object key = entry.getKey();
+            assertNotNull(key);
+            row = entry.getValue();
+            assertNotNull(row);
+            assertEquals(COLS, row.keySet().size());
+        }
+        row = results.get(""1"");
+        assertEquals(""1"", row.get(""one""));
+        assertEquals(""2"", row.get(""TWO""));
+        assertEquals(""THREE"", row.get(""Three""));
+    }",KeyedHandlerTest::testHandle_oe,"@Override
+    public Map<K, V> handle(ResultSet rs) throws SQLException {
+        Map<K, V> result = createMap();
+        while (rs.next()) {
+            result.put(createKey(rs), createRow(rs));
+        }
+        return result;
+    }
+
+public T getValue() {
+        return value;
+    }
+
+@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }","/**
+     * Convert each row's columns into a Map and store then
+     * in a <code>Map</code> under <code>ResultSet.getObject(key)</code> key.
+     * @param rs <code>ResultSet</code> to process.
+     * @return A <code>Map</code>, never <code>null</code>.
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */
+
+/**
+     * Get the value of the OUT parameter.  After the stored procedure has
+     * been executed, the value is the value returned via this parameter.
+     * @return the value of the OUT parameter.
+     */
+
+/** {@inheritDoc} */"
+commons-dbutils_91,"public void testColumnIndexHandle_oe() throws SQLException {
+        ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>(2);
+        Map<String,Map<String,Object>> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Map<String,Object> row = null;
+        for(Entry<String, Map<String, Object>> entry : results.entrySet())
+        {
+            Object key = entry.getKey();
+            assertNotNull(key);
+            row = entry.getValue();
+            assertNotNull(row);
+            assertEquals(COLS, row.keySet().size());
+        }
+        row = results.get(""5"");
+        assertEquals(""4"", row.get(""one""));
+        assertEquals(""5"", row.get(""TWO""));
+        assertEquals(""SIX"", row.get(""Three""));
+    }",KeyedHandlerTest::testColumnIndexHandle_oe,"@Override
+    public Map<K, V> handle(ResultSet rs) throws SQLException {
+        Map<K, V> result = createMap();
+        while (rs.next()) {
+            result.put(createKey(rs), createRow(rs));
+        }
+        return result;
+    }
+
+public T getValue() {
+        return value;
+    }
+
+@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }","/**
+     * Convert each row's columns into a Map and store then
+     * in a <code>Map</code> under <code>ResultSet.getObject(key)</code> key.
+     * @param rs <code>ResultSet</code> to process.
+     * @return A <code>Map</code>, never <code>null</code>.
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */
+
+/**
+     * Get the value of the OUT parameter.  After the stored procedure has
+     * been executed, the value is the value returned via this parameter.
+     * @return the value of the OUT parameter.
+     */
+
+/** {@inheritDoc} */"
+commons-dbutils_92,"public void testColumnNameHandle_oe() throws SQLException {
+        ResultSetHandler<Map<Integer,Map<String,Object>>> h = new KeyedHandler<Integer>(""intTest"");
+        Map<Integer,Map<String,Object>> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Map<String,Object> row = null;
+        for(Entry<Integer, Map<String, Object>> entry : results.entrySet())
+        {
+            Object key = entry.getKey();
+            assertNotNull(key);
+            row = entry.getValue();
+            assertNotNull(row);
+            assertEquals(COLS, row.keySet().size());
+        }
+        row = results.get(Integer.valueOf(3));
+        assertEquals(""4"", row.get(""one""));
+        assertEquals(""5"", row.get(""TWO""));
+        assertEquals(""SIX"", row.get(""Three""));
+    }",KeyedHandlerTest::testColumnNameHandle_oe,"@Override
+    public Map<K, V> handle(ResultSet rs) throws SQLException {
+        Map<K, V> result = createMap();
+        while (rs.next()) {
+            result.put(createKey(rs), createRow(rs));
+        }
+        return result;
+    }
+
+public T getValue() {
+        return value;
+    }
+
+@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }","/**
+     * Convert each row's columns into a Map and store then
+     * in a <code>Map</code> under <code>ResultSet.getObject(key)</code> key.
+     * @param rs <code>ResultSet</code> to process.
+     * @return A <code>Map</code>, never <code>null</code>.
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */
+
+/**
+     * Get the value of the OUT parameter.  After the stored procedure has
+     * been executed, the value is the value returned via this parameter.
+     * @return the value of the OUT parameter.
+     */
+
+/** {@inheritDoc} */"
+commons-dbutils_93,"public void testEmptyResultSetHandle_oe() throws SQLException {
+        ResultSetHandler<Map<String,Map<String,Object>>> h = new KeyedHandler<String>();
+        Map<String,Map<String,Object>> results = h.handle(this.emptyResultSet);
+        assertNotNull(results);
+        assertTrue(results.isEmpty());
+    }",KeyedHandlerTest::testEmptyResultSetHandle_oe,"@Override
+    public Map<K, V> handle(ResultSet rs) throws SQLException {
+        Map<K, V> result = createMap();
+        while (rs.next()) {
+            result.put(createKey(rs), createRow(rs));
+        }
+        return result;
+    }","/**
+     * Convert each row's columns into a Map and store then
+     * in a <code>Map</code> under <code>ResultSet.getObject(key)</code> key.
+     * @param rs <code>ResultSet</code> to process.
+     * @return A <code>Map</code>, never <code>null</code>.
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */"
+commons-dbutils_94,"public void testHandle_oe() throws SQLException {
+        ResultSetHandler<Map<String,Object>> h = new MapHandler();
+        Map<String,Object> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(COLS, results.keySet().size());
+        assertEquals(""1"", results.get(""ONE""));
+        assertEquals(""2"", results.get(""two""));
+        assertEquals(""THREE"", results.get(""Three""));
+    }",MapHandlerTest::testHandle_oe,"@Override
+    public Map<String, Object> handle(ResultSet rs) throws SQLException {
+        return rs.next() ? this.convert.toMap(rs) : null;
+    }
+
+@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }","/**
+     * Converts the first row in the <code>ResultSet</code> into a
+     * <code>Map</code>.
+     * @param rs <code>ResultSet</code> to process.
+     * @return A <code>Map</code> with the values from the first row or
+     * <code>null</code> if there are no rows in the <code>ResultSet</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     *
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */
+
+/** {@inheritDoc} */"
+commons-dbutils_95,"public void testEmptyResultSetHandle_oe() throws SQLException {
+        ResultSetHandler<Map<String,Object>> h = new MapHandler();
+        Map<String,Object> results = h.handle(this.emptyResultSet);
+
+        assertNull(results);
+    }",MapHandlerTest::testEmptyResultSetHandle_oe,"@Override
+    public Map<String, Object> handle(ResultSet rs) throws SQLException {
+        return rs.next() ? this.convert.toMap(rs) : null;
+    }","/**
+     * Converts the first row in the <code>ResultSet</code> into a
+     * <code>Map</code>.
+     * @param rs <code>ResultSet</code> to process.
+     * @return A <code>Map</code> with the values from the first row or
+     * <code>null</code> if there are no rows in the <code>ResultSet</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     *
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */"
+commons-dbutils_96,"public void testHandle_oe() throws SQLException {
+        ResultSetHandler<String> h = new ScalarHandler<String>();
+        Object results = h.handle(this.rs);
+        assertNotNull(results);
+        assertEquals(""1"", results);
+    }",ScalarHandlerTest::testHandle_oe,"@SuppressWarnings(""unchecked"")
+    @Override
+    public T handle(ResultSet rs) throws SQLException {
+
+        if (rs.next()) {
+            if (this.columnName == null) {
+                return (T) rs.getObject(this.columnIndex);
+            }
+            return (T) rs.getObject(this.columnName);
+        }
+        return null;
+    }",
+commons-dbutils_97,"public void testColumnIndexHandle_oe() throws SQLException {
+        ResultSetHandler<String> h = new ScalarHandler<String>(2);
+        Object results = h.handle(this.rs);
+        assertNotNull(results);
+        assertEquals(""2"", results);
+    }",ScalarHandlerTest::testColumnIndexHandle_oe,"@SuppressWarnings(""unchecked"")
+    @Override
+    public T handle(ResultSet rs) throws SQLException {
+
+        if (rs.next()) {
+            if (this.columnName == null) {
+                return (T) rs.getObject(this.columnIndex);
+            }
+            return (T) rs.getObject(this.columnName);
+        }
+        return null;
+    }",
+commons-dbutils_98,"public void testColumnNameHandle_oe() throws SQLException {
+        ResultSetHandler<Integer> h = new ScalarHandler<Integer>(""intTest"");
+        Object results = h.handle(this.rs);
+        assertNotNull(results);
+        assertEquals(Integer.valueOf(1), results);
+    }",ScalarHandlerTest::testColumnNameHandle_oe,"@SuppressWarnings(""unchecked"")
+    @Override
+    public T handle(ResultSet rs) throws SQLException {
+
+        if (rs.next()) {
+            if (this.columnName == null) {
+                return (T) rs.getObject(this.columnIndex);
+            }
+            return (T) rs.getObject(this.columnName);
+        }
+        return null;
+    }",
+commons-dbutils_99,"public void testEmptyResultSetHandle_oe() throws SQLException {
+        ResultSetHandler<String> h = new ScalarHandler<String>();
+        Object results = h.handle(this.emptyResultSet);
+        assertNull(results);
+    }",ScalarHandlerTest::testEmptyResultSetHandle_oe,"@SuppressWarnings(""unchecked"")
+    @Override
+    public T handle(ResultSet rs) throws SQLException {
+
+        if (rs.next()) {
+            if (this.columnName == null) {
+                return (T) rs.getObject(this.columnIndex);
+            }
+            return (T) rs.getObject(this.columnName);
+        }
+        return null;
+    }",
+commons-dbutils_100,"public void testHandle_oe() throws SQLException {
+        ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
+        List<Map<String,Object>> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Iterator<Map<String,Object>> iter = results.iterator();
+        Map<String,Object> row = null;
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.keySet().size());
+        assertEquals(""1"", row.get(""one""));
+        assertEquals(""2"", row.get(""TWO""));
+        assertEquals(""THREE"", row.get(""Three""));
+
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.keySet().size());
+
+        assertEquals(""4"", row.get(""one""));
+        assertEquals(""5"", row.get(""TWO""));
+        assertEquals(""SIX"", row.get(""Three""));
+
+        assertFalse(iter.hasNext());
+    }",MapListHandlerTest::testHandle_oe,"@Override
+    public final T handle(ResultSet rs) throws SQLException {
+        if (this.rs != null) {
+            throw new IllegalStateException(""Re-entry not allowed!"");
+        }
+
+        this.rs = rs;
+
+        try {
+            return handle();
+        } finally {
+            this.rs = null;
+        }
+    }
+
+@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }
+
+@Override
+    public boolean hasNext() {
+        try {
+            return !rs.isLast();
+        } catch (SQLException e) {
+            rethrow(e);
+            return false;
+        }
+    }
+
+@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }","/**
+     * {@inheritDoc}
+     */
+
+/** {@inheritDoc} */
+
+/**
+     * Returns true if there are more rows in the ResultSet.
+     * @return boolean <code>true</code> if there are more rows
+     * @throws RuntimeException if an SQLException occurs.
+     */
+
+/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_101,"public void testEmptyResultSetHandle_oe() throws SQLException {
+        ResultSetHandler<List<Map<String,Object>>> h = new MapListHandler();
+        List<Map<String,Object>> results = h.handle(this.emptyResultSet);
+
+        assertNotNull(results);
+        assertTrue(results.isEmpty());
+    }",MapListHandlerTest::testEmptyResultSetHandle_oe,"@Override
+    public final T handle(ResultSet rs) throws SQLException {
+        if (this.rs != null) {
+            throw new IllegalStateException(""Re-entry not allowed!"");
+        }
+
+        this.rs = rs;
+
+        try {
+            return handle();
+        } finally {
+            this.rs = null;
+        }
+    }","/**
+     * {@inheritDoc}
+     */"
+commons-dbutils_102,"public void testHandle_oe() throws SQLException {
+        ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
+        List<Object[]> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Iterator<Object[]> iter = results.iterator();
+        Object[] row = null;
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.length);
+        assertEquals(""1"", row[0]);
+        assertEquals(""2"", row[1]);
+        assertEquals(""THREE"", row[2]);
+
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(COLS, row.length);
+
+        assertEquals(""4"", row[0]);
+        assertEquals(""5"", row[1]);
+        assertEquals(""SIX"", row[2]);
+
+        assertFalse(iter.hasNext());
+    }",ArrayListHandlerTest::testHandle_oe,"@Override
+    public final T handle(ResultSet rs) throws SQLException {
+        if (this.rs != null) {
+            throw new IllegalStateException(""Re-entry not allowed!"");
+        }
+
+        this.rs = rs;
+
+        try {
+            return handle();
+        } finally {
+            this.rs = null;
+        }
+    }
+
+@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }
+
+@Override
+    public boolean hasNext() {
+        try {
+            return !rs.isLast();
+        } catch (SQLException e) {
+            rethrow(e);
+            return false;
+        }
+    }","/**
+     * {@inheritDoc}
+     */
+
+/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */
+
+/**
+     * Returns true if there are more rows in the ResultSet.
+     * @return boolean <code>true</code> if there are more rows
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_103,"public void testEmptyResultSetHandle_oe() throws SQLException {
+        ResultSetHandler<List<Object[]>> h = new ArrayListHandler();
+        List<Object[]> results = h.handle(this.emptyResultSet);
+
+        assertNotNull(results);
+        assertTrue(results.isEmpty());
+    }",ArrayListHandlerTest::testEmptyResultSetHandle_oe,"@Override
+    public final T handle(ResultSet rs) throws SQLException {
+        if (this.rs != null) {
+            throw new IllegalStateException(""Re-entry not allowed!"");
+        }
+
+        this.rs = rs;
+
+        try {
+            return handle();
+        } finally {
+            this.rs = null;
+        }
+    }","/**
+     * {@inheritDoc}
+     */"
+commons-dbutils_104,"public void testHandle_oe() throws SQLException {
+        ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
+        TestBean results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(""1"", results.getOne());
+        assertEquals(""2"", results.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, results.getThree());
+        assertEquals(""not set"", results.getDoNotSet());
+    }",BeanHandlerTest::testHandle_oe,"@Override
+    public T handle(ResultSet rs) throws SQLException {
+        return rs.next() ? this.convert.toBean(rs, this.type) : null;
+    }","/**
+     * Convert the first row of the <code>ResultSet</code> into a bean with the
+     * <code>Class</code> given in the constructor.
+     * @param rs <code>ResultSet</code> to process.
+     * @return An initialized JavaBean or <code>null</code> if there were no
+     * rows in the <code>ResultSet</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */"
+commons-dbutils_105,"public void testEmptyResultSetHandle_oe() throws SQLException {
+        ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(TestBean.class);
+        TestBean results = h.handle(this.emptyResultSet);
+
+        assertNull(results);
+    }",BeanHandlerTest::testEmptyResultSetHandle_oe,"@Override
+    public T handle(ResultSet rs) throws SQLException {
+        return rs.next() ? this.convert.toBean(rs, this.type) : null;
+    }","/**
+     * Convert the first row of the <code>ResultSet</code> into a bean with the
+     * <code>Class</code> given in the constructor.
+     * @param rs <code>ResultSet</code> to process.
+     * @return An initialized JavaBean or <code>null</code> if there were no
+     * rows in the <code>ResultSet</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */"
+commons-dbutils_106,"public void testHandleToSuperClass_oe() throws SQLException {
+        ResultSetHandler<TestBean> h = new BeanHandler<TestBean>(SubTestBean.class);
+        TestBean results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(""1"", results.getOne());
+        assertEquals(""2"", results.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, results.getThree());
+        assertEquals(""not set"", results.getDoNotSet());
+    }",BeanHandlerTest::testHandleToSuperClass_oe,"@Override
+    public T handle(ResultSet rs) throws SQLException {
+        return rs.next() ? this.convert.toBean(rs, this.type) : null;
+    }","/**
+     * Convert the first row of the <code>ResultSet</code> into a bean with the
+     * <code>Class</code> given in the constructor.
+     * @param rs <code>ResultSet</code> to process.
+     * @return An initialized JavaBean or <code>null</code> if there were no
+     * rows in the <code>ResultSet</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */"
+commons-dbutils_107,"public void testHandleToInterface_oe() throws SQLException {
+        ResultSetHandler<SubTestBeanInterface> h = new BeanHandler<SubTestBeanInterface>(SubTestBean.class);
+        SubTestBeanInterface results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(""1"", results.getOne());
+        assertEquals(""2"", results.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, results.getThree());
+        assertEquals(""not set"", results.getDoNotSet());
+    }",BeanHandlerTest::testHandleToInterface_oe,"@Override
+    public T handle(ResultSet rs) throws SQLException {
+        return rs.next() ? this.convert.toBean(rs, this.type) : null;
+    }","/**
+     * Convert the first row of the <code>ResultSet</code> into a bean with the
+     * <code>Class</code> given in the constructor.
+     * @param rs <code>ResultSet</code> to process.
+     * @return An initialized JavaBean or <code>null</code> if there were no
+     * rows in the <code>ResultSet</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */"
+commons-dbutils_108,"public void testHandle_oe() throws SQLException {
+        ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
+        List<TestBean> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Iterator<TestBean> iter = results.iterator();
+        TestBean row = null;
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertEquals(""1"", row.getOne());
+        assertEquals(""2"", row.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, row.getThree());
+        assertEquals(""not set"", row.getDoNotSet());
+
+        assertTrue(iter.hasNext());
+        row = iter.next();
+
+        assertEquals(""4"", row.getOne());
+        assertEquals(""5"", row.getTwo());
+        assertEquals(TestBean.Ordinal.SIX, row.getThree());
+        assertEquals(""not set"", row.getDoNotSet());
+
+        assertFalse(iter.hasNext());
+    }",BeanListHandlerTest::testHandle_oe,"@Override
+    public List<T> handle(ResultSet rs) throws SQLException {
+        return this.convert.toBeanList(rs, type);
+    }
+
+@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }
+
+@Override
+    public boolean hasNext() {
+        try {
+            return !rs.isLast();
+        } catch (SQLException e) {
+            rethrow(e);
+            return false;
+        }
+    }","/**
+     * Convert the whole <code>ResultSet</code> into a List of beans with
+     * the <code>Class</code> given in the constructor.
+     *
+     * @param rs The <code>ResultSet</code> to handle.
+     *
+     * @return A List of beans, never <code>null</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.RowProcessor#toBeanList(ResultSet, Class)
+     */
+
+/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */
+
+/**
+     * Returns true if there are more rows in the ResultSet.
+     * @return boolean <code>true</code> if there are more rows
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_109,"public void testEmptyResultSetHandle_oe() throws SQLException {
+        ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(TestBean.class);
+        List<TestBean> results = h.handle(this.emptyResultSet);
+
+        assertNotNull(results);
+        assertTrue(results.isEmpty());
+    }",BeanListHandlerTest::testEmptyResultSetHandle_oe,"@Override
+    public List<T> handle(ResultSet rs) throws SQLException {
+        return this.convert.toBeanList(rs, type);
+    }","/**
+     * Convert the whole <code>ResultSet</code> into a List of beans with
+     * the <code>Class</code> given in the constructor.
+     *
+     * @param rs The <code>ResultSet</code> to handle.
+     *
+     * @return A List of beans, never <code>null</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.RowProcessor#toBeanList(ResultSet, Class)
+     */"
+commons-dbutils_110,"public void testHandleToSuperClass_oe() throws SQLException {
+        ResultSetHandler<List<TestBean>> h = new BeanListHandler<TestBean>(SubTestBean.class);
+        List<TestBean> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Iterator<TestBean> iter = results.iterator();
+        TestBean row = null;
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertSame(SubTestBean.class, row.getClass());
+
+        assertEquals(""1"", row.getOne());
+        assertEquals(""2"", row.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, row.getThree());
+        assertEquals(""not set"", row.getDoNotSet());
+
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertSame(SubTestBean.class, row.getClass());
+
+        assertEquals(""4"", row.getOne());
+        assertEquals(""5"", row.getTwo());
+        assertEquals(TestBean.Ordinal.SIX, row.getThree());
+        assertEquals(""not set"", row.getDoNotSet());
+
+        assertFalse(iter.hasNext());
+    }",BeanListHandlerTest::testHandleToSuperClass_oe,"@Override
+    public List<T> handle(ResultSet rs) throws SQLException {
+        return this.convert.toBeanList(rs, type);
+    }
+
+@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }
+
+@Override
+    public boolean hasNext() {
+        try {
+            return !rs.isLast();
+        } catch (SQLException e) {
+            rethrow(e);
+            return false;
+        }
+    }","/**
+     * Convert the whole <code>ResultSet</code> into a List of beans with
+     * the <code>Class</code> given in the constructor.
+     *
+     * @param rs The <code>ResultSet</code> to handle.
+     *
+     * @return A List of beans, never <code>null</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.RowProcessor#toBeanList(ResultSet, Class)
+     */
+
+/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */
+
+/**
+     * Returns true if there are more rows in the ResultSet.
+     * @return boolean <code>true</code> if there are more rows
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_111,"public void testHandleToInterface_oe() throws SQLException {
+        ResultSetHandler<List<SubTestBeanInterface>> h = new BeanListHandler<SubTestBeanInterface>(SubTestBean.class);
+        List<SubTestBeanInterface> results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(ROWS, results.size());
+
+        Iterator<SubTestBeanInterface> iter = results.iterator();
+        SubTestBeanInterface row = null;
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertSame(SubTestBean.class, row.getClass());
+
+        assertEquals(""1"", row.getOne());
+        assertEquals(""2"", row.getTwo());
+        assertEquals(TestBean.Ordinal.THREE, row.getThree());
+        assertEquals(""not set"", row.getDoNotSet());
+
+        assertTrue(iter.hasNext());
+        row = iter.next();
+        assertSame(SubTestBean.class, row.getClass());
+
+        assertEquals(""4"", row.getOne());
+        assertEquals(""5"", row.getTwo());
+        assertEquals(TestBean.Ordinal.SIX, row.getThree());
+        assertEquals(""not set"", row.getDoNotSet());
+
+        assertFalse(iter.hasNext());
+    }",BeanListHandlerTest::testHandleToInterface_oe,"@Override
+    public List<T> handle(ResultSet rs) throws SQLException {
+        return this.convert.toBeanList(rs, type);
+    }
+
+@Override
+    public Object[] next() {
+        try {
+            rs.next();
+            return this.convert.toArray(rs);
+        } catch (SQLException e) {
+            rethrow(e);
+            return null;
+        }
+    }
+
+@Override
+    public boolean hasNext() {
+        try {
+            return !rs.isLast();
+        } catch (SQLException e) {
+            rethrow(e);
+            return false;
+        }
+    }","/**
+     * Convert the whole <code>ResultSet</code> into a List of beans with
+     * the <code>Class</code> given in the constructor.
+     *
+     * @param rs The <code>ResultSet</code> to handle.
+     *
+     * @return A List of beans, never <code>null</code>.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.RowProcessor#toBeanList(ResultSet, Class)
+     */
+
+/**
+     * Returns the next row as an <code>Object[]</code>.
+     * @return An <code>Object[]</code> with the same number of elements as
+     * columns in the <code>ResultSet</code>.
+     * @see java.util.Iterator#next()
+     * @throws RuntimeException if an SQLException occurs.
+     */
+
+/**
+     * Returns true if there are more rows in the ResultSet.
+     * @return boolean <code>true</code> if there are more rows
+     * @throws RuntimeException if an SQLException occurs.
+     */"
+commons-dbutils_112,"public void testHandle_oe() throws SQLException {
+        ResultSetHandler<Object[]> h = new ArrayHandler();
+        Object[] results = h.handle(this.rs);
+
+        assertNotNull(results);
+        assertEquals(COLS, results.length);
+        assertEquals(""1"", results[0]);
+        assertEquals(""2"", results[1]);
+        assertEquals(""THREE"", results[2]);
+    }",ArrayHandlerTest::testHandle_oe,"@Override
+    public Object[] handle(ResultSet rs) throws SQLException {
+        return rs.next() ? this.convert.toArray(rs) : EMPTY_ARRAY;
+    }","/**
+     * Places the column values from the first row in an <code>Object[]</code>.
+     * @param rs <code>ResultSet</code> to process.
+     * @return An Object[]. If there are no rows in the <code>ResultSet</code>
+     * an empty array will be returned.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */"
+commons-dbutils_113,"public void testEmptyResultSetHandle_oe() throws SQLException {
+        ResultSetHandler<Object[]> h = new ArrayHandler();
+        Object[] results = h.handle(this.emptyResultSet);
+
+        assertThat(results, is(emptyArray()));
+    }",ArrayHandlerTest::testEmptyResultSetHandle_oe,"@Override
+    public Object[] handle(ResultSet rs) throws SQLException {
+        return rs.next() ? this.convert.toArray(rs) : EMPTY_ARRAY;
+    }","/**
+     * Places the column values from the first row in an <code>Object[]</code>.
+     * @param rs <code>ResultSet</code> to process.
+     * @return An Object[]. If there are no rows in the <code>ResultSet</code>
+     * an empty array will be returned.
+     *
+     * @throws SQLException if a database access error occurs
+     * @see org.apache.commons.dbutils.ResultSetHandler#handle(java.sql.ResultSet)
+     */"
+commons-dbutils_114,"@Test
+    public void testEmptyResultSet_oe() throws Exception {
+        when(Boolean.valueOf(rs.next())).thenReturn(Boolean.FALSE);
+        bmh = new BeanMapHandler<Long, TestBean>(TestBean.class);
+        res = bmh.handle(rs);
+        assertNull(res.get(Long.valueOf(23L)));
+    }",BeanMapHandlerTest::testEmptyResultSet_oe,"@Override
+        public Object get(Object key) {
+            Object realKey = lowerCaseMap.get(key.toString().toLowerCase(Locale.ENGLISH));
+            return super.get(realKey);
+        }",/** {@inheritDoc} */
+commons-dbutils_115,"@Test
+    public void testServiceLoaderFindsMultipleRegistries_oe() {
+        boolean found = false;
+        for (PropertyHandler handler : loader) {
+            if (handler instanceof TestPropertyHandler) {
+                found = true;
+            }
+        }
+
+        assertTrue(found);
+    }",PropertyHandlerTest::testServiceLoaderFindsMultipleRegistries_oe,,
+commons-dbutils_116,"@Test
+    public void testFoundMoreThanLocal_oe() {
+        int count = 0;
+        for (PropertyHandler handler : loader) {
+            count++;
+        }
+
+        assertTrue(count > 1);
+    }",PropertyHandlerTest::testFoundMoreThanLocal_oe,,
+commons-dbutils_117,"@Test
+    public void testMatch_oe() {
+        assertTrue(handler.match(java.sql.Date.class, new java.util.Date()));
+        assertTrue(handler.match(java.sql.Time.class, new java.util.Date()));
+        assertTrue(handler.match(java.sql.Timestamp.class, new java.util.Date()));
+    }",DatePropertyHandlerTest::testMatch_oe,"@Override
+    public boolean match(Class<?> parameter, Object value) {
+        if (value instanceof java.util.Date) {
+            final String targetType = parameter.getName();
+            if (""java.sql.Date"".equals(targetType)) {
+                return true;
+            } else
+            if (""java.sql.Time"".equals(targetType)) {
+                return true;
+            } else
+            if (""java.sql.Timestamp"".equals(targetType)) {
+                return true;
+            }
+        }
+
+        return false;
+    }",
+commons-dbutils_118,"@Test
+    public void testMatchNegative_oe() {
+        assertFalse(handler.match(Float.class, null));
+        assertFalse(handler.match(Float.class, new java.util.Date()));
+    }",DatePropertyHandlerTest::testMatchNegative_oe,"@Override
+    public boolean match(Class<?> parameter, Object value) {
+        if (value instanceof java.util.Date) {
+            final String targetType = parameter.getName();
+            if (""java.sql.Date"".equals(targetType)) {
+                return true;
+            } else
+            if (""java.sql.Time"".equals(targetType)) {
+                return true;
+            } else
+            if (""java.sql.Timestamp"".equals(targetType)) {
+                return true;
+            }
+        }
+
+        return false;
+    }",
+commons-dbutils_119,"@Test
+    public void testApplyTypeOfDate_oe() throws Exception {
+        assertEquals(java.sql.Date.class, handler.apply(java.sql.Date.class, new java.util.Date()).getClass());
+    }",DatePropertyHandlerTest::testApplyTypeOfDate_oe,"@Override
+    public Object apply(Class<?> parameter, Object value) {
+        final String targetType = parameter.getName();
+        if (""java.sql.Date"".equals(targetType)) {
+            value = new java.sql.Date(((java.util.Date) value).getTime());
+        } else
+        if (""java.sql.Time"".equals(targetType)) {
+            value = new java.sql.Time(((java.util.Date) value).getTime());
+        } else
+        if (""java.sql.Timestamp"".equals(targetType)) {
+            Timestamp tsValue = (Timestamp) value;
+            int nanos = tsValue.getNanos();
+            value = new java.sql.Timestamp(tsValue.getTime());
+            ((Timestamp) value).setNanos(nanos);
+        }
+
+        return value;
+    }",
+commons-dbutils_120,"@Test
+    public void testApplyTypeOfTime_oe() throws Exception {
+        assertEquals(Time.class, handler.apply(java.sql.Time.class, new java.util.Date()).getClass());
+    }",DatePropertyHandlerTest::testApplyTypeOfTime_oe,"@Override
+    public Object apply(Class<?> parameter, Object value) {
+        final String targetType = parameter.getName();
+        if (""java.sql.Date"".equals(targetType)) {
+            value = new java.sql.Date(((java.util.Date) value).getTime());
+        } else
+        if (""java.sql.Time"".equals(targetType)) {
+            value = new java.sql.Time(((java.util.Date) value).getTime());
+        } else
+        if (""java.sql.Timestamp"".equals(targetType)) {
+            Timestamp tsValue = (Timestamp) value;
+            int nanos = tsValue.getNanos();
+            value = new java.sql.Timestamp(tsValue.getTime());
+            ((Timestamp) value).setNanos(nanos);
+        }
+
+        return value;
+    }",
+commons-dbutils_121,"@Test
+    public void testApplyTypeOfTimestamp_oe() throws Exception {
+        Timestamp ts = new Timestamp(new java.util.Date().getTime());
+        assertEquals(Timestamp.class, handler.apply(java.sql.Timestamp.class, ts).getClass());
+    }",DatePropertyHandlerTest::testApplyTypeOfTimestamp_oe,"@Override
+    public Object apply(Class<?> parameter, Object value) {
+        final String targetType = parameter.getName();
+        if (""java.sql.Date"".equals(targetType)) {
+            value = new java.sql.Date(((java.util.Date) value).getTime());
+        } else
+        if (""java.sql.Time"".equals(targetType)) {
+            value = new java.sql.Time(((java.util.Date) value).getTime());
+        } else
+        if (""java.sql.Timestamp"".equals(targetType)) {
+            Timestamp tsValue = (Timestamp) value;
+            int nanos = tsValue.getNanos();
+            value = new java.sql.Timestamp(tsValue.getTime());
+            ((Timestamp) value).setNanos(nanos);
+        }
+
+        return value;
+    }",
+commons-dbutils_122,"@Test
+    public void testMatch_oe() {
+        assertTrue(handler.match(TestEnum.class, ""test""));
+    }",StringEnumPropertyHandlerTest::testMatch_oe,"@Override
+    public boolean match(Class<?> parameter, Object value) {
+        return value instanceof String && parameter.isEnum();
+    }",
+commons-dbutils_123,"@Test
+    public void testMatchNegative_oe() {
+        assertFalse(handler.match(TestEnum.class, Double.valueOf(1)));
+
+        assertFalse(handler.match(Integer.class, """"));
+    }",StringEnumPropertyHandlerTest::testMatchNegative_oe,"
+
+@Override
+    public boolean match(Class<?> parameter, Object value) {
+        return value instanceof String && parameter.isEnum();
+    }",

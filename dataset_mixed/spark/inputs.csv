@@ -1,0 +1,317 @@
+id,test_prefix,test_name,focal_methods,docstrings
+spark_122,"@Test
+    public void testSession_whenHttpSessionIsNull_thenThrowException_oe() {
+
+        try {
+
+            new Session(null, request);
+            fail(""Session instantiation with a null HttpSession should throw an IllegalArgumentException"");
+
+        } catch (IllegalArgumentException ex) {
+
+            assertEquals(""session cannot be null"", ex.getMessage());
+        }
+    }",SessionTest::testSession_whenHttpSessionIsNull_thenThrowException_oe,,
+spark_123,"@Test
+    public void testSession_whenRequestIsNull_thenThrowException_oe() {
+
+        try {
+
+            new Session(httpSession, null);
+            fail(""Session instantiation with a null Request should throw an IllegalArgumentException"");
+
+        } catch (IllegalArgumentException ex) {
+
+            assertEquals(""request cannot be null"", ex.getMessage());
+        }
+    }",SessionTest::testSession_whenRequestIsNull_thenThrowException_oe,,
+spark_255,"@Test
+    public void testCreateSocketConnector_whenServerIsNull_thenThrowException_oe() {
+
+        try {
+            SocketConnectorFactory.createSocketConnector(null, ""host"", 80);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'server' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSocketConnector_whenServerIsNull_thenThrowException_oe,"public static ServerConnector createSocketConnector(Server server, String host, int port) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+        ServerConnector connector = new ServerConnector(server, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }","/**
+     * Creates an ordinary, non-secured Jetty server jetty.
+     *
+     * @param server Jetty server
+     * @param host   host
+     * @param port   port
+     * @return - a server jetty
+     */"
+spark_256,"@Test
+    public void testCreateSocketConnector_whenHostIsNull_thenThrowException_oe() {
+
+        Server server = new Server();
+
+        try {
+            SocketConnectorFactory.createSocketConnector(server, null, 80);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'host' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSocketConnector_whenHostIsNull_thenThrowException_oe,"public static ServerConnector createSocketConnector(Server server, String host, int port) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+        ServerConnector connector = new ServerConnector(server, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }","/**
+     * Creates an ordinary, non-secured Jetty server jetty.
+     *
+     * @param server Jetty server
+     * @param host   host
+     * @param port   port
+     * @return - a server jetty
+     */"
+spark_258,"@Test
+    public void testCreateSecureSocketConnector_whenServerIsNull_oe() {
+
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(null, ""localhost"", 80, null);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'server' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenServerIsNull_oe,"public static ServerConnector createSecureSocketConnector(Server server,
+                                                              String host,
+                                                              int port,
+                                                              SslStores sslStores) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+        Assert.notNull(sslStores, ""'sslStores' must not be null"");
+
+        SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
+        sslContextFactory.setKeyStorePath(sslStores.keystoreFile());
+
+        if (sslStores.keystorePassword() != null) {
+            sslContextFactory.setKeyStorePassword(sslStores.keystorePassword());
+        }
+
+        if (sslStores.certAlias() != null) {
+            sslContextFactory.setCertAlias(sslStores.certAlias());
+        }
+
+        if (sslStores.trustStoreFile() != null) {
+            sslContextFactory.setTrustStorePath(sslStores.trustStoreFile());
+        }
+
+        if (sslStores.trustStorePassword() != null) {
+            sslContextFactory.setTrustStorePassword(sslStores.trustStorePassword());
+        }
+
+        if (sslStores.needsClientCert()) {
+            sslContextFactory.setNeedClientAuth(true);
+            sslContextFactory.setWantClientAuth(true);
+        }
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+
+        ServerConnector connector = new ServerConnector(server, sslContextFactory, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }","/**
+     * Creates a ssl jetty socket jetty. Keystore required, truststore
+     * optional. If truststore not specified keystore will be reused.
+     *
+     * @param server    Jetty server
+     * @param sslStores the security sslStores.
+     * @param host      host
+     * @param port      port
+     * @return a ssl socket jetty
+     */"
+spark_259,"@Test
+    public void testCreateSecureSocketConnector_whenHostIsNull_oe() {
+
+        Server server = new Server();
+
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(server, null, 80, null);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'host' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenHostIsNull_oe,"public static ServerConnector createSecureSocketConnector(Server server,
+                                                              String host,
+                                                              int port,
+                                                              SslStores sslStores) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+        Assert.notNull(sslStores, ""'sslStores' must not be null"");
+
+        SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
+        sslContextFactory.setKeyStorePath(sslStores.keystoreFile());
+
+        if (sslStores.keystorePassword() != null) {
+            sslContextFactory.setKeyStorePassword(sslStores.keystorePassword());
+        }
+
+        if (sslStores.certAlias() != null) {
+            sslContextFactory.setCertAlias(sslStores.certAlias());
+        }
+
+        if (sslStores.trustStoreFile() != null) {
+            sslContextFactory.setTrustStorePath(sslStores.trustStoreFile());
+        }
+
+        if (sslStores.trustStorePassword() != null) {
+            sslContextFactory.setTrustStorePassword(sslStores.trustStorePassword());
+        }
+
+        if (sslStores.needsClientCert()) {
+            sslContextFactory.setNeedClientAuth(true);
+            sslContextFactory.setWantClientAuth(true);
+        }
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+
+        ServerConnector connector = new ServerConnector(server, sslContextFactory, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }","/**
+     * Creates a ssl jetty socket jetty. Keystore required, truststore
+     * optional. If truststore not specified keystore will be reused.
+     *
+     * @param server    Jetty server
+     * @param sslStores the security sslStores.
+     * @param host      host
+     * @param port      port
+     * @return a ssl socket jetty
+     */"
+spark_260,"@Test
+    public void testCreateSecureSocketConnector_whenSslStoresIsNull_oe() {
+
+        Server server = new Server();
+
+        try {
+            SocketConnectorFactory.createSecureSocketConnector(server, ""localhost"", 80, null);
+            fail(""SocketConnector creation should have thrown an IllegalArgumentException"");
+        } catch(IllegalArgumentException ex) {
+            assertEquals(""'sslStores' must not be null"", ex.getMessage());
+        }
+    }",SocketConnectorFactoryTest::testCreateSecureSocketConnector_whenSslStoresIsNull_oe,"public static ServerConnector createSecureSocketConnector(Server server,
+                                                              String host,
+                                                              int port,
+                                                              SslStores sslStores) {
+        Assert.notNull(server, ""'server' must not be null"");
+        Assert.notNull(host, ""'host' must not be null"");
+        Assert.notNull(sslStores, ""'sslStores' must not be null"");
+
+        SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
+        sslContextFactory.setKeyStorePath(sslStores.keystoreFile());
+
+        if (sslStores.keystorePassword() != null) {
+            sslContextFactory.setKeyStorePassword(sslStores.keystorePassword());
+        }
+
+        if (sslStores.certAlias() != null) {
+            sslContextFactory.setCertAlias(sslStores.certAlias());
+        }
+
+        if (sslStores.trustStoreFile() != null) {
+            sslContextFactory.setTrustStorePath(sslStores.trustStoreFile());
+        }
+
+        if (sslStores.trustStorePassword() != null) {
+            sslContextFactory.setTrustStorePassword(sslStores.trustStorePassword());
+        }
+
+        if (sslStores.needsClientCert()) {
+            sslContextFactory.setNeedClientAuth(true);
+            sslContextFactory.setWantClientAuth(true);
+        }
+
+        HttpConnectionFactory httpConnectionFactory = createHttpConnectionFactory();
+
+        ServerConnector connector = new ServerConnector(server, sslContextFactory, httpConnectionFactory);
+        initializeConnector(connector, host, port);
+        return connector;
+    }","/**
+     * Creates a ssl jetty socket jetty. Keystore required, truststore
+     * optional. If truststore not specified keystore will be reused.
+     *
+     * @param server    Jetty server
+     * @param sslStores the security sslStores.
+     * @param host      host
+     * @param port      port
+     * @return a ssl socket jetty
+     */"
+spark_266,"@Test
+    public void testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_oe() {
+        try {
+            new JettyServer().create(2, 0, 0);
+            fail(""expected IllegalArgumentException"");
+        }
+        catch (IllegalArgumentException expected) {
+            assertEquals(""max threads (2) less than min threads (8)"", expected.getMessage());
+        }
+    }",JettyServerTest::testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_oe,"public Server create(int maxThreads, int minThreads, int threadTimeoutMillis) {
+        Server server;
+
+        if (maxThreads > 0) {
+            int max = maxThreads;
+            int min = (minThreads > 0) ? minThreads : 8;
+            int idleTimeout = (threadTimeoutMillis > 0) ? threadTimeoutMillis : 60000;
+
+            server = new Server(new QueuedThreadPool(max, min, idleTimeout));
+        } else {
+            server = new Server();
+        }
+
+        return server;
+    }","/**
+     * Creates a Jetty server.
+     *
+     * @param maxThreads          maxThreads
+     * @param minThreads          minThreads
+     * @param threadTimeoutMillis threadTimeoutMillis
+     * @return a new jetty server instance
+     */"
+spark_268,"@Test
+    public void testCannotCreateInvalidHandlers_oe() {
+        try {
+            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(InvalidHandler.class));
+            fail(""Handler creation should have thrown an IllegalArgumentException"");
+        } catch (IllegalArgumentException ex) {
+            assertEquals(""WebSocket handler must implement 'WebSocketListener' or be annotated as '@WebSocket'"",ex.getMessage());
+        }
+    }",WebSocketCreatorFactoryTest::testCannotCreateInvalidHandlers_oe,"public static WebSocketCreator create(WebSocketHandlerWrapper handlerWrapper) {
+        return new SparkWebSocketCreator(handlerWrapper.getHandler());
+    }","/**
+     * Creates a {@link WebSocketCreator} that uses the given handler class/instance for
+     * the WebSocket connections.
+     *
+     * @param handlerWrapper The wrapped handler to use to manage WebSocket connections.
+     * @return The WebSocketCreator.
+     */"
+spark_269,"@Test
+    public void testCreate_whenInstantiationException_oe() throws Exception {
+        try {
+            WebSocketCreatorFactory.create(new WebSocketHandlerClassWrapper(FailingHandler.class));
+            fail(""Handler creation should have thrown a RunTimeException"");
+        } catch(RuntimeException ex) {
+            assertEquals(""Could not instantiate websocket handler"", ex.getMessage());
+        }
+
+    }",WebSocketCreatorFactoryTest::testCreate_whenInstantiationException_oe,"public static WebSocketCreator create(WebSocketHandlerWrapper handlerWrapper) {
+        return new SparkWebSocketCreator(handlerWrapper.getHandler());
+    }","/**
+     * Creates a {@link WebSocketCreator} that uses the given handler class/instance for
+     * the WebSocket connections.
+     *
+     * @param handlerWrapper The wrapped handler to use to manage WebSocket connections.
+     * @return The WebSocketCreator.
+     */"

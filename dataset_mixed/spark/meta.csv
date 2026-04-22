@@ -1,0 +1,11 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,dataset_type
+spark_122,spark,SessionTest,testSession_whenHttpSessionIsNull_thenThrowException_oe,src/test/java/spark/SessionTest.java,,,,mixed
+spark_123,spark,SessionTest,testSession_whenRequestIsNull_thenThrowException_oe,src/test/java/spark/SessionTest.java,,,,mixed
+spark_255,spark,SocketConnectorFactoryTest,testCreateSocketConnector_whenServerIsNull_thenThrowException_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,mixed
+spark_256,spark,SocketConnectorFactoryTest,testCreateSocketConnector_whenHostIsNull_thenThrowException_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,mixed
+spark_258,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_whenServerIsNull_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,mixed
+spark_259,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_whenHostIsNull_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,mixed
+spark_260,spark,SocketConnectorFactoryTest,testCreateSecureSocketConnector_whenSslStoresIsNull_oe,src/test/java/spark/embeddedserver/jetty/SocketConnectorFactoryTest.java,,,,mixed
+spark_266,spark,JettyServerTest,testCreateServer_whenNonDefaultMaxThreads_isLessThanDefaultMinThreads_oe,src/test/java/spark/embeddedserver/jetty/JettyServerTest.java,,,,mixed
+spark_268,spark,WebSocketCreatorFactoryTest,testCannotCreateInvalidHandlers_oe,src/test/java/spark/embeddedserver/jetty/websocket/WebSocketCreatorFactoryTest.java,,,,mixed
+spark_269,spark,WebSocketCreatorFactoryTest,testCreate_whenInstantiationException_oe,src/test/java/spark/embeddedserver/jetty/websocket/WebSocketCreatorFactoryTest.java,,,,mixed

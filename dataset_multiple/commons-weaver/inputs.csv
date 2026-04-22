@@ -1,0 +1,242 @@
+id,test_prefix,test_name,focal_methods,docstrings
+commons-weaver_3,"@Test
+    public void testFindAssignableTypes_oe() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        final Set<Class<?>> implementors = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(TestBeanInterface.class)) {
+            implementors.add(annotated.get());
+        }
+        assertEquals(1, implementors.size());
+        assertTrue(implementors.contains(TestBeanWithClassAnnotation.class));
+
+        final Set<Class<?>> subclasses = new HashSet<Class<?>>();
+        for (Annotated<Class<?>> annotated : finder().withAnnotations().findAssignableTypes(AbstractTestBean.class)) {
+            subclasses.add(annotated.get());
+        }
+        assertEquals(2, subclasses.size());
+        assertTrue(subclasses.contains(TestBeanWithClassAnnotation.class));
+        assertTrue(subclasses.contains(TestBeanWithMethodAnnotation.class));
+    }",FinderTest::testFindAssignableTypes_oe,"@Override
+        public T get() {
+            return annotatedElement;
+        }",
+commons-weaver_4,"@Test
+    public void testFindAllTypes_oe() throws IOException {
+        addClassForScanning(TestBeanInterface.class);
+        addClassForScanning(AbstractTestBean.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+
+        List<Annotated<Class<?>>> allClasses = finder().withAnnotations().getAllClasses();
+        assertThat(extract(allClasses),Matchers.<Class<?>> containsInAnyOrder(TestBeanInterface.class,AbstractTestBean.class,TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class));
+    }",FinderTest::testFindAllTypes_oe,"public List<Annotated<Class<?>>> getAllClasses() {
+            return annotate(originalInfos.values());
+        }","/**
+         * Get the list of objects representing all scanned classes.
+         * @since 1.3
+         * @return {@link List} of {@link Annotated}{@code <Class<?>>}
+         */"
+commons-weaver_5,"@Test
+    public void testCompare_oe() {
+        assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, ArrayUtils.EMPTY_CLASS_ARRAY) == 0);
+        assertTrue(Args.compare(ArrayUtils.EMPTY_CLASS_ARRAY, new Class[] { String.class }) < 0);
+        assertTrue(Args.compare(new Class[] { String.class }, ArrayUtils.EMPTY_CLASS_ARRAY) > 0);
+        assertTrue(Args.compare(new Class[] { String.class }, new Class[] { String.class }) == 0);
+        assertTrue(Args.compare(new Class[] { int.class }, new Class[] { String.class }) < 0);
+        assertTrue(Args.compare(new Class[] { String.class }, new Class[] { int.class }) > 0);
+        assertTrue(Args.compare(new Class[] { int.class, String.class }, new Class[] { int.class, String.class}) == 0);
+        assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, String.class}) == 0);
+        assertTrue(Args.compare(new Class[] { String.class, int.class }, new Class[] { String.class, String.class}) < 0);
+        assertTrue(Args.compare(new Class[] { String.class, String.class }, new Class[] { String.class, int.class}) > 0);
+    }",ArgsTest::testCompare_oe,"@SuppressWarnings(""PMD.UseVarargs"") // not needed for comparing one array to another
+    public static int compare(final Class<?>[] paramTypes1, final Class<?>[] paramTypes2) {
+        for (int param = 0; param < paramTypes1.length; param++) {
+            if (param >= paramTypes2.length) {
+                return 1;
+            }
+            final int test = paramTypes1[param].getName().compareTo(paramTypes2[param].getName());
+            if (test == 0) {
+                continue;
+            }
+            return test;
+        }
+        if (paramTypes1.length == paramTypes2.length) {
+            return 0;
+        }
+        return -1;
+    }","/**
+     * Compare two parameter type arrays.
+     *
+     * @param paramTypes1
+     *            lhs
+     * @param paramTypes2
+     *            rhs
+     * @return {@code int} as specified by {@link java.util.Comparator#compare(Object, Object)}
+     */"
+commons-weaver_6,"@Test
+    public void testSort_oe() {
+        assertThat(Providers.sort(Arrays.asList(b, a, c)), IsIterableContainingInOrder.contains(a, b, c));
+        assertThat(Providers.sort(Arrays.asList(y, w, x, z)), IsIterableContainingInOrder.contains(z, y, x, w));
+    }",ProvidersTest::testSort_oe,"public static <P extends WeaveLifecycleProvider<?>> Iterable<P> sort(final Iterable<P> providers) {
+        return new SortWorker<P>().sort(providers);
+    }","/**
+     * Sort the specified providers with respect to declared {@link Consumes} and {@link Produces} annotations.
+     *
+     * @param <P> the {@link WeaveLifecycleProvider} type
+     * @param providers to sort
+     * @return {@link Iterable} of {@code P}
+     */"
+commons-weaver_7,"@Test
+    public void testWeaveVisiting_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        WeaveProcessor wp = new WeaveProcessor(getClassPathEntries(), getTargetFolder(), config);
+
+        TestWeaver.wovenClasses.clear();
+        TestWeaver.wovenMethods.clear();
+
+        wp.weave();
+
+        Assert.assertEquals(1, TestWeaver.wovenClasses.size());
+        Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.wovenClasses.get(0));
+
+        Assert.assertEquals(1, TestWeaver.wovenMethods.size());
+        Assert.assertEquals(TestBeanWithMethodAnnotation.class, TestWeaver.wovenMethods.get(0).getDeclaringClass());
+        
+        Assert.assertEquals(1, TestWeaver.implementors.size());
+        Assert.assertEquals(TestBeanWithClassAnnotation.class, TestWeaver.implementors.get(0));
+        
+        Assert.assertEquals(2, TestWeaver.subclasses.size());
+        Assert.assertTrue(TestWeaver.subclasses.containsAll(Arrays.<Class<?>> asList(TestBeanWithClassAnnotation.class,TestBeanWithMethodAnnotation.class)));
+    }",WeaveProcessorTest::testWeaveVisiting_oe,"public void weave() {
+        if (!target.exists()) {
+            log.warning(() -> String.format(""Target directory %s does not exist; nothing to do!"", target));
+        }
+        for (final Weaver weaver : providers) {
+            final WeaveEnvironment env = new LocalWeaveEnvironment(target, classLoader, configuration,
+                Logger.getLogger(weaver.getClass().getName()));
+            weaver.process(env, finder);
+        }
+    }
+
+@Override
+        public T get() {
+            return annotatedElement;
+        }","/**
+     * Weave classes in target directory.
+     */
+
+"
+commons-weaver_8,"@Test
+    public void testWeaveVisiting_oe() throws Exception {
+        addClassForScanning(TestBeanWithMethodAnnotation.class);
+        addClassForScanning(TestBeanWithClassAnnotation.class);
+
+        final Properties config = new Properties();
+        config.put(""configKey"", ""configValue"");
+
+        final CleanProcessor cp = new CleanProcessor(getClassPathEntries(), getTargetFolder(), config);
+        cp.clean();
+
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithMethodAnnotation.class.getName().replace('.',File.separatorChar)+ "".class"").exists());
+        Assert.assertFalse(new File(getTargetFolder(),TestBeanWithClassAnnotation.class.getName().replace('.',File.separatorChar)+ "".class"").exists());
+    }",CleanProcessorTest::testWeaveVisiting_oe,"public String getName() {
+            return name;
+        }","/**
+         * Get the name of this {@link Resource}.
+         * @return {@link String}
+         */"
+commons-weaver_9,"@Test
+    public void testValidatePackageName_oe() {
+        assertEquals("""", Utils.validatePackageName(""""));
+        assertEquals("""", Utils.validatePackageName(""    ""));
+        assertEquals(""foo"", Utils.validatePackageName(""foo""));
+        assertEquals(""foo/bar"", Utils.validatePackageName(""foo.bar""));
+        assertEquals(""foo/bar"", Utils.validatePackageName(""foo/bar""));
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo.bar.baz""));
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo.bar/baz""));
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo/bar.baz""));
+        assertEquals(""foo/bar/baz"", Utils.validatePackageName(""foo/bar/baz""));
+        assertEquals(""$foo"", Utils.validatePackageName(""$foo""));
+        assertEquals(""_foo"", Utils.validatePackageName(""_foo""));
+        assertEquals(""foo2"", Utils.validatePackageName(""foo2""));
+    }",UtilsTest::testValidatePackageName_oe,"static String validatePackageName(final String pkg) {
+        if (StringUtils.isBlank(pkg)) {
+            return """";
+        }
+        String result = pkg.trim();
+
+        final String unexpected = ""Unexpected character %s at pos %s of package name \""%s\"""";
+
+        boolean next = true;
+        for (int pos = 0; pos < result.length(); pos++) {
+            final char chr = result.charAt(pos);
+            if (next) {
+                next = false;
+                Validate.isTrue(Character.isJavaIdentifierStart(chr), unexpected, chr, pos, result);
+                continue;
+            }
+            if (chr == '/' || chr == '.') {
+                next = true;
+                continue;
+            }
+            Validate.isTrue(Character.isJavaIdentifierPart(chr), unexpected, chr, pos, result);
+        }
+        result = result.replace('.', '/');
+        final int last = result.length() - 1;
+        if (result.charAt(last) == '/') {
+            result = result.substring(0, last);
+        }
+        return result;
+    }","/**
+     * Validate a package name.
+     * @param pkg to validate
+     * @return {@code pkg}, ({@code """"} if {@code null}), having replaced
+     *         {@code '.'} with {@code '/'} and removed any terminating separator
+     * @throws IllegalArgumentException if invalid
+     */"
+commons-weaver_10,"@Test
+    public void testParseTypes_oe() {
+        assertContainsInOrder(Utils.parseTypes("" java.lang.Number "", getClass().getClassLoader()), Number.class);
+        assertContainsInOrder(
+            Utils.parseTypes(""java.lang.Number,java.lang.String,java.util.Map"", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+        assertContainsInOrder(
+            Utils.parseTypes(""java.lang.Number, java.lang.String, java.util.Map"", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+        assertContainsInOrder(
+            Utils.parseTypes(""java/lang/Number, java/lang/String, java/util/Map"", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+        assertContainsInOrder(
+            Utils.parseTypes(""java.lang.Number,\njava.lang.String,\njava.util.Map"", getClass().getClassLoader()),
+            Number.class, String.class, Map.class);
+    }",UtilsTest::testParseTypes_oe,"
+
+static Set<Class<?>> parseTypes(final String types, final ClassLoader classLoader) {
+        final Set<Class<?>> result = new LinkedHashSet<>();
+        for (final String token : StringUtils.splitByWholeSeparatorPreserveAllTokens(types, "","")) {
+            try {
+                result.add(ClassUtils.getClass(classLoader, token.trim().replace('/', '.')));
+            } catch (final ClassNotFoundException e) {
+                throw new IllegalArgumentException(e);
+            }
+        }
+        return result;
+    }","
+
+/**
+     * Parse a number of Java types speciified as a comma-delimited
+     * {@link String} of fully-qualified or internal names (i.e., slashes are
+     * legal).
+     * @param types to parse
+     * @param classLoader {@link ClassLoader} to search
+     * @return {@link Set} of {@link Class}
+     */"

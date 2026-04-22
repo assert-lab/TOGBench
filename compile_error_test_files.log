@@ -1,6 +1,0 @@
-START commons-pool2-2.11.1-src
- ITER 1
-  deleting TestBaseObjectPool_OE25Dev.java
- ITER 2
- STOP commons-pool2-2.11.1-src (no bad files)
-ALL DONE

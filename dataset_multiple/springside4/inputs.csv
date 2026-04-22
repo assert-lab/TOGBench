@@ -1,0 +1,4680 @@
+id,test_prefix,test_name,focal_methods,docstrings
+springside4_8,"@Test
+	public void test_oe() {
+		Sampler sampler = Sampler.create(10.5);
+		int hits = 0;
+		for (int i = 0; i < 10000; i++) {
+			if (sampler.select()) {
+				hits++;
+			}
+		}
+		System.out.println(""sample 10.5% in 10000 hits should close to 1050, actual is "" + hits);
+
+		assertThat(hits).isBetween(900, 1200);
+		Sampler sampler2 = Sampler.create(0.5);
+
+		hits = 0;
+		for (int i = 0; i < 10000; i++) {
+			if (sampler2.select()) {
+				hits++;
+			}
+		}
+		System.out.println(""sample 0.5% in 10000 hits should close to 50, actual is "" + hits);
+		assertThat(hits).isBetween(20, 100);
+
+	}",SamplerTest::test_oe,"public static boolean isBetween(@NotNull final Date date, @NotNull final Date start, @NotNull final Date end) {
+		if (date == null || start == null || end == null || start.after(end)) {
+			throw new IllegalArgumentException(""some date parameters is null or dateBein after dateEnd"");
+		}
+		return !date.before(start) && !date.after(end);
+	}","/**
+	 * 判断日期是否在范围内，包含相等的日期
+	 */"
+springside4_11,"@Test
+	public void test_oe() throws InterruptedException {
+		ExecutorService executor = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		CountDownLatch countDownLatch= ConcurrentTools.countDownLatch(10);
+		for(int i=0;i<10;i++){
+			executor.execute(new LongRunTask(countDownLatch));
+		}
+		countDownLatch.await();
+		
+		ThreadDumpper dumpper = new ThreadDumpper();
+		dumpper.threadDumpIfNeed();
+
+		LogbackListAppender appender = new LogbackListAppender();
+		appender.addToLogger(ThreadDumpper.class);
+
+		dumpper.setEnable(false);
+		dumpper.threadDumpIfNeed();
+		assertThat(appender.getAllLogs()).hasSize(0);
+
+		dumpper.setEnable(true);
+		dumpper.setLeastInterval(1800);
+		dumpper.threadDumpIfNeed();
+		assertThat(appender.getAllLogs()).hasSize(0);
+		
+		executor.shutdownNow();
+
+	}",ThreadDumpperTest::test_oe,"public void threadDumpIfNeed() {
+		threadDumpIfNeed(null);
+	}","/**
+	 * 符合条件则打印线程栈.
+	 */"
+springside4_13,"@Test
+	public void longAdder_oe() {
+		LongAdder counter = ConcurrentTools.longAdder();
+		counter.increment();
+		counter.add(2);
+		assertThat(counter.longValue()).isEqualTo(3L);
+	}",ConcurrentToolsTest::longAdder_oe,"public long longValue() {
+        return sum();
+    }","/**
+     * Equivalent to {@link #sum}.
+     *
+     * @return the sum
+     */"
+springside4_14,"@Test
+	public void readWrite_oe() throws IOException {
+		File file = FileUtil.createTempFile(""abc"", "".tmp"");
+		try {
+			String content = ""haha\nhehe"";
+			FileUtil.write(content, file);
+
+			String result = FileUtil.toString(file);
+			assertThat(result).isEqualTo(content);
+			List<String> lines = FileUtil.toLines(file);
+			assertThat(lines).containsExactly(""haha"", ""hehe"");
+
+			FileUtil.append(""kaka"", file);
+			assertThat(new String(FileUtil.toByteArray(file), Charsets.UTF_8)).isEqualTo(""haha\nhehekaka"");
+		} finally {
+			FileUtil.deleteFile(file);
+		}
+	}",FileUtilTest::readWrite_oe,,
+springside4_15,"@Test
+	public void opFiles_oe() throws IOException {
+		File file = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testFile"" + RandomUtil.nextInt()));
+		FileUtil.touch(file);
+		assertThat(FileUtil.isFileExists(file)).isTrue();
+		FileUtil.touch(file);
+
+		String content = ""haha\nhehe"";
+		FileUtil.write(content, file);
+		assertThat(FileUtil.toString(file)).isEqualTo(content);
+		
+		File newFile = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testFile"" + RandomUtil.nextInt()));
+		File newFile2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testFile"" + RandomUtil.nextInt()));
+
+		FileUtil.copyFile(file, newFile);
+		assertThat(FileUtil.isFileExists(newFile)).isTrue();
+		assertThat(FileUtil.toString(newFile)).isEqualTo(content);
+
+		FileUtil.moveFile(newFile, newFile2);
+		assertThat(FileUtil.toString(newFile2)).isEqualTo(""haha\nhehe"");
+
+	
+	}",FileUtilTest::opFiles_oe,"public static boolean isFileExists(String fileName) {
+		return isFileExists(getFileByPath(fileName));
+	}
+
+public static void write(final CharSequence data, final File file) throws IOException {
+		Files.write(data, file, Charsets.UTF_8);
+	}
+
+public static void copyFile(@NotNull File from, @NotNull File to) throws IOException {
+		Validate.isTrue(isFileExists(from), from + "" is not exist or not a file"");
+		Validate.notNull(to);
+		Validate.isTrue(!FileUtil.isDirExists(to), to + "" is exist but it is a dir"");
+		Files.copy(from, to);
+	}
+
+public static void moveFile(@NotNull File from, @NotNull File to) throws IOException {
+		Validate.isTrue(isFileExists(from), from + "" is not exist or not a file"");
+		Validate.notNull(to);
+		Validate.isTrue(!isDirExists(to), to + "" is  exist but it is a dir"");
+
+		Files.move(from, to);
+	}","/**
+	 * 判断文件是否存在, from Jodd
+	 */
+
+/**
+	 * 简单写入String到File.
+	 */
+
+/**
+	 * 文件复制.
+	 * 
+	 * @param from 如果为nll，或文件不存在或者是目录，，抛出异常
+	 * @param to 如果to为null，或文件存在但是一个目录，抛出异常
+	 */
+
+/**
+	 * 文件移动/重命名.
+	 */"
+springside4_16,"@Test
+	public void opDir_oe() throws IOException {
+		String fileName = ""testFile"" + RandomUtil.nextInt();
+		File dir = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir""));
+
+		File file = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir"", fileName));
+		String content = ""haha\nhehe"";
+		FileUtil.makesureDirExists(dir);
+		FileUtil.write(content, file);
+
+		File dir2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir2""));
+		FileUtil.copyDir(dir, dir2);
+		File file2 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir2"", fileName));
+		assertThat(FileUtil.toString(file2)).isEqualTo(""haha\nhehe"");
+
+		File dir3 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir3""));
+		FileUtil.moveDir(dir, dir3);
+		File file3 = new File(FilePathUtil.contact(Platforms.TMP_DIR, ""testDir3"", fileName));
+		assertThat(FileUtil.toString(file3)).isEqualTo(""haha\nhehe"");
+		assertThat(FileUtil.isDirExists(dir)).isFalse();
+
+	}",FileUtilTest::opDir_oe,"public static String contact(String baseName, String... appendName) {
+		if (appendName.length == 0) {
+			return baseName;
+		}
+
+		String contactName;
+		if (MoreStringUtil.endWith(baseName, Platforms.FILE_PATH_SEPARATOR_CHAR)) {
+			contactName = baseName + appendName[0];
+		} else {
+			contactName = baseName + Platforms.FILE_PATH_SEPARATOR_CHAR + appendName[0];
+		}
+
+		if (appendName.length > 1) {
+			for (int i = 1; i < appendName.length; i++) {
+				contactName += Platforms.FILE_PATH_SEPARATOR_CHAR + appendName[i];
+			}
+		}
+
+		return contactName;
+	}
+
+public static boolean isDirExists(String dirPath) {
+		return isDirExists(getFileByPath(dirPath));
+	}","/**
+	 * 以拼接路径名
+	 */
+
+/**
+	 * 判断目录是否存在, from Jodd
+	 */"
+springside4_17,"@Test
+	public void fileExist_oe() throws IOException {
+		assertThat(FileUtil.isDirExists(Platforms.TMP_DIR)).isTrue();
+		assertThat(FileUtil.isDirExists(Platforms.TMP_DIR + RandomUtil.nextInt())).isFalse();
+
+		File tmpFile = null;
+		try {
+			tmpFile = FileUtil.createTempFile();
+			assertThat(FileUtil.isFileExists(tmpFile)).isTrue();
+
+			assertThat(FileUtil.isFileExists(tmpFile.getAbsolutePath() + RandomUtil.nextInt())).isFalse();
+
+		} finally {
+			FileUtil.deleteFile(tmpFile);
+		}
+	}",FileUtilTest::fileExist_oe,"public static boolean isDirExists(String dirPath) {
+		return isDirExists(getFileByPath(dirPath));
+	}","/**
+	 * 判断目录是否存在, from Jodd
+	 */"
+springside4_18,"@Test
+	public void getName_oe() {
+
+		assertThat(FileUtil.getFileName(FilePathUtil.normalizePath(""/a/d/b/abc.txt""))).isEqualTo(""abc.txt"");
+		assertThat(FileUtil.getFileName(""abc.txt"")).isEqualTo(""abc.txt"");
+
+		assertThat(FileUtil.getFileExtension(FilePathUtil.normalizePath(""a/d/b/abc.txt""))).isEqualTo(""txt"");
+		assertThat(FileUtil.getFileExtension(FilePathUtil.normalizePath(""/a/d/b/abc""))).isEqualTo("""");
+		assertThat(FileUtil.getFileExtension(FilePathUtil.normalizePath(""/a/d/b/abc.""))).isEqualTo("""");
+
+	}",FileUtilTest::getName_oe,"public static String getFileName(@NotNull String fullName) {
+		Validate.notEmpty(fullName);
+		int last = fullName.lastIndexOf(Platforms.FILE_PATH_SEPARATOR_CHAR);
+		return fullName.substring(last + 1);
+	}
+
+public static String getFileExtension(File file) {
+		return Files.getFileExtension(file.getName());
+	}","/**
+	 * 获取文件名(不包含路径)
+	 */
+
+/**
+	 * 获取文件名的扩展名部分(不包含.)
+	 */"
+springside4_20,"@Test
+	public void file_oe() throws IOException {
+		File file = FileUtil.createTempFile();
+		FileUtil.write(""haha"", file);
+		try {
+			File file2 = URLResourceUtil.asFile(""file://"" + file.getAbsolutePath());
+			assertThat(FileUtil.toString(file2)).isEqualTo(""haha"");
+
+			File file2NotExist = URLResourceUtil.asFile(""file://"" + file.getAbsolutePath() + "".noexist"");
+
+			File file3 = URLResourceUtil.asFile(file.getAbsolutePath());
+			assertThat(FileUtil.toString(file3)).isEqualTo(""haha"");
+			File file3NotExist = URLResourceUtil.asFile(file.getAbsolutePath() + "".noexist"");
+
+		} finally {
+			FileUtil.deleteFile(file);
+		}
+
+	}",URLResourceTest::file_oe,,
+springside4_21,"@Test
+	public void pathName_oe() {
+		String filePath = FilePathUtil.contact(sep + ""abc"", ""ef"");
+		assertThat(filePath).isEqualTo(FilePathUtil.normalizePath(""/abc/ef""));
+
+		String filePath2 = FilePathUtil.contact(sep + ""stuv"" + sep, ""xy"");
+		assertThat(filePath2).isEqualTo(FilePathUtil.normalizePath(""/stuv/xy""));
+
+		assertThat(FilePathUtil.simplifyPath(""../dd/../abc"")).isEqualTo(""../abc"");
+		assertThat(FilePathUtil.simplifyPath(""../../dd/../abc"")).isEqualTo(""../../abc"");
+		assertThat(FilePathUtil.simplifyPath(""./abc"")).isEqualTo(""abc"");
+
+		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath(""/abc/dd/efg/""))).isEqualTo(FilePathUtil.normalizePath(""/abc/dd/""));
+
+		assertThat(FilePathUtil.getParentPath(FilePathUtil.normalizePath(""/abc/dd/efg.txt""))).isEqualTo(FilePathUtil.normalizePath(""/abc/dd/""));
+	}",FilePathUtilTest::pathName_oe,"public static String normalizePath(String path) {
+		if (Platforms.FILE_PATH_SEPARATOR_CHAR == Platforms.WINDOWS_FILE_PATH_SEPARATOR_CHAR
+				&& StringUtils.indexOf(path, Platforms.LINUX_FILE_PATH_SEPARATOR_CHAR) != -1) {
+			return StringUtils.replaceChars(path, Platforms.LINUX_FILE_PATH_SEPARATOR_CHAR,
+					Platforms.WINDOWS_FILE_PATH_SEPARATOR_CHAR);
+		}
+		return path;
+
+	}
+
+public static String simplifyPath(String path) {
+		return Files.simplifyPath(path);
+	}
+
+public static String getParentPath(String path) {
+		String parentPath = path;
+
+		if (Platforms.FILE_PATH_SEPARATOR.equals(parentPath)) {
+			return parentPath;
+		}
+
+		parentPath = MoreStringUtil.removeEnd(parentPath, Platforms.FILE_PATH_SEPARATOR_CHAR);
+
+		int idx = parentPath.lastIndexOf(Platforms.FILE_PATH_SEPARATOR_CHAR);
+		if (idx >= 0) {
+			parentPath = parentPath.substring(0, idx + 1);
+		} else {
+			parentPath = Platforms.FILE_PATH_SEPARATOR;
+		}
+
+		return parentPath;
+	}","/**
+	 * 在Windows环境里，兼容Windows上的路径分割符，将 '/' 转回 '\'
+	 */
+
+/**
+	 * 将路径整理，如 ""a/../b""，整理成 ""b""
+	 */
+
+/**
+	 * 获得上层目录的路径
+	 */"
+springside4_22,"@Test
+	public void getJarPath_oe() {
+		System.out.println(""the jar file contains Files.class"" + FilePathUtil.getJarPath(Files.class));
+		assertThat(FilePathUtil.getJarPath(Files.class)).endsWith(""guava-20.0.jar"");
+	}",FilePathUtilTest::getJarPath_oe,"public static String getJarPath(Class<?> clazz) {
+		return clazz.getProtectionDomain().getCodeSource().getLocation().getFile();
+	}","/**
+	 * 获得参数clazz所在的Jar文件的绝对路径
+	 */"
+springside4_23,"@Test
+	public void listFile_oe() throws IOException {
+		File tmpDir = FileUtil.createTempDir();
+
+		List<File> all = FileTreeWalker.listAll(tmpDir);
+		assertThat(all).hasSize(1);
+
+		List<File> files = FileTreeWalker.listFile(tmpDir);
+		assertThat(files).hasSize(0);
+
+		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), ""tmp-"" + RandomUtil.nextInt()) + "".tmp"");
+		FileUtil.touch(FilePathUtil.contact(tmpDir.getAbsolutePath(), ""tmp-"" + RandomUtil.nextInt()) + "".abc"");
+
+		String childDir = FilePathUtil.contact(tmpDir.getAbsolutePath(), ""tmp-"" + RandomUtil.nextInt());
+		FileUtil.makesureDirExists(childDir);
+
+		FileUtil.touch(FilePathUtil.contact(childDir, ""tmp-"" + RandomUtil.nextInt()) + "".tmp"");
+
+		all = FileTreeWalker.listAll(tmpDir);
+		assertThat(all).hasSize(5);
+
+		files = FileTreeWalker.listFile(tmpDir);
+		assertThat(files).hasSize(3);
+
+		files = FileTreeWalker.listFileWithExtension(tmpDir, ""tmp"");
+		assertThat(files).hasSize(2);
+
+		files = FileTreeWalker.listFileWithExtension(tmpDir, ""tp"");
+		assertThat(files).hasSize(0);
+
+		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, ""*.tmp"");
+		assertThat(files).hasSize(2);
+		files = FileTreeWalker.listFileWithWildcardFileName(tmpDir, ""*.tp"");
+		assertThat(files).hasSize(0);
+
+		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, "".*\\.tmp"");
+		assertThat(files).hasSize(2);
+		files = FileTreeWalker.listFileWithRegexFileName(tmpDir, "".*\\.tp"");
+		assertThat(files).hasSize(0);
+		
+		
+		files = FileTreeWalker.listFileWithAntPath(tmpDir, ""**/*.tmp"");
+		assertThat(files).hasSize(2);
+		
+		files = FileTreeWalker.listFileWithAntPath(tmpDir, ""*/*.tmp"");
+		assertThat(files).hasSize(1);
+		
+		files = FileTreeWalker.listFileWithAntPath(tmpDir, ""*.tp"");
+		assertThat(files).hasSize(0);
+
+		FileUtil.deleteDir(tmpDir);
+
+		assertThat(FileUtil.isDirExists(tmpDir)).isFalse();
+
+	}",FileTreeWalkerTest::listFile_oe,"public static List<File> listAll(File rootDir) {
+		return Files.fileTreeTraverser().preOrderTraversal(rootDir).toList();
+	}
+
+public static List<File> listFileWithRegexFileName(final File rootDir, final String regexFileNamePattern) {
+		return Files.fileTreeTraverser().preOrderTraversal(rootDir)
+				.filter(new RegexFileNameFilter(regexFileNamePattern)).toList();
+	}
+
+public static List<File> listFileWithAntPath(final File rootDir, final String antPathPattern) {
+		return Files.fileTreeTraverser().preOrderTraversal(rootDir)
+				.filter(new AntPathFilter(FilePathUtil.contact(rootDir.getAbsolutePath(), antPathPattern))).toList();
+	}
+
+public static boolean isDirExists(String dirPath) {
+		return isDirExists(getFileByPath(dirPath));
+	}
+
+public static List<File> listFile(File rootDir) {
+		return Files.fileTreeTraverser().preOrderTraversal(rootDir).filter(Files.isFile()).toList();
+	}
+
+public static List<File> listFileWithExtension(final File rootDir, final String extension) {
+		return Files.fileTreeTraverser().preOrderTraversal(rootDir).filter(new FileExtensionFilter(extension)).toList();
+	}
+
+public static List<File> listFileWithWildcardFileName(final File rootDir, final String fileNamePattern) {
+		return Files.fileTreeTraverser().preOrderTraversal(rootDir).filter(new WildcardFileNameFilter(fileNamePattern))
+				.toList();
+	}","/**
+	 * 前序递归列出所有文件, 包含文件与目录，及根目录本身.
+	 * 
+	 * 前序即先列出父目录，在列出子目录. 如要后序遍历, 直接使用Files.fileTreeTraverser()
+	 */
+
+/**
+	 * 前序递归列出所有文件, 列出文件名匹配正则表达式的文件
+	 * 
+	 * 如 (""/a/b/hello.txt"", ""he.*\.text"") 将被返回
+	 */
+
+/**
+	 * 前序递归列出所有文件, 列出符合ant path风格表达式的文件
+	 * 
+	 * 如 (""/a/b/hello.txt"", ""he.*\.text"") 将被返回
+	 */
+
+/**
+	 * 判断目录是否存在, from Jodd
+	 */
+
+/**
+	 * 前序递归列出所有文件, 只包含文件.
+	 */
+
+/**
+	 * 前序递归列出所有文件, 列出后缀名匹配的文件. （后缀名不包含.）
+	 */
+
+/**
+	 * 前序递归列出所有文件, 列出文件名匹配通配符的文件
+	 * 
+	 * 如 (""/a/b/hello.txt"", ""he*"") 将被返回
+	 */"
+springside4_24,"@Test
+	public void test_oe() throws IOException {
+		assertThat(ResourceUtil.toString(""test.txt"")).contains(""ABCDEFG"");
+		assertThat(ResourceUtil.toString(ResourceUtilTest.class, ""/test.txt"")).contains(""ABCDEFG"");
+		assertThat(ResourceUtil.toLines(""test.txt"")).containsExactly(""ABCDEFG"", ""ABC"");
+		assertThat(ResourceUtil.toLines(ResourceUtilTest.class, ""/test.txt"")).containsExactly(""ABCDEFG"", ""ABC"");
+
+		System.out.println(ResourceUtil.asUrl(""META-INF/MANIFEST.MF""));
+		assertThat(ResourceUtil.toString(""META-INF/MANIFEST.MF"")).contains(""Manifest"");
+
+		assertThat(ResourceUtil.getResources(""META-INF/MANIFEST.MF"").size()).isGreaterThan(1);
+
+		System.out.println(ResourceUtil.getResources(""META-INF/MANIFEST.MF""));
+
+		assertThat(ResourceUtil.getResources(""META-INF/MANIFEST.MF"",ResourceUtilTest.class.getClassLoader()).size()).isGreaterThan(1);
+
+	}",ResourceUtilTest::test_oe,"
+
+public static List<String> toLines(String resourceName) throws IOException {
+		return Resources.readLines(Resources.getResource(resourceName), Charsets.UTF_8);
+	}
+
+public static URL asUrl(String resourceName) {
+		return Resources.getResource(resourceName);
+	}
+
+public static List<URL> getResources(String resourceName) {
+		return getResources(resourceName, ClassUtil.getDefaultClassLoader());
+	}","
+
+/**
+	 * 读取文件的每一行，读取规则见本类注释.
+	 */
+
+/**
+	 * 读取规则见本类注释.
+	 */"
+springside4_25,"@Test
+	public void resourceNameTest_oe() throws IOException{
+		JarFile guavaFile = new JarFile(FilePathUtil.getJarPath(Files.class));
+		assertThat(guavaFile.getEntry(""META-INF/MANIFEST.MF"")).isNotNull();
+		assertThat(guavaFile.getEntry(""/META-INF/MANIFEST.MF"")).isNull();
+		guavaFile.close();
+	}",ResourceUtilTest::resourceNameTest_oe,"public static String getJarPath(Class<?> clazz) {
+		return clazz.getProtectionDomain().getCodeSource().getLocation().getFile();
+	}","/**
+	 * 获得参数clazz所在的Jar文件的绝对路径
+	 */"
+springside4_26,"@Test
+	public void read_oe() throws IOException {
+		assertThat(IOUtil.toString(ResourceUtil.asStream(""test.txt""))).isEqualTo(""ABCDEFG\nABC"");
+		assertThat(IOUtil.toLines(ResourceUtil.asStream(""test.txt""))).hasSize(2).containsExactly(""ABCDEFG"", ""ABC"");
+	}",IOUtilTest::read_oe,"
+
+public static List<String> toLines(final InputStream input) throws IOException {
+		return toLines(new InputStreamReader(input, Charsets.UTF_8));
+	}","
+
+/**
+	 * 简单读取Reader的每行内容到List<String>
+	 */"
+springside4_27,"@Test
+	public void write_oe() throws IOException {
+		StringBuilderWriter sw = new StringBuilderWriter();
+		IOUtil.write(""hahahaha"", sw);
+		assertThat(sw.toString()).isEqualTo(""hahahaha"");
+
+		ByteArrayOutputStream out = new ByteArrayOutputStream();
+		IOUtil.write(""hahahaha"", out);
+		assertThat(new String(out.toByteArray(), Charsets.UTF_8)).isEqualTo(""hahahaha"");
+
+		IOUtil.closeQuietly(out);
+		IOUtil.closeQuietly((Closeable) null);
+	}",IOUtilTest::write_oe,"public static void write(final String data, final OutputStream output) throws IOException {
+		if (data != null) {
+			output.write(data.getBytes(Charsets.UTF_8));
+		}
+	}
+
+public static byte[] toByteArray(final File file) throws IOException {
+		return Files.toByteArray(file);
+	}","/**
+	 * 简单写入String到OutputStream.
+	 */
+
+/**
+	 * 读取文件到byte[].
+	 */"
+springside4_28,"@Test
+	public void guavaBuildList_oe() {
+		List<String> list1 = ListUtil.newArrayList();
+
+		List<String> list2 = ListUtil.newArrayList(""a"", ""b"");
+		assertThat(list2).hasSize(2).containsExactly(""a"", ""b"");
+
+		List<String> list3 = ListUtil.newArrayList(SetUtil.newHashSet(""a"", ""b""));
+		assertThat(list2).hasSize(2).containsExactly(""a"", ""b"");
+
+		List<String> list4 = ListUtil.newArrayListWithCapacity(10);
+
+		List<String> list5 = ListUtil.newCopyOnWriteArrayList();
+
+		List<String> list6 = ListUtil.newCopyOnWriteArrayList(""a"", ""b"");
+		assertThat(list6).hasSize(2).containsExactly(""a"", ""b"");
+
+		List<String> list7 = ListUtil.newLinkedList();
+	}",ListUtilTest::guavaBuildList_oe,,
+springside4_31,"@Test
+	public void sortAndSearch_oe() {
+
+		List<String> list = ListUtil.newArrayList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+		ListUtil.sort(list);
+
+		assertThat(list).hasSize(7).containsExactly(""a"", ""b"", ""c"", ""d"", ""e"", ""g"", ""i"");
+
+		ListUtil.shuffle(list);
+		ListUtil.shuffle(list, new Random());
+		System.out.println(""shuffle list:"" + list);
+
+		ListUtil.sort(list, Ordering.natural());
+
+		assertThat(list).hasSize(7).containsExactly(""a"", ""b"", ""c"", ""d"", ""e"", ""g"", ""i"");
+
+		assertThat(ListUtil.binarySearch(list, ""b"")).isEqualTo(1);
+		assertThat(ListUtil.binarySearch(list, ""b"", Ordering.natural())).isEqualTo(1);
+		assertThat(ListUtil.binarySearch(list, ""x"")).isEqualTo(-8);
+
+		List list8 = ListUtil.reverse(list);
+		assertThat(list8).hasSize(7).containsExactly(""i"", ""g"", ""e"", ""d"", ""c"", ""b"", ""a"");
+
+		ListUtil.shuffle(list8);
+		ListUtil.sortReverse(list8);
+		assertThat(list8).hasSize(7).containsExactly(""i"", ""g"", ""e"", ""d"", ""c"", ""b"", ""a"");
+
+		ListUtil.shuffle(list8);
+		ListUtil.sortReverse(list8, Ordering.natural());
+		assertThat(list8).hasSize(7).containsExactly(""i"", ""g"", ""e"", ""d"", ""c"", ""b"", ""a"");
+	}",ListUtilTest::sortAndSearch_oe,,
+springside4_32,"@Test
+	public void collectionCalc_oe() {
+		List<String> list1 = ListUtil.newArrayList(""1"", ""2"", ""3"", ""6"", ""6"");
+		List<String> list2 = ListUtil.newArrayList(""4"", ""5"", ""6"", ""7"", ""6"", ""6"");
+
+		List<String> result = ListUtil.union(list1, list2);
+		assertThat(result).containsExactly(""1"", ""2"", ""3"", ""6"", ""6"", ""4"", ""5"", ""6"", ""7"", ""6"", ""6"");
+
+		List<String> result2 = ListUtil.intersection(list1, list2);
+		assertThat(result2).containsExactly(""6"", ""6"");
+
+		List<String> result3 = ListUtil.difference(list2, list1);
+		assertThat(result3).containsExactly(""4"", ""5"", ""7"", ""6"");
+
+		List<String> result4 = ListUtil.disjoint(list1, list2);
+		assertThat(result4).containsExactly(""1"", ""2"", ""3"", ""4"", ""5"", ""7"", ""6"");
+	}",ListUtilTest::collectionCalc_oe,,
+springside4_33,"@Test
+	public void generalMethod_oe() {
+		HashMap<String, Integer> map = MapUtil.newHashMap();
+		assertThat(MapUtil.isEmpty(map)).isTrue();
+		assertThat(MapUtil.isEmpty(null)).isTrue();
+		assertThat(MapUtil.isNotEmpty(map)).isFalse();
+		assertThat(MapUtil.isNotEmpty(null)).isFalse();
+
+		map.put(""haha"", 1);
+		assertThat(MapUtil.isEmpty(map)).isFalse();
+		assertThat(MapUtil.isNotEmpty(map)).isTrue();
+
+		ConcurrentMap<String, Integer> map2 = MapUtil.newConcurrentHashMap();
+		assertThat(MapUtil.putIfAbsentWithFinalValue(map2, ""haha"", 3)).isEqualTo(3);
+		assertThat(MapUtil.putIfAbsentWithFinalValue(map2, ""haha"", 4)).isEqualTo(3);
+
+		MapUtil.createIfAbsent(map2, ""haha"", new ValueCreator<Integer>() {
+			@Override
+			public Integer get() {
+				return 5;
+			}
+		});
+
+		assertThat(map2).hasSize(1).containsEntry(""haha"", 3);
+
+		MapUtil.createIfAbsent(map2, ""haha2"", new ValueCreator<Integer>() {
+			@Override
+			public Integer get() {
+				return 5;
+			}
+		});
+
+		assertThat(map2).hasSize(2).containsEntry(""haha2"", 5);
+
+	}",MapUtilTest::generalMethod_oe,"public static boolean isEmpty(final Map<?, ?> map) {
+		return (map == null) || map.isEmpty();
+	}
+
+@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}
+
+public static boolean isNotEmpty(final Map<?, ?> map) {
+		return (map != null) && !map.isEmpty();
+	}
+
+public static <K, V> V putIfAbsentWithFinalValue(@NotNull final ConcurrentMap<K, V> map, final K key,
+			final V value) {
+		final V result = map.putIfAbsent(key, value);
+		return result != null ? result : value;
+	}","/**
+	 * 判断是否为空.
+	 */
+
+
+
+/**
+	 * ConcurrentMap的putIfAbsent()返回之前的Value，此函数封装返回最终存储在Map中的Value
+	 * 
+	 * @see org.apache.commons.lang3.concurrent.ConcurrentUtils#putIfAbsent(ConcurrentMap, Object, Object)
+	 */"
+springside4_34,"@Test
+	public void guavaBuildMap_oe() {
+		HashMap<String, Integer> map1 = MapUtil.newHashMap();
+
+		HashMap<String, Integer> map2 = MapUtil.newHashMapWithCapacity(10, 0.5f);
+		map2 = MapUtil.newHashMapWithCapacity(10, 0.5f);
+
+		HashMap<String, Integer> map3 = MapUtil.newHashMap(""1"", 1);
+		assertThat(map3).hasSize(1).containsEntry(""1"", 1);
+
+		HashMap<String, Integer> map4 = MapUtil.newHashMap(new String[] { ""1"", ""2"" }, new Integer[] { 1, 2 });
+		assertThat(map4).hasSize(2).containsEntry(""1"", 1).containsEntry(""2"", 2);
+
+		HashMap<String, Integer> map5 = MapUtil.newHashMap(ArrayUtil.asList(""1"", ""2"", ""3""), ArrayUtil.asList(1, 2, 3));
+		assertThat(map5).hasSize(3).containsEntry(""1"", 1).containsEntry(""2"", 2).containsEntry(""3"", 3);
+
+		TreeMap<String, Integer> map6 = MapUtil.newSortedMap();
+
+		TreeMap<String, Integer> map7 = MapUtil.newSortedMap(Ordering.natural());
+
+		ConcurrentMap map8 = MapUtil.newConcurrentHashMap();
+		ConcurrentSkipListMap map9 = MapUtil.newConcurrentSortedMap();
+
+		EnumMap map10 = MapUtil.newEnumMap(EnumA.class);
+	}",MapUtilTest::guavaBuildMap_oe,"public static <K, V> HashMap<K, V> newHashMap() {
+		return new HashMap<K, V>();
+	}
+
+public static <T> List<T> asList(T... a) {
+		return Arrays.asList(a);
+	}","/**
+	 * 根据等号左边的类型, 构造类型正确的HashMap.
+	 * 
+	 * 未初始化数组大小, 默认为16个桶.
+	 * 
+	 * @see com.google.common.collect.Maps#newHashMap()
+	 */
+
+/**
+	 * 原版将数组转换为List.
+	 * 
+	 * 注意转换后的List不能写入, 否则抛出UnsupportedOperationException
+	 * 
+	 * @see java.util.Arrays#asList(Object...)
+	 */"
+springside4_36,"@Test
+	public void weakMap_oe() {
+		ConcurrentMap<MyBean, MyBean> weakKeyMap = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		initExpireAllMap(weakKeyMap);
+		System.gc();
+		assertThat(weakKeyMap.get(new MyBean(""A""))).isNull();
+		assertThat(weakKeyMap).hasSize(1);// key仍然在 
+		ConcurrentMap<MyBean,MyBean> weakKeyMap2 = MapUtil.createWeakKeyConcurrentHashMap(10,1);
+		MyBean value = new MyBean(""B"");
+		initExpireKeyMap(weakKeyMap2, value);
+		System.gc();
+		assertThat(weakKeyMap2.get(new MyBean(""A""))).isNull();
+
+		ConcurrentMap<MyBean, MyBean> weakKeyMap3 = MapUtil.createWeakKeyConcurrentHashMap(10, 1);
+		MyBean key = new MyBean(""A"");
+		initExpireValueMap(weakKeyMap3, key);
+		System.gc();
+		assertThat(weakKeyMap3.get(key)).isEqualTo(new MyBean(""B""));
+
+		ConcurrentMap<MyBean, MyBean> weakValueMap = MapUtil.createWeakValueConcurrentHashMap(10, 1);
+		initExpireAllMap(weakValueMap);
+		System.gc();
+		assertThat(weakValueMap.get(new MyBean(""A""))).isNull();
+		
+		ConcurrentMap<MyBean, MyBean> weakValueMap2 = MapUtil.createWeakValueConcurrentHashMap(10, 1);
+		MyBean value2 = new MyBean(""B"");
+		initExpireKeyMap(weakValueMap2, value2);
+		System.gc();
+		assertThat(weakValueMap2.get(new MyBean(""A""))).isEqualTo(new MyBean(""B""));
+
+		ConcurrentMap<MyBean, MyBean> weakValueMap3 = MapUtil.createWeakValueConcurrentHashMap(10, 1);
+		MyBean key3 = new MyBean(""A"");
+		initExpireValueMap(weakValueMap3, key3);
+		System.gc();
+		assertThat(weakValueMap3.get(new MyBean(""A""))).isNull();
+	}",MapUtilTest::weakMap_oe,"@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}
+
+public static <K, V> ConcurrentMap<K, V> createWeakKeyConcurrentHashMap(int initialCapacity, int concurrencyLevel) {
+		return new MapMaker().weakKeys().initialCapacity(initialCapacity).concurrencyLevel(concurrencyLevel).makeMap();
+	}","
+
+/**
+	 * 创建Key为弱引用的ConcurrentMap，Key对象可被回收.
+	 * 
+	 * JDK没有WeakHashMap的并发实现, 由Guava提供
+	 */"
+springside4_37,"@Test
+	public void stack_oe() {
+
+		Queue<String> stack = QueueUtil.createStack(10);
+		Queue<String> stack2 = QueueUtil.createConcurrentStack();
+
+		stack.offer(""1"");
+		stack.offer(""2"");
+		
+		assertThat(stack.poll()).isEqualTo(""2"");
+		assertThat(stack.poll()).isEqualTo(""1"");
+		
+		stack2.offer(""1"");
+		stack2.offer(""2"");
+		
+		assertThat(stack2.poll()).isEqualTo(""2"");
+		assertThat(stack2.poll()).isEqualTo(""1"");
+	}",QueueUtilTest::stack_oe,"final ForkJoinTask<?> poll() {
+            ForkJoinTask<?>[] a; int b; ForkJoinTask<?> t;
+            while ((b = base) - top < 0 && (a = array) != null) {
+                int j = (((a.length - 1) & b) << ASHIFT) + ABASE;
+                t = (ForkJoinTask<?>)U.getObjectVolatile(a, j);
+                if (t != null) {
+                    if (U.compareAndSwapObject(a, j, t, null)) {
+                        U.putOrderedInt(this, QBASE, b + 1);
+                        return t;
+                    }
+                }
+                else if (base == b) {
+                    if (b + 1 == top)
+                        break;
+                    Thread.yield(); // wait for lagging update (very rare)
+                }
+            }
+            return null;
+        }","/**
+         * Takes next task, if one exists, in FIFO order.
+         */"
+springside4_38,"@Test
+	public void shuffle_oe() {
+		String[] arrays = new String[] { ""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"" };
+		Arrays.sort(arrays);
+		assertThat(arrays).containsExactly(""a"", ""b"", ""c"", ""d"", ""e"", ""g"", ""i"");
+		ArrayUtil.shuffle(arrays);
+		System.out.println(Arrays.toString(arrays));
+		Arrays.sort(arrays);
+
+		ArrayUtil.shuffle(arrays, RandomUtil.secureRandom());
+	}",ArrayUtilTest::shuffle_oe,"public static <T extends Comparable<? super T>> void sort(List<T> list) {
+		Collections.sort(list);
+	}","/**
+	 * 升序排序, 采用JDK认为最优的排序算法, 使用元素自身的compareTo()方法
+	 * 
+	 * @see java.util.Collections#sort(List)
+	 */"
+springside4_40,"@Test
+	public void contact_oe() {
+		String[] array = new String[] { ""d"", ""a"", ""c"" };
+		assertThat(ArrayUtil.concat(""z"", array)).containsExactly(""z"", ""d"", ""a"", ""c"");
+		assertThat(ArrayUtil.concat(array, ""z"")).containsExactly(""d"", ""a"", ""c"", ""z"");
+	}",ArrayUtilTest::contact_oe,"public static <T> T[] concat(@Nullable T element, T[] array) {
+		return ObjectArrays.concat(element, array);
+	}","/**
+	 * 添加元素到数组头，没有银弹，复制扩容.
+	 */"
+springside4_42,"@Test
+	public void minAndMax_oe() {
+		List<Integer> list = ListUtil.newArrayList(4, 1, 9, 100, 20, 101, 40);
+
+		assertThat(CollectionUtil.min(list)).isEqualTo(1);
+		assertThat(CollectionUtil.min(list, Ordering.natural())).isEqualTo(1);
+		assertThat(CollectionUtil.max(list)).isEqualTo(101);
+		assertThat(CollectionUtil.max(list, Ordering.natural())).isEqualTo(101);
+
+		assertThat(CollectionUtil.minAndMax(list).getFirst()).isEqualTo(1);
+		assertThat(CollectionUtil.minAndMax(list).getSecond()).isEqualTo(101);
+
+		assertThat(CollectionUtil.minAndMax(list, Ordering.natural()).getFirst()).isEqualTo(1);
+		assertThat(CollectionUtil.minAndMax(list, Ordering.natural()).getSecond()).isEqualTo(101);
+
+	}",CollectionUtilTest::minAndMax_oe,,
+springside4_43,"@Test
+	public void listCompare_oe() {
+		List<String> list1 = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+		List<String> list2 = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"");
+
+		List<String> list3 = ArrayUtil.asList(""d"", ""c"", ""a"", ""b"", ""e"", ""i"", ""g"");
+		List<String> list4 = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"");
+		List<String> list5 = ArrayUtil.asList(""d"", ""a"", ""c"", ""b"", ""e"", ""i"", ""g"", ""x"");
+
+		assertThat(CollectionUtil.elementsEqual(list1, list1)).isTrue();
+		assertThat(CollectionUtil.elementsEqual(list1, list2)).isTrue();
+
+		assertThat(CollectionUtil.elementsEqual(list1, list3)).isFalse();
+		assertThat(CollectionUtil.elementsEqual(list1, list4)).isFalse();
+		assertThat(CollectionUtil.elementsEqual(list1, list5)).isFalse();
+	}",CollectionUtilTest::listCompare_oe,,
+springside4_44,"@Test
+	public void topNAndBottomN_oe() {
+		List<Integer> list = ArrayUtil.asList(3, 5, 7, 4, 2, 6, 9);
+		
+		assertThat(CollectionUtil.topN(list, 3)).containsExactly(9,7,6);
+		assertThat(CollectionUtil.topN(list, 3, Ordering.natural().reverse())).containsExactly(2,3,4);
+		assertThat(CollectionUtil.bottomN(list, 3)).containsExactly(2,3,4);
+		assertThat(CollectionUtil.bottomN(list, 3, Ordering.natural().reverse())).containsExactly(9,7,6);
+	}",CollectionUtilTest::topNAndBottomN_oe,,
+springside4_45,"@Test
+	public void guavaBuildSet_oe() {
+		HashSet<String> set1 = SetUtil.newHashSet();
+
+		HashSet<String> set2 = SetUtil.newHashSetWithCapacity(10);
+
+		HashSet<String> set3 = SetUtil.newHashSet(""1"", ""2"", ""2"");
+
+		assertThat(set3).hasSize(2).contains(""1"", ""2"");
+
+		HashSet<String> set4 = SetUtil.newHashSet(ListUtil.newArrayList(""1"", ""2"", ""2""));
+		assertThat(set4).hasSize(2).contains(""1"", ""2"");
+
+		TreeSet<String> set5 = SetUtil.newSortedSet();
+
+		TreeSet<String> set6 = SetUtil.newSortedSet(Ordering.natural());
+
+		ConcurrentHashSet set7 = SetUtil.newConcurrentHashSet();
+	}",SetUtilTest::guavaBuildSet_oe,"@Deprecated public boolean contains(Object value) {
+        return containsValue(value);
+    }","/**
+     * Legacy method testing if some key maps into the specified value
+     * in this table.  This method is identical in functionality to
+     * {@link #containsValue(Object)}, and exists solely to ensure
+     * full compatibility with class {@link java.util.Hashtable},
+     * which supported this method prior to introduction of the
+     * Java Collections framework.
+     *
+     * @param  value a value to search for
+     * @return {@code true} if and only if some key maps to the
+     *         {@code value} argument in this table as
+     *         determined by the {@code equals} method;
+     *         {@code false} otherwise
+     * @throws NullPointerException if the specified value is null
+     */"
+springside4_48,"@Test
+	public void toCsvString_oe() {
+		assertThat(CsvUtil.toCsvString(1, 2)).isEqualTo(""1,2"");
+
+		assertThat(CsvUtil.toCsvString(1, 2, 3, 4)).isEqualTo(""1,2,3,4"");
+
+		assertThat(CsvUtil.toCsvString(1, ""2"")).isEqualTo(""1,2"");
+
+		assertThat(CsvUtil.toCsvString(1, ""A BC"")).isEqualTo(""1,A BC"");
+
+		assertThat(CsvUtil.toCsvString(1, ""A,BC"")).isEqualTo(""1,\""A,BC\"""");
+
+		assertThat(CsvUtil.toCsvString(1, ""A\""BC"")).isEqualTo(""1,\""A\""\""BC\"""");
+
+		assertThat(CsvUtil.toCsvString(1, ""A,\""a\""BC"")).isEqualTo(""1,\""A,\""\""a\""\""BC\"""");
+	}",CsvUtilTest::toCsvString_oe,"public static String toCsvString(Object... elements) {
+		StringBuilder line = new StringBuilder();
+		int last = elements.length - 1;
+		for (int i = 0; i < elements.length; i++) {
+			if (elements[i] == null) {
+				if (i != last) {
+					line.append(FIELD_SEPARATOR);
+				}
+				continue;
+			}
+			String field = elements[i].toString();
+
+			// check for special cases
+			int ndx = field.indexOf(FIELD_SEPARATOR);
+			if (ndx == -1) {
+				ndx = field.indexOf(FIELD_QUOTE);
+			}
+			if (ndx == -1 && (field.startsWith(SPACE) || field.endsWith(SPACE))) {
+				ndx = 1;
+			}
+			if (ndx == -1) {
+				ndx = StringUtils.indexOf(field, SPECIAL_CHARS);
+			}
+
+			// add field
+			if (ndx != -1) {
+				line.append(FIELD_QUOTE);
+			}
+			field = StringUtils.replace(field, QUOTE, DOUBLE_QUOTE);
+			line.append(field);
+			if (ndx != -1) {
+				line.append(FIELD_QUOTE);
+			}
+
+			// last
+			if (i != last) {
+				line.append(FIELD_SEPARATOR);
+			}
+		}
+		return line.toString();
+	}","/**
+	 * Parse fields as csv string,
+	 */"
+springside4_49,"@Test
+	public void fromCsvString_oe() {
+		assertThat(CsvUtil.fromCsvString(""1,2"")).hasSize(2).contains(""1"").contains(""2"");
+		assertThat(CsvUtil.fromCsvString(""1,A BC"")).hasSize(2).contains(""1"").contains(""A BC"");
+		assertThat(CsvUtil.fromCsvString(""1,\""A,BC\"""")).hasSize(2).contains(""1"").contains(""A,BC"");
+		assertThat(CsvUtil.fromCsvString(""1,\""A,\""\""a\""\""BC\"""")).hasSize(2).contains(""1"").contains(""A,\""a\""BC"");
+
+		assertThat(CsvUtil.fromCsvString(""1,\""A,\""a\""\""BC\"""")).hasSize(2).contains(""1"").contains(""A,\""a\""BC"");
+		assertThat(CsvUtil.fromCsvString(""1,ABC\"""")).hasSize(2).contains(""1"").contains(""ABC\"""");
+	}",CsvUtilTest::fromCsvString_oe,"public static String[] fromCsvString(String line) {
+		List<String> row = new ArrayList<String>();
+
+		boolean inQuotedField = false;
+		int fieldStart = 0;
+
+		final int len = line.length();
+		for (int i = 0; i < len; i++) {
+			char c = line.charAt(i);
+			if (c == FIELD_SEPARATOR) {
+				if (!inQuotedField) { // ignore we are quoting
+					addField(row, line, fieldStart, i, inQuotedField);
+					fieldStart = i + 1;
+				}
+			} else if (c == FIELD_QUOTE) {
+				if (inQuotedField) {
+					if (i + 1 == len || line.charAt(i + 1) == FIELD_SEPARATOR) { // we are already quoting - peek to see
+																					// if this is the end of the field
+						addField(row, line, fieldStart, i, inQuotedField);
+						fieldStart = i + 2;
+						i++; // and skip the comma
+						inQuotedField = false;
+					}
+				} else if (fieldStart == i) {
+					inQuotedField = true; // this is a beginning of a quote
+					fieldStart++; // move field start
+				}
+			}
+		}
+		// add last field - but only if string was not empty
+		if (len > 0 && fieldStart <= len) {
+			addField(row, line, fieldStart, len, inQuotedField);
+		}
+		return row.toArray(new String[row.size()]);
+	}","/**
+	 * Converts CSV line to string array.
+	 */"
+springside4_51,"@Test
+	public void base64Encode_oe() {
+		String input = ""haha,i am a very long message"";
+		String result = EncodeUtil.encodeBase64(input.getBytes());
+		assertThat(new String(EncodeUtil.decodeBase64(result), Charsets.UTF_8)).isEqualTo(input);
+
+		byte[] bytes = new byte[] { 5 };
+		result = EncodeUtil.encodeBase64(bytes);
+		assertThat(result).isEqualTo(""BQ=="");
+
+		bytes = new byte[] { 1, 2, 15, 17, 127 };
+		result = EncodeUtil.encodeBase64(bytes);
+		assertThat(result).isEqualTo(""AQIPEX8="");
+	}",EncodeUtilTest::base64Encode_oe,"public static byte[] decodeBase64(CharSequence input) {
+		return BaseEncoding.base64().decode(input);
+	}
+
+public static String encodeBase64(byte[] input) {
+		return BaseEncoding.base64().encode(input);
+	}","/**
+	 * Base64解码.
+	 * 
+	 * 如果字符不合法，抛出IllegalArgumentException
+	 */
+
+/**
+	 * Base64编码.
+	 */"
+springside4_53,"@Test
+	public void urlEncode_oe() {
+
+		String input = ""http://locahost/"";
+		String result = EscapeUtil.urlEncode(input);
+		assertThat(result).isEqualTo(""http%3A%2F%2Flocahost%2F"");
+		assertThat(EscapeUtil.urlDecode(result)).isEqualTo(input);
+
+		input = ""http://locahost/?query=中文&t=1"";
+		result = EscapeUtil.urlEncode(input);
+		System.out.println(result);
+
+		assertThat(EscapeUtil.urlDecode(result)).isEqualTo(input);
+	}",EscapeUtilTest::urlEncode_oe,"public static String urlEncode(String part) {
+		try {
+			return URLEncoder.encode(part, Charsets.UTF_8_NAME);
+		} catch (UnsupportedEncodingException ignored) {
+			return null;
+		}
+	}
+
+public static String urlDecode(String part) {
+		try {
+			return URLDecoder.decode(part, Charsets.UTF_8_NAME);
+		} catch (UnsupportedEncodingException e) {
+			return null;
+		}
+	}","/**
+	 * URL 编码, Encode默认为UTF-8.
+	 * 
+	 * 转义后的URL可作为URL中的参数
+	 */
+
+/**
+	 * URL 解码, Encode默认为UTF-8. 转义后的URL可作为URL中的参数
+	 */"
+springside4_54,"@Test
+	public void xmlEncode_oe() {
+		String input = ""1>2"";
+		String result = EscapeUtil.escapeXml(input);
+		assertThat(result).isEqualTo(""1&gt;2"");
+		assertThat(EscapeUtil.unescapeXml(result)).isEqualTo(input);
+	}",EscapeUtilTest::xmlEncode_oe,"public static String escapeXml(String xml) {
+		return StringEscapeUtils.escapeXml11(xml);
+	}
+
+public static String unescapeXml(String xml) {
+		return StringEscapeUtils.unescapeXml(xml);
+	}","/**
+	 * Xml转码，将字符串转码为符合XML1.1格式的字符串.
+	 * 
+	 * 比如 ""bread"" & ""butter"" 转化为 &quot;bread&quot; &amp; &quot;butter&quot;
+	 */
+
+/**
+	 * Xml转码，XML格式的字符串解码为普通字符串.
+	 * 
+	 * 比如 &quot;bread&quot; &amp; &quot;butter&quot; 转化为""bread"" & ""butter""
+	 */"
+springside4_55,"@Test
+	public void html_oe() {
+		String input = ""1>2"";
+		String result = EscapeUtil.escapeHtml(input);
+		assertThat(result).isEqualTo(""1&gt;2"");
+		assertThat(EscapeUtil.unescapeHtml(result)).isEqualTo(input);
+	}",EscapeUtilTest::html_oe,"public static String escapeHtml(String html) {
+		return StringEscapeUtils.escapeHtml4(html);
+	}
+
+public static String unescapeHtml(String html) {
+		return StringEscapeUtils.unescapeHtml4(html);
+	}","/**
+	 * Html转码，将字符串转码为符合HTML4格式的字符串.
+	 * 
+	 * 比如 ""bread"" & ""butter"" 转化为 &quot;bread&quot; &amp; &quot;butter&quot;
+	 */
+
+/**
+	 * Html解码，将HTML4格式的字符串转码解码为普通字符串.
+	 * 
+	 * 比如 &quot;bread&quot; &amp; &quot;butter&quot;转化为""bread"" & ""butter""
+	 */"
+springside4_56,"@Test
+	public void hashSha1_oe() {
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah""));
+		System.out.println(""sha1:"" + result);
+		assertThat(result).isEqualTo(""sCtJLx2IJNto032AhdkP64t/os4="");
+
+		String result2 = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"".getBytes()));
+		assertThat(result).isEqualTo(""sCtJLx2IJNto032AhdkP64t/os4="");
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"", HashUtil.generateSalt(5)));
+		System.out.println(""sha1 with salt:"" + result);
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"", new byte[] { 1, 2, 3 }));
+		assertThat(result).isEqualTo(""U/7wy5R1sVrjEf3dOTAPz383g2k="");
+		result2 = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"".getBytes(), new byte[] { 1, 2, 3 }));
+		assertThat(result).isEqualTo(result2);
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"", HashUtil.generateSalt(5), 2));
+		System.out.println(""sha1 with salt with iteration:"" + result);
+
+		result = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"", new byte[] { 1, 2, 3 }, 2));
+		assertThat(result).isEqualTo(""n9O7laits+ovoK8X8xde+XrsCtM="");
+		result2 = EncodeUtil.encodeBase64(HashUtil.sha1(""hhahah"".getBytes(), new byte[] { 1, 2, 3 }, 2));
+		assertThat(result).isEqualTo(result2);
+
+	}",HashUtilTest::hashSha1_oe,"public static byte[] sha1(@NotNull byte[] input) {
+		return digest(input, get(SHA_1_DIGEST), null, 1);
+	}","/**
+	 * 对输入字符串进行sha1散列.
+	 */"
+springside4_57,"@Test
+	public void hashFile_oe() throws IOException {
+		InputStream in = ResourceUtil.asStream(""test.txt"");
+		String result = EncodeUtil.encodeBase64(HashUtil.sha1File(in));
+		assertThat(result).isEqualTo(""DmSnwK/Fl0Jplrwtm9tfi7cb/js="");
+		result = EncodeUtil.encodeBase64(HashUtil.md5File(in));
+		assertThat(result).isEqualTo(""1B2M2Y8AsgTpgAmY7PhCfg=="");
+	}",HashUtilTest::hashFile_oe,"public static byte[] sha1File(InputStream input) throws IOException {
+		return digestFile(input, get(SHA_1_DIGEST));
+	}
+
+public static byte[] md5File(InputStream input) throws IOException {
+		return digestFile(input, get(MD5_DIGEST));
+	}","/**
+	 * 对文件进行sha1散列.
+	 */
+
+/**
+	 * 对文件进行md5散列，被破解后MD5已较少人用.
+	 */"
+springside4_58,"@Test
+	public void crc32_oe() {
+		assertThat(HashUtil.crc32AsInt(""hahhha1"")).isEqualTo(-625925593);
+		assertThat(HashUtil.crc32AsInt(""hahhha1"".getBytes())).isEqualTo(-625925593);
+		assertThat(HashUtil.crc32AsInt(""hahhha2"")).isEqualTo(1136161693);
+
+		assertThat(HashUtil.crc32AsLong(""hahhha1"")).isEqualTo(3669041703L);
+		assertThat(HashUtil.crc32AsLong(""hahhha1"".getBytes())).isEqualTo(3669041703L);
+		assertThat(HashUtil.crc32AsLong(""hahhha2"")).isEqualTo(1136161693L);
+	}",HashUtilTest::crc32_oe,"public static int crc32AsInt(@NotNull String input) {
+		return crc32AsInt(input.getBytes(Charsets.UTF_8));
+	}
+
+public static long crc32AsLong(@NotNull String input) {
+		return crc32AsLong(input.getBytes(Charsets.UTF_8));
+	}","/**
+	 * 对输入字符串进行crc32散列返回int, 返回值有可能是负数.
+	 * 
+	 * Guava也有crc32实现, 但返回值无法返回long，所以统一使用JDK默认实现
+	 */
+
+/**
+	 * 对输入字符串进行crc32散列，与php兼容，在64bit系统下返回永远是正数的long
+	 * 
+	 * Guava也有crc32实现, 但返回值无法返回long，所以统一使用JDK默认实现
+	 */"
+springside4_59,"@Test
+	public void murmurhash_oe() {
+		assertThat(HashUtil.murmur32AsInt(""hahhha1"")).isEqualTo(-1920794701);
+		assertThat(HashUtil.murmur32AsInt(""hahhha1"".getBytes())).isEqualTo(-1920794701);
+		assertThat(HashUtil.murmur32AsInt(""hahhha2"")).isEqualTo(2065789419);
+		assertThat(HashUtil.murmur32AsInt(""hahhha3"")).isEqualTo(-293065542);
+		assertThat(HashUtil.murmur32AsInt(""hahhha4"")).isEqualTo(-2003559207);
+		assertThat(HashUtil.murmur32AsInt(""hahhha5"")).isEqualTo(-3887993);
+		assertThat(HashUtil.murmur32AsInt(""hahhha6"")).isEqualTo(-446760132);
+		
+		assertThat(HashUtil.murmur128AsLong(""hahhha6"")).isEqualTo(-5203515929515563680L);
+		assertThat(HashUtil.murmur128AsLong(""hahhha6"".getBytes(Charsets.UTF_8))).isEqualTo(-5203515929515563680L);
+
+	}",HashUtilTest::murmurhash_oe,"public static int murmur32AsInt(@NotNull byte[] input) {
+		return Hashing.murmur3_32(MURMUR_SEED).hashBytes(input).asInt();
+	}
+
+public static long murmur128AsLong(@NotNull byte[] input) {
+		return Hashing.murmur3_128(MURMUR_SEED).hashBytes(input).asLong();
+	}","/**
+	 * 对输入字符串进行murmur32散列, 返回值可能是负数
+	 */
+
+/**
+	 * 对输入字符串进行murmur128散列, 返回值可能是负数
+	 */"
+springside4_60,"@Test
+	public void split_oe() {
+
+		List<String> result = MoreStringUtil.split(""192.168.0.1"", '.', 4);
+		assertThat(result).hasSize(4).containsSequence(""192"", ""168"", ""0"", ""1"");
+
+		result = MoreStringUtil.split(""192.168..1"", '.', 4);
+		assertThat(result).hasSize(3).containsSequence(""192"", ""168"", ""1"");
+
+		result = MoreStringUtil.split(""192.168.0."", '.', 4);
+		assertThat(result).hasSize(3).containsSequence(""192"", ""168"", ""0"");
+
+		assertThat(MoreStringUtil.split(null, '.', 4)).isNull();
+
+		assertThat(MoreStringUtil.split("""", '.', 4)).hasSize(0);
+
+	}",MoreStringUtilTest::split_oe,"public static List<String> split(@Nullable final String str, final char separatorChar, int expectParts) {
+		if (str == null) {
+			return null;
+		}
+		final int len = str.length();
+		if (len == 0) {
+			return ListUtil.emptyList();
+		}
+		final List<String> list = new ArrayList<String>(expectParts);
+		int i = 0;
+		int start = 0;
+		boolean match = false;
+		while (i < len) {
+			if (str.charAt(i) == separatorChar) {
+				if (match) {
+					list.add(str.substring(start, i));
+					match = false;
+				}
+				start = ++i;
+				continue;
+			}
+			match = true;
+			i++;
+		}
+		if (match) {
+			list.add(str.substring(start, i));
+		}
+		return list;
+	}","/**
+	 * 高性能的Split，针对char的分隔符号，比JDK String自带的高效.
+	 * 
+	 * from Commons Lange 3.5 StringUtils, 做如下优化:
+	 * 
+	 * 1. 最后不做数组转换，直接返回List.
+	 * 
+	 * 2. 可设定List初始大小.
+	 * 
+	 * 3. preserveAllTokens 取默认值false
+	 * 
+	 * @return 如果为null返回null, 如果为""""返回空数组
+	 */"
+springside4_61,"@Test
+	public void charMatch_oe() {
+		String str = ""abc"";
+		assertThat(MoreStringUtil.startWith(str, 'a')).isTrue();
+		assertThat(MoreStringUtil.startWith(str, 'b')).isFalse();
+		assertThat(MoreStringUtil.startWith(null, 'b')).isFalse();
+		assertThat(MoreStringUtil.startWith("""", 'b')).isFalse();
+		
+		assertThat(MoreStringUtil.endWith(str, 'c')).isTrue();
+		assertThat(MoreStringUtil.endWith(str, 'b')).isFalse();
+		assertThat(MoreStringUtil.endWith(null, 'b')).isFalse();
+		assertThat(MoreStringUtil.endWith("""", 'b')).isFalse();
+
+		assertThat(MoreStringUtil.replaceFirst(""abbc"", 'b', 'c')).isEqualTo(""acbc"");
+		assertThat(MoreStringUtil.replaceFirst(""abcc"", 'c', 'c')).isEqualTo(""abcc"");
+		assertThat(MoreStringUtil.replaceFirst("""", 'c', 'c')).isEqualTo("""");
+		assertThat(MoreStringUtil.replaceFirst(null, 'c', 'c')).isNull();
+		
+		assertThat(MoreStringUtil.replaceLast(""abbc"", 'b', 'c')).isEqualTo(""abcc"");
+		assertThat(MoreStringUtil.replaceLast(""abcc"", 'c', 'c')).isEqualTo(""abcc"");
+		assertThat(MoreStringUtil.replaceLast("""", 'c', 'c')).isEqualTo("""");
+		assertThat(MoreStringUtil.replaceLast(null, 'c', 'c')).isNull();
+
+	}",MoreStringUtilTest::charMatch_oe,"public static boolean startWith(@Nullable CharSequence s, char c) {
+		if (StringUtils.isEmpty(s)) {
+			return false;
+		}
+		return s.charAt(0) == c;
+	}
+
+public static String replaceFirst(@Nullable String s, char sub, char with) {
+		if (s == null) {
+			return null;
+		}
+		int index = s.indexOf(sub);
+		if (index == -1) {
+			return s;
+		}
+		char[] str = s.toCharArray();
+		str[index] = with;
+		return new String(str);
+	}
+
+public static String replaceLast(@Nullable String s, char sub, char with) {
+		if (s == null) {
+			return null;
+		}
+
+		int index = s.lastIndexOf(sub);
+		if (index == -1) {
+			return s;
+		}
+		char[] str = s.toCharArray();
+		str[index] = with;
+		return new String(str);
+	}
+
+public static boolean endWith(@Nullable CharSequence s, char c) {
+		if (StringUtils.isEmpty(s)) {
+			return false;
+		}
+		return s.charAt(s.length() - 1) == c;
+	}","/**
+	 * 判断字符串是否以字母开头
+	 * 
+	 * 如果字符串为Null或空，返回false
+	 */
+
+/**
+	 * String 有replace(char,char)，但缺少单独replace first/last的
+	 */
+
+/**
+	 * String 有replace(char,char)替换全部char，但缺少单独replace first/last
+	 */
+
+/**
+	 * 判断字符串是否以字母结尾
+	 * 
+	 * 如果字符串为Null或空，返回false
+	 */"
+springside4_62,"@Test
+	public void utf8EncodedLength_oe() {
+		assertThat(MoreStringUtil.utf8EncodedLength(""ab12"")).isEqualTo(4);
+		assertThat(MoreStringUtil.utf8EncodedLength(""中文"")).isEqualTo(6);
+	}",MoreStringUtilTest::utf8EncodedLength_oe,"public static int utf8EncodedLength(@Nullable CharSequence sequence) {
+		if (StringUtils.isEmpty(sequence)) {
+			return 0;
+		}
+		return Utf8.encodedLength(sequence);
+	}","/**
+	 * 计算字符串被UTF8编码后的字节数 via guava
+	 * 
+	 * @see Utf8#encodedLength(CharSequence)
+	 */"
+springside4_63,"@Test
+	public void matchString_oe() {
+		assertThat(WildcardMatcher.match(""abc"", ""*"")).isTrue();
+		assertThat(WildcardMatcher.match(""abc"", ""*c"")).isTrue();
+		assertThat(WildcardMatcher.match(""abc"", ""a*"")).isTrue();
+		assertThat(WildcardMatcher.match(""abc"", ""a*c"")).isTrue();
+
+		assertThat(WildcardMatcher.match(""abc"", ""a?c"")).isTrue();
+		assertThat(WildcardMatcher.match(""abcd"", ""a?c?"")).isTrue();
+		assertThat(WildcardMatcher.match(""abcd"", ""a??d"")).isTrue();
+
+		assertThat(WildcardMatcher.match(""abcde"", ""a*d?"")).isTrue();
+
+		assertThat(WildcardMatcher.match(""abcde"", ""a*d"")).isFalse();
+		assertThat(WildcardMatcher.match(""abcde"", ""a*x"")).isFalse();
+		assertThat(WildcardMatcher.match(""abcde"", ""a*df"")).isFalse();
+
+		assertThat(WildcardMatcher.match(""abcde"", ""?abcd"")).isFalse();
+
+		assertThat(WildcardMatcher.match(""ab\\\\*cde"", ""ab\\\\*c*"")).isTrue();
+		assertThat(WildcardMatcher.match(""ab\\\\*cde"", ""ab\\\\*?de"")).isTrue();
+
+		assertThat(WildcardMatcher.matchOne(""abcde"", new String[] { ""a*d?"", ""abde?"" })).isEqualTo(0);
+		assertThat(WildcardMatcher.matchOne(""abcde"", new String[] { ""?abcd"", ""a*d?"" })).isEqualTo(1);
+		assertThat(WildcardMatcher.matchOne(""abcde"", new String[] { ""?abcd"", ""xyz*"" })).isEqualTo(-1);
+	}",WildcardMatcherTest::matchString_oe,"public static boolean match(CharSequence string, CharSequence pattern) {
+		return match(string, pattern, 0, 0);
+	}
+
+public static int matchOne(String src, String[] patterns) {
+		for (int i = 0; i < patterns.length; i++) {
+			if (match(src, patterns[i])) {
+				return i;
+			}
+		}
+		return -1;
+	}","/**
+	 * Checks whether a string matches a given wildcard pattern.
+	 *
+	 * @param string input string
+	 * @param pattern pattern to match
+	 * @return <code>true</code> if string matches the pattern, otherwise <code>false</code>
+	 */
+
+/**
+	 * Matches string to at least one pattern. Returns index of matched pattern, or <code>-1</code> otherwise.
+	 * @see #match(CharSequence, CharSequence)
+	 */"
+springside4_64,"@Test
+	public void matchPath_oe() {
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""**"")).isTrue();
+
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""**/dd"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/c/dd"", ""/a/**/dd"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""/a/*/dd"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/dd"", ""/a/*/d?"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/ddxxa"", ""/a/*/dd*"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""/a/b/ddxxa"", ""/a/?/dd*"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""a/b/ddxxa"", ""a/?/dd*"")).isTrue();
+		assertThat(WildcardMatcher.matchPath(""a/b/dd"", ""**/dd"")).isTrue();
+
+		assertThat(WildcardMatcher.matchPath(""/a/b/c/dd"", ""/a/*/dd"")).isFalse();
+
+		assertThat(WildcardMatcher.matchPathOne(""/a/b/c/dd"", new String[] { ""/a/*/dd"", ""**/dd"" })).isEqualTo(1);
+		assertThat(WildcardMatcher.matchPathOne(""/a/b/c/dd"", new String[] { ""/a/**/dd"", ""**/dd"" })).isEqualTo(0);
+		assertThat(WildcardMatcher.matchPathOne(""/a/b/c/dd"", new String[] { ""/b/d"", ""/a/c/*"" })).isEqualTo(-1);
+
+	}",WildcardMatcherTest::matchPath_oe,"public static boolean matchPath(String path, String pattern) {
+		String[] pathElements = StringUtils.split(path, Platforms.FILE_PATH_SEPARATOR_CHAR);
+		String[] patternElements = StringUtils.split(pattern, Platforms.FILE_PATH_SEPARATOR_CHAR);
+		return matchTokens(pathElements, patternElements);
+	}","/**
+	 * Matches path against pattern using *, ? and ** wildcards. Both path and the pattern are tokenized on path
+	 * separators (both \ and /). '**' represents deep tree wildcard, as in Ant.
+	 */"
+springside4_65,"@Test
+	public void isMobileSimple_oe() {
+		assertThat(TextValidator.isMobileSimple(null)).isFalse();
+		assertThat(TextValidator.isMobileSimple("""")).isFalse();
+		assertThat(TextValidator.isMobileSimple(""1234a"")).isFalse();
+		assertThat(TextValidator.isMobileSimple(""1234561"")).isFalse();
+		assertThat(TextValidator.isMobileSimple(""11170998762"")).isTrue();
+	}",TextValidatorTest::isMobileSimple_oe,"public static boolean isMobileSimple(@Nullable CharSequence input) {
+		return isMatch(PATTERN_REGEX_MOBILE_SIMPLE, input);
+	}","/**
+	 * 验证手机号（简单）
+	 */"
+springside4_66,"@Test
+	public void isMobileExact_oe() {
+		assertThat(TextValidator.isMobileExact(""1234a"")).isFalse();
+		assertThat(TextValidator.isMobileExact(""11170998762"")).isFalse();
+		assertThat(TextValidator.isMobileExact(""13970998762"")).isTrue();
+	}",TextValidatorTest::isMobileExact_oe,"public static boolean isMobileExact(@Nullable CharSequence input) {
+		return isMatch(PATTERN_REGEX_MOBILE_EXACT, input);
+	}","/**
+	 * 验证手机号（精确）
+	 */"
+springside4_67,"@Test
+	public void isTel_oe() {
+		assertThat(TextValidator.isTel(""8802973a"")).isFalse();
+		assertThat(TextValidator.isTel(""8908222222"")).isFalse();
+		assertThat(TextValidator.isTel(""89081"")).isFalse();
+
+		assertThat(TextValidator.isTel(""89019739"")).isTrue();
+		assertThat(TextValidator.isTel(""020-89019739"")).isTrue();
+	}",TextValidatorTest::isTel_oe,"public static boolean isTel(@Nullable CharSequence input) {
+		return isMatch(PATTERN_REGEX_TEL, input);
+	}","/**
+	 * 验证固定电话号码
+	 */"
+springside4_68,"@Test
+	public void isIdCard_oe() {
+		assertThat(TextValidator.isIdCard(""440101198987754ab"")).isFalse();
+		assertThat(TextValidator.isIdCard(""440101198987754122"")).isFalse();
+		assertThat(TextValidator.isIdCard(""440101891232451"")).isFalse();
+
+		assertThat(TextValidator.isIdCard(""440101198909204518"")).isTrue();
+		assertThat(TextValidator.isIdCard(""440101891231451"")).isTrue();
+	}",TextValidatorTest::isIdCard_oe,"public static boolean isIdCard(@Nullable CharSequence input) {
+		return isMatch(PATTERN_REGEX_ID_CARD15, input) || isMatch(PATTERN_REGEX_ID_CARD18, input);
+	}","/**
+	 * 验证15或18位身份证号码
+	 */"
+springside4_69,"@Test
+	public void isEmail_oe() {
+		assertThat(TextValidator.isEmail(""abc"")).isFalse();
+		assertThat(TextValidator.isEmail(""abc@a"")).isFalse();
+		assertThat(TextValidator.isEmail(""中文@a.com"")).isFalse();
+
+		assertThat(TextValidator.isEmail(""abc@abc.com"")).isTrue();
+	}",TextValidatorTest::isEmail_oe,"public static boolean isEmail(@Nullable CharSequence input) {
+		return isMatch(PATTERN_REGEX_EMAIL, input);
+	}","/**
+	 * 验证邮箱
+	 */"
+springside4_70,"@Test
+	public void isUrl_oe() {
+		assertThat(TextValidator.isUrl(""abc.com"")).isFalse();
+		assertThat(TextValidator.isUrl(""http://abc.c om"")).isFalse();
+		assertThat(TextValidator.isUrl(""http2://abc.com"")).isFalse();
+
+		assertThat(TextValidator.isUrl(""http://abc.com"")).isTrue();
+	}",TextValidatorTest::isUrl_oe,"public static boolean isUrl(@Nullable CharSequence input) {
+		return isMatch(PATTERN_REGEX_URL, input);
+	}","/**
+	 * 验证URL
+	 */"
+springside4_71,"@Test
+	public void isDate_oe() {
+		assertThat(TextValidator.isDate(""2011-02-29"")).isFalse();
+		assertThat(TextValidator.isDate(""201a-02-30"")).isFalse();
+		assertThat(TextValidator.isDate(""2011-0211"")).isFalse();
+
+		assertThat(TextValidator.isDate(""2011-03-11"")).isTrue();
+		assertThat(TextValidator.isDate(""2012-02-29"")).isTrue();
+	}",TextValidatorTest::isDate_oe,"public static boolean isDate(@Nullable CharSequence input) {
+		return isMatch(PATTERN_REGEX_DATE, input);
+	}","/**
+	 * 验证yyyy-MM-dd格式的日期校验，已考虑平闰年
+	 */"
+springside4_72,"@Test
+	public void isIp_oe() {
+		assertThat(TextValidator.isIp(""192.168.0.300"")).isFalse();
+		assertThat(TextValidator.isIp(""192.168.300.1"")).isFalse();
+		assertThat(TextValidator.isIp(""192.168.300"")).isFalse();
+		assertThat(TextValidator.isIp(""192.168.A3.1"")).isFalse();
+
+		assertThat(TextValidator.isIp(""192.168.0.1"")).isTrue();
+	}",TextValidatorTest::isIp_oe,"public static boolean isIp(@Nullable CharSequence input) {
+		return isMatch(PATTERN_REGEX_IP, input);
+	}","/**
+	 * 验证IP地址
+	 */"
+springside4_73,"@Test
+	public void test_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock();
+			Logger realLogger = LoggerFactory.getLogger(ThrottledSlf4jLoggerTest.class);
+			LogbackListAppender appender = LogbackListAppender.create(ThrottledSlf4jLoggerTest.class);
+			ThrottledSlf4jLogger logger = new ThrottledSlf4jLogger(realLogger, 10, TimeUnit.MILLISECONDS);
+
+			logger.warn(""haha"");
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+
+			logger.warn(""haha {}"", 1);
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+
+			logger.error(""haha {}"", 1);
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+			clock.increaseTime(5);
+			logger.error(""haha, {} {} {}"", 1, 2, 3);
+			assertThat(appender.getLogsCount()).isEqualTo(1);
+
+			clock.increaseTime(5);
+			logger.warn(""haha"");
+			assertThat(appender.getLogsCount()).isEqualTo(2);
+
+			logger.warn(""haha {} {} {}"", 1, 2, 3);
+			assertThat(appender.getLogsCount()).isEqualTo(2);
+
+			clock.increaseTime(7);
+			logger.warn(""haha"");
+			assertThat(appender.getLogsCount()).isEqualTo(2);
+
+		} finally {
+			ClockUtil.useDefaultClock();
+		}
+
+	}",ThrottledSlf4jLoggerTest::test_oe,,
+springside4_76,"@Test
+	public void stringAndInt_oe() {
+
+		assertThat(IPUtil.ipv4StringToInt(""192.168.0.1"")).isEqualTo(-1062731775);
+		assertThat(IPUtil.ipv4StringToInt(""192.168.0.2"")).isEqualTo(-1062731774);
+
+		assertThat(IPUtil.intToIpv4String(-1062731775)).isEqualTo(""192.168.0.1"");
+		assertThat(IPUtil.intToIpv4String(-1062731774)).isEqualTo(""192.168.0.2"");
+	}",IPUtilTest::stringAndInt_oe,"public static int ipv4StringToInt(String ipv4Str) {
+		byte[] byteAddress = ip4StringToBytes(ipv4Str);
+		if (byteAddress == null) {
+			return 0;
+		} else {
+			return NumberUtil.toInt(byteAddress);
+		}
+	}
+
+public static String intToIpv4String(int i) {
+		return new StringBuilder(15).append(i >> 24 & 0xff).append('.').append(i >> 16 & 0xff).append('.')
+				.append(i >> 8 & 0xff).append('.').append(i & 0xff).toString();
+	}","/**
+	 * Ipv4 String 转换到int
+	 */
+
+/**
+	 * int转换到IPV4 String, from Netty NetUtil
+	 */"
+springside4_77,"@Test
+	public void inetAddress_oe() {
+
+		assertThat(IPUtil.fromInt(-1062731775).getHostAddress()).isEqualTo(""192.168.0.1"");
+		assertThat(IPUtil.fromInt(-1062731774).getHostAddress()).isEqualTo(""192.168.0.2"");
+
+		assertThat(IPUtil.fromIpString(""192.168.0.1"").getHostAddress()).isEqualTo(""192.168.0.1"");
+		assertThat(IPUtil.fromIpString(""192.168.0.2"").getHostAddress()).isEqualTo(""192.168.0.2"");
+		assertThat(IPUtil.fromIpv4String(""192.168.0.1"").getHostAddress()).isEqualTo(""192.168.0.1"");
+		assertThat(IPUtil.fromIpv4String(""192.168.0.2"").getHostAddress()).isEqualTo(""192.168.0.2"");
+
+		assertThat(IPUtil.toInt(IPUtil.fromIpString(""192.168.0.1""))).isEqualTo(-1062731775);
+	}",IPUtilTest::inetAddress_oe,"public static Inet4Address fromInt(int address) {
+		return InetAddresses.fromInteger(address);
+	}
+
+public static InetAddress fromIpString(String address) {
+		return InetAddresses.forString(address);
+	}
+
+public static Inet4Address fromIpv4String(String address) {
+		byte[] bytes = ip4StringToBytes(address);
+		if (bytes == null) {
+			return null;
+		} else {
+			try {
+				return (Inet4Address) Inet4Address.getByAddress(bytes);
+			} catch (UnknownHostException e) {
+				throw new AssertionError(e);
+			}
+		}
+	}
+
+public static int toInt(InetAddress address) {
+		return InetAddresses.coerceToInteger(address);
+	}","/**
+	 * 从int转换为Inet4Address(仅支持IPV4)
+	 */
+
+/**
+	 * 从String转换为InetAddress.
+	 * 
+	 * IpString可以是ipv4 或 ipv6 string, 但不可以是域名.
+	 * 
+	 * 先字符串传换为byte[]再调getByAddress(byte[])，避免了调用getByName(ip)可能引起的DNS访问.
+	 */
+
+/**
+	 * 从IPv4String转换为InetAddress.
+	 * 
+	 * IpString如果确定ipv4, 使用本方法减少字符分析消耗 .
+	 * 
+	 * 先字符串传换为byte[]再调getByAddress(byte[])，避免了调用getByName(ip)可能引起的DNS访问.
+	 */
+
+/**
+	 * 从InetAddress转化到int, 传输和存储时, 用int代表InetAddress是最小的开销.
+	 * 
+	 * InetAddress可以是IPV4或IPV6，都会转成IPV4.
+	 * 
+	 * @see com.google.common.net.InetAddresses#coerceToInteger(InetAddress)
+	 */"
+springside4_78,"@Test
+	public void objectToXml_oe() {
+		User user = new User();
+		user.setId(1L);
+		user.setName(""calvin"");
+
+		user.getInterests().add(""movie"");
+		user.getInterests().add(""sports"");
+
+		String xml = XmlMapper.toXml(user, ""UTF-8"");
+		System.out.println(""Jaxb Object to Xml result:\n"" + xml);
+		assertXmlByDom4j(xml);
+	}",XmlMapperTest::objectToXml_oe,,
+springside4_79,"@Test
+	public void xmlToObject_oe() {
+		String xml = generateXmlByDom4j();
+		User user = XmlMapper.fromXml(xml, User.class);
+
+		System.out.println(""Jaxb Xml to Object result:\n"" + user);
+
+		assertThat(user.getId()).isEqualTo(1L);
+		assertThat(user.getInterests()).containsOnly(""movie"", ""sports"");
+	}",XmlMapperTest::xmlToObject_oe,"public static <T> T fromXml(String xml, Class<T> clazz) {
+		try {
+			StringReader reader = new StringReader(xml);
+			return (T) createUnmarshaller(clazz).unmarshal(reader);
+		} catch (JAXBException e) {
+			throw ExceptionUtil.unchecked(e);
+		}
+	}","/**
+	 * Xml->Java Object.
+	 */"
+springside4_80,"@Test
+	public void toJson_oe() throws Exception {
+		TestBean bean = new TestBean(""A"");
+		String beanString = JsonMapper.INSTANCE.toJson(bean);
+		System.out.println(""Bean:"" + beanString);
+		assertThat(beanString)
+				.isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}"");
+
+		Map<String, Object> map = Maps.newLinkedHashMap();
+		map.put(""name"", ""A"");
+		map.put(""age"", 2);
+		String mapString = JsonMapper.INSTANCE.toJson(map);
+		System.out.println(""Map:"" + mapString);
+		assertThat(mapString).isEqualTo(""{\""name\"":\""A\"",\""age\"":2}"");
+
+		List<String> stringList = Lists.newArrayList(""A"", ""B"", ""C"");
+		String listString = JsonMapper.INSTANCE.toJson(stringList);
+		System.out.println(""String List:"" + listString);
+		assertThat(listString).isEqualTo(""[\""A\"",\""B\"",\""C\""]"");
+
+		List<TestBean> beanList = Lists.newArrayList(new TestBean(""A""), new TestBean(""B""));
+		String beanListString = JsonMapper.INSTANCE.toJson(beanList);
+		System.out.println(""Bean List:"" + beanListString);
+		assertThat(beanListString).isEqualTo(
+				""[{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]},{\""name\"":\""B\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}]"");
+
+		TestBean[] beanArray = new TestBean[] { new TestBean(""A""), new TestBean(""B"") };
+		String beanArrayString = JsonMapper.INSTANCE.toJson(beanArray);
+		System.out.println(""Array List:"" + beanArrayString);
+		assertThat(beanArrayString).isEqualTo(
+				""[{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]},{\""name\"":\""B\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}]"");
+	}",JsonMapperTest::toJson_oe,"public String toJson(Object object) {
+
+		try {
+			return mapper.writeValueAsString(object);
+		} catch (IOException e) {
+			logger.warn(""write to json string error:"" + object, e);
+			return null;
+		}
+	}","/**
+	 * Object可以是POJO，也可以是Collection或数组。 如果对象为Null, 返回""null"". 如果集合为空集合, 返回""[]"".
+	 */"
+springside4_81,"@Test
+	public void nullAndEmpty_oe() {
+
+		TestBean nullBean = null;
+		String nullBeanString = JsonMapper.INSTANCE.toJson(nullBean);
+		assertThat(nullBeanString).isEqualTo(""null"");
+
+		List<String> emptyList = Lists.newArrayList();
+		String emptyListString = JsonMapper.INSTANCE.toJson(emptyList);
+		assertThat(emptyListString).isEqualTo(""[]"");
+
+
+		TestBean nullBeanResult = JsonMapper.INSTANCE.fromJson(null, TestBean.class);
+		assertThat(nullBeanResult).isNull();
+
+		nullBeanResult = JsonMapper.INSTANCE.fromJson(""null"", TestBean.class);
+		assertThat(nullBeanResult).isNull();
+
+		List nullListResult = JsonMapper.INSTANCE.fromJson(null, List.class);
+		assertThat(nullListResult).isNull();
+
+		nullListResult = JsonMapper.INSTANCE.fromJson(""null"", List.class);
+		assertThat(nullListResult).isNull();
+
+		nullListResult = JsonMapper.INSTANCE.fromJson(""[]"", List.class);
+		assertThat(nullListResult).isEmpty();
+	}",JsonMapperTest::nullAndEmpty_oe,"public String toJson(Object object) {
+
+		try {
+			return mapper.writeValueAsString(object);
+		} catch (IOException e) {
+			logger.warn(""write to json string error:"" + object, e);
+			return null;
+		}
+	}
+
+public <T> T fromJson(@Nullable String jsonString, Class<T> clazz) {
+		if (StringUtils.isEmpty(jsonString)) {
+			return null;
+		}
+
+		try {
+			return mapper.readValue(jsonString, clazz);
+		} catch (IOException e) {
+			logger.warn(""parse json string error:"" + jsonString, e);
+			return null;
+		}
+	}
+
+public static boolean isEmpty(List<?> list) {
+		return (list == null) || list.isEmpty();
+	}","/**
+	 * Object可以是POJO，也可以是Collection或数组。 如果对象为Null, 返回""null"". 如果集合为空集合, 返回""[]"".
+	 */
+
+/**
+	 * 反序列化POJO或简单Collection如List<String>.
+	 * 
+	 * 如果JSON字符串为Null或""null""字符串, 返回Null. 如果JSON字符串为""[]"", 返回空集合.
+	 * 
+	 * 如需反序列化复杂Collection如List<MyBean>, 请使用fromJson(String, JavaType)
+	 * 
+	 * @see #fromJson(String, JavaType)
+	 */
+
+/**
+	 * 判断是否为空.
+	 */"
+springside4_82,"@Test
+	public void threeTypeMappers_oe() {
+		JsonMapper normalBinder = JsonMapper.defaultMapper();
+		TestBean bean = new TestBean(""A"");
+		assertThat(normalBinder.toJson(bean))
+				.isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""nullValue\"":null,\""emptyValue\"":[]}"");
+
+		JsonMapper nonNullMapper = JsonMapper.nonNullMapper();
+		assertThat(nonNullMapper.toJson(bean))
+				.isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\"",\""emptyValue\"":[]}"");
+
+		JsonMapper nonEmptyMapper = JsonMapper.nonEmptyMapper();
+		assertThat(nonEmptyMapper.toJson(bean)).isEqualTo(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\""}"");
+
+		TestBean nonEmptyBean = nonEmptyMapper.fromJson(""{\""name\"":\""A\"",\""defaultValue\"":\""hello\""}"", TestBean.class);
+		assertThat(nonEmptyBean.getEmptyValue()).isEmpty();
+	}",JsonMapperTest::threeTypeMappers_oe,"public String toJson(Object object) {
+
+		try {
+			return mapper.writeValueAsString(object);
+		} catch (IOException e) {
+			logger.warn(""write to json string error:"" + object, e);
+			return null;
+		}
+	}
+
+public <T> T fromJson(@Nullable String jsonString, Class<T> clazz) {
+		if (StringUtils.isEmpty(jsonString)) {
+			return null;
+		}
+
+		try {
+			return mapper.readValue(jsonString, clazz);
+		} catch (IOException e) {
+			logger.warn(""parse json string error:"" + jsonString, e);
+			return null;
+		}
+	}","/**
+	 * Object可以是POJO，也可以是Collection或数组。 如果对象为Null, 返回""null"". 如果集合为空集合, 返回""[]"".
+	 */
+
+/**
+	 * 反序列化POJO或简单Collection如List<String>.
+	 * 
+	 * 如果JSON字符串为Null或""null""字符串, 返回Null. 如果JSON字符串为""[]"", 返回空集合.
+	 * 
+	 * 如需反序列化复杂Collection如List<MyBean>, 请使用fromJson(String, JavaType)
+	 * 
+	 * @see #fromJson(String, JavaType)
+	 */"
+springside4_83,"@Test
+	public void jsonp_oe() {
+		TestBean bean = new TestBean(""A"");
+		String jsonp = JsonMapper.nonEmptyMapper().toJsonP(""haha"", bean);
+		assertThat(jsonp).isEqualTo(""haha({\""name\"":\""A\"",\""defaultValue\"":\""hello\""})"");
+	}",JsonMapperTest::jsonp_oe,"public String toJsonP(String functionName, Object object) {
+		return toJson(new JSONPObject(functionName, object));
+	}","/**
+	 * 輸出JSONP格式數據.
+	 */"
+springside4_84,"@Test
+	public void update_oe() {
+		TestBean bean = new TestBean(""A"");
+		bean.setDefaultValue(""lalala"");
+		JsonMapper.INSTANCE.update(""{\""name\"":\""B\""}"", bean);
+		assertThat(bean.getName()).isEqualTo(""B"");
+		assertThat(bean.getDefaultValue()).isEqualTo(""lalala"");
+	}",JsonMapperTest::update_oe,"@Override
+	public String getName() {
+		return delegate.getName();
+	}
+
+public void update(String jsonString, Object object) {
+		try {
+			mapper.readerForUpdating(object).readValue(jsonString);
+		} catch (JsonProcessingException e) {
+			logger.warn(""update json string:"" + jsonString + "" to object:"" + object + "" error."", e);
+		} catch (IOException e) {
+			logger.warn(""update json string:"" + jsonString + "" to object:"" + object + "" error."", e);
+		}
+	}","
+
+/**
+	 * 当JSON里只含有Bean的部分属性時，更新一個已存在Bean，只覆盖該部分的属性.
+	 */"
+springside4_85,"@Test
+	public void copySingleObject_oe() {
+		Student student = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
+
+		StudentVO studentVo = BeanMapper.map(student, StudentVO.class);
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+
+		Type<Student> studentType = BeanMapper.getType(Student.class);
+		Type<StudentVO> studentVoType = BeanMapper.getType(StudentVO.class);
+		studentVo = BeanMapper.map(student, studentType, studentVoType);
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+	}",BeanMapperTest::copySingleObject_oe,,
+springside4_86,"@Test
+	public void copyListObject_oe() {
+		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
+		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
+		Student student3 = new Student(""zhang5"", 40, new Teacher(""li6""), ListUtil.newArrayList(""chinese3"", ""english5""));
+		List<Student> studentList = ListUtil.newArrayList(student1, student2, student3);
+
+		List<StudentVO> studentVoList = BeanMapper.mapList(studentList, Student.class, StudentVO.class);
+		assertThat(studentVoList).hasSize(3);
+		StudentVO studentVo = studentVoList.get(0);
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+
+		Type<Student> studentType = BeanMapper.getType(Student.class);
+		Type<StudentVO> studentVoType = BeanMapper.getType(StudentVO.class);
+		studentVoList = BeanMapper.mapList(studentList, studentType, studentVoType);
+
+		studentVoList = BeanMapper.mapList(studentList, Student.class, StudentVO.class);
+		assertThat(studentVoList).hasSize(3);
+		studentVo = studentVoList.get(0);
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+	}",BeanMapperTest::copyListObject_oe,,
+springside4_87,"@Test
+	public void copyArrayObject_oe() {
+		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
+		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
+		Student student3 = new Student(""zhang5"", 40, new Teacher(""li6""), ListUtil.newArrayList(""chinese3"", ""english5""));
+		Student[] studentList = new Student[]{student1, student2, student3};
+		StudentVO[] studentVoList =new StudentVO[studentList.length];
+		BeanMapper.mapArray(studentVoList, studentList, StudentVO.class);
+		assertThat(studentVoList).hasSize(3);
+		StudentVO studentVo = studentVoList[0];
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+
+		Type<Student> studentType = BeanMapper.getType(Student.class);
+		Type<StudentVO> studentVoType = BeanMapper.getType(StudentVO.class);
+		
+		StudentVO[] studentVoList2 =new StudentVO[studentList.length];
+		BeanMapper.mapArray(studentVoList2, studentList,studentType, studentVoType);
+		assertThat(studentVoList).hasSize(3);
+		studentVo = studentVoList2[0];
+
+		assertThat(studentVo.name).isEqualTo(""zhang3"");
+		assertThat(studentVo.getAge()).isEqualTo(20);
+		assertThat(studentVo.getTeacher().getName()).isEqualTo(""li4"");
+		assertThat(studentVo.getCourse()).containsExactly(""chinese"", ""english"");
+	}",BeanMapperTest::copyArrayObject_oe,,
+springside4_88,"@Test
+	public void test_oe() {
+		assertThat(EnumUtil.generateBits(Options.class, Options.A)).isEqualTo(1);
+		assertThat(EnumUtil.generateBits(Options.class, Options.A, Options.B)).isEqualTo(3);
+
+		assertThat(EnumUtil.generateBits(Options.class, ListUtil.newArrayList(Options.A))).isEqualTo(1);
+		assertThat(EnumUtil.generateBits(Options.class, ListUtil.newArrayList(Options.A, Options.B))).isEqualTo(3);
+
+		assertThat(EnumUtil.processBits(Options.class, 3)).hasSize(2).containsExactly(Options.A, Options.B);
+		assertThat(EnumUtil.processBits(Options.class,EnumUtil.generateBits(Options.class,Options.A,Options.C,Options.D))).hasSize(3).containsExactly(Options.A,Options.C,Options.D);
+
+	}",EnumUtilTest::test_oe,"public static <E extends Enum<E>> long generateBits(final Class<E> enumClass, final Iterable<? extends E> values) {
+		return EnumUtils.generateBitVector(enumClass, values);
+	}
+
+public static <T> ArrayList<T> newArrayList() {
+		return new ArrayList<T>();
+	}
+
+public static <E extends Enum<E>> EnumSet<E> processBits(final Class<E> enumClass, final long value) {
+		return EnumUtils.processBitVector(enumClass, value);
+	}","/**
+	 * 将若干个枚举值转换为long，用于使用long保存多个选项的情况.
+	 */
+
+/**
+	 * 根据等号左边的类型，构造类型正确的ArrayList.
+	 * 
+	 * @see com.google.common.collect.Lists#newArrayList()
+	 */
+
+/**
+	 * long重新解析为若干个枚举值，用于使用long保存多个选项的情况.
+	 */"
+springside4_90,"@Test
+	public void unwrap_oe() {
+		RuntimeException re = new RuntimeException(""my runtime"");
+		assertThat(ExceptionUtil.unwrap(re)).isSameAs(re);
+
+		ExecutionException ee = new ExecutionException(re);
+		assertThat(ExceptionUtil.unwrap(ee)).isSameAs(re);
+
+		InvocationTargetException ie = new InvocationTargetException(re);
+		assertThat(ExceptionUtil.unwrap(ie)).isSameAs(re);
+		
+		Exception e = new Exception(""my exception"");
+		ExecutionException ee2 = new ExecutionException(e);
+		try{
+		ExceptionUtil.uncheckedAndWrap(ee2);
+		}catch (Throwable t) {
+			assertThat(t).isInstanceOf(UncheckedException.class).hasCauseExactlyInstanceOf(Exception.class);
+		}
+	}",ExceptionUtilTest::unwrap_oe,"public static Throwable unwrap(Throwable t) {
+		if (t instanceof java.util.concurrent.ExecutionException
+				|| t instanceof java.lang.reflect.InvocationTargetException || t instanceof UncheckedException) {
+			return t.getCause();
+		}
+
+		return t;
+	}
+
+public static RuntimeException uncheckedAndWrap(Throwable t) {
+
+		Throwable unwrapped = unwrap(t);
+		if (unwrapped instanceof RuntimeException) {
+			throw (RuntimeException) unwrapped;
+		}
+		if (unwrapped instanceof Error) {
+			throw (Error) unwrapped;
+		}
+		throw new UncheckedException(unwrapped);
+	}","/**
+	 * 如果是著名的包裹类，从cause中获得真正异常. 其他异常则不变.
+	 * 
+	 * Future中使用的ExecutionException 与 反射时定义的InvocationTargetException， 真正的异常都封装在Cause中
+	 * 
+	 * 前面 unchecked() 使用的UncheckedException同理.
+	 * 
+	 * from Quasar and Tomcat's ExceptionUtils
+	 */
+
+/**
+	 * 组合unchecked与unwrap的效果
+	 */"
+springside4_91,"@Test
+	public void isCausedBy_oe() {
+		IOException ioexception = new IOException(""my exception"");
+		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
+		RuntimeException runtimeException = new RuntimeException(illegalStateException);
+
+		assertThat(ExceptionUtil.isCausedBy(runtimeException, IOException.class)).isTrue();
+		assertThat(ExceptionUtil.isCausedBy(runtimeException, IllegalStateException.class, IOException.class)).isTrue();
+		assertThat(ExceptionUtil.isCausedBy(runtimeException, Exception.class)).isTrue();
+		assertThat(ExceptionUtil.isCausedBy(runtimeException, IllegalAccessException.class)).isFalse();
+	}",ExceptionUtilTest::isCausedBy_oe,"@SuppressWarnings(""unchecked"")
+	public static boolean isCausedBy(Throwable t, Class<? extends Exception>... causeExceptionClasses) {
+		Throwable cause = t;
+
+		while (cause != null) {
+			for (Class<? extends Exception> causeClass : causeExceptionClasses) {
+				if (causeClass.isInstance(cause)) {
+					return true;
+				}
+			}
+			cause = cause.getCause();
+		}
+		return false;
+	}","/**
+	 * 判断异常是否由某些底层的异常引起.
+	 */"
+springside4_92,"@Test
+	public void getRootCause_oe() {
+		IOException ioexception = new IOException(""my exception"");
+		IllegalStateException illegalStateException = new IllegalStateException(ioexception);
+		RuntimeException runtimeException = new RuntimeException(illegalStateException);
+
+		assertThat(ExceptionUtil.getRootCause(runtimeException)).isSameAs(ioexception);
+		assertThat(ExceptionUtil.getRootCause(ioexception)).isSameAs(ioexception);
+	}",ExceptionUtilTest::getRootCause_oe,"public static Throwable getRootCause(Throwable t) {
+		return Throwables.getRootCause(t);
+	}","/**
+	 * 获取异常的Root Cause.
+	 * 
+	 * 如无底层Cause, 则返回自身
+	 * 
+	 * @see Throwables#getRootCause(Throwable)
+	 */"
+springside4_95,"@Test
+	public void test_oe() {
+		assertThat(BooleanUtil.toBoolean(""True"")).isTrue();
+		assertThat(BooleanUtil.toBoolean(""tre"")).isFalse();
+		assertThat(BooleanUtil.toBoolean(null)).isFalse();
+
+		assertThat(BooleanUtil.toBooleanObject(""True"")).isTrue();
+		assertThat(BooleanUtil.toBooleanObject(""tre"")).isFalse();
+		assertThat(BooleanUtil.toBooleanObject(null)).isNull();
+
+		assertThat(BooleanUtil.parseGeneralString(""1"", false)).isFalse();
+		assertThat(BooleanUtil.parseGeneralString(""y"", false)).isTrue();
+		assertThat(BooleanUtil.parseGeneralString(""y"")).isTrue();
+		assertThat(BooleanUtil.parseGeneralString(""x"")).isNull();
+	}",BeanUtilTest::test_oe,"public static boolean toBoolean(String str) {
+		return Boolean.parseBoolean(str);
+	}
+
+public static Boolean parseGeneralString(String str) {
+		return BooleanUtils.toBooleanObject(str);
+	}
+
+public static Boolean toBooleanObject(String str) {
+		return str != null ? Boolean.valueOf(str) : null;
+	}","/**
+	 * 使用标准JDK，只分析是否忽略大小写的""true"", 为空时返回false
+	 */
+
+/**
+	 * 支持true/false,on/off, y/n, yes/no的转换, str为空或无法分析时返回null
+	 */
+
+/**
+	 * 使用标准JDK，只分析是否忽略大小写的""true"", 为空时返回null
+	 */"
+springside4_96,"@Test
+	public void logic_oe() {
+		assertThat(BooleanUtil.negate(Boolean.TRUE)).isFalse();
+		assertThat(BooleanUtil.negate(Boolean.FALSE)).isTrue();
+
+		assertThat(BooleanUtil.negate(true)).isFalse();
+		assertThat(BooleanUtil.negate(false)).isTrue();
+
+		assertThat(BooleanUtil.or(true, true, false)).isTrue();
+		assertThat(BooleanUtil.or(false, false, false)).isFalse();
+
+		assertThat(BooleanUtil.and(true, true, false)).isFalse();
+		assertThat(BooleanUtil.and(true, true, true)).isTrue();
+
+	}",BeanUtilTest::logic_oe,"public static boolean negate(final boolean bool) {
+		return !bool;
+	}
+
+public static boolean or(final boolean... array) {
+		return BooleanUtils.or(array);
+	}
+
+public static boolean and(final boolean... array) {
+		return BooleanUtils.and(array);
+	}","/**
+	 * 取反
+	 */
+
+/**
+	 * 多个值的or
+	 */
+
+/**
+	 * 多个值的and
+	 */"
+springside4_98,"@Test
+	public void loadProperties_oe() {
+		Properties p1 = PropertiesUtil.loadFromFile(""classpath://application.properties"");
+		assertThat(p1.get(""springside.min"")).isEqualTo(""1"");
+		assertThat(p1.get(""springside.max"")).isEqualTo(""10"");
+
+		Properties p2 = PropertiesUtil.loadFromString(""springside.min=1\nspringside.max=10\nisOpen=true"");
+		assertThat(PropertiesUtil.getInt(p2, ""springside.min"", 0)).isEqualTo(1);
+		assertThat(PropertiesUtil.getInt(p2, ""springside.max"", 0)).isEqualTo(10);
+		assertThat(PropertiesUtil.getInt(p2, ""springside.maxA"", 0)).isEqualTo(0);
+
+		assertThat(PropertiesUtil.getLong(p2, ""springside.min"", 0L)).isEqualTo(1);
+		assertThat(PropertiesUtil.getLong(p2, ""springside.max"", 0L)).isEqualTo(10);
+		assertThat(PropertiesUtil.getLong(p2, ""springside.maxA"", 0L)).isEqualTo(0);
+		
+		assertThat(PropertiesUtil.getDouble(p2, ""springside.min"", 0d)).isEqualTo(1);
+		assertThat(PropertiesUtil.getDouble(p2, ""springside.max"", 0d)).isEqualTo(10);
+		assertThat(PropertiesUtil.getDouble(p2, ""springside.maxA"", 0d)).isEqualTo(0);
+		
+		assertThat(PropertiesUtil.getString(p2, ""springside.min"", """")).isEqualTo(""1"");
+		assertThat(PropertiesUtil.getString(p2, ""springside.max"", """")).isEqualTo(""10"");
+		assertThat(PropertiesUtil.getString(p2, ""springside.maxA"", """")).isEqualTo("""");
+
+		assertThat(PropertiesUtil.getBoolean(p2, ""isOpen"", false)).isTrue();
+	}",PropertiesUtilTest::loadProperties_oe,"@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}
+
+public static Double getDouble(Properties p, String name, Double defaultValue) {
+		return NumberUtil.toDoubleObject(p.getProperty(name), defaultValue);
+	}
+
+public static String getString(Properties p, String name, String defaultValue) {
+		return p.getProperty(name, defaultValue);
+	}
+
+public static Boolean getBoolean(Properties p, String name, Boolean defaultValue) {
+		return BooleanUtil.toBooleanObject(p.getProperty(name), defaultValue);
+	}
+
+public static Integer getInt(Properties p, String name, Integer defaultValue) {
+		return NumberUtil.toIntObject(p.getProperty(name), defaultValue);
+	}
+
+public static Long getLong(Properties p, String name, Long defaultValue) {
+		return NumberUtil.toLongObject(p.getProperty(name), defaultValue);
+	}",
+springside4_99,"@Test
+	public void systemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+
+		Boolean result0 = SystemPropertiesUtil.getBoolean(name);
+		assertThat(result0).isNull();
+
+		Boolean result1 = SystemPropertiesUtil.getBoolean(name, null);
+		assertThat(result1).isNull();
+
+		Boolean result3 = SystemPropertiesUtil.getBoolean(name, Boolean.TRUE);
+		assertThat(result3).isTrue();
+
+		System.setProperty(name, ""true"");
+
+		Boolean result5 = SystemPropertiesUtil.getBoolean(name, Boolean.FALSE);
+		assertThat(result5).isTrue();
+
+		System.clearProperty(name);
+
+		Integer result6 = SystemPropertiesUtil.getInteger(name);
+		assertThat(result6).isNull();
+
+		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		assertThat(result6).isEqualTo(1);
+
+		System.setProperty(name, ""2"");
+		result6 = SystemPropertiesUtil.getInteger(name, 1);
+		assertThat(result6).isEqualTo(2);
+
+		System.clearProperty(name);
+
+		Long result7 = SystemPropertiesUtil.getLong(name);
+		assertThat(result7).isNull();
+
+		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		assertThat(result7).isEqualTo(1L);
+
+		System.setProperty(name, ""2"");
+		result7 = SystemPropertiesUtil.getLong(name, 1L);
+		assertThat(result7).isEqualTo(2L);
+
+		System.clearProperty(name);
+
+		Double result8 = SystemPropertiesUtil.getDouble(name);
+		assertThat(result8).isNull();
+
+		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		assertThat(result8).isEqualTo(1.1);
+
+		System.setProperty(name, ""2.1"");
+		result8 = SystemPropertiesUtil.getDouble(name, 1.1);
+		assertThat(result8).isEqualTo(2.1);
+
+		System.clearProperty(name);
+
+		String result9 = SystemPropertiesUtil.getString(name);
+		assertThat(result9).isNull();
+
+		result9 = SystemPropertiesUtil.getString(name, ""1.1"");
+		assertThat(result9).isEqualTo(""1.1"");
+
+		System.setProperty(name, ""2.1"");
+		result9 = SystemPropertiesUtil.getString(name, ""1.1"");
+		assertThat(result9).isEqualTo(""2.1"");
+
+		System.clearProperty(name);
+
+	}",SystemPropertiesUtilTest::systemProperty_oe,"public static Boolean getBoolean(String name) {
+		String stringResult = System.getProperty(name);
+		return BooleanUtil.toBooleanObject(stringResult);
+	}
+
+public static Long getLong(String name) {
+		return Long.getLong(name);
+	}
+
+public static Double getDouble(String propertyName) {
+		return NumberUtil.toDoubleObject(System.getProperty(propertyName));
+	}
+
+public static String getString(String name) {
+		return System.getProperty(name);
+	}
+
+public static Integer getInteger(String name) {
+		return Integer.getInteger(name);
+	}","/**
+	 * 读取Boolean类型的系统变量，为空时返回null，代表未设置，而不是Boolean.getBoolean()的false.
+	 */
+
+/**
+	 * 读取Long类型的系统变量，为空时返回null.
+	 */
+
+/**
+	 * 读取Double类型的系统变量，为空时返回null.
+	 */
+
+/**
+	 * 读取String类型的系统变量，为空时返回null.
+	 */
+
+/**
+	 * 读取Integer类型的系统变量，为空时返回null.
+	 */"
+springside4_101,"@Test
+	public void intSystemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		int result = SystemPropertiesUtil.getInteger(name, envName, 123);
+		assertThat(result).isEqualTo(123);
+
+
+		System.setProperty(name, ""456"");
+		int result3 = SystemPropertiesUtil.getInteger(name, envName, 123);
+		assertThat(result3).isEqualTo(456);
+
+		System.clearProperty(name);
+	}",SystemPropertiesUtilTest::intSystemProperty_oe,"public static Integer getInteger(String name) {
+		return Integer.getInteger(name);
+	}","/**
+	 * 读取Integer类型的系统变量，为空时返回null.
+	 */"
+springside4_102,"@Test
+	public void longSystemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		long result = SystemPropertiesUtil.getLong(name, envName, 123L);
+		assertThat(result).isEqualTo(123L);
+
+
+		System.setProperty(name, ""456"");
+		long result3 = SystemPropertiesUtil.getLong(name, envName, 123L);
+		assertThat(result3).isEqualTo(456L);
+
+		System.clearProperty(name);
+	}",SystemPropertiesUtilTest::longSystemProperty_oe,"public static Long getLong(String name) {
+		return Long.getLong(name);
+	}","/**
+	 * 读取Long类型的系统变量，为空时返回null.
+	 */"
+springside4_103,"@Test
+	public void doubleSystemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		double result = SystemPropertiesUtil.getDouble(name, envName, 123d);
+		assertThat(result).isEqualTo(123d);
+
+
+		System.setProperty(name, ""456"");
+		double result3 = SystemPropertiesUtil.getDouble(name, envName, 123d);
+		assertThat(result3).isEqualTo(456d);
+
+		System.clearProperty(name);
+	}",SystemPropertiesUtilTest::doubleSystemProperty_oe,"public static Double getDouble(String propertyName) {
+		return NumberUtil.toDoubleObject(System.getProperty(propertyName));
+	}","/**
+	 * 读取Double类型的系统变量，为空时返回null.
+	 */"
+springside4_104,"@Test
+	public void booleanSystemProperty_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+		String envName = ""ss_test"" + RandomUtil.nextInt();
+
+		boolean result = SystemPropertiesUtil.getBoolean(name, envName, true);
+		assertThat(result).isTrue();
+
+
+		System.setProperty(name, ""true"");
+		boolean result3 = SystemPropertiesUtil.getBoolean(name, envName, false);
+		assertThat(result3).isTrue();
+
+		System.clearProperty(name);
+	}",SystemPropertiesUtilTest::booleanSystemProperty_oe,"public static Boolean getBoolean(String name) {
+		String stringResult = System.getProperty(name);
+		return BooleanUtil.toBooleanObject(stringResult);
+	}","/**
+	 * 读取Boolean类型的系统变量，为空时返回null，代表未设置，而不是Boolean.getBoolean()的false.
+	 */"
+springside4_105,"@Test
+	public void listenableProperties_oe() {
+		String name = ""ss.test"" + RandomUtil.nextInt();
+
+		TestPropertiesListener listener = new TestPropertiesListener(name);
+		SystemPropertiesUtil.registerSystemPropertiesListener(listener);
+
+		System.setProperty(name, ""haha"");
+
+		assertThat(listener.newValue).isEqualTo(""haha"");
+	}",SystemPropertiesUtilTest::listenableProperties_oe,"@Override
+		public synchronized Object setProperty(String key, String value) {
+			Object result = put(key, value);
+			for (PropertiesListener listener : listeners) {
+				if (listener.propertyName.equals(key)) {
+					listener.onChange(key, value);
+				}
+			}
+			return result;
+		}",
+springside4_106,"@Test
+	public void hashCodeTest_oe() {
+		assertThat(ObjectUtil.hashCode(""a"", ""b"") - ObjectUtil.hashCode(""a"", ""a"")).isEqualTo(1);
+	}",ObjectUtilTest::hashCodeTest_oe,,
+springside4_107,"@Test
+	public void toPrettyString_oe() {
+		assertThat(ObjectUtil.toPrettyString(null)).isEqualTo(""null"");
+		assertThat(ObjectUtil.toPrettyString(1)).isEqualTo(""1"");
+
+		assertThat(ObjectUtil.toPrettyString(new int[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		assertThat(ObjectUtil.toPrettyString(new long[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		assertThat(ObjectUtil.toPrettyString(new double[] { 1.1d, 2.2d })).isEqualTo(""[1.1, 2.2]"");
+		assertThat(ObjectUtil.toPrettyString(new float[] { 1.1f, 2.2f })).isEqualTo(""[1.1, 2.2]"");
+		assertThat(ObjectUtil.toPrettyString(new boolean[] { true, false })).isEqualTo(""[true, false]"");
+		assertThat(ObjectUtil.toPrettyString(new short[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		assertThat(ObjectUtil.toPrettyString(new byte[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		
+		assertThat(ObjectUtil.toPrettyString(new Integer[] { 1, 2 })).isEqualTo(""[1, 2]"");
+		assertThat(ObjectUtil.toPrettyString(ListUtil.newArrayList(""1"", ""2""))).isEqualTo(""{1,2}"");
+	}",ObjectUtilTest::toPrettyString_oe,"public static String toPrettyString(Object value) {
+		if (value == null) {
+			return NULL;
+		}
+
+		Class<?> type = value.getClass();
+
+		if (type.isArray()) {
+			Class componentType = type.getComponentType();
+
+			if (componentType.isPrimitive()) {
+				StringBuilder sb = new StringBuilder();
+
+				if (componentType == int.class) {
+					sb.append(Arrays.toString((int[]) value));
+				} else if (componentType == long.class) {
+					sb.append(Arrays.toString((long[]) value));
+				} else if (componentType == double.class) {
+					sb.append(Arrays.toString((double[]) value));
+				} else if (componentType == float.class) {
+					sb.append(Arrays.toString((float[]) value));
+				} else if (componentType == boolean.class) {
+					sb.append(Arrays.toString((boolean[]) value));
+				} else if (componentType == short.class) {
+					sb.append(Arrays.toString((short[]) value));
+				} else if (componentType == byte.class) {
+					sb.append(Arrays.toString((byte[]) value));
+				} else {
+					throw new IllegalArgumentException(""unsupport array type"");
+				}
+
+				return sb.toString();
+			} else {
+				StringBuilder sb = new StringBuilder();
+				sb.append('[');
+
+				Object[] array = (Object[]) value;
+				for (int i = 0; i < array.length; i++) {
+					if (i > 0) {
+						sb.append("", "");
+					}
+					sb.append(toPrettyString(array[i]));
+				}
+				sb.append(']');
+				return sb.toString();
+			}
+		} else if (value instanceof Iterable) {
+			Iterable iterable = (Iterable) value;
+			StringBuilder sb = new StringBuilder();
+			sb.append('{');
+			int i = 0;
+			for (Object o : iterable) {
+				if (i > 0) {
+					sb.append(',');
+				}
+				sb.append(toPrettyString(o));
+				i++;
+			}
+			sb.append('}');
+			return sb.toString();
+		}
+
+		return value.toString();
+	}","/**
+	 * 对象的toString()，处理了对象为数组和集合的情况.
+	 */"
+springside4_108,"@Test
+	public void PlatformTest_oe() {
+
+		if (Platforms.IS_WINDOWS) {
+			assertThat(Platforms.FILE_PATH_SEPARATOR).isEqualTo(""\\"");
+			assertThat(Platforms.FILE_PATH_SEPARATOR_CHAR).isEqualTo('\\');
+		} else {
+			assertThat(Platforms.FILE_PATH_SEPARATOR).isEqualTo(""/"");
+			assertThat(Platforms.FILE_PATH_SEPARATOR_CHAR).isEqualTo('/');
+		}
+
+		System.out.println(""OS_NAME:"" + Platforms.OS_NAME);
+		System.out.println(""OS_VERSION:"" + Platforms.OS_VERSION);
+		System.out.println(""OS_ARCH:"" + Platforms.OS_ARCH);
+		System.out.println(""JAVA_SPECIFICATION_VERSION:"" + Platforms.JAVA_SPECIFICATION_VERSION);
+		System.out.println(""JAVA_VERSION:"" + Platforms.JAVA_VERSION);
+		System.out.println(""JAVA_HOME:"" + Platforms.JAVA_HOME);
+		System.out.println(""USER_HOME:"" + Platforms.USER_HOME);
+		System.out.println(""TMP_DIR:"" + Platforms.TMP_DIR);
+		System.out.println(""WORKING_DIR:"" + Platforms.WORKING_DIR);
+
+		if (Platforms.IS_JAVA7) {
+			assertThat(Platforms.IS_ATLEASET_JAVA6).isTrue();
+			assertThat(Platforms.IS_ATLEASET_JAVA7).isTrue();
+			assertThat(Platforms.IS_ATLEASET_JAVA8).isFalse();
+		}
+		
+		if (Platforms.IS_JAVA8) {
+			assertThat(Platforms.IS_ATLEASET_JAVA6).isTrue();
+			assertThat(Platforms.IS_ATLEASET_JAVA7).isTrue();
+			assertThat(Platforms.IS_ATLEASET_JAVA8).isTrue();
+		}
+		
+		System.out.println(""pid:""+ Platforms.getPid());
+		assertThat(Platforms.getPid()).isNotEqualTo(-1);
+	}",PlatformsTest::PlatformTest_oe,"
+
+public static int getPid() {
+		// format: ""pid@hostname""
+		String name = ManagementFactory.getRuntimeMXBean().getName();
+		String[] split = name.split(""@"");
+		if (split.length != 2) {
+			return -1;
+		}
+
+		try {
+			return Integer.parseInt(split[0]);
+		} catch (Exception e) {
+			return -1;
+		}
+	}","
+
+/**
+	 * 获得当前进程的PID
+	 * 
+	 * 当失败时返回-1
+	 */"
+springside4_109,"@Test
+	public void mac_oe() {
+		String input = ""foo message"";
+
+		byte[] key = CryptoUtil.generateHmacSha1Key();
+		assertThat(key).hasSize(20);
+
+		byte[] macResult = CryptoUtil.hmacSha1(input.getBytes(), key);
+		System.out.println(""hmac-sha1 key in hex      :"" + EncodeUtil.encodeHex(key));
+		System.out.println(""hmac-sha1 in hex result   :"" + EncodeUtil.encodeHex(macResult));
+
+		assertThat(CryptoUtil.isMacValid(macResult, input.getBytes(), key)).isTrue();
+	}",CryptoUtilTest::mac_oe,"public static byte[] generateHmacSha1Key() {
+		try {
+			KeyGenerator keyGenerator = KeyGenerator.getInstance(HMACSHA1_ALG);
+			keyGenerator.init(DEFAULT_HMACSHA1_KEYSIZE);
+			SecretKey secretKey = keyGenerator.generateKey();
+			return secretKey.getEncoded();
+		} catch (GeneralSecurityException e) {
+			throw ExceptionUtil.unchecked(e);
+		}
+	}
+
+public static String encodeHex(byte[] input) {
+		return BaseEncoding.base16().encode(input);
+	}","/**
+	 * 生成HMAC-SHA1密钥,返回字节数组,长度为160位(20字节). HMAC-SHA1算法对密钥无特殊要求, RFC2401建议最少长度为160位(20字节).
+	 */
+
+/**
+	 * Hex编码, 将byte[]编码为String，默认为ABCDEF为大写字母.
+	 */"
+springside4_110,"@Test
+	public void aes_oe() {
+		byte[] key = CryptoUtil.generateAesKey();
+		assertThat(key).hasSize(16);
+		String input = ""foo message"";
+
+		byte[] encryptResult = CryptoUtil.aesEncrypt(input.getBytes(), key);
+		String descryptResult = CryptoUtil.aesDecrypt(encryptResult, key);
+
+		System.out.println(""aes key in hex            :"" + EncodeUtil.encodeHex(key));
+		System.out.println(""aes encrypt in hex result :"" + EncodeUtil.encodeHex(encryptResult));
+		assertThat(descryptResult).isEqualTo(input);
+	}",CryptoUtilTest::aes_oe,"public static byte[] generateAesKey() {
+		return generateAesKey(DEFAULT_AES_KEYSIZE);
+	}
+
+public static String encodeHex(byte[] input) {
+		return BaseEncoding.base16().encode(input);
+	}","/**
+	 * 生成AES密钥,返回字节数组, 默认长度为128位(16字节).
+	 */
+
+/**
+	 * Hex编码, 将byte[]编码为String，默认为ABCDEF为大写字母.
+	 */"
+springside4_111,"@Test
+	public void aesWithIV_oe() {
+		byte[] key = CryptoUtil.generateAesKey();
+		byte[] iv = CryptoUtil.generateIV();
+		assertThat(key).hasSize(16);
+		assertThat(iv).hasSize(16);
+		String input = ""foo message"";
+
+		byte[] encryptResult = CryptoUtil.aesEncrypt(input.getBytes(), key, iv);
+		String descryptResult = CryptoUtil.aesDecrypt(encryptResult, key, iv);
+
+		System.out.println(""aes key in hex            :"" + EncodeUtil.encodeHex(key));
+		System.out.println(""iv in hex                 :"" + EncodeUtil.encodeHex(iv));
+		System.out.println(""aes encrypt in hex result :"" + EncodeUtil.encodeHex(encryptResult));
+		assertThat(descryptResult).isEqualTo(input);
+	}",CryptoUtilTest::aesWithIV_oe,"public static byte[] generateIV() {
+		byte[] bytes = new byte[DEFAULT_IVSIZE];
+		random.nextBytes(bytes);
+		return bytes;
+	}
+
+public static String encodeHex(byte[] input) {
+		return BaseEncoding.base16().encode(input);
+	}","/**
+	 * 生成随机向量,默认大小为cipher.getBlockSize(), 16字节.
+	 */
+
+/**
+	 * Hex编码, 将byte[]编码为String，默认为ABCDEF为大写字母.
+	 */"
+springside4_113,"@Test
+	public void truncateAndCelling_oe() {
+		Date date = new Date(117, 0, 21, 12, 12, 12);
+
+		Date beginYear = new Date(117, 0, 1, 0, 0, 0);
+		Date endYear = new Date(new Date(117, 11, 31, 23, 59, 59).getTime() + 999);
+		Date nextYear = new Date(118, 0, 1, 0, 0, 0);
+
+		Date beginMonth = new Date(117, 0, 1);
+		Date endMonth = new Date(new Date(117, 0, 31, 23, 59, 59).getTime() + 999);
+		Date nextMonth = new Date(117, 1, 1);
+
+		Date beginWeek = new Date(117, 0, 16);
+		Date endWeek = new Date(new Date(117, 0, 22, 23, 59, 59).getTime() + 999);
+		Date nextWeek = new Date(117, 0, 23);
+
+		Date beginDate = new Date(117, 0, 21);
+		Date endDate = new Date(new Date(117, 0, 21, 23, 59, 59).getTime() + 999);
+		Date nextDate = new Date(117, 0, 22);
+
+		Date beginHour = new Date(117, 0, 21, 12, 0, 0);
+		Date endHour = new Date(new Date(117, 0, 21, 12, 59, 59).getTime() + 999);
+		Date nextHour = new Date(117, 0, 21, 13, 0, 0);
+
+		Date beginMinute = new Date(117, 0, 21, 12, 12, 0);
+		Date endMinute = new Date(new Date(117, 0, 21, 12, 12, 59).getTime() + 999);
+		Date nextMinute = new Date(117, 0, 21, 12, 13, 0);
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfYear(date), beginYear)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfYear(date), endYear)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextYear(date), nextYear)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfMonth(date), beginMonth)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfMonth(date), endMonth)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextMonth(date), nextMonth)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfWeek(date), beginWeek)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfWeek(date), endWeek)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextWeek(date), nextWeek)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfDate(date), beginDate)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfDate(date), endDate)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextDate(date), nextDate)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfHour(date), beginHour)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfHour(date), endHour)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextHour(date), nextHour)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.beginOfMinute(date), beginMinute)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.endOfMinute(date), endMinute)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.nextMinute(date), nextMinute)).isTrue();
+	}",DateUtilTest::truncateAndCelling_oe,"public static boolean isSameTime(@NotNull final Date date1, @NotNull final Date date2) {
+		// date.getMillisOf() 比date.getTime()快
+		return date1.compareTo(date2) == 0;
+	}","/**
+	 * 是否同一时刻.
+	 */"
+springside4_114,"@Test
+	public void changeDay_oe() {
+		Date date = new Date(106, 10, 1, 12, 23, 44);
+		Date expectDate1 = new Date(106, 10, 3);
+		Date expectDate2 = new Date(106, 9, 31);
+		Date expectDate3 = new Date(106, 11, 1);
+		Date expectDate4 = new Date(106, 7, 1);
+		Date expectDate5 = new Date(106, 10, 1, 13, 23, 44);
+		Date expectDate6 = new Date(106, 10, 1, 10, 23, 44);
+		Date expectDate7 = new Date(106, 10, 1, 12, 24, 44);
+		Date expectDate8 = new Date(106, 10, 1, 12, 21, 44);
+
+		Date expectDate9 = new Date(106, 10, 1, 12, 23, 45);
+		Date expectDate10 = new Date(106, 10, 1, 12, 23, 42);
+
+		Date expectDate11 = new Date(106, 10, 8);
+		Date expectDate12 = new Date(106, 9, 25);
+
+		assertThat(DateUtil.isSameDay(DateUtil.addDays(date, 2), expectDate1)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.subDays(date, 1), expectDate2)).isTrue();
+
+		assertThat(DateUtil.isSameDay(DateUtil.addWeeks(date, 1), expectDate11)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.subWeeks(date, 1), expectDate12)).isTrue();
+
+		assertThat(DateUtil.isSameDay(DateUtil.addMonths(date, 1), expectDate3)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.subMonths(date, 3), expectDate4)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.addHours(date, 1), expectDate5)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.subHours(date, 2), expectDate6)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.addMinutes(date, 1), expectDate7)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.subMinutes(date, 2), expectDate8)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.addSeconds(date, 1), expectDate9)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.subSeconds(date, 2), expectDate10)).isTrue();
+
+	}",DateUtilTest::changeDay_oe,"public static boolean isSameDay(@NotNull final Date date1, @NotNull final Date date2) {
+		return DateUtils.isSameDay(date1, date2);
+	}
+
+public static boolean isSameTime(@NotNull final Date date1, @NotNull final Date date2) {
+		// date.getMillisOf() 比date.getTime()快
+		return date1.compareTo(date2) == 0;
+	}","/**
+	 * 是否同一天.
+	 * 
+	 * @see DateUtils#isSameDay(Date, Date)
+	 */
+
+/**
+	 * 是否同一时刻.
+	 */"
+springside4_115,"@Test
+	public void setDay_oe() {
+		Date date = new Date(116, 10, 1, 10, 10, 1);
+		Date expectedDate = new Date(116, 10, 3);
+		Date expectedDate2 = new Date(116, 11, 1);
+		Date expectedDate3 = new Date(117, 10, 1);
+		Date expectedDate4 = new Date(116, 10, 1, 9, 10, 1);
+		Date expectedDate5 = new Date(116, 10, 1, 10, 9, 1);
+		Date expectedDate6 = new Date(116, 10, 1, 10, 10, 10);
+
+		assertThat(DateUtil.isSameDay(DateUtil.setDays(date, 3), expectedDate)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.setMonths(date, 11), expectedDate2)).isTrue();
+		assertThat(DateUtil.isSameDay(DateUtil.setYears(date, 2017), expectedDate3)).isTrue();
+
+		assertThat(DateUtil.isSameTime(DateUtil.setHours(date, 9), expectedDate4)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.setMinutes(date, 9), expectedDate5)).isTrue();
+		assertThat(DateUtil.isSameTime(DateUtil.setSeconds(date, 10), expectedDate6)).isTrue();
+
+	}",DateUtilTest::setDay_oe,"public static boolean isSameDay(@NotNull final Date date1, @NotNull final Date date2) {
+		return DateUtils.isSameDay(date1, date2);
+	}
+
+public static boolean isSameTime(@NotNull final Date date1, @NotNull final Date date2) {
+		// date.getMillisOf() 比date.getTime()快
+		return date1.compareTo(date2) == 0;
+	}","/**
+	 * 是否同一天.
+	 * 
+	 * @see DateUtils#isSameDay(Date, Date)
+	 */
+
+/**
+	 * 是否同一时刻.
+	 */"
+springside4_116,"@Test
+	public void getDayOfWeek_oe() {
+		Date date = new Date(117, 0, 9);
+		assertThat(DateUtil.getDayOfWeek(date)).isEqualTo(1);
+
+		Date date2 = new Date(117, 0, 15);
+		assertThat(DateUtil.getDayOfWeek(date2)).isEqualTo(7);
+	}",DateUtilTest::getDayOfWeek_oe,"public static int getDayOfWeek(@NotNull final Date date) {
+		int result = get(date, Calendar.DAY_OF_WEEK);
+		return result == 1 ? 7 : result - 1;
+	}","/**
+	 * 获得日期是一周的第几天. 已改为中国习惯，1 是Monday，而不是Sundays.
+	 */"
+springside4_117,"@Test
+	public void isLeapYear_oe() {
+		Date date = new Date(108, 0, 9);
+		assertThat(DateUtil.isLeapYear(date)).isTrue();
+
+		date = new Date(100, 0, 9);
+		assertThat(DateUtil.isLeapYear(date)).isTrue();
+
+		date = new Date(0, 0, 9);
+		assertThat(DateUtil.isLeapYear(date)).isFalse();
+	}",DateUtilTest::isLeapYear_oe,"public static boolean isLeapYear(@NotNull final Date date) {
+		return isLeapYear(get(date, Calendar.YEAR));
+	}","/**
+	 * 是否闰年.
+	 */"
+springside4_118,"@Test
+	public void getXXofXX_oe() {
+		Date date = new Date(108, 2, 9);
+		assertThat(DateUtil.getMonthLength(date)).isEqualTo(29);
+
+		Date date2 = new Date(109, 2, 9);
+		assertThat(DateUtil.getMonthLength(date2)).isEqualTo(28);
+
+		Date date3 = new Date(108, 8, 9);
+		assertThat(DateUtil.getMonthLength(date3)).isEqualTo(31);
+
+		Date date4 = new Date(109, 11, 30);
+		assertThat(DateUtil.getDayOfYear(date4)).isEqualTo(364);
+
+		Date date5 = new Date(117, 0, 12);
+		assertThat(DateUtil.getWeekOfMonth(date5)).isEqualTo(3);
+		assertThat(DateUtil.getWeekOfYear(date5)).isEqualTo(3);
+	}",DateUtilTest::getXXofXX_oe,"public static int getMonthLength(@NotNull final Date date) {
+		int year = get(date, Calendar.YEAR);
+		int month = get(date, Calendar.MONTH);
+		return getMonthLength(year, month);
+	}
+
+public static int getDayOfYear(@NotNull final Date date) {
+		return get(date, Calendar.DAY_OF_YEAR);
+	}
+
+public static int getWeekOfMonth(@NotNull final Date date) {
+		return getWithMondayFirst(date, Calendar.WEEK_OF_MONTH);
+	}
+
+public static int getWeekOfYear(@NotNull final Date date) {
+		return getWithMondayFirst(date, Calendar.WEEK_OF_YEAR);
+	}","/**
+	 * 获取某个月有多少天, 考虑闰年等因数, 移植Jodd Core的TimeUtil
+	 */
+
+/**
+	 * 获得日期是一年的第几天，返回值从1开始
+	 */
+
+/**
+	 * 获得日期是一月的第几周，返回值从1开始.
+	 * 
+	 * 开始的一周，只要有一天在那个月里都算. 已改为中国习惯，1 是Monday，而不是Sunday
+	 */
+
+/**
+	 * 获得日期是一年的第几周，返回值从1开始.
+	 * 
+	 * 开始的一周，只要有一天在那一年里都算.已改为中国习惯，1 是Monday，而不是Sunday
+	 */"
+springside4_119,"@Test
+	public void testDummyClock_oe() {
+		DummyClock clock = new DummyClock();
+		clock.updateNow(111);
+		assertThat(clock.currentTimeMillis()).isEqualTo(111);
+		assertThat(clock.currentDate().getTime()).isEqualTo(111);
+
+		clock.updateNow(new Date(112));
+		assertThat(clock.currentTimeMillis()).isEqualTo(112);
+		clock.increaseTime(200);
+		assertThat(clock.currentTimeMillis()).isEqualTo(312);
+		clock.decreaseTime(100);
+		assertThat(clock.currentTimeMillis()).isEqualTo(212);
+
+		clock.setNanoTime(150);
+		assertThat(clock.nanoTime()).isEqualTo(150);
+
+	}",ClockUtilTest::testDummyClock_oe,"public static long currentTimeMillis() {
+		return INSTANCE.currentTimeMillis();
+	}
+
+public static Date currentDate() {
+		return INSTANCE.currentDate();
+	}
+
+public static long nanoTime() {
+		return INSTANCE.nanoTime();
+	}","/**
+	 * 系统当前时间戳
+	 */
+
+/**
+	 * 系统当前时间
+	 */
+
+/**
+	 * 操作系统启动到现在的纳秒数，与系统时间是完全独立的两个时间体系
+	 */"
+springside4_120,"@Test
+	public void elapsedTime_oe() {
+		try {
+			DummyClock clock = ClockUtil.useDummyClock(2000);
+			clock.increaseTime(1000);
+			assertThat(ClockUtil.elapsedTime(2000)).isEqualTo(1000);
+		} finally {
+			ClockUtil.useDefaultClock();
+		}
+	}",ClockUtilTest::elapsedTime_oe,,
+springside4_121,"@Test
+	public void test_oe() {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+
+		CachingDateFormatter formatter = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT);
+		assertThat(formatter.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44.000"");
+		assertThat(formatter.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44.000"");
+		assertThat(formatter.format(date.getTime() + 2)).isEqualTo(""2016-11-01 12:23:44.002"");
+
+		CachingDateFormatter formatterOnSecond = new CachingDateFormatter(DateFormatUtil.PATTERN_DEFAULT_ON_SECOND);
+		assertThat(formatterOnSecond.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44"");
+		assertThat(formatterOnSecond.format(date.getTime())).isEqualTo(""2016-11-01 12:23:44"");
+		assertThat(formatterOnSecond.format(date.getTime() + 2)).isEqualTo(""2016-11-01 12:23:44"");
+		assertThat(formatterOnSecond.format(date.getTime() + 1000)).isEqualTo(""2016-11-01 12:23:45"");
+	}",CachingDatFormatterTest::test_oe,"public String format(final long timestampMillis) {
+		CachedTime cached = cachedTime.get();
+
+		long timestamp = onSecond ? timestampMillis / 1000 : timestampMillis;
+
+		if (timestamp != cached.timestamp) {
+			final CachedTime newCachedTime = new CachedTime(timestamp, fastDateFormat.format(timestampMillis));
+			if (cachedTime.compareAndSet(cached, newCachedTime)) {
+				cached = newCachedTime;
+			} else {
+				cached = cachedTime.get();
+			}
+		}
+
+		return cached.formatted;
+	}",
+springside4_122,"@Test
+	public void isoDateFormat_oe() {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+		assertThat(DateFormatUtil.ISO_FORMAT.format(date)).contains(""2016-11-01T12:23:44.000"");
+		assertThat(DateFormatUtil.ISO_ON_SECOND_FORMAT.format(date)).contains(""2016-11-01T12:23:44"");
+		assertThat(DateFormatUtil.ISO_ON_DATE_FORMAT.format(date)).isEqualTo(""2016-11-01"");
+	}",DateFormatUtilTest::isoDateFormat_oe,"public String format(final long timestampMillis) {
+		CachedTime cached = cachedTime.get();
+
+		long timestamp = onSecond ? timestampMillis / 1000 : timestampMillis;
+
+		if (timestamp != cached.timestamp) {
+			final CachedTime newCachedTime = new CachedTime(timestamp, fastDateFormat.format(timestampMillis));
+			if (cachedTime.compareAndSet(cached, newCachedTime)) {
+				cached = newCachedTime;
+			} else {
+				cached = cachedTime.get();
+			}
+		}
+
+		return cached.formatted;
+	}",
+springside4_123,"@Test
+	public void defaultDateFormat_oe() {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+		assertThat(DateFormatUtil.DEFAULT_FORMAT.format(date)).isEqualTo(""2016-11-01 12:23:44.000"");
+		assertThat(DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.format(date)).isEqualTo(""2016-11-01 12:23:44"");
+	}",DateFormatUtilTest::defaultDateFormat_oe,"public String format(final long timestampMillis) {
+		CachedTime cached = cachedTime.get();
+
+		long timestamp = onSecond ? timestampMillis / 1000 : timestampMillis;
+
+		if (timestamp != cached.timestamp) {
+			final CachedTime newCachedTime = new CachedTime(timestamp, fastDateFormat.format(timestampMillis));
+			if (cachedTime.compareAndSet(cached, newCachedTime)) {
+				cached = newCachedTime;
+			} else {
+				cached = cachedTime.get();
+			}
+		}
+
+		return cached.formatted;
+	}",
+springside4_124,"@Test
+	public void formatWithPattern_oe() {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT,date)).isEqualTo(""2016-11-01 12:23:44.000"");
+		assertThat(DateFormatUtil.formatDate(DateFormatUtil.PATTERN_DEFAULT,date.getTime())).isEqualTo(""2016-11-01 12:23:44.000"");
+	}",DateFormatUtilTest::formatWithPattern_oe,"public static String formatDate(@NotNull String pattern, @NotNull Date date) {
+		return FastDateFormat.getInstance(pattern).format(date);
+	}
+
+","/**
+	 * 格式化日期, 仅用于pattern不固定的情况.
+	 * 
+	 * 否则直接使用本类中封装好的FastDateFormat.
+	 * 
+	 * FastDateFormat.getInstance()已经做了缓存，不会每次创建对象，但直接使用对象仍然能减少在缓存中的查找.
+	 */
+
+"
+springside4_125,"@Test
+	public void parseWithPattern_oe() throws ParseException {
+		Date date = new Date(116, 10, 1, 12, 23, 44);
+		Date resultDate = DateFormatUtil.pareDate(DateFormatUtil.PATTERN_DEFAULT, ""2016-11-01 12:23:44.000"");
+		assertThat(resultDate.getTime() == date.getTime()).isTrue();
+	}",DateFormatUtilTest::parseWithPattern_oe,"public static Date pareDate(@NotNull String pattern, @NotNull String dateString) throws ParseException {
+		return FastDateFormat.getInstance(pattern).parse(dateString);
+	}","/**
+	 * 分析日期字符串, 仅用于pattern不固定的情况.
+	 * 
+	 * 否则直接使用DateFormats中封装好的FastDateFormat.
+	 * 
+	 * FastDateFormat.getInstance()已经做了缓存，不会每次创建对象，但直接使用对象仍然能减少在缓存中的查找.
+	 */"
+springside4_126,"@Test
+	public void formatDuration_oe() {
+		assertThat(DateFormatUtil.formatDuration(100)).isEqualTo(""00:00:00.100"");
+
+		assertThat(DateFormatUtil.formatDuration(new Date(100), new Date(3000))).isEqualTo(""00:00:02.900"");
+
+		assertThat(DateFormatUtil.formatDuration(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)).isEqualTo(""52:00:00.000"");
+
+		assertThat(DateFormatUtil.formatDurationOnSecond(new Date(100), new Date(3000))).isEqualTo(""00:00:02"");
+
+		assertThat(DateFormatUtil.formatDurationOnSecond(2000)).isEqualTo(""00:00:02"");
+
+		assertThat(DateFormatUtil.formatDurationOnSecond(DateUtil.MILLIS_PER_DAY * 2 + DateUtil.MILLIS_PER_HOUR * 4)).isEqualTo(""52:00:00"");
+	}",DateFormatUtilTest::formatDuration_oe,"public static String formatDuration(@NotNull Date startDate, @NotNull Date endDate) {
+		return DurationFormatUtils.formatDurationHMS(endDate.getTime() - startDate.getTime());
+	}
+
+public static String formatDurationOnSecond(@NotNull Date startDate, @NotNull Date endDate) {
+		return DurationFormatUtils.formatDuration(endDate.getTime() - startDate.getTime(), ""HH:mm:ss"");
+	}","/**
+	 * 按HH:mm:ss.SSS格式，格式化时间间隔.
+	 * 
+	 * endDate必须大于startDate，间隔可大于1天，
+	 */
+
+/**
+	 * 按HH:mm:ss格式，格式化时间间隔
+	 * 
+	 * endDate必须大于startDate，间隔可大于1天
+	 */"
+springside4_127,"@Test
+	public void formatFriendlyTimeSpanByNow_oe() throws ParseException {
+		try {
+			Date now = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:30:00"");
+
+			ClockUtil.useDummyClock(now);
+
+			Date lessOneSecond = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:59.500"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(lessOneSecond)).isEqualTo(""刚刚"");
+
+			Date lessOneMinute = DateFormatUtil.DEFAULT_FORMAT.parse(""2016-12-11 23:29:55.000"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(lessOneMinute)).isEqualTo(""5秒前"");
+
+			Date lessOneHour = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 23:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(lessOneHour)).isEqualTo(""30分钟前"");
+
+			Date today = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-11 1:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(today)).isEqualTo(""今天01:00"");
+
+			Date yesterday = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-10 1:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(yesterday)).isEqualTo(""昨天01:00"");
+
+			Date threeDayBefore = DateFormatUtil.DEFAULT_ON_SECOND_FORMAT.parse(""2016-12-09 1:00:00"");
+			assertThat(DateFormatUtil.formatFriendlyTimeSpanByNow(threeDayBefore)).isEqualTo(""2016-12-09"");
+
+		} finally {
+
+			ClockUtil.useDefaultClock();
+		}
+	}",DateFormatUtilTest::formatFriendlyTimeSpanByNow_oe,,
+springside4_129,"@Test
+	public void isNumber_oe() {
+		assertThat(NumberUtil.isNumber(""123"")).isTrue();
+		assertThat(NumberUtil.isNumber(""-123.1"")).isTrue();
+		assertThat(NumberUtil.isNumber(""-1a3.1"")).isFalse();
+
+		assertThat(NumberUtil.isHexNumber(""0x12F"")).isTrue();
+		assertThat(NumberUtil.isHexNumber(""-0x12A3"")).isTrue();
+		assertThat(NumberUtil.isHexNumber(""12A3"")).isFalse();
+	}",NumberUtilTest::isNumber_oe,"public static boolean isNumber(String str) {
+		return NumberUtils.isNumber(str);
+	}
+
+public static boolean isHexNumber(String value) {
+		int index = value.startsWith(""-"") ? 1 : 0;
+		return value.startsWith(""0x"", index) || value.startsWith(""0X"", index) || value.startsWith(""#"", index);
+	}","/**
+	 * 判断字符串是否合法数字
+	 */
+
+/**
+	 * 判断字符串是否16进制
+	 */"
+springside4_130,"@Test
+	public void toNumber_oe() {
+		assertThat(NumberUtil.toInt(""122"")).isEqualTo(122);
+		assertThat(NumberUtil.toInt(""12A"")).isEqualTo(0);
+		assertThat(NumberUtil.toInt((String) null)).isEqualTo(0);
+		assertThat(NumberUtil.toInt(""12A"", 123)).isEqualTo(123);
+
+		assertThat(NumberUtil.toLong(""122"")).isEqualTo(122L);
+		assertThat(NumberUtil.toLong(""12A"")).isEqualTo(0L);
+		assertThat(NumberUtil.toLong((String) null)).isEqualTo(0);
+		assertThat(NumberUtil.toLong(""12A"", 123)).isEqualTo(123L);
+
+		assertThat(NumberUtil.toDouble(""122.1"")).isEqualTo(122.1);
+		assertThat(NumberUtil.toDouble(""12A"")).isEqualTo(0L);
+		assertThat(NumberUtil.toDouble(""12A"", 123.1)).isEqualTo(123.1);
+
+		assertThat(NumberUtil.toIntObject(""122"")).isEqualTo(122);
+		assertThat(NumberUtil.toIntObject(""12A"")).isEqualTo(null);
+		assertThat(NumberUtil.toIntObject(""12A"", 123)).isEqualTo(123);
+		assertThat(NumberUtil.toIntObject(null, 123)).isEqualTo(123);
+		assertThat(NumberUtil.toIntObject("""", 123)).isEqualTo(123);
+
+		assertThat(NumberUtil.toLongObject(""122"")).isEqualTo(122L);
+		assertThat(NumberUtil.toLongObject(""12A"")).isEqualTo(null);
+		assertThat(NumberUtil.toLongObject(""12A"", 123L)).isEqualTo(123L);
+		assertThat(NumberUtil.toLongObject(null, 123L)).isEqualTo(123L);
+
+		assertThat(NumberUtil.toDoubleObject(""122.1"")).isEqualTo(122.1);
+		assertThat(NumberUtil.toDoubleObject(""12A"")).isEqualTo(null);
+		assertThat(NumberUtil.toDoubleObject(""12A"", 123.1)).isEqualTo(123.1);
+
+		assertThat(NumberUtil.hexToIntObject(""0x10"")).isEqualTo(16);
+		assertThat(NumberUtil.hexToIntObject(""0X100"")).isEqualTo(256);
+		assertThat(NumberUtil.hexToIntObject(""-0x100"")).isEqualTo(-256);
+		assertThat(NumberUtil.hexToIntObject(""0xHI"")).isEqualTo(null);
+		assertThat(NumberUtil.hexToIntObject(null)).isEqualTo(null);
+		assertThat(NumberUtil.hexToIntObject(""0xHI"", 123)).isEqualTo(123);
+
+		assertThat(NumberUtil.hexToLongObject(""0x10"")).isEqualTo(16L);
+		assertThat(NumberUtil.hexToLongObject(""0X100"")).isEqualTo(256L);
+		assertThat(NumberUtil.hexToLongObject(""-0x100"")).isEqualTo(-256L);
+		assertThat(NumberUtil.hexToLongObject(""0xHI"")).isEqualTo(null);
+		assertThat(NumberUtil.hexToLongObject(null)).isEqualTo(null);
+		assertThat(NumberUtil.hexToLongObject(""0xHI"", 123L)).isEqualTo(123L);
+
+	}",NumberUtilTest::toNumber_oe,"public static int toInt(byte[] bytes) {
+		return Ints.fromByteArray(bytes);
+	}
+
+public static double toDouble(byte[] bytes) {
+		return Double.longBitsToDouble(toLong(bytes));
+	}
+
+public static Integer toIntObject(String str) {
+		return toIntObject(str, null);
+	}
+
+public static Long toLongObject(String str) {
+		return toLongObject(str, null);
+	}
+
+public static Double toDoubleObject(String str) {
+		return toDoubleObject(str, null);
+	}
+
+public static Integer hexToIntObject(String str) {
+		return hexToIntObject(str, null);
+	}
+
+public static Long hexToLongObject(String str) {
+		return hexToLongObject(str, null);
+	}
+
+public static long toLong(byte[] bytes) {
+		return Longs.fromByteArray(bytes);
+	}","
+
+/**
+	 * from ElasticSearch Numbers
+	 */
+
+/**
+	 * 将10进制的String安全的转化为Integer，当str为空或非数字字符串时，返回null
+	 */
+
+/**
+	 * 将10进制的String安全的转化为Long，当str为空或非数字字符串时，返回null
+	 */
+
+/**
+	 * 将10进制的String安全的转化为Double，当str为空或非数字字符串时，返回null
+	 */
+
+/**
+	 * 将16进制的String转化为Integer，出错时返回null.
+	 */
+
+/**
+	 * 将16进制的String转化为Long，出错时返回null.
+	 */"
+springside4_131,"@Test
+	public void toStringTest_oe() {
+		assertThat(NumberUtil.toString(23)).isEqualTo(""23"");
+		assertThat(NumberUtil.toString(new Integer(23))).isEqualTo(""23"");
+		assertThat(NumberUtil.toString(23l)).isEqualTo(""23"");
+		assertThat(NumberUtil.toString(new Long(23))).isEqualTo(""23"");
+		assertThat(NumberUtil.toString(23l)).isEqualTo(""23"");
+		
+		assertThat(NumberUtil.toString(new Double(23.112d))).isEqualTo(""23.112"");
+		assertThat(NumberUtil.toString(23.112d)).isEqualTo(""23.112"");
+		assertThat(NumberUtil.to2DigitString(23.112d)).isEqualTo(""23.11"");
+		assertThat(NumberUtil.to2DigitString(23.116d)).isEqualTo(""23.12"");
+
+	}",NumberUtilTest::toStringTest_oe,"
+
+public static String to2DigitString(double d) {
+		return String.format(Locale.ROOT, ""%.2f"", d);
+	}","
+
+/**
+	 * 输出格式化为小数后两位的double字符串
+	 */"
+springside4_134,"@Test
+	public void randomNumber_oe() {
+
+		int i = RandomUtil.nextInt();
+		assertThat(i).isBetween(0, Integer.MAX_VALUE);
+		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom());
+		assertThat(i).isBetween(0, Integer.MAX_VALUE);
+
+		i = RandomUtil.nextInt(10);
+		assertThat(i).isBetween(0, 10);
+		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10);
+		assertThat(i).isBetween(0, 10);
+
+		i = RandomUtil.nextInt(10, 20);
+		assertThat(i).isBetween(10, 20);
+		i = RandomUtil.nextInt(RandomUtil.threadLocalRandom(), 10, 20);
+		assertThat(i).isBetween(10, 20);
+
+		long l = RandomUtil.nextLong();
+		assertThat(l).isBetween(0L, Long.MAX_VALUE);
+		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom());
+		assertThat(l).isBetween(0L, Long.MAX_VALUE);
+
+		l = RandomUtil.nextLong(10);
+		assertThat(l).isBetween(0L, 10L);
+		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10L);
+		assertThat(l).isBetween(0L, 10L);
+
+		l = RandomUtil.nextLong(10L, 20L);
+		assertThat(l).isBetween(10L, 20L);
+		l = RandomUtil.nextLong(RandomUtil.threadLocalRandom(), 10, 20);
+		assertThat(l).isBetween(10L, 20L);
+
+		double d = RandomUtil.nextDouble();
+		assertThat(d).isBetween(0d, Double.MAX_VALUE);
+		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom());
+		assertThat(d).isBetween(0d, Double.MAX_VALUE);
+
+		d = RandomUtil.nextDouble(10);
+		assertThat(d).isBetween(0d, 10d);
+		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom(), 10L);
+		assertThat(d).isBetween(0d, 10d);
+
+		d = RandomUtil.nextDouble(10L, 20L);
+		assertThat(d).isBetween(10d, 20d);
+		d = RandomUtil.nextDouble(RandomUtil.threadLocalRandom(), 10, 20);
+		assertThat(d).isBetween(10d, 20d);
+
+	}",RandomUtilTest::randomNumber_oe,"public static boolean isBetween(@NotNull final Date date, @NotNull final Date start, @NotNull final Date end) {
+		if (date == null || start == null || end == null || start.after(end)) {
+			throw new IllegalArgumentException(""some date parameters is null or dateBein after dateEnd"");
+		}
+		return !date.before(start) && !date.after(end);
+	}","/**
+	 * 判断日期是否在范围内，包含相等的日期
+	 */"
+springside4_135,"@Test
+	public void generateString_oe() {
+		System.out.println(RandomUtil.randomStringFixLength(5));
+		System.out.println(RandomUtil.randomStringRandomLength(5, 10));
+
+		System.out.println(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5));
+		System.out.println(RandomUtil.randomStringRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
+
+		assertThat(RandomUtil.randomStringFixLength(5)).hasSize(5);
+		assertThat(RandomUtil.randomStringFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
+
+		System.out.println(RandomUtil.randomLetterFixLength(5));
+		System.out.println(RandomUtil.randomLetterRandomLength(5, 10));
+
+		System.out.println(RandomUtil.randomLetterFixLength(RandomUtil.threadLocalRandom(), 5));
+		System.out.println(RandomUtil.randomLetterRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
+
+		assertThat(RandomUtil.randomLetterFixLength(5)).hasSize(5);
+		assertThat(RandomUtil.randomLetterFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
+
+		System.out.println(RandomUtil.randomAsciiFixLength(5));
+		System.out.println(RandomUtil.randomAsciiRandomLength(5, 10));
+
+		System.out.println(RandomUtil.randomAsciiFixLength(RandomUtil.threadLocalRandom(), 5));
+		System.out.println(RandomUtil.randomAsciiRandomLength(RandomUtil.threadLocalRandom(), 5, 10));
+
+		assertThat(RandomUtil.randomAsciiFixLength(5)).hasSize(5);
+		assertThat(RandomUtil.randomAsciiFixLength(RandomUtil.threadLocalRandom(), 5)).hasSize(5);
+	}",RandomUtilTest::generateString_oe,"public static String randomStringFixLength(int length) {
+		return RandomStringUtils.random(length, 0, 0, true, true, null, threadLocalRandom());
+	}
+
+public static String randomLetterFixLength(int length) {
+		return RandomStringUtils.random(length, 0, 0, true, false, null, threadLocalRandom());
+	}
+
+public static String randomAsciiFixLength(int length) {
+		return RandomStringUtils.random(length, 32, 127, false, false, null, threadLocalRandom());
+	}","/**
+	 * 随机字母或数字，固定长度
+	 */
+
+/**
+	 * 随机字母，固定长度
+	 */
+
+/**
+	 * 随机ASCII字符(含字母，数字及其他符号)，固定长度
+	 */"
+springside4_137,"@Test
+	public void gcd_oe() {
+		assertThat(MathUtil.gcd(5, 6)).isEqualTo(1);
+		assertThat(MathUtil.gcd(12, 18)).isEqualTo(6);
+		assertThat(MathUtil.gcd(100, 1000)).isEqualTo(100);
+
+		assertThat(MathUtil.gcd(5L, 6L)).isEqualTo(1L);
+		assertThat(MathUtil.gcd(12L, 18L)).isEqualTo(6L);
+		assertThat(MathUtil.gcd(100L, 1000L)).isEqualTo(100L);
+	}",MathUtilTest::gcd_oe,"public static int gcd(int a, int b) {
+		return IntMath.gcd(a, b);
+	}","/**
+	 * 两个数的最大公约数，必须均为非负数.
+	 * 
+	 * 是公约数，别想太多
+	 */"
+springside4_138,"@Test
+	public void caculate_oe() {
+		assertThat(MathUtil.mod(15, 10)).isEqualTo(5);
+		assertThat(MathUtil.mod(-15, 10)).isEqualTo(5);
+		assertThat(MathUtil.mod(-5, 3)).isEqualTo(1);
+
+		assertThat(MathUtil.mod(15l, 10l)).isEqualTo(5);
+		assertThat(MathUtil.mod(-15l, 10l)).isEqualTo(5);
+		assertThat(MathUtil.mod(-5l, 3l)).isEqualTo(1);
+		
+		assertThat(MathUtil.mod(15l, 10)).isEqualTo(5);
+		assertThat(MathUtil.mod(-15l, 10)).isEqualTo(5);
+		assertThat(MathUtil.mod(-5l, 3)).isEqualTo(1);
+		
+		assertThat(MathUtil.pow(2, 3)).isEqualTo(8);
+		assertThat(MathUtil.pow(2, 0)).isEqualTo(1);
+		
+		assertThat(MathUtil.pow(2l, 3)).isEqualTo(8);
+		assertThat(MathUtil.pow(2l, 0)).isEqualTo(1);
+		
+		assertThat(MathUtil.sqrt(15, RoundingMode.HALF_UP)).isEqualTo(4);
+		assertThat(MathUtil.sqrt(16, RoundingMode.HALF_UP)).isEqualTo(4);
+		assertThat(MathUtil.sqrt(10l, RoundingMode.HALF_UP)).isEqualTo(3);
+	}",MathUtilTest::caculate_oe,"public static int mod(int x, int m) {
+		return IntMath.mod(x, m);
+	}
+
+public static int pow(int b, int k) {
+		return IntMath.pow(b, k);
+	}
+
+public static int sqrt(int x, RoundingMode mode) {
+		return IntMath.sqrt(x, mode);
+	}","/**
+	 * 保证结果为正数的取模.
+	 * 
+	 * 如果(v = x/m) <0，v+=m.
+	 */
+
+/**
+	 * 平方
+	 * 
+	 * @param k 平方次数,不能为负数, k=0时返回1.
+	 */
+
+/**
+	 * 开方
+	 */"
+springside4_139,"@Test
+	public void divide_oe() {
+		assertThat(10 / 4).isEqualTo(2);
+		assertThat(MathUtil.divide(10, 4, RoundingMode.HALF_UP)).isEqualTo(3);
+		assertThat(MathUtil.divide(10L, 4L, RoundingMode.HALF_DOWN)).isEqualTo(2);
+	}",MathUtilTest::divide_oe,"
+
+public static int divide(int p, int q, RoundingMode mode) {
+		return IntMath.divide(p, q, mode);
+	}","
+
+/**
+	 * 能控制rounding方向的相除.
+	 * 
+	 * jdk的'/'运算符，直接向下取整
+	 */"
+springside4_140,"@Test
+	public void test_oe() throws InvocationTargetException {
+		FastMethodInvoker fastGetAge = FastMethodInvoker.create(Student.class, ""getAge"");
+		Student student1 = new Student(""zhang3"", 20, new Teacher(""li4""), ListUtil.newArrayList(""chinese"", ""english""));
+		Student student2 = new Student(""zhang4"", 30, new Teacher(""li5""), ListUtil.newArrayList(""chinese2"", ""english4""));
+
+		int age = fastGetAge.invoke(student1);
+		assertThat(age).isEqualTo(20);
+
+		age = fastGetAge.invoke(student2);
+		assertThat(age).isEqualTo(30);
+
+		FastMethodInvoker fastGetAge2 = FastMethodInvoker.createGetter(Student.class, ""age"");
+		age = fastGetAge2.invoke(student1);
+		assertThat(age).isEqualTo(20);
+
+		age = fastGetAge2.invoke(student2);
+		assertThat(age).isEqualTo(30);
+
+		FastMethodInvoker fastSetAge = FastMethodInvoker.create(Student.class, ""setAge"", int.class);
+		fastSetAge.invoke(student1, 1);
+
+		assertThat(student1.getAge()).isEqualTo(1);
+		
+		FastMethodInvoker fastSetAge2 = FastMethodInvoker.createSetter(Student.class, ""age"", int.class);
+		fastSetAge2.invoke(student1, 3);
+
+		assertThat(student1.getAge()).isEqualTo(3);
+	}",FastMethodInvokerTest::test_oe,,
+springside4_146,"@Test
+	public void getAllClass_oe() {
+
+		assertThat(ClassUtil.getAllInterfaces(BClass.class)).hasSize(4).contains(AInterface.class,BInterface.class,CInterface.class,DInterface.class);
+
+		assertThat(ClassUtil.getAllSuperclasses(BClass.class)).hasSize(2).contains(AClass.class, Object.class);
+
+		assertThat(ClassUtil.getAllAnnotations(BClass.class)).hasSize(4);
+
+		assertThat(ClassUtil.getAnnotatedPublicFields(BClass.class,AAnnotation.class)).hasSize(2).contains(ClassUtil.getAccessibleField(BClass.class,""sfield""),ClassUtil.getAccessibleField(BClass.class,""tfield""));
+
+		assertThat(ClassUtil.getAnnotatedFields(BClass.class,EAnnotation.class)).hasSize(3).contains(ClassUtil.getAccessibleField(BClass.class,""bfield""),ClassUtil.getAccessibleField(BClass.class,""efield""),ClassUtil.getAccessibleField(AClass.class,""afield""));
+
+		assertThat(ClassUtil.getAnnotatedFields(BClass.class,FAnnotation.class)).hasSize(1).contains(ClassUtil.getAccessibleField(AClass.class,""dfield""));
+
+		assertThat(ClassUtil.getAnnotatedPublicMethods(BClass.class,FAnnotation.class)).hasSize(3).contains(ClassUtil.getAccessibleMethodByName(BClass.class,""hello""),ClassUtil.getAccessibleMethodByName(BClass.class,""hello3""),ClassUtil.getAccessibleMethodByName(AClass.class,""hello4""));
+	}",ClassUtilTest::getAllClass_oe,"public static List<Class<?>> getAllInterfaces(final Class<?> cls) {
+		return ClassUtils.getAllInterfaces(cls);
+	}
+
+public static List<Class<?>> getAllSuperclasses(final Class<?> cls) {
+		return ClassUtils.getAllSuperclasses(cls);
+	}
+
+public static Set<Annotation> getAllAnnotations(final Class<?> cls) {
+		List<Class<?>> allTypes = getAllSuperclasses(cls);
+		allTypes.addAll(getAllInterfaces(cls));
+		allTypes.add(cls);
+
+		Set<Annotation> anns = new HashSet<Annotation>();
+		for (Class<?> type : allTypes) {
+			anns.addAll(Arrays.asList(type.getDeclaredAnnotations()));
+		}
+
+		Set<Annotation> superAnnotations = new HashSet<Annotation>();
+		for (Annotation ann : anns) {
+			getSupperAnnotations(ann.annotationType(), superAnnotations);
+		}
+
+		anns.addAll(superAnnotations);
+
+		return anns;
+	}
+
+public static <T extends Annotation> Set<Field> getAnnotatedPublicFields(Class<? extends Object> clazz,
+			Class<T> annotation) {
+
+		if (Object.class.equals(clazz)) {
+			return Collections.emptySet();
+		}
+
+		Set<Field> annotatedFields = new HashSet<Field>();
+		Field[] fields = clazz.getFields();
+
+		for (Field field : fields) {
+			if (field.getAnnotation(annotation) != null) {
+				annotatedFields.add(field);
+			}
+		}
+
+		return annotatedFields;
+	}
+
+public static <T extends Annotation> Set<Field> getAnnotatedFields(Class<? extends Object> clazz,
+			Class<T> annotation) {
+		if (Object.class.equals(clazz)) {
+			return Collections.emptySet();
+		}
+		Set<Field> annotatedFields = new HashSet<Field>();
+		Field[] fields = clazz.getDeclaredFields();
+		for (Field field : fields) {
+			if (field.getAnnotation(annotation) != null) {
+				annotatedFields.add(field);
+			}
+		}
+		annotatedFields.addAll(getAnnotatedFields(clazz.getSuperclass(), annotation));
+		return annotatedFields;
+	}
+
+public static <T extends Annotation> Set<Method> getAnnotatedPublicMethods(Class<?> clazz, Class<T> annotation) {
+		// 已递归到Objebt.class, 停止递归
+		if (Object.class.equals(clazz)) {
+			return Collections.emptySet();
+		}
+
+		List<Class<?>> ifcs = ClassUtils.getAllInterfaces(clazz);
+		Set<Method> annotatedMethods = new HashSet<Method>();
+
+		// 遍历当前类的所有公共方法
+		Method[] methods = clazz.getMethods();
+
+		for (Method method : methods) {
+			// 如果当前方法有标注，或定义了该方法的所有接口有标注
+			if (method.getAnnotation(annotation) != null || searchOnInterfaces(method, annotation, ifcs)) {
+				annotatedMethods.add(method);
+			}
+		}
+
+		return annotatedMethods;
+	}","/**
+	 * 递归返回本类及所有基类继承的接口，及接口继承的接口，比Spring中的相同实现完整
+	 */
+
+/**
+	 * 递归返回所有的SupperClasses，包含Object.class
+	 */
+
+/**
+	 * 递归Class所有的Annotation，一个最彻底的实现.
+	 * 
+	 * 包括所有基类，所有接口的Annotation，同时支持Spring风格的Annotation继承的父Annotation，
+	 */
+
+/**
+	 * 找出所有标注了该annotation的公共属性，循环遍历父类.
+	 * 
+	 * 暂未支持Spring风格Annotation继承Annotation
+	 * 
+	 * from org.unitils.util.AnnotationUtils
+	 */
+
+/**
+	 * 找出所有标注了该annotation的属性，循环遍历父类，包含private属性.
+	 * 
+	 * 暂未支持Spring风格Annotation继承Annotation
+	 * 
+	 * from org.unitils.util.AnnotationUtils
+	 */
+
+/**
+	 * 找出所有标注了该annotation的公共方法(含父类的公共函数)，循环其接口.
+	 * 
+	 * 暂未支持Spring风格Annotation继承Annotation
+	 * 
+	 * 另，如果子类重载父类的公共函数，父类函数上的annotation不会继承，只有接口上的annotation会被继承.
+	 */"
+springside4_147,"@Test
+	public void getSuperClassGenricType_oe() {
+		assertThat(ClassUtil.getClassGenricType(TestBean.class)).isEqualTo(String.class);
+		assertThat(ClassUtil.getClassGenricType(TestBean.class, 1)).isEqualTo(Long.class);
+
+		assertThat(ClassUtil.getClassGenricType(TestBean2.class)).isEqualTo(Object.class);
+
+		assertThat(ClassUtil.getClassGenricType(TestBean3.class)).isEqualTo(Object.class);
+	}",ClassUtilTest::getSuperClassGenricType_oe,"public static <T> Class<T> getClassGenricType(final Class clazz) {
+		return getClassGenricType(clazz, 0);
+	}","/**
+	 * 通过反射, 获得Class定义中声明的泛型参数的类型,
+	 * 
+	 * 注意泛型必须定义在父类处. 这是唯一可以通过反射从泛型获得Class实例的地方.
+	 * 
+	 * 如无法找到, 返回Object.class.
+	 * 
+	 * eg. public UserDao extends HibernateDao<User>
+	 * 
+	 * @param clazz The class to introspect
+	 * @return the first generic declaration, or Object.class if cannot be determined
+	 */"
+springside4_149,"@Test
+	public void buildThreadFactory_oe() {
+
+		Runnable testRunnable = new Runnable() {
+			@Override
+			public void run() {
+			}
+		};
+		ThreadFactory threadFactory = ThreadPoolUtil.buildThreadFactory(""example"");
+		Thread thread = threadFactory.newThread(testRunnable);
+
+		assertThat(thread.getName()).isEqualTo(""example-0"");
+		assertThat(thread.isDaemon()).isFalse();
+
+		threadFactory = ThreadPoolUtil.buildThreadFactory(""example"", true);
+		Thread thread2 = threadFactory.newThread(testRunnable);
+
+		assertThat(thread.getName()).isEqualTo(""example-0"");
+		assertThat(thread2.isDaemon()).isTrue();
+	}",ThreadPoolUtilTest::buildThreadFactory_oe,"@Override
+	public String getName() {
+		return delegate.getName();
+	}
+
+public final ForkJoinWorkerThread newThread(ForkJoinPool pool) {
+            return new ForkJoinWorkerThread(pool);
+        }",
+springside4_150,"@Test
+	public void gracefulShutdown_oe() throws InterruptedException {
+
+		Logger logger = LoggerFactory.getLogger(""test"");
+		LogbackListAppender appender = new LogbackListAppender();
+		appender.addToLogger(""test"");
+
+		ExecutorService pool = Executors.newSingleThreadExecutor();
+		Runnable task = new Task(logger, 200, 0);
+		pool.execute(task);
+		ThreadPoolUtil.gracefulShutdown(pool, 1000, TimeUnit.MILLISECONDS);
+		assertThat(pool.isTerminated()).isTrue();
+		assertThat(appender.getFirstLog()).isNull();
+
+		appender.clearLogs();
+		pool = Executors.newSingleThreadExecutor();
+		task = new Task(logger, 1000, 0);
+		pool.execute(task);
+		ThreadPoolUtil.gracefulShutdown(pool, 500, TimeUnit.MILLISECONDS);
+		assertThat(pool.isTerminated()).isTrue();
+		assertThat(appender.getFirstLog().getMessage()).isEqualTo(""InterruptedException"");
+
+		appender.clearLogs();
+
+		final ExecutorService self = Executors.newSingleThreadExecutor();
+		task = new Task(logger, 100000, 0);
+		self.execute(task);
+
+		final CountDownLatch lock = new CountDownLatch(1);
+		Thread thread = new Thread(new Runnable() {
+
+			@Override
+			public void run() {
+				lock.countDown();
+				ThreadPoolUtil.gracefulShutdown(self, 200000, TimeUnit.MILLISECONDS);
+			}
+		});
+		thread.start();
+		lock.await();
+		thread.interrupt();
+		ThreadUtil.sleep(500);
+		assertThat(appender.getFirstLog().getMessage()).isEqualTo(""InterruptedException"");
+
+		ThreadPoolUtil.gracefulShutdown(null, 1000);
+		ThreadPoolUtil.gracefulShutdown(null, 1000, TimeUnit.MILLISECONDS);
+	}",ThreadPoolUtilTest::gracefulShutdown_oe,"public boolean isTerminated() {
+        long c = ctl;
+        return ((c & STOP_BIT) != 0L &&
+                (short)(c >>> TC_SHIFT) + parallelism <= 0);
+    }
+
+public static boolean gracefulShutdown(@Nullable ExecutorService threadPool, int shutdownTimeoutMills) {
+		return threadPool != null
+				? MoreExecutors.shutdownAndAwaitTermination(threadPool, shutdownTimeoutMills, TimeUnit.MILLISECONDS)
+				: true;
+	}
+
+public static void sleep(long durationMillis) {
+		try {
+			Thread.sleep(durationMillis);
+		} catch (InterruptedException e) {
+			Thread.currentThread().interrupt();
+		}
+	}","/**
+     * Returns {@code true} if all tasks have completed following shut down.
+     *
+     * @return {@code true} if all tasks have completed following shut down
+     */
+
+/**
+	 * 按照ExecutorService JavaDoc示例代码编写的Graceful Shutdown方法.
+	 * 
+	 * 先使用shutdown, 停止接收新任务并尝试完成所有已存在任务.
+	 * 
+	 * 如果1/2超时时间后, 则调用shutdownNow,取消在workQueue中Pending的任务,并中断所有阻塞函数.
+	 * 
+	 * 如果1/2超时仍然超時，則強制退出.
+	 * 
+	 * 另对在shutdown时线程本身被调用中断做了处理.
+	 * 
+	 * 返回线程最后是否被中断.
+	 * 
+	 * 使用了Guava的工具类
+	 * @see MoreExecutors#shutdownAndAwaitTermination(ExecutorService, long, TimeUnit)
+	 */
+
+/**
+	 * sleep等待, 单位为毫秒, 已捕捉并处理InterruptedException.
+	 */"
+springside4_151,"@Test
+	public void wrapException_oe() {
+		ScheduledThreadPoolExecutor executor = ThreadPoolBuilder.scheduledPool().build();
+		ExceptionTask task = new ExceptionTask();
+		executor.scheduleAtFixedRate(task, 0, 100, TimeUnit.MILLISECONDS);
+
+		ThreadUtil.sleep(500);
+
+		assertThat(task.counter.get()).isEqualTo(1);
+		ThreadPoolUtil.gracefulShutdown(executor, 1000);
+
+		executor = ThreadPoolBuilder.scheduledPool().build();
+		ExceptionTask newTask = new ExceptionTask();
+		Runnable wrapTask = ThreadPoolUtil.safeRunnable(newTask);
+		executor.scheduleAtFixedRate(wrapTask, 0, 100, TimeUnit.MILLISECONDS);
+
+		ThreadUtil.sleep(500);
+		assertThat(newTask.counter.get()).isGreaterThan(2);
+		System.out.println(""-------actual run:"" + task.counter.get());
+		ThreadPoolUtil.gracefulShutdown(executor, 1000);
+
+	}",ThreadPoolUtilTest::wrapException_oe,"@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}",
+springside4_152,"@Test
+	public void fixPool_oe() {
+		ThreadPoolExecutor singlePool = ThreadPoolBuilder.fixedPool().build();
+		assertThat(singlePool.getCorePoolSize()).isEqualTo(1);
+		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(1);
+		assertThat(singlePool.getQueue()).isInstanceOf(LinkedBlockingQueue.class);
+		singlePool.shutdown();
+
+		ThreadPoolExecutor fixPoolWithUnlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).build();
+		assertThat(fixPoolWithUnlimitQueue.getCorePoolSize()).isEqualTo(10);
+		assertThat(fixPoolWithUnlimitQueue.getMaximumPoolSize()).isEqualTo(10);
+		fixPoolWithUnlimitQueue.shutdown();
+
+		ThreadPoolExecutor fixPoolWithlimitQueue = ThreadPoolBuilder.fixedPool().setPoolSize(10).setQueueSize(100)
+				.setThreadFactory(ThreadPoolUtil.buildThreadFactory(""kaka"")).build();
+
+		assertThat(fixPoolWithlimitQueue.getQueue()).isInstanceOf(ArrayBlockingQueue.class);
+		Thread thread = fixPoolWithlimitQueue.getThreadFactory().newThread(new Runnable() {
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread.getName()).startsWith(""kaka"");
+
+		fixPoolWithlimitQueue.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.fixedPool().setPoolSize(10)
+				.setThreadNamePrefix(""fixPool"").build();
+		Thread thread2 = fixPoolWithNamePrefix.getThreadFactory().newThread(new Runnable() {
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread2.getName()).startsWith(""fixPool"");
+		assertThat(thread2.isDaemon()).isFalse();
+		fixPoolWithNamePrefix.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefixAndDaemon = ThreadPoolBuilder.fixedPool().setPoolSize(10)
+				.setThreadNamePrefix(""fixPoolDaemon"").setDaemon(true).build();
+		Thread thread3 = fixPoolWithNamePrefixAndDaemon.getThreadFactory().newThread(new Runnable() {
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread3.getName()).startsWith(""fixPoolDaemon"");
+		assertThat(thread3.isDaemon()).isTrue();
+		fixPoolWithNamePrefixAndDaemon.shutdown();
+	}",ThreadPoolBuilderTest::fixPool_oe,"public ThreadPoolExecutor build() {
+			BlockingQueue<Runnable> queue = null;
+			if (queueSize < 1) {
+				queue = new LinkedBlockingQueue<Runnable>();
+			} else {
+				queue = new ArrayBlockingQueue<Runnable>(queueSize);
+			}
+
+			threadFactory = createThreadFactory(threadFactory, threadNamePrefix, daemon);
+
+			if (rejectHandler == null) {
+				rejectHandler = defaultRejectHandler;
+			}
+
+			return new ThreadPoolExecutor(poolSize, poolSize, 0L, TimeUnit.MILLISECONDS, queue, threadFactory,
+					rejectHandler);
+		}
+
+@Override
+	public String getName() {
+		return delegate.getName();
+	}
+
+@Override
+		public void run() {
+			try {
+				runnable.run();
+			} catch (Throwable e) {
+				// catch any exception, because the scheduled thread will break if the exception thrown to outside.
+				logger.error(""Unexpected error occurred in task"", e);
+			}
+		}",
+springside4_153,"@Test
+	public void cachedPool_oe() {
+		ThreadPoolExecutor singlePool = ThreadPoolBuilder.cachedPool().build();
+		assertThat(singlePool.getCorePoolSize()).isEqualTo(0);
+		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
+		assertThat(singlePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(10);
+		assertThat(singlePool.getQueue()).isInstanceOf(SynchronousQueue.class);
+		singlePool.shutdown();
+
+		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.cachedPool().setMinSize(10).setMaxSize(100)
+				.setKeepAliveSecs(20).build();
+		assertThat(sizeablePool.getCorePoolSize()).isEqualTo(10);
+		assertThat(sizeablePool.getMaximumPoolSize()).isEqualTo(100);
+		assertThat(sizeablePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(20);
+		sizeablePool.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.cachedPool().setThreadNamePrefix(""cachedPool"")
+				.build();
+		Thread thread = fixPoolWithNamePrefix.getThreadFactory().newThread(new Runnable() {
+
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread.getName()).startsWith(""cachedPool"");
+		fixPoolWithNamePrefix.shutdown();
+	}",ThreadPoolBuilderTest::cachedPool_oe,"public ThreadPoolExecutor build() {
+			BlockingQueue<Runnable> queue = null;
+			if (queueSize < 1) {
+				queue = new LinkedBlockingQueue<Runnable>();
+			} else {
+				queue = new ArrayBlockingQueue<Runnable>(queueSize);
+			}
+
+			threadFactory = createThreadFactory(threadFactory, threadNamePrefix, daemon);
+
+			if (rejectHandler == null) {
+				rejectHandler = defaultRejectHandler;
+			}
+
+			return new ThreadPoolExecutor(poolSize, poolSize, 0L, TimeUnit.MILLISECONDS, queue, threadFactory,
+					rejectHandler);
+		}
+
+@Override
+	public String getName() {
+		return delegate.getName();
+	}",
+springside4_154,"@Test
+	public void scheduledPool_oe() {
+		ScheduledThreadPoolExecutor singlePool = ThreadPoolBuilder.scheduledPool().build();
+		assertThat(singlePool.getCorePoolSize()).isEqualTo(1);
+		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
+		singlePool.shutdown();
+
+		ScheduledThreadPoolExecutor sizeablePool = ThreadPoolBuilder.scheduledPool().setPoolSize(2).build();
+		assertThat(sizeablePool.getCorePoolSize()).isEqualTo(2);
+		assertThat(sizeablePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
+		sizeablePool.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.scheduledPool()
+				.setThreadNamePrefix(""scheduledPool"").build();
+		Thread thread = fixPoolWithNamePrefix.getThreadFactory().newThread(new Runnable() {
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread.getName()).startsWith(""scheduledPool"");
+		fixPoolWithNamePrefix.shutdown();
+	}",ThreadPoolBuilderTest::scheduledPool_oe,"public ThreadPoolExecutor build() {
+			BlockingQueue<Runnable> queue = null;
+			if (queueSize < 1) {
+				queue = new LinkedBlockingQueue<Runnable>();
+			} else {
+				queue = new ArrayBlockingQueue<Runnable>(queueSize);
+			}
+
+			threadFactory = createThreadFactory(threadFactory, threadNamePrefix, daemon);
+
+			if (rejectHandler == null) {
+				rejectHandler = defaultRejectHandler;
+			}
+
+			return new ThreadPoolExecutor(poolSize, poolSize, 0L, TimeUnit.MILLISECONDS, queue, threadFactory,
+					rejectHandler);
+		}
+
+@Override
+	public String getName() {
+		return delegate.getName();
+	}",
+springside4_155,"@Test
+	public void quequablePool_oe() {
+		ThreadPoolExecutor singlePool = ThreadPoolBuilder.queuableCachedPool().build();
+		assertThat(singlePool.getCorePoolSize()).isEqualTo(0);
+		assertThat(singlePool.getMaximumPoolSize()).isEqualTo(Integer.MAX_VALUE);
+		assertThat(singlePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(10);
+		assertThat(singlePool.getQueue()).isInstanceOf(ControllableQueue.class);
+		singlePool.shutdown();
+
+		ThreadPoolExecutor sizeablePool = ThreadPoolBuilder.queuableCachedPool().setMinSize(10).setMaxSize(100)
+				.setKeepAliveSecs(20).build();
+		assertThat(sizeablePool.getCorePoolSize()).isEqualTo(10);
+		assertThat(sizeablePool.getMaximumPoolSize()).isEqualTo(100);
+		assertThat(sizeablePool.getKeepAliveTime(TimeUnit.SECONDS)).isEqualTo(20);
+		sizeablePool.shutdown();
+
+		ThreadPoolExecutor fixPoolWithNamePrefix = ThreadPoolBuilder.queuableCachedPool()
+				.setThreadNamePrefix(""queuableCachedPool"").build();
+		Thread thread = fixPoolWithNamePrefix.getThreadFactory().newThread(new Runnable() {
+
+			@Override
+			public void run() {
+			}
+		});
+		assertThat(thread.getName()).startsWith(""queuableCachedPool"");
+		fixPoolWithNamePrefix.shutdown();
+	}",ThreadPoolBuilderTest::quequablePool_oe,"public ThreadPoolExecutor build() {
+			BlockingQueue<Runnable> queue = null;
+			if (queueSize < 1) {
+				queue = new LinkedBlockingQueue<Runnable>();
+			} else {
+				queue = new ArrayBlockingQueue<Runnable>(queueSize);
+			}
+
+			threadFactory = createThreadFactory(threadFactory, threadNamePrefix, daemon);
+
+			if (rejectHandler == null) {
+				rejectHandler = defaultRejectHandler;
+			}
+
+			return new ThreadPoolExecutor(poolSize, poolSize, 0L, TimeUnit.MILLISECONDS, queue, threadFactory,
+					rejectHandler);
+		}
+
+@Override
+	public String getName() {
+		return delegate.getName();
+	}",
+springside4_156,"@Test
+	public void concurrentHashSet_oe() {
+		ConcurrentHashSet<String> conrrentHashSet = SetUtil.newConcurrentHashSet();
+		conrrentHashSet.add(""a"");
+		conrrentHashSet.add(""b"");
+		conrrentHashSet.add(""c"");
+
+		assertThat(conrrentHashSet.isEmpty()).isFalse();
+		assertThat(conrrentHashSet.contains(""a"")).isTrue();
+		assertThat(conrrentHashSet.contains(""d"")).isFalse();
+
+		assertThat(conrrentHashSet).hasSize(3).contains(""a"", ""b"", ""c"");
+
+		for (String key : conrrentHashSet) {
+			System.out.print(key + "","");
+		}
+
+		conrrentHashSet.remove(""c"");
+		assertThat(conrrentHashSet).hasSize(2);
+
+		Object[] strings = conrrentHashSet.toArray();
+		assertThat(strings).hasSize(2).contains(""a"", ""b"");
+
+		conrrentHashSet.toArray(new String[conrrentHashSet.size()]);
+		conrrentHashSet.hashCode();
+		conrrentHashSet.toString();
+
+		ConcurrentHashSet<String> conrrentHashSet2 = SetUtil.newConcurrentHashSet();
+		conrrentHashSet2.add(""a"");
+
+		assertThat(conrrentHashSet.equals(conrrentHashSet)).isTrue();
+		assertThat(conrrentHashSet.equals(conrrentHashSet2)).isFalse();
+
+		assertThat(conrrentHashSet.containsAll(conrrentHashSet2)).isTrue();
+
+		conrrentHashSet.retainAll(conrrentHashSet2);
+		assertThat(conrrentHashSet).hasSize(1).contains(""a"");
+		assertThat(conrrentHashSet.equals(conrrentHashSet2)).isTrue();
+
+		conrrentHashSet.removeAll(conrrentHashSet2);
+		assertThat(conrrentHashSet.isEmpty()).isTrue();
+
+		conrrentHashSet2.clear();
+		assertThat(conrrentHashSet2.isEmpty()).isTrue();
+	}",ConcurrentHashSetTest::concurrentHashSet_oe,"public boolean isEmpty() {
+		return m.isEmpty();
+	}
+
+public boolean contains(Object o) {
+		return m.containsKey(o);
+	}
+
+public boolean retainAll(Collection<?> c) {
+		return s.retainAll(c);
+	}
+
+public boolean remove(Object o) {
+		return m.remove(o) != null;
+	}
+
+public boolean add(E e) {
+		return m.put(e, Boolean.TRUE) == null;
+	}
+
+public boolean containsAll(Collection<?> c) {
+		return s.containsAll(c);
+	}",
+springside4_158,"@Test
+	public void test_oe(){
+		Pair<String,Integer> pair = Pair.of(""haha"", 1);
+		Pair<String,Integer> pair2 = Pair.of(""haha"", 2);
+		
+		assertThat(pair.equals(pair2)).isFalse();
+		assertThat(pair.hashCode()!=pair2.hashCode()).isTrue();
+		assertThat(pair.toString()).isEqualTo(""Pair [first=haha, second=1]"");
+	}",PairTest::test_oe,"public static <A, B> Pair<A, B> of(@Nullable A a, @Nullable B b) {
+		return new Pair<A, B>(a, b);
+	}","/**
+	 * 根据等号左边的泛型，自动构造合适的Pair
+	 */"
+springside4_159,"@Test
+	public void normal_oe() {
+		String testString1 = ""Hello"";
+		String testString2 = ""World"";
+		LogbackListAppender appender = new LogbackListAppender();
+		appender.addToLogger(LogbackListAppenderTest.class);
+
+		assertThat(appender.getFirstLog()).isNull();
+		assertThat(appender.getLastLog()).isNull();
+		assertThat(appender.getFirstMessage()).isNull();
+		assertThat(appender.getFirstMessage()).isNull();
+
+		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
+		logger.warn(testString1);
+		logger.warn(testString2);
+
+		assertThat(appender.getFirstLog().getMessage()).isEqualTo(testString1);
+		assertThat(appender.getLastLog().getMessage()).isEqualTo(testString2);
+
+		assertThat(appender.getFirstMessage()).isEqualTo(testString1);
+		assertThat(appender.getLastMessage()).isEqualTo(testString2);
+
+		assertThat(appender.getLogsCount()).isEqualTo(2);
+		assertThat(appender.getAllLogs()).hasSize(2);
+		assertThat(appender.getAllLogs().get(1).getMessage()).isEqualTo(testString2);
+
+		appender.clearLogs();
+		assertThat(appender.getFirstLog()).isNull();
+		assertThat(appender.getLastLog()).isNull();
+	}",LogbackListAppenderTest::normal_oe,"
+
+@Override
+	public void warn(String msg) {
+		if (shouldLog()) {
+			delegate.warn(msg);
+		}
+	}",
+springside4_160,"@Test
+	public void addAndRemoveAppender_oe() {
+		String testString = ""Hello"";
+		Logger logger = LoggerFactory.getLogger(LogbackListAppenderTest.class);
+		LogbackListAppender appender = new LogbackListAppender();
+		appender.addToLogger(LogbackListAppenderTest.class);
+		logger.warn(testString);
+		assertThat(appender.getFirstLog()).isNotNull();
+
+		appender.clearLogs();
+		appender.removeFromLogger(LogbackListAppenderTest.class);
+		logger.warn(testString);
+		assertThat(appender.getFirstLog()).isNull();
+
+		appender.clearLogs();
+		appender.addToLogger(""org.springside.modules.test.log"");
+		logger.warn(testString);
+		assertThat(appender.getFirstLog()).isNotNull();
+
+		appender.clearLogs();
+		appender.removeFromLogger(""org.springside.modules.test.log"");
+		logger.warn(testString);
+		assertThat(appender.getFirstLog()).isNull();
+	}",LogbackListAppenderTest::addAndRemoveAppender_oe,"@Override
+	public void warn(String msg) {
+		if (shouldLog()) {
+			delegate.warn(msg);
+		}
+	}",
+springside4_161,"@Test
+	public void normal_oe() {
+		MockClock clock = new MockClock();
+		Timer.clock = clock;
+		Counter.clock = clock;
+		Timer timer = new Timer(new Double[] { 90d });
+
+		TimerContext timerContext = timer.start();
+		clock.increaseTime(200);
+		timerContext.stop();
+
+		TimerContext timer2 = timer.start();
+		clock.increaseTime(300);
+		timer2.stop();
+
+		TimerMetric metric = timer.calculateMetric();
+
+		assertThat(metric.counterMetric.totalCount).isEqualTo(2);
+		assertThat(metric.counterMetric.avgRate).isEqualTo(4);
+		assertThat(metric.counterMetric.latestCount).isEqualTo(2);
+		assertThat(metric.counterMetric.latestRate).isEqualTo(4);
+
+		assertThat(metric.histogramMetric.min).isEqualTo(200);
+		assertThat(metric.histogramMetric.avg).isEqualTo(250);
+		assertThat(metric.histogramMetric.pcts.get(90d)).isEqualTo(300);
+	}",TimerTest::normal_oe,"public TimerMetric calculateMetric() {
+		TimerMetric metric = new TimerMetric();
+		metric.counterMetric = counter.calculateMetric();
+		metric.histogramMetric = histogram.calculateMetric();
+		latestMetric = metric;
+		return metric;
+	}
+
+@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}","/**
+	 * 计算单位时间内的metrics值, 存入该Metrics的Snapshot中，并清零原始数据.
+	 */
+
+"
+springside4_162,"@Test
+	public void counter_oe() {
+		MetricRegistry metricRegistry = new MetricRegistry();
+		Counter counter = metricRegistry.counter(MetricRegistry.name(""UserService"", ""getUser.counter""));
+		assertThat(counter).isNotNull();
+
+		Map<String, Counter> counters = metricRegistry.getCounters();
+
+		Counter counter2 = counters.get(""UserService.getUser.counter"");
+		assertThat(counter2).isNotNull().isSameAs(counter);
+
+		Counter counter3 = metricRegistry.counter(MetricRegistry.name(""UserService"", ""getUser.counter""));
+		assertThat(counter3).isNotNull().isSameAs(counter);
+	}",MetricRegistryTest::counter_oe,"public static String name(String name, String... subNames) {
+		StringBuilder builder = new StringBuilder(name);
+		if (subNames != null) {
+			for (String s : subNames) {
+				if ((s != null) && !s.isEmpty()) {
+					builder.append('.').append(s);
+				}
+			}
+		}
+		return builder.toString();
+	}
+
+@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}","/**
+	 * 格式化以"".""分割的Metrics Name的辅助函数.
+	 */
+
+"
+springside4_163,"@Test
+	public void histogram_oe() {
+		MetricRegistry metricRegistry = new MetricRegistry();
+		Histogram histogram = metricRegistry.histogram(MetricRegistry.name(""UserService"", ""getUser.latency""));
+		assertThat(histogram).isNotNull();
+
+		Map<String, Histogram> histograms = metricRegistry.getHistograms();
+
+		Histogram histogram2 = histograms.get(""UserService.getUser.latency"");
+		assertThat(histogram2).isNotNull().isSameAs(histogram);
+
+		Histogram histogram3 = metricRegistry.histogram(MetricRegistry.name(""UserService"", ""getUser.latency""));
+		assertThat(histogram3).isNotNull().isSameAs(histogram);
+
+	}",MetricRegistryTest::histogram_oe,"public static String name(String name, String... subNames) {
+		StringBuilder builder = new StringBuilder(name);
+		if (subNames != null) {
+			for (String s : subNames) {
+				if ((s != null) && !s.isEmpty()) {
+					builder.append('.').append(s);
+				}
+			}
+		}
+		return builder.toString();
+	}
+
+@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}","/**
+	 * 格式化以"".""分割的Metrics Name的辅助函数.
+	 */
+
+"
+springside4_164,"@Test
+	public void execution_oe() {
+		MetricRegistry metricRegistry = new MetricRegistry();
+
+		Timer execution = metricRegistry.timer(MetricRegistry.name(""UserService"", ""getUser.execution""));
+		assertThat(execution).isNotNull();
+
+		Map<String, Timer> executions = metricRegistry.getTimers();
+
+		Timer execution2 = executions.get(""UserService.getUser.execution"");
+		assertThat(execution2).isNotNull().isSameAs(execution);
+
+		Timer execution3 = metricRegistry.timer(MetricRegistry.name(""UserService"", ""getUser.execution""));
+		assertThat(execution3).isNotNull().isSameAs(execution);
+	}",MetricRegistryTest::execution_oe,"public static String name(String name, String... subNames) {
+		StringBuilder builder = new StringBuilder(name);
+		if (subNames != null) {
+			for (String s : subNames) {
+				if ((s != null) && !s.isEmpty()) {
+					builder.append('.').append(s);
+				}
+			}
+		}
+		return builder.toString();
+	}
+
+@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}","/**
+	 * 格式化以"".""分割的Metrics Name的辅助函数.
+	 */
+
+"
+springside4_165,"@Test
+	public void defaultPcts_oe() {
+		MetricRegistry metricRegistry = new MetricRegistry();
+
+		Histogram histogram = metricRegistry.histogram(MetricRegistry.name(""UserService"", ""getUser.histogram.setPcts""),
+				60d, 70d);
+
+		for (int i = 1; i <= 100; i++) {
+			histogram.update(i);
+		}
+
+		HistogramMetric metric = histogram.calculateMetric();
+
+		assertThat(metric.pcts.get(60d)).isEqualTo(60);
+		assertThat(metric.pcts.get(70d)).isEqualTo(70);
+
+		metricRegistry.setDefaultPcts(new Double[] { 50d });
+		Histogram histogramWithNewDefaultPcts = metricRegistry.histogram(MetricRegistry.name(""UserService"",
+				""getUser.histogram.newDefault""));
+
+		for (int i = 1; i <= 100; i++) {
+			histogramWithNewDefaultPcts.update(i);
+		}
+
+		metric = histogramWithNewDefaultPcts.calculateMetric();
+
+		assertThat(metric.pcts.get(50d)).isEqualTo(50);
+		assertThat(metric.pcts.get(90d)).isNull();
+	}",MetricRegistryTest::defaultPcts_oe,"@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}",
+springside4_166,"@Test
+	public void normal_oe() {
+		Histogram histogram = new Histogram(90d, 95d);
+
+		for (int i = 1; i <= 100; i++) {
+			histogram.update(i);
+		}
+
+		HistogramMetric metric = histogram.calculateMetric();
+
+		assertThat(metric.min).isEqualTo(1);
+		assertThat(metric.max).isEqualTo(100);
+		assertThat(metric.avg).isEqualTo(50.5);
+		assertThat(metric.pcts.get(90d)).isEqualTo(90);
+		assertThat(metric.pcts.get(95d)).isEqualTo(95);
+
+		for (int i = 1; i <= 100; i++) {
+			histogram.update(i * 2);
+		}
+
+		metric = histogram.calculateMetric();
+
+		assertThat(metric.min).isEqualTo(2);
+		assertThat(metric.max).isEqualTo(200);
+		assertThat(metric.avg).isEqualTo(101);
+		assertThat(metric.pcts.get(90d)).isEqualTo(180);
+		assertThat(metric.pcts.get(95d)).isEqualTo(190);
+	}",HistogramTest::normal_oe,"public HistogramMetric calculateMetric() {
+		// 快照当前的数据，在计算时不阻塞新的metrics update.
+		List<Long> snapshotList = null;
+		synchronized (this) {
+			snapshotList = measurements;
+			measurements = new LinkedList<Long>();
+		}
+
+		if (snapshotList.isEmpty()) {
+			return createEmptyMetric();
+		}
+
+		HistogramMetric metric = new HistogramMetric();
+		int count = snapshotList.size();
+		double sum = 0;
+
+		if ((pcts != null) && (pcts.length > 0)) {
+			// 按数值大小排序，以快速支持百分比
+			Collections.sort(snapshotList);
+
+			metric.min = snapshotList.get(0);
+			metric.max = snapshotList.get(count - 1);
+
+			for (long value : snapshotList) {
+				sum += value;
+			}
+
+			for (Double pct : pcts) {
+				metric.pcts.put(pct, getPercent(snapshotList, count, pct));
+			}
+		} else {
+			// 不排序的算法，因为不需要支持百分位数
+			metric.min = snapshotList.get(0);
+			metric.max = metric.min;
+
+			for (long value : snapshotList) {
+				if (value < metric.min) {
+					metric.min = value;
+				}
+				if (value > metric.max) {
+					metric.max = value;
+				}
+				sum += value;
+			}
+		}
+
+		metric.avg = sum / count;
+
+		latestMetric = metric;
+		return metric;
+	}
+
+@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}","/**
+	 * 计算单位时间内的metrics值, 存入该Metrics的Snapshot中，并清零原始数据.
+	 */
+
+"
+springside4_167,"@Test
+	public void fewData_oe() {
+		Histogram histogram = new Histogram(90d, 95d);
+
+		histogram.update(1);
+		HistogramMetric metric = histogram.calculateMetric();
+		assertThat(metric.pcts.get(90d)).isEqualTo(1);
+		assertThat(metric.pcts.get(95d)).isEqualTo(1);
+
+		for (int i = 1; i <= 3; i++) {
+			histogram.update(i);
+		}
+		metric = histogram.calculateMetric();
+
+		assertThat(metric.min).isEqualTo(1);
+		assertThat(metric.max).isEqualTo(3);
+		assertThat(metric.avg).isEqualTo(2);
+		assertThat(metric.pcts.get(90d)).isEqualTo(3);
+		assertThat(metric.pcts.get(95d)).isEqualTo(3);
+	}",HistogramTest::fewData_oe,"@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}
+
+public HistogramMetric calculateMetric() {
+		// 快照当前的数据，在计算时不阻塞新的metrics update.
+		List<Long> snapshotList = null;
+		synchronized (this) {
+			snapshotList = measurements;
+			measurements = new LinkedList<Long>();
+		}
+
+		if (snapshotList.isEmpty()) {
+			return createEmptyMetric();
+		}
+
+		HistogramMetric metric = new HistogramMetric();
+		int count = snapshotList.size();
+		double sum = 0;
+
+		if ((pcts != null) && (pcts.length > 0)) {
+			// 按数值大小排序，以快速支持百分比
+			Collections.sort(snapshotList);
+
+			metric.min = snapshotList.get(0);
+			metric.max = snapshotList.get(count - 1);
+
+			for (long value : snapshotList) {
+				sum += value;
+			}
+
+			for (Double pct : pcts) {
+				metric.pcts.put(pct, getPercent(snapshotList, count, pct));
+			}
+		} else {
+			// 不排序的算法，因为不需要支持百分位数
+			metric.min = snapshotList.get(0);
+			metric.max = metric.min;
+
+			for (long value : snapshotList) {
+				if (value < metric.min) {
+					metric.min = value;
+				}
+				if (value > metric.max) {
+					metric.max = value;
+				}
+				sum += value;
+			}
+		}
+
+		metric.avg = sum / count;
+
+		latestMetric = metric;
+		return metric;
+	}","
+
+/**
+	 * 计算单位时间内的metrics值, 存入该Metrics的Snapshot中，并清零原始数据.
+	 */"
+springside4_168,"@Test
+	public void emptyMesures_oe() {
+		Histogram histogram = new Histogram(90d, 95d);
+
+		HistogramMetric metric = histogram.calculateMetric();
+
+		assertThat(metric.min).isZero();
+		assertThat(metric.max).isZero();
+		assertThat(metric.avg).isZero();
+		assertThat(metric.pcts.get(90d)).isZero();
+	}",HistogramTest::emptyMesures_oe,"public HistogramMetric calculateMetric() {
+		// 快照当前的数据，在计算时不阻塞新的metrics update.
+		List<Long> snapshotList = null;
+		synchronized (this) {
+			snapshotList = measurements;
+			measurements = new LinkedList<Long>();
+		}
+
+		if (snapshotList.isEmpty()) {
+			return createEmptyMetric();
+		}
+
+		HistogramMetric metric = new HistogramMetric();
+		int count = snapshotList.size();
+		double sum = 0;
+
+		if ((pcts != null) && (pcts.length > 0)) {
+			// 按数值大小排序，以快速支持百分比
+			Collections.sort(snapshotList);
+
+			metric.min = snapshotList.get(0);
+			metric.max = snapshotList.get(count - 1);
+
+			for (long value : snapshotList) {
+				sum += value;
+			}
+
+			for (Double pct : pcts) {
+				metric.pcts.put(pct, getPercent(snapshotList, count, pct));
+			}
+		} else {
+			// 不排序的算法，因为不需要支持百分位数
+			metric.min = snapshotList.get(0);
+			metric.max = metric.min;
+
+			for (long value : snapshotList) {
+				if (value < metric.min) {
+					metric.min = value;
+				}
+				if (value > metric.max) {
+					metric.max = value;
+				}
+				sum += value;
+			}
+		}
+
+		metric.avg = sum / count;
+
+		latestMetric = metric;
+		return metric;
+	}
+
+@Override
+	public synchronized T get() throws InterruptedException, ExecutionException {
+		while (!this.completed) {
+			wait();
+		}
+		return getResult();
+	}","/**
+	 * 计算单位时间内的metrics值, 存入该Metrics的Snapshot中，并清零原始数据.
+	 */
+
+"
+springside4_170,"@Test
+	public void normal_oe() {
+
+		Counter counter = new Counter();
+		counter.inc(10);
+		counter.inc(20);
+		counter.inc(30);
+		clock.increaseTime(1000);
+
+		CounterMetric metric = counter.calculateMetric();
+		assertThat(metric.totalCount).isEqualTo(60);
+		assertThat(metric.avgRate).isEqualTo(60);
+		assertThat(metric.latestCount).isEqualTo(60);
+		assertThat(metric.latestRate).isEqualTo(60);
+
+		counter.inc(20);
+		clock.increaseTime(1000);
+		metric = counter.calculateMetric();
+
+		assertThat(metric.totalCount).isEqualTo(80);
+		assertThat(metric.avgRate).isEqualTo(40);
+		assertThat(metric.latestCount).isEqualTo(20);
+		assertThat(metric.latestRate).isEqualTo(20);
+	}",CounterTest::normal_oe,"public CounterMetric calculateMetric() {
+		long latestCount = counter.getAndSet(0);
+		long currentTime = clock.getCurrentTime();
+
+		CounterMetric metric = new CounterMetric();
+
+		totalCount += latestCount;
+		long totalElapsed = currentTime - startTime;
+		metric.avgRate = (totalCount * 1000) / totalElapsed;
+
+		metric.latestCount = latestCount;
+		metric.totalCount = totalCount;
+
+		long elapsed = currentTime - lastReportTime;
+		if (elapsed > 0) {
+			metric.latestRate = (latestCount * 1000) / elapsed;
+		}
+
+		lastReportTime = currentTime;
+
+		latestMetric = metric;
+
+		return metric;
+	}","/**
+	 * 计算单位时间内的metrics值, 存入该Metrics的Snapshot中，并清零原始数据.
+	 */"
+springside4_171,"@Test
+	public void incAndDec_oe() {
+		Counter counter = new Counter();
+
+		counter.inc(20);
+		counter.inc();
+		counter.inc();
+		counter.dec(10);
+		counter.dec();
+		clock.increaseTime(1000);
+
+		CounterMetric metric = counter.calculateMetric();
+		assertThat(metric.totalCount).isEqualTo(11);
+	}",CounterTest::incAndDec_oe,"public CounterMetric calculateMetric() {
+		long latestCount = counter.getAndSet(0);
+		long currentTime = clock.getCurrentTime();
+
+		CounterMetric metric = new CounterMetric();
+
+		totalCount += latestCount;
+		long totalElapsed = currentTime - startTime;
+		metric.avgRate = (totalCount * 1000) / totalElapsed;
+
+		metric.latestCount = latestCount;
+		metric.totalCount = totalCount;
+
+		long elapsed = currentTime - lastReportTime;
+		if (elapsed > 0) {
+			metric.latestRate = (latestCount * 1000) / elapsed;
+		}
+
+		lastReportTime = currentTime;
+
+		latestMetric = metric;
+
+		return metric;
+	}","/**
+	 * 计算单位时间内的metrics值, 存入该Metrics的Snapshot中，并清零原始数据.
+	 */"
+springside4_172,"@Test
+	public void empty_oe() {
+		Counter counter = new Counter();
+		clock.increaseTime(1000);
+
+		CounterMetric metric = counter.calculateMetric();
+		assertThat(metric.totalCount).isEqualTo(0);
+		assertThat(metric.latestRate).isEqualTo(0);
+	}",CounterTest::empty_oe,"public CounterMetric calculateMetric() {
+		long latestCount = counter.getAndSet(0);
+		long currentTime = clock.getCurrentTime();
+
+		CounterMetric metric = new CounterMetric();
+
+		totalCount += latestCount;
+		long totalElapsed = currentTime - startTime;
+		metric.avgRate = (totalCount * 1000) / totalElapsed;
+
+		metric.latestCount = latestCount;
+		metric.totalCount = totalCount;
+
+		long elapsed = currentTime - lastReportTime;
+		if (elapsed > 0) {
+			metric.latestRate = (latestCount * 1000) / elapsed;
+		}
+
+		lastReportTime = currentTime;
+
+		latestMetric = metric;
+
+		return metric;
+	}","/**
+	 * 计算单位时间内的metrics值, 存入该Metrics的Snapshot中，并清零原始数据.
+	 */"

@@ -1,0 +1,15 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,dataset_type
+commons-rng_39,commons-rng,RandomSourceInternalParametricTest,testCreateSeedBytesSizeIsPositiveAndMultipleOf4Or8_oe,commons-rng-simple/src/test/java/org/apache/commons/rng/simple/internal/RandomSourceInternalParametricTest.java,,,,mixed
+commons-rng_274,commons-rng,NumberFactoryTest,testMakeIntPrecondition1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java,,,,mixed
+commons-rng_275,commons-rng,NumberFactoryTest,testMakeIntArrayPrecondition1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java,,,,mixed
+commons-rng_276,commons-rng,NumberFactoryTest,testMakeLongPrecondition1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java,,,,mixed
+commons-rng_277,commons-rng,NumberFactoryTest,testMakeLongArrayPrecondition1_oe,commons-rng-core/src/test/java/org/apache/commons/rng/core/util/NumberFactoryTest.java,,,,mixed
+commons-rng_332,commons-rng,CompositeSamplersTest,testEmptyBuilderThrows_oe,commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest.java,,,,mixed
+commons-rng_334,commons-rng,CompositeSamplersTest,testInvalidWeights_oe,commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/CompositeSamplersTest.java,,,,mixed
+commons-rng_477,commons-rng,MarsagliaTsangWangDiscreteSamplerTest,testCreateBinomialDistributionThrowsWhenP0IsZero_oe,commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/distribution/MarsagliaTsangWangDiscreteSamplerTest.java,,,,mixed
+commons-rng_621,commons-rng,BoxSamplerTest,testNonFiniteVertexCoordinates_oe,commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/BoxSamplerTest.java,,,,mixed
+commons-rng_626,commons-rng,CoordinatesTest,testRequireFiniteWithMessageThrows_oe,commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest.java,,,,mixed
+commons-rng_627,commons-rng,CoordinatesTest,testRequireLengthWithMessageThrows_oe,commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/CoordinatesTest.java,,,,mixed
+commons-rng_630,commons-rng,LineSamplerTest,testNonFiniteVertexCoordinates_oe,commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/LineSamplerTest.java,,,,mixed
+commons-rng_638,commons-rng,TriangleSamplerTest,testNonFiniteVertexCoordinates_oe,commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TriangleSamplerTest.java,,,,mixed
+commons-rng_653,commons-rng,TetrahedronSamplerTest,testNonFiniteVertexCoordinates_oe,commons-rng-sampling/src/test/java/org/apache/commons/rng/sampling/shape/TetrahedronSamplerTest.java,,,,mixed

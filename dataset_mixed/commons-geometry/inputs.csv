@@ -1,0 +1,457 @@
+id,test_prefix,test_name,focal_methods,docstrings
+commons-geometry_16,"@Test
+    void testFacetIterator_oe() {
+        final StubFacetDefinitionReader reader = new StubFacetDefinitionReader(Arrays.asList(FACET_1, FACET_2));
+        final FacetDefinitionReaderIterator it = new FacetDefinitionReaderIterator(reader);
+
+        Assertions.assertTrue(it.hasNext());
+        Assertions.assertSame(FACET_1, it.next());
+
+        Assertions.assertTrue(it.hasNext());
+        Assertions.assertSame(FACET_2, it.next());
+
+        Assertions.assertFalse(it.hasNext());
+        Assertions.assertThrows(NoSuchElementException.class, it::next);
+    }",AbstractBoundaryReadHandler3DTest::testFacetIterator_oe,"@Override
+        public boolean hasNext() {
+            ensureLoaded();
+            return next != null;
+        }
+
+@Override
+        public FacetDefinition next() {
+            if (!hasNext()) {
+                throw new NoSuchElementException();
+            }
+
+            final FacetDefinition result = next;
+            loadNext();
+
+            return result;
+        }",/** {@inheritDoc} */
+commons-geometry_18,"@Test
+    void testProperties_verticesOnly_oe() {
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS));
+
+        Assertions.assertEquals(FACET_PTS, f.getVertices());
+        Assertions.assertNotSame(FACET_PTS, f.getVertices());
+
+        final List<Vector3D> vertices = f.getVertices();
+        final Vector3D toAdd = FACET_PTS.get(0);
+        Assertions.assertThrows(UnsupportedOperationException.class,
+                () -> vertices.add(toAdd));
+
+        Assertions.assertNull(f.getNormal());
+    }",SimpleFacetDefinitionTest::testProperties_verticesOnly_oe,"@Override
+    public List<Vector3D> getVertices() {
+        return vertices;
+    }
+
+public void add(final FacetDefinition facet) {
+            addFace(facet.getVertices(), facet.getNormal());
+        }
+
+@Override
+    public Vector3D getNormal() {
+        return normal;
+    }","/** {@inheritDoc} */
+
+/** Add a facet to this buffer. If {@code batchSize} is greater than {@code -1} and the number
+         * of currently stored faces is greater than or equal to {@code batchSize}, then the buffer
+         * content is written to the output and the buffer state is reset.
+         * @param facet facet to add
+         * @throws java.io.UncheckedIOException if an I/O error occurs
+         */"
+commons-geometry_19,"@Test
+    void testProperties_verticesAndNormal_oe() {
+        final Vector3D normal = Vector3D.ZERO; // invalid normal is accepted
+
+        final SimpleFacetDefinition f = new SimpleFacetDefinition(new ArrayList<>(FACET_PTS), normal);
+
+        Assertions.assertEquals(FACET_PTS, f.getVertices());
+        Assertions.assertNotSame(FACET_PTS, f.getVertices());
+
+        final List<Vector3D> vertices = f.getVertices();
+        final Vector3D toAdd = FACET_PTS.get(0);
+        Assertions.assertThrows(UnsupportedOperationException.class,
+                () -> vertices.add(toAdd));
+
+        Assertions.assertSame(normal, f.getNormal());
+    }",SimpleFacetDefinitionTest::testProperties_verticesAndNormal_oe,"@Override
+    public List<Vector3D> getVertices() {
+        return vertices;
+    }
+
+public void add(final FacetDefinition facet) {
+            addFace(facet.getVertices(), facet.getNormal());
+        }
+
+@Override
+    public Vector3D getNormal() {
+        return normal;
+    }","/** {@inheritDoc} */
+
+/** Add a facet to this buffer. If {@code batchSize} is greater than {@code -1} and the number
+         * of currently stored faces is greater than or equal to {@code batchSize}, then the buffer
+         * content is written to the output and the buffer state is reset.
+         * @param facet facet to add
+         * @throws java.io.UncheckedIOException if an I/O error occurs
+         */"
+commons-geometry_50,"@Test
+    void testRead_incorrectCharset_oe() {
+        final String content = ""solid test\n"" +
+                ""facet normal 1 2 3 "" +
+                ""outer loop "" +
+                    ""vertex 4 5 6 "" +
+                    ""vertex 7 8 9 "" +
+                    ""vertex 10 11 12 "" +
+                ""endloop "" +
+            ""endfacet "" +
+            ""endsolid test"";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
+        final GeometryInput input = new StreamGeometryInput(in);
+
+        try (FacetDefinitionReader reader = handler.facetDefinitionReader(input)) {
+            Assertions.assertNotNull(reader.readFacet());
+            Assertions.assertNotNull(reader.readFacet());
+
+            Assertions.assertThrows(IllegalStateException.class, () -> reader.readFacet());
+        }
+    }",StlBoundaryReadHandler3DTest::testRead_incorrectCharset_oe,"@Override
+    public BinaryStlFacetDefinition readFacet() {
+        beginRead();
+
+        BinaryStlFacetDefinition facet = null;
+
+        if (trianglesRead < triangleTotal) {
+            facet = readFacetInternal();
+
+            ++trianglesRead;
+        }
+
+        return facet;
+    }",/** {@inheritDoc} */
+commons-geometry_52,"@Test
+    void testRead_closesInputOnReaderCreationFailure_oe() {
+        final CloseCountInputStream in = new CloseCountInputStream(new ByteArrayInputStream(new byte[1]));
+        final GeometryInput input = new StreamGeometryInput(in);
+
+        Assertions.assertThrows(IllegalStateException.class, () -> handler.facetDefinitionReader(input));
+
+        Assertions.assertEquals(1, in.getCloseCount());
+    }",StlBoundaryReadHandler3DTest::testRead_closesInputOnReaderCreationFailure_oe,"@Override
+    public FacetDefinitionReader facetDefinitionReader(final GeometryInput in) {
+        final Charset inputCharset = in.getCharset() != null ?
+                in.getCharset() :
+                defaultCharset;
+
+        return GeometryIOUtils.tryApplyCloseable(
+                inputStream -> StlFacetDefinitionReaders.create(inputStream, inputCharset),
+                in::getInputStream);
+    }",/** {@inheritDoc} */
+commons-geometry_107,"@Test
+    void testCreate_nonStandardCharset_noCharsetGiven_oe() {
+        final String content = ""solid test\n"" +
+                ""facet normal 1 2 3 "" +
+                ""outer loop "" +
+                    ""vertex 4 5 6 "" +
+                    ""vertex 7 8 9 "" +
+                    ""vertex 10 11 12 "" +
+                ""endloop "" +
+            ""endfacet "" +
+            ""endsolid test"";
+
+        final ByteArrayInputStream in = new ByteArrayInputStream(content.getBytes(StandardCharsets.UTF_16));
+
+        try (FacetDefinitionReader reader = StlFacetDefinitionReaders.create(in, null)) {
+
+            Assertions.assertEquals(BinaryStlFacetDefinitionReader.class, reader.getClass());
+
+            Assertions.assertNotNull(reader.readFacet());
+            Assertions.assertNotNull(reader.readFacet());
+            Assertions.assertThrows(IllegalStateException.class, () -> reader.readFacet());
+        }
+    }",StlFacetDefinitionReadersTest::testCreate_nonStandardCharset_noCharsetGiven_oe,"public static FacetDefinitionReader create(final InputStream in, final Charset charset) {
+        final Charset inputCharset = charset != null ?
+                charset :
+                StlConstants.DEFAULT_CHARSET;
+
+        final byte[] testBytes = StlConstants.SOLID_START_KEYWORD.getBytes(inputCharset);
+        final byte[] actualBytes = new byte[testBytes.length];
+
+        final int read = GeometryIOUtils.applyAsIntUnchecked(in::read, actualBytes);
+        if (read < actualBytes.length) {
+            throw GeometryIOUtils.parseError(MessageFormat.format(
+                    ""Cannot determine STL format: attempted to read {0} bytes but found only {1} available"",
+                    actualBytes.length, read));
+        }
+
+        // ""unread"" the test bytes so that the created readers can start from the
+        // beginning of the content
+        final PushbackInputStream pushbackInput = new PushbackInputStream(in, actualBytes.length);
+        GeometryIOUtils.acceptUnchecked(pushbackInput::unread, actualBytes);
+
+        if (Arrays.equals(testBytes, actualBytes)) {
+            // this is a text file
+            return new TextStlFacetDefinitionReader(
+                    new BufferedReader(new InputStreamReader(pushbackInput, inputCharset)));
+        } else {
+            // this is a binary file
+            return new BinaryStlFacetDefinitionReader(pushbackInput);
+        }
+    }
+
+@Override
+    public BinaryStlFacetDefinition readFacet() {
+        beginRead();
+
+        BinaryStlFacetDefinition facet = null;
+
+        if (trianglesRead < triangleTotal) {
+            facet = readFacetInternal();
+
+            ++trianglesRead;
+        }
+
+        return facet;
+    }","/** Construct a {@link FacetDefinitionReader} for reading STL content from the
+     * given input. The format of the input is checked to determine if it is a binary
+     * or text file and an appropriate reader is returned.
+     * @param in input to read from
+     * @param charset charset to use when checking the input for text content;
+     *      if null, the input is assumed to use the UTF-8 charset
+     * @return facet definition reader
+     * @throws IllegalStateException if a parsing error occurs
+     * @throws java.io.UncheckedIOException if an I/O error occurs
+     */
+
+/** {@inheritDoc} */"
+commons-geometry_291,"@Test
+    void testGetCurrentTokenAsDouble_includedNumberFormatExceptionOnFailure_oe() {
+        final SimpleTextParser p = parser(""abc"");
+        p.nextLine();
+
+        final Throwable exc = Assertions.assertThrows(IllegalStateException.class, () -> p.getCurrentTokenAsDouble());
+        Assertions.assertEquals(NumberFormatException.class, exc.getCause().getClass());
+    }",SimpleTextParserTest::testGetCurrentTokenAsDouble_includedNumberFormatExceptionOnFailure_oe,"public double getCurrentTokenAsDouble() {
+        ensureHasSetToken();
+
+        Throwable cause = null;
+
+        if (currentToken != null) {
+            try {
+                return Double.parseDouble(currentToken);
+            } catch (NumberFormatException exc) {
+                cause = exc;
+            }
+        }
+
+        throw unexpectedToken(""double"", cause);
+    }","/** Get the current token parsed as a double.
+     * @return the current token parsed as a double
+     * @throws IllegalStateException if no token has been read or the
+     *      current token cannot be parsed as a double
+     */"
+commons-geometry_294,"@Test
+    void testGetCurrentTokenAsInt_includedNumberFormatExceptionOnFailure_oe() {
+        final SimpleTextParser p = parser(""abc"");
+        p.nextLine();
+
+        final Throwable exc = Assertions.assertThrows(IllegalStateException.class, () -> p.getCurrentTokenAsInt());
+        Assertions.assertEquals(NumberFormatException.class, exc.getCause().getClass());
+    }",SimpleTextParserTest::testGetCurrentTokenAsInt_includedNumberFormatExceptionOnFailure_oe,"public int getCurrentTokenAsInt() {
+        ensureHasSetToken();
+
+        Throwable cause = null;
+
+        if (currentToken != null) {
+            try {
+                return Integer.parseInt(currentToken);
+            } catch (NumberFormatException exc) {
+                cause = exc;
+            }
+        }
+
+        throw unexpectedToken(""integer"", cause);
+    }","/** Get the current token parsed as an integer.
+     * @return the current token parsed as an integer
+     * @throws IllegalStateException if no token has been read or the
+     *      current token cannot be parsed as an integer
+     */"
+commons-geometry_363,"@Test
+    void testTryApplyCloseable_functionThrows_inputCloseThrows_oe() {
+        final CloseCountInputStream in = new CloseCountInputStream(new CloseFailByteArrayInputStream(new byte[0]));
+
+        final Throwable thr = Assertions.assertThrows(UncheckedIOException.class, () -> {
+            GeometryIOUtils.tryApplyCloseable(i -> {
+                throw new IOException(""fn"");
+            }, () -> in);
+        });
+
+        Assertions.assertEquals(UncheckedIOException.class, thr.getClass());
+        Assertions.assertEquals(""close"", thr.getSuppressed()[0].getMessage());
+
+        Assertions.assertEquals(1, in.getCloseCount());
+    }",GeometryIOUtilsTest::testTryApplyCloseable_functionThrows_inputCloseThrows_oe,"public static <T, C extends Closeable> T tryApplyCloseable(final IOFunction<C, T> function,
+            final IOSupplier<? extends C> closeableSupplier) {
+        C closeable = null;
+        RuntimeException exc;
+        try {
+            closeable = closeableSupplier.get();
+            return function.apply(closeable);
+        } catch (RuntimeException e) {
+            exc = e;
+        } catch (IOException e) {
+            exc = createUnchecked(e);
+        }
+
+        if (closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException suppressed) {
+                exc.addSuppressed(suppressed);
+            }
+        }
+
+        throw exc;
+    }","/** Pass a supplied {@link Closeable} instance to {@code function} and return the result.
+     * The {@code Closeable} instance returned by the supplier is closed if function execution
+     * fails, otherwise the instance is <em>not</em> closed.
+     * @param <T> Return type
+     * @param <C> Closeable type
+     * @param function function called with the supplied Closeable instance
+     * @param closeableSupplier supplier used to obtain a Closeable instance
+     * @return result of calling {@code function} with a supplied Closeable instance
+     * @throws java.io.UncheckedIOException if an I/O error occurs
+     */"
+commons-geometry_765,"@Test
+    void testThrowsNoSuchElement_oe() {
+        final List<Integer> input = Collections.emptyList();
+        final EvenCharIterator it = new EvenCharIterator(input.iterator());
+
+        Assertions.assertFalse(it.hasNext());
+        Assertions.assertThrows(NoSuchElementException.class, it::next);
+    }",IteratorTransformTest::testThrowsNoSuchElement_oe,"@Override
+    public boolean hasNext() {
+        return loadNextOutput();
+    }
+
+@Override
+    public T next() {
+        if (outputQueue.isEmpty()) {
+            throw new NoSuchElementException();
+        }
+
+        return outputQueue.removeFirst();
+    }",/** {@inheritDoc} */
+commons-geometry_1130,"@Test
+    void testConstants_normalize_oe() {
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.ZERO::normalize);
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NaN::normalize);
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.POSITIVE_INFINITY::normalize);
+        Assertions.assertThrows(IllegalArgumentException.class, Vector2D.NEGATIVE_INFINITY::normalize);
+
+        Assertions.assertSame(Vector2D.Unit.PLUS_X, Vector2D.Unit.PLUS_X.normalize());
+        Assertions.assertSame(Vector2D.Unit.MINUS_X, Vector2D.Unit.MINUS_X.normalize());
+
+        Assertions.assertSame(Vector2D.Unit.PLUS_Y, Vector2D.Unit.PLUS_Y.normalize());
+        Assertions.assertSame(Vector2D.Unit.MINUS_Y, Vector2D.Unit.MINUS_Y.normalize());
+    }",Vector2DTest::testConstants_normalize_oe,"@Override
+    public Unit normalize() {
+        return Unit.from(x, y);
+    }",/** {@inheritDoc} */
+commons-geometry_1597,"@Test
+    void testConstants_normalize_oe() {
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.ZERO::normalize);
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NaN::normalize);
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.POSITIVE_INFINITY::normalize);
+        Assertions.assertThrows(IllegalArgumentException.class, Vector3D.NEGATIVE_INFINITY::normalize);
+
+        Assertions.assertSame(Vector3D.Unit.PLUS_X, Vector3D.Unit.PLUS_X.normalize());
+        Assertions.assertSame(Vector3D.Unit.MINUS_X, Vector3D.Unit.MINUS_X.normalize());
+
+        Assertions.assertSame(Vector3D.Unit.PLUS_Y, Vector3D.Unit.PLUS_Y.normalize());
+        Assertions.assertSame(Vector3D.Unit.MINUS_Y, Vector3D.Unit.MINUS_Y.normalize());
+
+        Assertions.assertSame(Vector3D.Unit.PLUS_Z, Vector3D.Unit.PLUS_Z.normalize());
+        Assertions.assertSame(Vector3D.Unit.MINUS_Z, Vector3D.Unit.MINUS_Z.normalize());
+    }",Vector3DTest::testConstants_normalize_oe,"@Override
+    public Unit normalize() {
+        return Unit.from(x, y, z);
+    }",/** {@inheritDoc} */
+commons-geometry_1905,"@Test
+    void testConstants_normalize_oe() {
+        Assertions.assertThrows(IllegalArgumentException.class, Vector1D.ZERO::normalize);
+        Assertions.assertThrows(IllegalArgumentException.class, Vector1D.NaN::normalize);
+        Assertions.assertThrows(IllegalArgumentException.class, Vector1D.POSITIVE_INFINITY::normalize);
+        Assertions.assertThrows(IllegalArgumentException.class, Vector1D.NEGATIVE_INFINITY::normalize);
+
+        Assertions.assertSame(Vector1D.Unit.PLUS, Vector1D.Unit.PLUS.normalize());
+        Assertions.assertSame(Vector1D.Unit.MINUS, Vector1D.Unit.MINUS.normalize());
+    }",Vector1DTest::testConstants_normalize_oe,"@Override
+    public Unit normalize() {
+        return Unit.from(x);
+    }",/** {@inheritDoc} */
+commons-geometry_2149,"@Test
+    void testGetElements_listIsNotModifiable_oe() {
+        final Segment a = Lines.segmentFromPoints(Vector2D.ZERO, Vector2D.of(1, 0), TEST_PRECISION);
+        final List<LineConvexSubset> inputSegments = new ArrayList<>(Collections.singletonList(a));
+
+        final LinePath path = LinePath.from(inputSegments);
+
+        inputSegments.clear();
+
+        Assertions.assertNotSame(inputSegments, path.getElements());
+        Assertions.assertEquals(1, path.getElements().size());
+
+        Assertions.assertThrows(UnsupportedOperationException.class, () -> path.getElements().add(a));
+    }",LinePathTest::testGetElements_listIsNotModifiable_oe,"public List<LineConvexSubset> getElements() {
+        return elements;
+    }
+
+public void add(final LineConvexSubset subset) {
+        addPathElement(new ConnectableLineSubset(subset));
+    }","/** Get the sequence of line subsets comprising the path.
+     * @return the sequence of line subsets comprising the path
+     */
+
+/** Add a line subset to the connector, leaving it unconnected until a later call to
+     * to {@link #connect(Iterable)} or {@link #connectAll()}.
+     * @param subset line subset to add
+     * @see #connect(Iterable)
+     * @see #connectAll()
+     */"
+commons-geometry_2199,"@Test
+    void testFaces_iterator_oe() {
+        final List<Vector3D> vertices = Arrays.asList(
+            Vector3D.ZERO,
+            Vector3D.of(1, 0, 0),
+            Vector3D.of(0, 1, 0)
+        );
+
+        final List<int[]> faceIndices = Collections.singletonList(new int[]{0, 1, 2}
+        );
+
+        final SimpleTriangleMesh mesh = SimpleTriangleMesh.from(vertices, faceIndices, TEST_PRECISION);
+
+        final Iterator<TriangleMesh.Face> it = mesh.faces().iterator();
+
+        Assertions.assertTrue(it.hasNext());
+        Assertions.assertEquals(0, it.next().getIndex());
+        Assertions.assertFalse(it.hasNext());
+
+        Assertions.assertThrows(NoSuchElementException.class, it::next);
+    }",SimpleTriangleMeshTest::testFaces_iterator_oe,"@Override
+        public boolean hasNext() {
+            return index < faces.size();
+        }
+
+@Override
+        public T next() {
+            if (hasNext()) {
+                final Face face = getFace(index++);
+                return fn.apply(face);
+            }
+            throw new NoSuchElementException();
+        }",/** {@inheritDoc} */

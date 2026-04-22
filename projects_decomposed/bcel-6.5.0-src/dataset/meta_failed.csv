@@ -1,3 +1,0 @@
-id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,oracle_type,junit_version
-bcel_62_1,bcel-6.5.0-src,PerformanceTest,testPerformance_1_oe,src/test/java/org/apache/bcel/PerformanceTest.java,,,,assert,unknown
-bcel_89_1,bcel-6.5.0-src,JDKClassDumpTestCase,testPerformance_1_oe,src/test/java/org/apache/bcel/classfile/JDKClassDumpTestCase.java,,,,assert,unknown

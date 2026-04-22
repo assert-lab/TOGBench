@@ -1,0 +1,10 @@
+id,project,test_class,test_name,test_file_path,focal_file_path,focal_class,focal_package,dataset_type
+commons-validator_53,commons-validator,ValidatorTest,testManualObject_oe,src/test/java/org/apache/commons/validator/ValidatorTest.java,,,,mixed
+commons-validator_56,commons-validator,ValidatorTest,testManualBoolean_oe,src/test/java/org/apache/commons/validator/ValidatorTest.java,,,,mixed
+commons-validator_97,commons-validator,CalendarValidatorTest,testCompare_oe,src/test/java/org/apache/commons/validator/routines/CalendarValidatorTest.java,,,,mixed
+commons-validator_145,commons-validator,ISSNValidatorTest,testIsValidISSNConvertSuffix_oe,src/test/java/org/apache/commons/validator/routines/ISSNValidatorTest.java,,,,mixed
+commons-validator_186,commons-validator,DomainValidatorStartupTest,testCannotUpdate_oe,src/test/java/org/apache/commons/validator/routines/DomainValidatorStartupTest.java,,,,mixed
+commons-validator_194,commons-validator,CreditCardValidatorTest,testArrayConstructor_oe,src/test/java/org/apache/commons/validator/routines/CreditCardValidatorTest.java,,,,mixed
+commons-validator_216,commons-validator,RegexValidatorTest,testMissingRegex_oe,src/test/java/org/apache/commons/validator/routines/RegexValidatorTest.java,,,,mixed
+commons-validator_231,commons-validator,IBANValidatorTest,testSorted_oe,src/test/java/org/apache/commons/validator/routines/IBANValidatorTest.java,,,,mixed
+commons-validator_300,commons-validator,ISBNCheckDigitTest,testInvalidLength_oe,src/test/java/org/apache/commons/validator/routines/checkdigit/ISBNCheckDigitTest.java,,,,mixed

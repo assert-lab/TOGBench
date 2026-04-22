@@ -1,0 +1,164 @@
+id,test_prefix,test_name,focal_methods,docstrings
+jsou_398,"@Test
+    public void chompBalancedThrowIllegalArgumentException_oe() {
+        try {
+            TokenQueue tq = new TokenQueue(""unbalanced(something(or another)) else"");
+            tq.consumeTo(""("");
+            tq.chompBalanced('(', '+');
+            fail(""should have thrown IllegalArgumentException"");
+        } catch (IllegalArgumentException expected) {
+            assertEquals(""Did not find balanced marker at 'something(or another)) else'"", expected.getMessage());
+        }
+    }",TokenQueueTest::chompBalancedThrowIllegalArgumentException_oe,"public String chompBalanced(char open, char close) {
+        int start = -1;
+        int end = -1;
+        int depth = 0;
+        char last = 0;
+        boolean inSingleQuote = false;
+        boolean inDoubleQuote = false;
+        boolean inRegexQE = false; // regex \Q .. \E escapes from Pattern.quote()
+
+        do {
+            if (isEmpty()) break;
+            char c = consume();
+            if (last != ESC) {
+                if (c == '\'' && c != open && !inDoubleQuote)
+                    inSingleQuote = !inSingleQuote;
+                else if (c == '""' && c != open && !inSingleQuote)
+                    inDoubleQuote = !inDoubleQuote;
+                if (inSingleQuote || inDoubleQuote || inRegexQE){
+                    last = c;
+                    continue;
+                }
+
+                if (c == open) {
+                    depth++;
+                    if (start == -1)
+                        start = pos;
+                }
+                else if (c == close)
+                    depth--;
+            } else if (c == 'Q') {
+                inRegexQE = true;
+            } else if (c == 'E') {
+                inRegexQE = false;
+            }
+
+            if (depth > 0 && last != 0)
+                end = pos; // don't include the outer match pair in the return
+            last = c;
+        } while (depth > 0);
+        final String out = (end >= 0) ? queue.substring(start, end) : """";
+        if (depth > 0) {// ran out of queue before seeing enough )
+            Validate.fail(""Did not find balanced marker at '"" + out + ""'"");
+        }
+        return out;
+    }","/**
+     * Pulls a balanced string off the queue. E.g. if queue is ""(one (two) three) four"", (,) will return ""one (two) three"",
+     * and leave "" four"" on the queue. Unbalanced openers and closers can be quoted (with ' or "") or escaped (with \). Those escapes will be left
+     * in the returned string, which is suitable for regexes (where we need to preserve the escape), but unsuitable for
+     * contains text strings; use unescape for that.
+     * @param open opener
+     * @param close closer
+     * @return data matched from the queue
+     */"
+jsou_657,"@Test
+    public void testChildThrowsIndexOutOfBoundsOnMissing_oe() {
+        Document doc = Jsoup.parse(""<div><p>One</p><p>Two</p></div>"");
+        Element div = doc.select(""div"").first();
+
+        assertEquals(2, div.children().size());
+        assertEquals(""One"", div.child(0).text());
+
+        try {
+            div.child(3);
+            fail(""Should throw index out of bounds"");
+        } catch (IndexOutOfBoundsException e) {
+        }
+    }",ElementTest::testChildThrowsIndexOutOfBoundsOnMissing_oe,"public Elements children() {
+        return new Elements(childElementsList());
+    }
+
+public Element child(int index) {
+        return childElementsList().get(index);
+    }","/**
+     * Get this element's child elements.
+     * <p>
+     * This is effectively a filter on {@link #childNodes()} to get Element nodes.
+     * </p>
+     * @return child elements. If this element has no children, returns an empty list.
+     * @see #childNodes()
+     */
+
+/**
+     * Get a child element of this element, by its 0-based index number.
+     * <p>
+     * Note that an element can have both mixed Nodes and Elements as children. This method inspects
+     * a filtered list of children that are elements, and the index is based on that filtered list.
+     * </p>
+     *
+     * @param index the index number of the element to retrieve
+     * @return the child element, if it exists, otherwise throws an {@code IndexOutOfBoundsException}
+     * @see #childNode(int)
+     */"
+jsou_934,"@ParameterizedTest
+    @MethodSource(""testFiles"")
+    void testHtmlParse_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, ""UTF-8"", ""https://example.com/"");
+            assertNotNull(doc);
+            if (System.currentTimeMillis() > completeBy)
+                Assertions.fail(String.format(""Timeout: only completed %d iters of [%s] in %d seconds"", i, file.getName(), timeout));
+        }
+    }",FuzzFixesIT::testHtmlParse_oe,"public static Document parse(String html, String baseUri) {
+        return Parser.parse(html, baseUri);
+    }
+
+public String getName() {
+        return tagName;
+    }","/**
+     Parse HTML into a Document. The parser will make a sensible, balanced document tree out of any HTML.
+
+     @param html    HTML to parse
+     @param baseUri The URL where the HTML was retrieved from. Used to resolve relative URLs to absolute URLs, that occur
+     before the HTML declares a {@code <base href>} tag.
+     @return sane HTML
+     */
+
+/**
+     * Get this tag's name.
+     *
+     * @return the tag's name
+     */"
+jsou_935,"@ParameterizedTest
+    @MethodSource(""testFiles"")
+    void testXmlParse_oe(File file) throws IOException {
+        long startTime = System.currentTimeMillis();
+        long completeBy = startTime + timeout * 1000L;
+
+        for (int i = 0; i < numIters; i++) {
+            Document doc = Jsoup.parse(file, ""UTF-8"", ""https://example.com/"", Parser.xmlParser());
+            assertNotNull(doc);
+            if (System.currentTimeMillis() > completeBy)
+                Assertions.fail(String.format(""Timeout: only completed %d iters of [%s] in %d seconds"", i, file.getName(), timeout));
+        }
+    }",FuzzFixesIT::testXmlParse_oe,"public static Parser xmlParser() {
+        return new Parser(new XmlTreeBuilder());
+    }
+
+public String getName() {
+        return tagName;
+    }","/**
+     * Create a new XML parser. This parser assumes no knowledge of the incoming tags and does not treat it as HTML,
+     * rather creates a simple tree directly from the input.
+     * @return a new simple XML parser.
+     */
+
+/**
+     * Get this tag's name.
+     *
+     * @return the tag's name
+     */"
