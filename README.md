@@ -1,4 +1,4 @@
-<h1 align="center">TOGBench</h1>
+<h1 align="center">TOGBench: A Developer-Written Multi-Variant Dataset and Benchmark Suite for Test Oracle Generation</h1>
 
 <p align="center">
     <a href="#overview">Overview</a> •
