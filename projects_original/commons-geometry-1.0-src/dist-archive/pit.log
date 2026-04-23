@@ -1,32 +1,0 @@
-began at: 2026-01-11 18:33:20
-Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
-[INFO] Scanning for projects...
-[WARNING] 
-[WARNING] Some problems were encountered while building the effective model for org.apache.commons:commons-geometry:pom:1.0
-[WARNING] 'build.plugins.plugin.(groupId:artifactId)' must be unique but found duplicate declaration of plugin org.apache.maven.plugins:maven-surefire-plugin @ org.apache.commons:commons-geometry-parent:1.0, /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-geometry-1.0-src/pom.xml, line 232, column 15
-[WARNING] 
-[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
-[WARNING] 
-[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
-[WARNING] 
-Downloading from apache.snapshots: https://repository.apache.org/snapshots/org/apache/maven/plugins/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml
-Downloading from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml
-Downloading from apache.snapshots: https://repository.apache.org/snapshots/org/codehaus/mojo/maven-metadata.xml
-Progress (1): 3.9 kBProgress (2): 3.9 kB | 4.6 kBProgress (2): 7.7 kB | 4.6 kBProgress (2): 7.7 kB | 9.9 kBProgress (2): 13 kB | 9.9 kB Progress (2): 13 kB | 14 kB Progress (2): 20 kB | 14 kBProgress (2): 20 kB | 14 kB                           Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/maven/plugins/maven-metadata.xml (14 kB at 80 kB/s)
-Downloaded from central: https://repo.maven.apache.org/maven2/org/codehaus/mojo/maven-metadata.xml (20 kB at 110 kB/s)
-Progress (1): 7.6/8.9 kBProgress (1): 8.2/8.9 kBProgress (1): 8.9 kB                        Downloaded from apache.snapshots: https://repository.apache.org/snapshots/org/apache/maven/plugins/maven-metadata.xml (8.9 kB at 16 kB/s)
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD FAILURE
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  1.284 s
-[INFO] Finished at: 2026-01-11T18:33:22-05:00
-[INFO] ------------------------------------------------------------------------
-[ERROR] No plugin found for prefix 'pitest' in the current project and in the plugin groups [org.apache.maven.plugins, org.codehaus.mojo] available from the repositories [local (/home/wxw9rr/.m2/repository), apache.snapshots (https://repository.apache.org/snapshots), central (https://repo.maven.apache.org/maven2)] -> [Help 1]
-[ERROR] 
-[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
-[ERROR] Re-run Maven using the -X switch to enable full debug logging.
-[ERROR] 
-[ERROR] For more information about the errors and possible solutions, please read the following articles:
-[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/NoPluginFoundForPrefixException
-ended at: 2026-01-11 18:33:22

@@ -1,94 +1,0 @@
-began at: 2026-01-12 00:32:59
-Picked up _JAVA_OPTIONS: -Djava.io.tmpdir=/sfs/weka/scratch/wxw9rr/tmp
-[INFO] Scanning for projects...
-[INFO] 
-[INFO] --------------< org.apache.commons:commons-weaver-antlib >--------------
-[INFO] Building Apache Commons Weaver Antlib 2.0
-[INFO]   from pom.xml
-[INFO] --------------------------------[ jar ]---------------------------------
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-weaver-processor/2.0/commons-weaver-processor-2.0.pom
-Progress (1): 801 BProgress (1): 2.0 kBProgress (1): 4.1 kB                    Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-weaver-processor/2.0/commons-weaver-processor-2.0.pom (4.1 kB at 15 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-weaver-parent/2.0/commons-weaver-parent-2.0.pom
-Progress (1): 801 BProgress (1): 2.8 kBProgress (1): 7.6 kBProgress (1): 10 kB Progress (1): 15 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-weaver-parent/2.0/commons-weaver-parent-2.0.pom (15 kB at 354 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-weaver-base/2.0/commons-weaver-base-2.0.pom
-Progress (1): 744 BProgress (1): 1.6 kBProgress (1): 3.3 kBProgress (1): 5.7 kBProgress (1): 7.3 kBProgress (1): 10 kB Progress (1): 14 kBProgress (1): 16 kB                   Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-weaver-base/2.0/commons-weaver-base-2.0.pom (16 kB at 510 kB/s)
-Downloading from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-weaver-processor/2.0/commons-weaver-processor-2.0.jar
-Progress (1): 0.9/93 kBProgress (1): 2.3/93 kBProgress (1): 3.6/93 kBProgress (1): 5.0/93 kBProgress (1): 6.4/93 kBProgress (1): 7.7/93 kBProgress (1): 9.1/93 kBProgress (1): 10/93 kB Progress (1): 12/93 kBProgress (1): 13/93 kBProgress (1): 15/93 kBProgress (1): 16/93 kBProgress (1): 17/93 kBProgress (1): 19/93 kBProgress (1): 20/93 kBProgress (1): 21/93 kBProgress (1): 23/93 kBProgress (1): 24/93 kBProgress (1): 25/93 kBProgress (1): 26/93 kBProgress (1): 27/93 kBProgress (1): 29/93 kBProgress (1): 30/93 kBProgress (1): 31/93 kBProgress (1): 33/93 kBProgress (1): 34/93 kBProgress (1): 36/93 kBProgress (1): 37/93 kBProgress (1): 38/93 kBProgress (1): 40/93 kBProgress (1): 41/93 kBProgress (1): 42/93 kBProgress (1): 44/93 kBProgress (1): 48/93 kBProgress (1): 52/93 kBProgress (1): 56/93 kBProgress (1): 61/93 kBProgress (1): 65/93 kBProgress (1): 69/93 kBProgress (1): 73/93 kBProgress (1): 78/93 kBProgress (1): 82/93 kBProgress (1): 86/93 kBProgress (1): 90/93 kBProgress (1): 93 kB                      Downloaded from central: https://repo.maven.apache.org/maven2/org/apache/commons/commons-weaver-processor/2.0/commons-weaver-processor-2.0.jar (93 kB at 2.3 MB/s)
-[INFO] 
-[INFO] --- clean:3.0.0:clean (default-clean) @ commons-weaver-antlib ---
-[INFO] Deleting /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant (includes = [dependency-reduced-pom.xml], excludes = [])
-[INFO] 
-[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-version) @ commons-weaver-antlib ---
-[INFO] 
-[INFO] --- enforcer:3.0.0-M2:enforce (enforce-maven-3) @ commons-weaver-antlib ---
-[INFO] 
-[INFO] --- build-helper:1.9:parse-version (parse-version) @ commons-weaver-antlib ---
-[INFO] 
-[INFO] --- antrun:1.8:run (javadoc.resources) @ commons-weaver-antlib ---
-[INFO] Executing tasks
-
-main:
-[INFO] Executed tasks
-[INFO] 
-[INFO] --- antrun:1.8:run (copy-notices) @ commons-weaver-antlib ---
-[INFO] Executing tasks
-
-main:
-    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF
-     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF
-     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF/LICENSE.txt
-     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF/NOTICE.txt
-     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-resources/notices/META-INF/LICENSE-asm6.2.1.txt
-    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF
-     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF
-     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF/LICENSE.txt
-     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF/NOTICE.txt
-     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/generated-test-resources/notices/META-INF/LICENSE-asm6.2.1.txt
-    [mkdir] Created dir: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF
-     [copy] Copying 3 files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF
-     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF/LICENSE.txt
-     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/NOTICE.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF/NOTICE.txt
-     [copy] Copying /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/LICENSE-asm6.2.1.txt to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/apidocs/META-INF/LICENSE-asm6.2.1.txt
-[INFO] Executed tasks
-[INFO] 
-[INFO] --- remote-resources:1.5:process (process-resource-bundles) @ commons-weaver-antlib ---
-[INFO] 
-[INFO] --- build-helper:1.9:add-resource (add-source-notices) @ commons-weaver-antlib ---
-[INFO] 
-[INFO] --- buildnumber:1.4:create (default) @ commons-weaver-antlib ---
-[INFO] Executing: /bin/sh -c cd '/sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant' && 'git' 'rev-parse' '--verify' 'HEAD'
-[INFO] Working directory: /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant
-[INFO] Storing buildNumber: 77d944d491f2532ea8dc274ce81490a072a96fd9 at timestamp: 1768195981809
-[INFO] Storing buildScmBranch: main
-[INFO] 
-[INFO] --- resources:3.0.2:resources (default-resources) @ commons-weaver-antlib ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] Copying 1 resource
-[INFO] Copying 0 resource to META-INF
-[INFO] Copying 3 resources
-[INFO] 
-[INFO] --- compiler:3.7.0:compile (default-compile) @ commons-weaver-antlib ---
-[INFO] Changes detected - recompiling the module!
-[INFO] Compiling 6 source files to /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/target/classes
-[INFO] 
-[INFO] --- bundle:3.5.0:manifest (bundle-manifest) @ commons-weaver-antlib ---
-[INFO] 
-[INFO] --- animal-sniffer:1.16:check (checkAPIcompatibility) @ commons-weaver-antlib ---
-[INFO] Checking unresolved references to org.codehaus.mojo.signature:java18:1.0
-[INFO] 
-[INFO] --- resources:3.0.2:testResources (default-testResources) @ commons-weaver-antlib ---
-[INFO] Using 'UTF-8' encoding to copy filtered resources.
-[INFO] skip non existing resourceDirectory /sfs/weka/scratch/wxw9rr/artifact/RQ3/OE25-DEV/commons-weaver-2.0-src/ant/src/test/resources
-[INFO] Copying 0 resource to META-INF
-[INFO] 
-[INFO] --- compiler:3.7.0:testCompile (default-testCompile) @ commons-weaver-antlib ---
-[INFO] No sources to compile
-[INFO] 
-[INFO] --- surefire:2.22.0:test (default-test) @ commons-weaver-antlib ---
-[INFO] ------------------------------------------------------------------------
-[INFO] BUILD SUCCESS
-[INFO] ------------------------------------------------------------------------
-[INFO] Total time:  3.472 s
-[INFO] Finished at: 2026-01-12T00:33:03-05:00
-[INFO] ------------------------------------------------------------------------
-ended at: 2026-01-12 00:33:03
