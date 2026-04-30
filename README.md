@@ -6,7 +6,8 @@
     <a href="#quick-start">Quick Start</a> •
     <a href="#outputs">Outputs</a> •
     <a href="#scripts">Scripts</a> •
-    <a href="#projects">Projects</a>
+    <a href="#projects">Projects</a> •
+    <a href="#citation">Citation</a>
 </p>
 
 TOGBench is a benchmark suite for automated test oracle generation (TOG) built around **OE25dev**, a multi-variant dataset mined from developer-written unit tests across 25 real-world Java projects spanning 56 modules.
@@ -136,3 +137,20 @@ All results are written to `evaluation/evaluation_results/`.
 | spark (2.9.3) | Framework for creating web applications | 6,124 | 7,302 | 1 | JUnit 4.12 |
 | springside4 (5.0.0-SNAPSHOT) | JavaEE application reference architecture | 9,336 | 6,155 | 2 | JUnit 4.12 |
 | **Total** | | **271,643** | **611,613** | **56** | — |
+
+---
+
+## Citation
+
+If you use TOGBench or OE25dev in your research, please cite:
+
+```bibtex
+@misc{togbench2026,
+  title        = {TOGBench artifact: AIware-2026},
+  author       = {Tasnim, Tasfia and Dwyer, Matthew B. and Hossain, Soneya Binta},
+  year         = {2026},
+  doi          = {10.6084/m9.figshare.31562056}
+}
+```
+
+See [`CITATION.cff`](CITATION.cff) for the machine-readable citation metadata.
